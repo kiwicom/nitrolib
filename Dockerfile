@@ -10,4 +10,4 @@ COPY . .
 RUN yarn bundle
 
 EXPOSE 3000
-CMD yarn run
+CMD yarn run run
