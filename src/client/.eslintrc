@@ -1,0 +1,10 @@
+{
+  "env": {
+    "browser": true,
+    "node": false,
+    "jest": true
+  },
+  "globals": {
+    "__": true
+  }
+}

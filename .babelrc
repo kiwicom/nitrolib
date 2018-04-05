@@ -1,0 +1,14 @@
+{
+  "presets": [
+    "@babel/react",
+    "@babel/flow",
+    ["@babel/env", { "targets": { "node": "current" } }],
+    "@babel/stage-2"
+  ],
+  "plugins": [
+    ["styled-components", { "ssr": true }],
+    ["module-resolver", {
+      "root": ["./src"]
+    }]
+  ]
+}
