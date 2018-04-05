@@ -1,0 +1,28 @@
+image: node:carbon
+
+stages:
+  - build
+  - test
+
+before_script:
+  - npm i --silent
+
+build:
+  stage: build
+  script:
+    - npm run bundle
+
+test:
+  stage: test
+  script:
+    - npm run test:coverage
+
+lint:
+  stage: test
+  script:
+    - npm run lint
+
+flow:
+  stage: test
+  script:
+    - npm run flow:check
