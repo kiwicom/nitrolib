@@ -15,7 +15,7 @@ build:
 test:
   stage: test
   script:
-    - npm run test:coverage
+    - npm test
 
 lint:
   stage: test
