@@ -1,8 +1,10 @@
 .atom
 .idea
+.tmp
 node_modules
 flow-typed
-.tmp
+data
 dist
 public/lib
+.env
 npm-debug.log
