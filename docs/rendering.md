@@ -19,10 +19,9 @@ Happens in the client's browser. Needs to happen ASAP, thus the data required fo
 
 Initial _props_ and _context_ should be the same as on the server, thus it is essential that the server supplies all the necessary data for the client.
 
-The client takes three pieces of data from the `window` object:
-* `__LOCALE__` - the client's locale
-* `__TRANSLATIONS__` - translations for the client
+The client takes two pieces of data from the `window` object:
 * `__BRAND__` - brand and theme info for the client
+* `__INTL__` - locale info and translations
 
 No other data except the URL should affect the client's initial render.
 
