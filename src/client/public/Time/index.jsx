@@ -1,18 +1,15 @@
 /* @flow */
-import withIntl from "../services/intl/withIntl";
-import { DEFAULT_TIME } from "../services/intl/consts";
+import * as React from "react";
+import format from "date-fns/format";
+
+import { Consumer } from "client/services/intl/context";
 
 type Props = {
   time: Date,
-  locale: string,
-  format?: { [key: string]: number | string },
 };
 
-const Time = (props: Props) =>
-  new Intl.DateTimeFormat(props.locale, props.format).format(props.time);
+const Time = (props: Props) => (
+  <Consumer>{intl => format(props.time, intl.language.timeFormat)}</Consumer>
+);
 
-Time.defaultProps = {
-  format: DEFAULT_TIME,
-};
-
-export default withIntl(Time);
+export default Time;

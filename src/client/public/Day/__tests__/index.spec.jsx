@@ -2,14 +2,19 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import WrappedDay from "../index";
-
-const Day = WrappedDay.WrappedComponent;
+import Day from "../index";
 
 describe("#Day", () => {
-  it("should render correctly", () => {
+  test("format default", () => {
     const date = new Date(Date.UTC(2017, 9, 28));
-    const wrapper = shallow(<Day date={date} locale="en" translate={id => id} />);
+    const wrapper = shallow(<Day date={date} />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  test("format custom", () => {
+    const date = new Date(Date.UTC(2017, 9, 28));
+    const wrapper = shallow(<Day date={date} format="DD MM | YYYY" />);
 
     expect(wrapper).toMatchSnapshot();
   });

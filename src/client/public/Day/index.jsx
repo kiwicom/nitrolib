@@ -1,18 +1,16 @@
 /* @flow */
-import withIntl from "../services/intl/withIntl";
-import { DEFAULT_DATE } from "../services/intl/consts";
+import * as React from "react";
+import format from "date-fns/format";
+
+import { Consumer } from "client/services/intl/context";
 
 type Props = {
   date: Date,
-  locale: string,
-  format?: { [key: string]: number | string },
+  format?: string,
 };
 
-const Day = (props: Props) =>
-  new Intl.DateTimeFormat(props.locale, props.format).format(props.date);
+const Day = (props: Props) => (
+  <Consumer>{intl => format(props.date, props.format || intl.language.dateFormat)}</Consumer>
+);
 
-Day.defaultProps = {
-  format: DEFAULT_DATE,
-};
-
-export default withIntl(Day);
+export default Day;

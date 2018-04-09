@@ -2,21 +2,18 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import WrappedText from "../index";
-
-const Text = WrappedText.WrappedComponent;
+import Text from "../index";
 
 describe("#Text", () => {
-  it("should render correctly", () => {
-    const wrapper = shallow(<Text t="lol" locale="en" translate={id => id} />);
+  test("string", () => {
+    const wrapper = shallow(<Text t="lol" />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  it("should render correctly as span", () => {
-    const wrapper = shallow(<Text t="lol" locale="en" translate={id => id} html />);
+  test("html", () => {
+    const wrapper = shallow(<Text t="lol" html />);
 
     expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find("span").length).toBe(1);
   });
 });

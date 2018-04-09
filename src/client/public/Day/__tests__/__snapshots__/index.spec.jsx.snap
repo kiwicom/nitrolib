@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#Day should render correctly 1`] = `"10/28/2017"`;
+exports[`#Day format custom 1`] = `<[object Object] />`;
+
+exports[`#Day format default 1`] = `<[object Object] />`;
