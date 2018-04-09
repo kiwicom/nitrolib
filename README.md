@@ -1,6 +1,7 @@
 # Reactizer
 
 Docs:
+* [Translations](./docs/translations.md)
 * [Rendering](./docs/rendering.md)
 
 ### Scripts
