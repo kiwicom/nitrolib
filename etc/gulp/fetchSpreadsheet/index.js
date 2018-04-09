@@ -43,9 +43,7 @@ function fetchSpreadsheet() {
             fs.outputJsonSync(path.join(__dirname, `../../../data/${key}.json`), output, {
               spaces: 2,
             });
-            console.log(`[fetchSpreadsheet] Writing file: ${key}.json`);
           });
-        console.log("[fetchSpreadsheet] Done!");
         resolve();
       },
     });

@@ -9,7 +9,6 @@ const fetchBrandConfig = () =>
       fs.outputJsonSync(path.join(__dirname, "../../data/brands.json"), data, {
         spaces: 2,
       });
-      console.log("[fetchBrandConfig] Done!");
     });
 
 module.exports = fetchBrandConfig;
