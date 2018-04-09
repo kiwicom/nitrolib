@@ -25,11 +25,3 @@ if (app) {
     app,
   );
 }
-
-// Hot reload
-// ---
-
-/* eslint-disable no-undef */
-if (module.hot) {
-  module.hot.accept();
-}

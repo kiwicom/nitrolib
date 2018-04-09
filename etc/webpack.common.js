@@ -7,7 +7,7 @@ const babelOptions = {
     ["@babel/env", { targets: { esmodules: true } }],
     "@babel/stage-2",
   ],
-  plugins: [["styled-components", { ssr: true }]],
+  plugins: [["styled-components", { ssr: true }], "react-hot-loader/babel"],
 };
 
 module.exports = {

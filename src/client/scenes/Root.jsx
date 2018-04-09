@@ -1,6 +1,7 @@
 /* @flow */
 import React from "react";
 import styled from "styled-components";
+import { hot } from "react-hot-loader";
 
 import Day from "../public/Day";
 import Num from "../public/Num";
@@ -48,4 +49,5 @@ const Root = () => (
   </brandContext.Consumer>
 );
 
-export default Root;
+// eslint-disable-next-line no-undef
+export default hot(module)(Root);
