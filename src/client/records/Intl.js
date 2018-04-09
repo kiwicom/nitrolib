@@ -7,6 +7,8 @@ export type Intl = {|
   translations: { [key: string]: string },
 |};
 
+export type Intls = { [key: string]: Intl };
+
 // eslint-disable-next-line import/prefer-default-export
 export const intlDefault: Intl = {
   language: langInfoDefault,

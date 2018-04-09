@@ -31,7 +31,7 @@ const Root = () => (
       <intlContext.Consumer>
         {intl => (
           <Div>
-            <H1>{brand.domain}</H1>
+            <H1>{brand.name}</H1>
             <h3>Locale: {intl.language.id}</h3>
             <Text t={__("Do you even lift?")} />
             <br />

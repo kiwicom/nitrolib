@@ -406,6 +406,8 @@ export type Brand = {|
   powered_by_kiwi: boolean,
 |};
 
+export type Brands = { [key: string]: Brand };
+
 // eslint-disable-next-line import/prefer-default-export
 export const brandDefault: Brand = {
   domain: "kiwi.com",
