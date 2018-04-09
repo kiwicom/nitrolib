@@ -3,11 +3,10 @@ import React from "react";
 import styled from "styled-components";
 import { hot } from "react-hot-loader";
 
-import Day from "../public/Day";
-import Num from "../public/Num";
-import Price from "../public/Price";
-import Text from "../public/Text";
-import Time from "../public/Time";
+import Day from "../components/Day";
+import Price from "../components/Price";
+import Text from "../components/Text";
+import Time from "../components/Time";
 import { brandDefault } from "../records/Brand";
 import * as brandContext from "../services/brand/context";
 import * as intlContext from "../services/intl/context";
@@ -36,8 +35,6 @@ const Root = () => (
             <Text t={__("Do you even lift?")} />
             <br />
             <Day date={new Date()} />
-            <br />
-            <Num value={1337} />
             <br />
             <Time time={new Date()} />
             <br />
