@@ -1,4 +1,4 @@
-# Reactizer
+# Nitro
 
 Docs:
 * [Translations](./docs/translations.md)

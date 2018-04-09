@@ -1,8 +1,8 @@
 {
-  "name": "reactizer",
+  "name": "nitro",
   "version": "0.0.0",
-  "description": "The ultimate react boilerplate!",
-  "main": "dist/server.js",
+  "description": "Frontend on steroids.",
+  "main": "dist/server/index.js",
   "scripts": {
     "start": "npm run clean && npm run babel && run-p run webpack:dev",
     "run": "node dist/server",
@@ -19,12 +19,7 @@
     "flow:check": "flow check",
     "clean": "rimraf .tmp dist"
   },
-  "keywords": [
-    "react",
-    "webpack",
-    "boilerplate"
-  ],
-  "author": "oreqizer",
+  "author": "kiwi.com",
   "license": "MIT",
   "dependencies": {
     "date-fns": "^2.0.0-alpha.7",
@@ -32,8 +27,6 @@
     "koa": "^2.5.0",
     "koa-logger": "^3.2.0",
     "koa-static": "^4.0.2",
-    "node-polyglot": "^2.2.2",
-    "prop-types": "^15.6.1",
     "ramda": "^0.25.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
