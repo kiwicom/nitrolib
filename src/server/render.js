@@ -17,7 +17,7 @@ function render() {
     localeIds.forEach(localeId => {
       routes.forEach(route => {
         const fileDir = path.join(OUT, brandId, localeId, route.filepath);
-        fs.ensureDirSync(path.join(OUT, brandId, localeId, route.filepath));
+        fs.ensureDirSync(fileDir);
 
         const htmlStream = markup(route.url, brandId, localeId);
         const fileStream = fs.createWriteStream(path.join(fileDir, "index.html"));
