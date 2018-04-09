@@ -7,38 +7,45 @@ import Num from "../public/Num";
 import Price from "../public/Price";
 import Text from "../public/Text";
 import Time from "../public/Time";
-import main from "../styles/main";
-import withBrand from "../services/brand/withBrand";
+import { brandDefault } from "../records/Brand";
+import * as brandContext from "../services/brand/context";
+import * as intlContext from "../services/intl/context";
 
 const H1 = styled.h1`
   margin-top: 0;
 `;
 
 const Div = styled.div`
-  background: ${props => props.theme.primary};
+  background: ${props => props.theme.colors["primary-500"]};
 `;
 
 Div.defaultProps = {
-  theme: main.theme,
+  theme: brandDefault.theme,
 };
 
-type Props = {
-  brand: typeof main,
-};
-
-const Root = (props: Props) => (
-  <Div>
-    <H1>{props.brand.name}</H1>
-    <Text t={__("Do you even lift?")} />
-    <br />
-    <Day date={new Date()} />
-    <br />
-    <Num value={1337} />
-    <br />
-    <Time time={new Date()} />
-    <br />
-    <Price value={1337} currency="EUR" />
-  </Div>
+// TODO add currency to state, take from cookies, don't render initially
+const Root = () => (
+  <brandContext.Consumer>
+    {brand => (
+      <intlContext.Consumer>
+        {intl => (
+          <Div>
+            <H1>{brand.domain}</H1>
+            <h3>Locale: {intl.language.id}</h3>
+            <Text t={__("Do you even lift?")} />
+            <br />
+            <Day date={new Date()} />
+            <br />
+            <Num value={1337} />
+            <br />
+            <Time time={new Date()} />
+            <br />
+            <Price value={1337} currency="EUR" />
+          </Div>
+        )}
+      </intlContext.Consumer>
+    )}
+  </brandContext.Consumer>
 );
 
-export default withBrand(Root);
+export default Root;

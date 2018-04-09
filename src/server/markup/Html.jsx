@@ -2,6 +2,8 @@
 /* eslint-disable react/no-danger */
 import * as React from "react";
 
+import type { Brand } from "client/records/Brand";
+import type { Intl } from "client/records/Intl";
 import type { Assets } from "../config";
 
 const globalCss = `
@@ -18,9 +20,8 @@ type Props = {
   root: string,
   css: React.Node[],
   assets: Assets,
-  locale: string,
-  translations: { [string]: string },
-  brand: { [string]: string },
+  brand: Brand,
+  intl: Intl,
 };
 
 const Html = (props: Props) => (
@@ -41,9 +42,8 @@ const Html = (props: Props) => (
       <script
         dangerouslySetInnerHTML={{
           __html: `
-            window.__LOCALE__ = "${props.locale}";
-            window.__TRANSLATIONS__ = ${JSON.stringify(props.translations)};
             window.__BRAND__ = ${JSON.stringify(props.brand)};
+            window.__INTL__ = ${JSON.stringify(props.intl)};
          `,
         }}
       />

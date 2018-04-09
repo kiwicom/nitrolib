@@ -15,7 +15,9 @@
     "jest": true
   },
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "import/no-unresolved": "off", // Broken: https://github.com/tleunen/eslint-import-resolver-babel-module/issues/82
+    "import/extensions": "off" // Broken: https://github.com/tleunen/eslint-import-resolver-babel-module/issues/82
   },
   "settings": {
     "import/resolver": {

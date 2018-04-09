@@ -40,7 +40,7 @@ function fetchSpreadsheet() {
               .map(rowMapper)
               .reduce((acc, row) => R.assoc(row.id, row, acc), {});
 
-            fs.outputJson(path.join(__dirname, `../../../data/${key}.json`), output, {
+            fs.outputJsonSync(path.join(__dirname, `../../../data/${key}.json`), output, {
               spaces: 2,
             });
             console.log(`[fetchSpreadsheet] Writing file: ${key}.json`);

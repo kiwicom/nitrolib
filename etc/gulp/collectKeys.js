@@ -17,7 +17,7 @@ async function collectKeys() {
     {},
   );
 
-  fs.outputJson(path.join(OUT, "tkeys.json"), mapped);
+  fs.outputJsonSync(path.join(OUT, "tkeys.json"), mapped);
 }
 
 module.exports = collectKeys;

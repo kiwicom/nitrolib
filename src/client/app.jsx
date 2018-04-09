@@ -6,7 +6,8 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import Root from "./scenes/Root";
-import Provider from "./services/statics/Provider";
+import * as intlContext from "./services/intl/context";
+import * as brandContext from "./services/brand/context";
 
 const app = document.getElementById("react");
 
@@ -14,13 +15,11 @@ if (app) {
   hydrate(
     <BrowserRouter>
       <ThemeProvider theme={window.__BRAND__.theme}>
-        <Provider
-          locale={window.__LOCALE__}
-          translations={window.__TRANSLATIONS__}
-          brand={window.__BRAND__}
-        >
-          <Root />
-        </Provider>
+        <brandContext.Provider value={window.__BRAND__}>
+          <intlContext.Provider value={window.__INTL__}>
+            <Root />
+          </intlContext.Provider>
+        </brandContext.Provider>
       </ThemeProvider>
     </BrowserRouter>,
     app,

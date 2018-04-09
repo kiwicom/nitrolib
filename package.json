@@ -27,14 +27,15 @@
   "author": "oreqizer",
   "license": "MIT",
   "dependencies": {
+    "fs-extra": "^5.0.0",
     "koa": "^2.5.0",
     "koa-logger": "^3.2.0",
     "koa-static": "^4.0.2",
     "node-polyglot": "^2.2.2",
     "prop-types": "^15.6.1",
     "ramda": "^0.25.0",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
     "react-router-dom": "^4.2.2",
     "styled-components": "^3.2.5"
   },
@@ -68,7 +69,6 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
     "flow-bin": "^0.69.0",
-    "fs-extra": "^5.0.0",
     "gulp": "gulpjs/gulp#4.0",
     "i18n-extract": "^0.5.1",
     "i18n-webpack-plugin": "^1.0.0",
@@ -78,8 +78,8 @@
     "raf": "^3.4.0",
     "rimraf": "^2.6.2",
     "tabletop": "^1.5.2",
-    "webpack": "^4.4.1",
-    "webpack-cli": "^2.0.13",
-    "webpack-dev-server": "^3.1.1"
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-server": "^3.1.3"
   }
 }

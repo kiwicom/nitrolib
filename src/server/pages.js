@@ -7,8 +7,8 @@ import type { Context } from "koa";
 const base = path.join(__dirname, "../static/pages");
 
 async function pages(ctx: Context, next: () => Promise<any>) {
-  const locale = ctx.query.locale || "en";
-  const brand = ctx.query.brand || "main";
+  const locale = ctx.query.locale || "en"; // TODO from URL
+  const brand = ctx.query.brand || "kiwicom"; // TODO dunno how yet
 
   const filepath = path.join(base, brand, locale, ctx.path, "index.html");
   if (fs.existsSync(filepath)) {
