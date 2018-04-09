@@ -10,7 +10,8 @@ function translate(translations: Translations, key: string, values: Values = {})
   }
 
   return Object.keys(values).reduce(
-    (acc, placeholder) => acc.replace(new RegExp(`__${placeholder}__`, "g"), values[placeholder]),
+    (acc, placeholder) =>
+      acc.replace(new RegExp(`__${placeholder}__`, "g"), String(values[placeholder])),
     translation,
   );
 }
