@@ -5,8 +5,9 @@ export type Currency = {|
   format: string,
   uncertainFormat: boolean,
   round: string, // number string
-  enabledOnAffilId: string | Array<string>,
+  enabledOnAffilId: string | string[],
   fallback: string,
+  rate: number,
 |};
 
 export type Currencies = {
@@ -22,4 +23,5 @@ export const currencyDefault: Currency = {
   round: "2",
   enabledOnAffilId: "",
   fallback: "",
+  rate: 1,
 };

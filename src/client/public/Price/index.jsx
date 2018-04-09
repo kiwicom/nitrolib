@@ -1,21 +1,13 @@
 /* @flow */
-import withIntl from "../services/intl/withIntl";
+import * as React from "react";
+
+import format from "client/services/currency/format";
+import { Consumer } from "client/services/currency/context";
 
 type Props = {
   value: number,
-  currency: string, // FIXME take from context when React 16.3 hits
-  locale: string,
-  format?: { [key: string]: number | string },
 };
 
-const Price = (props: Props) =>
-  new Intl.NumberFormat(
-    props.locale,
-    Object.assign({ style: "currency", currency: props.currency }, props.format),
-  ).format(props.value);
+const Price = (props: Props) => <Consumer>{curr => format(curr, props.value)}</Consumer>;
 
-Price.defaultProps = {
-  format: {},
-};
-
-export default withIntl(Price);
+export default Price;
