@@ -8,3 +8,4 @@ dist
 public/lib
 .env
 npm-debug.log
+yarn-error.log
