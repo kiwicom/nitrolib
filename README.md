@@ -3,6 +3,7 @@
 Docs:
 * [Git](./docs/git.md)
 * [Rendering](./docs/rendering.md)
+* [Shared components](./docs/shared.md)
 * [Translations](./docs/translations.md)
 
 ### Scripts
