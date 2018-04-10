@@ -1,8 +1,9 @@
 # Nitro
 
 Docs:
-* [Translations](./docs/translations.md)
+* [Git](./docs/git.md)
 * [Rendering](./docs/rendering.md)
+* [Translations](./docs/translations.md)
 
 ### Scripts
 
