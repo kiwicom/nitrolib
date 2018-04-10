@@ -15,8 +15,6 @@
     "test": "jest",
     "lint": "eslint '**/*.{js,jsx}'",
     "lint:fix": "eslint '**/*.{js,jsx}' --fix",
-    "flow": "flow",
-    "flow:check": "flow check",
     "clean": "rimraf .tmp data dist",
     "clean:dev": "rimraf .tmp dist"
   },

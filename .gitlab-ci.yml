@@ -5,23 +5,24 @@ stages:
 
 before_script:
   - npm i --silent
+  - npm i -g yarn
 
 build:
   stage: test
   script:
-    - npm run bundle
+    - yarn bundle
 
 test:
   stage: test
   script:
-    - npm test
+    - yarn test
 
 lint:
   stage: test
   script:
-    - npm run lint
+    - yarn lint
 
 flow:
   stage: test
   script:
-    - npm run flow:check
+    - yarn flow check
