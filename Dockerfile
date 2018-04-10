@@ -1,6 +1,4 @@
-FROM node:carbon
-
-RUN npm i -g yarn
+FROM node
 
 WORKDIR /tmp/app
 COPY package.json .

@@ -1,11 +1,10 @@
-image: node:carbon
+image: node
 
 stages:
   - test
 
 before_script:
   - npm i --silent
-  - npm i -g yarn
 
 build:
   stage: test
