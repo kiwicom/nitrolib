@@ -18,7 +18,7 @@ const globalCss = `
 
 type Props = {
   root: string,
-  css: React.Node[],
+  css: React.Node,
   assets: Assets,
   brand: Brand,
   intl: Intl,
