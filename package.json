@@ -5,18 +5,16 @@
   "description": "Frontend on steroids.",
   "main": "dist/server/index.js",
   "scripts": {
-    "start": "npm run clean:dev && npm run babel && run-p run webpack:dev",
+    "start": "rimraf .tmp dist && npm run babel && run-p run webpack:dev",
     "run": "node dist/server",
     "render": "node dist/server/render",
-    "bundle": "npm run clean && gulp fetch && npm run babel && npm run webpack && npm run render",
+    "bundle": "rimraf data dist && gulp fetch && npm run babel && npm run webpack && npm run render",
     "babel": "babel src -d dist",
     "webpack": "webpack --config etc/webpack.build.js --mode production",
     "webpack:dev": "webpack-dev-server --config etc/webpack.dev.js --mode development --inline --hot",
     "public": "babel src/client/public -d public/lib",
     "test": "jest",
-    "lint": "eslint '**/*.{js,jsx}'",
-    "clean": "rimraf .tmp data dist",
-    "clean:dev": "rimraf .tmp dist"
+    "lint": "eslint '**/*.{js,jsx}'"
   },
   "author": "kiwicom",
   "dependencies": {
