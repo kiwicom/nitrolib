@@ -1,14 +1,13 @@
 image: node:carbon
 
 stages:
-  - build
   - test
 
 before_script:
   - npm i --silent
 
 build:
-  stage: build
+  stage: test
   script:
     - npm run bundle
 
