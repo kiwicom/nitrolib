@@ -1,5 +1,6 @@
 {
   "name": "nitro",
+  "private": true,
   "version": "0.0.0",
   "description": "Frontend on steroids.",
   "main": "dist/server/index.js",
@@ -17,8 +18,7 @@
     "clean": "rimraf .tmp data dist",
     "clean:dev": "rimraf .tmp dist"
   },
-  "author": "kiwi.com",
-  "license": "MIT",
+  "author": "kiwicom",
   "dependencies": {
     "date-fns": "^2.0.0-alpha.7",
     "fs-extra": "^5.0.0",
