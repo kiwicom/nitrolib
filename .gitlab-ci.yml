@@ -4,7 +4,7 @@ stages:
   - test
 
 before_script:
-  - npm i --silent
+  - yarn
 
 build:
   stage: test
