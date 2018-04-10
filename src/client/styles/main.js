@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 const main = {
   name: "Reactizer",
   theme: {

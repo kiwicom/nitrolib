@@ -1,8 +1,9 @@
+// @flow
 const R = require("ramda");
 
 const isNotString = R.compose(R.not, R.is(String));
 
-function processValue(value) {
+function processValue(value /* : any */) {
   if (isNotString(value)) {
     return value;
   }

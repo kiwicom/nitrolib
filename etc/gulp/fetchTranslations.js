@@ -1,3 +1,4 @@
+// @flow
 // const fs = require("fs-extra");
 //
 // const OUT = path.join(__dirname, "../../data");

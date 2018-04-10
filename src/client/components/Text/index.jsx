@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 /* eslint-disable react/no-danger */
 import * as React from "react";
 

@@ -1,3 +1,4 @@
+// @flow
 const fs = require("fs-extra");
 const path = require("path");
 const R = require("ramda");
@@ -6,7 +7,6 @@ const tabletop = require("tabletop");
 require("../../dotenv");
 const processValue = require("./processValue");
 
-// Whitelist is here mostly to test what is needed and what not
 const whitelist = [
   // "apms",
   "languages",
@@ -26,7 +26,7 @@ const whitelist = [
 
 const rowMapper = R.compose(R.map(processValue), R.omit(["IGNORE"]));
 
-function fetchSpreadsheet() {
+function fetchSpreadsheet() /* : Promise<void> */ {
   return new Promise(resolve => {
     tabletop.init({
       key: process.env.SECRET_SPREADSHEET,

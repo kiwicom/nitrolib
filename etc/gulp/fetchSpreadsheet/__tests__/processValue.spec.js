@@ -1,3 +1,4 @@
+// @flow
 import processValue from "../processValue";
 
 describe("#processValue", () => {

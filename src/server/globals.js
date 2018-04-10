@@ -1,2 +1,2 @@
-/* @flow */
-global.__ = id => id; // eslint-disable-line no-underscore-dangle
+// @flow
+global.__ = id => id; // eslint-disable-line no-underscore-dangle, fp/no-mutation

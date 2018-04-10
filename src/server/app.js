@@ -1,5 +1,5 @@
-/* @flow */
-/* eslint-disable no-param-reassign */
+// @flow
+/* eslint-disable no-param-reassign, fp/no-mutation */
 import type { Context } from "koa";
 
 import markup from "./markup";

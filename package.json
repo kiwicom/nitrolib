@@ -14,7 +14,6 @@
     "public": "babel src/client/public -d public/lib",
     "test": "jest",
     "lint": "eslint '**/*.{js,jsx}'",
-    "lint:fix": "eslint '**/*.{js,jsx}' --fix",
     "clean": "rimraf .tmp data dist",
     "clean:dev": "rimraf .tmp dist"
   },
@@ -57,6 +56,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-import-resolver-babel-module": "^4.0.0",
     "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-fp": "^2.3.0",
     "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
