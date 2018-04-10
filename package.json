@@ -4,7 +4,7 @@
   "description": "Frontend on steroids.",
   "main": "dist/server/index.js",
   "scripts": {
-    "start": "npm run clean && npm run babel && run-p run webpack:dev",
+    "start": "npm run clean:dev && npm run babel && run-p run webpack:dev",
     "run": "node dist/server",
     "render": "node dist/server/render",
     "bundle": "npm run clean && gulp fetch && npm run babel && npm run webpack && npm run render",
@@ -17,7 +17,8 @@
     "lint:fix": "eslint '**/*.{js,jsx}' --fix",
     "flow": "flow",
     "flow:check": "flow check",
-    "clean": "rimraf .tmp data dist"
+    "clean": "rimraf .tmp data dist",
+    "clean:dev": "rimraf .tmp dist"
   },
   "author": "kiwi.com",
   "license": "MIT",
@@ -47,7 +48,6 @@
     "babel-jest": "^22.4.3",
     "babel-loader": "8.0.0-beta.0",
     "babel-plugin-module-resolver": "^3.1.1",
-    "babel-plugin-ramda": "^1.5.0",
     "babel-plugin-styled-components": "^1.5.1",
     "babel-preset-airbnb": "^2.4.0",
     "dotenv": "^5.0.1",
