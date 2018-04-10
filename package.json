@@ -7,7 +7,7 @@
     "start": "npm run clean && npm run babel && run-p run webpack:dev",
     "run": "node dist/server",
     "render": "node dist/server/render",
-    "bundle": "npm run clean && npm run babel && npm run webpack && npm run render",
+    "bundle": "npm run clean && gulp fetch && npm run babel && npm run webpack && npm run render",
     "babel": "babel src -d dist",
     "webpack": "webpack --config etc/webpack.build.js --mode production",
     "webpack:dev": "webpack-dev-server --config etc/webpack.dev.js --mode development --inline --hot",
@@ -17,7 +17,7 @@
     "lint:fix": "eslint '**/*.{js,jsx}' --fix",
     "flow": "flow",
     "flow:check": "flow check",
-    "clean": "rimraf .tmp dist"
+    "clean": "rimraf .tmp data dist"
   },
   "author": "kiwi.com",
   "license": "MIT",

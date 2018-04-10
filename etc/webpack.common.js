@@ -15,7 +15,7 @@ module.exports = {
     bundle: path.resolve(__dirname, "../src/client/index.js"),
   },
   resolve: {
-    extensions: [".js", ".jsx", ".css"],
+    extensions: [".js", ".jsx"],
     alias: {
       client: path.resolve(__dirname, "../src/client"),
       server: path.resolve(__dirname, "../src/server"),
