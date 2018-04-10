@@ -16,6 +16,7 @@ const app = document.getElementById("react");
 
 const intl: Intl = {
   language: window.__INTL__.language,
+  translations: window.__INTL__.translations,
   translate: R.partial(translate, [window.__INTL__.translations]),
 };
 

@@ -59,10 +59,10 @@ export type Brand = {|
       enabled: boolean,
       locales: {
         [lang: string]: {|
-          webFormAlias: string,
+          webFormAlias?: string,
           webFormEmail: string,
-          id: string,
-          email: string,
+          id?: string,
+          email?: string,
         |},
       },
     |},
