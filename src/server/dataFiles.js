@@ -14,7 +14,8 @@ export const brands: Brands = fs.readJsonSync(path.join(DATA, "brands.json"));
 export const intls: Intls = R.map(
   language => ({
     language,
-    translate: R.partial(translate, [{}]), // TODO translate fn
+    translations: {}, // TODO translations
+    translate: R.partial(translate, [{}]), // TODO translations
   }),
   fs.readJsonSync(path.join(DATA, "languages.json")),
 );
