@@ -27,7 +27,12 @@ const whitelist = [
 const rowMapper = R.compose(R.map(processValue), R.omit(["IGNORE"]));
 
 function fetchSpreadsheet() /* : Promise<void> */ {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
+    if (!process.env.SECRET_SPREADSHEET) {
+      reject(new Error("[fetchSpreadsheet] Missing secret :("));
+      return;
+    }
+
     tabletop.init({
       key: process.env.SECRET_SPREADSHEET,
       simpleSheet: false,

@@ -1,27 +1,49 @@
 image: node
 
 stages:
+  - install
   - test
+  - build
 
-before_script:
-  - yarn
+#before_script:
+# - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
 
-build:
-  stage: test
+install:
+  stage: install
   script:
-    - yarn bundle
+    - yarn
+  artifacts:
+    paths:
+    - node_modules/
 
 test:
   stage: test
   script:
     - yarn test
+  dependencies:
+    - install
 
 lint:
   stage: test
   script:
     - yarn lint
+  dependencies:
+    - install
 
 flow:
   stage: test
   script:
     - yarn flow check
+  dependencies:
+    - install
+
+build:
+  stage: build
+  script:
+    - yarn bundle
+  dependencies:
+    - install
+  artifacts:
+    paths:
+    - data/
+    - dist/
