@@ -19,6 +19,7 @@ build:
   stage: build
   script:
     - yarn bundle
+    - yarn storybook:build
   artifacts:
     paths:
     - data/
