@@ -2,7 +2,7 @@ FROM node
 
 WORKDIR /tmp/app
 COPY package.json yarn.lock ./
-RUN yarn
+RUN yarn --prod
 
 COPY data data/
 COPY dist dist/
