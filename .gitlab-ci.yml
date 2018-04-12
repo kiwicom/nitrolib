@@ -19,8 +19,6 @@ build:
   stage: build
   script:
     - yarn bundle
-  dependencies:
-    - install
   artifacts:
     paths:
     - data/
@@ -30,26 +28,18 @@ test:
   stage: build
   script:
     - yarn test
-  dependencies:
-    - install
 
 lint:
   stage: build
   script:
     - yarn lint
-  dependencies:
-    - install
 
 madge:
   stage: build
   script:
     - yarn madge
-  dependencies:
-    - install
 
 flow:
   stage: build
   script:
     - yarn flow check
-  dependencies:
-    - install
