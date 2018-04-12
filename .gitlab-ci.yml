@@ -2,7 +2,6 @@ image: node
 
 stages:
   - install
-  - test
   - build
 
 #before_script:
@@ -16,27 +15,6 @@ install:
     paths:
     - node_modules/
 
-test:
-  stage: test
-  script:
-    - yarn test
-  dependencies:
-    - install
-
-lint:
-  stage: test
-  script:
-    - yarn lint
-  dependencies:
-    - install
-
-flow:
-  stage: test
-  script:
-    - yarn flow check
-  dependencies:
-    - install
-
 build:
   stage: build
   script:
@@ -47,3 +25,31 @@ build:
     paths:
     - data/
     - dist/
+
+test:
+  stage: build
+  script:
+    - yarn test
+  dependencies:
+    - install
+
+lint:
+  stage: build
+  script:
+    - yarn lint
+  dependencies:
+    - install
+
+madge:
+  stage: build
+  script:
+    - yarn madge
+  dependencies:
+    - install
+
+flow:
+  stage: build
+  script:
+    - yarn flow check
+  dependencies:
+    - install

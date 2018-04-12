@@ -1,5 +1,6 @@
 [ignore]
 <PROJECT_ROOT>\/data\/.*
+<PROJECT_ROOT>\/node_modules\/graphviz\/.*
 
 [include]
 
