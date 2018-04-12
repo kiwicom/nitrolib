@@ -9,7 +9,7 @@ Docs:
 ### Scripts
 
 - `yarn start` - Development
-- `yarn bundle && yarn run` - Production
+- `yarn bundle && yarn run run` - Production
 
 Static analysis:
 - `yarn test`
