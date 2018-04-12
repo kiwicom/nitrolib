@@ -20,5 +20,5 @@ Static analysis:
 
 - [x] i18n
 - [x] Branding
-- [ ] Storybook
+- [x] Storybook
 - [x] Static rendering
