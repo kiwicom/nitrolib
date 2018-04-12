@@ -15,6 +15,7 @@ Static analysis:
 - `yarn test`
 - `yarn lint`
 - `yarn flow`
+- `yarn madge`
 
 ### Features
 
