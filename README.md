@@ -6,6 +6,8 @@ Docs:
 * [Shared components](./docs/shared.md)
 * [Translations](./docs/translations.md)
 
+Use **yarn** as a package manager.
+
 ### Scripts
 
 - `yarn start` - Development
