@@ -1,25 +1,21 @@
 image: node
 
 stages:
-  - install
   - build
+  - release
 
-#before_script:
-# - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+  - node_modules/
 
-install:
-  stage: install
-  script:
-    - yarn
-  artifacts:
-    paths:
-    - node_modules/
+before_script:
+  - yarn
 
 build:
   stage: build
   script:
     - yarn bundle
-    - yarn storybook:build
   artifacts:
     paths:
     - data/
@@ -44,3 +40,11 @@ flow:
   stage: build
   script:
     - yarn flow check
+
+storybook:
+  stage: release
+  script:
+    - yarn storybook:build
+  artifacts:
+    paths:
+    - dist/storybook/
