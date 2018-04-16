@@ -1,9 +1,11 @@
 # Nitro
 
 Docs:
+* [Folder structure](./docs/structure.md)
 * [Git](./docs/git.md)
 * [Rendering](./docs/rendering.md)
 * [Shared components](./docs/shared.md)
+* [Styled components](./docs/styled.md)
 * [Translations](./docs/translations.md)
 
 Use **yarn** as a package manager.
