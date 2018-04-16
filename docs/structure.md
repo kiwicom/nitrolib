@@ -78,17 +78,17 @@ Make record functions **data-last**, the record argument has to be last to allow
 
 ```js
 // @flow
-type Kek = {|
+export type Kek = {|
     bur: string,
 |};
 
 // BAD
-function wrapStringBad(kek: Kek, str: string) {
+export function wrapBurBad(kek: Kek, str: string) {
     return str + kek.bur + str;
 }
 
 // Correct
-function wrapString(str: string, kek: Kek) {
+export function wrapBur(str: string, kek: Kek) {
     return str + kek.bur + str;
 }
 ```
@@ -101,4 +101,38 @@ function wrapString(str: string, kek: Kek) {
 
 ### Scenes
 
+Visible sections of a website. Often defined by the URL, smaller sub-scenes can be tabs or just sections on the page.
+
+```
+scenes/
+    NavBar/
+        components/
+            Hamburger/
+                index.jsx <- component private for the scene
+        index.jsx <- the scene root
+```
+
+**Can have**
+* components
+* records
+* subscenes
+* services
+
 ### Services
+
+Code that performs computations or provides a certain functionality.
+
+```
+services/
+    intl/
+        context.js
+        translate.js
+```
+
+**Can have**
+* subservices
+
+**Cannot have**
+* components
+* records
+* scenes
