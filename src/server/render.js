@@ -23,12 +23,6 @@ function render() {
         const fileStream = fs.createWriteStream(path.join(fileDir, "index.html"));
 
         htmlStream.pipe(fileStream);
-        fileStream.on("close", () => {
-          // eslint-disable-next-line no-console
-          console.log(
-            `[render] Done writing - brand: ${brandId}, locale: ${localeId}, url: ${route.url}`,
-          );
-        });
 
         fileStream.on("error", err => {
           console.error("[render] Error!", err); // eslint-disable-line no-console
