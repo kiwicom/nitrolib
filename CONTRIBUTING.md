@@ -9,6 +9,8 @@ Make sure these tasks run without errors:
 
 ### Development
 
+Run `yarn gulp fetch` before developing. You will need a `.env` file with secrets for this to work.
+
 Run `yarn start` and enjoy!
 
 ### Production
