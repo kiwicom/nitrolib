@@ -1,6 +1,7 @@
 .atom
 .idea
 .tmp
+coverage
 node_modules
 data
 dist
