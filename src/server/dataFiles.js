@@ -7,6 +7,7 @@ import type { Brands } from "client/records/Brand";
 import type { Intls } from "client/records/Intl";
 import type { Countries } from "client/records/Country";
 import type { Continents } from "client/records/Continents";
+import type { BrandLanguagesDataMap } from "client/records/Languages";
 import translate from "client/services/intl/translate";
 
 const DATA = path.join(__dirname, "../../data");
@@ -15,7 +16,7 @@ export const brands: Brands = fs.readJsonSync(path.join(DATA, "brands.json"));
 
 const tFiles = fs.readJsonSync(path.join(DATA, "translationsFiles.json"));
 
-const languages = fs.readJsonSync(path.join(DATA, "languages.json"));
+const languagesFile = fs.readJsonSync(path.join(DATA, "languages.json"));
 
 export const intls: Intls = R.map(language => {
   const translations = fs.readJsonSync(path.join(DATA, tFiles[language.phraseApp]));
@@ -24,10 +25,12 @@ export const intls: Intls = R.map(language => {
     translations,
     translate: R.partial(translate, [translations]),
   };
-}, languages);
-
-export const langNames: { [string]: string } = R.map(R.prop("name"), languages);
+}, languagesFile);
 
 export const countries: Countries = fs.readJsonSync(path.join(DATA, "countries.json"));
 
 export const continents: Continents = fs.readJsonSync(path.join(DATA, "continents.json"));
+
+export const brandLanguages: BrandLanguagesDataMap = fs.readJsonSync(
+  path.join(DATA, "brandLanguages.json"),
+);

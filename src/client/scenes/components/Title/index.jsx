@@ -4,9 +4,7 @@ import styled from "styled-components";
 
 import BrandName from "client/components/BrandName/index";
 import Text from "client/components/Text/index";
-
 import mq from "client/services/utils/mediaQuery";
-
 import type { ThemeProps } from "client/records/Brand";
 
 const Container = styled.div`

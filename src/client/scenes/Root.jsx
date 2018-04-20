@@ -17,6 +17,8 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 `;
 
 const MainContent = styled.div`
@@ -24,8 +26,6 @@ const MainContent = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
 
   ${mq.gtTablet`
     justify-content: flex-start;

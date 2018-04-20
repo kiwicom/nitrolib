@@ -2,6 +2,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import config from "client/consts/config";
 import { brandDefault } from "../../records/Brand";
 import type { ThemeProps } from "../../records/Brand";
 
@@ -23,7 +24,7 @@ type Props = {|
 |};
 
 const Flag = (props: Props) => (
-  <Img src={`https://images.kiwi.com/flags/32x32/${props.country}.png`} alt={props.country} />
+  <Img src={`${config.imagesUrl}flags/32x32/${props.country}.png`} alt={props.country} />
 );
 
 export default Flag;
