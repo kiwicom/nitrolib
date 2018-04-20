@@ -6,6 +6,7 @@
     "@babel/stage-2"
   ],
   "plugins": [
+    "relay",
     ["styled-components", { "ssr": true }],
     "react-hot-loader/babel",
     ["module-resolver", {
