@@ -15,7 +15,6 @@
     "webpack": "webpack --config etc/webpack.build.js --mode production",
     "webpack:dev": "webpack-dev-server --config etc/webpack.dev.js --mode development --inline --hot",
     "relay": "relay-compiler --src ./src --schema ./schema.graphql --extensions jsx --extensions js",
-    "relay:dev": "relay-compiler --src ./src --schema ./schema.graphql --extensions jsx --extensions js --watch",
     "relay:schema": "graphql get-schema",
     "public": "babel src/client/public -d public/lib",
     "test": "jest",
