@@ -41,10 +41,13 @@ flow:
   script:
     - yarn flow check
 
+release:
+  stage: release
+  script:
+    - echo "Upload data/ and dist/ to S3 plz"
+
 storybook:
   stage: release
   script:
     - yarn storybook:build
-  artifacts:
-    paths:
-    - dist/storybook/
+    - echo "Upload dist/storybook/ to S3 plz"
