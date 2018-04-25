@@ -20,6 +20,7 @@ Contains **all** source files.
 
 * `client` has the actual application.
 * `server` has stuff for generating markup and both static and dynamic SSR.
+* `static` has static assets that should be pointed to _relative to this directory_
 
 ## Application code
 
