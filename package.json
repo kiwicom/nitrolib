@@ -5,11 +5,11 @@
   "description": "Frontend on steroids.",
   "main": "dist/server/index.js",
   "scripts": {
-    "start": "rimraf .tmp dist && run-p run:dev babel:dev webpack:dev",
+    "start": "rimraf dist && gulp statics && run-p run:dev babel:dev webpack:dev",
     "run": "node dist/server",
     "run:dev": "nodemon dist/server",
     "render": "node dist/server/render",
-    "bundle": "rimraf data dist && gulp fetch && npm run babel && npm run webpack && npm run render",
+    "bundle": "rimraf data dist && gulp && npm run babel && npm run webpack && npm run render",
     "babel": "babel src -d dist",
     "babel:dev": "babel src -d dist --watch --source-maps inline",
     "webpack": "webpack --config etc/webpack.build.js --mode production",
