@@ -5,8 +5,6 @@ import type { Context } from "koa";
 import markup from "./markup";
 
 async function app(ctx: Context) {
-  console.log("[server] SSR!", ctx.url);
-
   const locale = ctx.query.locale || "en"; // TODO from URL
   const brand = ctx.query.brand || "kiwicom"; // TODO dunno how yet
 

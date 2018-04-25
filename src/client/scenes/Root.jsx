@@ -32,7 +32,9 @@ const Root = () => (
           <Div>
             <H1>{brand.name}</H1>
             <h3>Locale: {intl.language.id}</h3>
-            <Text t={__("Do you even lift?")} />
+            <span>
+              Translated number: <Text t={__("common.number")} />
+            </span>
             <br />
             <Day date={new Date()} />
             <br />

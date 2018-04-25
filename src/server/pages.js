@@ -12,8 +12,6 @@ async function pages(ctx: Context, next: () => Promise<any>) {
 
   const filepath = path.join(base, brand, locale, ctx.path, "index.html");
   if (fs.existsSync(filepath)) {
-    console.log("[server] Static page!", ctx.url);
-
     ctx.status = 200;
     ctx.type = "text/html; charset=utf-8";
     ctx.body = fs.createReadStream(filepath);

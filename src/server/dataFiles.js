@@ -11,11 +11,13 @@ const DATA = path.join(__dirname, "../../data");
 
 export const brands: Brands = fs.readJsonSync(path.join(DATA, "brands.json"));
 
-export const intls: Intls = R.map(
-  language => ({
+const tFiles = fs.readJsonSync(path.join(DATA, "translationsFiles.json"));
+
+export const intls: Intls = R.map(language => {
+  const translations = fs.readJsonSync(path.join(DATA, tFiles[language.phraseApp]));
+  return {
     language,
-    translations: {}, // TODO translations
-    translate: R.partial(translate, [{}]), // TODO translations
-  }),
-  fs.readJsonSync(path.join(DATA, "languages.json")),
-);
+    translations,
+    translate: R.partial(translate, [translations]),
+  };
+}, fs.readJsonSync(path.join(DATA, "languages.json")));

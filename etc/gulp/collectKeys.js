@@ -4,9 +4,10 @@ const fs = require("fs-extra");
 const { extractFromFiles } = require("i18n-extract");
 
 const OUT = path.join(__dirname, "../../data");
+const SRC = path.join(__dirname, "../../src");
 
 async function collectKeys() {
-  const keys = extractFromFiles(["../../src/**/*.jsx", "../../src/**/*.js"], {
+  const keys = extractFromFiles([`${SRC}/**/*.jsx`, `${SRC}/**/*.js`], {
     marker: "__",
   });
 
