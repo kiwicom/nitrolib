@@ -25,7 +25,7 @@ const whitelist = [
 function fetchSpreadsheet() /* : Promise<void[]> */ {
   return Promise.all(
     whitelist.map(what =>
-      fetch(`http://localhost:8081/${what}`) // TODO replace with Hankey URL
+      fetch(`https://nitro-hankey.skypicker.com/${what}`)
         .then(res => {
           if (!res.ok) {
             return Promise.reject(new Error(`Failed to fetch '${what}'`));

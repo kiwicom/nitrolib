@@ -24,7 +24,7 @@ function fetchTranslations() /* : Promise<void> */ {
   return Promise.all(
     R.map(
       lang =>
-        fetch(`http://localhost:8082/${lang.phraseApp}`) // TODO replace with Word URL
+        fetch(`https://nitro-word.skypicker.com/${lang.phraseApp}`)
           .then(res => {
             if (!res.ok) {
               return Promise.reject(
