@@ -13,9 +13,9 @@ Use **yarn** as a package manager.
 
 ### Scripts
 
-Run `yarn gulp fetch` and `yarn relay:schema` before developing. You will need a `.env` file with secrets for this to work:
+Run `yarn gulp fetch` before developing.
 
-- `yarn start` - Dev server
+- `yarn start` - Dev server at **:8080**
 - `yarn relay` - GraphQL
 
 Static analysis:

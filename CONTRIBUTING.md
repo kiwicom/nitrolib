@@ -9,9 +9,9 @@ Make sure these tasks run without errors:
 
 ### Development
 
-Run `yarn gulp fetch` and `yarn relay:schema` before developing. You will need a `.env` file with secrets for this to work.
+Run `yarn gulp fetch`  before developing.
 
-Run `yarn start` and enjoy! If you're doing **GraphQL** stuff, also run `yarn relay --watch`.
+Run `yarn start` and enjoy at **:8080**! If you're doing **GraphQL** stuff, also run `yarn relay --watch`.
 
 ### Production
 
