@@ -7,6 +7,7 @@ Docs:
 * [Shared components](./docs/04shared.md)
 * [Translations](./docs/05translations.md)
 * [Styled components](./docs/06styled.md)
+* [GraphQL](./docs/07graphql.md)
 
 Use **yarn** as a package manager.
 
