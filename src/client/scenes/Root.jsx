@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { hot } from "react-hot-loader";
 
 import Day from "../components/Day";
+import Modal from "../components/Modal";
 import Price from "../components/Price";
 import Text from "../components/Text";
 import Time from "../components/Time";
@@ -40,6 +41,9 @@ const Root = () => (
             <br />
             <Time time={new Date()} />
             <br />
+            <Modal>
+              <h3>Modal</h3>
+            </Modal>
             <Price value={1337} currency="EUR" />
           </Div>
         )}

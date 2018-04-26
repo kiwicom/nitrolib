@@ -51,6 +51,7 @@ const Html = (props: Props) => (
     </head>
     <body>
       <div id="react" dangerouslySetInnerHTML={{ __html: props.root }} />
+      <div id="modal" />
 
       {props.assets.vendor && <script src={props.assets.vendor.js} />}
       <script src={props.assets.bundle.js} />
