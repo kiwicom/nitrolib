@@ -5,4 +5,5 @@ import type { Continents } from "./Continents";
 export type Fetched = {|
   countries: Countries,
   continents: Continents,
+  langNames: { [string]: string },
 |};

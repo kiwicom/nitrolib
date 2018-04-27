@@ -19,6 +19,7 @@ function markup(url: string, brandId: string, localeId: string) {
   const fetched = {
     countries: data.countries,
     continents: data.continents,
+    langNames: data.langNames,
   };
 
   const sheet = new ServerStyleSheet();
