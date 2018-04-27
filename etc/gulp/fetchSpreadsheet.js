@@ -3,6 +3,8 @@ const fs = require("fs-extra");
 const path = require("path");
 const fetch = require("node-fetch");
 
+const countries = require("./utils/countries");
+
 const OUT = path.join(__dirname, "../../data/");
 
 const whitelist = [
@@ -22,6 +24,23 @@ const whitelist = [
   // "team",
 ];
 
+function write(what, data) {
+  if (what === "countries") {
+    fs.outputJsonSync(path.join(OUT, "countries.json"), countries.getCountries(data), {
+      spaces: 2,
+    });
+
+    fs.outputJsonSync(path.join(OUT, "continents.json"), countries.getContinents(data), {
+      spaces: 2,
+    });
+    return;
+  }
+
+  fs.outputJsonSync(path.join(OUT, `${what}.json`), data, {
+    spaces: 2,
+  });
+}
+
 function fetchSpreadsheet() /* : Promise<void[]> */ {
   return Promise.all(
     whitelist.map(what =>
@@ -34,9 +53,7 @@ function fetchSpreadsheet() /* : Promise<void[]> */ {
           return res.json();
         })
         .then(data => {
-          fs.outputJsonSync(path.join(OUT, `${what}.json`), data, {
-            spaces: 2,
-          });
+          write(what, data);
         }),
     ),
   );
