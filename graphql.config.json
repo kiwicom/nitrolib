@@ -1,9 +1,7 @@
 {
   "schema": {
-    "README_file": "No support for multiple projects yet. :(",
-    "file": "schema.kiwi.graphql"
+    "file": "schema.graphql"
   },
-  "README_endpoints": "A list of GraphQL endpoints that can be queried from '.graphql' files in the IDE",
   "endpoints": [
     {
       "name": "Kiwi",

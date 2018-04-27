@@ -1,20 +1,8 @@
 {
-  "projects": {
-    "kiwi": {
-      "schemaPath": "schema.kiwi.graphql",
-      "extensions": {
-        "endpoints": {
-          "default": "https://graphql.kiwi.com"
-        }
-      }
-    },
-    "hankey": {
-      "schemaPath": "schema.hankey.graphql",
-      "extensions": {
-        "endpoints": {
-          "default": "https://nitro-hankey.skypicker.com/graphql"
-        }
-      }
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "default": "https://graphql.kiwi.com"
     }
   }
 }
