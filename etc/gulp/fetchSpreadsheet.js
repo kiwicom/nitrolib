@@ -24,8 +24,8 @@ const whitelist = [
   // "team",
 ];
 
-function write(what, data) {
-  if (what === "countries") {
+function write(name, data) {
+  if (name === "countries") {
     fs.outputJsonSync(path.join(OUT, "countries.json"), countries.getCountries(data), {
       spaces: 2,
     });
@@ -36,24 +36,24 @@ function write(what, data) {
     return;
   }
 
-  fs.outputJsonSync(path.join(OUT, `${what}.json`), data, {
+  fs.outputJsonSync(path.join(OUT, `${name}.json`), data, {
     spaces: 2,
   });
 }
 
 function fetchSpreadsheet() /* : Promise<void[]> */ {
   return Promise.all(
-    whitelist.map(what =>
-      fetch(`https://nitro-hankey.skypicker.com/${what}`)
+    whitelist.map(name =>
+      fetch(`https://nitro-hankey.skypicker.com/${name}`)
         .then(res => {
           if (!res.ok) {
-            return Promise.reject(new Error(`Failed to fetch '${what}'`));
+            return Promise.reject(new Error(`Failed to fetch '${name}'`));
           }
 
           return res.json();
         })
         .then(data => {
-          write(what, data);
+          write(name, data);
         }),
     ),
   );
