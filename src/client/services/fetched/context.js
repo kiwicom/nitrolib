@@ -1,7 +1,11 @@
 // @flow
 import * as React from "react";
 
-import { brandDefault } from "client/records/Brand";
+import { countryDefault } from "client/records/Country";
+import { continentsDefault } from "client/records/Continents";
 
 // $FlowIssue
-export const { Consumer, Provider } = React.createContext(brandDefault);
+export const { Consumer, Provider } = React.createContext({
+  countries: { en: countryDefault },
+  continents: continentsDefault,
+});

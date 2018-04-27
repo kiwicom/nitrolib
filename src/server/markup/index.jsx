@@ -8,13 +8,18 @@ import { ServerStyleSheet, StyleSheetManager, ThemeProvider } from "styled-compo
 import Root from "client/scenes/Root";
 import * as intlContext from "client/services/intl/context";
 import * as brandContext from "client/services/brand/context";
+import * as fetchedContext from "client/services/fetched/context";
 import Html from "./Html";
 import { assets } from "../config";
-import { brands, intls } from "../dataFiles";
+import * as data from "../dataFiles";
 
 function markup(url: string, brandId: string, localeId: string) {
-  const brand = brands[brandId];
-  const intl = intls[localeId];
+  const brand = data.brands[brandId];
+  const intl = data.intls[localeId];
+  const fetched = {
+    countries: data.countries,
+    continents: data.continents,
+  };
 
   const sheet = new ServerStyleSheet();
   const context = {};
@@ -24,7 +29,9 @@ function markup(url: string, brandId: string, localeId: string) {
         <ThemeProvider theme={brand.theme}>
           <brandContext.Provider value={brand}>
             <intlContext.Provider value={intl}>
-              <Root />
+              <fetchedContext.Provider value={fetched}>
+                <Root />
+              </fetchedContext.Provider>
             </intlContext.Provider>
           </brandContext.Provider>
         </ThemeProvider>
@@ -33,7 +40,14 @@ function markup(url: string, brandId: string, localeId: string) {
   );
 
   return renderToStaticNodeStream(
-    <Html root={root} css={sheet.getStyleElement()} assets={assets} brand={brand} intl={intl} />,
+    <Html
+      root={root}
+      css={sheet.getStyleElement()}
+      assets={assets}
+      brand={brand}
+      intl={intl}
+      fetched={fetched}
+    />,
   );
 }
 

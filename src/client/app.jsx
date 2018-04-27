@@ -10,6 +10,7 @@ import Root from "./scenes/Root";
 import translate from "./services/intl/translate";
 import * as intlContext from "./services/intl/context";
 import * as brandContext from "./services/brand/context";
+import * as fetchedContext from "./services/fetched/context";
 import type { Intl } from "./records/Intl";
 
 const app = document.getElementById("react");
@@ -26,7 +27,9 @@ if (app) {
       <ThemeProvider theme={window.__BRAND__.theme}>
         <brandContext.Provider value={window.__BRAND__}>
           <intlContext.Provider value={intl}>
-            <Root />
+            <fetchedContext.Provider value={window.__FETCHED__}>
+              <Root />
+            </fetchedContext.Provider>
           </intlContext.Provider>
         </brandContext.Provider>
       </ThemeProvider>

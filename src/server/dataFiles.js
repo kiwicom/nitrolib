@@ -5,6 +5,8 @@ import * as R from "ramda";
 
 import type { Brands } from "client/records/Brand";
 import type { Intls } from "client/records/Intl";
+import type { Countries } from "client/records/Country";
+import type { Continents } from "client/records/Continents";
 import translate from "client/services/intl/translate";
 
 const DATA = path.join(__dirname, "../../data");
@@ -21,3 +23,7 @@ export const intls: Intls = R.map(language => {
     translate: R.partial(translate, [translations]),
   };
 }, fs.readJsonSync(path.join(DATA, "languages.json")));
+
+export const countries: Countries = fs.readJsonSync(path.join(DATA, "countries.json"));
+
+export const continents: Continents = fs.readJsonSync(path.join(DATA, "continents.json"));
