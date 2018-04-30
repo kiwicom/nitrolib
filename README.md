@@ -2,12 +2,12 @@
 
 Docs:
 * [Git](./docs/01git.md)
-* [Folder structure](./docs/02structure.md)
-* [Rendering](./docs/03rendering.md)
-* [Shared components](./docs/04shared.md)
-* [Translations](./docs/05translations.md)
-* [Styled components](./docs/06styled.md)
-* [GraphQL](./docs/07graphql.md)
+* [General](./docs/02general.md)
+* [Folder structure](./docs/03structure.md)
+* [Rendering](./docs/04rendering.md)
+* [Shared components](./docs/05shared.md)
+* [Translations](./docs/06translations.md)
+* [Styled components](./docs/07styled.md)
 
 Use **yarn** as a package manager.
 
