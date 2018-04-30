@@ -1,7 +1,7 @@
 // @flow
 /* eslint-disable fp/no-rest-parameters */
 import { css } from "styled-components";
-import { map as RMap } from "ramda";
+import * as R from "ramda";
 
 import type { Interpolation } from "styled-components";
 
@@ -25,7 +25,7 @@ const SIZES = {
   ltSmallMobile: { max: BREAKPOINTS.SMALL_MOBILE - 1 },
 };
 
-const LIMITS_MAP: $ObjMap<typeof SIZES, () => string> = RMap(
+const LIMITS_MAP: $ObjMap<typeof SIZES, () => string> = R.map(
   limits =>
     [limits.min && `(min-width: ${limits.min}px)`, limits.max && `(max-width: ${limits.max}px)`]
       .filter(Boolean)
@@ -35,7 +35,7 @@ const LIMITS_MAP: $ObjMap<typeof SIZES, () => string> = RMap(
 
 type SizeQueryFunction = (Array<any>) => Array<Interpolation>;
 
-const SIZED_QUERIES: $ObjMap<typeof LIMITS_MAP, () => SizeQueryFunction> = RMap(
+const SIZED_QUERIES: $ObjMap<typeof LIMITS_MAP, () => SizeQueryFunction> = R.map(
   query => (...args: Array<any>) => css`
     @media ${query} {
       ${css(...args) /* eslint-disable-line prettier/prettier */}
