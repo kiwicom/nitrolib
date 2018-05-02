@@ -18,14 +18,6 @@
   },
   "rules": {
     "prettier/prettier": "error",
-    "flowtype/no-weak-types": [
-      "error",
-      {
-        "any": false,
-        "Object": true,
-        "Function": true
-      }
-    ], // no Function, Object
     "camelcase": "off", // GraphQL
     "fp/no-nil": "off", // Side effects
     "fp/no-class": "off", // React
@@ -35,12 +27,10 @@
     "react/default-props-match-prop-types": "off", // Flow/ESlint conflict
     "react/require-default-props": "off", // Somehow semantically wrong
     "jsx-a11y/anchor-is-valid": "off", // Relative paths bullshit
-    "import/no-unresolved": "off", // Broken: https://github.com/tleunen/eslint-import-resolver-babel-module/issues/82
-    "import/extensions": "off" // Broken: https://github.com/tleunen/eslint-import-resolver-babel-module/issues/82
   },
   "settings": {
-//    "import/resolver": {
-//      "babel-module": {}
-//    }
+    "import/resolver": {
+      "babel-module": {}
+    }
   }
 }
