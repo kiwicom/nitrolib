@@ -41,7 +41,7 @@ const Root = () => (
             <br />
             <Time time={new Date()} />
             <br />
-            <Modal>
+            <Modal onClose={() => console.log("Closing modal!")}>
               <h3>Modal</h3>
             </Modal>
             <Price value={1337} currency="EUR" />
