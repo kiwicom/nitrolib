@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from "react";
 import styled from "styled-components";
 import { hot } from "react-hot-loader";

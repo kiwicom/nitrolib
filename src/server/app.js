@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 /* eslint-disable no-param-reassign, fp/no-mutation */
 import type { Context } from "koa";
 

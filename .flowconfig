@@ -1,3 +1,14 @@
+[strict]
+nonstrict-import
+unclear-type
+unsafe-getters-setters
+untyped-import
+untyped-type-import
+sketchy-null
+
+[lints]
+all=error
+
 [ignore]
 <PROJECT_ROOT>\/data\/.*
 <PROJECT_ROOT>\/node_modules\/graphviz\/.*

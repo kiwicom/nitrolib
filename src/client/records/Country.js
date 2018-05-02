@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 export type Country = {|
   id: string,
   currency: string,

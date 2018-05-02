@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import { Environment, Network, RecordSource, Store } from "relay-runtime";
 
 function fetchQuery(operation, variables) {

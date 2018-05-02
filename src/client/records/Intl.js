@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import { langInfoDefault } from "./LangInfo";
 import type { LangInfo } from "./LangInfo";
 

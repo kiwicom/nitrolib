@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import type { Currency } from "client/records/Currency";
 
 const format = (currency: Currency, price: number) =>

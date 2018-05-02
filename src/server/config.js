@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import fs from "fs";
 import path from "path";
 
@@ -19,6 +19,7 @@ function getAssets(): Assets {
   return JSON.parse(String(fs.readFileSync(assetsPath)));
 }
 
+// $FlowFixMe: Dunno how to do this nicely
 export const port = Number(process.env.PORT || 3000);
 
 export type Route = {

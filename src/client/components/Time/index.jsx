@@ -1,6 +1,6 @@
-// @flow
+// @flow strict
 import * as React from "react";
-import format from "date-fns/format";
+import format from "date-fns/format"; /* flowlint-line nonstrict-import:off */
 
 import { Consumer } from "client/services/intl/context";
 

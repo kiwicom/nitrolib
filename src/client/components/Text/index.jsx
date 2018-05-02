@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 /* eslint-disable react/no-danger */
 import * as React from "react";
 
@@ -7,8 +7,8 @@ import { Consumer } from "client/services/intl/context";
 
 type Props = {
   t: string,
-  values?: Values,
-  html?: boolean,
+  values: Values,
+  html: boolean,
 };
 
 const Text = (props: Props) => (

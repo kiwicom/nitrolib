@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import { currencyDefault } from "client/records/Currency";
 import format from "../format";
 

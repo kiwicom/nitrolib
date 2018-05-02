@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import fs from "fs-extra";
 import path from "path";
 import * as R from "ramda";

@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 export type Brand = {|
   domain: string,
   home_redirect_url: string,

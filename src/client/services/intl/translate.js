@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 export type Values = { [key: string]: string | number };
 export type Translate = (key: string, values?: Values) => string;
 export type Translations = { [key: string]: string };

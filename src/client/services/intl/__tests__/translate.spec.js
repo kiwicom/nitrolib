@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import translate from "../translate";
 
 const translations = {

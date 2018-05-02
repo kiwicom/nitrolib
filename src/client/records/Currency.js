@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 export type Currency = {|
   id: string,
   name: string,

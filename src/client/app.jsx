@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 /* eslint-disable no-underscore-dangle */
 import * as React from "react";
 import * as R from "ramda";

@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 export const DEVICES = {
   DESKTOP: "desktop",
   TABLET: "tablet",

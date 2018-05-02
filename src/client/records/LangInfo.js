@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 export type LangInfo = {|
   id: string,
   name: string,

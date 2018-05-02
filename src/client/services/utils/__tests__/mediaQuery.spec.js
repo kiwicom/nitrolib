@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import { forEachObjIndexed } from "ramda";
 
 import { BREAKPOINTS } from "client/consts/device";

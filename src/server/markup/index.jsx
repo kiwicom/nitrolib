@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 // $FlowIssue
 import { renderToString, renderToStaticNodeStream } from "react-dom/server";
