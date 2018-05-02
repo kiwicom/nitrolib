@@ -8,6 +8,7 @@ Docs:
 * [Shared components](./docs/05shared.md)
 * [Translations](./docs/06translations.md)
 * [Styled components](./docs/07styled.md)
+* [File templates](./docs/08templates.md)
 
 Use **yarn** as a package manager.
 
