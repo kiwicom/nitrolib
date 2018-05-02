@@ -4,7 +4,7 @@ exports[`#ModalOverlay render 1`] = `
 <ModalOverlay__Container>
   <ModalOverlay__Wrapper>
     <ModalOverlay__StyledClose
-      onClose={[MockFunction]}
+      onClick={[MockFunction]}
     />
     <h1>
       kek

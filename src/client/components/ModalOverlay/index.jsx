@@ -44,7 +44,7 @@ type Props = {|
 const ModalOverlay = (props: Props) => (
   <Container>
     <Wrapper>
-      <StyledClose onClose={props.onClose} />
+      <StyledClose onClick={props.onClose} />
       {props.children}
     </Wrapper>
   </Container>
