@@ -4,7 +4,7 @@ import { css } from "styled-components";
 import { border } from "client/styles";
 
 type Props = {
-  error: string,
+  error: boolean,
   active: boolean,
   visited: boolean,
 };

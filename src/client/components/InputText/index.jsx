@@ -13,6 +13,7 @@ const Label = styled.label`
   border-radius: 1px;
   align-items: center;
   ${borderMixin};
+  margin-bottom: 20px;
 `;
 
 Label.defaultProps = {
@@ -118,7 +119,7 @@ export default class InputText extends React.PureComponent<Props, State> {
     const { id, value, placeholder, label, error } = this.props;
     const { active, visited } = this.state;
 
-    const borderState = getBorderState({ active, visited, error });
+    const borderState = getBorderState({ active, visited, error: Boolean(error) });
 
     return (
       <Label htmlFor={id} state={borderState}>

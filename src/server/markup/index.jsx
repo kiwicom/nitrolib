@@ -22,12 +22,15 @@ function markup(url: string, brandId: string, localeId: string) {
     langNames: data.langNames,
   };
 
+  // $FlowIssue: We have a better type than 'mixed'
+  const providedTheme: { [key: string]: mixed } = brand.theme;
+
   const sheet = new ServerStyleSheet();
   const context = {};
   const root = renderToString(
     <StaticRouter location={url} context={context}>
       <StyleSheetManager sheet={sheet.instance}>
-        <ThemeProvider theme={brand.theme}>
+        <ThemeProvider theme={providedTheme}>
           <brandContext.Provider value={brand}>
             <intlContext.Provider value={intl}>
               <fetchedContext.Provider value={fetched}>
