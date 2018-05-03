@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#IconText render 1`] = `
+<IconText__Container>
+  <MdClose
+    className="icon"
+  />
+  <IconText__Text>
+    Kek
+  </IconText__Text>
+</IconText__Container>
+`;

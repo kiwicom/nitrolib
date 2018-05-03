@@ -5,6 +5,7 @@ import { action } from "@storybook/addon-actions";
 import { withKnobs, text } from "@storybook/addon-knobs/react";
 import Close from "react-icons/lib/md/close";
 
+import IconText from "client/components/IconText";
 import InputText from "client/components/InputText";
 
 storiesOf("InputText", module)
@@ -26,12 +27,7 @@ storiesOf("InputText", module)
       onBlur={action("On blur")}
       placeholder={text("Placeholder", "Gib text")}
       error={text("Error", "")}
-      label={
-        <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
-          <Close />
-          <span>Label</span>
-        </div>
-      }
+      label={<IconText Icon={Close}>{text("Label", "Label")}</IconText>}
     />
   ))
   .add("numbers only", () => (
