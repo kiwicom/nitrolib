@@ -48,6 +48,21 @@ components/
 **Cannot have**
 * scenes
 
+### Primitives
+
+Contains **Nitro-only** styled components.
+
+```
+primitives/
+    MyComponent.jsx <- A styled component
+```
+
+**Cannot have**
+* subcomponents
+* scenes
+* services
+* records
+
 ### Public
 
 Contains **shared** components and code.
