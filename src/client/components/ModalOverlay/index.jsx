@@ -41,13 +41,23 @@ type Props = {|
   onClose: () => void,
 |};
 
-const ModalOverlay = (props: Props) => (
-  <Container>
-    <Wrapper>
-      <StyledClose onClick={props.onClose} />
-      {props.children}
-    </Wrapper>
-  </Container>
-);
+export default class ModalOverlay extends React.PureComponent<Props> {
+  handleKeyDown = (ev: SyntheticKeyboardEvent<*>) => {
+    if (ev.key === "Escape") {
+      this.props.onClose();
+    }
+  };
 
-export default ModalOverlay;
+  render() {
+    const { onClose, children } = this.props;
+
+    return (
+      <Container tabIndex="0" onKeyDown={this.handleKeyDown}>
+        <Wrapper>
+          <StyledClose onClick={onClose} />
+          {children}
+        </Wrapper>
+      </Container>
+    );
+  }
+}

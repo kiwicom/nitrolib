@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#ModalOverlay render 1`] = `
-<ModalOverlay__Container>
+<ModalOverlay__Container
+  onKeyDown={[Function]}
+  tabIndex="0"
+>
   <ModalOverlay__Wrapper>
     <ModalOverlay__StyledClose
       onClick={[MockFunction]}
