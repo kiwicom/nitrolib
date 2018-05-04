@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Modal render 1`] = `
+<ClientOnly
+  loader={null}
+>
+  <Portal>
+    <ModalOverlay
+      onClose={[MockFunction]}
+    >
+      <p>
+        Content
+      </p>
+    </ModalOverlay>
+  </Portal>
+</ClientOnly>
+`;

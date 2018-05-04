@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Title render 1`] = `
+<Title__Container>
+  <Title__BrandNameContainer>
+    <BrandName />
+  </Title__BrandNameContainer>
+  <Text
+    html={false}
+    t="search.landing_page.kiwi_slogan"
+    values={Object {}}
+  />
+</Title__Container>
+`;

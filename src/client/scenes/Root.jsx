@@ -3,49 +3,55 @@ import React from "react";
 import styled from "styled-components";
 import { hot } from "react-hot-loader";
 
-import Day from "../components/Day";
-import Price from "../components/Price";
-import Text from "../components/Text";
-import Time from "../components/Time";
-import { brandDefault } from "../records/Brand";
-import * as brandContext from "../services/brand/context";
-import * as intlContext from "../services/intl/context";
+import NavBar from "client/scenes/NavBar";
+import SearchForm from "client/scenes/SearchForm";
+import CookiesConsent from "client/components/CookiesConsent";
+import Title from "client/scenes/Root/components/Title";
+import ExploreLink from "client/scenes/Root/components/ExploreLink";
 
-const H1 = styled.h1`
-  margin-top: 0;
+import mq from "client/services/utils/mediaQuery";
+
+const Container = styled.div`
+  position relative;
+  display flex;
+  flex-direction column;
+  justify-content space-between;
+  height 100%;
 `;
 
-const Div = styled.div`
-  background: ${props => props.theme.colors["primary-500"]};
+const MainContent = styled.div`
+  display flex;
+  flex-direction column;
+  align-items center;
+  height 100%;
+  overflow-x hidden;
+  overflow-y: auto;
+
+  ${mq.gtTablet`
+    justify-content flex-start;
+  `}
 `;
 
-Div.defaultProps = {
-  theme: brandDefault.theme,
-};
+const CookiesConsentContainer = styled.div`
+  order -1;
 
-// TODO add currency to state, take from cookies, don't render initially
+  ${mq.gtTablet`
+    order: 0;
+  `}
+`;
+
 const Root = () => (
-  <brandContext.Consumer>
-    {brand => (
-      <intlContext.Consumer>
-        {intl => (
-          <Div>
-            <H1>{brand.name}</H1>
-            <h3>Locale: {intl.language.id}</h3>
-            <span>
-              Translated number: <Text t={__("common.number")} />
-            </span>
-            <br />
-            <Day date={new Date()} />
-            <br />
-            <Time time={new Date()} />
-            <br />
-            <Price value={1337} currency="EUR" />
-          </Div>
-        )}
-      </intlContext.Consumer>
-    )}
-  </brandContext.Consumer>
+  <Container>
+    <NavBar />
+    <MainContent>
+      <Title />
+      <SearchForm />
+      <ExploreLink />
+    </MainContent>
+    <CookiesConsentContainer>
+      <CookiesConsent />
+    </CookiesConsentContainer>
+  </Container>
 );
 
 // eslint-disable-next-line no-undef

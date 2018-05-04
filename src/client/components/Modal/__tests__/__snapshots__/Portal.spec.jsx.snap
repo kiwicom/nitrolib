@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Modal - Portal render - with target 1`] = `
+<Portal>
+  <p>
+    Content
+  </p>
+</Portal>
+`;
+
+exports[`#Modal - Portal render - with target 2`] = `
+<div
+  id="modal"
+>
+  <div>
+    <p>
+      Content
+    </p>
+  </div>
+</div>
+`;
+
+exports[`#Modal - Portal render - with target 3`] = `""`;
+
+exports[`#Modal - Portal render - with target 4`] = `
+<div
+  id="modal"
+/>
+`;
+
+exports[`#Modal - Portal render - without target 1`] = `
+<Portal>
+  <p>
+    Content
+  </p>
+</Portal>
+`;
+
+exports[`#Modal - Portal render - without target 2`] = `null`;
+
+exports[`#Modal - Portal render - without target 3`] = `""`;
+
+exports[`#Modal - Portal render - without target 4`] = `null`;

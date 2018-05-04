@@ -1,7 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#Root should render correctly 1`] = `
-<UNDEFINED>
-  [Function]
-</UNDEFINED>
+<Root__Container>
+  <NavBar />
+  <Root__MainContent>
+    <Title />
+    <SearchForm />
+    <ExploreLink />
+  </Root__MainContent>
+  <Root__CookiesConsentContainer>
+    <CookiesConsent />
+  </Root__CookiesConsentContainer>
+</Root__Container>
 `;
