@@ -7,7 +7,7 @@ Follow best practices and read the [documentation](https://www.styled-components
 A **primitive** is a styled component that consists only of a single styled component and has no wrapper:
 
 ```js
-// @flow
+// @flow strict
 import styled from "styled-components";
 
 const Input = styled.input`
@@ -42,7 +42,7 @@ Although not statically analysable, this is currently the best solution I came u
 Every component that uses theme **must** have a `defaultProps` with the `theme` property set:
 
 ```js
-// @flow
+// @flow strict
 import styled from "styled-components";
 
 import { defaultBrand } from "client/records/Brand";
@@ -69,7 +69,7 @@ Use `.extend`, only wrap in `styled(...)` when absolutely necessary. This is lim
 The **only** valid use case for nesting is when having to style a dynamically injected component class:
 
 ```js
-// @flow
+// @flow strict
 import * as React from "react";
 import styled from "styled-components";
 
@@ -102,7 +102,7 @@ Or having to style already styled 3rd party things, such as Google autocompleter
 A **component** is a regular React component that consists of more than a single styled component:
 
 ```js
-// @flow
+// @flow strict
 import styled from "styled-components";
 
 const Label = styled.input`
@@ -128,3 +128,33 @@ export default InputText;
 ```
 
 > It is a bad practice to allow passing `className` as a prop as it creates an implicit relationship. Avoid it at all costs. Do any necessary modifications via explicit props, or find a different solution.
+
+## Media Queries
+
+Use [mediaQuery.js](https://gitlab.skypicker.com/frontend/nitro/blob/master/src/client/services/utils/mediaQuery.js) for responsive design. It contains template literals tags based on breakpoints defined in [device constants](https://gitlab.skypicker.com/frontend/nitro/blob/master/src/client/consts/device.js) as well as special media queries for retina displays.
+
+Feel free to create new one if it makes sense. Try to avoid duplicities, use meaningful name and follow this naming conventions:
+
+* without prefix - targets only the specified device, e.g. `tablet`, `mobile`
+* prefix `lt` - targets only smaller devices, e.g. `ltTablet`, `ltDesktop`
+* prefix `gt` - targets the specified device as well as larger devices, e.g. `gtDesktop`, `gtTablet`
+
+**Example:**
+```js
+// @flow strict
+import styled from "styled-components";
+
+import mq from "client/services/utils/mediaQuery";
+
+const Container = styled.div`
+  background: red;
+
+  ${mq.tablet`
+    background: green;
+  `}
+
+  ${mq.ltTablet`
+    background: blue;
+  `}
+`;
+```
