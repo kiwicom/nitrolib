@@ -52,6 +52,10 @@ const Container = styled.button`
     outline: none;
   }
 
+  &:active {
+    ${shadowMixin};
+  }
+
   &:disabled {
     color: ${({ theme }: ContainerProps) => theme.colors["text-secondary"]};
   }
