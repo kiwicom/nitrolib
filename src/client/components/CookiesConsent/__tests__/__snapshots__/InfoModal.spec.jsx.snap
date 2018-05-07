@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#CookiesConsent - InfoModal render 1`] = `
+exports[`#CookiesConsent/InfoModal render 1`] = `
 <Modal
   onClose={[MockFunction]}
 >

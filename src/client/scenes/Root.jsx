@@ -12,32 +12,32 @@ import ExploreLink from "client/scenes/Root/components/ExploreLink";
 import mq from "client/services/utils/mediaQuery";
 
 const Container = styled.div`
-  position relative;
-  display flex;
-  flex-direction column;
-  justify-content space-between;
-  height 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 `;
 
 const MainContent = styled.div`
-  display flex;
-  flex-direction column;
-  align-items center;
-  height 100%;
-  overflow-x hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  overflow-x: hidden;
   overflow-y: auto;
 
   ${mq.gtTablet`
-    justify-content flex-start;
-  `}
+    justify-content: flex-start;
+  `};
 `;
 
 const CookiesConsentContainer = styled.div`
-  order -1;
+  order: -1;
 
   ${mq.gtTablet`
     order: 0;
-  `}
+  `};
 `;
 
 const Root = () => (

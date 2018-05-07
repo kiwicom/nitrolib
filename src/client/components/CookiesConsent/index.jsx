@@ -2,9 +2,7 @@
 import * as React from "react";
 
 import ClientOnly from "client/components/ClientOnly";
-
-import * as cookiesStore from "client/services/cookies/store";
-
+import * as cookiesStore from "client/components/CookiesConsent/services/store";
 import Banner from "./Banner";
 import InfoModal from "./InfoModal";
 
@@ -14,23 +12,23 @@ type State = {|
 |};
 
 // TODO: Show consent only in Europe
-class CookiesConsent extends React.PureComponent<*, State> {
+class CookiesConsent extends React.PureComponent<{}, State> {
   state: State = {
     isAccepted: cookiesStore.isAccepted(),
     infoShown: false,
   };
 
-  accept = () => {
+  handleAccept = () => {
     this.setState({ isAccepted: true });
 
     cookiesStore.saveAccepted();
   };
 
-  showInfo = () => {
+  handleShowInfo = () => {
     this.setState({ infoShown: true });
   };
 
-  hideInfo = () => {
+  handleHideInfo = () => {
     this.setState({ infoShown: false });
   };
 
@@ -41,8 +39,8 @@ class CookiesConsent extends React.PureComponent<*, State> {
       <ClientOnly>
         {!isAccepted && ( // TODO: Add continent check
           <React.Fragment>
-            <Banner accept={this.accept} showInfo={this.showInfo} />
-            {infoShown && <InfoModal close={this.hideInfo} />}
+            <Banner onAccept={this.handleAccept} onShowInfo={this.handleShowInfo} />
+            {infoShown && <InfoModal onClose={this.handleHideInfo} />}
           </React.Fragment>
         )}
       </ClientOnly>

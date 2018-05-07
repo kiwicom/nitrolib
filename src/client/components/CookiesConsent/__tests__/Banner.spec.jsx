@@ -4,37 +4,29 @@ import { shallow } from "enzyme";
 
 import Banner from "../Banner";
 
-describe("#CookiesConsent - Banner", () => {
+describe("#CookiesConsent/Banner", () => {
   test("render", () => {
-    const showInfo = jest.fn();
-    const accept = jest.fn();
-
-    const wrapper = shallow(<Banner showInfo={showInfo} accept={accept} />);
+    const wrapper = shallow(<Banner onShowInfo={jest.fn()} onAccept={jest.fn()} />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   test("click show info", () => {
-    const showInfo = jest.fn();
-    const accept = jest.fn();
+    const onShowInfo = jest.fn();
+    const wrapper = shallow(<Banner onShowInfo={onShowInfo} onAccept={jest.fn()} />);
 
-    const wrapper = shallow(<Banner showInfo={showInfo} accept={accept} />);
+    wrapper.find("Banner__InfoLink").simulate("click");
 
-    wrapper.find('[data-test="CookiesConsent-ShowInfo"]').simulate("click");
-
-    expect(showInfo).toBeCalled();
-    expect(accept).not.toBeCalled();
+    expect(onShowInfo).toBeCalled();
   });
 
   test("click accept", () => {
-    const showInfo = jest.fn();
-    const accept = jest.fn();
+    const onAccept = jest.fn();
 
-    const wrapper = shallow(<Banner showInfo={showInfo} accept={accept} />);
+    const wrapper = shallow(<Banner onShowInfo={jest.fn()} onAccept={onAccept} />);
 
-    wrapper.find('[data-test="CookiesConsent-Accept"]').simulate("click");
+    wrapper.find("Banner__AcceptButton").simulate("click");
 
-    expect(showInfo).not.toBeCalled();
-    expect(accept).toBeCalled();
+    expect(onAccept).toBeCalled();
   });
 });

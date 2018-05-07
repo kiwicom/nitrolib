@@ -18,8 +18,8 @@ exports[`#CookiesConsent render - cookies not accepted 1`] = `
 >
   <React.Fragment>
     <Banner
-      accept={[Function]}
-      showInfo={[Function]}
+      onAccept={[Function]}
+      onShowInfo={[Function]}
     />
   </React.Fragment>
 </ClientOnly>
@@ -31,11 +31,11 @@ exports[`#CookiesConsent showInfo / hideInfo 1`] = `
 >
   <React.Fragment>
     <Banner
-      accept={[Function]}
-      showInfo={[Function]}
+      onAccept={[Function]}
+      onShowInfo={[Function]}
     />
     <InfoModal
-      close={[Function]}
+      onClose={[Function]}
     />
   </React.Fragment>
 </ClientOnly>
@@ -47,8 +47,8 @@ exports[`#CookiesConsent showInfo / hideInfo 2`] = `
 >
   <React.Fragment>
     <Banner
-      accept={[Function]}
-      showInfo={[Function]}
+      onAccept={[Function]}
+      onShowInfo={[Function]}
     />
   </React.Fragment>
 </ClientOnly>

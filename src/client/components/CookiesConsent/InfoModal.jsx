@@ -1,7 +1,6 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import * as R from "ramda";
 
 import Modal from "client/components/Modal";
 import Text from "client/components/Text";
@@ -14,21 +13,25 @@ const Title = styled.h1``;
 
 const Content = styled.p``;
 
+const tKeys = {
+  kayakwhite: __("content.cookies.kayakwhite"),
+  kiwicom: __("content.cookies.kiwicom"),
+  paragraphs: __("content.cookies.paragraphs"),
+};
+
 type Props = {|
-  close: () => void,
+  onClose: () => void,
 |};
 
-const getCookiesTKey = R.path(["content", "legal", "cookies", "t_key"]);
-
-const InfoModal = ({ close }: Props) => (
-  <Modal onClose={close}>
+const InfoModal = ({ onClose }: Props) => (
+  <Modal onClose={onClose}>
     <Container>
       <Title>
         <Text t={__("content.pages.cookies.title")} />
       </Title>
       <Content>
         <BrandConsumer>
-          {brand => <Text t={`content.cookies.${getCookiesTKey(brand)}`} html />}
+          {brand => <Text t={tKeys[brand.content.legal.cookies.t_key]} html />}
         </BrandConsumer>
       </Content>
     </Container>

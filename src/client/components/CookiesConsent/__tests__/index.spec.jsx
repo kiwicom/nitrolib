@@ -2,60 +2,59 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import * as store from "client/services/cookies/store";
-
-import typeof * as MockStore from "client/services/cookies/__mocks__/store";
-
+import * as store from "../services/store";
 import CookiesConsent from "../index";
 
-jest.mock("client/services/cookies/store");
-
-const mockStore: MockStore = store;
+jest.mock("../services/store");
 
 describe("#CookiesConsent", () => {
   test("render - cookies accepted", () => {
-    mockStore.isAccepted.mockReturnValue(true);
+    // $FlowExpected
+    store.isAccepted.mockReturnValue(true);
 
     const wrapper = shallow(<CookiesConsent />);
 
-    expect(mockStore.isAccepted).toBeCalled();
+    expect(store.isAccepted).toBeCalled();
     expect(wrapper).toMatchSnapshot();
   });
 
   test("render - cookies not accepted", () => {
-    mockStore.isAccepted.mockReturnValue(false);
+    // $FlowExpected
+    store.isAccepted.mockReturnValue(false);
 
     const wrapper = shallow(<CookiesConsent />);
 
-    expect(mockStore.isAccepted).toBeCalled();
+    expect(store.isAccepted).toBeCalled();
     expect(wrapper).toMatchSnapshot();
   });
 
   test("accept cookies", () => {
-    mockStore.isAccepted.mockReturnValue(false);
+    // $FlowExpected
+    store.isAccepted.mockReturnValue(false);
 
     const wrapper = shallow(<CookiesConsent />);
 
-    wrapper.instance().accept();
+    wrapper.instance().handleAccept();
     wrapper.update();
 
-    expect(mockStore.saveAccepted).toBeCalled();
+    expect(store.saveAccepted).toBeCalled();
     expect(wrapper).toMatchSnapshot();
   });
 
   test("showInfo / hideInfo", () => {
-    mockStore.isAccepted.mockReturnValue(false);
+    // $FlowExpected
+    store.isAccepted.mockReturnValue(false);
 
     const wrapper = shallow(<CookiesConsent />);
 
     const instance = wrapper.instance();
 
-    instance.showInfo();
+    instance.handleShowInfo();
     wrapper.update();
 
     expect(wrapper).toMatchSnapshot();
 
-    instance.hideInfo();
+    instance.handleHideInfo();
     wrapper.update();
 
     expect(wrapper).toMatchSnapshot();

@@ -4,20 +4,17 @@ import { shallow } from "enzyme";
 
 import InfoModal from "../InfoModal";
 
-describe("#CookiesConsent - InfoModal", () => {
+describe("#CookiesConsent/InfoModal", () => {
   test("render", () => {
-    const close = jest.fn();
-
-    const wrapper = shallow(<InfoModal close={close} />);
+    const wrapper = shallow(<InfoModal onClose={jest.fn()} />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   test("pass close", () => {
-    const close = jest.fn();
+    const onClose = jest.fn();
+    const wrapper = shallow(<InfoModal onClose={onClose} />);
 
-    const wrapper = shallow(<InfoModal close={close} />);
-
-    expect(wrapper.find("Modal").prop("onClose")).toBe(close);
+    expect(wrapper.find("Modal").prop("onClose")).toBe(onClose);
   });
 });

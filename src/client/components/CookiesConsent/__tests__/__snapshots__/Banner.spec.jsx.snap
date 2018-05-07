@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#CookiesConsent - Banner render 1`] = `
+exports[`#CookiesConsent/Banner render 1`] = `
 <Banner__Container
   theme={
     Object {
@@ -93,9 +93,8 @@ exports[`#CookiesConsent - Banner render 1`] = `
       t="content.cookies.popup.full"
       values={Object {}}
     />
-     
+     
     <Banner__InfoLink
-      data-test="CookiesConsent-ShowInfo"
       onClick={[MockFunction]}
     >
       <Text
@@ -107,7 +106,6 @@ exports[`#CookiesConsent - Banner render 1`] = `
     .
   </Banner__Message>
   <Banner__AcceptButton
-    data-test="CookiesConsent-Accept"
     onClick={[MockFunction]}
   >
     <Text
