@@ -93,7 +93,7 @@ import { shallow } from "enzyme";
 import ${Component} from "../${NAME}";
 
 describe("#${Component}", () => {
-  it("should render correctly", () => {
+  test("render", () => {
     const wrapper = shallow(<${Component} />);
     
     expect(wrapper).toMatchSnapshot();
@@ -117,7 +117,7 @@ Test:
 import ${NAME} from "../${NAME}";
 
 describe("#${NAME}", () => {
-  it("should work", () => {
+  test("thing", () => {
   
   });
 });
