@@ -63,6 +63,10 @@ type Props = {|
 |};
 
 export default class Tab extends React.PureComponent<Props> {
+  static defaultProps = {
+    active: false,
+  };
+
   handleClick = () => {
     const { onClick, id } = this.props;
 
