@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 import borderMixin, { getBorderState } from "../../styles/mixins/border";
 import { brandDefault } from "../../records/Brand";
+import type { ThemeProps } from "../../records/Brand";
 
 const Label = styled.label`
   display: flex;
@@ -32,7 +33,7 @@ const Input = styled.input`
   padding: 0;
   border: none;
   width: 100%;
-  color: ${props => props.theme.colors["neutral-800"]};
+  color: ${(props: ThemeProps) => props.theme.colors["neutral-800"]};
   font-size: 14px;
   font-weight: 500;
 
@@ -45,13 +46,17 @@ Input.defaultProps = {
   theme: brandDefault.theme,
 };
 
+type ErrorProps = ThemeProps & {
+  active: boolean,
+};
+
 const Error = styled.div`
   position: absolute;
   font-size: 10px;
   font-weight: 400;
   right: 0;
   bottom: -14px;
-  color: ${props => props.theme.colors[props.active ? "primary-600" : "danger-700"]};
+  color: ${(props: ErrorProps) => props.theme.colors[props.active ? "primary-600" : "danger-700"]};
 `;
 
 Error.defaultProps = {
