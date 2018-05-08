@@ -6,6 +6,7 @@ import { hot } from "react-hot-loader";
 import NavBar from "client/scenes/NavBar";
 import SearchForm from "client/scenes/SearchForm";
 import CookiesConsent from "client/components/CookiesConsent";
+import ClientOnly from "client/components/ClientOnly";
 import Title from "client/scenes/Root/components/Title";
 import ExploreLink from "client/scenes/Root/components/ExploreLink";
 
@@ -48,9 +49,11 @@ const Root = () => (
       <SearchForm />
       <ExploreLink />
     </MainContent>
-    <CookiesConsentContainer>
-      <CookiesConsent />
-    </CookiesConsentContainer>
+    <ClientOnly>
+      <CookiesConsentContainer>
+        <CookiesConsent />
+      </CookiesConsentContainer>
+    </ClientOnly>
   </Container>
 );
 

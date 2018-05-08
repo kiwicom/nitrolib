@@ -8,8 +8,12 @@ exports[`#Root should render correctly 1`] = `
     <SearchForm />
     <ExploreLink />
   </Root__MainContent>
-  <Root__CookiesConsentContainer>
-    <CookiesConsent />
-  </Root__CookiesConsentContainer>
+  <ClientOnly
+    loader={null}
+  >
+    <Root__CookiesConsentContainer>
+      <CookiesConsent />
+    </Root__CookiesConsentContainer>
+  </ClientOnly>
 </Root__Container>
 `;

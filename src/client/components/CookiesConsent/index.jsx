@@ -1,8 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import ClientOnly from "client/components/ClientOnly";
-import * as cookiesStore from "client/components/CookiesConsent/services/store";
+import * as cookiesStore from "./services/store";
 import Banner from "./Banner";
 import InfoModal from "./InfoModal";
 
@@ -35,15 +34,15 @@ class CookiesConsent extends React.PureComponent<{}, State> {
   render() {
     const { isAccepted, infoShown } = this.state;
 
+    if (isAccepted) {
+      return null;
+    }
+
     return (
-      <ClientOnly>
-        {!isAccepted && ( // TODO: Add continent check
-          <React.Fragment>
-            <Banner onAccept={this.handleAccept} onShowInfo={this.handleShowInfo} />
-            {infoShown && <InfoModal onClose={this.handleHideInfo} />}
-          </React.Fragment>
-        )}
-      </ClientOnly>
+      <>
+        <Banner onAccept={this.handleAccept} onShowInfo={this.handleShowInfo} />
+        {infoShown && <InfoModal onClose={this.handleHideInfo} />}
+      </>
     );
   }
 }

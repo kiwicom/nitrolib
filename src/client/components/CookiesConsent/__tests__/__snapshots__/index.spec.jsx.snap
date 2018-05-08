@@ -1,55 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#CookiesConsent accept cookies 1`] = `
-<ClientOnly
-  loader={null}
-/>
-`;
+exports[`#CookiesConsent accept cookies 1`] = `""`;
 
-exports[`#CookiesConsent render - cookies accepted 1`] = `
-<ClientOnly
-  loader={null}
-/>
-`;
+exports[`#CookiesConsent render - cookies accepted 1`] = `""`;
 
 exports[`#CookiesConsent render - cookies not accepted 1`] = `
-<ClientOnly
-  loader={null}
->
-  <React.Fragment>
-    <Banner
-      onAccept={[Function]}
-      onShowInfo={[Function]}
-    />
-  </React.Fragment>
-</ClientOnly>
+<React.Fragment>
+  <Banner
+    onAccept={[Function]}
+    onShowInfo={[Function]}
+  />
+</React.Fragment>
 `;
 
 exports[`#CookiesConsent showInfo / hideInfo 1`] = `
-<ClientOnly
-  loader={null}
->
-  <React.Fragment>
-    <Banner
-      onAccept={[Function]}
-      onShowInfo={[Function]}
-    />
-    <InfoModal
-      onClose={[Function]}
-    />
-  </React.Fragment>
-</ClientOnly>
+<React.Fragment>
+  <Banner
+    onAccept={[Function]}
+    onShowInfo={[Function]}
+  />
+  <InfoModal
+    onClose={[Function]}
+  />
+</React.Fragment>
 `;
 
 exports[`#CookiesConsent showInfo / hideInfo 2`] = `
-<ClientOnly
-  loader={null}
->
-  <React.Fragment>
-    <Banner
-      onAccept={[Function]}
-      onShowInfo={[Function]}
-    />
-  </React.Fragment>
-</ClientOnly>
+<React.Fragment>
+  <Banner
+    onAccept={[Function]}
+    onShowInfo={[Function]}
+  />
+</React.Fragment>
 `;
