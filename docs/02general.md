@@ -10,6 +10,22 @@ Import as `import * as React from "react";`. This is mainly due to _Flow_ types.
 
 Make use of `React.PureComponent` where it makes sense.
 
+### Nomenclature
+
+**Callbacks** and their **handlers** should be named:
+* `on<Action>` - a callback
+* `handle<Action>` - a handler
+
+### Utility components
+
+Components for wrapping other components in order to change the way they are represented.
+
+Currently implemented:
+* `Modal` - wraps a component into a modal
+* `ClientOnly` - rendered only on the client
+
+> Note: wrap components with utility components where they are used, do not put utility components directly into other components.
+
 ## GraphQL
 
 Compile using `yarn relay`, watch for changes via `yarn relay --watch`.
