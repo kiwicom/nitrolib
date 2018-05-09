@@ -15,6 +15,10 @@ const globalCss = `
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0.02em;
   }
+  
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
 `;
 
 type Props = {

@@ -33,7 +33,7 @@ const Container = styled.button`
   border-radius: 0;
   background: ${({ theme, active }: ContainerProps) =>
     theme.colors[active ? "neutral-200" : "neutral-100"]};
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   ${(props: ContainerProps) => props.active && shadowMixin};
   ${(props: ContainerProps) => !props.active && hoverMixin};

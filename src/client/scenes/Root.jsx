@@ -7,10 +7,9 @@ import NavBar from "client/scenes/NavBar";
 import SearchForm from "client/scenes/SearchForm";
 import CookiesConsent from "client/components/CookiesConsent";
 import ClientOnly from "client/components/ClientOnly";
-import Title from "client/scenes/Root/components/Title";
-import ExploreLink from "client/scenes/Root/components/ExploreLink";
-
 import mq from "client/services/utils/mediaQuery";
+import Title from "./components/Title";
+import ExploreLink from "./components/ExploreLink";
 
 const Container = styled.div`
   position: relative;

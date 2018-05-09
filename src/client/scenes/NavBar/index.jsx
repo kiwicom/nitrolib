@@ -1,6 +1,13 @@
 // @flow strict
-import React from "react";
+import * as React from "react";
 
-const NavBar = () => <div>NavBar</div>;
+import SideBar from "./scenes/SideBar";
+
+const NavBar = () => (
+  <>
+    <div>NavBar</div>
+    <SideBar />
+  </>
+);
 
 export default NavBar;
