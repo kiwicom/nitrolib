@@ -63,7 +63,7 @@ Error.defaultProps = {
   theme: brandDefault.theme,
 };
 
-const omitProps = R.omit(["label", "normalize", "error"]);
+const omitProps = R.omit(["label", "normalize", "error", "showState"]);
 
 type Props = {
   id: string,

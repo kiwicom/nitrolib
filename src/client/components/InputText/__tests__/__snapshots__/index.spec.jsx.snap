@@ -8,7 +8,6 @@ Object {
   "onChange": [Function],
   "onFocus": [Function],
   "placeholder": "Placeholder",
-  "showState": false,
   "theme": Object {
     "colors": Object {
       "accent-100": "#F8CA32",
@@ -191,7 +190,6 @@ exports[`#InputText render active error 1`] = `
     onChange={[Function]}
     onFocus={[Function]}
     placeholder="Placeholder"
-    showState={false}
     theme={
       Object {
         "colors": Object {
@@ -471,7 +469,6 @@ exports[`#InputText render label 1`] = `
     onChange={[Function]}
     onFocus={[Function]}
     placeholder="Placeholder"
-    showState={false}
     theme={
       Object {
         "colors": Object {
@@ -657,7 +654,6 @@ exports[`#InputText render no label 1`] = `
     onChange={[Function]}
     onFocus={[Function]}
     placeholder="Placeholder"
-    showState={false}
     theme={
       Object {
         "colors": Object {
@@ -843,7 +839,6 @@ exports[`#InputText render regular error 1`] = `
     onChange={[Function]}
     onFocus={[Function]}
     placeholder="Placeholder"
-    showState={false}
     theme={
       Object {
         "colors": Object {
@@ -1118,7 +1113,6 @@ exports[`#InputText render show state 1`] = `
     onChange={[Function]}
     onFocus={[Function]}
     placeholder="Placeholder"
-    showState={true}
     theme={
       Object {
         "colors": Object {
@@ -1304,7 +1298,6 @@ exports[`#InputText render show state error 1`] = `
     onChange={[Function]}
     onFocus={[Function]}
     placeholder="Placeholder"
-    showState={true}
     theme={
       Object {
         "colors": Object {
