@@ -76,6 +76,7 @@ type Props = {
   label: React.Node,
   normalize: string => string,
   error: string,
+  showState: boolean,
 };
 
 type State = {|
@@ -89,6 +90,7 @@ export default class InputText extends React.PureComponent<Props, State> {
     label: null,
     normalize: R.identity,
     error: "",
+    showState: false,
   };
 
   state = {
@@ -121,10 +123,14 @@ export default class InputText extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { id, value, placeholder, label, error } = this.props;
+    const { id, value, placeholder, label, error, showState } = this.props;
     const { active, visited } = this.state;
 
-    const borderState = getBorderState({ active, visited, error: Boolean(error) });
+    const borderState = getBorderState({
+      active,
+      visited: visited || showState,
+      error: Boolean(error),
+    });
 
     return (
       <Label htmlFor={id} state={borderState}>

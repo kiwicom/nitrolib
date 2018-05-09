@@ -53,6 +53,24 @@ describe("#InputText", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  test("render show state", () => {
+    const wrapper = shallow(
+      <InputText
+        id="kek"
+        value="A value"
+        onChange={jest.fn()}
+        placeholder="Placeholder"
+        showState
+      />,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("InputText__Label")).toHaveStyleRule(
+      "border",
+      `1px solid ${brandDefault.theme.colors["primary-600"]}`,
+    );
+  });
+
   test("render regular error", () => {
     const wrapper = shallow(
       <InputText
@@ -90,6 +108,25 @@ describe("#InputText", () => {
     expect(wrapper.find("InputText__Error")).toHaveStyleRule(
       "color",
       brandDefault.theme.colors["primary-600"],
+    );
+  });
+
+  test("render show state error", () => {
+    const wrapper = shallow(
+      <InputText
+        id="kek"
+        value="A value"
+        onChange={jest.fn()}
+        placeholder="Placeholder"
+        error="An error"
+        showState
+      />,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("InputText__Error")).toHaveStyleRule(
+      "color",
+      brandDefault.theme.colors["danger-700"],
     );
   });
 

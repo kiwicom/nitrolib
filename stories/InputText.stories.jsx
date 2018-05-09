@@ -2,7 +2,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import { withKnobs, text } from "@storybook/addon-knobs/react";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs/react";
 import Close from "react-icons/lib/md/close";
 
 import IconText from "client/components/IconText";
@@ -10,17 +10,21 @@ import InputText from "client/components/InputText";
 
 storiesOf("InputText", module)
   .addDecorator(withKnobs)
-  .add("basic", () => (
+  .add("default", () => (
     <InputText
-      id="basic"
+      id="test"
       value={text("Value", "")}
       onChange={action("On change")}
+      onFocus={action("On focus")}
+      onBlur={action("On blur")}
       placeholder={text("Placeholder", "Gib text")}
+      error={text("Error", "")}
+      showState={boolean("Show state", false)}
     />
   ))
-  .add("with all props", () => (
+  .add("with label", () => (
     <InputText
-      id="handlers"
+      id="test"
       value={text("Value", "")}
       onChange={action("On change")}
       onFocus={action("On focus")}
@@ -28,14 +32,19 @@ storiesOf("InputText", module)
       placeholder={text("Placeholder", "Gib text")}
       error={text("Error", "")}
       label={<IconText Icon={Close}>{text("Label", "Label")}</IconText>}
+      showState={boolean("Show state", false)}
     />
   ))
   .add("numbers only", () => (
     <InputText
-      id="basic"
+      id="test"
       value={text("Value", "")}
       onChange={action("On change")}
-      placeholder={text("Placeholder", "Gib text")}
+      onFocus={action("On focus")}
+      onBlur={action("On blur")}
       normalize={val => val.replace(/[^0-9]+/g, "")}
+      placeholder={text("Placeholder", "Gib text")}
+      error={text("Error", "")}
+      showState={boolean("Show state", false)}
     />
   ));
