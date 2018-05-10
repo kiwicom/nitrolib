@@ -15,6 +15,9 @@ type Props = {|
 
 const Switch = (props: Props) => (
   <Flex>
+    <Tab id="myBooking" active={props.open === "myBooking"} onClick={props.onOpenMyBooking}>
+      <Text t={__("account.oneBookingLogin")} />
+    </Tab>
     <BrandConsumer>
       {brand =>
         brand.auth.credentials && (
@@ -29,9 +32,6 @@ const Switch = (props: Props) => (
         )
       }
     </BrandConsumer>
-    <Tab id="myBooking" active={props.open === "myBooking"} onClick={props.onOpenMyBooking}>
-      <Text t={__("account.oneBookingLogin")} />
-    </Tab>
   </Flex>
 );
 

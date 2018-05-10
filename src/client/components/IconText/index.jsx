@@ -9,9 +9,9 @@ const Container = styled.div`
   align-items: center;
 
   .icon {
-    padding-right: 4px;
-    height: 22px;
-    width: 22px;
+    padding-right: 10px;
+    height: 26px;
+    width: 26px;
   }
 `;
 
@@ -19,6 +19,7 @@ const Text = styled.span`
   font-size: 14px;
   height: 24px;
   line-height: 24px;
+  white-space: nowrap;
 `;
 
 type Props = {|

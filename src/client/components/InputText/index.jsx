@@ -15,6 +15,7 @@ const Label = styled.label`
   align-items: center;
   ${borderMixin};
   margin-bottom: 20px;
+  background: ${(props: ThemeProps) => props.theme.colors.white};
 `;
 
 Label.defaultProps = {

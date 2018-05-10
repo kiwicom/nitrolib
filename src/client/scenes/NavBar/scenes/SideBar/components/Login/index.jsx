@@ -8,6 +8,7 @@ import type { ThemeProps } from "client/records/Brand";
 import { Consumer as BrandConsumer } from "client/services/brand/context";
 import SocialLogin from "./SocialLogin";
 import Switch from "./Switch";
+import MyBooking from "../../scenes/MyBooking";
 
 const Container = styled.div`
   width: 400px;
@@ -39,7 +40,7 @@ const Login = (props: Props) => (
       onOpenRegister={props.onOpenRegister}
       onOpenSignIn={props.onOpenSignIn}
     />
-    {props.open /* TODO */}
+    {props.open === "myBooking" && <MyBooking />}
   </Container>
 );
 
