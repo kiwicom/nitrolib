@@ -64,18 +64,17 @@ Error.defaultProps = {
   theme: brandDefault.theme,
 };
 
-const omitProps = R.omit(["label", "normalize", "error", "showState"]);
+const omitProps = R.omit(["label", "error", "showState"]);
 
 type Props = {
   id: string,
   value: string,
-  onChange: string => void,
-  onFocus?: () => void,
-  onBlur?: () => void,
+  onChange: (value: string, id: string) => void,
+  onFocus?: (value: string, id: string) => void,
+  onBlur?: (value: string, id: string) => void,
   placeholder: string,
   type: string,
   label: React.Node,
-  normalize: string => string,
   error: string,
   showState: boolean,
 };
@@ -89,7 +88,6 @@ export default class InputText extends React.PureComponent<Props, State> {
   static defaultProps = {
     type: "text",
     label: null,
-    normalize: R.identity,
     error: "",
     showState: false,
   };
@@ -100,26 +98,26 @@ export default class InputText extends React.PureComponent<Props, State> {
   };
 
   handleChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
-    const { normalize, onChange } = this.props;
+    const { onChange } = this.props;
 
-    onChange(normalize(ev.target.value));
+    onChange(ev.target.value, ev.target.id);
   };
 
-  handleFocus = () => {
+  handleFocus = (ev: SyntheticInputEvent<HTMLInputElement>) => {
     const { onFocus } = this.props;
 
     this.setState({ active: true });
     if (onFocus) {
-      onFocus();
+      onFocus(ev.target.value, ev.target.id);
     }
   };
 
-  handleBlur = () => {
+  handleBlur = (ev: SyntheticInputEvent<HTMLInputElement>) => {
     const { onBlur } = this.props;
 
     this.setState({ active: false, visited: true });
     if (onBlur) {
-      onBlur();
+      onBlur(ev.target.value, ev.target.id);
     }
   };
 

@@ -15,7 +15,6 @@ describe("#InputText", () => {
         onChange={jest.fn()}
         placeholder="Placeholder"
         label={<div>Kekistan</div>}
-        normalize={val => val.replace(/[^0-9]+/g, "")}
         error=""
         autocomplete
       />,
@@ -142,27 +141,9 @@ describe("#InputText", () => {
       />,
     );
 
-    wrapper.find("InputText__Input").simulate("change", { target: { value: "kek" } });
+    wrapper.find("InputText__Input").simulate("change", { target: { id: "kek", value: "lol" } });
 
-    expect(onChange).toBeCalledWith("kek");
-  });
-
-  test("on change normalized", () => {
-    const onChange = jest.fn();
-    const wrapper = shallow(
-      <InputText
-        id="kek"
-        value="A value"
-        onChange={onChange}
-        placeholder="Placeholder"
-        normalize={val => val.replace(/[^0-9]+/g, "")}
-        error="An error"
-      />,
-    );
-
-    wrapper.find("InputText__Input").simulate("change", { target: { value: "12kek34" } });
-
-    expect(onChange).toBeCalledWith("1234");
+    expect(onChange).toBeCalledWith("lol", "kek");
   });
 
   test("on focus no callback", () => {
@@ -172,12 +153,11 @@ describe("#InputText", () => {
         value="A value"
         onChange={jest.fn()}
         placeholder="Placeholder"
-        normalize={val => val.replace(/[^0-9]+/g, "")}
         error="An error"
       />,
     );
 
-    wrapper.find("InputText__Input").simulate("focus");
+    wrapper.find("InputText__Input").simulate("focus", { target: { id: "kek", value: "lol" } });
     expect(wrapper.state()).toEqual({ active: true, visited: false });
   });
 
@@ -190,15 +170,14 @@ describe("#InputText", () => {
         onChange={jest.fn()}
         onFocus={onFocus}
         placeholder="Placeholder"
-        normalize={val => val.replace(/[^0-9]+/g, "")}
         error="An error"
       />,
     );
 
-    wrapper.find("InputText__Input").simulate("focus");
+    wrapper.find("InputText__Input").simulate("focus", { target: { id: "kek", value: "lol" } });
 
     expect(wrapper.state()).toEqual({ active: true, visited: false });
-    expect(onFocus).toBeCalled();
+    expect(onFocus).toBeCalledWith("lol", "kek");
   });
 
   test("on blur no callback", () => {
@@ -208,7 +187,6 @@ describe("#InputText", () => {
         value="A value"
         onChange={jest.fn()}
         placeholder="Placeholder"
-        normalize={val => val.replace(/[^0-9]+/g, "")}
         error="An error"
       />,
     );
@@ -226,14 +204,13 @@ describe("#InputText", () => {
         onChange={jest.fn()}
         onBlur={onBlur}
         placeholder="Placeholder"
-        normalize={val => val.replace(/[^0-9]+/g, "")}
         error="An error"
       />,
     );
 
-    wrapper.find("InputText__Input").simulate("blur");
+    wrapper.find("InputText__Input").simulate("blur", { target: { id: "kek", value: "lol" } });
 
     expect(wrapper.state()).toEqual({ active: false, visited: true });
-    expect(onBlur).toBeCalled();
+    expect(onBlur).toBeCalledWith("lol", "kek");
   });
 });
