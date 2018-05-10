@@ -14,25 +14,30 @@ export type PlaceResult_item = {|
   +locationId: ?string,
   +name: ?string,
   +type: ?string,
+  +country: ?{|
+    +locationId: ?string,
+  |},
   +$refType: PlaceResult_item$ref,
 |};
 */
 
 
-const node/*: ConcreteFragment*/ = {
+const node/*: ConcreteFragment*/ = (function(){
+var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "locationId",
+  "args": null,
+  "storageKey": null
+};
+return {
   "kind": "Fragment",
   "name": "PlaceResult_item",
   "type": "Location",
   "metadata": null,
   "argumentDefinitions": [],
   "selections": [
-    {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "locationId",
-      "args": null,
-      "storageKey": null
-    },
+    v0,
     {
       "kind": "ScalarField",
       "alias": null,
@@ -46,8 +51,21 @@ const node/*: ConcreteFragment*/ = {
       "name": "type",
       "args": null,
       "storageKey": null
+    },
+    {
+      "kind": "LinkedField",
+      "alias": null,
+      "name": "country",
+      "storageKey": null,
+      "args": null,
+      "concreteType": "LocationArea",
+      "plural": false,
+      "selections": [
+        v0
+      ]
     }
   ]
 };
-(node/*: any*/).hash = 'f52aaeefe23319160dba33746e8a5942';
+})();
+(node/*: any*/).hash = '8d1d4e5dfdf87bfae5fc8de42ff9bb3d';
 module.exports = node;
