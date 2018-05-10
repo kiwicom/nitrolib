@@ -143,7 +143,6 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                   </IconText>
                 }
                 error={intl.translate(errors.iata)}
-                autoComplete="email"
               />
             </Spacing>
           </>

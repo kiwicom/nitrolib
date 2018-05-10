@@ -46,10 +46,10 @@ import * as React from "react";
 import { createFragmentContainer, graphql } from "react-relay";
 import styled from "styled-components";
 
-import type { ${Component}_${prop} } from "./__generated__/${Component}_${prop}.graphql"
+import type { ${Component}_${Prop} } from "./__generated__/${Component}_${Prop}.graphql"
 
 type Props = {|
-  ${prop}: ${Component}_${prop},
+  ${Prop}: ${Component}_${Prop},
 |};
 
 const ${Component} = (props: Props) => (
@@ -59,7 +59,7 @@ const ${Component} = (props: Props) => (
 export default createFragmentContainer(
   ${Component},
   graphql`
-    fragment ${Component}_${Prop} on ${Data} {
+    fragment ${Component}_${Prop} on ${Fragment} {
       id
       # ...
     }
