@@ -3,7 +3,7 @@ import * as React from "react";
 import { graphql, QueryRenderer } from "react-relay";
 
 import environment from "client/services/environment";
-import AirportList from "../AirportList/index";
+import AirportList from "../../scenes/NavBar/scenes/SideBar/scenes/MyBooking/components/AirportList/index";
 
 type Props = {|
   value: string,

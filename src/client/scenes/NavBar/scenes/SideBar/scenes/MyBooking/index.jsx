@@ -9,7 +9,7 @@ import InputText from "client/components/InputText";
 import IconText from "client/components/IconText";
 import Text from "client/components/Text";
 import { Consumer as IntlConsumer } from "client/services/intl/context";
-import IataPicker from "./components/IataPicker";
+import IataPicker from "../../../../../../components/IataPicker";
 import * as validators from "./services/validators";
 import * as normalizers from "./services/normalizers";
 

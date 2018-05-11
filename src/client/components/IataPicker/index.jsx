@@ -3,12 +3,16 @@ import * as React from "react";
 import styled from "styled-components";
 import FaPlane from "react-icons/lib/fa/plane";
 
-import InputText from "client/components/InputText";
-import IconText from "client/components/IconText";
-import ClickOutside from "client/components/ClickOutside";
-import Text from "client/components/Text";
+import InputText from "client/components/InputText/index";
+import IconText from "client/components/IconText/index";
+import ClickOutside from "client/components/ClickOutside/index";
+import Text from "client/components/Text/index";
 import { Consumer as IntlConsumer } from "client/services/intl/context";
 import AirportListData from "./AirportListData";
+
+const Container = styled.div`
+  position: relative;
+`;
 
 const ResultWrapper = styled.div`
   position: absolute;
@@ -60,25 +64,27 @@ export default class IataPicker extends React.PureComponent<Props, State> {
       <IntlConsumer>
         {intl => (
           <ClickOutside onClickOutside={this.handleClickOutside}>
-            <InputText
-              id={id}
-              value={value}
-              onChange={this.handleChange}
-              onFocus={this.handleFocus}
-              placeholder={intl.translate(__("common.iata_airport_placeholder"))}
-              label={
-                <IconText Icon={FaPlane}>
-                  <Text t={__("common.iata_code")} />
-                </IconText>
-              }
-              error={intl.translate(error)}
-            />
-            {open &&
-              value !== "" && (
-                <ResultWrapper>
-                  <AirportListData value={value} onSelect={this.handleSelect} />
-                </ResultWrapper>
-              )}
+            <Container>
+              <InputText
+                id={id}
+                value={value}
+                onChange={this.handleChange}
+                onFocus={this.handleFocus}
+                placeholder={intl.translate(__("common.iata_airport_placeholder"))}
+                label={
+                  <IconText Icon={FaPlane}>
+                    <Text t={__("common.iata_code")} />
+                  </IconText>
+                }
+                error={intl.translate(error)}
+              />
+              {open &&
+                value !== "" && (
+                  <ResultWrapper>
+                    <AirportListData value={value} onSelect={this.handleSelect} />
+                  </ResultWrapper>
+                )}
+            </Container>
           </ClickOutside>
         )}
       </IntlConsumer>
