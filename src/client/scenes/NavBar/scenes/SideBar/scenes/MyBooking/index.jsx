@@ -20,75 +20,91 @@ const FieldWrap = styled.div`
 
 type Props = {||};
 
+type Field<T> = {|
+  value: T,
+  error: string,
+  validate: (value: T) => string,
+  normalize: (value: T) => T,
+|};
+
 type State = {|
-  values: {|
-    bid: string,
-    email: string,
-    iata: string,
-    departure: Date,
-  |},
-  errors: {|
-    bid: string,
-    email: string,
-    iata: string,
-    departure: string,
+  fields: {|
+    bid: Field<string>,
+    email: Field<string>,
+    iata: Field<string>,
+    departure: Field<Date>,
   |},
 |};
 
-const validate = {
-  bid: validators.required,
-  email: validators.email,
-  iata: validators.iata,
-  departure: validators.departure,
-};
-
-const normalize = {
-  bid: normalizers.numbers,
-  email: R.identity,
-};
-
 export default class MyBooking extends React.PureComponent<Props, State> {
   state = {
-    values: {
-      bid: "",
-      email: "",
-      iata: "",
-      departure: new Date(),
-    },
-    errors: {
-      bid: __("forms.this_field_must_be_filled"),
-      email: __("forms.this_field_must_be_filled"),
-      iata: __("forms.enter_iata_code"),
-      departure: __("forms.this_field_must_be_filled"),
+    fields: {
+      bid: {
+        value: "",
+        error: __("forms.this_field_must_be_filled"),
+        validate: validators.required,
+        normalize: normalizers.numbers,
+      },
+      email: {
+        value: "",
+        error: __("forms.this_field_must_be_filled"),
+        validate: validators.email,
+        normalize: R.identity,
+      },
+      iata: {
+        value: "",
+        error: __("forms.enter_iata_code"),
+        validate: validators.iata,
+        normalize: R.identity,
+      },
+      departure: {
+        value: new Date(),
+        error: __("forms.enter_iata_code"),
+        validate: validators.departure,
+        normalize: R.identity,
+      },
     },
   };
 
   handleChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
     const { id, value } = ev.target;
+    const { fields } = this.state;
 
-    const validator = validate[id];
-    const normalizer = normalize[id];
-
-    if (!validator || !normalizer) {
+    const field = fields[id];
+    if (!field) {
       return;
     }
 
-    const val = normalizer(value);
+    const val = field.normalize(value);
     this.setState(state => ({
-      values: R.assoc(id, val, state.values),
-      errors: R.assoc(id, validator(val), state.errors),
+      fields: R.assoc(
+        id,
+        R.merge(field, {
+          value: val,
+          error: field.validate(val),
+        }),
+        state.fields,
+      ),
     }));
   };
 
   handleSelectIata = (value: string) => {
+    const field = this.state.fields.iata;
+
     this.setState(state => ({
-      values: R.assoc("iata", value, state.values),
-      errors: R.assoc("iata", validate.iata(value), state.errors),
+      fields: R.assoc(
+        "iata",
+        R.merge(field, {
+          value,
+          error: field.validate(value),
+        }),
+        state.fields,
+      ),
     }));
   };
 
   render() {
-    const { values, errors } = this.state;
+    const { fields } = this.state;
 
     return (
       <IntlConsumer>
@@ -97,7 +113,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
             <FieldWrap>
               <InputText
                 id="bid"
-                value={values.bid}
+                value={fields.bid.value}
                 onChange={this.handleChange}
                 placeholder={intl.translate(__("common.booking_number_placeholder"))}
                 label={
@@ -105,13 +121,13 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                     <Text t={__("common.booking_number_colon")} />
                   </IconText>
                 }
-                error={intl.translate(errors.bid)}
+                error={intl.translate(fields.bid.error)}
               />
             </FieldWrap>
             <FieldWrap>
               <InputText
                 id="email"
-                value={values.email}
+                value={fields.email.value}
                 onChange={this.handleChange}
                 placeholder={intl.translate(__("price_alert.web.email_placeholder"))}
                 label={
@@ -119,16 +135,16 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                     <Text t={__("common.email_colon")} />
                   </IconText>
                 }
-                error={intl.translate(errors.email)}
+                error={intl.translate(fields.email.error)}
                 autoComplete="email"
               />
             </FieldWrap>
             <FieldWrap>
               <IataPicker
                 id="iata"
-                value={values.iata}
+                value={fields.iata.value}
                 onSelect={this.handleSelectIata}
-                error={intl.translate(errors.iata)}
+                error={intl.translate(fields.iata.error)}
               />
             </FieldWrap>
           </>
