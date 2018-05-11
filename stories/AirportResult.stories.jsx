@@ -31,6 +31,7 @@ storiesOf("AirportResult", module)
         }
 
         return (
+          // $FlowExpected - Relay :(
           <AirportResult
             onClick={action("click")}
             item={res.props.location}

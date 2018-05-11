@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 6952f9c065caa0c166fbcc9f1f7399ec
+ * @relayHash e182e938145995e359458c018d81366f
  */
 
 /* eslint-disable */
@@ -11,12 +11,12 @@
 import type { ConcreteRequest } from 'relay-runtime';
 type AirportResult_item$ref = any;
 export type AirportResultQueryVariables = {|
-  id: string,
+  id: string
 |};
 export type AirportResultQueryResponse = {|
   +location: ?{|
-    +$fragmentRefs: AirportResult_item$ref,
-  |},
+    +$fragmentRefs: AirportResult_item$ref
+  |}
 |};
 */
 
@@ -159,5 +159,6 @@ return {
   }
 };
 })();
+// prettier-ignore
 (node/*: any*/).hash = 'f418d2604bed0b888d83dd8e4ee726eb';
 module.exports = node;

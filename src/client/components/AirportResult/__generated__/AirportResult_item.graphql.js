@@ -8,17 +8,17 @@
 
 /*::
 import type { ConcreteFragment } from 'relay-runtime';
-import type { FragmentReference } from 'relay-runtime';
+import type { FragmentReference } from "relay-runtime";
 declare export opaque type AirportResult_item$ref: FragmentReference;
 export type AirportResult_item = {|
   +locationId: ?string,
   +name: ?string,
   +type: ?string,
   +city: ?{|
-    +name: ?string,
+    +name: ?string
   |},
   +country: ?{|
-    +locationId: ?string,
+    +locationId: ?string
   |},
   +$refType: AirportResult_item$ref,
 |};
@@ -83,5 +83,6 @@ return {
   ]
 };
 })();
+// prettier-ignore
 (node/*: any*/).hash = '8e1fa20cf89c00ead07979a1b1a2d2e4';
 module.exports = node;

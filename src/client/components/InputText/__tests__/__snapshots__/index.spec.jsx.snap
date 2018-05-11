@@ -5,7 +5,7 @@ Object {
   "autocomplete": true,
   "id": "kek",
   "onBlur": [Function],
-  "onChange": [Function],
+  "onChange": [MockFunction],
   "onFocus": [Function],
   "placeholder": "Placeholder",
   "theme": Object {
@@ -187,7 +187,7 @@ exports[`#InputText render active error 1`] = `
   <InputText__Input
     id="kek"
     onBlur={[Function]}
-    onChange={[Function]}
+    onChange={[MockFunction]}
     onFocus={[Function]}
     placeholder="Placeholder"
     theme={
@@ -466,7 +466,7 @@ exports[`#InputText render label 1`] = `
   <InputText__Input
     id="kek"
     onBlur={[Function]}
-    onChange={[Function]}
+    onChange={[MockFunction]}
     onFocus={[Function]}
     placeholder="Placeholder"
     theme={
@@ -651,7 +651,7 @@ exports[`#InputText render no label 1`] = `
   <InputText__Input
     id="kek"
     onBlur={[Function]}
-    onChange={[Function]}
+    onChange={[MockFunction]}
     onFocus={[Function]}
     placeholder="Placeholder"
     theme={
@@ -836,7 +836,7 @@ exports[`#InputText render regular error 1`] = `
   <InputText__Input
     id="kek"
     onBlur={[Function]}
-    onChange={[Function]}
+    onChange={[MockFunction]}
     onFocus={[Function]}
     placeholder="Placeholder"
     theme={
@@ -1110,7 +1110,7 @@ exports[`#InputText render show state 1`] = `
   <InputText__Input
     id="kek"
     onBlur={[Function]}
-    onChange={[Function]}
+    onChange={[MockFunction]}
     onFocus={[Function]}
     placeholder="Placeholder"
     theme={
@@ -1295,7 +1295,7 @@ exports[`#InputText render show state error 1`] = `
   <InputText__Input
     id="kek"
     onBlur={[Function]}
-    onChange={[Function]}
+    onChange={[MockFunction]}
     onFocus={[Function]}
     placeholder="Placeholder"
     theme={

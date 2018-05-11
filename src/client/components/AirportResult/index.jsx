@@ -47,6 +47,10 @@ type Props = {|
 |};
 
 class AirportResult extends React.PureComponent<Props> {
+  static defaultProps = {
+    selected: false,
+  };
+
   handleClick = () => {
     const { item, onClick } = this.props;
 

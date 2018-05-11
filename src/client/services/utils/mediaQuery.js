@@ -33,10 +33,10 @@ const LIMITS_MAP: $ObjMap<typeof SIZES, () => string> = R.map(
   SIZES,
 );
 
-type SizeQueryFunction = (Array<any>) => Array<Interpolation>;
+type SizeQueryFunction = (...args: any[]) => Array<Interpolation>;
 
 const SIZED_QUERIES: $ObjMap<typeof LIMITS_MAP, () => SizeQueryFunction> = R.map(
-  query => (...args: Array<any>) => css`
+  query => (...args: any[]) => css`
     @media ${query} {
       ${css(...args) /* eslint-disable-line prettier/prettier */}
     }
@@ -45,13 +45,13 @@ const SIZED_QUERIES: $ObjMap<typeof LIMITS_MAP, () => SizeQueryFunction> = R.map
 );
 
 const SPECIAL_QUERIES = {
-  retinaOnly: (...args: Array<any>) => css`
+  retinaOnly: (...args: any[]) => css`
     @media only screen and (-webkit-min-device-pixel-ratio: 2),
       only screen and (min-device-pixel-ratio: 2) {
       ${css(...args) /* eslint-disable-line prettier/prettier */}
     }
   `,
-  retinaMobileOnly: (...args: Array<any>) => css`
+  retinaMobileOnly: (...args: any[]) => css`
     @media only screen and (-webkit-min-device-pixel-ratio: 2) and ${LIMITS_MAP.mobile},
       only screen and (min-device-pixel-ratio: 2) and ${LIMITS_MAP.mobile} {
       ${css(...args) /* eslint-disable-line prettier/prettier */}

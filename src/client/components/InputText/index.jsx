@@ -69,9 +69,9 @@ const omitProps = R.omit(["label", "error", "showState"]);
 type Props = {
   id: string,
   value: string,
-  onChange: (value: string, id: string) => void,
-  onFocus?: (value: string, id: string) => void,
-  onBlur?: (value: string, id: string) => void,
+  onChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   placeholder: string,
   type: string,
   label: React.Node,
@@ -97,18 +97,12 @@ export default class InputText extends React.PureComponent<Props, State> {
     visited: false,
   };
 
-  handleChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
-    const { onChange } = this.props;
-
-    onChange(ev.target.value, ev.target.id);
-  };
-
   handleFocus = (ev: SyntheticInputEvent<HTMLInputElement>) => {
     const { onFocus } = this.props;
 
     this.setState({ active: true });
     if (onFocus) {
-      onFocus(ev.target.value, ev.target.id);
+      onFocus(ev);
     }
   };
 
@@ -117,7 +111,7 @@ export default class InputText extends React.PureComponent<Props, State> {
 
     this.setState({ active: false, visited: true });
     if (onBlur) {
-      onBlur(ev.target.value, ev.target.id);
+      onBlur(ev);
     }
   };
 
@@ -138,7 +132,6 @@ export default class InputText extends React.PureComponent<Props, State> {
           {...omitProps(this.props)}
           id={id}
           value={value}
-          onChange={this.handleChange}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
           placeholder={placeholder}

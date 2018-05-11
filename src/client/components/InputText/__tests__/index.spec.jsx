@@ -143,7 +143,7 @@ describe("#InputText", () => {
 
     wrapper.find("InputText__Input").simulate("change", { target: { id: "kek", value: "lol" } });
 
-    expect(onChange).toBeCalledWith("lol", "kek");
+    expect(onChange).toBeCalledWith({ target: { id: "kek", value: "lol" } });
   });
 
   test("on focus no callback", () => {
@@ -177,7 +177,7 @@ describe("#InputText", () => {
     wrapper.find("InputText__Input").simulate("focus", { target: { id: "kek", value: "lol" } });
 
     expect(wrapper.state()).toEqual({ active: true, visited: false });
-    expect(onFocus).toBeCalledWith("lol", "kek");
+    expect(onFocus).toBeCalledWith({ target: { id: "kek", value: "lol" } });
   });
 
   test("on blur no callback", () => {
@@ -211,6 +211,6 @@ describe("#InputText", () => {
     wrapper.find("InputText__Input").simulate("blur", { target: { id: "kek", value: "lol" } });
 
     expect(wrapper.state()).toEqual({ active: false, visited: true });
-    expect(onBlur).toBeCalledWith("lol", "kek");
+    expect(onBlur).toBeCalledWith({ target: { id: "kek", value: "lol" } });
   });
 });
