@@ -7,7 +7,7 @@ import idx from "idx";
 import Flag from "client/components/Flag";
 import { brandDefault } from "client/records/Brand";
 import type { ThemeProps } from "client/records/Brand";
-import type { PlaceResult_item } from "./__generated__/PlaceResult_item.graphql";
+import type { AirportResult_item } from "./__generated__/AirportResult_item.graphql";
 
 type ButtonProps = ThemeProps & {
   selected: boolean,
@@ -41,12 +41,12 @@ Container.defaultProps = {
 };
 
 type Props = {|
-  item: PlaceResult_item,
+  item: AirportResult_item,
   onClick: (id: string) => void,
   selected: boolean,
 |};
 
-class PlaceResult extends React.PureComponent<Props> {
+class AirportResult extends React.PureComponent<Props> {
   handleClick = () => {
     const { item, onClick } = this.props;
 
@@ -61,19 +61,22 @@ class PlaceResult extends React.PureComponent<Props> {
     return (
       <Container onClick={this.handleClick} selected={selected}>
         <Flag country={idx(item, _ => _.country.locationId) || "anywhere"} />
-        {item.locationId}
+        {`${String(idx(item, _ => _.city.name))} (${String(item.locationId)})`}
       </Container>
     );
   }
 }
 
 export default createFragmentContainer(
-  PlaceResult,
+  AirportResult,
   graphql`
-    fragment PlaceResult_item on Location {
+    fragment AirportResult_item on Location {
       locationId
       name
       type
+      city {
+        name
+      }
       country {
         locationId
       }

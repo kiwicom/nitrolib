@@ -6,17 +6,17 @@ import { action } from "@storybook/addon-actions";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs/react";
 
 import environment from "client/services/environment";
-import PlaceResult from "client/components/PlaceResult";
+import AirportResult from "client/components/AirportResult";
 
-storiesOf("PlaceResult", module)
+storiesOf("AirportResult", module)
   .addDecorator(withKnobs)
   .add("default", () => (
     <QueryRenderer
       environment={environment}
       query={graphql`
-        query PlaceResultQuery($id: String!) {
+        query AirportResultQuery($id: String!) {
           location(id: $id) {
-            ...PlaceResult_item
+            ...AirportResult_item
           }
         }
       `}
@@ -31,7 +31,7 @@ storiesOf("PlaceResult", module)
         }
 
         return (
-          <PlaceResult
+          <AirportResult
             onClick={action("click")}
             item={res.props.location}
             selected={boolean("Selected", false)}

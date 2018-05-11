@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 5e3384efe1ac16170b948d353c737b61
+ * @relayHash 6952f9c065caa0c166fbcc9f1f7399ec
  */
 
 /* eslint-disable */
@@ -9,31 +9,34 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-type PlaceResult_item$ref = any;
-export type PlaceResultQueryVariables = {|
+type AirportResult_item$ref = any;
+export type AirportResultQueryVariables = {|
   id: string,
 |};
-export type PlaceResultQueryResponse = {|
+export type AirportResultQueryResponse = {|
   +location: ?{|
-    +$fragmentRefs: PlaceResult_item$ref,
+    +$fragmentRefs: AirportResult_item$ref,
   |},
 |};
 */
 
 
 /*
-query PlaceResultQuery(
+query AirportResultQuery(
   $id: String!
 ) {
   location(id: $id) {
-    ...PlaceResult_item
+    ...AirportResult_item
   }
 }
 
-fragment PlaceResult_item on Location {
+fragment AirportResult_item on Location {
   locationId
   name
   type
+  city {
+    name
+  }
   country {
     locationId
   }
@@ -63,17 +66,24 @@ v2 = {
   "name": "locationId",
   "args": null,
   "storageKey": null
+},
+v3 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "name",
+  "args": null,
+  "storageKey": null
 };
 return {
   "kind": "Request",
   "operationKind": "query",
-  "name": "PlaceResultQuery",
+  "name": "AirportResultQuery",
   "id": null,
-  "text": "query PlaceResultQuery(\n  $id: String!\n) {\n  location(id: $id) {\n    ...PlaceResult_item\n  }\n}\n\nfragment PlaceResult_item on Location {\n  locationId\n  name\n  type\n  country {\n    locationId\n  }\n}\n",
+  "text": "query AirportResultQuery(\n  $id: String!\n) {\n  location(id: $id) {\n    ...AirportResult_item\n  }\n}\n\nfragment AirportResult_item on Location {\n  locationId\n  name\n  type\n  city {\n    name\n  }\n  country {\n    locationId\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
-    "name": "PlaceResultQuery",
+    "name": "AirportResultQuery",
     "type": "RootQuery",
     "metadata": null,
     "argumentDefinitions": v0,
@@ -89,7 +99,7 @@ return {
         "selections": [
           {
             "kind": "FragmentSpread",
-            "name": "PlaceResult_item",
+            "name": "AirportResult_item",
             "args": null
           }
         ]
@@ -98,7 +108,7 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "PlaceResultQuery",
+    "name": "AirportResultQuery",
     "argumentDefinitions": v0,
     "selections": [
       {
@@ -111,19 +121,25 @@ return {
         "plural": false,
         "selections": [
           v2,
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "name": "name",
-            "args": null,
-            "storageKey": null
-          },
+          v3,
           {
             "kind": "ScalarField",
             "alias": null,
             "name": "type",
             "args": null,
             "storageKey": null
+          },
+          {
+            "kind": "LinkedField",
+            "alias": null,
+            "name": "city",
+            "storageKey": null,
+            "args": null,
+            "concreteType": "LocationArea",
+            "plural": false,
+            "selections": [
+              v3
+            ]
           },
           {
             "kind": "LinkedField",
@@ -143,5 +159,5 @@ return {
   }
 };
 })();
-(node/*: any*/).hash = '2f9217d24680ccba0b8e9b43cae701b0';
+(node/*: any*/).hash = 'f418d2604bed0b888d83dd8e4ee726eb';
 module.exports = node;
