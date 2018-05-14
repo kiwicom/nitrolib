@@ -13,7 +13,7 @@ import MyBooking from "../../scenes/MyBooking";
 const Container = styled.div`
   width: 400px;
   padding: ${padding.page}px;
-  background: ${({ theme }: ThemeProps) => theme.colors["neutral-100"]};
+  background: ${({ theme }: ThemeProps) => theme.colors.white};
 `;
 
 Container.defaultProps = {

@@ -30,7 +30,7 @@ const OrText = styled.span`
   left: 50%;
   transform: translate(-50%, -50%); // vertical and horizontal center
   padding: 10px;
-  background: ${({ theme }: ThemeProps) => theme.colors["grey-100"]};
+  background: ${({ theme }: ThemeProps) => theme.colors.white};
   text-transform: uppercase;
   color: ${({ theme }: ThemeProps) => theme.colors["grey-700"]};
   font-size: 14px;

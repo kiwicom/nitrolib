@@ -5,7 +5,6 @@ import styled from "styled-components";
 const Container = styled.div`
   position: relative;
   display: flex;
-  height: 100%;
   align-items: center;
 
   .icon {

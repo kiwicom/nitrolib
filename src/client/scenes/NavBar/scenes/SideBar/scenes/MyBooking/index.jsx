@@ -3,13 +3,16 @@ import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
 import FaBarcode from "react-icons/lib/fa/barcode";
+import FaCalendar from "react-icons/lib/fa/calendar";
 import KwEmail from "@kiwicom/orbit-components/lib/icons/Email";
+import addYears from "date-fns/addYears";
 
 import InputText from "client/components/InputText";
 import IconText from "client/components/IconText";
 import Text from "client/components/Text";
 import { Consumer as IntlConsumer } from "client/services/intl/context";
-import IataPicker from "../../../../../../components/IataPicker";
+import IataPicker from "client/components/IataPicker";
+import InputDate from "client/components/InputDate";
 import * as validators from "./services/validators";
 import * as normalizers from "./services/normalizers";
 
@@ -35,6 +38,9 @@ type State = {|
     departure: Field<Date>,
   |},
 |};
+
+const MIN = addYears(new Date(), -5);
+const MAX = addYears(new Date(), 1);
 
 export default class MyBooking extends React.PureComponent<Props, State> {
   state = {
@@ -103,6 +109,21 @@ export default class MyBooking extends React.PureComponent<Props, State> {
     }));
   };
 
+  handleChangeDeparture = (value: Date) => {
+    const field = this.state.fields.departure;
+
+    this.setState(state => ({
+      fields: R.assoc(
+        "departure",
+        R.merge(field, {
+          value,
+          error: field.validate(value),
+        }),
+        state.fields,
+      ),
+    }));
+  };
+
   render() {
     const { fields } = this.state;
 
@@ -111,30 +132,26 @@ export default class MyBooking extends React.PureComponent<Props, State> {
         {intl => (
           <>
             <FieldWrap>
+              <IconText Icon={FaBarcode}>
+                <Text t={__("common.booking_number_colon")} />
+              </IconText>
               <InputText
                 id="bid"
                 value={fields.bid.value}
                 onChange={this.handleChange}
                 placeholder={intl.translate(__("common.booking_number_placeholder"))}
-                label={
-                  <IconText Icon={FaBarcode}>
-                    <Text t={__("common.booking_number_colon")} />
-                  </IconText>
-                }
                 error={intl.translate(fields.bid.error)}
               />
             </FieldWrap>
             <FieldWrap>
+              <IconText Icon={KwEmail}>
+                <Text t={__("common.email_colon")} />
+              </IconText>
               <InputText
                 id="email"
                 value={fields.email.value}
                 onChange={this.handleChange}
                 placeholder={intl.translate(__("price_alert.web.email_placeholder"))}
-                label={
-                  <IconText Icon={KwEmail}>
-                    <Text t={__("common.email_colon")} />
-                  </IconText>
-                }
                 error={intl.translate(fields.email.error)}
                 autoComplete="email"
               />
@@ -145,6 +162,18 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                 value={fields.iata.value}
                 onSelect={this.handleSelectIata}
                 error={intl.translate(fields.iata.error)}
+              />
+            </FieldWrap>
+            <FieldWrap>
+              <IconText Icon={FaCalendar}>
+                <Text t={__("common.departure_date_colon")} />
+              </IconText>
+              <InputDate
+                id="departure"
+                value={fields.departure.value}
+                onChange={this.handleChangeDeparture}
+                min={MIN}
+                max={MAX}
               />
             </FieldWrap>
           </>

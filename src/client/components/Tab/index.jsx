@@ -32,7 +32,7 @@ const Container = styled.button`
   border-color: ${({ theme }: ContainerProps) => theme.colors["neutral-400"]};
   border-radius: 0;
   background: ${({ theme, active }: ContainerProps) =>
-    theme.colors[active ? "neutral-200" : "neutral-100"]};
+    theme.colors[active ? "neutral-100" : "white"]};
   font-size: 15px;
   font-weight: 500;
   ${(props: ContainerProps) => props.active && shadowMixin};
