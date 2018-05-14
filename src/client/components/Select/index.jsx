@@ -3,7 +3,7 @@ import * as React from "react";
 import MdExpandMore from "react-icons/lib/md/expand-more";
 import styled from "styled-components";
 
-import { border } from "client/styles";
+import borderMixin from "../../styles/mixins/border";
 import { brandDefault } from "../../records/Brand";
 import type { ThemeProps } from "../../records/Brand";
 
@@ -17,8 +17,7 @@ const StyledSelect = styled.select`
   line-height: 46px;
   background-color: ${(props: ThemeProps) => props.theme.colors.white};
   width: 100%;
-  border: 1px solid ${(props: ThemeProps) => props.theme.colors["grey-200"]};
-  border-radius: ${border.radius}px;
+  ${borderMixin};
   padding: 0 15px;
   cursor: pointer;
 
@@ -51,7 +50,7 @@ type Props = {|
 
 const Select = (props: Props) => (
   <Container>
-    <StyledSelect id={props.id} value={props.value} onChange={props.onChange}>
+    <StyledSelect id={props.id} value={props.value} onChange={props.onChange} state="base">
       {props.children}
     </StyledSelect>
     <Icon>
