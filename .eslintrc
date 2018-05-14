@@ -26,7 +26,7 @@
     "fp/no-unused-expression": "off", // 'fs' calls, for example
     "react/default-props-match-prop-types": "off", // Flow/ESlint conflict
     "react/require-default-props": "off", // Somehow semantically wrong
-    "jsx-a11y/anchor-is-valid": "off", // Relative paths bullshit
+    "jsx-a11y/anchor-is-valid": "off" // Relative paths bullshit
   },
   "settings": {
     "import/resolver": {
