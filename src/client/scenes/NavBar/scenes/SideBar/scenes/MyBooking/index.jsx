@@ -4,7 +4,7 @@ import * as R from "ramda";
 import styled from "styled-components";
 import FaBarcode from "react-icons/lib/fa/barcode";
 import FaCalendar from "react-icons/lib/fa/calendar";
-import KwEmail from "@kiwicom/orbit-components/lib/icons/Email";
+import MdEmail from "react-icons/lib/md/email";
 import addYears from "date-fns/addYears";
 
 import InputText from "client/components/InputText";
@@ -144,7 +144,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
               />
             </FieldWrap>
             <FieldWrap>
-              <IconText Icon={KwEmail}>
+              <IconText Icon={MdEmail}>
                 <Text t={__("common.email_colon")} />
               </IconText>
               <InputText
