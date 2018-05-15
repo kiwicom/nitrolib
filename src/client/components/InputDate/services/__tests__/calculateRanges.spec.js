@@ -1,6 +1,7 @@
 // @flow
 import getDaysInMonth from "date-fns/getDaysInMonth";
 import * as R from "ramda";
+
 import calculateRanges, {
   getMinDate,
   getMaxDate,

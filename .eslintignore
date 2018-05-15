@@ -4,3 +4,4 @@ dist
 flow-typed
 public/lib
 types
+*.graphql.js

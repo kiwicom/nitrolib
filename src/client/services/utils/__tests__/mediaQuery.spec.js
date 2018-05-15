@@ -2,7 +2,6 @@
 import { forEachObjIndexed } from "ramda";
 
 import { BREAKPOINTS } from "client/consts/device";
-
 import mq from "../mediaQuery";
 
 const EXPECTED_QUERIES = {

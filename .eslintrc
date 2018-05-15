@@ -18,6 +18,10 @@
   },
   "rules": {
     "prettier/prettier": "error",
+    "import/order": ["error", {
+      "groups": [["builtin", "external"], ["internal", "parent", "sibling", "index"]],
+      "newlines-between": "always"
+    }],
     "camelcase": "off", // GraphQL
     "fp/no-nil": "off", // Side effects
     "fp/no-class": "off", // React

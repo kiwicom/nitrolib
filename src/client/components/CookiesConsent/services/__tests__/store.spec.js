@@ -2,7 +2,6 @@
 import jsCookie from "js-cookie";
 
 import * as COOKIES from "client/consts/cookies";
-
 import * as store from "../store";
 
 jest.mock("js-cookie");

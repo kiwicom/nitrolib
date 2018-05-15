@@ -2,7 +2,6 @@
 /* eslint-disable fp/no-rest-parameters */
 import { css } from "styled-components";
 import * as R from "ramda";
-
 import type { Interpolation } from "styled-components";
 
 import { BREAKPOINTS } from "client/consts/device";
