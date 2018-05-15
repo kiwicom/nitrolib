@@ -1,6 +1,4 @@
 [strict]
-nonstrict-import
-unclear-type
 unsafe-getters-setters
 untyped-import
 untyped-type-import
@@ -8,6 +6,9 @@ sketchy-null
 
 [lints]
 all=error
+# Due to Relay
+nonstrict-import=off
+unclear-type=off
 
 [ignore]
 <PROJECT_ROOT>\/data\/.*

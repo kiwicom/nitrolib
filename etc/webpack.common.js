@@ -5,7 +5,7 @@ const babelOptions = {
     "@babel/react",
     "@babel/flow",
     ["@babel/env", { targets: { esmodules: true } }],
-    "@babel/stage-2",
+    ["@babel/stage-2", { decoratorsLegacy: true }],
   ],
   plugins: ["relay", ["styled-components", { ssr: true }], "ramda", "react-hot-loader/babel"],
 };
