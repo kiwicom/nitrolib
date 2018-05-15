@@ -37,6 +37,7 @@ type Props = {|
   value: string,
   onSelect: (value: string) => void,
   error: string,
+  showState: boolean,
 |};
 
 type State = {|
@@ -44,6 +45,10 @@ type State = {|
 |};
 
 export default class IataPicker extends React.PureComponent<Props, State> {
+  static defaultProps = {
+    showState: false,
+  };
+
   state = {
     open: false,
   };
@@ -66,7 +71,7 @@ export default class IataPicker extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { id, value, error } = this.props;
+    const { id, value, error, showState } = this.props;
     const { open } = this.state;
 
     return (
@@ -84,6 +89,7 @@ export default class IataPicker extends React.PureComponent<Props, State> {
                 onFocus={this.handleFocus}
                 placeholder={intl.translate(__("common.iata_airport_placeholder"))}
                 error={intl.translate(error)}
+                showState={showState}
               />
               {open &&
                 value !== "" && (

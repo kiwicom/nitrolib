@@ -75,12 +75,12 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs } from "@storybook/addon-knobs/react";
 
-import ${Component} from "client/components/${Component}";
+import ${NAME} from "client/components/${NAME}";
 
-storiesOf("${Component}", module)
+storiesOf("${NAME}", module)
   .addDecorator(withKnobs)
   .add("default", () => (
-    <${Component} />
+    <${NAME} />
   ));
 ```
 

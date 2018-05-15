@@ -13,6 +13,7 @@ import Text from "client/components/Text";
 import { Consumer as IntlConsumer } from "client/services/intl/context";
 import IataPicker from "client/components/IataPicker";
 import InputDate from "client/components/InputDate";
+import isEmptish from "client/services/utils/isEmptish";
 import * as validators from "./services/validators";
 import * as normalizers from "./services/normalizers";
 
@@ -31,6 +32,8 @@ type Field<T> = {|
 |};
 
 type State = {|
+  submitted: boolean,
+  error: string,
   fields: {|
     bid: Field<string>,
     email: Field<string>,
@@ -44,6 +47,8 @@ const MAX = addYears(new Date(), 1);
 
 export default class MyBooking extends React.PureComponent<Props, State> {
   state = {
+    submitted: false,
+    error: "",
     fields: {
       bid: {
         value: "",
@@ -65,7 +70,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
       },
       departure: {
         value: new Date(),
-        error: __("forms.enter_iata_code"),
+        error: "",
         validate: validators.departure,
         normalize: R.identity,
       },
@@ -124,8 +129,21 @@ export default class MyBooking extends React.PureComponent<Props, State> {
     }));
   };
 
-  render() {
+  handleSubmit = () => {
     const { fields } = this.state;
+
+    this.setState({ submitted: true });
+    if (!isEmptish(R.map(R.prop("error"), fields))) {
+      return;
+    }
+
+    const values = R.map(R.prop("value"), fields);
+    // TODO type values + submit
+    console.log(values);
+  };
+
+  render() {
+    const { fields, submitted } = this.state;
 
     return (
       <IntlConsumer>
@@ -141,6 +159,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                 onChange={this.handleChange}
                 placeholder={intl.translate(__("common.booking_number_placeholder"))}
                 error={intl.translate(fields.bid.error)}
+                showState={submitted}
               />
             </FieldWrap>
             <FieldWrap>
@@ -153,6 +172,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                 onChange={this.handleChange}
                 placeholder={intl.translate(__("price_alert.web.email_placeholder"))}
                 error={intl.translate(fields.email.error)}
+                showState={submitted}
                 autoComplete="email"
               />
             </FieldWrap>
@@ -162,6 +182,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                 value={fields.iata.value}
                 onSelect={this.handleSelectIata}
                 error={intl.translate(fields.iata.error)}
+                showState={submitted}
               />
             </FieldWrap>
             <FieldWrap>
@@ -176,6 +197,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                 max={MAX}
               />
             </FieldWrap>
+            <button onClick={this.handleSubmit}>Submit</button>
           </>
         )}
       </IntlConsumer>
