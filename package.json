@@ -5,7 +5,8 @@
   "description": "Frontend on steroids.",
   "main": "dist/server/index.js",
   "scripts": {
-    "start": "rimraf dist && gulp statics && run-p run:dev babel:dev webpack:dev",
+    "start": "rimraf dist && gulp && run-p devserver webpack:dev",
+    "devserver": "yarn babel && run-p run:dev babel:dev",
     "run": "node dist/server",
     "run:dev": "nodemon dist/server",
     "render": "node dist/server/render",

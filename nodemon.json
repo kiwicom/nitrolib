@@ -1,0 +1,10 @@
+{
+  "watch": [
+    "dist/"
+  ],
+  "ignore": [
+    "dist/static",
+    "dist/storybook"
+  ],
+  "delay": "1000"
+}
