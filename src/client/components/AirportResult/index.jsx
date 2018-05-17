@@ -46,7 +46,7 @@ type Props = {|
   selected: boolean,
 |};
 
-class AirportResult extends React.PureComponent<Props> {
+export class AirportResult extends React.PureComponent<Props> {
   static defaultProps = {
     selected: false,
   };
