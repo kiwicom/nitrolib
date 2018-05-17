@@ -5,6 +5,7 @@ exports[`#Select render 1`] = `
   <Select__StyledSelect
     id="select"
     onChange={[MockFunction]}
+    state="base"
     theme={
       Object {
         "colors": Object {

@@ -14,7 +14,7 @@ describe("#Tab", () => {
     );
 
     expect(wrapper).toMatchSnapshot();
-    expect(wrapper).toHaveStyleRule("background", brandDefault.theme.colors["neutral-100"]);
+    expect(wrapper).toHaveStyleRule("background", brandDefault.theme.colors.white);
     expect(wrapper).toHaveStyleRule("cursor", "pointer");
   });
 
@@ -25,7 +25,7 @@ describe("#Tab", () => {
       </Tab>,
     );
 
-    expect(wrapper).toHaveStyleRule("background", brandDefault.theme.colors["neutral-200"]);
+    expect(wrapper).toHaveStyleRule("background", brandDefault.theme.colors["neutral-100"]);
     expect(wrapper).toHaveStyleRule(
       "box-shadow",
       `0 0 3px 0 ${brandDefault.theme.colors["neutral-400"]} inset`,
