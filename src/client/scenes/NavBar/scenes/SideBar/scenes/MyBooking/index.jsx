@@ -16,13 +16,17 @@ import InputDate from "client/components/InputDate";
 import isEmptish from "client/services/utils/isEmptish";
 import * as validators from "./services/validators";
 import * as normalizers from "./services/normalizers";
+import mmbRedirect from "./services/mmbRedirect";
 
 const FieldWrap = styled.div`
   position: relative;
   margin: 15px 0;
 `;
 
-type Props = {||};
+type Props = {|
+  lang: string,
+  mmbRedirectCall: typeof mmbRedirect,
+|};
 
 type Field<T> = {|
   value: T,
@@ -33,6 +37,7 @@ type Field<T> = {|
 
 type State = {|
   submitted: boolean,
+  loading: boolean,
   error: string,
   fields: {|
     bid: Field<string>,
@@ -46,8 +51,13 @@ const MIN = addYears(new Date(), -5);
 const MAX = addYears(new Date(), 1);
 
 export default class MyBooking extends React.PureComponent<Props, State> {
+  static defaultProps = {
+    mmbRedirectCall: mmbRedirect,
+  };
+
   state = {
     submitted: false,
+    loading: false,
     error: "",
     fields: {
       bid: {
@@ -130,25 +140,39 @@ export default class MyBooking extends React.PureComponent<Props, State> {
   };
 
   handleSubmit = () => {
-    const { fields } = this.state;
+    try {
+      const { lang, mmbRedirectCall } = this.props;
+      const { fields } = this.state;
 
-    this.setState({ submitted: true });
-    if (!isEmptish(R.map(R.prop("error"), fields))) {
-      return;
+      this.setState({ submitted: true, loading: true });
+      if (!isEmptish(R.map(R.prop("error"), fields))) {
+        return;
+      }
+
+      mmbRedirectCall({
+        lang,
+        bid: fields.bid.value,
+        email: fields.email.value,
+        iata: fields.iata.value,
+        departure: fields.departure.value,
+      });
+    } catch (err) {
+      this.setState({ error: String(err), loading: false });
     }
-
-    const values = R.map(R.prop("value"), fields);
-    // TODO type values + submit
-    console.log(values);
   };
 
   render() {
-    const { fields, submitted } = this.state;
+    const { fields, submitted, loading, error } = this.state;
 
     return (
       <IntlConsumer>
         {intl => (
           <>
+            {error !== "" && (
+              <FieldWrap>
+                <h2>Error! {error}</h2>
+              </FieldWrap>
+            )}
             <FieldWrap>
               <IconText Icon={FaBarcode}>
                 <Text t={__("common.booking_number_colon")} />
@@ -197,7 +221,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                 max={MAX}
               />
             </FieldWrap>
-            <button onClick={this.handleSubmit}>Submit</button>
+            <button onClick={this.handleSubmit} disabled={loading}>Submit</button>
           </>
         )}
       </IntlConsumer>

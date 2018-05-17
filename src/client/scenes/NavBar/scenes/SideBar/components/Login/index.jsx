@@ -6,6 +6,7 @@ import { padding } from "client/styles";
 import { brandDefault } from "client/records/Brand";
 import type { ThemeProps } from "client/records/Brand";
 import { Consumer as BrandConsumer } from "client/services/brand/context";
+import { Consumer as IntlConsumer } from "client/services/intl/context";
 import SocialLogin from "./SocialLogin";
 import Switch from "./Switch";
 import MyBooking from "../../scenes/MyBooking";
@@ -40,7 +41,9 @@ const Login = (props: Props) => (
       onOpenRegister={props.onOpenRegister}
       onOpenSignIn={props.onOpenSignIn}
     />
-    {props.open === "myBooking" && <MyBooking />}
+    <IntlConsumer>
+      {intl => props.open === "myBooking" && <MyBooking lang={intl.language.id} />}
+    </IntlConsumer>
   </Container>
 );
 
