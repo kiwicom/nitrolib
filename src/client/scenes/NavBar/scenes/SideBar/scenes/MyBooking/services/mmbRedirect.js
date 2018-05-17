@@ -1,8 +1,5 @@
 // @flow strict
-import querystring from "querystring";
-import format from "date-fns/format";
-
-import config from "client/consts/config";
+import { getToken } from "client/services/booking/api";
 
 type Input = {
   lang: string,
@@ -13,19 +10,7 @@ type Input = {
 };
 
 async function mmbRedirect({ lang, bid, email, iata, departure }: Input) {
-  const query = {
-    email,
-    src: iata,
-    dtime: format(departure, config.apiDateFormat),
-  };
-
-  const token = await fetch(
-    `${config.bookingApiUrl}/api/v0.1/users/get_simple_token/${bid}/?${querystring.stringify(
-      query,
-    )}`,
-  )
-    .then(res => res.json())
-    .then(res => res.simple_token);
+  const token = await getToken({ bid, email, iata, departure });
 
   window.location = `/${lang}/manage/${bid}/${token}`;
 }

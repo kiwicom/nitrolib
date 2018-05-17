@@ -139,17 +139,18 @@ export default class MyBooking extends React.PureComponent<Props, State> {
     }));
   };
 
-  handleSubmit = () => {
+  handleSubmit = async () => {
     try {
       const { lang, mmbRedirectCall } = this.props;
       const { fields } = this.state;
 
-      this.setState({ submitted: true, loading: true });
+      this.setState({ submitted: true });
       if (!isEmptish(R.map(R.prop("error"), fields))) {
-        return;
+        return null;
       }
 
-      mmbRedirectCall({
+      this.setState({ loading: true });
+      return await mmbRedirectCall({
         lang,
         bid: fields.bid.value,
         email: fields.email.value,
@@ -158,6 +159,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
       });
     } catch (err) {
       this.setState({ error: String(err), loading: false });
+      return null;
     }
   };
 
@@ -221,7 +223,9 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                 max={MAX}
               />
             </FieldWrap>
-            <button onClick={this.handleSubmit} disabled={loading}>Submit</button>
+            <button onClick={this.handleSubmit} disabled={loading}>
+              Submit
+            </button>
           </>
         )}
       </IntlConsumer>
