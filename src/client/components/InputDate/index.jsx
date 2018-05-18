@@ -57,7 +57,9 @@ class InputDate extends React.PureComponent<Props> {
   };
 
   componentDidMount() {
-    minMaxCheck(this.props.value, this.props.min, this.props.max, this.props.onChange);
+    const { value, min, max, onChange } = this.props;
+
+    minMaxCheck(value, min, max, onChange);
   }
 
   componentWillReceiveProps(nextProps: Props) {
