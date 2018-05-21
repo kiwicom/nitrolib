@@ -26,7 +26,7 @@
   },
   "author": "kiwicom",
   "dependencies": {
-    "@kiwicom/orbit-components": "^0.0.0-rc8",
+    "@kiwicom/orbit-components": "^0.0.0-rc12",
     "date-fns": "^2.0.0-alpha.7",
     "fs-extra": "^6.0.1",
     "idx": "^2.3.0",
@@ -84,7 +84,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.9.1",
-    "flow-bin": "^0.73.0",
+    "flow-bin": "^0.74.0",
     "graphql-cli": "^2.16.1",
     "gulp": "gulpjs/gulp#4.0",
     "i18n-extract": "^0.6.0",

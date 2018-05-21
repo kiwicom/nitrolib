@@ -1005,9 +1005,9 @@
     request-promise "^4.1.1"
     yargs "^8.0.2"
 
-"@kiwicom/orbit-components@^0.0.0-rc8":
-  version "0.0.0-rc8"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.0.0-rc8.tgz#2eda1de2c2f14855e802c6052b8545281f4b2b90"
+"@kiwicom/orbit-components@^0.0.0-rc12":
+  version "0.0.0-rc12"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.0.0-rc12.tgz#f9c2bc58ff5166fc4ca8b7800c3425c90f826ca4"
   dependencies:
     "@kiwicom/orbit-design-tokens" "^0.0.8"
     "@sambego/storybook-styles" "^1.0.0"
@@ -5943,9 +5943,9 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
-flow-bin@^0.73.0:
-  version "0.73.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.73.0.tgz#da1b90a02b0ef9c439f068c2fc14968db83be425"
+flow-bin@^0.74.0:
+  version "0.74.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.74.0.tgz#8017bb00efb37cbe8d81fbb7f464038bde06adc9"
 
 flush-write-stream@^1.0.0:
   version "1.0.2"

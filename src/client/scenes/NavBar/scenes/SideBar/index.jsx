@@ -4,6 +4,7 @@ import * as React from "react";
 import Modal from "client/components/Modal";
 import { Consumer as BrandConsumer } from "client/services/brand/context";
 import Login from "./components/Login";
+import SideNav from "./components/SideNav";
 
 type Props = {||};
 
@@ -51,6 +52,7 @@ export default class SideBar extends React.PureComponent<Props, State> {
             )
           }
         </BrandConsumer>
+        <SideNav onOpenRegister={this.handleOpenRegister} onOpenSignIn={this.handleOpenSignIn} />
 
         {modalOpen !== "" && (
           <Modal onClose={this.handleClose}>

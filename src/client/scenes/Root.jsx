@@ -48,6 +48,7 @@ const Root = () => (
       <SearchForm />
       <ExploreLink />
     </MainContent>
+    <div id="sidenav" />
     <ClientOnly>
       <CookiesConsentContainer>
         <CookiesConsent />
