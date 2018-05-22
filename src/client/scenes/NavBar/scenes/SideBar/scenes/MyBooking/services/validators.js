@@ -2,8 +2,8 @@
 import isEmail from "validator/lib/isEmail";
 import isAfter from "date-fns/isAfter";
 
-export const required = (val: string) =>
-  val.length > 0 ? "" : __("forms.this_field_must_be_filled");
+// eslint-disable-next-line no-extra-boolean-cast
+export const required = (val: mixed) => (Boolean(val) ? "" : __("forms.this_field_must_be_filled"));
 
 export const email = (val: string) => (isEmail(val) ? "" : __("forms.wrong_format_email"));
 

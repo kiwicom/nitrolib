@@ -26,6 +26,7 @@ const FieldWrap = styled.div`
 type Props = {|
   lang: string,
   mmbRedirectCall: typeof mmbRedirect,
+  now: Date,
 |};
 
 type Field<T> = {|
@@ -53,6 +54,7 @@ const MAX = addYears(new Date(), 1);
 export default class MyBooking extends React.PureComponent<Props, State> {
   static defaultProps = {
     mmbRedirectCall: mmbRedirect,
+    now: new Date(),
   };
 
   state = {
@@ -79,7 +81,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
         normalize: R.identity,
       },
       departure: {
-        value: new Date(),
+        value: this.props.now,
         error: "",
         validate: validators.departure,
         normalize: R.identity,
