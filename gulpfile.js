@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const gulp = require("gulp");
 
 const collectKeys = require("./etc/gulp/collectKeys");

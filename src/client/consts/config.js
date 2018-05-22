@@ -217,6 +217,6 @@ const config = {
   dailyQueriesStat: "65 000 000+",
   priceUpdatesStat: "225 000+",
   graphQLUrl: "https://graphql.kiwi.com/",
-}
+};
 
-export default config
+export default config;
