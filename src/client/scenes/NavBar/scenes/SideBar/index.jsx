@@ -22,10 +22,6 @@ export default class SideBar extends React.PureComponent<Props, State> {
     this.setState({ modalOpen: "" });
   };
 
-  handleOpen = (modal: LoginModal) => {
-    this.setState({ modalOpen: modal });
-  };
-
   handleOpenMyBooking = () => {
     this.setState({ modalOpen: "myBooking" });
   };
