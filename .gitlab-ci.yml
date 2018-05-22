@@ -7,10 +7,21 @@ stages:
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
-  - node_modules/
+    - node_modules/
+  policy: pull
 
 before_script:
-  - yarn
+  - yarn || true # Don't blow up when 'yarn' doesn't exist
+
+install:
+  stage: build
+  script:
+    - echo 🐖
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+    policy: pull-push
 
 build:
   stage: build
@@ -18,8 +29,8 @@ build:
     - yarn bundle
   artifacts:
     paths:
-    - data/
-    - dist/
+      - data/
+      - dist/
 
 test:
   stage: build
