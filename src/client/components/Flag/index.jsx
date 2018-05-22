@@ -23,11 +23,7 @@ type Props = {|
 |};
 
 const Flag = (props: Props) => (
-  <Img
-    className="Flag spFlag"
-    src={`/images/flags/spFlag-${props.country}.png`}
-    alt={props.country}
-  />
+  <Img src={`/images/flags/spFlag-${props.country}.png`} alt={props.country} />
 );
 
 export default Flag;

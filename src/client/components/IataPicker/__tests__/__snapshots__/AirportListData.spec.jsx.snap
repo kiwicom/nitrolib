@@ -4,4 +4,4 @@ exports[`#AirportListData render error 1`] = `"<span>Error :(</span>"`;
 
 exports[`#AirportListData render loading 1`] = `null`;
 
-exports[`#AirportListData render results 1`] = `"<button class=\\"AirportResult__Container-fl71uz-0 jcDMss\\"><img class=\\"Flag spFlag Flag__Img-s1piipyw-0 LQKCg\\" src=\\"/images/flags/spFlag-at.png\\" alt=\\"at\\">Vienna (VIE)</button>"`;
+exports[`#AirportListData render results 1`] = `"<button class=\\"AirportResult__Container-fl71uz-0 jcDMss\\"><img class=\\"Flag__Img-s1piipyw-0 LQKCg\\" src=\\"/images/flags/spFlag-at.png\\" alt=\\"at\\">Vienna (VIE)</button>"`;

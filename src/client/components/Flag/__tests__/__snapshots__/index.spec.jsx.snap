@@ -3,7 +3,6 @@
 exports[`#Flag render 1`] = `
 <Flag__Img
   alt="sk"
-  className="Flag spFlag"
   src="/images/flags/spFlag-sk.png"
   theme={
     Object {
