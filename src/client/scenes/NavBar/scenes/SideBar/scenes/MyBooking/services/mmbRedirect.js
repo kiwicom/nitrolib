@@ -9,10 +9,13 @@ type Input = {
   departure: Date,
 };
 
-async function mmbRedirect({ lang, bid, email, iata, departure }: Input) {
-  const token = await getToken({ bid, email, iata, departure });
+async function mmbRedirect(
+  { lang, bid, email, iata, departure }: Input,
+  call: typeof getToken = getToken,
+) {
+  const token = await call({ bid, email, iata, departure });
 
-  window.location = `/${lang}/manage/${bid}/${token}`;
+  window.location.assign(`/${lang}/manage/${bid}/${token}`);
 }
 
 export default mmbRedirect;
