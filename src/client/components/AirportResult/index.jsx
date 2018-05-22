@@ -46,7 +46,7 @@ type Props = {|
   selected: boolean,
 |};
 
-export class AirportResult extends React.PureComponent<Props> {
+class AirportResult extends React.PureComponent<Props> {
   static defaultProps = {
     selected: false,
   };
@@ -70,6 +70,8 @@ export class AirportResult extends React.PureComponent<Props> {
     );
   }
 }
+
+export const AirportResultUnwrapped = AirportResult;
 
 export default createFragmentContainer(
   AirportResult,

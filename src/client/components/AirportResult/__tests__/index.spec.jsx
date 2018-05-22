@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import { AirportResult } from "../index";
+import { AirportResultUnwrapped as AirportResult } from "../index";
 
 const item: any = {
   locationId: "VIE",

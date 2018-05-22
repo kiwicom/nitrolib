@@ -3,16 +3,17 @@ import * as React from "react";
 import { graphql, QueryRenderer } from "react-relay";
 
 import environment from "client/services/environment";
-import AirportList from "../../scenes/NavBar/scenes/SideBar/scenes/MyBooking/components/AirportList/index";
+import AirportList from "./AirportList";
 
 type Props = {|
   value: string,
   onSelect: (id: string) => void,
+  environment: typeof environment,
 |};
 
 const AirportListData = (props: Props) => (
   <QueryRenderer
-    environment={environment}
+    environment={props.environment}
     query={graphql`
       query AirportListDataQuery($input: String!) {
         allLocations(search: $input, options: { locationType: airport }) {
@@ -35,5 +36,9 @@ const AirportListData = (props: Props) => (
     }}
   />
 );
+
+AirportListData.defaultProps = {
+  environment,
+};
 
 export default AirportListData;
