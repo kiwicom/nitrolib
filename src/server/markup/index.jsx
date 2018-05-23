@@ -10,7 +10,7 @@ import * as intlContext from "client/services/intl/context";
 import * as brandContext from "client/services/brand/context";
 import * as fetchedContext from "client/services/fetched/context";
 import Html from "./Html";
-import { assets } from "../config";
+import { assets, system } from "../config";
 import * as data from "../dataFiles";
 
 function markup(url: string, brandId: string, localeId: string) {
@@ -51,6 +51,7 @@ function markup(url: string, brandId: string, localeId: string) {
       brand={brand}
       intl={intl}
       fetched={fetched}
+      system={system}
     />,
   );
 }

@@ -1,6 +1,9 @@
 // @flow strict
 import fs from "fs";
 import path from "path";
+import * as R from "ramda";
+
+import { SYSTEM_ENV } from "client/consts/system";
 
 const assetsPath = path.join(__dirname, "../assets.json");
 
@@ -35,3 +38,15 @@ export const routes: Route[] = [
 ];
 
 export const assets = getAssets();
+
+function getSystemEnv() {
+  if (R.isEmpty(process.env.IS_STAGING) && Boolean(process.env.IS_STAGING)) {
+    return SYSTEM_ENV.STAGING;
+  }
+
+  return process.env.NODE_ENV === "production" ? SYSTEM_ENV.PROD : SYSTEM_ENV.DEV;
+}
+
+export const system = {
+  env: getSystemEnv(),
+};

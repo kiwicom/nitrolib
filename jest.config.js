@@ -3,6 +3,7 @@ module.exports = {
   setupTestFrameworkScriptFile: "./etc/jestSetupFramework.js",
   snapshotSerializers: ["enzyme-to-json/serializer"],
   testPathIgnorePatterns: ["dist"],
+  testEnvironment: "jest-environment-jsdom-global",
   coverageThreshold: {
     // Functions & branches have a problem with 'styled-components'
     global: {
