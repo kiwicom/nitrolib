@@ -12,7 +12,6 @@ import Flex from "client/primitives/Flex";
 import Text from "../Text";
 import Select from "../Select";
 import calculateRanges from "./services/calculateRanges";
-import minMaxCheck from "./services/minMaxCheck";
 
 const SelectContainer = styled.div`
   width: 100%;
@@ -55,16 +54,6 @@ class InputDate extends React.PureComponent<Props> {
   static defaultProps = {
     mmddyyyy: false,
   };
-
-  componentDidMount() {
-    const { value, min, max, onChange } = this.props;
-
-    minMaxCheck(value, min, max, onChange);
-  }
-
-  componentWillReceiveProps(nextProps: Props) {
-    minMaxCheck(nextProps.value, nextProps.min, nextProps.max, nextProps.onChange);
-  }
 
   handleChangeDay = (ev: SyntheticInputEvent<HTMLSelectElement>) => {
     const { onChange, value } = this.props;

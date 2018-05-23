@@ -40,66 +40,6 @@ describe("#InputDate", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test("check min on mount", () => {
-    const min = addYears(NOW, -1);
-    const onChange = jest.fn();
-    shallow(
-      <InputDate
-        id="test"
-        value={addYears(NOW, -2)}
-        onChange={onChange}
-        min={min}
-        max={addYears(NOW, 2)}
-      />,
-    );
-
-    expect(onChange).toBeCalledWith(min);
-  });
-
-  test("check max on mount", () => {
-    const max = addYears(NOW, 2);
-    const onChange = jest.fn();
-    shallow(
-      <InputDate
-        id="test"
-        value={addYears(NOW, 3)}
-        onChange={onChange}
-        min={addYears(NOW, -1)}
-        max={max}
-      />,
-    );
-
-    expect(onChange).toBeCalledWith(max);
-  });
-
-  test("check min on update", () => {
-    const min = addYears(NOW, -1);
-    const onChange = jest.fn();
-    const wrapper = shallow(
-      <InputDate id="test" value={NOW} onChange={onChange} min={min} max={addYears(NOW, 2)} />,
-    );
-
-    expect(onChange).not.toBeCalled();
-
-    wrapper.setProps({ value: addYears(NOW, -2) });
-
-    expect(onChange).toBeCalledWith(min);
-  });
-
-  test("check max on update", () => {
-    const max = addYears(NOW, 2);
-    const onChange = jest.fn();
-    const wrapper = shallow(
-      <InputDate id="test" value={NOW} onChange={onChange} min={addYears(NOW, -1)} max={max} />,
-    );
-
-    expect(onChange).not.toBeCalled();
-
-    wrapper.setProps({ value: addYears(NOW, 3) });
-
-    expect(onChange).toBeCalledWith(max);
-  });
-
   test("handle change date", () => {
     const onChange = jest.fn();
     const wrapper = shallow(
