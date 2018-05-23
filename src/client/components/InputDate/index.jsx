@@ -4,14 +4,12 @@ import styled from "styled-components";
 import setDate from "date-fns/setDate";
 import setMonth from "date-fns/setMonth";
 import setYear from "date-fns/setYear";
-import getDate from "date-fns/getDate";
-import getMonth from "date-fns/getMonth";
-import getYear from "date-fns/getYear";
 
 import Flex from "client/primitives/Flex";
-import Text from "../Text";
-import Select from "../Select";
 import calculateRanges from "./services/calculateRanges";
+import Dates from "./Dates";
+import Months from "./Months";
+import Years from "./Years";
 
 const SelectContainer = styled.div`
   width: 100%;
@@ -25,21 +23,6 @@ const SelectContainer = styled.div`
     margin-right: 0;
   }
 `;
-
-const MONTHS = [
-  __("January"),
-  __("February"),
-  __("March"),
-  __("April"),
-  __("May"),
-  __("June"),
-  __("July"),
-  __("August"),
-  __("September"),
-  __("October"),
-  __("November"),
-  __("December"),
-];
 
 type Props = {
   id: string,
@@ -55,7 +38,7 @@ class InputDate extends React.PureComponent<Props> {
     mmddyyyy: false,
   };
 
-  handleChangeDay = (ev: SyntheticInputEvent<HTMLSelectElement>) => {
+  handleChangeDate = (ev: SyntheticInputEvent<HTMLSelectElement>) => {
     const { onChange, value } = this.props;
 
     onChange(setDate(value, Number(ev.target.value)));
@@ -82,70 +65,24 @@ class InputDate extends React.PureComponent<Props> {
         {mmddyyyy ? (
           <>
             <SelectContainer>
-              <Select
-                id={`${id}-month`}
-                value={String(getMonth(value))}
-                onChange={this.handleChangeMonth}
-              >
-                {months.map(month => (
-                  <option key={month} value={month}>
-                    <Text t={MONTHS[month]} />
-                  </option>
-                ))}
-              </Select>
+              <Months id={id} value={value} onChange={this.handleChangeMonth} months={months} />
             </SelectContainer>
             <SelectContainer>
-              <Select
-                id={`${id}-date`}
-                value={String(getDate(value))}
-                onChange={this.handleChangeDay}
-              >
-                {dates.map(date => (
-                  <option key={date} value={date}>
-                    {date}
-                  </option>
-                ))}
-              </Select>
+              <Dates id={id} value={value} onChange={this.handleChangeDate} dates={dates} />
             </SelectContainer>
           </>
         ) : (
           <>
             <SelectContainer>
-              <Select
-                id={`${id}-date`}
-                value={String(getDate(value))}
-                onChange={this.handleChangeDay}
-              >
-                {dates.map(date => (
-                  <option key={date} value={date}>
-                    {date}
-                  </option>
-                ))}
-              </Select>
+              <Dates id={id} value={value} onChange={this.handleChangeDate} dates={dates} />
             </SelectContainer>
             <SelectContainer>
-              <Select
-                id={`${id}-month`}
-                value={String(getMonth(value))}
-                onChange={this.handleChangeMonth}
-              >
-                {months.map(month => (
-                  <option key={month} value={month}>
-                    <Text t={MONTHS[month]} />
-                  </option>
-                ))}
-              </Select>
+              <Months id={id} value={value} onChange={this.handleChangeMonth} months={months} />
             </SelectContainer>
           </>
         )}
         <SelectContainer>
-          <Select id={`${id}-year`} value={String(getYear(value))} onChange={this.handleChangeYear}>
-            {years.map(year => (
-              <option key={year} value={year}>
-                {year}
-              </option>
-            ))}
-          </Select>
+          <Years id={id} value={value} onChange={this.handleChangeYear} years={years} />
         </SelectContainer>
       </Flex>
     );

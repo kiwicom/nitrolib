@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Years render 1`] = `
+<Select
+  id="kek-year"
+  onChange={[MockFunction]}
+  value="2020"
+>
+  <option
+    key="2017"
+    value={2017}
+  >
+    2017
+  </option>
+  <option
+    key="2018"
+    value={2018}
+  >
+    2018
+  </option>
+  <option
+    key="2019"
+    value={2019}
+  >
+    2019
+  </option>
+  <option
+    key="2020"
+    value={2020}
+  >
+    2020
+  </option>
+  <option
+    key="2021"
+    value={2021}
+  >
+    2021
+  </option>
+</Select>
+`;

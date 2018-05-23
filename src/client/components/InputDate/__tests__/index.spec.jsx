@@ -52,7 +52,7 @@ describe("#InputDate", () => {
       />,
     );
 
-    wrapper.find("#test-date").simulate("change", { target: { value: "10" } });
+    wrapper.instance().handleChangeDate({ target: { value: "10" } });
 
     expect(onChange).toBeCalledWith(setDate(NOW, 10));
   });
@@ -69,7 +69,7 @@ describe("#InputDate", () => {
       />,
     );
 
-    wrapper.find("#test-month").simulate("change", { target: { value: "10" } });
+    wrapper.instance().handleChangeMonth({ target: { value: "10" } });
 
     expect(onChange).toBeCalledWith(setMonth(NOW, 10));
   });
@@ -86,7 +86,7 @@ describe("#InputDate", () => {
       />,
     );
 
-    wrapper.find("#test-year").simulate("change", { target: { value: "2020" } });
+    wrapper.instance().handleChangeYear({ target: { value: "2020" } });
 
     expect(onChange).toBeCalledWith(setYear(NOW, 2020));
   });
