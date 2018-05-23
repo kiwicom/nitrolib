@@ -17,6 +17,7 @@ describe("#InputText", () => {
         label={<div>Kekistan</div>}
         error=""
         autocomplete
+        inputRef={() => {}}
       />,
     );
 

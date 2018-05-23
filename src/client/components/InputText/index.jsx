@@ -22,12 +22,6 @@ Label.defaultProps = {
   theme: brandDefault.theme,
 };
 
-const LabelWrap = styled.div`
-  flex: 0;
-  height: 44px;
-  padding-right: 14px;
-`;
-
 const Input = styled.input`
   flex: 1;
   height: 44px;
@@ -64,7 +58,7 @@ Error.defaultProps = {
   theme: brandDefault.theme,
 };
 
-const omitProps = R.omit(["label", "error", "showState"]);
+const omitProps = R.omit(["error", "showState", "inputRef"]);
 
 type Props = {
   id: string,
@@ -74,9 +68,9 @@ type Props = {
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   placeholder: string,
   type: string,
-  label: React.Node,
   error: string,
   showState: boolean,
+  inputRef?: (node: HTMLInputElement) => void,
 };
 
 type State = {|
@@ -87,7 +81,6 @@ type State = {|
 export default class InputText extends React.PureComponent<Props, State> {
   static defaultProps = {
     type: "text",
-    label: null,
     error: "",
     showState: false,
   };
@@ -116,7 +109,7 @@ export default class InputText extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { id, value, placeholder, label, error, showState } = this.props;
+    const { id, value, placeholder, error, showState, inputRef } = this.props;
     const { active, visited } = this.state;
 
     const borderState = getBorderState({
@@ -126,10 +119,10 @@ export default class InputText extends React.PureComponent<Props, State> {
     });
 
     return (
-      <Label htmlFor={id} state={borderState}>
-        {label !== null && <LabelWrap>{label}</LabelWrap>}
+      <Label state={borderState}>
         <Input
           {...omitProps(this.props)}
+          innerRef={inputRef}
           id={id}
           value={value}
           onFocus={this.handleFocus}

@@ -48,6 +48,26 @@ describe("#IataPicker", () => {
     expect(wrapper.state("open")).toBe(true);
   });
 
+  test("handle key down - tab", () => {
+    const onSelect = jest.fn();
+    const wrapper = shallow(<IataPicker id="test" value="VIE" onSelect={onSelect} error="" />);
+
+    wrapper.setState({ open: true });
+    wrapper.instance().handleKeyDown({ key: "Tab" });
+
+    expect(wrapper.state("open")).toBe(false);
+  });
+
+  test("handle key down - other", () => {
+    const onSelect = jest.fn();
+    const wrapper = shallow(<IataPicker id="test" value="VIE" onSelect={onSelect} error="" />);
+
+    wrapper.setState({ open: true });
+    wrapper.instance().handleKeyDown({ key: "Enter" });
+
+    expect(wrapper.state("open")).toBe(true);
+  });
+
   test("handle click outside", () => {
     const onSelect = jest.fn();
     const wrapper = shallow(<IataPicker id="test" value="VIE" onSelect={onSelect} error="" />);

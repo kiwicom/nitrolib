@@ -66,6 +66,12 @@ export default class IataPicker extends React.PureComponent<Props, State> {
     this.setState({ open: true });
   };
 
+  handleKeyDown = (ev: SyntheticKeyboardEvent<HTMLInputElement>) => {
+    if (ev.key === "Tab") {
+      this.setState({ open: false });
+    }
+  };
+
   handleClickOutside = () => {
     this.setState({ open: false });
   };
@@ -87,6 +93,7 @@ export default class IataPicker extends React.PureComponent<Props, State> {
                 value={value}
                 onChange={this.handleChange}
                 onFocus={this.handleFocus}
+                onKeyDown={this.handleKeyDown}
                 placeholder={intl.translate(__("common.iata_airport_placeholder"))}
                 error={intl.translate(error)}
                 showState={showState}
