@@ -6,17 +6,17 @@ import type { ReadyState } from "react-relay";
 import environment from "client/services/environment";
 
 type Props = {|
-  ip: string,
   render: ReadyState => ?React.Element<any>,
   environment: typeof environment,
 |};
 
-const GeolocationData = (props: Props) => (
+const Index = (props: Props) => (
   <QueryRenderer
     environment={props.environment}
     query={graphql`
-      query GeolocationDataQuery($ip: IP!) {
-        geoIP(ip: $ip) {
+      query GeoDataQuery {
+        geoIP(ip: "185.86.151.11") {
+          # TODO remove the fixed IP once GraphQL is ready
           coordinates {
             lat
             lng
@@ -25,13 +25,13 @@ const GeolocationData = (props: Props) => (
         }
       }
     `}
-    variables={{ ip: props.ip }}
+    variables={{}}
     render={props.render}
   />
 );
 
-GeolocationData.defaultProps = {
+Index.defaultProps = {
   environment,
 };
 
-export default GeolocationData;
+export default Index;

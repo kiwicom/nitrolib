@@ -5,7 +5,6 @@ import * as React from "react";
 import type { Brand } from "client/records/Brand";
 import type { Intl } from "client/records/Intl";
 import type { Fetched } from "client/records/Fetched";
-import type { System } from "client/records/System";
 import type { Assets } from "../config";
 
 const globalCss = `
@@ -29,7 +28,6 @@ type Props = {
   brand: Brand,
   intl: Intl,
   fetched: Fetched,
-  system: System,
 };
 
 const Html = (props: Props) => (
@@ -53,7 +51,6 @@ const Html = (props: Props) => (
             window.__BRAND__ = ${JSON.stringify(props.brand)};
             window.__INTL__ = ${JSON.stringify(props.intl)};
             window.__FETCHED__ = ${JSON.stringify(props.fetched)};
-            window.__SYSTEM__ = ${JSON.stringify(props.system)};
          `,
         }}
       />

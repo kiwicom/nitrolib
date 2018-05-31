@@ -11,8 +11,6 @@ import translate from "./services/intl/translate";
 import * as intlContext from "./services/intl/context";
 import * as brandContext from "./services/brand/context";
 import * as fetchedContext from "./services/fetched/context";
-import * as geolocationContext from "./services/geolocation/context";
-import { getIP } from "./records/Geolocation";
 import type { Intl } from "./records/Intl";
 
 const app = document.getElementById("react");
@@ -32,9 +30,7 @@ if (app) {
           <brandContext.Provider value={window.__BRAND__}>
             <intlContext.Provider value={intl}>
               <fetchedContext.Provider value={window.__FETCHED__}>
-                <geolocationContext.Provider ip={getIP()}>
-                  <Root />
-                </geolocationContext.Provider>
+                <Root />
               </fetchedContext.Provider>
             </intlContext.Provider>
           </brandContext.Provider>

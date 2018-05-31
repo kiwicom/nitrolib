@@ -1,13 +1,28 @@
 // @flow strict
 import * as React from "react";
 
-import * as geolocationContext from "client/services/geolocation/context";
+import GeoData from "client/components/GeoData";
+import ClientOnly from "client/components/ClientOnly";
 
 const SearchForm = () => (
   <>
-    <geolocationContext.Consumer>
-      {geo => <div>{JSON.stringify(geo)}</div>}
-    </geolocationContext.Consumer>
+    <ClientOnly>
+      <GeoData
+        render={res => {
+          if (res.error) {
+            // TODO handle error
+            return null;
+          }
+
+          if (!res.props) {
+            // TODO loading
+            return null;
+          }
+
+          return <pre>{JSON.stringify(res.props.geoIP)}</pre>;
+        }}
+      />
+    </ClientOnly>
     <div>Search Form</div>
   </>
 );

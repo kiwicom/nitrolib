@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 0dbaba307a761e114c078055838def84
+ * @relayHash 5c62c24dc4e9a28ea222d3b7b9ad1fd3
  */
 
 /* eslint-disable */
@@ -9,10 +9,8 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type GeolocationDataQueryVariables = {|
-  ip: any
-|};
-export type GeolocationDataQueryResponse = {|
+export type GeoDataQueryVariables = {||};
+export type GeoDataQueryResponse = {|
   +geoIP: ?{|
     +coordinates: ?{|
       +lat: ?number,
@@ -25,10 +23,8 @@ export type GeolocationDataQueryResponse = {|
 
 
 /*
-query GeolocationDataQuery(
-  $ip: IP!
-) {
-  geoIP(ip: $ip) {
+query GeoDataQuery {
+  geoIP(ip: "185.86.151.11") {
     coordinates {
       lat
       lng
@@ -41,23 +37,15 @@ query GeolocationDataQuery(
 const node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
-    "kind": "LocalArgument",
-    "name": "ip",
-    "type": "IP!",
-    "defaultValue": null
-  }
-],
-v1 = [
-  {
     "kind": "LinkedField",
     "alias": null,
     "name": "geoIP",
-    "storageKey": null,
+    "storageKey": "geoIP(ip:\"185.86.151.11\")",
     "args": [
       {
-        "kind": "Variable",
+        "kind": "Literal",
         "name": "ip",
-        "variableName": "ip",
+        "value": "185.86.151.11",
         "type": "IP!"
       }
     ],
@@ -102,26 +90,26 @@ v1 = [
 return {
   "kind": "Request",
   "operationKind": "query",
-  "name": "GeolocationDataQuery",
+  "name": "GeoDataQuery",
   "id": null,
-  "text": "query GeolocationDataQuery(\n  $ip: IP!\n) {\n  geoIP(ip: $ip) {\n    coordinates {\n      lat\n      lng\n    }\n    isoCountryCode\n  }\n}\n",
+  "text": "query GeoDataQuery {\n  geoIP(ip: \"185.86.151.11\") {\n    coordinates {\n      lat\n      lng\n    }\n    isoCountryCode\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
-    "name": "GeolocationDataQuery",
+    "name": "GeoDataQuery",
     "type": "RootQuery",
     "metadata": null,
-    "argumentDefinitions": v0,
-    "selections": v1
+    "argumentDefinitions": [],
+    "selections": v0
   },
   "operation": {
     "kind": "Operation",
-    "name": "GeolocationDataQuery",
-    "argumentDefinitions": v0,
-    "selections": v1
+    "name": "GeoDataQuery",
+    "argumentDefinitions": [],
+    "selections": v0
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'a54b48bb479d6818fc8fb9564fb5bcd8';
+(node/*: any*/).hash = '99d8336a1c40106474c2ac96ffedb90f';
 module.exports = node;
