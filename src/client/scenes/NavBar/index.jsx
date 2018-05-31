@@ -6,8 +6,10 @@ import Flex from "client/primitives/Flex";
 import { navbar } from "client/styles/index";
 import mq from "client/services/utils/mediaQuery";
 import type { ThemeProps } from "client/records/Brand";
+import SideBar from "./scenes/SideBar";
 import Logo from "./components/Logo";
 import Language from "./components/Language";
+import Currency from "./components/Currency";
 
 const Container = styled(Flex)`
   width: 100%;
@@ -30,6 +32,8 @@ const NavBar = () => (
     <Logo />
     <Flex y="center">
       <Language />
+      <Currency />
+      <SideBar />
     </Flex>
   </Container>
 );

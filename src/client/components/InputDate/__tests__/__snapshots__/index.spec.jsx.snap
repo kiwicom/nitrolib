@@ -3,6 +3,7 @@
 exports[`#InputDate render mmddyyyy 1`] = `
 <Flex
   direction="row"
+  wrap="nowrap"
   x="space-between"
   y="flex-start"
 >
@@ -91,6 +92,7 @@ exports[`#InputDate render mmddyyyy 1`] = `
 exports[`#InputDate render regular 1`] = `
 <Flex
   direction="row"
+  wrap="nowrap"
   x="space-between"
   y="flex-start"
 >

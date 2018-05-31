@@ -1,0 +1,2773 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Tooltip mouse over + out 1`] = `
+<Tooltip__Container
+  inline={false}
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+>
+  Content
+  <Tooltip__Tip
+    mobile={false}
+    position="right"
+    shown={true}
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    <Tooltip__TipContent
+      theme={
+        Object {
+          "colors": Object {
+            "accent-100": "#F8CA32",
+            "accent-200": "#F8CA32",
+            "accent-300": "#F8CA32",
+            "accent-400": "#F8CA32",
+            "accent-500": "#ffcc00",
+            "accent-600": "#F8CA32",
+            "accent-700": "#F8CA32",
+            "accent-800": "#F8CA32",
+            "accent-900": "#F8CA32",
+            "brand-info": "",
+            "danger-100": " #ffc7c7",
+            "danger-200": " #ffa8a8",
+            "danger-300": " #ff7e7e",
+            "danger-400": " #ff5858",
+            "danger-500": "#ff2424",
+            "danger-600": " #e51f1f",
+            "danger-700": "#d21c1c",
+            "danger-800": " #b91919",
+            "danger-900": "#9e1616",
+            "facebook-500": "#4465ad",
+            "facebook-600": "#3b5998",
+            "facebook-800": "#344d85",
+            "google-500": "#ff5542",
+            "google-600": "#f34a38",
+            "google-800": "#e84735",
+            "grey-100": "#edeff2",
+            "grey-200": "#d5dee7",
+            "grey-400": "#adb9c5",
+            "grey-500": "#94a2b0",
+            "grey-600": "#7c8b99",
+            "grey-700": "#57626c",
+            "grey-800": "#2e353b",
+            "grey-900": "#171b1e",
+            "insurance-plus": "#F5922A",
+            "mail-button-500": "#0097A9",
+            "mail-footer-500": "#0097A9",
+            "mail-header-500": "#0097A9",
+            "neutral-100": "#e9eef2",
+            "neutral-200": "#d5dee7",
+            "neutral-300": "#c6d0dc",
+            "neutral-400": "#adb9c5",
+            "neutral-500": "#94a2b0",
+            "neutral-600": "#7c8b99",
+            "neutral-700": "#57626c",
+            "neutral-800": "#2e353b",
+            "neutral-900": "#171b1e",
+            "primary-100": "#b2f3eb",
+            "primary-200": "#77ebdd",
+            "primary-300": "#4de3d0",
+            "primary-400": "#00d7bd",
+            "primary-500": "#00ccb4",
+            "primary-600": "#01bba5",
+            "primary-700": "#00ad98",
+            "primary-800": "#009b88",
+            "primary-900": "#008676",
+            "success-100": "#d3fac5",
+            "success-200": "#b2f79c",
+            "success-300": "#8fec70",
+            "success-400": "#6ee445",
+            "success-500": "#52cf26",
+            "success-600": "#37c207",
+            "success-700": "#2eb300",
+            "success-800": "#29a000",
+            "success-900": "#248e00",
+            "text-primary": "#ffffff",
+            "text-secondary": "#2f2f2f",
+            "trip-end": "#d50c6a",
+            "trip-start": "#0097a9",
+            "warning-100": "#fff1cf",
+            "warning-200": "#ffe7b2",
+            "warning-300": "#ffdb8d",
+            "warning-400": "#ffce67",
+            "warning-500": "#ffc345",
+            "warning-600": "#f0b539",
+            "warning-700": "#dda734",
+            "warning-800": "#c9972e",
+            "warning-900": "#ac8127",
+            "white": "#ffffff",
+          },
+        }
+      }
+    >
+      Tip
+    </Tooltip__TipContent>
+  </Tooltip__Tip>
+</Tooltip__Container>
+`;
+
+exports[`#Tooltip mouse over + out 2`] = `
+.c0 {
+  position: absolute;
+  opacity: 1;
+  display: none;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  z-index: 2;
+  left: 100%;
+  padding-left: 5px;
+  margin-left: 2px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.c0:before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 6px;
+  left: 0;
+  border-left-width: 0;
+  border-right-color: #171b1e;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@media (min-width:769px) {
+  .c0 {
+    display: block;
+  }
+}
+
+<span
+  className="c0"
+>
+  <Tooltip__TipContent
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    Tip
+  </Tooltip__TipContent>
+</span>
+`;
+
+exports[`#Tooltip mouse over + out 3`] = `
+<Tooltip__Container
+  inline={false}
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+>
+  Content
+  <Tooltip__Tip
+    mobile={false}
+    position="right"
+    shown={false}
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    <Tooltip__TipContent
+      theme={
+        Object {
+          "colors": Object {
+            "accent-100": "#F8CA32",
+            "accent-200": "#F8CA32",
+            "accent-300": "#F8CA32",
+            "accent-400": "#F8CA32",
+            "accent-500": "#ffcc00",
+            "accent-600": "#F8CA32",
+            "accent-700": "#F8CA32",
+            "accent-800": "#F8CA32",
+            "accent-900": "#F8CA32",
+            "brand-info": "",
+            "danger-100": " #ffc7c7",
+            "danger-200": " #ffa8a8",
+            "danger-300": " #ff7e7e",
+            "danger-400": " #ff5858",
+            "danger-500": "#ff2424",
+            "danger-600": " #e51f1f",
+            "danger-700": "#d21c1c",
+            "danger-800": " #b91919",
+            "danger-900": "#9e1616",
+            "facebook-500": "#4465ad",
+            "facebook-600": "#3b5998",
+            "facebook-800": "#344d85",
+            "google-500": "#ff5542",
+            "google-600": "#f34a38",
+            "google-800": "#e84735",
+            "grey-100": "#edeff2",
+            "grey-200": "#d5dee7",
+            "grey-400": "#adb9c5",
+            "grey-500": "#94a2b0",
+            "grey-600": "#7c8b99",
+            "grey-700": "#57626c",
+            "grey-800": "#2e353b",
+            "grey-900": "#171b1e",
+            "insurance-plus": "#F5922A",
+            "mail-button-500": "#0097A9",
+            "mail-footer-500": "#0097A9",
+            "mail-header-500": "#0097A9",
+            "neutral-100": "#e9eef2",
+            "neutral-200": "#d5dee7",
+            "neutral-300": "#c6d0dc",
+            "neutral-400": "#adb9c5",
+            "neutral-500": "#94a2b0",
+            "neutral-600": "#7c8b99",
+            "neutral-700": "#57626c",
+            "neutral-800": "#2e353b",
+            "neutral-900": "#171b1e",
+            "primary-100": "#b2f3eb",
+            "primary-200": "#77ebdd",
+            "primary-300": "#4de3d0",
+            "primary-400": "#00d7bd",
+            "primary-500": "#00ccb4",
+            "primary-600": "#01bba5",
+            "primary-700": "#00ad98",
+            "primary-800": "#009b88",
+            "primary-900": "#008676",
+            "success-100": "#d3fac5",
+            "success-200": "#b2f79c",
+            "success-300": "#8fec70",
+            "success-400": "#6ee445",
+            "success-500": "#52cf26",
+            "success-600": "#37c207",
+            "success-700": "#2eb300",
+            "success-800": "#29a000",
+            "success-900": "#248e00",
+            "text-primary": "#ffffff",
+            "text-secondary": "#2f2f2f",
+            "trip-end": "#d50c6a",
+            "trip-start": "#0097a9",
+            "warning-100": "#fff1cf",
+            "warning-200": "#ffe7b2",
+            "warning-300": "#ffdb8d",
+            "warning-400": "#ffce67",
+            "warning-500": "#ffc345",
+            "warning-600": "#f0b539",
+            "warning-700": "#dda734",
+            "warning-800": "#c9972e",
+            "warning-900": "#ac8127",
+            "white": "#ffffff",
+          },
+        }
+      }
+    >
+      Tip
+    </Tooltip__TipContent>
+  </Tooltip__Tip>
+</Tooltip__Container>
+`;
+
+exports[`#Tooltip mouse over + out 4`] = `
+.c0 {
+  position: absolute;
+  opacity: 0;
+  display: none;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  z-index: 2;
+  left: 100%;
+  padding-left: 5px;
+  margin-left: 2px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.c0:before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 6px;
+  left: 0;
+  border-left-width: 0;
+  border-right-color: #171b1e;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@media (min-width:769px) {
+  .c0 {
+    display: block;
+  }
+}
+
+<span
+  className="c0"
+>
+  <Tooltip__TipContent
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    Tip
+  </Tooltip__TipContent>
+</span>
+`;
+
+exports[`#Tooltip render - block 1`] = `
+<Tooltip__Container
+  inline={false}
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+>
+  Content
+  <Tooltip__Tip
+    mobile={false}
+    position="right"
+    shown={false}
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    <Tooltip__TipContent
+      theme={
+        Object {
+          "colors": Object {
+            "accent-100": "#F8CA32",
+            "accent-200": "#F8CA32",
+            "accent-300": "#F8CA32",
+            "accent-400": "#F8CA32",
+            "accent-500": "#ffcc00",
+            "accent-600": "#F8CA32",
+            "accent-700": "#F8CA32",
+            "accent-800": "#F8CA32",
+            "accent-900": "#F8CA32",
+            "brand-info": "",
+            "danger-100": " #ffc7c7",
+            "danger-200": " #ffa8a8",
+            "danger-300": " #ff7e7e",
+            "danger-400": " #ff5858",
+            "danger-500": "#ff2424",
+            "danger-600": " #e51f1f",
+            "danger-700": "#d21c1c",
+            "danger-800": " #b91919",
+            "danger-900": "#9e1616",
+            "facebook-500": "#4465ad",
+            "facebook-600": "#3b5998",
+            "facebook-800": "#344d85",
+            "google-500": "#ff5542",
+            "google-600": "#f34a38",
+            "google-800": "#e84735",
+            "grey-100": "#edeff2",
+            "grey-200": "#d5dee7",
+            "grey-400": "#adb9c5",
+            "grey-500": "#94a2b0",
+            "grey-600": "#7c8b99",
+            "grey-700": "#57626c",
+            "grey-800": "#2e353b",
+            "grey-900": "#171b1e",
+            "insurance-plus": "#F5922A",
+            "mail-button-500": "#0097A9",
+            "mail-footer-500": "#0097A9",
+            "mail-header-500": "#0097A9",
+            "neutral-100": "#e9eef2",
+            "neutral-200": "#d5dee7",
+            "neutral-300": "#c6d0dc",
+            "neutral-400": "#adb9c5",
+            "neutral-500": "#94a2b0",
+            "neutral-600": "#7c8b99",
+            "neutral-700": "#57626c",
+            "neutral-800": "#2e353b",
+            "neutral-900": "#171b1e",
+            "primary-100": "#b2f3eb",
+            "primary-200": "#77ebdd",
+            "primary-300": "#4de3d0",
+            "primary-400": "#00d7bd",
+            "primary-500": "#00ccb4",
+            "primary-600": "#01bba5",
+            "primary-700": "#00ad98",
+            "primary-800": "#009b88",
+            "primary-900": "#008676",
+            "success-100": "#d3fac5",
+            "success-200": "#b2f79c",
+            "success-300": "#8fec70",
+            "success-400": "#6ee445",
+            "success-500": "#52cf26",
+            "success-600": "#37c207",
+            "success-700": "#2eb300",
+            "success-800": "#29a000",
+            "success-900": "#248e00",
+            "text-primary": "#ffffff",
+            "text-secondary": "#2f2f2f",
+            "trip-end": "#d50c6a",
+            "trip-start": "#0097a9",
+            "warning-100": "#fff1cf",
+            "warning-200": "#ffe7b2",
+            "warning-300": "#ffdb8d",
+            "warning-400": "#ffce67",
+            "warning-500": "#ffc345",
+            "warning-600": "#f0b539",
+            "warning-700": "#dda734",
+            "warning-800": "#c9972e",
+            "warning-900": "#ac8127",
+            "white": "#ffffff",
+          },
+        }
+      }
+    >
+      Tip
+    </Tooltip__TipContent>
+  </Tooltip__Tip>
+</Tooltip__Container>
+`;
+
+exports[`#Tooltip render - block 2`] = `
+.c0 {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+<span
+  className="c0"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+>
+  Content
+  <Tooltip__Tip
+    mobile={false}
+    position="right"
+    shown={false}
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    <Tooltip__TipContent
+      theme={
+        Object {
+          "colors": Object {
+            "accent-100": "#F8CA32",
+            "accent-200": "#F8CA32",
+            "accent-300": "#F8CA32",
+            "accent-400": "#F8CA32",
+            "accent-500": "#ffcc00",
+            "accent-600": "#F8CA32",
+            "accent-700": "#F8CA32",
+            "accent-800": "#F8CA32",
+            "accent-900": "#F8CA32",
+            "brand-info": "",
+            "danger-100": " #ffc7c7",
+            "danger-200": " #ffa8a8",
+            "danger-300": " #ff7e7e",
+            "danger-400": " #ff5858",
+            "danger-500": "#ff2424",
+            "danger-600": " #e51f1f",
+            "danger-700": "#d21c1c",
+            "danger-800": " #b91919",
+            "danger-900": "#9e1616",
+            "facebook-500": "#4465ad",
+            "facebook-600": "#3b5998",
+            "facebook-800": "#344d85",
+            "google-500": "#ff5542",
+            "google-600": "#f34a38",
+            "google-800": "#e84735",
+            "grey-100": "#edeff2",
+            "grey-200": "#d5dee7",
+            "grey-400": "#adb9c5",
+            "grey-500": "#94a2b0",
+            "grey-600": "#7c8b99",
+            "grey-700": "#57626c",
+            "grey-800": "#2e353b",
+            "grey-900": "#171b1e",
+            "insurance-plus": "#F5922A",
+            "mail-button-500": "#0097A9",
+            "mail-footer-500": "#0097A9",
+            "mail-header-500": "#0097A9",
+            "neutral-100": "#e9eef2",
+            "neutral-200": "#d5dee7",
+            "neutral-300": "#c6d0dc",
+            "neutral-400": "#adb9c5",
+            "neutral-500": "#94a2b0",
+            "neutral-600": "#7c8b99",
+            "neutral-700": "#57626c",
+            "neutral-800": "#2e353b",
+            "neutral-900": "#171b1e",
+            "primary-100": "#b2f3eb",
+            "primary-200": "#77ebdd",
+            "primary-300": "#4de3d0",
+            "primary-400": "#00d7bd",
+            "primary-500": "#00ccb4",
+            "primary-600": "#01bba5",
+            "primary-700": "#00ad98",
+            "primary-800": "#009b88",
+            "primary-900": "#008676",
+            "success-100": "#d3fac5",
+            "success-200": "#b2f79c",
+            "success-300": "#8fec70",
+            "success-400": "#6ee445",
+            "success-500": "#52cf26",
+            "success-600": "#37c207",
+            "success-700": "#2eb300",
+            "success-800": "#29a000",
+            "success-900": "#248e00",
+            "text-primary": "#ffffff",
+            "text-secondary": "#2f2f2f",
+            "trip-end": "#d50c6a",
+            "trip-start": "#0097a9",
+            "warning-100": "#fff1cf",
+            "warning-200": "#ffe7b2",
+            "warning-300": "#ffdb8d",
+            "warning-400": "#ffce67",
+            "warning-500": "#ffc345",
+            "warning-600": "#f0b539",
+            "warning-700": "#dda734",
+            "warning-800": "#c9972e",
+            "warning-900": "#ac8127",
+            "white": "#ffffff",
+          },
+        }
+      }
+    >
+      Tip
+    </Tooltip__TipContent>
+  </Tooltip__Tip>
+</span>
+`;
+
+exports[`#Tooltip render - bottom 1`] = `
+<Tooltip__Container
+  inline={false}
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+>
+  Content
+  <Tooltip__Tip
+    mobile={false}
+    position="bottom"
+    shown={false}
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    <Tooltip__TipContent
+      theme={
+        Object {
+          "colors": Object {
+            "accent-100": "#F8CA32",
+            "accent-200": "#F8CA32",
+            "accent-300": "#F8CA32",
+            "accent-400": "#F8CA32",
+            "accent-500": "#ffcc00",
+            "accent-600": "#F8CA32",
+            "accent-700": "#F8CA32",
+            "accent-800": "#F8CA32",
+            "accent-900": "#F8CA32",
+            "brand-info": "",
+            "danger-100": " #ffc7c7",
+            "danger-200": " #ffa8a8",
+            "danger-300": " #ff7e7e",
+            "danger-400": " #ff5858",
+            "danger-500": "#ff2424",
+            "danger-600": " #e51f1f",
+            "danger-700": "#d21c1c",
+            "danger-800": " #b91919",
+            "danger-900": "#9e1616",
+            "facebook-500": "#4465ad",
+            "facebook-600": "#3b5998",
+            "facebook-800": "#344d85",
+            "google-500": "#ff5542",
+            "google-600": "#f34a38",
+            "google-800": "#e84735",
+            "grey-100": "#edeff2",
+            "grey-200": "#d5dee7",
+            "grey-400": "#adb9c5",
+            "grey-500": "#94a2b0",
+            "grey-600": "#7c8b99",
+            "grey-700": "#57626c",
+            "grey-800": "#2e353b",
+            "grey-900": "#171b1e",
+            "insurance-plus": "#F5922A",
+            "mail-button-500": "#0097A9",
+            "mail-footer-500": "#0097A9",
+            "mail-header-500": "#0097A9",
+            "neutral-100": "#e9eef2",
+            "neutral-200": "#d5dee7",
+            "neutral-300": "#c6d0dc",
+            "neutral-400": "#adb9c5",
+            "neutral-500": "#94a2b0",
+            "neutral-600": "#7c8b99",
+            "neutral-700": "#57626c",
+            "neutral-800": "#2e353b",
+            "neutral-900": "#171b1e",
+            "primary-100": "#b2f3eb",
+            "primary-200": "#77ebdd",
+            "primary-300": "#4de3d0",
+            "primary-400": "#00d7bd",
+            "primary-500": "#00ccb4",
+            "primary-600": "#01bba5",
+            "primary-700": "#00ad98",
+            "primary-800": "#009b88",
+            "primary-900": "#008676",
+            "success-100": "#d3fac5",
+            "success-200": "#b2f79c",
+            "success-300": "#8fec70",
+            "success-400": "#6ee445",
+            "success-500": "#52cf26",
+            "success-600": "#37c207",
+            "success-700": "#2eb300",
+            "success-800": "#29a000",
+            "success-900": "#248e00",
+            "text-primary": "#ffffff",
+            "text-secondary": "#2f2f2f",
+            "trip-end": "#d50c6a",
+            "trip-start": "#0097a9",
+            "warning-100": "#fff1cf",
+            "warning-200": "#ffe7b2",
+            "warning-300": "#ffdb8d",
+            "warning-400": "#ffce67",
+            "warning-500": "#ffc345",
+            "warning-600": "#f0b539",
+            "warning-700": "#dda734",
+            "warning-800": "#c9972e",
+            "warning-900": "#ac8127",
+            "white": "#ffffff",
+          },
+        }
+      }
+    >
+      Tip
+    </Tooltip__TipContent>
+  </Tooltip__Tip>
+</Tooltip__Container>
+`;
+
+exports[`#Tooltip render - bottom 2`] = `
+.c0 {
+  position: absolute;
+  opacity: 0;
+  display: none;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  z-index: 2;
+  top: 100%;
+  padding-top: 5px;
+  margin-top: 2px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.c0:before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 6px;
+  top: 0;
+  border-top-width: 0;
+  border-bottom-color: #171b1e;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+@media (min-width:769px) {
+  .c0 {
+    display: block;
+  }
+}
+
+<span
+  className="c0"
+>
+  <Tooltip__TipContent
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    Tip
+  </Tooltip__TipContent>
+</span>
+`;
+
+exports[`#Tooltip render - inline 1`] = `
+<Tooltip__Container
+  inline={true}
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+>
+  Content
+  <Tooltip__Tip
+    mobile={false}
+    position="right"
+    shown={false}
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    <Tooltip__TipContent
+      theme={
+        Object {
+          "colors": Object {
+            "accent-100": "#F8CA32",
+            "accent-200": "#F8CA32",
+            "accent-300": "#F8CA32",
+            "accent-400": "#F8CA32",
+            "accent-500": "#ffcc00",
+            "accent-600": "#F8CA32",
+            "accent-700": "#F8CA32",
+            "accent-800": "#F8CA32",
+            "accent-900": "#F8CA32",
+            "brand-info": "",
+            "danger-100": " #ffc7c7",
+            "danger-200": " #ffa8a8",
+            "danger-300": " #ff7e7e",
+            "danger-400": " #ff5858",
+            "danger-500": "#ff2424",
+            "danger-600": " #e51f1f",
+            "danger-700": "#d21c1c",
+            "danger-800": " #b91919",
+            "danger-900": "#9e1616",
+            "facebook-500": "#4465ad",
+            "facebook-600": "#3b5998",
+            "facebook-800": "#344d85",
+            "google-500": "#ff5542",
+            "google-600": "#f34a38",
+            "google-800": "#e84735",
+            "grey-100": "#edeff2",
+            "grey-200": "#d5dee7",
+            "grey-400": "#adb9c5",
+            "grey-500": "#94a2b0",
+            "grey-600": "#7c8b99",
+            "grey-700": "#57626c",
+            "grey-800": "#2e353b",
+            "grey-900": "#171b1e",
+            "insurance-plus": "#F5922A",
+            "mail-button-500": "#0097A9",
+            "mail-footer-500": "#0097A9",
+            "mail-header-500": "#0097A9",
+            "neutral-100": "#e9eef2",
+            "neutral-200": "#d5dee7",
+            "neutral-300": "#c6d0dc",
+            "neutral-400": "#adb9c5",
+            "neutral-500": "#94a2b0",
+            "neutral-600": "#7c8b99",
+            "neutral-700": "#57626c",
+            "neutral-800": "#2e353b",
+            "neutral-900": "#171b1e",
+            "primary-100": "#b2f3eb",
+            "primary-200": "#77ebdd",
+            "primary-300": "#4de3d0",
+            "primary-400": "#00d7bd",
+            "primary-500": "#00ccb4",
+            "primary-600": "#01bba5",
+            "primary-700": "#00ad98",
+            "primary-800": "#009b88",
+            "primary-900": "#008676",
+            "success-100": "#d3fac5",
+            "success-200": "#b2f79c",
+            "success-300": "#8fec70",
+            "success-400": "#6ee445",
+            "success-500": "#52cf26",
+            "success-600": "#37c207",
+            "success-700": "#2eb300",
+            "success-800": "#29a000",
+            "success-900": "#248e00",
+            "text-primary": "#ffffff",
+            "text-secondary": "#2f2f2f",
+            "trip-end": "#d50c6a",
+            "trip-start": "#0097a9",
+            "warning-100": "#fff1cf",
+            "warning-200": "#ffe7b2",
+            "warning-300": "#ffdb8d",
+            "warning-400": "#ffce67",
+            "warning-500": "#ffc345",
+            "warning-600": "#f0b539",
+            "warning-700": "#dda734",
+            "warning-800": "#c9972e",
+            "warning-900": "#ac8127",
+            "white": "#ffffff",
+          },
+        }
+      }
+    >
+      Tip
+    </Tooltip__TipContent>
+  </Tooltip__Tip>
+</Tooltip__Container>
+`;
+
+exports[`#Tooltip render - inline 2`] = `
+.c0 {
+  position: relative;
+  display: inline-block;
+}
+
+<span
+  className="c0"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+>
+  Content
+  <Tooltip__Tip
+    mobile={false}
+    position="right"
+    shown={false}
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    <Tooltip__TipContent
+      theme={
+        Object {
+          "colors": Object {
+            "accent-100": "#F8CA32",
+            "accent-200": "#F8CA32",
+            "accent-300": "#F8CA32",
+            "accent-400": "#F8CA32",
+            "accent-500": "#ffcc00",
+            "accent-600": "#F8CA32",
+            "accent-700": "#F8CA32",
+            "accent-800": "#F8CA32",
+            "accent-900": "#F8CA32",
+            "brand-info": "",
+            "danger-100": " #ffc7c7",
+            "danger-200": " #ffa8a8",
+            "danger-300": " #ff7e7e",
+            "danger-400": " #ff5858",
+            "danger-500": "#ff2424",
+            "danger-600": " #e51f1f",
+            "danger-700": "#d21c1c",
+            "danger-800": " #b91919",
+            "danger-900": "#9e1616",
+            "facebook-500": "#4465ad",
+            "facebook-600": "#3b5998",
+            "facebook-800": "#344d85",
+            "google-500": "#ff5542",
+            "google-600": "#f34a38",
+            "google-800": "#e84735",
+            "grey-100": "#edeff2",
+            "grey-200": "#d5dee7",
+            "grey-400": "#adb9c5",
+            "grey-500": "#94a2b0",
+            "grey-600": "#7c8b99",
+            "grey-700": "#57626c",
+            "grey-800": "#2e353b",
+            "grey-900": "#171b1e",
+            "insurance-plus": "#F5922A",
+            "mail-button-500": "#0097A9",
+            "mail-footer-500": "#0097A9",
+            "mail-header-500": "#0097A9",
+            "neutral-100": "#e9eef2",
+            "neutral-200": "#d5dee7",
+            "neutral-300": "#c6d0dc",
+            "neutral-400": "#adb9c5",
+            "neutral-500": "#94a2b0",
+            "neutral-600": "#7c8b99",
+            "neutral-700": "#57626c",
+            "neutral-800": "#2e353b",
+            "neutral-900": "#171b1e",
+            "primary-100": "#b2f3eb",
+            "primary-200": "#77ebdd",
+            "primary-300": "#4de3d0",
+            "primary-400": "#00d7bd",
+            "primary-500": "#00ccb4",
+            "primary-600": "#01bba5",
+            "primary-700": "#00ad98",
+            "primary-800": "#009b88",
+            "primary-900": "#008676",
+            "success-100": "#d3fac5",
+            "success-200": "#b2f79c",
+            "success-300": "#8fec70",
+            "success-400": "#6ee445",
+            "success-500": "#52cf26",
+            "success-600": "#37c207",
+            "success-700": "#2eb300",
+            "success-800": "#29a000",
+            "success-900": "#248e00",
+            "text-primary": "#ffffff",
+            "text-secondary": "#2f2f2f",
+            "trip-end": "#d50c6a",
+            "trip-start": "#0097a9",
+            "warning-100": "#fff1cf",
+            "warning-200": "#ffe7b2",
+            "warning-300": "#ffdb8d",
+            "warning-400": "#ffce67",
+            "warning-500": "#ffc345",
+            "warning-600": "#f0b539",
+            "warning-700": "#dda734",
+            "warning-800": "#c9972e",
+            "warning-900": "#ac8127",
+            "white": "#ffffff",
+          },
+        }
+      }
+    >
+      Tip
+    </Tooltip__TipContent>
+  </Tooltip__Tip>
+</span>
+`;
+
+exports[`#Tooltip render - left 1`] = `
+<Tooltip__Container
+  inline={false}
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+>
+  Content
+  <Tooltip__Tip
+    mobile={false}
+    position="left"
+    shown={false}
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    <Tooltip__TipContent
+      theme={
+        Object {
+          "colors": Object {
+            "accent-100": "#F8CA32",
+            "accent-200": "#F8CA32",
+            "accent-300": "#F8CA32",
+            "accent-400": "#F8CA32",
+            "accent-500": "#ffcc00",
+            "accent-600": "#F8CA32",
+            "accent-700": "#F8CA32",
+            "accent-800": "#F8CA32",
+            "accent-900": "#F8CA32",
+            "brand-info": "",
+            "danger-100": " #ffc7c7",
+            "danger-200": " #ffa8a8",
+            "danger-300": " #ff7e7e",
+            "danger-400": " #ff5858",
+            "danger-500": "#ff2424",
+            "danger-600": " #e51f1f",
+            "danger-700": "#d21c1c",
+            "danger-800": " #b91919",
+            "danger-900": "#9e1616",
+            "facebook-500": "#4465ad",
+            "facebook-600": "#3b5998",
+            "facebook-800": "#344d85",
+            "google-500": "#ff5542",
+            "google-600": "#f34a38",
+            "google-800": "#e84735",
+            "grey-100": "#edeff2",
+            "grey-200": "#d5dee7",
+            "grey-400": "#adb9c5",
+            "grey-500": "#94a2b0",
+            "grey-600": "#7c8b99",
+            "grey-700": "#57626c",
+            "grey-800": "#2e353b",
+            "grey-900": "#171b1e",
+            "insurance-plus": "#F5922A",
+            "mail-button-500": "#0097A9",
+            "mail-footer-500": "#0097A9",
+            "mail-header-500": "#0097A9",
+            "neutral-100": "#e9eef2",
+            "neutral-200": "#d5dee7",
+            "neutral-300": "#c6d0dc",
+            "neutral-400": "#adb9c5",
+            "neutral-500": "#94a2b0",
+            "neutral-600": "#7c8b99",
+            "neutral-700": "#57626c",
+            "neutral-800": "#2e353b",
+            "neutral-900": "#171b1e",
+            "primary-100": "#b2f3eb",
+            "primary-200": "#77ebdd",
+            "primary-300": "#4de3d0",
+            "primary-400": "#00d7bd",
+            "primary-500": "#00ccb4",
+            "primary-600": "#01bba5",
+            "primary-700": "#00ad98",
+            "primary-800": "#009b88",
+            "primary-900": "#008676",
+            "success-100": "#d3fac5",
+            "success-200": "#b2f79c",
+            "success-300": "#8fec70",
+            "success-400": "#6ee445",
+            "success-500": "#52cf26",
+            "success-600": "#37c207",
+            "success-700": "#2eb300",
+            "success-800": "#29a000",
+            "success-900": "#248e00",
+            "text-primary": "#ffffff",
+            "text-secondary": "#2f2f2f",
+            "trip-end": "#d50c6a",
+            "trip-start": "#0097a9",
+            "warning-100": "#fff1cf",
+            "warning-200": "#ffe7b2",
+            "warning-300": "#ffdb8d",
+            "warning-400": "#ffce67",
+            "warning-500": "#ffc345",
+            "warning-600": "#f0b539",
+            "warning-700": "#dda734",
+            "warning-800": "#c9972e",
+            "warning-900": "#ac8127",
+            "white": "#ffffff",
+          },
+        }
+      }
+    >
+      Tip
+    </Tooltip__TipContent>
+  </Tooltip__Tip>
+</Tooltip__Container>
+`;
+
+exports[`#Tooltip render - left 2`] = `
+.c0 {
+  position: absolute;
+  opacity: 0;
+  display: none;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  z-index: 2;
+  right: 100%;
+  padding-right: 5px;
+  margin-right: 2px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.c0:before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 6px;
+  right: 0;
+  border-right-width: 0;
+  border-left-color: #171b1e;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@media (min-width:769px) {
+  .c0 {
+    display: block;
+  }
+}
+
+<span
+  className="c0"
+>
+  <Tooltip__TipContent
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    Tip
+  </Tooltip__TipContent>
+</span>
+`;
+
+exports[`#Tooltip render - right 1`] = `
+<Tooltip__Container
+  inline={false}
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+>
+  Content
+  <Tooltip__Tip
+    mobile={false}
+    position="right"
+    shown={false}
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    <Tooltip__TipContent
+      theme={
+        Object {
+          "colors": Object {
+            "accent-100": "#F8CA32",
+            "accent-200": "#F8CA32",
+            "accent-300": "#F8CA32",
+            "accent-400": "#F8CA32",
+            "accent-500": "#ffcc00",
+            "accent-600": "#F8CA32",
+            "accent-700": "#F8CA32",
+            "accent-800": "#F8CA32",
+            "accent-900": "#F8CA32",
+            "brand-info": "",
+            "danger-100": " #ffc7c7",
+            "danger-200": " #ffa8a8",
+            "danger-300": " #ff7e7e",
+            "danger-400": " #ff5858",
+            "danger-500": "#ff2424",
+            "danger-600": " #e51f1f",
+            "danger-700": "#d21c1c",
+            "danger-800": " #b91919",
+            "danger-900": "#9e1616",
+            "facebook-500": "#4465ad",
+            "facebook-600": "#3b5998",
+            "facebook-800": "#344d85",
+            "google-500": "#ff5542",
+            "google-600": "#f34a38",
+            "google-800": "#e84735",
+            "grey-100": "#edeff2",
+            "grey-200": "#d5dee7",
+            "grey-400": "#adb9c5",
+            "grey-500": "#94a2b0",
+            "grey-600": "#7c8b99",
+            "grey-700": "#57626c",
+            "grey-800": "#2e353b",
+            "grey-900": "#171b1e",
+            "insurance-plus": "#F5922A",
+            "mail-button-500": "#0097A9",
+            "mail-footer-500": "#0097A9",
+            "mail-header-500": "#0097A9",
+            "neutral-100": "#e9eef2",
+            "neutral-200": "#d5dee7",
+            "neutral-300": "#c6d0dc",
+            "neutral-400": "#adb9c5",
+            "neutral-500": "#94a2b0",
+            "neutral-600": "#7c8b99",
+            "neutral-700": "#57626c",
+            "neutral-800": "#2e353b",
+            "neutral-900": "#171b1e",
+            "primary-100": "#b2f3eb",
+            "primary-200": "#77ebdd",
+            "primary-300": "#4de3d0",
+            "primary-400": "#00d7bd",
+            "primary-500": "#00ccb4",
+            "primary-600": "#01bba5",
+            "primary-700": "#00ad98",
+            "primary-800": "#009b88",
+            "primary-900": "#008676",
+            "success-100": "#d3fac5",
+            "success-200": "#b2f79c",
+            "success-300": "#8fec70",
+            "success-400": "#6ee445",
+            "success-500": "#52cf26",
+            "success-600": "#37c207",
+            "success-700": "#2eb300",
+            "success-800": "#29a000",
+            "success-900": "#248e00",
+            "text-primary": "#ffffff",
+            "text-secondary": "#2f2f2f",
+            "trip-end": "#d50c6a",
+            "trip-start": "#0097a9",
+            "warning-100": "#fff1cf",
+            "warning-200": "#ffe7b2",
+            "warning-300": "#ffdb8d",
+            "warning-400": "#ffce67",
+            "warning-500": "#ffc345",
+            "warning-600": "#f0b539",
+            "warning-700": "#dda734",
+            "warning-800": "#c9972e",
+            "warning-900": "#ac8127",
+            "white": "#ffffff",
+          },
+        }
+      }
+    >
+      Tip
+    </Tooltip__TipContent>
+  </Tooltip__Tip>
+</Tooltip__Container>
+`;
+
+exports[`#Tooltip render - right 2`] = `
+.c0 {
+  position: absolute;
+  opacity: 0;
+  display: none;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  z-index: 2;
+  left: 100%;
+  padding-left: 5px;
+  margin-left: 2px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.c0:before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 6px;
+  left: 0;
+  border-left-width: 0;
+  border-right-color: #171b1e;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@media (min-width:769px) {
+  .c0 {
+    display: block;
+  }
+}
+
+<span
+  className="c0"
+>
+  <Tooltip__TipContent
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    Tip
+  </Tooltip__TipContent>
+</span>
+`;
+
+exports[`#Tooltip render - right 3`] = `
+.c0 {
+  display: block;
+  padding: 6px 8px;
+  color: #ffffff;
+  background-color: #171b1e;
+  border-radius: 3px;
+}
+
+<span
+  className="c0"
+>
+  Tip
+</span>
+`;
+
+exports[`#Tooltip render - top 1`] = `
+<Tooltip__Container
+  inline={false}
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+>
+  Content
+  <Tooltip__Tip
+    mobile={false}
+    position="top"
+    shown={false}
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    <Tooltip__TipContent
+      theme={
+        Object {
+          "colors": Object {
+            "accent-100": "#F8CA32",
+            "accent-200": "#F8CA32",
+            "accent-300": "#F8CA32",
+            "accent-400": "#F8CA32",
+            "accent-500": "#ffcc00",
+            "accent-600": "#F8CA32",
+            "accent-700": "#F8CA32",
+            "accent-800": "#F8CA32",
+            "accent-900": "#F8CA32",
+            "brand-info": "",
+            "danger-100": " #ffc7c7",
+            "danger-200": " #ffa8a8",
+            "danger-300": " #ff7e7e",
+            "danger-400": " #ff5858",
+            "danger-500": "#ff2424",
+            "danger-600": " #e51f1f",
+            "danger-700": "#d21c1c",
+            "danger-800": " #b91919",
+            "danger-900": "#9e1616",
+            "facebook-500": "#4465ad",
+            "facebook-600": "#3b5998",
+            "facebook-800": "#344d85",
+            "google-500": "#ff5542",
+            "google-600": "#f34a38",
+            "google-800": "#e84735",
+            "grey-100": "#edeff2",
+            "grey-200": "#d5dee7",
+            "grey-400": "#adb9c5",
+            "grey-500": "#94a2b0",
+            "grey-600": "#7c8b99",
+            "grey-700": "#57626c",
+            "grey-800": "#2e353b",
+            "grey-900": "#171b1e",
+            "insurance-plus": "#F5922A",
+            "mail-button-500": "#0097A9",
+            "mail-footer-500": "#0097A9",
+            "mail-header-500": "#0097A9",
+            "neutral-100": "#e9eef2",
+            "neutral-200": "#d5dee7",
+            "neutral-300": "#c6d0dc",
+            "neutral-400": "#adb9c5",
+            "neutral-500": "#94a2b0",
+            "neutral-600": "#7c8b99",
+            "neutral-700": "#57626c",
+            "neutral-800": "#2e353b",
+            "neutral-900": "#171b1e",
+            "primary-100": "#b2f3eb",
+            "primary-200": "#77ebdd",
+            "primary-300": "#4de3d0",
+            "primary-400": "#00d7bd",
+            "primary-500": "#00ccb4",
+            "primary-600": "#01bba5",
+            "primary-700": "#00ad98",
+            "primary-800": "#009b88",
+            "primary-900": "#008676",
+            "success-100": "#d3fac5",
+            "success-200": "#b2f79c",
+            "success-300": "#8fec70",
+            "success-400": "#6ee445",
+            "success-500": "#52cf26",
+            "success-600": "#37c207",
+            "success-700": "#2eb300",
+            "success-800": "#29a000",
+            "success-900": "#248e00",
+            "text-primary": "#ffffff",
+            "text-secondary": "#2f2f2f",
+            "trip-end": "#d50c6a",
+            "trip-start": "#0097a9",
+            "warning-100": "#fff1cf",
+            "warning-200": "#ffe7b2",
+            "warning-300": "#ffdb8d",
+            "warning-400": "#ffce67",
+            "warning-500": "#ffc345",
+            "warning-600": "#f0b539",
+            "warning-700": "#dda734",
+            "warning-800": "#c9972e",
+            "warning-900": "#ac8127",
+            "white": "#ffffff",
+          },
+        }
+      }
+    >
+      Tip
+    </Tooltip__TipContent>
+  </Tooltip__Tip>
+</Tooltip__Container>
+`;
+
+exports[`#Tooltip render - top 2`] = `
+.c0 {
+  position: absolute;
+  opacity: 0;
+  display: none;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  z-index: 2;
+  bottom: 100%;
+  padding-bottom: 5px;
+  margin-bottom: 2px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.c0:before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 6px;
+  bottom: 0;
+  border-bottom-width: 0;
+  border-top-color: #171b1e;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+@media (min-width:769px) {
+  .c0 {
+    display: block;
+  }
+}
+
+<span
+  className="c0"
+>
+  <Tooltip__TipContent
+    theme={
+      Object {
+        "colors": Object {
+          "accent-100": "#F8CA32",
+          "accent-200": "#F8CA32",
+          "accent-300": "#F8CA32",
+          "accent-400": "#F8CA32",
+          "accent-500": "#ffcc00",
+          "accent-600": "#F8CA32",
+          "accent-700": "#F8CA32",
+          "accent-800": "#F8CA32",
+          "accent-900": "#F8CA32",
+          "brand-info": "",
+          "danger-100": " #ffc7c7",
+          "danger-200": " #ffa8a8",
+          "danger-300": " #ff7e7e",
+          "danger-400": " #ff5858",
+          "danger-500": "#ff2424",
+          "danger-600": " #e51f1f",
+          "danger-700": "#d21c1c",
+          "danger-800": " #b91919",
+          "danger-900": "#9e1616",
+          "facebook-500": "#4465ad",
+          "facebook-600": "#3b5998",
+          "facebook-800": "#344d85",
+          "google-500": "#ff5542",
+          "google-600": "#f34a38",
+          "google-800": "#e84735",
+          "grey-100": "#edeff2",
+          "grey-200": "#d5dee7",
+          "grey-400": "#adb9c5",
+          "grey-500": "#94a2b0",
+          "grey-600": "#7c8b99",
+          "grey-700": "#57626c",
+          "grey-800": "#2e353b",
+          "grey-900": "#171b1e",
+          "insurance-plus": "#F5922A",
+          "mail-button-500": "#0097A9",
+          "mail-footer-500": "#0097A9",
+          "mail-header-500": "#0097A9",
+          "neutral-100": "#e9eef2",
+          "neutral-200": "#d5dee7",
+          "neutral-300": "#c6d0dc",
+          "neutral-400": "#adb9c5",
+          "neutral-500": "#94a2b0",
+          "neutral-600": "#7c8b99",
+          "neutral-700": "#57626c",
+          "neutral-800": "#2e353b",
+          "neutral-900": "#171b1e",
+          "primary-100": "#b2f3eb",
+          "primary-200": "#77ebdd",
+          "primary-300": "#4de3d0",
+          "primary-400": "#00d7bd",
+          "primary-500": "#00ccb4",
+          "primary-600": "#01bba5",
+          "primary-700": "#00ad98",
+          "primary-800": "#009b88",
+          "primary-900": "#008676",
+          "success-100": "#d3fac5",
+          "success-200": "#b2f79c",
+          "success-300": "#8fec70",
+          "success-400": "#6ee445",
+          "success-500": "#52cf26",
+          "success-600": "#37c207",
+          "success-700": "#2eb300",
+          "success-800": "#29a000",
+          "success-900": "#248e00",
+          "text-primary": "#ffffff",
+          "text-secondary": "#2f2f2f",
+          "trip-end": "#d50c6a",
+          "trip-start": "#0097a9",
+          "warning-100": "#fff1cf",
+          "warning-200": "#ffe7b2",
+          "warning-300": "#ffdb8d",
+          "warning-400": "#ffce67",
+          "warning-500": "#ffc345",
+          "warning-600": "#f0b539",
+          "warning-700": "#dda734",
+          "warning-800": "#c9972e",
+          "warning-900": "#ac8127",
+          "white": "#ffffff",
+        },
+      }
+    }
+  >
+    Tip
+  </Tooltip__TipContent>
+</span>
+`;

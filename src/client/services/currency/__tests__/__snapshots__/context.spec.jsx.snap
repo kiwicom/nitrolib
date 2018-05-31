@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Currency Provider render 1`] = `
+<[object Object]
+  value={
+    Object {
+      "available": Object {
+        "czk": Object {
+          "enabledOnAffilId": "",
+          "fallback": "",
+          "format": "__price__ Kč",
+          "id": "czk",
+          "name": "Czech Republic Koruna",
+          "rate": 0.0387945,
+          "round": "0",
+          "uncertainFormat": false,
+        },
+        "eur": Object {
+          "enabledOnAffilId": "",
+          "fallback": "",
+          "format": "__price__ €",
+          "id": "eur",
+          "name": "Euro",
+          "rate": 1,
+          "round": "2",
+          "uncertainFormat": false,
+        },
+        "gbp": Object {
+          "enabledOnAffilId": Array [
+            "UK",
+          ],
+          "fallback": "",
+          "format": "£__price__",
+          "id": "gbp",
+          "name": "British Pound Sterling",
+          "rate": 1.14355,
+          "round": "2",
+          "uncertainFormat": false,
+        },
+      },
+      "current": Object {
+        "enabledOnAffilId": "",
+        "fallback": "",
+        "format": "__price__ €",
+        "id": "eur",
+        "name": "Euro",
+        "rate": 1,
+        "round": "2",
+        "uncertainFormat": false,
+      },
+      "setCurrency": [Function],
+    }
+  }
+>
+  Content
+</[object Object]>
+`;
+
+exports[`#Currency Provider render with router 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "canGo": [Function],
+      "createHref": [Function],
+      "entries": Array [
+        Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/",
+          "search": "",
+        },
+      ],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "index": 0,
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "key": "testKey",
+        "pathname": "/",
+        "search": "",
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <withRouter(CurrencyProvider)
+    all={
+      Object {
+        "czk": Object {
+          "enabledOnAffilId": "",
+          "fallback": "",
+          "format": "__price__ Kč",
+          "id": "czk",
+          "name": "Czech Republic Koruna",
+          "rate": 0.0387945,
+          "round": "0",
+          "uncertainFormat": false,
+        },
+        "eur": Object {
+          "enabledOnAffilId": "",
+          "fallback": "",
+          "format": "__price__ €",
+          "id": "eur",
+          "name": "Euro",
+          "rate": 1,
+          "round": "2",
+          "uncertainFormat": false,
+        },
+        "gbp": Object {
+          "enabledOnAffilId": Array [
+            "UK",
+          ],
+          "fallback": "",
+          "format": "£__price__",
+          "id": "gbp",
+          "name": "British Pound Sterling",
+          "rate": 1.14355,
+          "round": "2",
+          "uncertainFormat": false,
+        },
+      }
+    }
+    countries={
+      Object {
+        "cz": Object {
+          "EN": "Czech Republic",
+          "continent": "eu",
+          "currency": "czk",
+          "id": "cz",
+        },
+        "gb": Object {
+          "EN": "United Kingdom",
+          "continent": "eu",
+          "currency": "gbp",
+          "id": "gb",
+        },
+      }
+    }
+    fromLanguage=""
+  >
+    Content
+  </withRouter(CurrencyProvider)>
+</Router>
+`;

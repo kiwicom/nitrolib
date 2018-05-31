@@ -11,6 +11,7 @@ import translate from "./services/intl/translate";
 import * as intlContext from "./services/intl/context";
 import * as brandContext from "./services/brand/context";
 import * as fetchedContext from "./services/fetched/context";
+import * as currencyContext from "./services/currency/context";
 import type { Intl } from "./records/Intl";
 
 const app = document.getElementById("react");
@@ -30,7 +31,13 @@ if (app) {
           <brandContext.Provider value={window.__BRAND__}>
             <intlContext.Provider value={intl}>
               <fetchedContext.Provider value={window.__FETCHED__}>
-                <Root />
+                <currencyContext.Provider
+                  all={window.__CURRENCIES__}
+                  fromLanguage={intl.language.currency}
+                  countries={window.__FETCHED__.countries}
+                >
+                  <Root />
+                </currencyContext.Provider>
               </fetchedContext.Provider>
             </intlContext.Provider>
           </brandContext.Provider>

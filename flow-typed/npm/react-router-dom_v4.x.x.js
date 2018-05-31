@@ -142,9 +142,10 @@ declare module "react-router-dom" {
     children?: React$Node
   }> {}
 
-  declare export function withRouter<P>(
-    Component: React$ComponentType<{| ...ContextRouter, ...P |}>
-  ): React$ComponentType<P>;
+  // https://github.com/flowtype/flow-typed/pull/1868#issuecomment-385442438
+  declare export function withRouter<C: React$ComponentType<*>>(
+    Component: C
+  ): React$ComponentType<$Diff<React$ElementConfig<C>, ContextRouter>>;
 
   declare type MatchPathOptions = {
     path?: string,

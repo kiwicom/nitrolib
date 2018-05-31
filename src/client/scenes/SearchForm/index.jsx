@@ -3,7 +3,9 @@ import * as React from "react";
 
 import GeoData from "client/components/GeoData";
 import ClientOnly from "client/components/ClientOnly";
+import Price from "client/components/Price";
 
+/* istanbul ignore next */
 const SearchForm = () => (
   <>
     <ClientOnly>
@@ -24,6 +26,7 @@ const SearchForm = () => (
       />
     </ClientOnly>
     <div>Search Form</div>
+    <Price value={100} />
   </>
 );
 

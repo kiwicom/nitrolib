@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Currency/CurrencyItem render - with name 1`] = `
+<React.Fragment>
+  <span
+    className="CurrencyItem-code"
+  >
+    EUR
+  </span>
+  <span
+    className="CurrencyItem-sign"
+  >
+    €
+  </span>
+  <React.Fragment>
+    <span>
+      NAME
+    </span>
+    <span
+      className="CurrencyItem-name"
+    >
+      Euro
+    </span>
+  </React.Fragment>
+</React.Fragment>
+`;
+
+exports[`#Currency/CurrencyItem render - with sign separator 1`] = `
+<React.Fragment>
+  <span
+    className="CurrencyItem-code"
+  >
+    EUR
+  </span>
+  <span>
+    SIGN
+  </span>
+  <span
+    className="CurrencyItem-sign"
+  >
+    €
+  </span>
+</React.Fragment>
+`;
+
+exports[`#Currency/CurrencyItem render 1`] = `
+<React.Fragment>
+  <span
+    className="CurrencyItem-code"
+  >
+    EUR
+  </span>
+  <span
+    className="CurrencyItem-sign"
+  >
+    €
+  </span>
+</React.Fragment>
+`;

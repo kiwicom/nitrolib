@@ -7,6 +7,7 @@ const Flex = styled.div`
   ${props => props.x && `justify-content: ${props.direction === "column" ? props.y : props.x}`};
   ${props => props.y && `align-items: ${props.direction === "column" ? props.x : props.y}`};
   ${props => props.direction && `flex-direction: ${props.direction}`};
+  ${props => props.wrap && `flex-wrap: ${props.wrap}`};
 `;
 
 // $FlowIssue
@@ -39,12 +40,14 @@ Flex.propTypes = {
     "initial",
     "inherit",
   ]),
+  wrap: PropTypes.oneOf(["nowrap", "wrap", "wrap-reverse"]),
 };
 
 Flex.defaultProps = {
   x: "flex-start",
   y: "flex-start",
   direction: "row",
+  wrap: "nowrap",
 };
 
 export default Flex;
