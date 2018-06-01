@@ -14,8 +14,6 @@ Use **yarn** as a package manager.
 
 ### Scripts
 
-Run `yarn gulp fetch` before developing.
-
 - `yarn start` - Dev server at **:8080**
 - `yarn relay` - GraphQL
 
