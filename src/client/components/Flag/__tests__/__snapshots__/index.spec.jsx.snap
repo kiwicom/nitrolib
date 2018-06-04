@@ -3,7 +3,7 @@
 exports[`#Flag render 1`] = `
 <Flag__Img
   alt="sk"
-  src="/images/flags/spFlag-sk.png"
+  src="https://images.kiwi.com/flags/32x32/sk.png"
   theme={
     Object {
       "colors": Object {
