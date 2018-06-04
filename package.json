@@ -21,8 +21,8 @@
     "test": "jest",
     "lint": "eslint .",
     "madge": "madge -c src/server/index.js src/client/index.js",
-    "storybook": "start-storybook -p 6006 -s src/static",
-    "storybook:build": "build-storybook -o dist/storybook -s src/static"
+    "storybook": "start-storybook -p 6006",
+    "storybook:build": "build-storybook -o dist/storybook"
   },
   "author": "kiwicom",
   "dependencies": {
