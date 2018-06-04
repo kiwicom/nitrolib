@@ -23,7 +23,7 @@ type Props = {|
 |};
 
 const Flag = (props: Props) => (
-  <Img src={`/images/flags/spFlag-${props.country}.png`} alt={props.country} />
+  <Img src={`https://images.kiwi.com/flags/32x32/${props.country}.png`} alt={props.country} />
 );
 
 export default Flag;
