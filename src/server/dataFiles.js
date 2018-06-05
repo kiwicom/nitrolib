@@ -3,7 +3,7 @@ import fs from "fs-extra";
 import path from "path";
 import * as R from "ramda";
 
-import type { Brands } from "client/records/Brand";
+import type { Brands } from "client/public/records/Brand";
 import type { Intls } from "client/records/Intl";
 import type { Countries } from "client/records/Country";
 import type { Continents } from "client/records/Continents";

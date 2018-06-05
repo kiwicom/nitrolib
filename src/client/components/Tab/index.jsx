@@ -2,8 +2,8 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
-import { brandDefault } from "../../records/Brand";
-import type { ThemeProps } from "../../records/Brand";
+import { brandDefault } from "../../public/records/Brand";
+import type { ThemeProps } from "../../public/records/Brand";
 import { border } from "../../styles";
 
 const shadowMixin = css`

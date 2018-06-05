@@ -4,9 +4,9 @@ import { createFragmentContainer, graphql } from "react-relay";
 import styled from "styled-components";
 import idx from "idx";
 
-import Flag from "client/components/Flag";
-import { brandDefault } from "client/records/Brand";
-import type { ThemeProps } from "client/records/Brand";
+import Flag from "client/public/components/Flag";
+import { brandDefault } from "client/public/records/Brand";
+import type { ThemeProps } from "client/public/records/Brand";
 import type { AirportResult_item } from "./__generated__/AirportResult_item.graphql";
 
 type ButtonProps = ThemeProps & {

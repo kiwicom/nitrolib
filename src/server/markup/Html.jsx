@@ -2,7 +2,7 @@
 /* eslint-disable react/no-danger */
 import * as React from "react";
 
-import type { Brand } from "client/records/Brand";
+import type { Brand } from "client/public/records/Brand";
 import type { Intl } from "client/records/Intl";
 import type { Fetched } from "client/records/Fetched";
 import type { Assets } from "../config";

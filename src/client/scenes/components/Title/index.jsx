@@ -7,7 +7,7 @@ import Text from "client/components/Text/index";
 
 import mq from "client/services/utils/mediaQuery";
 
-import type { ThemeProps } from "client/records/Brand";
+import type { ThemeProps } from "client/public/records/Brand";
 
 const Container = styled.div`
   font-size: 44px;

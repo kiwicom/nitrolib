@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import { brandDefault } from "client/records/Brand";
+import { brandDefault } from "client/public/records/Brand";
 import Tab from "../index";
 
 describe("#Tab", () => {

@@ -4,8 +4,8 @@ import MdExpandMore from "react-icons/lib/md/expand-more";
 import styled from "styled-components";
 
 import borderMixin from "../../styles/mixins/border";
-import { brandDefault } from "../../records/Brand";
-import type { ThemeProps } from "../../records/Brand";
+import { brandDefault } from "../../public/records/Brand";
+import type { ThemeProps } from "../../public/records/Brand";
 
 const Container = styled.div`
   position: relative;

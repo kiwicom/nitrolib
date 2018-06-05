@@ -5,8 +5,8 @@ import styled from "styled-components";
 import Text from "client/components/Text";
 import Flex from "client/primitives/Flex";
 import { Consumer as BrandConsumer } from "client/services/brand/context";
-import type { ThemeProps } from "client/records/Brand";
-import { brandDefault } from "client/records/Brand";
+import type { ThemeProps } from "client/public/records/Brand";
+import { brandDefault } from "client/public/records/Brand";
 
 const Container = styled.div``;
 
