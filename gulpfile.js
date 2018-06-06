@@ -7,6 +7,8 @@ const fetchSpreadsheet = require("./etc/gulp/fetchSpreadsheet");
 const fetchTranslations = require("./etc/gulp/fetchTranslations");
 const mapLanguages = require("./etc/gulp/mapLanguages");
 
+const statics = () => gulp.src("src/static/**").pipe(gulp.dest("dist/static"));
+
 const fetch = gulp.series(
   gulp.parallel(
     fetchBrandConfig,
@@ -15,7 +17,7 @@ const fetch = gulp.series(
   mapLanguages,
 );
 
-const build = gulp.parallel(fetch);
+const build = gulp.parallel(statics, fetch);
 
 module.exports = {
   fetch,
