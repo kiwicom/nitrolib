@@ -1,8 +1,0 @@
-.git
-.idea
-.tmp
-data
-dist
-node_modules
-.env
-yarn-error.log
