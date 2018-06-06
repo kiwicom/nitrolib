@@ -22,20 +22,7 @@ storiesOf("InputText", module)
       showState={boolean("Show state", false)}
     />
   ))
-  .add("with inline label", () => (
-    <InputText
-      id="test"
-      value={text("Value", "")}
-      onChange={action("On change")}
-      onFocus={action("On focus")}
-      onBlur={action("On blur")}
-      placeholder={text("Placeholder", "Gib text")}
-      error={text("Error", "")}
-      label={<IconText Icon={Close}>{text("Label", "Label")}</IconText>}
-      showState={boolean("Show state", false)}
-    />
-  ))
-  .add("with label component", () => (
+  .add("with label", () => (
     <>
       <IconText Icon={Close}>{text("Label", "Label")}</IconText>
       <InputText

@@ -3,8 +3,7 @@
     "dist/"
   ],
   "ignore": [
-    "dist/static",
-    "dist/storybook"
+    "dist/static"
   ],
   "delay": "1000"
 }
