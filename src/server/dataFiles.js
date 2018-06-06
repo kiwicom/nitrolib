@@ -7,7 +7,7 @@ import type { Brands } from "client/records/Brand";
 import type { Intls } from "client/records/Intl";
 import type { Countries } from "client/records/Country";
 import type { Continents } from "client/records/Continents";
-import type { BrandLanguagesDataMap } from "client/records/Languages";
+import type { BrandLanguages } from "client/records/BrandLanguage";
 import translate from "client/services/intl/translate";
 
 const DATA = path.join(__dirname, "../../data");
@@ -31,6 +31,6 @@ export const countries: Countries = fs.readJsonSync(path.join(DATA, "countries.j
 
 export const continents: Continents = fs.readJsonSync(path.join(DATA, "continents.json"));
 
-export const brandLanguages: BrandLanguagesDataMap = fs.readJsonSync(
+export const brandLanguages: BrandLanguages = fs.readJsonSync(
   path.join(DATA, "brandLanguages.json"),
 );

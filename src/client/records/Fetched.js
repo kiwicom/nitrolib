@@ -1,10 +1,10 @@
 // @flow strict
 import type { Countries } from "./Country";
 import type { Continents } from "./Continents";
-import type { LanguagesData } from "./Languages";
+import type { BrandLanguage } from "./BrandLanguage";
 
 export type Fetched = {|
   countries: Countries,
   continents: Continents,
-  languagesData: LanguagesData,
+  brandLanguage: BrandLanguage,
 |};

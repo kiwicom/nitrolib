@@ -155,20 +155,20 @@ export default class Menu extends React.Component<{}, State> {
   render = () => (
     <fetchedContext.Consumer>
       {fetched => {
-        const filteredLanguages = this.filterLanguages(fetched.languagesData.languages);
+        const filteredLanguages = this.filterLanguages(fetched.brandLanguage.languages);
         return (
           <MenuWrapper>
             <ContinentList>
               <ContinentItem onClick={() => this.handleContinent("")}>
                 <Text t={__("common.languages_all")} />
               </ContinentItem>
-              {fetched.languagesData.continents.map(continent => (
+              {fetched.brandLanguage.continents.map(continent => (
                 <ContinentItem
-                  onClick={() => this.handleContinent(continent.id)}
-                  key={continent.id}
-                  active={continent.id === this.state.continent}
+                  onClick={() => this.handleContinent(continent)}
+                  key={continent}
+                  active={continent === this.state.continent}
                 >
-                  <ContinentName id={continent.id} />
+                  <ContinentName id={continent} />
                 </ContinentItem>
               ))}
             </ContinentList>

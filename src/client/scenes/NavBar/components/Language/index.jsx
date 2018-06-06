@@ -42,10 +42,10 @@ export default class Language extends React.Component<{}, State> {
         {fetched => (
           <intlContext.Consumer>
             {intl =>
-              R.has(intl.language.id, fetched.languagesData.languages) && (
+              R.has(intl.language.id, fetched.brandLanguage.languages) && (
                 <>
                   <OpenButton onClick={this.handleToggle}>
-                    <LanguageName language={fetched.languagesData.languages[intl.language.id]} />
+                    <LanguageName language={fetched.brandLanguage.languages[intl.language.id]} />
                   </OpenButton>
                   {this.state.shown && (
                     <ClickOutside onClickOutside={this.handleToggle}>
