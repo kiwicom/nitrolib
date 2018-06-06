@@ -76,7 +76,7 @@ release:
       --recursive dist/static/*
       s3://frontend-nitro-dev/app/${CI_COMMIT_REF_SLUG}/
 
-nitrocart:
+nitrokart:
   stage: release
   image: kiwicom/s3cmd-plus-docker
   environment:
