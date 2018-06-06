@@ -5,11 +5,19 @@ const R = require("ramda");
 
 const OUT = path.join(__dirname, "../../data/");
 
-const getEnabledLanguageIds = R.compose(R.keys, R.filter(R.prop("enabled")));
+const getEnabledLanguageIds = R.compose(
+  R.keys,
+  R.filter(R.prop("enabled")),
+);
 
 const sortObjectByName = R.compose(
   R.fromPairs,
-  R.sortBy(R.pipe(R.nth(1), R.prop("name"))),
+  R.sortBy(
+    R.pipe(
+      R.nth(1),
+      R.prop("name"),
+    ),
+  ),
   R.toPairs,
 );
 
