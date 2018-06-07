@@ -34,7 +34,7 @@ const getBrandLanguages = (brands, languages, countries) =>
     );
 
     return {
-      defaultLocale: langs.defaultLocale,
+      defaultLocale: langs.default,
       languages: enabledLanguages,
       continents: R.uniq(R.unnest(R.pluck("continent", R.values(enabledLanguages)))),
     };
@@ -48,18 +48,9 @@ const tKeys = {
 };
 
 const translateAndSortContinents = (brandLanguage, translations) =>
-  R.assoc(
-    "continents",
-    R.compose(
-      R.map(R.prop("id")),
-      R.sortBy(
-        R.prop("name"),
-        brandLanguage.continents.map(continent => ({
-          id: continent,
-          name: translations[tKeys[continent]],
-        })),
-      ),
-    ),
+  R.over(
+    R.lensProp("continents"),
+    R.compose(R.sortBy(continent => translations[tKeys[continent]])),
     brandLanguage,
   );
 

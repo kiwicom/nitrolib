@@ -152,41 +152,47 @@ export default class Menu extends React.Component<{}, State> {
       language => this.state.continent === "" || this.state.continent === language.continent,
     );
 
-  render = () => (
-    <fetchedContext.Consumer>
-      {fetched => {
-        const filteredLanguages = this.filterLanguages(fetched.brandLanguage.languages);
-        return (
-          <MenuWrapper>
-            <ContinentList>
-              <ContinentItem onClick={() => this.handleContinent("")}>
-                <Text t={__("common.languages_all")} />
-              </ContinentItem>
-              {fetched.brandLanguage.continents.map(continent => (
-                <ContinentItem
-                  onClick={() => this.handleContinent(continent)}
-                  key={continent}
-                  active={continent === this.state.continent}
-                >
-                  <ContinentName id={continent} />
+  render() {
+    return (
+      <fetchedContext.Consumer>
+        {fetched => {
+          const filteredLanguages = this.filterLanguages(fetched.brandLanguage.languages);
+
+          return (
+            <MenuWrapper>
+              <ContinentList>
+                <ContinentItem onClick={() => this.handleContinent("")}>
+                  <Text t={__("common.languages_all")} />
                 </ContinentItem>
-              ))}
-            </ContinentList>
-            <LanguageList>
-              <LanguageListWrapper
-                height={this.getLanguageWrapperHeight(filteredLanguages)}
-                width={this.getLanguageWrapperWidth(filteredLanguages)}
-              >
-                {filteredLanguages.map(language => (
-                  <LanguageItem key={language.id} onClick={() => this.changeLanguage(language.id)}>
-                    <LanguageName language={language} key={language.id} />
-                  </LanguageItem>
+                {fetched.brandLanguage.continents.map(continent => (
+                  <ContinentItem
+                    onClick={() => this.handleContinent(continent)}
+                    key={continent}
+                    active={continent === this.state.continent}
+                  >
+                    <ContinentName id={continent} />
+                  </ContinentItem>
                 ))}
-              </LanguageListWrapper>
-            </LanguageList>
-          </MenuWrapper>
-        );
-      }}
-    </fetchedContext.Consumer>
-  );
+              </ContinentList>
+              <LanguageList>
+                <LanguageListWrapper
+                  height={this.getLanguageWrapperHeight(filteredLanguages)}
+                  width={this.getLanguageWrapperWidth(filteredLanguages)}
+                >
+                  {filteredLanguages.map(language => (
+                    <LanguageItem
+                      key={language.id}
+                      onClick={() => this.changeLanguage(language.id)}
+                    >
+                      <LanguageName language={language} key={language.id} />
+                    </LanguageItem>
+                  ))}
+                </LanguageListWrapper>
+              </LanguageList>
+            </MenuWrapper>
+          );
+        }}
+      </fetchedContext.Consumer>
+    );
+  }
 }
