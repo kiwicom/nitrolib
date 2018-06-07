@@ -16,7 +16,7 @@ export const brands: Brands = fs.readJsonSync(path.join(DATA, "brands.json"));
 
 const tFiles = fs.readJsonSync(path.join(DATA, "translationsFiles.json"));
 
-const languagesFile = fs.readJsonSync(path.join(DATA, "languages.json"));
+const languages = fs.readJsonSync(path.join(DATA, "languages.json"));
 
 export const intls: Intls = R.map(language => {
   const translations = fs.readJsonSync(path.join(DATA, tFiles[language.phraseApp]));
@@ -25,7 +25,7 @@ export const intls: Intls = R.map(language => {
     translations,
     translate: R.partial(translate, [translations]),
   };
-}, languagesFile);
+}, languages);
 
 export const countries: Countries = fs.readJsonSync(path.join(DATA, "countries.json"));
 
