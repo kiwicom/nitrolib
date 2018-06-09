@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import * as brandContext from "client/services/brand/context";
 import type { ThemeProps } from "client/records/Brand";
+import { logo } from "client/styles/index";
 import SvgLogo from "./SvgLogo";
 
 const PoweredByKiwi = styled.span`
@@ -12,21 +13,14 @@ const PoweredByKiwi = styled.span`
 
 const LogoImage = styled.img``;
 
-type Props = {|
-  width: number,
-  height: number,
-|};
-
-const Logo = (props: Props) => (
+const Logo = () => (
   <brandContext.Consumer>
-    {brand => {
-      if (brand.id === "kiwicom")
-        return (
-          <a href={brand.home_redirect_url}>
-            <SvgLogo height={props.height} width={props.width} title={brand.name} />
-          </a>
-        );
-      return (
+    {brand =>
+      brand.id === "kiwicom" ? (
+        <a href={brand.home_redirect_url}>
+          <SvgLogo height={logo.height} width={logo.width} title={brand.name} />
+        </a>
+      ) : (
         <>
           <a href={brand.home_redirect_url}>
             <LogoImage
@@ -39,8 +33,8 @@ const Logo = (props: Props) => (
           </a>
           {brand.powered_by_kiwi && <PoweredByKiwi>Powered by Kiwi.com</PoweredByKiwi>}
         </>
-      );
-    }}
+      )
+    }
   </brandContext.Consumer>
 );
 

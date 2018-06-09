@@ -3,7 +3,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 import Flex from "client/primitives/Flex";
-import { NAVBAR_HEIGHT, LOGO_WIDTH, LOGO_HEIGHT } from "client/consts/layout";
+import { navbar } from "client/styles/index";
 import mq from "client/services/utils/mediaQuery";
 import type { ThemeProps } from "client/records/Brand";
 import Logo from "./components/Logo";
@@ -11,7 +11,7 @@ import Language from "./components/Language";
 
 const Container = styled(Flex)`
   width: 100%;
-  height: ${NAVBAR_HEIGHT}px;
+  height: ${navbar.height}px;
   background-color: ${(props: ThemeProps) => props.theme.colors.white};
   color: ${(props: ThemeProps) => props.theme.colors["neutral-800"]};
   padding: 0 10px;
@@ -27,7 +27,7 @@ const Container = styled(Flex)`
 
 const NavBar = () => (
   <Container x="space-between" y="center">
-    <Logo width={LOGO_WIDTH} height={LOGO_HEIGHT} />
+    <Logo />
     <Flex y="center">
       <Language />
     </Flex>

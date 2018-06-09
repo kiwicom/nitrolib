@@ -22,35 +22,6 @@ describe("#Menu", () => {
     expect(setHrefMockFn).toBeCalledWith("null/cz/");
   });
 
-  test("Calculates width for language picker correctly", () => {
-    const wrapper = shallow(<Menu />);
-    const emptyFilteredLanguages = [];
-    const filteredLanguages = ["cz", "en", "dk", "se", "fi", "de"];
-
-    expect(wrapper.instance().getLanguageWrapperWidth(emptyFilteredLanguages)).toBe(360);
-    expect(wrapper.instance().getLanguageWrapperWidth(filteredLanguages)).toBe(540);
-  });
-
-  test("Calculates height for language picker correctly", () => {
-    const wrapper = shallow(<Menu />);
-    const emptyFilteredLanguages = [];
-    const filteredLanguages = ["cz", "en", "dk", "se", "fi", "de"];
-    const longFilteredLanguages = Array.from("x".repeat(62));
-
-    expect(wrapper.instance().getLanguageWrapperHeight(emptyFilteredLanguages)).toBe(0);
-    expect(wrapper.instance().getLanguageWrapperHeight(filteredLanguages)).toBe(62);
-    expect(wrapper.instance().getLanguageWrapperHeight(longFilteredLanguages)).toBe(651);
-  });
-
-  test("Calculates number of collumns for language picker correctly", () => {
-    const wrapper = shallow(<Menu />);
-    const filteredLanguages = ["cz", "en", "dk", "se"];
-    const longFilteredLanguages = Array.from("x".repeat(62));
-
-    expect(wrapper.instance().getWidthConstant(filteredLanguages)).toBe(2);
-    expect(wrapper.instance().getWidthConstant(longFilteredLanguages)).toBe(3);
-  });
-
   test("filters languages properly", () => {
     const languages = {
       cz: { id: "cz", continent: "eu" },

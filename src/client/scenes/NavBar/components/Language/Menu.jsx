@@ -8,16 +8,10 @@ import Flex from "client/primitives/Flex";
 import Text from "client/components/Text";
 import mq from "client/services/utils/mediaQuery";
 import type { ThemeProps } from "client/records/Brand";
-import type { Languages, Language } from "client/records/Languages";
+import type { Languages } from "client/records/Languages";
 import LanguageName from "./LanguageName";
 import ContinentName from "./ContinentName";
-
-// used for decide, when to render 2/3 columns
-// and when to activate customHeight on Popup
-const LANGUAGES_LIMIT = 5;
-// width and height of language rows in px
-const LANGUAGE_ROW_HEIGHT = 31;
-const LANGUAGE_ROW_WIDTH = 180;
+import { getLanguageWrapperHeight, getLanguageWrapperWidth } from "./services/menu";
 
 const MenuWrapper = styled.div`
   background-color: white;
@@ -118,23 +112,6 @@ export default class Menu extends React.Component<{}, State> {
     continent: "",
   };
 
-  getWidthConstant = (filteredLanguages: Language[]) =>
-    filteredLanguages.length < LANGUAGES_LIMIT ? 2 : 3; // 2 || 3 columns
-
-  getLanguageWrapperHeight = (filteredLanguages: Language[]) => {
-    const widthConstant = this.getWidthConstant(filteredLanguages);
-
-    // For filtered cases - enables to wrap to (2 || 3) cols every time
-    const heightConstraint =
-      Math.ceil(filteredLanguages.length / widthConstant) * LANGUAGE_ROW_HEIGHT; // custom height depends on number of columns
-    return filteredLanguages.length <= LANGUAGES_LIMIT // && this.props.isMobile
-      ? filteredLanguages.length * LANGUAGE_ROW_HEIGHT // custom height depends on number of languages, only on mobile && when less languages than limit
-      : heightConstraint;
-  };
-
-  getLanguageWrapperWidth = (filteredLanguages: Language[]) =>
-    this.getWidthConstant(filteredLanguages) * LANGUAGE_ROW_WIDTH;
-
   handleContinent = (continent: string) => {
     this.setState({ continent });
   };
@@ -176,8 +153,8 @@ export default class Menu extends React.Component<{}, State> {
               </ContinentList>
               <LanguageList>
                 <LanguageListWrapper
-                  height={this.getLanguageWrapperHeight(filteredLanguages)}
-                  width={this.getLanguageWrapperWidth(filteredLanguages)}
+                  height={getLanguageWrapperHeight(filteredLanguages)}
+                  width={getLanguageWrapperWidth(filteredLanguages)}
                 >
                   {filteredLanguages.map(language => (
                     <LanguageItem
