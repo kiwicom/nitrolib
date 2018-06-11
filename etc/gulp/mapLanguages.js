@@ -3,56 +3,9 @@ const fs = require("fs-extra");
 const path = require("path");
 const R = require("ramda");
 
+const languageUtils = require("./utils/languages");
+
 const OUT = path.join(__dirname, "../../data/");
-
-const getEnabledLanguageIds = R.compose(
-  R.keys,
-  R.filter(R.prop("enabled")),
-);
-
-const sortObjectByName = R.compose(
-  R.fromPairs,
-  R.sortBy(
-    R.pipe(
-      R.nth(1),
-      R.prop("name"),
-    ),
-  ),
-  R.toPairs,
-);
-
-const getBrandLanguages = (brands, languages, countries) =>
-  R.map(brand => {
-    const langs = brand.localization.languages;
-    const enabledLanguageIds = getEnabledLanguageIds(langs.locales);
-    const enabledLanguages = sortObjectByName(
-      R.map(
-        language =>
-          R.assoc("continent", R.path([language.defaultCountry, "continent"], countries), language),
-        R.filter(language => R.contains(language.id, enabledLanguageIds), languages),
-      ),
-    );
-
-    return {
-      defaultLocale: langs.default,
-      languages: enabledLanguages,
-      continents: R.uniq(R.unnest(R.pluck("continent", R.values(enabledLanguages)))),
-    };
-  }, brands);
-
-const tKeys = {
-  aas: "common.continents.aas",
-  ap: "common.continents.ap",
-  eu: "common.continents.eu",
-  mea: "common.continents.mea",
-};
-
-const translateAndSortContinents = (brandLanguage, translations) =>
-  R.over(
-    R.lensProp("continents"),
-    R.compose(R.sortBy(continent => translations[tKeys[continent]])),
-    brandLanguage,
-  );
 
 const mapLanguages = () =>
   Promise.all([
@@ -66,7 +19,7 @@ const mapLanguages = () =>
       languages,
     );
 
-    const brandLangs = getBrandLanguages(
+    const brandLangs = languageUtils.getBrandLanguages(
       brands,
       R.map(
         language => ({
@@ -83,7 +36,10 @@ const mapLanguages = () =>
     // TODO extract the whole R.map here and test it
     const data = R.map(
       brandLang =>
-        R.map(translations => translateAndSortContinents(brandLang, translations), locales),
+        R.map(
+          translations => languageUtils.translateAndSortContinents(brandLang, translations),
+          locales,
+        ),
       brandLangs,
     );
 
