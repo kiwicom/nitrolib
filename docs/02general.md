@@ -59,3 +59,9 @@ import format from "date-fns/format";
 ```
 
 Use for manipulating with native `Date` objects whenever you need some date/time work.
+
+## Dev query variables
+
+The following query variables exist to aid in development:
+
+* `dev_ip` - overrides the IP of the client, used for geo-agnostic testing

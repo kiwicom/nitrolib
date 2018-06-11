@@ -36,17 +36,6 @@ const all = {
     fallback: "",
     rate: 1,
   },
-  // not available, no fallback
-  czk: {
-    id: "czk",
-    name: "Czech Republic Koruna",
-    format: "__price__ Kč",
-    uncertainFormat: false,
-    round: "0",
-    enabledOnAffilId: "",
-    fallback: "",
-    rate: 0.0387945,
-  },
   // not available, available fallback
   hkd: {
     id: "hkd",
@@ -57,17 +46,6 @@ const all = {
     enabledOnAffilId: "AFFIL",
     fallback: "gbp",
     rate: 0.109077,
-  },
-  // not available, not available fallback
-  huf: {
-    id: "huf",
-    name: "Hungarian Forint",
-    format: "__price__ Ft",
-    uncertainFormat: false,
-    round: "0",
-    enabledOnAffilId: "AFFIL",
-    fallback: "czk",
-    rate: 0.00312772,
   },
 };
 
@@ -105,27 +83,19 @@ const available = {
 };
 
 describe("#resolveCurrency", () => {
-  test("no candidates", () => {
-    expect(resolveCurrency(all, available, [null, "", undefined])).toEqual(currencyDefault);
+  test("candidate", () => {
+    expect(resolveCurrency(all, available, "dkk")).toEqual(all.dkk);
   });
 
-  test("valid first truthy candidate", () => {
-    expect(resolveCurrency(all, available, [null, "", undefined, "DKK", "GBP"])).toEqual(all.dkk);
+  test("fallback", () => {
+    expect(resolveCurrency(all, available, "hkd")).toEqual(all.gbp);
   });
 
-  test("unknown candidate", () => {
-    expect(resolveCurrency(all, available, ["TST"])).toEqual(all.dkk);
+  test("default", () => {
+    expect(resolveCurrency(all, available, "")).toEqual(currencyDefault);
   });
 
-  test("candidate not in available", () => {
-    expect(resolveCurrency(all, available, ["CZK"])).toEqual(currencyDefault);
-  });
-
-  test("fallback to available", () => {
-    expect(resolveCurrency(all, available, ["hkd"])).toEqual(all.gbp);
-  });
-
-  test("fallback to not available", () => {
-    expect(resolveCurrency(all, available, ["huf"])).toEqual(currencyDefault);
+  test("first available", () => {
+    expect(resolveCurrency(all, { dkk: available.dkk }, "")).toEqual(available.dkk);
   });
 });

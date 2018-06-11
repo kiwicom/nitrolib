@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import Menu from "../Menu";
+import { MenuUnwrapped as Menu } from "../Menu";
 
 const available = {
   dkk: {
@@ -38,14 +38,25 @@ const current = {
   rate: 1.14355,
 };
 
-const geoIP = {
-  geoIP: {
-    coordinates: {
-      lng: 20,
-      lat: 30,
+const list: any = {
+  edges: [
+    {
+      node: {
+        code: "eur",
+        name: "Euro",
+      },
     },
-    isoCountryCode: "GB",
-  },
+    {
+      node: {
+        code: "huf",
+        name: "Hungarian Forint",
+      },
+    },
+  ],
+};
+
+const geo: any = {
+  isoCountryCode: "GB",
 };
 
 describe("#Currency/Menu", () => {
@@ -54,32 +65,33 @@ describe("#Currency/Menu", () => {
       <Menu
         available={available}
         current={current}
-        geoIP={geoIP}
-        setCurrency={jest.fn()}
-        hide={jest.fn()}
+        geo={geo}
+        list={list}
+        onSetCurrency={jest.fn()}
+        onHide={jest.fn()}
       />,
     );
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  test("setCurrency", () => {
-    const setCurrency = jest.fn();
-    const hide = jest.fn();
-
+  test("set currency", () => {
+    const onSetCurrency = jest.fn();
+    const onHide = jest.fn();
     const wrapper = shallow(
       <Menu
         available={available}
         current={current}
-        geoIP={geoIP}
-        setCurrency={setCurrency}
-        hide={hide}
+        geo={geo}
+        list={list}
+        onSetCurrency={onSetCurrency}
+        onHide={onHide}
       />,
     );
 
-    wrapper.instance().setCurrency("czk");
+    wrapper.instance().handleSetCurrency("czk");
 
-    expect(setCurrency).toBeCalledWith("czk");
-    expect(hide).toBeCalled();
+    expect(onSetCurrency).toBeCalledWith("czk");
+    expect(onHide).toBeCalled();
   });
 });

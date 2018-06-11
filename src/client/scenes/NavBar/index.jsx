@@ -2,6 +2,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import ClientOnly from "client/components/ClientOnly";
 import Flex from "client/primitives/Flex";
 import { navbar } from "client/styles/index";
 import mq from "client/services/utils/mediaQuery";
@@ -32,7 +33,9 @@ const NavBar = () => (
     <Logo />
     <Flex y="center">
       <Language />
-      <Currency />
+      <ClientOnly>
+        <Currency />
+      </ClientOnly>
       <SideBar />
     </Flex>
   </Container>

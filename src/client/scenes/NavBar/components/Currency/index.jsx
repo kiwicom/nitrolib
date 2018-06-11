@@ -1,15 +1,15 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
+import { graphql, QueryRenderer } from "react-relay";
 
 import environment from "client/services/environment";
 import * as currencyContext from "client/services/currency/context";
 import { brandDefault } from "client/records/Brand";
 import type { ThemeProps } from "client/records/Brand";
-import GeoData from "client/components/GeoData";
 import ClickOutside from "client/components/ClickOutside/index";
 import mq from "client/services/utils/mediaQuery";
-import CurrencyItem from "./CurrencyItem";
+import Current from "./Current";
 import Menu from "./Menu";
 
 type Props = {|
@@ -48,40 +48,68 @@ class Currency extends React.Component<Props, State> {
   };
 
   handleToggle = () => {
-    this.setState({ shown: !this.state.shown });
+    this.setState(state => ({ shown: !state.shown }));
   };
 
-  hide = () => {
+  handleHide = () => {
     this.setState({ shown: false });
   };
 
   render() {
     return (
-      <GeoData
-        environment={this.props.environment}
-        render={res => (
-          <currencyContext.Consumer>
-            {({ current, available, setCurrency }) => (
-              <Container>
-                <OpenButton onClick={this.handleToggle}>
-                  <CurrencyItem currency={current} separatorSign=" - " />
-                </OpenButton>
+      <QueryRenderer
+        query={graphql`
+          query CurrencyQuery($ip: IP!) {
+            currencies {
+              ...MenuList_list
+            }
 
-                {this.state.shown && (
-                  <ClickOutside onClickOutside={this.hide}>
-                    <Menu
-                      current={current}
-                      available={available}
-                      setCurrency={setCurrency}
-                      geoIP={res.props}
-                      hide={this.hide}
-                    />
-                  </ClickOutside>
-                )}
-              </Container>
-            )}
-          </currencyContext.Consumer>
-        )}
+            geoIP(ip: $ip) {
+              ...MenuGeo_geo
+            }
+          }
+        `}
+        environment={this.props.environment}
+        variables={{ ip: "1.2.3.4" /* TODO remove once 'geoIP' can exist without a variable */ }}
+        render={res => {
+          if (res.error) {
+            // TODO
+            console.error(res.error);
+            return <span>Error :(</span>;
+          }
+
+          if (!res.props) {
+            // TODO
+            return null;
+          }
+
+          return (
+            <currencyContext.Consumer>
+              {({ currency, available, setCurrency }) => (
+                <Container>
+                  <OpenButton onClick={this.handleToggle}>
+                    <Current currency={currency} />
+                  </OpenButton>
+
+                  {this.state.shown && (
+                    <ClickOutside onClickOutside={this.handleHide}>
+                      <Menu
+                        current={currency}
+                        available={available}
+                        onSetCurrency={setCurrency}
+                        onHide={this.handleHide}
+                        /* $FlowIssue */
+                        list={res.props.currencies}
+                        /* $FlowIssue */
+                        geo={res.props.geoIP}
+                      />
+                    </ClickOutside>
+                  )}
+                </Container>
+              )}
+            </currencyContext.Consumer>
+          );
+        }}
       />
     );
   }

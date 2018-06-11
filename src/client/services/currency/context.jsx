@@ -1,120 +1,143 @@
 // @flow strict
+/* eslint-disable react/no-unused-prop-types, react/no-unused-state */
 import * as React from "react";
-import { withRouter } from "react-router-dom";
-import type { ContextRouter } from "react-router-dom";
+import idx from "idx";
 
 import { currencyDefault } from "client/records/Currency";
-import type { Currencies } from "client/records/Currency";
+import type { Currency, Currencies } from "client/records/Currency";
 import type { Countries } from "client/records/Country";
-import getAffiliate from "client/services/session/getAffiliate";
-import getIP from "client/services/session/getIP";
-import getGeoIPCountry from "client/services/session/getGeoIPCountry";
-import environment from "client/services/environment";
-import getAvailableCurrencies from "./services/getAvailableCurrencies";
-import getRequestCurrency from "./services/getRequestCurrency";
-import resolveRates from "./services/resolveRates";
+import filterCurrencies from "./services/filterCurrencies";
 import resolveCurrency from "./services/resolveCurrency";
 import * as store from "./services/store";
-import fetchGeoData from "./services/CurrencyGeo";
-import fetchRatesData from "./services/CurrencyRates";
+import getGeoCountry from "./services/getGeoCountry";
+import getCurrencies from "./services/getCurrencies";
+import getCandidate from "./services/getCandidate";
 
 type Props = {|
-  all: Currencies,
-  fromLanguage: string,
+  whitelist: string[],
   countries: Countries,
-  environment: typeof environment,
+  affiliate: string,
+  ip: string,
+  initialCurrency: string,
+  langCurrency: string,
   children: React.Node,
-  ...ContextRouter,
+  // DI
+  getValue: typeof store.getValue,
+  saveValue: typeof store.saveValue,
+  getCurrencies: typeof getCurrencies,
+  getGeoCountry: typeof getGeoCountry,
 |};
 
 type State = {|
-  selected: ?string,
+  currency: ?Currency,
+  all: Currencies,
   available: Currencies,
-  fromCountry: ?string,
+  country: string,
 |};
 
-const { Consumer, Provider } = React.createContext({
-  current: currencyDefault,
-  available: { eur: currencyDefault },
-  setCurrency: () => {},
-});
+type Context = {|
+  currency: Currency,
+  available: Currencies,
+  setCurrency: (code: string) => void,
+|};
 
+const { Consumer, Provider } = React.createContext(
+  ({
+    currency: currencyDefault,
+    available: { eur: currencyDefault },
+    setCurrency: () => {},
+  }: Context),
+);
+
+// FIXME try to rewrite to Relay
+// would require too much 'Currencies' type refactoring, so not done immediately
 export class CurrencyProvider extends React.PureComponent<Props, State> {
   static defaultProps = {
-    environment,
+    getValue: store.getValue,
+    saveValue: store.saveValue,
+    getCurrencies,
+    getGeoCountry,
   };
 
-  constructor(props: Props) {
-    super(props);
+  state = {
+    currency: null,
+    all: {},
+    available: {},
+    country: "",
+  };
 
-    this.state = {
-      selected: null,
-      fromCountry: null,
-      available: getAvailableCurrencies(props.all, getAffiliate(props.location.search)),
+  componentDidMount() {
+    this.loadData();
+  }
+
+  componentDidUpdate(props: Props, state: State) {
+    if (!state.all) {
+      this.loadData();
+    }
+  }
+
+  static getDerivedStateFromProps(props: Props, state: State) {
+    if (state.currency !== null) {
+      return null;
+    }
+
+    if (!state.all || !state.country) {
+      return null;
+    }
+
+    const candidate = getCandidate({
+      initial: props.initialCurrency,
+      country: idx(props.countries, _ => _[state.country].currency) || "",
+      lang: props.langCurrency,
+    });
+
+    const available = filterCurrencies(props.affiliate, props.whitelist, state.all);
+
+    return {
+      currency: resolveCurrency(state.all, available, candidate),
+      available,
     };
   }
 
-  componentDidMount() {
-    if (!getRequestCurrency(this.props.location.search)) {
-      this.fetchFromCountry();
-    }
+  setCurrency = (code: string) => {
+    const { available } = this.state;
 
-    this.updateRates();
+    const currency = available[code];
+    if (currency) {
+      this.setState({ currency });
+      this.props.saveValue(code);
+    }
+  };
+
+  async loadData() {
+    const [all, country] = await Promise.all([
+      this.props.getCurrencies(),
+      this.props.getGeoCountry(this.props.ip),
+    ]);
+
+    this.setState({ all, country });
   }
 
-  setCurrency = (code: string) => {
-    if (this.state.available[code]) {
-      this.setState({ selected: code });
-      store.saveValue(code);
-    }
-  };
-
-  fetchFromCountry = () => {
-    const { environment: activeEnvironment, location, countries } = this.props;
-
-    fetchGeoData(activeEnvironment, getIP(location.search)).then(data => {
-      const country = getGeoIPCountry(data, countries, null);
-
-      if (country) {
-        this.setState({ fromCountry: country.currency });
-      }
-    });
-  };
-
-  updateRates = () => {
-    fetchRatesData(this.props.environment).then(data => {
-      this.setState({
-        // presumption: available never changes
-        available: resolveRates(data, this.state.available),
-      });
-    });
-  };
-
   render() {
-    const { all, fromLanguage, location } = this.props;
-    const { selected, available, fromCountry } = this.state;
+    const { currency, available } = this.state;
+    const { children } = this.props;
 
-    const current = resolveCurrency(all, available, [
-      selected,
-      getRequestCurrency(location.search),
-      fromCountry,
-      fromLanguage,
-    ]);
+    if (!currency) {
+      return children;
+    }
 
     return (
       <Provider
         value={{
-          current,
+          currency,
           available,
           setCurrency: this.setCurrency,
         }}
       >
-        {this.props.children}
+        {children}
       </Provider>
     );
   }
 }
 
-const CurrencyProviderWithRouter = withRouter(CurrencyProvider);
-
-export { Consumer, CurrencyProviderWithRouter as Provider };
+export { Consumer, CurrencyProvider as Provider };

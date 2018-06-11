@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash dcf7558d779dc91703a6fa4cf73eed14
+ * @relayHash 388179e5aadf81825dd4fcd5c6d7ed67
  */
 
 /* eslint-disable */
@@ -9,10 +9,10 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type CurrencyGeoQueryVariables = {|
+export type currencyGeoQueryVariables = {|
   ip: any
 |};
-export type CurrencyGeoQueryResponse = {|
+export type currencyGeoQueryResponse = {|
   +geoIP: ?{|
     +isoCountryCode: ?string
   |}
@@ -21,7 +21,7 @@ export type CurrencyGeoQueryResponse = {|
 
 
 /*
-query CurrencyGeoQuery(
+query currencyGeoQuery(
   $ip: IP!
 ) {
   geoIP(ip: $ip) {
@@ -69,13 +69,13 @@ v1 = [
 return {
   "kind": "Request",
   "operationKind": "query",
-  "name": "CurrencyGeoQuery",
+  "name": "currencyGeoQuery",
   "id": null,
-  "text": "query CurrencyGeoQuery(\n  $ip: IP!\n) {\n  geoIP(ip: $ip) {\n    isoCountryCode\n  }\n}\n",
+  "text": "query currencyGeoQuery(\n  $ip: IP!\n) {\n  geoIP(ip: $ip) {\n    isoCountryCode\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
-    "name": "CurrencyGeoQuery",
+    "name": "currencyGeoQuery",
     "type": "RootQuery",
     "metadata": null,
     "argumentDefinitions": v0,
@@ -83,12 +83,12 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "CurrencyGeoQuery",
+    "name": "currencyGeoQuery",
     "argumentDefinitions": v0,
     "selections": v1
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '8fcb9fabac238cd3cddf9219d388253c';
+(node/*: any*/).hash = 'e8bb73842a95ef1afa82d84f1be99cd7';
 module.exports = node;

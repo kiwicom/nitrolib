@@ -8,11 +8,15 @@ import { ThemeProvider } from "styled-components";
 
 import Root from "./scenes/Root";
 import translate from "./services/intl/translate";
+import getIP from "./services/session/getIP";
+import * as io from "./services/session/io";
 import * as intlContext from "./services/intl/context";
 import * as brandContext from "./services/brand/context";
 import * as fetchedContext from "./services/fetched/context";
+import * as sessionContext from "./services/session/context";
 import * as currencyContext from "./services/currency/context";
 import type { Intl } from "./records/Intl";
+import type { Session } from "./records/Session";
 
 const app = document.getElementById("react");
 
@@ -20,6 +24,12 @@ const intl: Intl = {
   language: window.__INTL__.language,
   translations: window.__INTL__.translations,
   translate: R.partial(translate, [window.__INTL__.translations]),
+};
+
+const session: Session = {
+  affiliate: io.getAffiliate(window.location.search),
+  userId: "", // TODO out of the scope of this MR, add in another one
+  sessionId: "", // TODO out of the scope of this MR, add in another one
 };
 
 if (app) {
@@ -31,13 +41,18 @@ if (app) {
           <brandContext.Provider value={window.__BRAND__}>
             <intlContext.Provider value={intl}>
               <fetchedContext.Provider value={window.__FETCHED__}>
-                <currencyContext.Provider
-                  all={window.__CURRENCIES__}
-                  fromLanguage={intl.language.currency}
-                  countries={window.__FETCHED__.countries}
-                >
-                  <Root />
-                </currencyContext.Provider>
+                <sessionContext.Provider value={session}>
+                  <currencyContext.Provider
+                    whitelist={window.__BRAND__.payments.whitelisted_currencies}
+                    countries={window.__FETCHED__.countries}
+                    affiliate={session.affiliate}
+                    ip={getIP(window.location.search)}
+                    initialCurrency={io.getCurrency(window.location.search)}
+                    langCurrency={intl.language.currency}
+                  >
+                    <Root />
+                  </currencyContext.Provider>
+                </sessionContext.Provider>
               </fetchedContext.Provider>
             </intlContext.Provider>
           </brandContext.Provider>

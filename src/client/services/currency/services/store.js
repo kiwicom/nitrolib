@@ -1,12 +1,12 @@
 // @flow strict
 import jsCookie from "js-cookie";
 
-import { CURRENCY as COOKIE_CURRENCY } from "client/consts/cookies";
+import { CURRENCY } from "client/consts/cookies";
 
 export function getValue() {
-  return jsCookie.get(COOKIE_CURRENCY);
+  return jsCookie.get(CURRENCY);
 }
 
 export function saveValue(newValue: string) {
-  jsCookie.set(COOKIE_CURRENCY, newValue);
+  jsCookie.set(CURRENCY, newValue);
 }

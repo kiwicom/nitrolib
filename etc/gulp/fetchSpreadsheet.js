@@ -9,7 +9,7 @@ const OUT = path.join(__dirname, "../../data/");
 
 const whitelist = [
   "countries",
-  "currencies",
+  // "currencies",
   "languages",
   // "about",
   // "affiliates",

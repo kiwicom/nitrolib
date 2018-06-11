@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import format from "client/services/currency/format";
+import { format } from "client/records/Currency";
 import { Consumer } from "client/services/currency/context";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 };
 
 const Price = (props: Props) => (
-  <Consumer>{({ current }) => format(current, props.value)}</Consumer>
+  <Consumer>{({ currency }) => format(currency, props.value)}</Consumer>
 );
 
 export default Price;

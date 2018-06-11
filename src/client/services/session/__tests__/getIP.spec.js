@@ -1,12 +1,17 @@
 // @flow strict
-import getIP, { DEFAULT_IP } from "../getIP";
+import { DEV_IP } from "client/consts/url";
+import getIP, { SENTINEL_IP } from "../getIP";
 
 describe("#getIP", () => {
-  test("none set", () => {
-    expect(getIP("a=a&ip=123.123.123.123&b=b")).toBe(DEFAULT_IP);
+  test("not production", () => {
+    expect(getIP("a=a&b=b", true)).toBe(SENTINEL_IP);
   });
 
-  test("set in url", () => {
-    expect(getIP("a=a&node_override_ip=123.123.123.123&b=b")).toBe("123.123.123.123");
+  test("production, unset", () => {
+    expect(getIP("a=a&b=b", false)).toBe("");
+  });
+
+  test("production, set", () => {
+    expect(getIP(`a=a&${DEV_IP}=123.123.123.123&b=b`, false)).toBe("123.123.123.123");
   });
 });

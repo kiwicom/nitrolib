@@ -14,7 +14,11 @@ export type Currencies = {
   [key: string]: Currency,
 };
 
-// eslint-disable-next-line import/prefer-default-export
+export const getCode = (code: string) => code.toUpperCase();
+export const getSymbol = (format: string) => format.replace("__price__", "").trim();
+export const format = (currency: Currency, price: number) =>
+  currency.format.replace("__price__", String(price * currency.rate));
+
 export const currencyDefault: Currency = {
   id: "eur",
   name: "Euro",

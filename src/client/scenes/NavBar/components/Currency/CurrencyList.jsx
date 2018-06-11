@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import * as R from "ramda";
+import { graphql, createFragmentContainer } from "react-relay";
 
 import Flex from "client/primitives/Flex";
 import Tooltip from "client/components/Tooltip";
@@ -10,15 +10,11 @@ import type { Currencies, Currency } from "client/records/Currency";
 import { brandDefault } from "client/records/Brand";
 import { BORDER_RADIUS } from "client/consts/layout";
 import mq from "client/services/utils/mediaQuery";
-import CurrencyItem, { CLASS_CODE, CLASS_SIGN, CLASS_NAME } from "./CurrencyItem";
-
-type Props = {|
-  // eslint-disable-next-line react/no-unused-prop-types
-  active: Currency,
-  currencies: Currencies,
-  // eslint-disable-next-line react/no-unused-prop-types
-  setCurrency: string => void,
-|};
+import CurrencyItem from "./CurrencyItem";
+import Code from "./Code";
+import Name from "./Name";
+import Sign from "./Sign";
+import type { CurrencyList_list } from "./__generated__/CurrencyList_list.graphql";
 
 const COLUMNS = 4;
 
@@ -47,23 +43,23 @@ const ItemText = styled.div`
     background: ${props => props.theme.colors[props.active ? "primary-600" : "grey-100"]};
   }
 
-  .${CLASS_CODE} {
+  ${Code} {
     font-weight: bold;
     color: ${props => props.theme.colors[props.active ? "white" : "grey-900"]};
   }
 
-  .${CLASS_SIGN} {
+  ${Sign} {
     margin-left: 10px;
     color: ${props => props.theme.colors[props.active ? "white" : "grey-700"]};
   }
 
-  .${CLASS_NAME} {
+  ${Name} {
     margin-left: 10px;
     color: ${props => props.theme.colors[props.active ? "white" : "inherit"]};
   }
 
   ${mq.gtTablet`
-    .${CLASS_NAME} {
+    ${Name} {
       display: none;
     }
   `};
@@ -77,31 +73,38 @@ const Tip = styled.span`
   white-space: nowrap;
 `;
 
-const SeparatorName = styled.span`
-  margin: 0 5px;
-
-  ${mq.gtTablet`
-    display: none;
-  `};
-`;
+type Props = {|
+  // eslint-disable-next-line react/no-unused-prop-types
+  active: Currency,
+  available: Currencies,
+  list: CurrencyList_list,
+  // eslint-disable-next-line react/no-unused-prop-types
+  onSetCurrency: (code: string) => void,
+|};
 
 const CurrencyList = (props: Props) => (
   <Flex wrap="wrap">
-    {separateList(COLUMNS, R.values(props.currencies)).map((columnItems, columnIndex) => (
+    {separateList(
+      COLUMNS,
+      // FIXME filter directly in GraphQL
+      (props.list.edges &&
+        props.list.edges
+          .map(edge => edge && edge.node)
+          .filter(Boolean)
+          .filter(node => props.available[String(node.code)])) ||
+        [],
+    ).map((items, i) => (
       // eslint-disable-next-line react/no-array-index-key
-      <Column key={columnIndex}>
-        {columnItems.map(item => (
-          <Item key={item.id}>
-            <Tooltip position={columnIndex > 1 ? "left" : "right"} tip={<Tip>{item.name}</Tip>}>
+      <Column key={i}>
+        {items.map(item => (
+          <Item key={item.code}>
+            <Tooltip position={i > 1 ? "left" : "right"} tip={<Tip>{item.name}</Tip>}>
               <ItemText
-                active={item.id === props.active.id}
-                onClick={() => props.setCurrency(item.id)}
+                active={item.code === props.active.id}
+                onClick={() => props.onSetCurrency(item.code || "")}
               >
-                <CurrencyItem
-                  currency={item}
-                  showName
-                  separatorName={<SeparatorName>-</SeparatorName>}
-                />
+                {/* $FlowIssue */}
+                <CurrencyItem item={item} />
               </ItemText>
             </Tooltip>
           </Item>
@@ -111,4 +114,19 @@ const CurrencyList = (props: Props) => (
   </Flex>
 );
 
-export default CurrencyList;
+export const CurrencyListUnwrapped = CurrencyList;
+
+export default createFragmentContainer(
+  CurrencyList,
+  graphql`
+    fragment CurrencyList_list on CurrencyDetailConnection {
+      edges {
+        node {
+          code
+          name
+          ...CurrencyItem_item
+        }
+      }
+    }
+  `,
+);

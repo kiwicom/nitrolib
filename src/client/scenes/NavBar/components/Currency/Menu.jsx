@@ -2,24 +2,26 @@
 import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
+import { graphql, createFragmentContainer } from "react-relay";
 
 import * as fetchedContext from "client/services/fetched/context";
 import * as intlContext from "client/services/intl/context";
 import type { Currency, Currencies } from "client/records/Currency";
-import type { GeoDataQueryResponse } from "client/components/GeoData/__generated__/GeoDataQuery.graphql";
-import getGeoIPCountry from "client/services/session/getGeoIPCountry";
 import { BORDER_RADIUS } from "client/consts/layout";
 import mq from "client/services/utils/mediaQuery";
 import { brandDefault } from "client/records/Brand";
 import getRecommended from "./services/getRecommended";
 import CurrencyList from "./CurrencyList";
+import type { MenuList_list } from "./__generated__/MenuList_list.graphql";
+import type { MenuGeo_geo } from "./__generated__/MenuGeo_geo.graphql";
 
 type Props = {|
   current: Currency,
   available: Currencies,
-  setCurrency: string => void,
-  geoIP: ?GeoDataQueryResponse,
-  hide: () => void,
+  list: MenuList_list,
+  geo: MenuGeo_geo,
+  onSetCurrency: (code: string) => void,
+  onHide: () => void,
 |};
 
 const Container = styled.div`
@@ -27,7 +29,7 @@ const Container = styled.div`
   right: 0;
   width: calc(100% - 40px);
   max-height: calc(100vh - 200px);
-  margin 0 20px;
+  margin: 0 20px;
   box-sizing: border-box;
   padding: 15px 12px;
   overflow-y: scroll;
@@ -79,23 +81,24 @@ Recommended.defaultProps = {
 };
 
 class Menu extends React.Component<Props> {
-  setCurrency = (code: string) => {
+  handleSetCurrency = (code: string) => {
     // TODO: logging
-    this.props.setCurrency(code);
-    this.props.hide();
+    this.props.onSetCurrency(code);
+    this.props.onHide();
   };
 
   render() {
-    const { current, available, geoIP } = this.props;
+    const { current, available, geo, list } = this.props;
 
     return (
       <fetchedContext.Consumer>
-        {/* istanbul ignore next */
-        ({ countries }) => (
+        {({ countries }) => (
           <intlContext.Consumer>
             {({ language }) => {
+              // TODO turn this into an array of common recommended, and a country one
+              // then supply to 'CurrencyList' as an optional prop and filter there
               const recommended = getRecommended(
-                getGeoIPCountry(geoIP, countries),
+                countries[geo.isoCountryCode || ""],
                 language,
                 available,
               );
@@ -104,17 +107,21 @@ class Menu extends React.Component<Props> {
                 <Container>
                   {!R.isEmpty(recommended) && (
                     <Recommended>
+                      {/* $FlowIssue */}
                       <CurrencyList
-                        currencies={recommended}
+                        list={list}
+                        available={recommended}
                         active={current}
-                        setCurrency={this.setCurrency}
+                        onSetCurrency={this.handleSetCurrency}
                       />
                     </Recommended>
                   )}
+                  {/* $FlowIssue */}
                   <CurrencyList
-                    currencies={available}
+                    list={list}
+                    available={available}
                     active={current}
-                    setCurrency={this.setCurrency}
+                    onSetCurrency={this.handleSetCurrency}
                   />
                 </Container>
               );
@@ -126,4 +133,17 @@ class Menu extends React.Component<Props> {
   }
 }
 
-export default Menu;
+export const MenuUnwrapped = Menu;
+
+export default createFragmentContainer(
+  Menu,
+  graphql`
+    fragment MenuList_list on CurrencyDetailConnection {
+      ...CurrencyList_list
+    }
+
+    fragment MenuGeo_geo on GeoIP {
+      isoCountryCode
+    }
+  `,
+);

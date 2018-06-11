@@ -2,9 +2,9 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import CurrencyList from "../CurrencyList";
+import { CurrencyListUnwrapped as CurrencyList } from "../CurrencyList";
 
-const currencies = {
+const available = {
   dkk: {
     id: "dkk",
     name: "Danish Krone",
@@ -78,10 +78,27 @@ const active = {
   rate: 1,
 };
 
+const list: any = {
+  edges: [
+    {
+      node: {
+        code: "eur",
+        name: "Euro",
+      },
+    },
+    {
+      node: {
+        code: "huf",
+        name: "Hungarian Forint",
+      },
+    },
+  ],
+};
+
 describe("#Currency/CurrencyList", () => {
   test("render", () => {
     const wrapper = shallow(
-      <CurrencyList currencies={currencies} active={active} setCurrency={jest.fn()} />,
+      <CurrencyList list={list} available={available} active={active} onSetCurrency={jest.fn()} />,
     );
 
     expect(wrapper).toMatchSnapshot();
@@ -95,10 +112,14 @@ describe("#Currency/CurrencyList", () => {
   });
 
   test("handle click", () => {
-    const setCurrency = jest.fn();
-
+    const onSetCurrency = jest.fn();
     const wrapper = shallow(
-      <CurrencyList currencies={currencies} active={active} setCurrency={setCurrency} />,
+      <CurrencyList
+        list={list}
+        available={available}
+        active={active}
+        onSetCurrency={onSetCurrency}
+      />,
     );
 
     wrapper
@@ -107,6 +128,6 @@ describe("#Currency/CurrencyList", () => {
       .find("CurrencyList__ItemText")
       .simulate("click");
 
-    expect(setCurrency).toBeCalledWith("dkk");
+    expect(onSetCurrency).toBeCalledWith("eur");
   });
 });

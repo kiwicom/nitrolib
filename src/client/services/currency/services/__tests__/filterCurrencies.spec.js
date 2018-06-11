@@ -1,5 +1,5 @@
 // @flow strict
-import getAvailableCurrencies from "../getAvailableCurrencies";
+import filterCurrencies from "../filterCurrencies";
 
 const currencies = {
   eur: {
@@ -24,23 +24,29 @@ const currencies = {
   },
 };
 
-describe("#getAvailableCurrencies", () => {
+describe("#filterCurrencies", () => {
   test("no affiliate", () => {
-    expect(getAvailableCurrencies(currencies, "")).toEqual({
+    expect(filterCurrencies("", ["eur", "gbp"], currencies)).toEqual({
       eur: currencies.eur,
     });
   });
 
   test("matching affiliate", () => {
-    expect(getAvailableCurrencies(currencies, "UK")).toEqual(currencies);
+    expect(filterCurrencies("UK", ["eur", "gbp"], currencies)).toEqual(currencies);
   });
 
   test("containing affiliate", () => {
-    expect(getAvailableCurrencies(currencies, "UK-NEW")).toEqual(currencies);
+    expect(filterCurrencies("UK-NEW", ["eur", "gbp"], currencies)).toEqual(currencies);
   });
 
   test("not matching affiliate", () => {
-    expect(getAvailableCurrencies(currencies, "test")).toEqual({
+    expect(filterCurrencies("test", ["eur", "gbp"], currencies)).toEqual({
+      eur: currencies.eur,
+    });
+  });
+
+  test("not in whitelist", () => {
+    expect(filterCurrencies("", ["eur"], currencies)).toEqual({
       eur: currencies.eur,
     });
   });

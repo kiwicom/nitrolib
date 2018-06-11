@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash fb326c73925bf379833232e98ae385a7
+ * @relayHash cca467c2525941210ad3856c468d2cfa
  */
 
 /* eslint-disable */
@@ -9,8 +9,8 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type CurrencyRatesQueryVariables = {||};
-export type CurrencyRatesQueryResponse = {|
+export type currenciesQueryVariables = {||};
+export type currenciesQueryResponse = {|
   +currencies: ?{|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
@@ -24,7 +24,7 @@ export type CurrencyRatesQueryResponse = {|
 
 
 /*
-query CurrencyRatesQuery {
+query currenciesQuery {
   currencies {
     edges {
       node {
@@ -55,13 +55,13 @@ v1 = {
 return {
   "kind": "Request",
   "operationKind": "query",
-  "name": "CurrencyRatesQuery",
+  "name": "currenciesQuery",
   "id": null,
-  "text": "query CurrencyRatesQuery {\n  currencies {\n    edges {\n      node {\n        code\n        rate\n        id\n      }\n    }\n  }\n}\n",
+  "text": "query currenciesQuery {\n  currencies {\n    edges {\n      node {\n        code\n        rate\n        id\n      }\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
-    "name": "CurrencyRatesQuery",
+    "name": "currenciesQuery",
     "type": "RootQuery",
     "metadata": null,
     "argumentDefinitions": [],
@@ -105,7 +105,7 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "CurrencyRatesQuery",
+    "name": "currenciesQuery",
     "argumentDefinitions": [],
     "selections": [
       {
@@ -155,5 +155,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '04d2b7a7c3e5b357333d868d478c7bae';
+(node/*: any*/).hash = '79c696ba72c7aa66cbb3a43f552b223a';
 module.exports = node;

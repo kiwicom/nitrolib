@@ -1,36 +1,46 @@
 // @flow strict
 import * as React from "react";
+import { graphql, createFragmentContainer } from "react-relay";
+import styled from "styled-components";
+import idx from "idx";
 
-import getSymbol from "client/services/currency/getSymbol";
-import type { Currency } from "client/records/Currency";
+import { getCode, getSymbol } from "client/records/Currency";
+import mq from "client/services/utils/mediaQuery";
+import Code from "./Code";
+import Sign from "./Sign";
+import Name from "./Name";
+import type { CurrencyItem_item } from "./__generated__/CurrencyItem_item.graphql";
 
-export const CLASS_CODE = "CurrencyItem-code";
-export const CLASS_SIGN = "CurrencyItem-sign";
-export const CLASS_NAME = "CurrencyItem-name";
+const NameSeparator = styled.span`
+  margin: 0 5px;
+
+  ${mq.gtTablet`
+    display: none;
+  `};
+`;
 
 type Props = {|
-  currency: Currency,
-  separatorSign?: React.Node,
-  separatorName?: React.Node,
-  showName: boolean,
+  item: CurrencyItem_item,
 |};
 
-const CurrencyItem = (props: Props) => (
+const CurrencyItem = ({ item }: Props) => (
   <>
-    <span className={CLASS_CODE}>{props.currency.id.toUpperCase()}</span>
-    {props.separatorSign}
-    <span className={CLASS_SIGN}>{getSymbol(props.currency)}</span>
-    {props.showName && (
-      <>
-        {props.separatorName}
-        <span className={CLASS_NAME}>{props.currency.name}</span>
-      </>
-    )}
+    <Code>{getCode(idx(item, _ => _.code) || "")}</Code>
+    <Sign>{getSymbol(idx(item, _ => _.format) || "")}</Sign>
+    <NameSeparator>-</NameSeparator>
+    <Name>{idx(item, _ => _.name)}</Name>
   </>
 );
 
-CurrencyItem.defaultProps = {
-  showName: false,
-};
+export const CurrencyItemUnwrapped = CurrencyItem;
 
-export default CurrencyItem;
+export default createFragmentContainer(
+  CurrencyItem,
+  graphql`
+    fragment CurrencyItem_item on CurrencyDetail {
+      code
+      name
+      format
+    }
+  `,
+);

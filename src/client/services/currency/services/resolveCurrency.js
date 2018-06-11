@@ -2,25 +2,22 @@
 import * as R from "ramda";
 
 import { currencyDefault } from "client/records/Currency";
-import type { Currencies } from "client/records/Currency";
+import type { Currency, Currencies } from "client/records/Currency";
 
-const resolveCurrency = (all: Currencies, available: Currencies, candidates: Array<?string>) => {
-  const defaultCode = currencyDefault.id;
+function resolveCurrency(all: Currencies, available: Currencies, candidate: string): Currency {
+  if (available[candidate]) {
+    return available[candidate];
+  }
 
-  const candidate = R.find(Boolean, candidates);
-  const candidateSafe = R.toLower(candidate || defaultCode);
+  if (all[candidate] && available[all[candidate].fallback]) {
+    return available[all[candidate].fallback];
+  }
 
-  const candidateExisting = R.has(candidateSafe, all) ? candidateSafe : R.head(R.keys(all));
+  if (available[currencyDefault.id]) {
+    return available[currencyDefault.id];
+  }
 
-  return R.prop(
-    // eslint-disable-next-line no-underscore-dangle
-    R.find(R.has(R.__, available), [
-      candidateExisting,
-      R.pathOr(defaultCode, [candidateExisting, "fallback"], all),
-      defaultCode,
-    ]),
-    available,
-  );
-};
+  return available[R.head(R.sortBy(R.identity, R.keys(available)))];
+}
 
 export default resolveCurrency;

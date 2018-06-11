@@ -5,12 +5,9 @@ exports[`#Currency/CurrencyItem render 1`] = `
   <Code>
     EUR
   </Code>
+   - 
   <Sign>
     €
   </Sign>
-  <CurrencyItem__NameSeparator>
-    -
-  </CurrencyItem__NameSeparator>
-  <Name />
 </React.Fragment>
 `;
