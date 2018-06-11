@@ -12,7 +12,6 @@ const sortObjectByName = R.compose(
 // $FlowFixMe
 const getBrandLanguages = (brands, languages, countries) =>
   R.map(brand => {
-    console.log(countries);
     const langs = brand.localization.languages;
     const enabledLanguageIds = getEnabledLanguageIds(langs.locales);
     const enabledLanguages = sortObjectByName(

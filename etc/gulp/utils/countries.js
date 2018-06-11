@@ -20,12 +20,7 @@ const getContinents = R.compose(
     {},
   ),
   R.map(R.over(R.lensProp("continent"), R.ifElse(R.is(String), val => [val], R.identity))),
-  R.reject(
-    R.compose(
-      R.isEmpty,
-      R.prop("continent"),
-    ),
-  ),
+  R.reject(R.compose(R.isEmpty, R.prop("continent"))),
   R.values,
 );
 

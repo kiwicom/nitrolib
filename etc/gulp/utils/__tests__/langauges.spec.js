@@ -1,6 +1,4 @@
 // @flow
-import * as R from "ramda";
-
 import * as fns from "../languages";
 
 const hotelexpress = {
