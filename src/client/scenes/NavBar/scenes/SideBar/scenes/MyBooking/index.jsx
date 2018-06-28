@@ -81,7 +81,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
         normalize: R.identity,
       },
       departure: {
-        value: this.props.now,
+        value: this.props.now, // eslint-disable-line react/destructuring-assignment
         error: "",
         validate: validators.departure,
         normalize: R.identity,
@@ -112,7 +112,9 @@ export default class MyBooking extends React.PureComponent<Props, State> {
   };
 
   handleSelectIata = (value: string) => {
-    const field = this.state.fields.iata;
+    const { fields } = this.state;
+
+    const field = fields.iata;
 
     this.setState(state => ({
       fields: R.assoc(
@@ -127,7 +129,9 @@ export default class MyBooking extends React.PureComponent<Props, State> {
   };
 
   handleChangeDeparture = (value: Date) => {
-    const field = this.state.fields.departure;
+    const { fields } = this.state;
+
+    const field = fields.departure;
 
     this.setState(state => ({
       fields: R.assoc(
@@ -225,7 +229,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                 max={MAX}
               />
             </FieldWrap>
-            <button onClick={this.handleSubmit} disabled={loading}>
+            <button type="button" onClick={this.handleSubmit} disabled={loading}>
               Submit
             </button>
           </>

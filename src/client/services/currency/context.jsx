@@ -9,8 +9,8 @@ import type { Countries } from "client/records/Country";
 import filterCurrencies from "./services/filterCurrencies";
 import resolveCurrency from "./services/resolveCurrency";
 import * as store from "./services/store";
-import getGeoCountry from "./services/getGeoCountry";
-import getCurrencies from "./services/getCurrencies";
+import getGeoCountryCall from "./services/getGeoCountry";
+import getCurrenciesCall from "./services/getCurrencies";
 import getCandidate from "./services/getCandidate";
 
 type Props = {|
@@ -24,8 +24,8 @@ type Props = {|
   // DI
   getValue: typeof store.getValue,
   saveValue: typeof store.saveValue,
-  getCurrencies: typeof getCurrencies,
-  getGeoCountry: typeof getGeoCountry,
+  getCurrencies: typeof getCurrenciesCall,
+  getGeoCountry: typeof getGeoCountryCall,
 |};
 
 type State = {|
@@ -55,8 +55,8 @@ export class CurrencyProvider extends React.PureComponent<Props, State> {
   static defaultProps = {
     getValue: store.getValue,
     saveValue: store.saveValue,
-    getCurrencies,
-    getGeoCountry,
+    getCurrencies: getCurrenciesCall,
+    getGeoCountry: getGeoCountryCall,
   };
 
   state = {
@@ -101,19 +101,19 @@ export class CurrencyProvider extends React.PureComponent<Props, State> {
 
   setCurrency = (code: string) => {
     const { available } = this.state;
+    const { saveValue } = this.props;
 
     const currency = available[code];
     if (currency) {
       this.setState({ currency });
-      this.props.saveValue(code);
+      saveValue(code);
     }
   };
 
   async loadData() {
-    const [all, country] = await Promise.all([
-      this.props.getCurrencies(),
-      this.props.getGeoCountry(this.props.ip),
-    ]);
+    const { getCurrencies, getGeoCountry, ip } = this.props;
+
+    const [all, country] = await Promise.all([getCurrencies(), getGeoCountry(ip)]);
 
     this.setState({ all, country });
   }

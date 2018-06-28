@@ -40,13 +40,19 @@ export default class SideBar extends React.PureComponent<Props, State> {
     return (
       <>
         <div>SideBar</div>
-        <button onClick={this.handleOpenMyBooking}>My booking</button>
+        <button type="button" onClick={this.handleOpenMyBooking}>
+          My booking
+        </button>
         <BrandConsumer>
           {brand =>
             brand.auth.credentials && (
               <>
-                <button onClick={this.handleOpenRegister}>Register</button>
-                <button onClick={this.handleOpenSignIn}>Sign In</button>
+                <button type="button" onClick={this.handleOpenRegister}>
+                  Register
+                </button>
+                <button type="button" onClick={this.handleOpenSignIn}>
+                  Sign In
+                </button>
               </>
             )
           }

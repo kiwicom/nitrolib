@@ -28,7 +28,7 @@ type Props = {|
   onOpenSignIn: () => void,
 |};
 
-const Login = (props: Props) => (
+const Login = ({ open, onOpenMyBooking, onOpenRegister, onOpenSignIn }: Props) => (
   <Container>
     <BrandConsumer>
       {brand =>
@@ -36,13 +36,13 @@ const Login = (props: Props) => (
       }
     </BrandConsumer>
     <Switch
-      open={props.open}
-      onOpenMyBooking={props.onOpenMyBooking}
-      onOpenRegister={props.onOpenRegister}
-      onOpenSignIn={props.onOpenSignIn}
+      open={open}
+      onOpenMyBooking={onOpenMyBooking}
+      onOpenRegister={onOpenRegister}
+      onOpenSignIn={onOpenSignIn}
     />
     <IntlConsumer>
-      {intl => props.open === "myBooking" && <MyBooking lang={intl.language.id} />}
+      {intl => open === "myBooking" && <MyBooking lang={intl.language.id} />}
     </IntlConsumer>
   </Container>
 );

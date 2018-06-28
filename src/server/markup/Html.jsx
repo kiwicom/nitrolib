@@ -30,15 +30,15 @@ type Props = {
   fetched: Fetched,
 };
 
-const Html = (props: Props) => (
+const Html = ({ root, css, assets, brand, intl, fetched }: Props) => (
   <html lang="en">
     <head>
       <title>Reactizer</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      {props.assets.vendor && <link rel="preload" href={props.assets.vendor.js} as="script" />}
-      <link rel="preload" href={props.assets.bundle.js} as="script" />
+      {assets.vendor && <link rel="preload" href={assets.vendor.js} as="script" />}
+      <link rel="preload" href={assets.bundle.js} as="script" />
 
       <link
         href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"
@@ -48,20 +48,20 @@ const Html = (props: Props) => (
       <script
         dangerouslySetInnerHTML={{
           __html: `
-            window.__BRAND__ = ${JSON.stringify(props.brand)};
-            window.__INTL__ = ${JSON.stringify(props.intl)};
-            window.__FETCHED__ = ${JSON.stringify(props.fetched)};
+            window.__BRAND__ = ${JSON.stringify(brand)};
+            window.__INTL__ = ${JSON.stringify(intl)};
+            window.__FETCHED__ = ${JSON.stringify(fetched)};
          `,
         }}
       />
-      {props.css}
+      {css}
     </head>
     <body>
-      <div id="react" dangerouslySetInnerHTML={{ __html: props.root }} />
+      <div id="react" dangerouslySetInnerHTML={{ __html: root }} />
       <div id="modal" />
 
-      {props.assets.vendor && <script src={props.assets.vendor.js} />}
-      <script src={props.assets.bundle.js} />
+      {assets.vendor && <script src={assets.vendor.js} />}
+      <script src={assets.bundle.js} />
     </body>
   </html>
 );

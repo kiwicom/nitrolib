@@ -15,13 +15,15 @@ export default class ClickOutside extends React.PureComponent<Props> {
     document.removeEventListener("click", this.handleClickOutside, true);
   }
 
-  node: ?HTMLDivElement;
-
   handleClickOutside = (ev: MouseEvent) => {
+    const { onClickOutside } = this.props;
+
     if (this.node && ev.target instanceof Node && !this.node.contains(ev.target)) {
-      this.props.onClickOutside(ev);
+      onClickOutside(ev);
     }
   };
+
+  node: ?HTMLDivElement;
 
   render() {
     const { children } = this.props;

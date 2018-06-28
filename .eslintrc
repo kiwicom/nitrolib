@@ -23,7 +23,7 @@
       "newlines-between": "always"
     }],
     "import/no-extraneous-dependencies": ["error", {
-      "devDependencies": ["etc/**", "stories/**", "**/__{tests,mocks}__/*"]
+      "devDependencies": ["etc/**", "stories/**", "**/__tests__/*"]
     }],
     "camelcase": "off", // GraphQL
     "fp/no-nil": "off", // Side effects

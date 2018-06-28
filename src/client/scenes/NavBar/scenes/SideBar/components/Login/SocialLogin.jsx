@@ -46,12 +46,12 @@ const SocialLogin = () => (
       <Container>
         <Flex>
           {brand.auth.social_facebook.enabled && (
-            <button>
+            <button type="button">
               <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
             </button>
           )}
           {brand.auth.social_google.enabled && (
-            <button>
+            <button type="button">
               <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
             </button>
           )}

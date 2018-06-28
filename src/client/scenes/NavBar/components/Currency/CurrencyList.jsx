@@ -37,25 +37,25 @@ const ItemText = styled.div`
   padding-left: 5px;
   border-radius: ${BORDER_RADIUS}px;
   cursor: pointer;
-  background: ${props => (props.active ? props.theme.colors["primary-600"] : "transparent")};
+  background: ${({ theme, active }) => (active ? theme.colors["primary-600"] : "transparent")};
 
   &:hover {
-    background: ${props => props.theme.colors[props.active ? "primary-600" : "grey-100"]};
+    background: ${({ theme, active }) => theme.colors[active ? "primary-600" : "grey-100"]};
   }
 
   ${Code} {
     font-weight: bold;
-    color: ${props => props.theme.colors[props.active ? "white" : "grey-900"]};
+    color: ${({ theme, active }) => theme.colors[active ? "white" : "grey-900"]};
   }
 
   ${Sign} {
     margin-left: 10px;
-    color: ${props => props.theme.colors[props.active ? "white" : "grey-700"]};
+    color: ${({ theme, active }) => theme.colors[active ? "white" : "grey-700"]};
   }
 
   ${Name} {
     margin-left: 10px;
-    color: ${props => props.theme.colors[props.active ? "white" : "inherit"]};
+    color: ${({ theme, active }) => theme.colors[active ? "white" : "inherit"]};
   }
 
   ${mq.gtTablet`
@@ -82,16 +82,16 @@ type Props = {|
   onSetCurrency: (code: string) => void,
 |};
 
-const CurrencyList = (props: Props) => (
+const CurrencyList = ({ active, available, list, onSetCurrency }: Props) => (
   <Flex wrap="wrap">
     {separateList(
       COLUMNS,
       // FIXME filter directly in GraphQL
-      (props.list.edges &&
-        props.list.edges
+      (list.edges &&
+        list.edges
           .map(edge => edge && edge.node)
           .filter(Boolean)
-          .filter(node => props.available[String(node.code)])) ||
+          .filter(node => available[String(node.code)])) ||
         [],
     ).map((items, i) => (
       // eslint-disable-next-line react/no-array-index-key
@@ -100,8 +100,8 @@ const CurrencyList = (props: Props) => (
           <Item key={item.code}>
             <Tooltip position={i > 1 ? "left" : "right"} tip={<Tip>{item.name}</Tip>}>
               <ItemText
-                active={item.code === props.active.id}
-                onClick={() => props.onSetCurrency(item.code || "")}
+                active={item.code === active.id}
+                onClick={() => onSetCurrency(item.code || "")}
               >
                 {/* $FlowIssue */}
                 <CurrencyItem item={item} />

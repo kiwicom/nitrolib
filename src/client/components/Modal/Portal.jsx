@@ -20,6 +20,7 @@ export default class Portal extends React.Component<Props> {
   }
 
   node = document.getElementById("modal");
+
   el = document.createElement("div");
 
   render() {

@@ -41,14 +41,14 @@ type ActiveProps = ThemeProps & {|
 |};
 
 const ContinentItem = styled(Flex)`
-  background-color: ${(props: ActiveProps) => props.active && props.theme.colors["neutral-100"]};
-  color: ${(props: ActiveProps) => props.active && props.theme.colors["primary-600"]};
+  background-color: ${({ theme, active }: ActiveProps) => active && theme.colors["neutral-100"]};
+  color: ${({ theme, active }: ActiveProps) => active && theme.colors["primary-600"]};
   padding: 14px 16px;
   line-height: 16px;
   cursor: pointer;
   &:hover {
-    background-color: ${(props: ActiveProps) => props.theme.colors["neutral-100"]};
-    color: ${(props: ActiveProps) => props.theme.colors["primary-600"]};
+    background-color: ${({ theme }: ActiveProps) => theme.colors["neutral-100"]};
+    color: ${({ theme }: ActiveProps) => theme.colors["primary-600"]};
   }
 `;
 
@@ -73,8 +73,8 @@ type SizeProps = {|
 |};
 
 const LanguageListWrapper = styled.div`
-  width: ${(props: SizeProps) => props.width};
-  height: ${(props: SizeProps) => props.height};
+  width: ${({ width }: SizeProps) => width};
+  height: ${({ height }: SizeProps) => height};
   max-height: 682px;
   ${mq.gtTablet`
     display: flex;
@@ -84,8 +84,8 @@ const LanguageListWrapper = styled.div`
 `;
 
 const LanguageItem = styled.div`
-  background-color: ${(props: ActiveProps) => props.active && props.theme.colors["primary-600"]};
-  color: ${(props: ActiveProps) => props.active && props.theme.colors.white};
+  background-color: ${({ theme, active }: ActiveProps) => active && theme.colors["primary-600"]};
+  color: ${({ theme, active }: ActiveProps) => active && theme.colors.white};
   width: 33%;
   height: 26px;
   display: inline-flex;
@@ -96,7 +96,7 @@ const LanguageItem = styled.div`
   box-sizing: border-box;
   cursor: pointer;
   &:hover {
-    background-color: ${(props: ActiveProps) => props.theme.colors["neutral-200"]};
+    background-color: ${({ theme }: ActiveProps) => theme.colors["neutral-200"]};
   }
   ${mq.ltTablet`
     width: 100%;
@@ -124,12 +124,17 @@ export default class Menu extends React.Component<{}, State> {
     window.location.assign(`${loc.origin}/${languageId}/${restOfUrl}${loc.search}`);
   };
 
-  filterLanguages = (languages: Languages) =>
-    R.values(languages).filter(
-      language => this.state.continent === "" || this.state.continent === language.continent,
+  filterLanguages = (languages: Languages) => {
+    const { continent } = this.state;
+
+    return R.values(languages).filter(
+      language => continent === "" || continent === language.continent,
     );
+  };
 
   render() {
+    const { continent } = this.state;
+
     return (
       <fetchedContext.Consumer>
         {fetched => {
@@ -141,13 +146,13 @@ export default class Menu extends React.Component<{}, State> {
                 <ContinentItem onClick={() => this.handleContinent("")}>
                   <Text t={__("common.languages_all")} />
                 </ContinentItem>
-                {fetched.brandLanguage.continents.map(continent => (
+                {fetched.brandLanguage.continents.map(item => (
                   <ContinentItem
-                    onClick={() => this.handleContinent(continent)}
-                    key={continent}
-                    active={continent === this.state.continent}
+                    onClick={() => this.handleContinent(item)}
+                    key={item}
+                    active={item === continent}
                   >
-                    <ContinentName id={continent} />
+                    <ContinentName id={item} />
                   </ContinentItem>
                 ))}
               </ContinentList>

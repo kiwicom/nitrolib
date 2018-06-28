@@ -3,10 +3,8 @@ import * as React from "react";
 import styled from "styled-components";
 
 import Text from "client/components/Text";
-
 import { brandDefault } from "client/records/Brand";
 import mq from "client/services/utils/mediaQuery";
-
 import type { ThemeProps } from "client/records/Brand";
 
 const Container = styled.div`

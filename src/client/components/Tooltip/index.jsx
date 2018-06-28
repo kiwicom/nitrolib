@@ -24,9 +24,9 @@ const TIP_OFFSET = 2;
 
 const Container = styled.span`
   position: relative;
-  display: ${props => (props.inline ? "inline-block" : "block")};
-  ${props =>
-    !props.inline &&
+  display: ${({ inline }) => (inline ? "inline-block" : "block")};
+  ${({ inline }) =>
+    !inline &&
     `
       width: 100%;
     `};
@@ -39,10 +39,9 @@ Container.propTypes = {
 
 const Tip = styled.span`
   position: absolute;
-  opacity: ${props => (props.shown ? "1" : "0")};
-  ${props => !props.mobile && `display: none;`}
-  ${props =>
-    !props.shown &&
+  opacity: ${({ shown }) => (shown ? "1" : "0")};
+  ${({ mobile }) => !mobile && `display: none;`} ${({ shown }) =>
+    !shown &&
     `
       width: 0;
       height: 0;
@@ -50,34 +49,34 @@ const Tip = styled.span`
     `}
   transition: opacity 0.2s;
   z-index: 2;
-  ${props =>
-    (props.position === "left" &&
+  ${({ position }) =>
+    (position === "left" &&
       `
         right: 100%;
         padding-right: ${TIP_ARROW_SIZE}px;
         margin-right: ${TIP_OFFSET}px;
       `) ||
-    (props.position === "right" &&
+    (position === "right" &&
       `
         left: 100%;
         padding-left: ${TIP_ARROW_SIZE}px;
         margin-left: ${TIP_OFFSET}px;
       `) ||
-    (props.position === "top" &&
+    (position === "top" &&
       `
         bottom: 100%;
         padding-bottom: ${TIP_ARROW_SIZE}px;
         margin-bottom: ${TIP_OFFSET}px;
       `) ||
-    (props.position === "bottom" &&
+    (position === "bottom" &&
       `
         top: 100%;
         padding-top: ${TIP_ARROW_SIZE}px;
         margin-top: ${TIP_OFFSET}px;
       `)};
 
-  ${props =>
-    props.position === "left" || props.position === "right"
+  ${({ position }) =>
+    position === "left" || position === "right"
       ? `
         top: 50%;
         transform: translateY(-50%);
@@ -89,45 +88,43 @@ const Tip = styled.span`
 
   ${mq.gtTablet`
     display: block;
-  `}
-
-  &:before {
+  `} &:before {
     display: block;
     content: "";
     position: absolute;
-    width 0;
-    height 0;
-    border-color transparent;
-    border-style solid;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
     border-width: ${TIP_ARROW_SIZE + 1}px;
-    ${props =>
-      (props.position === "left" &&
+    ${({ theme, position }) =>
+      (position === "left" &&
         `
           right: 0;
           border-right-width: 0;
-          border-left-color: ${props.theme.colors["grey-900"]};
+          border-left-color: ${theme.colors["grey-900"]};
         `) ||
-      (props.position === "right" &&
+      (position === "right" &&
         `
           left: 0;
           border-left-width: 0;
-          border-right-color: ${props.theme.colors["grey-900"]};
+          border-right-color: ${theme.colors["grey-900"]};
         `) ||
-      (props.position === "top" &&
+      (position === "top" &&
         `
           bottom: 0;
           border-bottom-width: 0;
-          border-top-color: ${props.theme.colors["grey-900"]};
+          border-top-color: ${theme.colors["grey-900"]};
         `) ||
-      (props.position === "bottom" &&
+      (position === "bottom" &&
         `
           top: 0;
           border-top-width: 0;
-          border-bottom-color: ${props.theme.colors["grey-900"]};
+          border-bottom-color: ${theme.colors["grey-900"]};
         `)};
 
-    ${props =>
-      props.position === "left" || props.position === "right"
+    ${({ position }) =>
+      position === "left" || position === "right"
         ? `
           top: 50%;
           transform: translateY(-50%);
@@ -153,8 +150,8 @@ Tip.defaultProps = {
 const TipContent = styled.span`
   display: block;
   padding: 6px 8px;
-  color: ${props => props.theme.colors.white};
-  background-color: ${props => props.theme.colors["grey-900"]};
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors["grey-900"]};
   border-radius: ${BORDER_RADIUS}px;
 `;
 
@@ -182,6 +179,7 @@ class Tooltip extends React.PureComponent<Props, State> {
 
   render() {
     const { tip, position, inline, mobile, children } = this.props;
+    const { shown } = this.state;
 
     return (
       <Container
@@ -194,7 +192,7 @@ class Tooltip extends React.PureComponent<Props, State> {
         inline={inline}
       >
         {children}
-        <Tip shown={this.state.shown} position={position} mobile={mobile}>
+        <Tip shown={shown} position={position} mobile={mobile}>
           <TipContent>{tip}</TipContent>
         </Tip>
       </Container>

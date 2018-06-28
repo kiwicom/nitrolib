@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 import Modal from "client/components/Modal";
 import Text from "client/components/Text";
-
 import { Consumer as BrandConsumer } from "client/services/brand/context";
 
 const Container = styled.div``;

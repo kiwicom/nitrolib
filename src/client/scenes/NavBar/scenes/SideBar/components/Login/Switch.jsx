@@ -13,19 +13,19 @@ type Props = {|
   onOpenSignIn: () => void,
 |};
 
-const Switch = (props: Props) => (
+const Switch = ({ open, onOpenMyBooking, onOpenRegister, onOpenSignIn }: Props) => (
   <Flex>
-    <Tab id="myBooking" active={props.open === "myBooking"} onClick={props.onOpenMyBooking}>
+    <Tab id="myBooking" active={open === "myBooking"} onClick={onOpenMyBooking}>
       <Text t={__("account.oneBookingLogin")} />
     </Tab>
     <BrandConsumer>
       {brand =>
         brand.auth.credentials && (
           <>
-            <Tab id="register" active={props.open === "register"} onClick={props.onOpenRegister}>
+            <Tab id="register" active={open === "register"} onClick={onOpenRegister}>
               <Text t={__("account.sign_up")} />
             </Tab>
-            <Tab id="signIn" active={props.open === "signIn"} onClick={props.onOpenSignIn}>
+            <Tab id="signIn" active={open === "signIn"} onClick={onOpenSignIn}>
               <Text t={__("account.sign_in")} />
             </Tab>
           </>

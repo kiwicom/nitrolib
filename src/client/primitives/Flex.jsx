@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 
 const Flex = styled.div`
   display: flex;
-  ${props => props.x && `justify-content: ${props.direction === "column" ? props.y : props.x}`};
-  ${props => props.y && `align-items: ${props.direction === "column" ? props.x : props.y}`};
-  ${props => props.direction && `flex-direction: ${props.direction}`};
-  ${props => props.wrap && `flex-wrap: ${props.wrap}`};
+  ${({ x, y, direction }) => x && `justify-content: ${direction === "column" ? y : x}`};
+  ${({ x, y, direction }) => y && `align-items: ${direction === "column" ? x : y}`};
+  ${({ direction }) => direction && `flex-direction: ${direction}`};
+  ${({ wrap }) => wrap && `flex-wrap: ${wrap}`};
 `;
 
 // $FlowIssue

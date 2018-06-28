@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import ClientOnly from "../";
+import ClientOnly from "..";
 
 describe("#ClientOnly", () => {
   test("mount", () => {
