@@ -4,10 +4,10 @@ import styled from "styled-components";
 import { graphql, createFragmentContainer } from "react-relay";
 
 import Flex from "client/primitives/Flex";
-import Tooltip from "client/components/Tooltip";
+import Tooltip from "client/public/components/Tooltip";
 import separateList from "client/services/utils/separateList";
-import type { Currencies, Currency } from "client/records/Currency";
-import { brandDefault } from "client/records/Brand";
+import type { Currencies, Currency } from "client/public/records/Currency";
+import { brandDefault } from "client/public/records/Brand";
 import { BORDER_RADIUS } from "client/consts/layout";
 import mq from "client/services/utils/mediaQuery";
 import CurrencyItem from "./CurrencyItem";

@@ -3,10 +3,10 @@ import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
 
-import * as intlContext from "client/services/intl/context";
-import * as fetchedContext from "client/services/fetched/context";
-import type { ThemeProps } from "client/records/Brand";
-import ClickOutside from "client/components/ClickOutside/index";
+import * as intlContext from "client/public/services/intl/context";
+import * as fetchedContext from "client/public/services/fetched/context";
+import type { ThemeProps } from "client/public/records/Brand";
+import ClickOutside from "client/public/components/ClickOutside";
 import LanguageName from "./LanguageName";
 import Menu from "./Menu";
 import LanguageNameText from "./LanguageNameText";

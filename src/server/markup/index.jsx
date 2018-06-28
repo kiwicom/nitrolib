@@ -6,9 +6,9 @@ import { StaticRouter } from "react-router-dom";
 import { ServerStyleSheet, StyleSheetManager, ThemeProvider } from "styled-components";
 
 import Root from "client/scenes/Root";
-import * as intlContext from "client/services/intl/context";
-import * as brandContext from "client/services/brand/context";
-import * as fetchedContext from "client/services/fetched/context";
+import * as intlContext from "client/public/services/intl/context";
+import * as brandContext from "client/public/services/brand/context";
+import * as fetchedContext from "client/public/services/fetched/context";
 import Html from "./Html";
 import { assets } from "../config";
 import * as data from "../data";

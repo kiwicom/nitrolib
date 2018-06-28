@@ -7,16 +7,16 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import Root from "./scenes/Root";
-import translate from "./services/intl/translate";
+import translate from "./public/services/intl/translate";
 import getIP from "./services/session/getIP";
 import * as io from "./services/session/io";
-import * as intlContext from "./services/intl/context";
-import * as brandContext from "./services/brand/context";
-import * as fetchedContext from "./services/fetched/context";
+import * as intlContext from "./public/services/intl/context";
+import * as brandContext from "./public/services/brand/context";
+import * as fetchedContext from "./public/services/fetched/context";
 import * as sessionContext from "./services/session/context";
-import * as currencyContext from "./services/currency/context";
-import type { Intl } from "./records/Intl";
-import type { Session } from "./records/Session";
+import * as currencyContext from "./public/services/currency/context";
+import type { Intl } from "./public/records/Intl";
+import type { Session } from "./public/components/records/Session";
 
 const app = document.getElementById("react");
 

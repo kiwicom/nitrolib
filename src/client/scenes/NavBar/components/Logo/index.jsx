@@ -2,8 +2,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import * as brandContext from "client/services/brand/context";
-import type { ThemeProps } from "client/records/Brand";
+import * as brandContext from "client/public/services/brand/context";
+import type { ThemeProps } from "client/public/records/Brand";
 import { logo } from "client/styles/index";
 import SvgLogo from "./SvgLogo";
 

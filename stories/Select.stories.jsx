@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, select } from "@storybook/addon-knobs/react";
 
-import Select from "client/components/Select";
+import Select from "client/public/components/Select";
 
 const options = {
   lol: "Lol",

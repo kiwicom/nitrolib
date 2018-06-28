@@ -4,12 +4,12 @@ import * as R from "ramda";
 import styled from "styled-components";
 import { graphql, createFragmentContainer } from "react-relay";
 
-import * as fetchedContext from "client/services/fetched/context";
-import * as intlContext from "client/services/intl/context";
-import type { Currency, Currencies } from "client/records/Currency";
+import * as fetchedContext from "client/public/services/fetched/context";
+import * as intlContext from "client/public/services/intl/context";
+import type { Currency, Currencies } from "client/public/records/Currency";
 import { BORDER_RADIUS } from "client/consts/layout";
 import mq from "client/services/utils/mediaQuery";
-import { brandDefault } from "client/records/Brand";
+import { brandDefault } from "client/public/records/Brand";
 import getRecommended from "./services/getRecommended";
 import CurrencyList from "./CurrencyList";
 import type { MenuList_list } from "./__generated__/MenuList_list.graphql";

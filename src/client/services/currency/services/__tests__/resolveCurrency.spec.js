@@ -1,5 +1,5 @@
 // @flow strict
-import { currencyDefault } from "client/records/Currency";
+import { currencyDefault } from "client/public/records/Currency";
 import resolveCurrency from "../resolveCurrency";
 
 const all = {

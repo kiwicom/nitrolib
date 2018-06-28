@@ -3,11 +3,11 @@ import * as React from "react";
 import styled from "styled-components";
 import { graphql, QueryRenderer } from "react-relay";
 
-import environmentReal from "client/services/environment";
-import * as currencyContext from "client/services/currency/context";
-import { brandDefault } from "client/records/Brand";
-import type { ThemeProps } from "client/records/Brand";
-import ClickOutside from "client/components/ClickOutside/index";
+import environmentReal from "public/services/environment";
+import * as currencyContext from "public/services/currency/context";
+import { brandDefault } from "public/records/Brand";
+import type { ThemeProps } from "public/records/Brand";
+import ClickOutside from "public/components/ClickOutside/index";
 import mq from "client/services/utils/mediaQuery";
 import Current from "./Current";
 import Menu from "./Menu";
@@ -29,7 +29,7 @@ const Container = styled.div`
 const OpenButton = styled.div`
   cursor: pointer;
 
-  ${Container}:hover & {
+  ${Container}:hover {
     color: ${({ theme }: ThemeProps) => theme.colors["primary-600"]};
   }
 `;
@@ -57,6 +57,7 @@ class Currency extends React.Component<Props, State> {
 
   render() {
     const { environment } = this.props;
+    const { shown } = this.state;
 
     return (
       <QueryRenderer

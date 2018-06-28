@@ -5,8 +5,8 @@ import { hot } from "react-hot-loader";
 
 import NavBar from "client/scenes/NavBar";
 import SearchForm from "client/scenes/SearchForm";
-import CookiesConsent from "client/components/CookiesConsent";
-import ClientOnly from "client/components/ClientOnly";
+import CookiesConsent from "client/public/components/CookiesConsent";
+import ClientOnly from "client/public/components/ClientOnly";
 import mq from "client/services/utils/mediaQuery";
 import Title from "./components/Title";
 import ExploreLink from "./components/ExploreLink";

@@ -2,7 +2,7 @@
 import { css } from "styled-components";
 
 import { border } from "client/styles";
-import type { ThemeProps } from "client/records/Brand";
+import type { ThemeProps } from "client/public/records/Brand";
 
 type Props = {
   error: boolean,

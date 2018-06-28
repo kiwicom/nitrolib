@@ -1,9 +1,9 @@
 // @flow strict
 import * as R from "ramda";
 
-import type { Country } from "client/records/Country";
-import type { LangInfo } from "client/records/LangInfo";
-import type { Currencies } from "client/records/Currency";
+import type { Country } from "client/public/records/Country";
+import type { LangInfo } from "client/public/records/LangInfo";
+import type { Currencies } from "client/public/records/Currency";
 
 const MOST_USED_CURRENCIES = ["usd", "eur", "gbp", "aud", "sek", "dkk"];
 const MAX_RECOMMENDED_CURRENCIES = 4;

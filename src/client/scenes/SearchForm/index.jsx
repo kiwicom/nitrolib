@@ -2,8 +2,8 @@
 import * as React from "react";
 
 import GeoData from "client/components/GeoData";
-import ClientOnly from "client/components/ClientOnly";
-import Price from "client/components/Price";
+import ClientOnly from "client/public/components/ClientOnly";
+import Price from "client/public/components/Price";
 
 /* istanbul ignore next */
 const SearchForm = () => (

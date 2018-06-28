@@ -1,10 +1,10 @@
 // @flow strict
 import * as React from "react";
 
-import Tab from "client/components/Tab";
-import Text from "client/components/Text";
+import Tab from "client/public/components/Tab";
+import Text from "client/public/components/Text";
 import Flex from "client/primitives/Flex";
-import { Consumer as BrandConsumer } from "client/services/brand/context";
+import { Consumer as BrandConsumer } from "client/public/services/brand/context";
 
 type Props = {|
   open: "myBooking" | "register" | "signIn",

@@ -7,12 +7,12 @@ import FaCalendar from "react-icons/lib/fa/calendar";
 import MdEmail from "react-icons/lib/md/email";
 import addYears from "date-fns/addYears";
 
-import InputText from "client/components/InputText";
-import IconText from "client/components/IconText";
-import Text from "client/components/Text";
-import { Consumer as IntlConsumer } from "client/services/intl/context";
-import IataPicker from "client/components/IataPicker";
-import InputDate from "client/components/InputDate";
+import InputText from "client/public/components/InputText";
+import IconText from "client/public/components/IconText";
+import Text from "client/public/components/Text";
+import { Consumer as IntlConsumer } from "client/public/services/intl/context";
+import IataPicker from "client/public/components/IataPicker";
+import InputDate from "client/public/components/InputDate";
 import isEmptish from "client/services/utils/isEmptish";
 import * as validators from "./services/validators";
 import * as normalizers from "./services/normalizers";

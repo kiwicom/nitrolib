@@ -1,6 +1,6 @@
 // @flow strict
-import { langInfoDefault } from "client/records/LangInfo";
-import { countryDefault } from "client/records/Country";
+import { langInfoDefault } from "client/public/records/LangInfo";
+import { countryDefault } from "client/public/records/Country";
 import getRecommended from "../getRecommended";
 
 const currencies = {

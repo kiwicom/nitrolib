@@ -1,7 +1,7 @@
 // @flow strict
 import * as R from "ramda";
 
-import type { Currencies } from "client/records/Currency";
+import type { Currencies } from "client/public/records/Currency";
 
 const isContained = R.flip(R.contains);
 

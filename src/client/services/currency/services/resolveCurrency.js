@@ -1,8 +1,8 @@
 // @flow strict
 import * as R from "ramda";
 
-import { currencyDefault } from "client/records/Currency";
-import type { Currency, Currencies } from "client/records/Currency";
+import { currencyDefault } from "client/public/records/Currency";
+import type { Currency, Currencies } from "client/public/records/Currency";
 
 function resolveCurrency(all: Currencies, available: Currencies, candidate: string): Currency {
   if (available[candidate]) {

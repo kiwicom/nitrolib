@@ -5,8 +5,8 @@ import { action } from "@storybook/addon-actions";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs/react";
 import Close from "react-icons/lib/md/close";
 
-import IconText from "client/components/IconText";
-import InputText from "client/components/InputText";
+import IconText from "client/public/components/IconText";
+import InputText from "client/public/components/InputText";
 
 storiesOf("InputText", module)
   .addDecorator(withKnobs)

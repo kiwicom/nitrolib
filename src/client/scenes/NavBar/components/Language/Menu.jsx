@@ -3,12 +3,12 @@ import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
 
-import * as fetchedContext from "client/services/fetched/context";
+import * as fetchedContext from "client/public/services/fetched/context";
 import Flex from "client/primitives/Flex";
-import Text from "client/components/Text";
+import Text from "client/public/components/Text";
 import mq from "client/services/utils/mediaQuery";
-import type { ThemeProps } from "client/records/Brand";
-import type { Languages } from "client/records/Languages";
+import type { ThemeProps } from "client/public/records/Brand";
+import type { Languages } from "client/public/records/Languages";
 import LanguageName from "./LanguageName";
 import ContinentName from "./ContinentName";
 import { getLanguageWrapperHeight, getLanguageWrapperWidth } from "./services/menu";

@@ -3,9 +3,9 @@
 import * as React from "react";
 import idx from "idx";
 
-import { currencyDefault } from "client/records/Currency";
-import type { Currency, Currencies } from "client/records/Currency";
-import type { Countries } from "client/records/Country";
+import { currencyDefault } from "client/public/records/Currency";
+import type { Currency, Currencies } from "client/public/records/Currency";
+import type { Countries } from "client/public/records/Country";
 import filterCurrencies from "./services/filterCurrencies";
 import resolveCurrency from "./services/resolveCurrency";
 import * as store from "./services/store";

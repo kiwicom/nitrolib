@@ -1,8 +1,8 @@
 // @flow strict
 import * as React from "react";
 
-import { getCode, getSymbol } from "client/records/Currency";
-import type { Currency } from "client/records/Currency";
+import { getCode, getSymbol } from "client/public/records/Currency";
+import type { Currency } from "client/public/records/Currency";
 import Code from "./Code";
 import Sign from "./Sign";
 

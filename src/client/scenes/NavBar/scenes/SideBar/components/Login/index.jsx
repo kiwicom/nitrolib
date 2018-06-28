@@ -3,10 +3,10 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { padding } from "client/styles";
-import { brandDefault } from "client/records/Brand";
-import type { ThemeProps } from "client/records/Brand";
-import { Consumer as BrandConsumer } from "client/services/brand/context";
-import { Consumer as IntlConsumer } from "client/services/intl/context";
+import { brandDefault } from "client/public/records/Brand";
+import type { ThemeProps } from "client/public/records/Brand";
+import { Consumer as BrandConsumer } from "client/public/services/brand/context";
+import { Consumer as IntlConsumer } from "client/public/services/intl/context";
 import SocialLogin from "./SocialLogin";
 import Switch from "./Switch";
 import MyBooking from "../../scenes/MyBooking";

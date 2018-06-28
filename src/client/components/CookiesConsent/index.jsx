@@ -1,9 +1,9 @@
 // @flow strict
 import * as React from "react";
 
+import CookiesBanner from "client/public/components/CookiesBanner";
+import CookiesModal from "client/public/components/CookiesModal";
 import * as cookiesStore from "./services/store";
-import Banner from "./Banner";
-import InfoModal from "./InfoModal";
 
 type State = {|
   isAccepted: boolean,
@@ -40,8 +40,8 @@ class CookiesConsent extends React.PureComponent<{}, State> {
 
     return (
       <>
-        <Banner onAccept={this.handleAccept} onShowInfo={this.handleShowInfo} />
-        {infoShown && <InfoModal onClose={this.handleHideInfo} />}
+        <CookiesBanner onAccept={this.handleAccept} onShowInfo={this.handleShowInfo} />
+        {infoShown && <CookiesModal onClose={this.handleHideInfo} />}
       </>
     );
   }

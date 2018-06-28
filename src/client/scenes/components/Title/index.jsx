@@ -2,10 +2,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import BrandName from "client/components/BrandName/index";
-import Text from "client/components/Text/index";
+import BrandName from "client/public/components/BrandName";
+import Text from "client/public/components/Text";
 import mq from "client/services/utils/mediaQuery";
-import type { ThemeProps } from "client/records/Brand";
+import type { ThemeProps } from "client/public/records/Brand";
 
 const Container = styled.div`
   font-size: 44px;
