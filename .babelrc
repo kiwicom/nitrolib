@@ -9,7 +9,6 @@
     "relay",
     "idx",
     ["styled-components", { "ssr": true }],
-    "react-hot-loader/babel",
     ["module-resolver", {
       "root": ["./src"]
     }]

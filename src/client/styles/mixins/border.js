@@ -2,6 +2,7 @@
 import { css } from "styled-components";
 
 import { border } from "client/styles";
+import type { ThemeProps } from "client/records/Brand";
 
 type Props = {
   error: boolean,
@@ -9,12 +10,12 @@ type Props = {
   visited: boolean,
 };
 
-export function getBorderState(props: Props) {
-  if (props.error && props.visited) {
+export function getBorderState({ error, visited }: Props) {
+  if (error && visited) {
     return "error";
   }
 
-  if (props.visited) {
+  if (visited) {
     return "success";
   }
 
@@ -29,14 +30,19 @@ const stateToColor = {
 
 const borderHoverMixin = css`
   &:hover {
-    border-color: ${props => props.theme.colors["neutral-700"]};
+    border-color: ${({ theme }: ThemeProps) => theme.colors["neutral-700"]};
   }
 `;
 
+type StateProps = ThemeProps & {
+  state: "base" | "success" | "error",
+};
+
 const borderMixin = css`
-  border: ${border.size}px solid ${props => props.theme.colors[stateToColor[props.state]]};
+  border: ${border.size}px solid
+    ${({ theme, state }): StateProps => theme.colors[stateToColor[state]]};
   border-radius: ${border.radius}px;
-  ${props => props.state === "base" && borderHoverMixin};
+  ${({ state }: StateProps) => state === "base" && borderHoverMixin};
 `;
 
 export default borderMixin;

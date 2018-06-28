@@ -5,21 +5,21 @@ import path from "path";
 import "./globals"; // Must be 1st
 import markup from "./markup";
 import { routes } from "./config";
-import { brands, intls } from "./dataFiles";
+import { brands, intls } from "./data";
 
 const OUT = path.join(__dirname, "../static/pages");
 
 const brandIds = Object.keys(brands);
-const localeIds = Object.keys(intls);
+const intlIds = Object.keys(intls);
 
 function render() {
   brandIds.forEach(brandId => {
-    localeIds.forEach(localeId => {
+    intlIds.forEach(intlId => {
       routes.forEach(route => {
-        const fileDir = path.join(OUT, brandId, localeId, route.filepath);
+        const fileDir = path.join(OUT, brandId, intlId, route.filepath);
         fs.ensureDirSync(fileDir);
 
-        const htmlStream = markup(route.url, brandId, localeId);
+        const htmlStream = markup(route.url, brandId, intlId);
         const fileStream = fs.createWriteStream(path.join(fileDir, "index.html"));
 
         htmlStream.pipe(fileStream);

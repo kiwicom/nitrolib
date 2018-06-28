@@ -50,7 +50,7 @@ components/
 
 ### Primitives
 
-Contains **Nitro-only** styled components.
+Contains **Nitro-only** _styled components_.
 
 ```
 primitives/

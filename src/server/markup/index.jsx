@@ -11,7 +11,7 @@ import * as brandContext from "client/services/brand/context";
 import * as fetchedContext from "client/services/fetched/context";
 import Html from "./Html";
 import { assets } from "../config";
-import * as data from "../dataFiles";
+import * as data from "../data";
 
 function markup(url: string, brandId: string, localeId: string) {
   const brand = data.brands[brandId];

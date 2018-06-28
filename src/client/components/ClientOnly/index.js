@@ -24,13 +24,13 @@ export default class ClientOnly extends React.Component<Props, State> {
   }
 
   render() {
-    const { loader } = this.props;
+    const { loader, children } = this.props;
     const { mounted } = this.state;
 
     if (!mounted) {
       return loader;
     }
 
-    return this.props.children;
+    return children;
   }
 }

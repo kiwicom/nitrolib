@@ -5,10 +5,10 @@ Docs:
 * [General](./docs/02general.md)
 * [Folder structure](./docs/03structure.md)
 * [Rendering](./docs/04rendering.md)
-* [Shared components](./docs/05shared.md)
-* [Translations](./docs/06translations.md)
-* [Styled components](./docs/07styled.md)
-* [File templates](./docs/08templates.md)
+* [Translations](./docs/05translations.md)
+* [Styled components](./docs/06styled.md)
+* [File templates](./docs/07templates.md)
+* [Shared components](docs/08shared.md)
 
 Use **yarn** as a package manager.
 

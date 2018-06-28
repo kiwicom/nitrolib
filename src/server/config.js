@@ -1,5 +1,5 @@
 // @flow strict
-import fs from "fs";
+import fs from "fs-extra";
 import path from "path";
 
 const assetsPath = path.join(__dirname, "../assets.json");
@@ -16,10 +16,9 @@ function getAssets(): Assets {
     };
   }
 
-  return JSON.parse(String(fs.readFileSync(assetsPath)));
+  return fs.readJsonSync(assetsPath);
 }
 
-// $FlowFixMe: Dunno how to do this nicely
 export const port = Number(process.env.PORT || 3000);
 
 export type Route = {

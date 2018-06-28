@@ -5,12 +5,11 @@ module.exports = {
   testPathIgnorePatterns: ["dist"],
   coverageReporters: ["json", "lcov", "text-summary"],
   coverageThreshold: {
-    // Functions & branches have a problem with 'styled-components'
     global: {
       // branches: 100,
       // functions: 100,
-      // lines: 90,
-      // statements: 85,
+      // lines: 100,
+      // statements: 100,
     },
   },
 };
