@@ -86,8 +86,6 @@ class Currency extends React.Component<Props, State> {
             return null;
           }
 
-          const { shown } = this.state;
-
           return (
             <currencyContext.Consumer>
               {({ currency, available, setCurrency }) => (
