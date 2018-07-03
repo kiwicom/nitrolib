@@ -2,11 +2,11 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import Text from "client/public/components/Text";
-import Flex from "client/primitives/Flex";
-import { Consumer as BrandConsumer } from "client/public/services/brand/context";
-import type { ThemeProps } from "client/public/records/Brand";
-import { brandDefault } from "client/public/records/Brand";
+import Text from "public/components/Text";
+import { Consumer as BrandConsumer } from "public/services/brand/context";
+import type { ThemeProps } from "public/records/Brand";
+import { brandDefault } from "public/records/Brand";
+import Flex from "public/primitives/Flex";
 
 const Container = styled.div``;
 

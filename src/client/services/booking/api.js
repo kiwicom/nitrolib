@@ -2,7 +2,7 @@
 import querystring from "querystring";
 import format from "date-fns/format";
 
-import config from "client/consts/config";
+import config from "public/consts/config";
 
 type Input = {
   bid: string,

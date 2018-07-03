@@ -4,17 +4,17 @@ import * as R from "ramda";
 import styled from "styled-components";
 import { graphql, createFragmentContainer } from "react-relay";
 
-import * as fetchedContext from "client/public/services/fetched/context";
-import * as intlContext from "client/public/services/intl/context";
-import type { Currency, Currencies } from "client/public/records/Currency";
-import { BORDER_RADIUS } from "client/consts/layout";
-import mq from "client/services/utils/mediaQuery";
-import { brandDefault } from "client/public/records/Brand";
+import type { ThemeProps } from "public/records/Brand";
+import * as fetchedContext from "public/services/fetched/context";
+import * as intlContext from "public/services/intl/context";
+import type { Currency, Currencies } from "public/records/Currency";
+import { brandDefault } from "public/records/Brand";
+import { BORDER_RADIUS } from "public/consts/layout";
+import mq from "public/styles/mediaQuery";
 import getRecommended from "./services/getRecommended";
 import CurrencyList from "./CurrencyList";
 import type { MenuList_list } from "./__generated__/MenuList_list.graphql";
 import type { MenuGeo_geo } from "./__generated__/MenuGeo_geo.graphql";
-import type { ThemeProps } from "client/records/Brand";
 
 type Props = {|
   current: Currency,

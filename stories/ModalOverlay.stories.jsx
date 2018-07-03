@@ -3,7 +3,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 
-import ModalOverlay from "client/public/components/ModalOverlay";
+import ModalOverlay from "public/components/ModalOverlay";
 
 storiesOf("ModalOverlay", module).add("a basic modal", () => (
   <ModalOverlay onClose={action("On close")}>

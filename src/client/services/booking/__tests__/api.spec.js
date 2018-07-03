@@ -1,7 +1,7 @@
 // @flow strict
 import { Response } from "node-fetch";
 
-import config from "client/consts/config";
+import config from "public/consts/config";
 import * as api from "../api";
 
 const input = {

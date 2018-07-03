@@ -4,8 +4,8 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, boolean } from "@storybook/addon-knobs/react";
 
-import Container from "client/public/components/Tab";
-import Flex from "client/primitives/Flex";
+import Container from "public/components/Tab";
+import Flex from "public/primitives/Flex";
 
 storiesOf("Tabs", module)
   .addDecorator(withKnobs)

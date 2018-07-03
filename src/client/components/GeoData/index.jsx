@@ -3,7 +3,7 @@ import * as React from "react";
 import { graphql, QueryRenderer } from "react-relay";
 import type { ReadyState } from "react-relay";
 
-import environmentReal from "client/public/services/environment";
+import environmentReal from "public/services/environment";
 
 type Props = {|
   render: ReadyState => ?React.Element<any>,

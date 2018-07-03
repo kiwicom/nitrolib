@@ -22,6 +22,7 @@ types/
 [options]
 emoji=true
 module.name_mapper='^client\(.*\)$' -> '<PROJECT_ROOT>/src/client/\1'
+module.name_mapper='^public\(.*\)$' -> '<PROJECT_ROOT>/src/public/\1'
 module.name_mapper='^server\(.*\)$' -> '<PROJECT_ROOT>/src/server/\1'
 suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue

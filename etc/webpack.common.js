@@ -24,6 +24,7 @@ module.exports = {
     extensions: [".js", ".jsx"],
     alias: {
       client: path.resolve(__dirname, "../src/client"),
+      public: path.resolve(__dirname, "../src/public"),
       server: path.resolve(__dirname, "../src/server"),
     },
   },

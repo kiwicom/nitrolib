@@ -1,8 +1,8 @@
 // @flow strict
 import * as React from "react";
 
-import Modal from "client/public/components/Modal";
-import { Consumer as BrandConsumer } from "client/public/services/brand/context";
+import Modal from "public/components/Modal";
+import { Consumer as BrandConsumer } from "public/services/brand/context";
 import Login from "./components/Login";
 
 type Props = {||};

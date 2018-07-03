@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import makeEnvironment from "client/services/utils/makeEnvironment";
+import makeEnvironment from "public/services/utils/makeEnvironment";
 import Currency from "../index";
 
 const res = {

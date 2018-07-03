@@ -1,8 +1,8 @@
 // @flow strict
 import * as React from "react";
 
-import { tKeys } from "client/public/records/Continents";
-import Text from "client/public/components/Text";
+import { tKeys } from "public/records/Continents";
+import Text from "public/components/Text";
 
 type Props = {|
   id: string,

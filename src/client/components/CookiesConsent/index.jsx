@@ -1,8 +1,8 @@
 // @flow strict
 import * as React from "react";
 
-import CookiesBanner from "client/public/components/CookiesBanner";
-import CookiesModal from "client/public/components/CookiesModal";
+import CookiesBanner from "public/components/CookiesBanner";
+import CookiesModal from "public/components/CookiesModal";
 import * as cookiesStore from "./services/store";
 
 type State = {|

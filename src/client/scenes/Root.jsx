@@ -3,11 +3,11 @@ import React from "react";
 import styled from "styled-components";
 import { hot } from "react-hot-loader";
 
+import CookiesConsent from "client/components/CookiesConsent";
+import ClientOnly from "public/components/ClientOnly";
 import NavBar from "client/scenes/NavBar";
 import SearchForm from "client/scenes/SearchForm";
-import CookiesConsent from "client/public/components/CookiesConsent";
-import ClientOnly from "client/public/components/ClientOnly";
-import mq from "client/services/utils/mediaQuery";
+import mq from "public/styles/mediaQuery";
 import Title from "./components/Title";
 import ExploreLink from "./components/ExploreLink";
 

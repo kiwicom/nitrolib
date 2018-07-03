@@ -3,12 +3,12 @@ import fs from "fs-extra";
 import path from "path";
 import * as R from "ramda";
 
-import type { Brands } from "client/public/records/Brand";
-import type { Intls } from "client/public/records/Intl";
-import type { Countries } from "client/public/records/Country";
-import type { Continents } from "client/public/records/Continents";
-import type { BrandLanguages } from "client/public/records/BrandLanguage";
-import translate from "client/public/services/intl/translate";
+import type { Brands } from "public/records/Brand";
+import type { Intls } from "public/records/Intl";
+import type { Countries } from "public/records/Country";
+import type { Continents } from "public/records/Continents";
+import type { BrandLanguages } from "public/records/BrandLanguage";
+import translate from "public/services/intl/translate";
 
 const DATA = path.join(__dirname, "../../data");
 

@@ -1,0 +1,34 @@
+{
+  "env": {
+    "browser": true,
+    "node": false,
+    "jest": true
+  },
+  "globals": {
+    "__": true
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "peerDependencies": true,
+        "packageDir": "./public/"
+      }
+    ],
+    "import/no-restricted-paths": [
+      "error",
+      {
+        "zones": [
+          {
+            "target": "./src/public",
+            "from": "./src/client"
+          },
+          {
+            "target": "./src/public",
+            "from": "./src/server"
+          }
+        ]
+      }
+    ]
+  }
+}

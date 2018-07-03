@@ -2,9 +2,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import * as brandContext from "client/public/services/brand/context";
-import type { ThemeProps } from "client/public/records/Brand";
-import { logo } from "client/styles/index";
+import * as brandContext from "public/services/brand/context";
+import type { ThemeProps } from "public/records/Brand";
+import { logo } from "public/styles/index";
 import SvgLogo from "./SvgLogo";
 
 const PoweredByKiwi = styled.span`

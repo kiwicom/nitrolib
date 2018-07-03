@@ -2,11 +2,11 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import ClientOnly from "client/public/components/ClientOnly";
-import Flex from "client/primitives/Flex";
-import { navbar } from "client/styles/index";
-import mq from "client/services/utils/mediaQuery";
-import type { ThemeProps } from "client/public/records/Brand";
+import ClientOnly from "public/components/ClientOnly";
+import type { ThemeProps } from "public/records/Brand";
+import Flex from "public/primitives/Flex";
+import { navbar } from "public/styles/index";
+import mq from "public/styles/mediaQuery";
 import SideBar from "./scenes/SideBar";
 import Logo from "./components/Logo";
 import Language from "./components/Language";

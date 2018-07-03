@@ -1,9 +1,9 @@
 // @flow strict
 import * as React from "react";
 
+import ClientOnly from "public/components/ClientOnly";
+import Price from "public/components/Price";
 import GeoData from "client/components/GeoData";
-import ClientOnly from "client/public/components/ClientOnly";
-import Price from "client/public/components/Price";
 
 /* istanbul ignore next */
 const SearchForm = () => (

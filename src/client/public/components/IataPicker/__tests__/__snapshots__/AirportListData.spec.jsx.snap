@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`#AirportListData render error 1`] = `"<span>Error :(</span>"`;
-
-exports[`#AirportListData render loading 1`] = `null`;
-
-exports[`#AirportListData render results 1`] = `"<button class=\\"AirportResult__Container-fl71uz-0 jcDMss\\"><img class=\\"Flag__Img-s1piipyw-0 LQKCg\\" src=\\"//images.kiwi.com/flags/32x32/at.png\\" alt=\\"at\\">Vienna (VIE)</button>"`;

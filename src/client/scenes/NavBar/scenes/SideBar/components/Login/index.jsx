@@ -2,11 +2,11 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { padding } from "client/styles";
-import { brandDefault } from "client/public/records/Brand";
-import type { ThemeProps } from "client/public/records/Brand";
-import { Consumer as BrandConsumer } from "client/public/services/brand/context";
-import { Consumer as IntlConsumer } from "client/public/services/intl/context";
+import { brandDefault } from "public/records/Brand";
+import type { ThemeProps } from "public/records/Brand";
+import { Consumer as BrandConsumer } from "public/services/brand/context";
+import { Consumer as IntlConsumer } from "public/services/intl/context";
+import { padding } from "public/styles";
 import SocialLogin from "./SocialLogin";
 import Switch from "./Switch";
 import MyBooking from "../../scenes/MyBooking";

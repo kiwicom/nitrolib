@@ -3,12 +3,12 @@ import * as React from "react";
 import styled from "styled-components";
 import { graphql, QueryRenderer } from "react-relay";
 
-import environmentReal from "public/public/services/environment";
-import * as currencyContext from "public/public/services/currency/context";
-import { brandDefault } from "public/public/records/Brand";
-import type { ThemeProps } from "public/public/records/Brand";
-import ClickOutside from "public/public/components/ClickOutside/index";
-import mq from "client/services/utils/mediaQuery";
+import environmentReal from "public/services/environment";
+import * as currencyContext from "public/services/currency/context";
+import { brandDefault } from "public/records/Brand";
+import type { ThemeProps } from "public/records/Brand";
+import ClickOutside from "public/components/ClickOutside/index";
+import mq from "public/styles/mediaQuery";
 import Current from "./Current";
 import Menu from "./Menu";
 

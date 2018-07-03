@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#CookiesModal render 1`] = `
+<Modal
+  onClose={[MockFunction]}
+>
+  <CookiesModal__Container>
+    <CookiesModal__Title>
+      <Text
+        html={false}
+        t="content.pages.cookies.title"
+        values={Object {}}
+      />
+    </CookiesModal__Title>
+    <CookiesModal__Content>
+      <[object Object] />
+    </CookiesModal__Content>
+  </CookiesModal__Container>
+</Modal>
+`;

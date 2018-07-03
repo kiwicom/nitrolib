@@ -4,8 +4,8 @@ import { graphql, createFragmentContainer } from "react-relay";
 import styled from "styled-components";
 import idx from "idx";
 
-import { getCode, getSymbol } from "client/public/records/Currency";
-import mq from "client/services/utils/mediaQuery";
+import { getCode, getSymbol } from "public/records/Currency";
+import mq from "public/styles/mediaQuery";
 import Code from "./Code";
 import Sign from "./Sign";
 import Name from "./Name";

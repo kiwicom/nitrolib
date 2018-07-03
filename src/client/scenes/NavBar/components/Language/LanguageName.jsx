@@ -2,8 +2,8 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import config from "client/consts/config";
-import type { Language } from "client/public/records/Languages";
+import type { Language } from "public/records/Languages";
+import config from "public/consts/config";
 import LanguageNameText from "./LanguageNameText";
 
 type Props = {|

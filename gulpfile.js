@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, flowtype/require-valid-file-annotation */
 const gulp = require("gulp");
 
 const collectKeys = require("./etc/gulp/collectKeys");
