@@ -11,8 +11,8 @@ type Props = {|
 |};
 
 const Icon = styled.i`
-  background: ${(props: { flagId: string }) =>
-    `url("${config.imagesUrl}flags/32x32/${props.flagId}.png")`};
+  background: ${({ flagId }: { flagId: string }) =>
+    `url("${config.imagesUrl}flags/32x32/${flagId}.png")`};
   height: 32px;
   width: 32px;
   display: block;

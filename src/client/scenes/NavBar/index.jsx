@@ -15,8 +15,8 @@ import Currency from "./components/Currency";
 const Container = styled(Flex)`
   width: 100%;
   height: ${navbar.height}px;
-  background-color: ${(props: ThemeProps) => props.theme.colors.white};
-  color: ${(props: ThemeProps) => props.theme.colors["neutral-800"]};
+  background-color: ${({ theme }: ThemeProps) => theme.colors.white};
+  color: ${({ theme }: ThemeProps) => theme.colors["neutral-800"]};
   padding: 0 10px;
   box-sizing: border-box;
 

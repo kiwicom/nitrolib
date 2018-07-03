@@ -22,7 +22,7 @@ const OpenButton = styled.div`
   cursor: pointer;
   &:hover {
     ${LanguageNameText} {
-      color: ${(props: ThemeProps) => props.theme.colors["primary-600"]};
+      color: ${({ theme }: ThemeProps) => theme.colors["primary-600"]};
     }
   }
 `;
@@ -33,10 +33,12 @@ export default class Language extends React.Component<{}, State> {
   };
 
   handleToggle = () => {
-    this.setState({ shown: !this.state.shown });
+    this.setState(state => ({ shown: !state.shown }));
   };
 
   render() {
+    const { shown } = this.state;
+
     return (
       <fetchedContext.Consumer>
         {fetched => (
@@ -47,7 +49,7 @@ export default class Language extends React.Component<{}, State> {
                   <OpenButton onClick={this.handleToggle}>
                     <LanguageName language={fetched.brandLanguage.languages[intl.language.id]} />
                   </OpenButton>
-                  {this.state.shown && (
+                  {shown && (
                     <ClickOutside onClickOutside={this.handleToggle}>
                       <Menu />
                     </ClickOutside>

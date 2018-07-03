@@ -7,6 +7,7 @@ exports[`#SideBar render 1`] = `
   </div>
   <button
     onClick={[Function]}
+    type="button"
   >
     My booking
   </button>
@@ -21,6 +22,7 @@ exports[`#SideBar render with modal 1`] = `
   </div>
   <button
     onClick={[Function]}
+    type="button"
   >
     My booking
   </button>

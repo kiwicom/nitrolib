@@ -3,7 +3,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { graphql, QueryRenderer } from "react-relay";
 
-import environment from "client/services/environment";
+import environmentReal from "client/services/environment";
 import * as currencyContext from "client/services/currency/context";
 import { brandDefault } from "client/records/Brand";
 import type { ThemeProps } from "client/records/Brand";
@@ -13,7 +13,7 @@ import Current from "./Current";
 import Menu from "./Menu";
 
 type Props = {|
-  environment: typeof environment,
+  environment: typeof environmentReal,
 |};
 
 type State = {|
@@ -30,7 +30,7 @@ const OpenButton = styled.div`
   cursor: pointer;
 
   ${Container}:hover & {
-    color: ${(props: ThemeProps) => props.theme.colors["primary-600"]};
+    color: ${({ theme }: ThemeProps) => theme.colors["primary-600"]};
   }
 `;
 
@@ -40,7 +40,7 @@ OpenButton.defaultProps = {
 
 class Currency extends React.Component<Props, State> {
   static defaultProps = {
-    environment,
+    environment: environmentReal,
   };
 
   state = {
@@ -56,6 +56,8 @@ class Currency extends React.Component<Props, State> {
   };
 
   render() {
+    const { environment } = this.props;
+
     return (
       <QueryRenderer
         query={graphql`
@@ -69,7 +71,7 @@ class Currency extends React.Component<Props, State> {
             }
           }
         `}
-        environment={this.props.environment}
+        environment={environment}
         variables={{ ip: "1.2.3.4" /* TODO remove once 'geoIP' can exist without a variable */ }}
         render={res => {
           if (res.error) {
@@ -83,6 +85,8 @@ class Currency extends React.Component<Props, State> {
             return null;
           }
 
+          const { shown } = this.state;
+
           return (
             <currencyContext.Consumer>
               {({ currency, available, setCurrency }) => (
@@ -91,7 +95,7 @@ class Currency extends React.Component<Props, State> {
                     <Current currency={currency} />
                   </OpenButton>
 
-                  {this.state.shown && (
+                  {shown && (
                     <ClickOutside onClickOutside={this.handleHide}>
                       <Menu
                         current={currency}

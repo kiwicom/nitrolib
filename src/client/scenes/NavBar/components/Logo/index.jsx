@@ -8,7 +8,7 @@ import { logo } from "client/styles/index";
 import SvgLogo from "./SvgLogo";
 
 const PoweredByKiwi = styled.span`
-  color: ${(props: ThemeProps) => props.theme.colors["primary-600"]};
+  color: ${({ theme }: ThemeProps) => theme.colors["primary-600"]};
 `;
 
 const LogoImage = styled.img``;

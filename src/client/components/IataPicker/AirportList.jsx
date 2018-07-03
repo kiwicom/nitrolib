@@ -10,14 +10,14 @@ type Props = {|
   onSelect: (id: string) => void,
 |};
 
-const AirportList = (props: Props) =>
-  props.list.edges &&
-  props.list.edges
+const AirportList = ({ list, onSelect }: Props) =>
+  list.edges &&
+  list.edges
     .map(edge => edge && edge.node)
     .filter(Boolean)
     .map(item => (
       // $FlowExpected - Relay type issue
-      <AirportResult key={item.locationId} item={item} onClick={props.onSelect} />
+      <AirportResult key={item.locationId} item={item} onClick={onSelect} />
     ));
 
 export default createFragmentContainer(

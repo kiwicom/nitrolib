@@ -10,10 +10,10 @@ type Props = {|
   onClose: () => void,
 |};
 
-const Modal = (props: Props) => (
+const Modal = ({ onClose, children }: Props) => (
   <ClientOnly>
     <Portal>
-      <ModalOverlay onClose={props.onClose}>{props.children}</ModalOverlay>
+      <ModalOverlay onClose={onClose}>{children}</ModalOverlay>
     </Portal>
   </ClientOnly>
 );

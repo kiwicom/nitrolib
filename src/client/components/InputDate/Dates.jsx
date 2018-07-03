@@ -11,9 +11,9 @@ type Props = {|
   dates: number[],
 |};
 
-const Dates = (props: Props) => (
-  <Select id={`${props.id}-date`} value={String(getDate(props.value))} onChange={props.onChange}>
-    {props.dates.map(date => (
+const Dates = ({ id, value, onChange, dates }: Props) => (
+  <Select id={`${id}-date`} value={String(getDate(value))} onChange={onChange}>
+    {dates.map(date => (
       <option key={date} value={date}>
         {date}
       </option>

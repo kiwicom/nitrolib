@@ -15,7 +15,7 @@ const Container = styled.div`
   width: 100%;
   padding: 10px 20px;
   font-size: 12px;
-  background: ${(props: ThemeProps) => props.theme.colors["grey-900"]};
+  background: ${({ theme }: ThemeProps) => theme.colors["grey-900"]};
   color: white;
   opacity: 0.94;
   transition: bottom 0.25s ease-in;
@@ -23,7 +23,7 @@ const Container = styled.div`
 
   ${mq.gtTablet`
     padding: 20px;
-    color: ${(props: ThemeProps) => props.theme.colors["grey-800"]};
+    color: ${({ theme }: ThemeProps) => theme.colors["grey-800"]};
     background: white;
   `};
 `;

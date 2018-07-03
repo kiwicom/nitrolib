@@ -7,6 +7,10 @@ type Props = {|
 |};
 
 export default class Portal extends React.Component<Props> {
+  node = document.getElementById("modal");
+
+  el = document.createElement("div");
+
   componentDidMount() {
     if (this.node) {
       this.node.appendChild(this.el);
@@ -19,11 +23,9 @@ export default class Portal extends React.Component<Props> {
     }
   }
 
-  node = document.getElementById("modal");
-
-  el = document.createElement("div");
-
   render() {
-    return ReactDOM.createPortal(this.props.children, this.el);
+    const { children } = this.props;
+
+    return ReactDOM.createPortal(children, this.el);
   }
 }

@@ -33,7 +33,7 @@ const Container = styled.div`
 const BrandNameContainer = styled.span`
   display: block;
   font-weight: 700;
-  color: ${(props: ThemeProps) => props.theme.colors["primary-600"]};
+  color: ${({ theme }: ThemeProps) => theme.colors["primary-600"]};
   margin-right: 15px;
   align-items: flex-start;
 `;

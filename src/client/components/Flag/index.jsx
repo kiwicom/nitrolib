@@ -23,8 +23,8 @@ type Props = {|
   country: string,
 |};
 
-const Flag = (props: Props) => (
-  <Img src={`${config.imagesUrl}flags/32x32/${props.country}.png`} alt={props.country} />
+const Flag = ({ country }: Props) => (
+  <Img src={`${config.imagesUrl}flags/32x32/${country}.png`} alt={country} />
 );
 
 export default Flag;

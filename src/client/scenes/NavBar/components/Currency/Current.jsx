@@ -10,11 +10,11 @@ type Props = {|
   currency: Currency,
 |};
 
-const Current = (props: Props) => (
+const Current = ({ currency }: Props) => (
   <>
-    <Code>{getCode(props.currency.id)}</Code>
+    <Code>{getCode(currency.id)}</Code>
     {" - "}
-    <Sign>{getSymbol(props.currency.format)}</Sign>
+    <Sign>{getSymbol(currency.format)}</Sign>
   </>
 );
 

@@ -15,7 +15,7 @@ const Label = styled.label`
   align-items: center;
   ${borderMixin};
   margin-bottom: 20px;
-  background: ${(props: ThemeProps) => props.theme.colors.white};
+  background: ${({ theme }: ThemeProps) => theme.colors.white};
 `;
 
 Label.defaultProps = {
@@ -28,7 +28,7 @@ const Input = styled.input`
   padding: 0;
   border: none;
   width: 100%;
-  color: ${(props: ThemeProps) => props.theme.colors["neutral-800"]};
+  color: ${({ theme }: ThemeProps) => theme.colors["neutral-800"]};
   font-size: 14px;
   font-weight: 500;
 
@@ -51,7 +51,7 @@ const Error = styled.div`
   font-weight: 400;
   right: 0;
   bottom: -14px;
-  color: ${(props: ErrorProps) => props.theme.colors[props.active ? "primary-600" : "danger-700"]};
+  color: ${({ theme, active }: ErrorProps) => theme.colors[active ? "primary-600" : "danger-700"]};
 `;
 
 Error.defaultProps = {

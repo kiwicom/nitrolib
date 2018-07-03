@@ -27,9 +27,9 @@ type Props = {|
   months: number[],
 |};
 
-const Months = (props: Props) => (
-  <Select id={`${props.id}-month`} value={String(getMonth(props.value))} onChange={props.onChange}>
-    {props.months.map(month => (
+const Months = ({ id, value, onChange, months }: Props) => (
+  <Select id={`${id}-month`} value={String(getMonth(value))} onChange={onChange}>
+    {months.map(month => (
       <option key={month} value={month}>
         <Text t={MONTHS[month]} />
       </option>

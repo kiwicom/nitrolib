@@ -35,8 +35,8 @@ const Container = styled.button`
     theme.colors[active ? "neutral-100" : "white"]};
   font-size: 15px;
   font-weight: 500;
-  ${(props: ContainerProps) => props.active && shadowMixin};
-  ${(props: ContainerProps) => !props.active && hoverMixin};
+  ${({ active }: ContainerProps) => active && shadowMixin};
+  ${({ active }: ContainerProps) => !active && hoverMixin};
   transition: background 0.3s;
 
   &:first-child {

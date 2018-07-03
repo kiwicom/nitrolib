@@ -7,10 +7,10 @@ type Props = {|
   title: string,
 |};
 
-const SvgLogo = (props: Props) => (
-  <svg id="svg3400" viewBox="0 0 242.989 120" height={props.height} width={props.width}>
+const SvgLogo = ({ height, width, title }: Props) => (
+  <svg id="svg3400" viewBox="0 0 242.989 120" height={height} width={width}>
     <defs />
-    <title>{props.title}</title>
+    <title>{title}</title>
     <g id="g3408">
       <path
         id="path3410"

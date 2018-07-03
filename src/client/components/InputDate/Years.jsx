@@ -11,9 +11,9 @@ type Props = {|
   years: number[],
 |};
 
-const Years = (props: Props) => (
-  <Select id={`${props.id}-year`} value={String(getYear(props.value))} onChange={props.onChange}>
-    {props.years.map(year => (
+const Years = ({ id, value, onChange, years }: Props) => (
+  <Select id={`${id}-year`} value={String(getYear(value))} onChange={onChange}>
+    {years.map(year => (
       <option key={year} value={year}>
         {year}
       </option>

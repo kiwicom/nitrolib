@@ -43,8 +43,9 @@ type Props = {|
 
 export default class ModalOverlay extends React.PureComponent<Props> {
   handleKeyDown = (ev: SyntheticKeyboardEvent<HTMLDivElement>) => {
+    const { onClose } = this.props;
     if (ev.key === "Escape") {
-      this.props.onClose();
+      onClose();
     }
   };
 

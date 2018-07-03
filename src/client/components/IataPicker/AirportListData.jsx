@@ -2,18 +2,18 @@
 import * as React from "react";
 import { graphql, QueryRenderer } from "react-relay";
 
-import environment from "client/services/environment";
+import environmentReal from "client/services/environment";
 import AirportList from "./AirportList";
 
 type Props = {|
   value: string,
   onSelect: (id: string) => void,
-  environment: typeof environment,
+  environment: typeof environmentReal,
 |};
 
-const AirportListData = (props: Props) => (
+const AirportListData = ({ value, onSelect, environment }: Props) => (
   <QueryRenderer
-    environment={props.environment}
+    environment={environment}
     query={graphql`
       query AirportListDataQuery($input: String!) {
         allLocations(search: $input, options: { locationType: airport }) {
@@ -21,7 +21,7 @@ const AirportListData = (props: Props) => (
         }
       }
     `}
-    variables={{ input: props.value }}
+    variables={{ input: value }}
     render={res => {
       if (res.error) {
         // TODO <Alert />
@@ -32,13 +32,13 @@ const AirportListData = (props: Props) => (
         return null;
       }
 
-      return <AirportList list={res.props.allLocations} onSelect={props.onSelect} />;
+      return <AirportList list={res.props.allLocations} onSelect={onSelect} />;
     }}
   />
 );
 
 AirportListData.defaultProps = {
-  environment,
+  environment: environmentReal,
 };
 
 export default AirportListData;

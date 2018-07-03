@@ -14,6 +14,7 @@ import getRecommended from "./services/getRecommended";
 import CurrencyList from "./CurrencyList";
 import type { MenuList_list } from "./__generated__/MenuList_list.graphql";
 import type { MenuGeo_geo } from "./__generated__/MenuGeo_geo.graphql";
+import type { ThemeProps } from "client/records/Brand";
 
 type Props = {|
   current: Currency,
@@ -35,8 +36,8 @@ const Container = styled.div`
   overflow-y: scroll;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, .1);
   border-radius: ${BORDER_RADIUS}px;
-  background: ${props => props.theme.colors.white};
-  color: ${props => props.theme.colors["grey-800"]};
+  background: ${({ theme }: ThemeProps) => theme.colors.white};
+  color: ${({ theme }: ThemeProps) => theme.colors["grey-800"]};
 
   ${mq.gtTablet`
     width: 500px;
@@ -72,7 +73,7 @@ const Recommended = styled.div`
     width: calc(100% - 10px);
     height: 1px;
     margin: 0 5px;
-    background: ${props => props.theme.colors["grey-200"]};
+    background: ${({ theme }: ThemeProps) => theme.colors["grey-200"]};
   }
 `;
 
@@ -83,8 +84,10 @@ Recommended.defaultProps = {
 class Menu extends React.Component<Props> {
   handleSetCurrency = (code: string) => {
     // TODO: logging
-    this.props.onSetCurrency(code);
-    this.props.onHide();
+    const { onSetCurrency, onHide } = this.props;
+
+    onSetCurrency(code);
+    onHide();
   };
 
   render() {

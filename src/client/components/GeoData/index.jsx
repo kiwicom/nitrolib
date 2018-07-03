@@ -3,16 +3,16 @@ import * as React from "react";
 import { graphql, QueryRenderer } from "react-relay";
 import type { ReadyState } from "react-relay";
 
-import environment from "client/services/environment";
+import environmentReal from "client/services/environment";
 
 type Props = {|
   render: ReadyState => ?React.Element<any>,
-  environment: typeof environment,
+  environment: typeof environmentReal,
 |};
 
-const Index = (props: Props) => (
+const GeoData = ({ render, environment }: Props) => (
   <QueryRenderer
-    environment={props.environment}
+    environment={environment}
     query={graphql`
       query GeoDataQuery {
         geoIP(ip: "185.86.151.11") {
@@ -26,12 +26,12 @@ const Index = (props: Props) => (
       }
     `}
     variables={{}}
-    render={props.render}
+    render={render}
   />
 );
 
-Index.defaultProps = {
-  environment,
+GeoData.defaultProps = {
+  environment: environmentReal,
 };
 
-export default Index;
+export default GeoData;

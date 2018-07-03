@@ -8,6 +8,6 @@ type Props = {|
   id: string,
 |};
 
-const ContinentName = (props: Props) => <Text t={tKeys[props.id]} />;
+const ContinentName = ({ id }: Props) => <Text t={tKeys[id]} />;
 
 export default ContinentName;

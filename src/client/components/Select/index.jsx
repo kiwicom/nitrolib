@@ -15,7 +15,7 @@ const StyledSelect = styled.select`
   appearance: none;
   height: 46px;
   line-height: 46px;
-  background-color: ${(props: ThemeProps) => props.theme.colors.white};
+  background-color: ${({ theme }: ThemeProps) => theme.colors.white};
   width: 100%;
   ${borderMixin};
   padding: 0 15px;
@@ -48,10 +48,10 @@ type Props = {|
   children: React.Node[],
 |};
 
-const Select = (props: Props) => (
+const Select = ({ id, value, onChange, children }: Props) => (
   <Container>
-    <StyledSelect id={props.id} value={props.value} onChange={props.onChange} state="base">
-      {props.children}
+    <StyledSelect id={id} value={value} onChange={onChange} state="base">
+      {children}
     </StyledSelect>
     <Icon>
       <MdExpandMore />
