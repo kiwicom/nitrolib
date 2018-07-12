@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, text } from "@storybook/addon-knobs/react";
 
-import IataPicker from "public/components/IataPicker";
+import IataPicker from "../src/components/IataPicker";
 
 storiesOf("IataPicker", module)
   .addDecorator(withKnobs)

@@ -1,9 +1,6 @@
 {
-  "globals": {
-    "__": true,
-    "process": true
-  },
-  "rules": {
-    "flowtype/require-valid-file-annotation": ["error", "always", { "annotationStyle": "line" }]
+  "env": {
+    "browser": true,
+    "node": false
   }
 }

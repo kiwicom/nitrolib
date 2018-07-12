@@ -23,15 +23,6 @@ install:
       - node_modules/
     policy: pull-push
 
-build:
-  stage: build
-  script:
-    - yarn bundle
-  artifacts:
-    paths:
-      - data/
-      - dist/
-
 storybook:
   stage: build
   script:
@@ -49,11 +40,6 @@ lint:
   stage: build
   script:
     - yarn lint
-
-madge:
-  stage: build
-  script:
-    - yarn madge
 
 flow:
   stage: build

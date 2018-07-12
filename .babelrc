@@ -8,9 +8,6 @@
   "plugins": [
     "relay",
     "idx",
-    ["styled-components", { "ssr": true }],
-    ["module-resolver", {
-      "root": ["./src"]
-    }]
+    ["styled-components", { "ssr": true }]
   ]
 }

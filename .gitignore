@@ -2,11 +2,9 @@
 .idea
 .tmp
 coverage
-node_modules
-data
-dist
 dist-storybook
-public/lib
+node_modules
+lib
 .env
 npm-debug.log
 yarn-error.log

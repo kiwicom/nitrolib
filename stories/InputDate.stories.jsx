@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, date, boolean } from "@storybook/addon-knobs/react";
 
-import InputDate from "public/components/InputDate";
+import InputDate from "../src/components/InputDate";
 
 const now = new Date();
 

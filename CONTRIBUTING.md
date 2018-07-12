@@ -1,7 +1,5 @@
 # Contributing
 
-Follow **all** rules written in the documents linked from the [README](./README.md).
-
 Make sure these tasks run without errors:
 * `yarn test`
 * `yarn lint`
@@ -9,15 +7,7 @@ Make sure these tasks run without errors:
 
 ### Development
 
-Run `yarn gulp fetch`  before developing.
-
-Run `yarn start` and enjoy at **:8080**! If you're doing **GraphQL** stuff, also run `yarn relay --watch`.
-
-### Production
-
-Run `yarn relay:schema` and `yarn relay` if you did **GraphQL** stuff. Then `yarn bundle`.
-
-Run `yarn run run` and check out `localhost:3000`.
+Run `yarn start` and enjoy! If you're doing **GraphQL** stuff, also run `yarn relay --watch`.
 
 ## Tests
 
@@ -44,6 +34,6 @@ Only disable stuff that _really_ needs disabling. No errors allowed, ideally not
 
 ## Flow
 
-Cover **all** source files with `// @flow`! Only disable stuff that _really_ needs disabling. No errors allowed.
+Cover **all** source files with `// @flow strict`! Only disable stuff that _really_ needs disabling. No errors allowed.
 
 

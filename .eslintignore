@@ -1,8 +1,6 @@
 .tmp
 coverage
-dist
+lib
 dist-storybook
 flow-typed
-public/lib
-types
 *.graphql.js
