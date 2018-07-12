@@ -3,8 +3,8 @@ import * as React from "react";
 import styled from "styled-components";
 
 import config from "../../consts/config";
-import { brandDefault } from "../../../records/Brand";
-import type { ThemeProps } from "../../../records/Brand";
+import { brandDefault } from "../../records/Brand";
+import type { ThemeProps } from "../../records/Brand";
 
 const Img = styled.img`
   margin-right: 4px;

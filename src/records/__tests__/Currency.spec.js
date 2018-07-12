@@ -1,5 +1,5 @@
 // @flow strict
-import * as currency from "../../records/Currency";
+import * as currency from "../Currency";
 
 describe("#Currency", () => {
   test("get code", () => {

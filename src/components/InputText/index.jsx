@@ -3,9 +3,9 @@ import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
 
-import borderMixin, { getBorderState } from "../../../styles/mixins/border";
-import { brandDefault } from "../../../records/Brand";
-import type { ThemeProps } from "../../../records/Brand";
+import borderMixin, { getBorderState } from "../../styles/mixins/border";
+import { brandDefault } from "../../records/Brand";
+import type { ThemeProps } from "../../records/Brand";
 
 const Label = styled.label`
   display: flex;

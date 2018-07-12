@@ -1,5 +1,5 @@
 // @flow strict
-import isEmptish from "../../isEmptish";
+import isEmptish from "../isEmptish";
 
 describe("#isEmptish", () => {
   test("regular object", () => {

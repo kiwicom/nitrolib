@@ -1,5 +1,5 @@
 // @flow strict
-import { getBorderState } from "../../border";
+import { getBorderState } from "../border";
 
 describe("#border", () => {
   test("border state error", () => {

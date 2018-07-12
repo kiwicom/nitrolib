@@ -8,8 +8,8 @@ import IconText from "../IconText";
 import ClickOutside from "../ClickOutside";
 import Text from "../Text";
 import { Consumer as IntlConsumer } from "../../services/intl/context";
-import { brandDefault } from "../../../records/Brand";
-import type { ThemeProps } from "../../../records/Brand";
+import { brandDefault } from "../../records/Brand";
+import type { ThemeProps } from "../../records/Brand";
 import AirportListData from "./AirportListData";
 
 const Container = styled.div`

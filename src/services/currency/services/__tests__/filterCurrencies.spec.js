@@ -1,5 +1,5 @@
 // @flow strict
-import filterCurrencies from "../../filterCurrencies";
+import filterCurrencies from "../filterCurrencies";
 
 const currencies = {
   eur: {

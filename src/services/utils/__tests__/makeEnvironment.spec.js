@@ -1,7 +1,7 @@
 // @flow strict
 import { Environment } from "relay-runtime";
 
-import makeEnvironment from "../../makeEnvironment";
+import makeEnvironment from "../makeEnvironment";
 
 describe("#makeEnvironment", () => {
   test("making a new one", () => {

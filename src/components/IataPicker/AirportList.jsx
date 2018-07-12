@@ -2,7 +2,7 @@
 import * as React from "react";
 import { createFragmentContainer, graphql } from "react-relay";
 
-import AirportResult from "../../AirportResult";
+import AirportResult from "../AirportResult";
 import type { AirportList_list } from "./__generated__/AirportList_list.graphql";
 
 type Props = {|

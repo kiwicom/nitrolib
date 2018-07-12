@@ -1,5 +1,5 @@
 // @flow strict
-import getCandidate from "../../getCandidate";
+import getCandidate from "../getCandidate";
 
 const input = {
   initial: "kek",

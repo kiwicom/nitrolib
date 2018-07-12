@@ -4,7 +4,8 @@ import { shallow } from "enzyme";
 import "jest-styled-components";
 
 import InputText from "..";
-import { brandDefault } from "../../../../records/Brand";
+
+import { brandDefault } from "../../../records/Brand";
 
 describe("#InputText", () => {
   test("removing unwanted props", () => {

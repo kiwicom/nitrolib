@@ -2,9 +2,9 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
-import { brandDefault } from "../../../records/Brand";
-import type { ThemeProps } from "../../../records/Brand";
-import { border } from "../../../styles";
+import { brandDefault } from "../../records/Brand";
+import type { ThemeProps } from "../../records/Brand";
+import { border } from "../../styles";
 
 const shadowMixin = css`
   box-shadow: 0 0 3px 0 ${({ theme }: ThemeProps) => theme.colors["neutral-400"]} inset;

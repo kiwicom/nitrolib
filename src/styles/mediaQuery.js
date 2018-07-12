@@ -4,7 +4,7 @@ import { css } from "styled-components";
 import * as R from "ramda";
 import type { Interpolation } from "styled-components";
 
-import { BREAKPOINTS } from "../../consts/device";
+import { BREAKPOINTS } from "../consts/device";
 
 const SIZES = {
   gtDesktop: { min: BREAKPOINTS.DESKTOP },

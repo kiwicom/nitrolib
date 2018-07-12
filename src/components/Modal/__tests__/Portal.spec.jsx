@@ -2,7 +2,7 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import Portal from "../../Portal";
+import Portal from "../Portal";
 
 describe("#Modal - Portal", () => {
   test("render - with target", () => {

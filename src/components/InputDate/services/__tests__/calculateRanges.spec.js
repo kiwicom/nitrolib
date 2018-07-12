@@ -7,7 +7,7 @@ import calculateRanges, {
   getMaxDate,
   getMinMonth,
   getMaxMonth,
-} from "../../calculateRanges";
+} from "../calculateRanges";
 
 describe("#calculateRanges", () => {
   describe("#getMinDate", () => {

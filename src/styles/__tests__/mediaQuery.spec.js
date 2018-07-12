@@ -2,7 +2,7 @@
 import { forEachObjIndexed } from "ramda";
 
 import { BREAKPOINTS } from "../../consts/device";
-import mq from "../../../../styles/mediaQuery";
+import mq from "../mediaQuery";
 
 const EXPECTED_QUERIES = {
   gtDesktop: `(min-width: ${BREAKPOINTS.DESKTOP}px)`,

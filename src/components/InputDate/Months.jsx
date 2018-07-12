@@ -2,8 +2,8 @@
 import * as React from "react";
 import getMonth from "date-fns/getMonth";
 
-import Select from "../../Select";
-import Text from "../../Text";
+import Select from "../Select";
+import Text from "../Text";
 
 const MONTHS = [
   __("January"),

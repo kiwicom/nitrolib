@@ -1,5 +1,5 @@
 // @flow strict
-import translate from "../../translate";
+import translate from "../translate";
 
 const translations = {
   kek: "bur",

@@ -1,6 +1,6 @@
 // @flow strict
-import { currencyDefault } from "../../records/Currency";
-import resolveCurrency from "../../resolveCurrency";
+import { currencyDefault } from "../../../../records/Currency";
+import resolveCurrency from "../resolveCurrency";
 
 const all = {
   // available 1

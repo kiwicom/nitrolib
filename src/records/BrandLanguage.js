@@ -1,5 +1,5 @@
 // @flow strict
-import type { Languages } from "../../records/Languages";
+import type { Languages } from "./Languages";
 
 export type BrandLanguage = {|
   defaultLocale: string,

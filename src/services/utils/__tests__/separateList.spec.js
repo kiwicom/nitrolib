@@ -1,5 +1,5 @@
 // @flow strict
-import separateList from "../../separateList";
+import separateList from "../separateList";
 
 describe("#separateList", () => {
   test("even groups", () => {

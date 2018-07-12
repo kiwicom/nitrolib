@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import Months from "../../Months";
+import Months from "../Months";
 
 const NOW = new Date(Date.UTC(2020, 0, 1));
 
