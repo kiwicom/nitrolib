@@ -5,7 +5,7 @@ const R = require("ramda");
 
 const languageUtils = require("./utils/languages");
 
-const OUT = path.join(__dirname, "../../data/");
+const OUT = path.join(process.cwd(), "data");
 
 const mapLanguages = () =>
   Promise.all([

@@ -20,6 +20,7 @@
   "files": [
     "bin",
     "lib",
+    "src",
     "README.md"
   ],
   "bin": {
