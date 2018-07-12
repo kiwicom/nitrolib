@@ -16,6 +16,9 @@
   "env": {
     "jest": true
   },
+  "globals": {
+    "__": true
+  },
   "rules": {
     "prettier/prettier": "error",
     "import/order": ["error", {
