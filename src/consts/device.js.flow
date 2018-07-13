@@ -1,0 +1,13 @@
+declare export var DEVICES: {
+  DESKTOP: string,
+  TABLET: string,
+  MOBILE: string,
+};
+
+declare export var BREAKPOINTS: {
+  DESKTOP: number,
+  TABLET: number,
+  BIG_MOBILE: number,
+  MIDDLE_MOBILE: number,
+  SMALL_MOBILE: number,
+};

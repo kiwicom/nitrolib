@@ -1,0 +1,10 @@
+export type Continents = { [key: string]: string[] };
+
+declare export var tKeys: {
+  aas: string,
+  ap: string,
+  eu: string,
+  mea: string,
+};
+
+declare export var continentsDefault: Continents;

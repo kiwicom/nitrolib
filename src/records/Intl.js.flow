@@ -1,0 +1,13 @@
+import { langInfoDefault } from "./LangInfo";
+import type { LangInfo } from "./LangInfo";
+import type { Translate } from "../services/intl/translate";
+
+export type Intl = {|
+  language: LangInfo,
+  translations: {},
+  translate: Translate,
+|};
+
+export type Intls = { [key: string]: Intl };
+
+declare export var intlDefault: Intl;

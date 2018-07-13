@@ -3,7 +3,6 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { BORDER_RADIUS } from "../../consts/layout";
 import { brandDefault } from "../../records/Brand";
 import mq from "../../styles/mediaQuery";
 
@@ -140,7 +139,7 @@ const TipContent = styled.span`
   padding: 6px 8px;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors["grey-900"]};
-  border-radius: ${BORDER_RADIUS}px;
+  border-radius: 3px;
 `;
 
 TipContent.defaultProps = {

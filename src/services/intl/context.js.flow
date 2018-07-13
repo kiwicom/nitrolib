@@ -1,0 +1,8 @@
+import * as React from "react";
+
+import type { Intl } from "../../records/Intl";
+
+type Ctx = React.Context<Intl>;
+
+export type Consumer = Ctx.Consumer;
+export type Provider = Ctx.Provider;

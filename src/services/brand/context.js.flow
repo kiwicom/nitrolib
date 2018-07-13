@@ -1,0 +1,8 @@
+import * as React from "react";
+
+import type { Brand } from "../../records/Brand";
+
+type Ctx = React.Context<Brand>;
+
+export type Consumer = Ctx.Consumer;
+export type Provider = Ctx.Provider;

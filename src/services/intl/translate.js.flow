@@ -1,0 +1,8 @@
+// @flow strict
+export type Values = { [key: string]: string | number };
+export type Translate = (key: string, values?: Values) => string;
+export type Translations = { [key: string]: string };
+
+declare function translate(translations: Translations, key: string, values?: Values): string;
+
+declare export default translate;

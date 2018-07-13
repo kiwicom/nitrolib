@@ -1,0 +1,8 @@
+import * as React from "react";
+
+import type { Fetched } from "../../records/Fetched";
+
+type Ctx = React.Context<Fetched>;
+
+export type Consumer = Ctx.Consumer;
+export type Provider = Ctx.Provider;
