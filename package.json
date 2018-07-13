@@ -27,7 +27,7 @@
     "README.md"
   ],
   "bin": {
-    "nitro": "./etc/bin/nitro.js"
+    "nitro": "./bin/nitro.js"
   },
   "dependencies": {
     "chalk": "^2.4.1",
