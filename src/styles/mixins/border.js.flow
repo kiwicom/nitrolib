@@ -1,2 +1,14 @@
-// TODO types
-declare export default any;
+// @flow strict
+import type { Interpolation } from "styled-components";
+
+type Props = {|
+  error: boolean,
+  active: boolean,
+  visited: boolean,
+|};
+
+type State = "error" | "success" | "base";
+
+declare export function getBorderState(props: Props): State;
+
+declare export default Interpolation;

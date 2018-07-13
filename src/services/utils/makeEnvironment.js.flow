@@ -1,2 +1,11 @@
-// TODO types
-declare export default any;
+// @flow strict
+import type { Environment } from "relay-runtime";
+
+export type Input = {
+  query: string,
+  variables: { [key: string]: string },
+};
+
+export type Call = (input: Input) => Promise<any>;
+
+declare export default function makeEnvironment(call: Call): Environment;

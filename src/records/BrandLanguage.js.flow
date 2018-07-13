@@ -1,3 +1,4 @@
+// @flow strict
 import type { Languages } from "./Languages";
 
 export type BrandLanguage = {|

@@ -1,9 +1,10 @@
+// @flow strict
 import * as React from "react";
 
 type Props = {|
-  marginTop: number,
-  marginBottom: number,
-  x:
+  marginTop?: number,
+  marginBottom?: number,
+  x?:
     | "flex-start"
     | "flex-end"
     | "center"
@@ -11,7 +12,7 @@ type Props = {|
     | "space-around"
     | "initial"
     | "inherit",
-  y:
+  y?:
     | "stretch"
     | "center"
     | "flex-start"
@@ -19,14 +20,15 @@ type Props = {|
     | "baseline"
     | "initial"
     | "inherit",
-  direction:
+  direction?:
     | "row"
     | "row-reverse"
     | "column"
     | "column-reverse"
     | "initial"
     | "inherit",
-  wrap: "nowrap" | "wrap" | "wrap-reverse"
+  wrap?: "nowrap" | "wrap" | "wrap-reverse",
+  children: React.Node | React.Node[],
 |};
 
 declare export default React.ComponentType<Props>;

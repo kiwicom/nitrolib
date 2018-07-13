@@ -1,2 +1,2 @@
-// TODO types
-declare export default any;
+// @flow strict
+declare export default function isEmptish(input: {}): boolean;

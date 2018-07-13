@@ -3,7 +3,7 @@ import * as React from "react";
 
 type Props = {|
   date: Date,
-  format: string,
+  format?: string,
 |};
 
 declare export default React.ComponentType<Props>;

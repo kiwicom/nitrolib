@@ -1,3 +1,4 @@
+// @flow strict
 import type { Countries } from "./Country";
 import { countryDefault } from "./Country";
 import type { Continents } from "./Continents";

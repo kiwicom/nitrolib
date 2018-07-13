@@ -1,3 +1,4 @@
+// @flow strict
 import * as React from "react";
 
 import type { Intl } from "../../records/Intl";

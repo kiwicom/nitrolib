@@ -2,7 +2,7 @@
 import * as React from "react";
 
 type Props = {|
-  loader: React.Node,
+  loader?: React.Node,
   children: React.Node,
 |};
 

@@ -8,9 +8,9 @@ type Props = {
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   placeholder: string,
-  type: string,
-  error: string,
-  showState: boolean,
+  type?: string,
+  error?: string,
+  showState?: boolean,
   inputRef?: (node: HTMLInputElement) => void,
 };
 

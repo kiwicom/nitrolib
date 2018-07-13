@@ -6,7 +6,7 @@ type Props = {|
   value: string,
   onSelect: (value: string) => void,
   error: string,
-  showState: boolean,
+  showState?: boolean,
 |};
 
 declare export default React.ComponentType<Props>;

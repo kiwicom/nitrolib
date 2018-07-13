@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as R from "ramda";
 import getDaysInMonth from "date-fns/getDaysInMonth";
 import getDate from "date-fns/getDate";

@@ -5,6 +5,7 @@ export type Input = {
   query: string,
   variables: { [key: string]: string },
 };
+
 export type Call = (input: Input) => Promise<any>;
 
 const makeFetchQuery = (call: Call) => (operation, variables) =>

@@ -7,7 +7,7 @@ type Props = {|
   min: Date,
   max: Date,
   onChange: Date => void,
-  mmddyyyy: boolean,
+  mmddyyyy?: boolean,
 |};
 
 declare export default React.ComponentType<Props>;

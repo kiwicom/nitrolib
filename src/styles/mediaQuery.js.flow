@@ -1,2 +1,4 @@
-// TODO types
-declare export default any;
+// @flow strict
+declare export default {
+  [key: string]: any, // TODO @milan type this
+};

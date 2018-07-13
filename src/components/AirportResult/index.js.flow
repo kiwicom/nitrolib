@@ -1,3 +1,4 @@
+// @flow strict
 import * as React from "react";
 
 import type { AirportResult_item } from "./__generated__/AirportResult_item.graphql";
@@ -5,7 +6,7 @@ import type { AirportResult_item } from "./__generated__/AirportResult_item.grap
 type Props = {|
   item: AirportResult_item,
   onClick: (id: string) => void,
-  selected: boolean,
+  selected?: boolean,
 |};
 
 declare export default React.ComponentType<Props>;

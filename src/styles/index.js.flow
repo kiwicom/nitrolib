@@ -1,3 +1,4 @@
+// @flow strict
 declare export var border: {|
   +size: number,
   +radius: number,

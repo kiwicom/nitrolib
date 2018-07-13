@@ -1,3 +1,4 @@
+// @flow strict
 export type Continents = { [key: string]: string[] };
 
 declare export var tKeys: {

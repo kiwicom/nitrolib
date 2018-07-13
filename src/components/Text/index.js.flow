@@ -5,8 +5,8 @@ import type { Values } from "../../services/intl/translate";
 
 type Props = {|
   t: string,
-  values: Values,
-  html: boolean,
+  values?: Values,
+  html?: boolean,
 |};
 
 declare export default React.ComponentType<Props>;
