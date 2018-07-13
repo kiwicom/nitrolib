@@ -9,4 +9,6 @@ type Props = {|
   selected?: boolean,
 |};
 
+declare export var AirportResultUnwrapped: React.ComponentType<Props>;
+
 declare export default React.ComponentType<Props>;

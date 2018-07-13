@@ -1,0 +1,4 @@
+// @flow strict
+import type { Currencies } from "../../../records/Currency";
+
+declare export default () => Promise<Currencies>;
