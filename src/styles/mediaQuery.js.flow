@@ -1,4 +1,24 @@
 // @flow strict
+import type { Interpolation } from "styled-components";
+
+type SizeQueryFunction = (...args: any[]) => Array<Interpolation>;
+
 declare export default {
-  [key: string]: any, // TODO @milan type this
+  gtDesktop: SizeQueryFunction,
+  ltDesktop: SizeQueryFunction,
+  tablet: SizeQueryFunction,
+  gtTablet: SizeQueryFunction,
+  ltTablet: SizeQueryFunction,
+  mobile: SizeQueryFunction,
+  bigMobile: SizeQueryFunction,
+  gtBigMobile: SizeQueryFunction,
+  ltBigMobile: SizeQueryFunction,
+  middleMobile: SizeQueryFunction,
+  gtMiddleMobile: SizeQueryFunction,
+  ltMiddleMobile: SizeQueryFunction,
+  smallMobile: SizeQueryFunction,
+  gtSmallMobile: SizeQueryFunction,
+  ltSmallMobile: SizeQueryFunction,
+  retinaOnly: (...args: any[]) => Interpolation,
+  retinaMobileOnly: (...args: any[]) => Interpolation,
 };
