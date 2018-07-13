@@ -7,5 +7,5 @@ Nitro's components.
 - [x] Fix import paths
 - [x] Export src for tkeys collection
 - [x] Strip `__` calls
-- [ ] Rewrite types to `.js.flow` files
+- [x] Rewrite types to `.js.flow` files
 - [ ] Docs
