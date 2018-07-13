@@ -13,7 +13,7 @@
     "lint": "eslint './**/*.{js,jsx}'",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -o dist-storybook",
-    "prepare": "yarn test && yarn lint && yarn build"
+    "prepare": "rimraf lib && yarn test && yarn lint && yarn build"
   },
   "keywords": [
     "react",
