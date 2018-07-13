@@ -1,8 +1,12 @@
 {
-  "schemaPath": "schema.graphql",
-  "extensions": {
-    "endpoints": {
-      "default": "https://graphql.kiwi.com"
+  "projects": {
+    "main": {
+      "schemaPath": "schema.graphql",
+      "extensions": {
+        "endpoints": {
+          "default": "https://graphql.kiwi.com"
+        }
+      }
     }
   }
 }

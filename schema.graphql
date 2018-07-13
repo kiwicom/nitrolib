@@ -1,5 +1,5 @@
 # source: https://graphql.kiwi.com
-# timestamp: Thu May 10 2018 13:29:38 GMT+0200 (CEST)
+# timestamp: Fri Jul 13 2018 14:14:57 GMT+0200 (CEST)
 
 schema {
   query: RootQuery
@@ -20,6 +20,14 @@ type Address {
   zip: String
 }
 
+"""AirHelp+ offer as a booking ancillary"""
+type AirHelpPlusOffer {
+  isPossible: Boolean
+
+  """Price per passenger"""
+  pricePerPerson: Price
+}
+
 type Airline {
   name: String
 
@@ -29,6 +37,14 @@ type Airline {
 
   """Airline is low cost carrier."""
   isLowCost: Boolean
+}
+
+type AirportArrivalTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
+
+  """Location of departure"""
+  location: RouteStop
 }
 
 enum AllBookingsOnlyEnum {
@@ -55,6 +71,14 @@ input AreaInput {
   bottomRight: CoordinatesInput!
 }
 
+type ArrivalTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
+
+  """Location of arrival"""
+  location: RouteStop
+}
+
 input AvailableHotelOptionsInput {
   """Three-letters ISO 4217 currency code, e.g. EUR or USD"""
   currency: Currency
@@ -77,6 +101,65 @@ type Baggage {
   note: String
 }
 
+type BoardingPass {
+  flightNumber: String
+  boardingPassUrl: String
+
+  """The leg for the boarding pass"""
+  leg: Leg
+
+  """The date when the boarding pass will be available for download"""
+  availableAt: Date
+}
+
+type BoardingTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
+
+  """Gate at which boarding is done"""
+  gate: String
+}
+
+type BookedFlightTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
+
+  """Location of arrival"""
+  location: RouteStop
+}
+
+type BookedService {
+  """Type of booked service"""
+  category: BookedServiceCategory
+
+  """Status of booked service"""
+  status: BookedServiceStatus
+}
+
+enum BookedServiceCategory {
+  ALLOCATED_SEATING
+  SPECIAL_ASSISTANCE
+  SPORTS_EQUIPMENT
+  TRAVELLING_WITH_PETS
+  MUSICAL_EQUIPMENT
+  MEALS_ON_BOARD
+  BAGS
+  EXTRAS_BAGS
+  EXTRAS_OTHER
+  EXTRAS_CHANGE_FLIGHT
+  EXTRAS_PASSENGER_DETAILS_CHANGE
+  UPDATE_INSURANCES
+  PRICE_CHANGE
+  FLIGHTS
+}
+
+enum BookedServiceStatus {
+  CONFIRMED
+  CLOSED
+  PENDING
+  OPEN
+}
+
 """
 You can fetch here almost every information related to the booking itself.
 However when you want to fetch legs you have to use "oneWay", "return" and
@@ -94,22 +177,38 @@ type Booking {
 
   """Unique number identifying the booking in communication with support."""
   databaseId: Int
+  type: BookingType @deprecated(reason: "Manual type is not necessary. Use \"__typename\" instead.")
   status: BookingStatus
 
   """Total price of the whole booking."""
   price: Price
+
+  """Date of the booking creation"""
+  bookingDate: Date
   allowedBaggage: AllowedBaggage
 
   """Static assets related to this booking."""
   assets: BookingAssets
+  passengers: [Passenger]
   passengerCount: Int
   destinationImageUrl(dimensions: BookingDestinationImageDimensions = _600x600): String
+
+  """List of carriers involved in the booking."""
+  carriers: [Carrier]
 
   """
   You can use this link to access one particular booking directly WITHOUT PASSWORD. Use it carefully.
   """
   directAccessURL(deeplinkTo: DirectAccessURLValues): String
-  type: BookingType
+  bookedServices: [BookedService]
+  contactDetails: BookingContactDetails
+  isPastBooking: Boolean
+
+  """All services provided directly by Kiwi.com."""
+  availableServices: Services
+
+  """All services provided via whitelabels."""
+  availableWhitelabeledServices: WhitelabeledServices
   oneWay: BookingOneWay
   return: BookingReturn
   multicity: BookingMulticity
@@ -123,6 +222,14 @@ type BookingAssets {
 
   """URL of the invoice."""
   invoiceUrl: String
+
+  """Boarding passes for flights in this booking"""
+  boardingPasses: [BoardingPass]
+}
+
+type BookingConfirmedTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
 }
 
 """A connection to a list of items."""
@@ -132,6 +239,12 @@ type BookingConnection {
 
   """A list of edges."""
   edges: [BookingEdge]
+}
+
+"""Contact details related to the booking"""
+type BookingContactDetails {
+  phone: String
+  email: String
 }
 
 enum BookingDestinationImageDimensions {
@@ -161,44 +274,96 @@ interface BookingInterface {
 
   """Unique number identifying the booking in communication with support."""
   databaseId: Int
+  type: BookingType @deprecated(reason: "Manual type is not necessary. Use \"__typename\" instead.")
   status: BookingStatus
 
   """Total price of the whole booking."""
   price: Price
+
+  """Date of the booking creation"""
+  bookingDate: Date
   allowedBaggage: AllowedBaggage
 
   """Static assets related to this booking."""
   assets: BookingAssets
+  passengers: [Passenger]
   passengerCount: Int
   destinationImageUrl(dimensions: BookingDestinationImageDimensions = _600x600): String
+
+  """List of carriers involved in the booking."""
+  carriers: [Carrier]
 
   """
   You can use this link to access one particular booking directly WITHOUT PASSWORD. Use it carefully.
   """
   directAccessURL(deeplinkTo: DirectAccessURLValues): String
+  bookedServices: [BookedService]
+  contactDetails: BookingContactDetails
+  isPastBooking: Boolean
+
+  """All services provided directly by Kiwi.com."""
+  availableServices: Services
+
+  """All services provided via whitelabels."""
+  availableWhitelabeledServices: WhitelabeledServices
 }
 
-type BookingMulticity implements BookingInterface {
+"""A connection to a list of items."""
+type BookingInterfaceConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [BookingInterfaceEdge]
+}
+
+"""An edge in a connection."""
+type BookingInterfaceEdge {
+  """The item at the end of the edge"""
+  node: BookingInterface
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type BookingMulticity implements BookingInterface & Node {
   """The ID of an object"""
   id: ID!
 
   """Unique number identifying the booking in communication with support."""
   databaseId: Int
+  type: BookingType @deprecated(reason: "Manual type is not necessary. Use \"__typename\" instead.")
   status: BookingStatus
 
   """Total price of the whole booking."""
   price: Price
+
+  """Date of the booking creation"""
+  bookingDate: Date
   allowedBaggage: AllowedBaggage
 
   """Static assets related to this booking."""
   assets: BookingAssets
+  passengers: [Passenger]
   passengerCount: Int
   destinationImageUrl(dimensions: BookingDestinationImageDimensions = _600x600): String
+
+  """List of carriers involved in the booking."""
+  carriers: [Carrier]
 
   """
   You can use this link to access one particular booking directly WITHOUT PASSWORD. Use it carefully.
   """
   directAccessURL(deeplinkTo: DirectAccessURLValues): String
+  bookedServices: [BookedService]
+  contactDetails: BookingContactDetails
+  isPastBooking: Boolean
+
+  """All services provided directly by Kiwi.com."""
+  availableServices: Services
+
+  """All services provided via whitelabels."""
+  availableWhitelabeledServices: WhitelabeledServices
 
   """Initial origin."""
   start: RouteStop
@@ -213,52 +378,86 @@ type BookingMulticity implements BookingInterface {
 """
 Booking with simple trip from origin to destination, with possible stopovers.
 """
-type BookingOneWay implements BookingInterface {
+type BookingOneWay implements BookingInterface & Node {
   """The ID of an object"""
   id: ID!
 
   """Unique number identifying the booking in communication with support."""
   databaseId: Int
+  type: BookingType @deprecated(reason: "Manual type is not necessary. Use \"__typename\" instead.")
   status: BookingStatus
 
   """Total price of the whole booking."""
   price: Price
+
+  """Date of the booking creation"""
+  bookingDate: Date
   allowedBaggage: AllowedBaggage
 
   """Static assets related to this booking."""
   assets: BookingAssets
+  passengers: [Passenger]
   passengerCount: Int
   destinationImageUrl(dimensions: BookingDestinationImageDimensions = _600x600): String
+
+  """List of carriers involved in the booking."""
+  carriers: [Carrier]
 
   """
   You can use this link to access one particular booking directly WITHOUT PASSWORD. Use it carefully.
   """
   directAccessURL(deeplinkTo: DirectAccessURLValues): String
+  bookedServices: [BookedService]
+  contactDetails: BookingContactDetails
+  isPastBooking: Boolean
+
+  """All services provided directly by Kiwi.com."""
+  availableServices: Services
+
+  """All services provided via whitelabels."""
+  availableWhitelabeledServices: WhitelabeledServices
   trip: Trip
 }
 
 """Booking with return trip. A <-> B"""
-type BookingReturn implements BookingInterface {
+type BookingReturn implements BookingInterface & Node {
   """The ID of an object"""
   id: ID!
 
   """Unique number identifying the booking in communication with support."""
   databaseId: Int
+  type: BookingType @deprecated(reason: "Manual type is not necessary. Use \"__typename\" instead.")
   status: BookingStatus
 
   """Total price of the whole booking."""
   price: Price
+
+  """Date of the booking creation"""
+  bookingDate: Date
   allowedBaggage: AllowedBaggage
 
   """Static assets related to this booking."""
   assets: BookingAssets
+  passengers: [Passenger]
   passengerCount: Int
   destinationImageUrl(dimensions: BookingDestinationImageDimensions = _600x600): String
+
+  """List of carriers involved in the booking."""
+  carriers: [Carrier]
 
   """
   You can use this link to access one particular booking directly WITHOUT PASSWORD. Use it carefully.
   """
   directAccessURL(deeplinkTo: DirectAccessURLValues): String
+  bookedServices: [BookedService]
+  contactDetails: BookingContactDetails
+  isPastBooking: Boolean
+
+  """All services provided directly by Kiwi.com."""
+  availableServices: Services
+
+  """All services provided via whitelabels."""
+  availableWhitelabeledServices: WhitelabeledServices
 
   """Trip from origin to destination."""
   outbound: Trip
@@ -278,10 +477,36 @@ enum BookingStatus {
   EXPIRED
 }
 
+type BookingTimeline {
+  """List of events of the Bookingtimeline"""
+  events: [TimelineEvent]
+}
+
 enum BookingType {
   ONE_WAY
   RETURN
   MULTICITY
+}
+
+type CarRentalService {
+  relevantCities: [CarRentalServiceRelevantCities]
+}
+
+type CarRentalServiceRelevantCities {
+  whitelabelURL: String
+  location: Location
+}
+
+type Carrier {
+  """The ID of an object"""
+  id: ID!
+  name: String
+
+  """Unique code of the carrier, IATA code for airlines."""
+  code: String
+
+  """Indicates whether it is low cost carrier."""
+  isLowCost: Boolean
 }
 
 type Coordinates {
@@ -298,6 +523,11 @@ input CoordinatesInput {
 
   """Longitude."""
   lng: Float!
+}
+
+enum CoveredBy {
+  KIWICOM
+  CARRIER
 }
 
 enum Currency {
@@ -523,6 +753,11 @@ type CurrencyDetailEdge {
   cursor: String!
 }
 
+enum CustomerBookingsOnlyEnum {
+  FUTURE
+  PAST
+}
+
 """
 A date string, such as 2007-12-03, compliant with the `full-date` format
 outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for
@@ -553,6 +788,23 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the
 """
 scalar DateTime
 
+type DepartureTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
+
+  """Location of arrival"""
+  location: RouteStop
+
+  """Flight duration in minutes."""
+  duration: Int
+
+  """Airline for the flight"""
+  airline: Airline
+
+  """Flight number"""
+  flightNumber: Int
+}
+
 enum DirectAccessURLValues {
   CHANGE_TRIP
   INSURANCE
@@ -573,14 +825,106 @@ enum DirectAccessURLValues {
   PAYMENT
 }
 
+type DownloadBoardingPassTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
+
+  """Leg corresponding to the boarding pass"""
+  leg: Leg
+}
+
+type DownloadETicketTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
+
+  """URL of the eTicket"""
+  ticketUrl: String
+}
+
+type DownloadInvoiceTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
+
+  """URL of the invoice"""
+  invoiceUrl: String
+
+  """Number of passengers"""
+  numberPassengers: Int
+
+  """Legs of the booking"""
+  legs: [Leg]
+}
+
 input DurationInput {
   stopovers: StopoversInput
   maxFlightDuration: Int
 }
 
+"""Combination of flight and hotel"""
+type DynamicPackage {
+  """The ID of an object"""
+  id: ID!
+
+  """Accommodation part of the package"""
+  hotel: Hotel
+
+  """Transport part of the package"""
+  flight: Flight
+
+  """
+  URL to the whitelabel page where this dynamic package can be purchased
+  """
+  whitelabelUrl: String
+
+  """Total price"""
+  price: Price
+}
+
+"""A connection to a list of items."""
+type DynamicPackageConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [DynamicPackageEdge]
+}
+
+"""An edge in a connection."""
+type DynamicPackageEdge {
+  """The item at the end of the edge"""
+  node: DynamicPackage
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+input DynamicPackagesSimpleSearchInput {
+  """Valid airport code according the IATA standard"""
+  fromAirport: String!
+
+  """Valid airport code according the IATA standard"""
+  toAirport: String!
+
+  """List of outbound flight numbers (e.g. OK123)"""
+  outboundFlights: [String!]!
+
+  """List of inbound flight numbers (e.g. OK123)"""
+  inboundFlights: [String!]!
+
+  """Departure date"""
+  date: Date!
+
+  """Return date"""
+  returnDate: Date!
+  passengers: PassengersInput!
+}
+
 type FAQArticle {
   """The ID of an object"""
   id: ID!
+
+  """Original numeric id of the article"""
+  originalId: Int
 
   """Title of the article"""
   title: String
@@ -619,6 +963,9 @@ type FAQArticleEdge {
 type FAQCategory {
   """The ID of an object"""
   id: ID!
+
+  """Original numeric id of the FAQ category"""
+  originalId: Int
 
   """Title of the FAQ category"""
   title: String
@@ -660,6 +1007,13 @@ enum FAQCommentType {
   DONT_LIKE
   NOT_ACCURATE
   OTHER
+}
+
+enum FAQSection {
+  BEFORE_BOOKING
+  UPCOMING_BOOKING
+  URGENT_BOOKING
+  PAST_BOOKING
 }
 
 type Flight {
@@ -1105,6 +1459,18 @@ type Identity {
   login: String
 }
 
+type InsuranceService {
+  """Returns passengers allowed to buy a travel insurance."""
+  passengers: [Passenger]
+}
+
+"""The possible insurance type values"""
+enum InsuranceType {
+  NONE
+  TRAVEL_BASIC
+  TRAVEL_PLUS
+}
+
 scalar IP
 
 """Use "Accept-Language" HTTP header to specify locale."""
@@ -1157,6 +1523,11 @@ enum Language {
   zhtw @deprecated(reason: "Use \"Accept-Language\" HTTP header to specify locale.")
 }
 
+type LeaveForAirportTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
+}
+
 """
 Leg is the operation of an aircraft from one scheduled departure station to its next scheduled arrival station.
 """
@@ -1164,16 +1535,28 @@ type Leg {
   """The ID of an object"""
   id: ID!
   airline: Airline
+  operatingAirline: OperatingAirline
+  vehicle: Vehicle
   arrival: RouteStop
   departure: RouteStop
 
   """Leg duration in minutes."""
   duration: Int
   flightNumber: Int
+
+  """Reservation number related to the leg."""
+  pnr: String
   recheckRequired: Boolean
 
   """Determines whether Leg is related to return flight."""
   isReturn: Boolean
+  type: VehicleType
+
+  """Information about who covers the transfer"""
+  guarantee: CoveredBy
+
+  """Boarding pass for this leg"""
+  boardingPass: BoardingPass
 }
 
 """
@@ -1251,6 +1634,9 @@ enum Locale {
 }
 
 type Location {
+  """The ID of an object"""
+  id: ID!
+
   """3-letter IATA code of airport or internal city code."""
   locationId: String
   name: String
@@ -1263,6 +1649,7 @@ type Location {
   city: LocationArea
   subdivision: LocationArea
   country: LocationArea
+  countryFlagURL: String
   isActive: Boolean
   stationsCount: Int
   airportsCount: Int
@@ -1314,16 +1701,37 @@ input LocationsOptionsInput {
 enum LocationType {
   airport
   autonomous_territory
+  bus_station
   city
   country
   station
   subdivision
 }
 
+type LoungeService {
+  relevantAirports: [LoungeServiceRelevantAirports]
+}
+
+type LoungeServiceRelevantAirports {
+  whitelabelURL: String
+  location: Location
+}
+
 """An object with an ID"""
 interface Node {
   """The id of the object."""
   id: ID!
+}
+
+type NoMoreEditsTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
+}
+
+type OperatingAirline {
+  """IATA code of the operating airline."""
+  iata: String
+  name: String
 }
 
 """Information about pagination in a connection."""
@@ -1341,8 +1749,34 @@ type PageInfo {
   endCursor: String
 }
 
+type ParkingService {
+  whitelabelURL: String
+}
+
+"""The passengers associated with the booking"""
+type Passenger {
+  databaseId: Int
+  firstname: String
+  lastname: String
+  fullName: String
+  insuranceType: InsuranceType
+  title: String
+  birthday: DateTime
+  nationality: String
+  travelDocument: TravelDocument
+
+  """Visa information for the passenger"""
+  visaInformation: Visa
+}
+
 input PassengersInput {
   adults: Int!
+  infants: Int
+}
+
+type PaymentConfirmedTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
 }
 
 type Price {
@@ -1363,6 +1797,10 @@ input RadiusInput {
   radius: Int!
 }
 
+type ResetPasswordResponse {
+  success: Boolean
+}
+
 input RoomsChildrenConfiguration {
   age: Int
 }
@@ -1374,7 +1812,6 @@ input RoomsConfiguration {
 
 """Root Mutation."""
 type RootMutation {
-  login(email: String!, password: String!): User
   addFAQArticleComment(
     """ID of FAQ article to receive vote."""
     id: ID!
@@ -1385,15 +1822,17 @@ type RootMutation {
     """Comment text"""
     comment: String!
   ): FAQArticle
+  login(email: String!, password: String!): User
+  resetPassword(email: String!): ResetPasswordResponse
 }
 
 """Root Query"""
 type RootQuery {
-  """Fetches an object given its ID"""
-  node(
-    """The ID of an object"""
-    id: ID!
-  ): Node
+  """
+  Search for all available hotels in one location. It's necessary to send
+  checkin and checkout dates as well as rooms configuration to get availability info.
+  """
+  allAvailableHotels(search: HotelsSearchInput!, filter: HotelsFilterInput, options: AvailableHotelOptionsInput, after: String, first: Int = 50, before: String, last: Int): HotelAvailabilityConnection
 
   """Search for your flight bookings."""
   allBookings(
@@ -1406,34 +1845,48 @@ type RootQuery {
     first: Int
     before: String
     last: Int
-  ): BookingConnection
+  ): BookingConnection @deprecated(reason: "Use \"customerBookings\" query instead.")
+
+  """
+  All dynamic packages. Dynamic package is a combination of return flight and
+  accommodation in hotel. It saves time and also the price should be better then
+  buying flight and acommodation separately.
+  """
+  allDynamicPackages(
+    simpleSearch: DynamicPackagesSimpleSearchInput!
+
+    """An ISO-4217 currency code."""
+    currency: Currency
+    after: String
+    first: Int
+    before: String
+    last: Int
+  ): DynamicPackageConnection
+
+  """Retrieve list of FAQ categories."""
+  allFAQCategories(
+    """
+    Fetch only subsection of FAQ based on the current situation of customer.
+    """
+    section: FAQSection
+    after: String
+    first: Int
+    before: String
+    last: Int
+  ): FAQCategoryConnection
+
+  """Search for Frequently Asked Questions"""
+  allFAQs(
+    """Keyword for the search"""
+    search: String
+    after: String
+    first: Int
+    before: String
+    last: Int
+  ): FAQArticleConnection
 
   """Search for scheduled flights."""
   allFlights(search: FlightsSearchInput!, options: FlightsOptionsInput, filters: FlightsFiltersInput, after: String, first: Int, before: String, last: Int): FlightConnection
-
-  """Detail of a currency as used on Kiwi.com frontend"""
-  currency(
-    """The currency code used on Kiwi.com frontend"""
-    code: String!
-  ): CurrencyDetail
-
-  """Currencies used on Kiwi.com frontend"""
-  currencies(after: String, first: Int, before: String, last: Int): CurrencyDetailConnection
-
-  """Geography info by an IP address"""
-  geoIP(ip: IP!): GeoIP
-
-  """
-  Search for all available hotels in one location. It's necessary to send
-  checkin and checkout dates as well as rooms configuration to get availability info.
-  """
-  allAvailableHotels(search: HotelsSearchInput!, filter: HotelsFilterInput, options: AvailableHotelOptionsInput, after: String, first: Int = 50, before: String, last: Int): HotelAvailabilityConnection
-
-  """
-  Search for single available hotel by its ID. It's necessary to send checkin
-  and checkout dates as well as rooms configuration to get availability info.
-  """
-  availableHotel(search: AvailableHotelSearchInput!, options: AvailableHotelOptionsInput): HotelAvailability
 
   """
   Search for airports, cities, countries. You can search by location name,
@@ -1459,16 +1912,6 @@ type RootQuery {
     last: Int
   ): LocationConnection
 
-  """Single location by ID."""
-  location(
-    id: String!
-
-    """
-    DEPRECATED - use "Accept-Language" HTTP header to specify locale.Language tag in the format of the RFC 5646.
-    """
-    locale: Locale
-  ): Location
-
   """All locations in certain location. For example all airports in London"""
   allSubLocations(
     """Location ID"""
@@ -1480,14 +1923,64 @@ type RootQuery {
     last: Int
   ): LocationConnection
 
+  """
+  Search for single available hotel by its ID. It's necessary to send checkin
+  and checkout dates as well as rooms configuration to get availability info.
+  """
+  availableHotel(search: AvailableHotelSearchInput!, options: AvailableHotelOptionsInput): HotelAvailability
+
   """Find booking by its id or databaseId."""
   booking(
-    """Both Booking id & databaseId can be used as ID."""
+    """
+    Database ID (human readable ID) of the booking. You should use "node" query if you want to use opaque ID.
+    """
     id: ID!
-  ): Booking
+  ): Booking @deprecated(reason: "Use \"node\" query instead.")
+
+  """Currencies used on Kiwi.com frontend"""
+  currencies(after: String, first: Int, before: String, last: Int): CurrencyDetailConnection
+
+  """Detail of a currency as used on Kiwi.com frontend"""
+  currency(
+    """The currency code used on Kiwi.com frontend"""
+    code: String!
+  ): CurrencyDetail
 
   """Current user information."""
   currentUser: Identity
+
+  """Search for your flight bookings."""
+  customerBookings(
+    """
+    Allows to filter only future bookings or only past bookings but not both.
+    You can skip this argument to fetch all bookings (future and past).
+    """
+    only: CustomerBookingsOnlyEnum
+    after: String
+    first: Int
+    before: String
+    last: Int
+  ): BookingInterfaceConnection
+
+  """Retrieve single FAQ article."""
+  FAQArticle(
+    """ID of FAQ article to retrieve."""
+    id: ID!
+  ): FAQArticle
+
+  """Retrieve specific FAQ category and its subcategories & articles."""
+  FAQCategory(
+    """ID of FAQ category to retrieve."""
+    id: ID!
+
+    """
+    Fetch only subsection of FAQ based on the current situation of customer.
+    """
+    section: FAQSection
+  ): FAQCategory
+
+  """Geography info by an IP address"""
+  geoIP(ip: IP!): GeoIP
 
   """Single hotel by ID."""
   hotel(id: ID!, language: Language): Hotel
@@ -1510,50 +2003,37 @@ type RootQuery {
     last: Int
   ): HotelCityConnection
 
-  """Search for Frequently Asked Questions"""
-  allFAQs(
-    """Keyword for the search"""
-    search: String
+  """Single location by ID."""
+  location(
+    id: String!
 
-    """Language in which the search is made and the answer is returned"""
-    language: Language
-    after: String
-    first: Int
-    before: String
-    last: Int
-  ): FAQArticleConnection
-
-  """Retrieve list of FAQ categories."""
-  allFAQCategories(
     """
-    Language in which the titles and perexes of FAQ categories are returned.
+    DEPRECATED - use "Accept-Language" HTTP header to specify locale.Language tag in the format of the RFC 5646.
     """
-    language: Language
-    after: String
-    first: Int
-    before: String
-    last: Int
-  ): FAQCategoryConnection
+    locale: Locale
+  ): Location
 
-  """Retrieve specific FAQ category and its subcategories & articles."""
-  FAQCategory(
-    """ID of FAQ category to retrieve."""
+  """
+  Find most relevant booking relative to current time. That is a booking with
+  the smallest difference between current time and arrival time of one of its
+  Legs. If no future booking is found, then the nearest past booking is returned.
+  """
+  nearestBooking: BookingInterface
+
+  """Get the timeline for your booking."""
+  bookingTimeline(
+    """Only Booking id can be used as ID."""
     id: ID!
+  ): BookingTimeline
 
-    """
-    Language in which the titles and perexes of FAQ categories are returned.
-    """
-    language: Language
-  ): FAQCategory
-
-  """Retrieve single FAQ article."""
-  FAQArticle(
-    """ID of FAQ article to retrieve."""
+  """Fetches an object given its ID"""
+  node(
+    """The ID of an object"""
     id: ID!
+  ): Node
 
-    """Language in which the text of the article is returned."""
-    language: Language
-  ): FAQArticle
+  """AirHelp+ offer that can be purchased with booking"""
+  airHelpPlusOffer(bookingId: String!): AirHelpPlusOffer
 }
 
 type RouteStop {
@@ -1565,6 +2045,11 @@ type RouteStop {
   cityId: String
 }
 
+type Services {
+  """Travel insurance - returns "null" if not available."""
+  insurance: InsuranceService
+}
+
 input StopoversInput {
   """Minimum number of hours of stopover duration."""
   from: Int
@@ -1573,10 +2058,29 @@ input StopoversInput {
   to: Int
 }
 
+interface TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
+}
+
+type TransportFromAirportTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
+}
+
+"""Travel document info"""
+type TravelDocument {
+  idNumber: String
+  expiration: DateTime
+}
+
 """Single travel from origin to destination, with possible stopovers."""
 type Trip {
   departure: RouteStop
   arrival: RouteStop
+
+  """Trip duration in minutes."""
+  duration: Int
   legs: [Leg]
 }
 
@@ -1584,4 +2088,33 @@ type User {
   token: String
   isLoggedIn: Boolean
   identity: Identity
+}
+
+type Vehicle {
+  manufacturer: String
+  model: String
+}
+
+enum VehicleType {
+  BUS
+  TRAIN
+  AIRCRAFT
+}
+
+"""Visa information for passenger"""
+type Visa {
+  """Countries where visa is required"""
+  requiredIn: [Location]
+
+  """Countries where visa might be required"""
+  warningIn: [Location]
+
+  """Countries where visa is not required"""
+  okIn: [Location]
+}
+
+type WhitelabeledServices {
+  lounge: LoungeService
+  parking: ParkingService
+  carRental: CarRentalService
 }
