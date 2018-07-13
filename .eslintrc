@@ -36,6 +36,7 @@
     "fp/no-this": "off", // React
     "fp/no-mutation": "off", // React
     "fp/no-unused-expression": "off", // 'fs' calls, for example
+    "flowtype/space-after-type-colon": "off", // Prettier conflict
     "react/default-props-match-prop-types": "off", // Flow/ESlint conflict
     "react/require-default-props": "off", // Somehow semantically wrong
     "jsx-a11y/anchor-is-valid": "off" // Relative paths bullshit

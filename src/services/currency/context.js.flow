@@ -3,10 +3,8 @@ import * as React from "react";
 
 import getCurrenciesCall from "./services/getCurrencies";
 import getGeoCountryCall from "./services/getGeoCountry";
-import { currencyDefault } from "../../records/Currency";
+import type { Currency, Currencies } from "../../records/Currency";
 import type { Countries } from "../../records/Country";
-
-const ctx = React.createContext(currencyDefault);
 
 type Props = {|
   whitelist: string[],
@@ -21,5 +19,13 @@ type Props = {|
   getGeoCountry?: typeof getGeoCountryCall,
 |};
 
-declare export var Consumer: typeof ctx.Consumer;
+type Value = {|
+  available: Currencies,
+  currency: Currency,
+  setCurrency: (code: string) => void,
+|};
+
 declare export var Provider: React.ComponentType<Props>;
+declare export var Consumer: React.ComponentType<{
+  children: (props: Value) => React.Node,
+}>;

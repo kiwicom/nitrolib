@@ -10,7 +10,7 @@
     "relay": "relay-compiler --src src/ --schema schema.graphql --extensions jsx js",
     "relay:schema": "graphql get-schema",
     "test": "jest",
-    "lint": "eslint './**/*.{js,jsx}'",
+    "lint": "eslint './**/*.{js,jsx,js.flow}'",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -o dist-storybook",
     "prepare": "rimraf lib && yarn test && yarn lint && yarn flow check && yarn build"

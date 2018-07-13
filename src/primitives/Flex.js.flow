@@ -12,21 +12,8 @@ type Props = {|
     | "space-around"
     | "initial"
     | "inherit",
-  y?:
-    | "stretch"
-    | "center"
-    | "flex-start"
-    | "flex-end"
-    | "baseline"
-    | "initial"
-    | "inherit",
-  direction?:
-    | "row"
-    | "row-reverse"
-    | "column"
-    | "column-reverse"
-    | "initial"
-    | "inherit",
+  y?: "stretch" | "center" | "flex-start" | "flex-end" | "baseline" | "initial" | "inherit",
+  direction?: "row" | "row-reverse" | "column" | "column-reverse" | "initial" | "inherit",
   wrap?: "nowrap" | "wrap" | "wrap-reverse",
   children: React.Node | React.Node[],
 |};
