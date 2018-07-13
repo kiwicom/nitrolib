@@ -4,7 +4,9 @@
   "description": "Nitro's components.",
   "scripts": {
     "start": "yarn storybook",
+    "build": "run-p babel types",
     "babel": "babel src -d lib --ignore '**/__tests__/*'",
+    "types": "copyfiles -u 1 'src/**/*.js.flow' lib",
     "relay": "relay-compiler --src src/ --schema schema.graphql --extensions jsx js",
     "relay:schema": "graphql get-schema",
     "test": "jest",
@@ -64,6 +66,7 @@
     "babel-plugin-relay": "^1.6.0",
     "babel-plugin-styled-components": "^1.5.1",
     "babel-preset-airbnb": "^2.5.1",
+    "copyfiles": "^2.0.0",
     "date-fns": "^2.0.0-alpha.7",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",

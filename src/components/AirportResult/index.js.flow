@@ -1,0 +1,11 @@
+import * as React from "react";
+
+import type { AirportResult_item } from "./__generated__/AirportResult_item.graphql";
+
+type Props = {|
+  item: AirportResult_item,
+  onClick: (id: string) => void,
+  selected: boolean,
+|};
+
+declare export default React.ComponentType<Props>;

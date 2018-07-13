@@ -1,0 +1,9 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {|
+  children: React.Node,
+  onClose: () => void,
+|};
+
+declare export default React.ComponentType<Props>;

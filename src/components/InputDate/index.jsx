@@ -24,14 +24,14 @@ const SelectContainer = styled.div`
   }
 `;
 
-type Props = {
+type Props = {|
   id: string,
   value: Date,
   min: Date,
   max: Date,
   onChange: Date => void,
   mmddyyyy: boolean,
-};
+|};
 
 class InputDate extends React.PureComponent<Props> {
   static defaultProps = {

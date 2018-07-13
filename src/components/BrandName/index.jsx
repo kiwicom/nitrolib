@@ -1,5 +1,5 @@
 // @flow strict
-import React from "react";
+import * as React from "react";
 
 import { Consumer as BrandConsumer } from "../../services/brand/context";
 

@@ -1,0 +1,17 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {
+  id: string,
+  value: string,
+  onChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  placeholder: string,
+  type: string,
+  error: string,
+  showState: boolean,
+  inputRef?: (node: HTMLInputElement) => void,
+};
+
+declare export default React.ComponentType<Props>;

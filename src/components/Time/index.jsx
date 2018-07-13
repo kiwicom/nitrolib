@@ -4,9 +4,9 @@ import format from "date-fns/format";
 
 import { Consumer } from "../../services/intl/context";
 
-type Props = {
+type Props = {|
   time: Date,
-};
+|};
 
 const Time = (props: Props) => (
   <Consumer>{intl => format(props.time, intl.language.timeFormat)}</Consumer>

@@ -1,0 +1,8 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {|
+  time: Date,
+|};
+
+declare export default React.ComponentType<Props>;

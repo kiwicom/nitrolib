@@ -1,0 +1,9 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {|
+  loader: React.Node,
+  children: React.Node,
+|};
+
+declare export default React.ComponentType<Props>;

@@ -7,18 +7,6 @@ import { BORDER_RADIUS } from "../../consts/layout";
 import { brandDefault } from "../../records/Brand";
 import mq from "../../styles/mediaQuery";
 
-type Props = {|
-  position: "left" | "right" | "top" | "bottom",
-  tip: React.Node,
-  inline: boolean,
-  mobile: boolean,
-  children: React.Node,
-|};
-
-type State = {|
-  shown: boolean,
-|};
-
 const TIP_ARROW_SIZE = 5;
 const TIP_OFFSET = 2;
 
@@ -158,6 +146,18 @@ const TipContent = styled.span`
 TipContent.defaultProps = {
   theme: brandDefault.theme,
 };
+
+type Props = {|
+  position: "left" | "right" | "top" | "bottom",
+  tip: React.Node,
+  inline: boolean,
+  mobile: boolean,
+  children: React.Node,
+|};
+
+type State = {|
+  shown: boolean,
+|};
 
 class Tooltip extends React.PureComponent<Props, State> {
   static defaultProps = {

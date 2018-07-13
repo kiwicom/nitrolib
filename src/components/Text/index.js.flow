@@ -1,0 +1,12 @@
+// @flow strict
+import * as React from "react";
+
+import type { Values } from "../../services/intl/translate";
+
+type Props = {|
+  t: string,
+  values: Values,
+  html: boolean,
+|};
+
+declare export default React.ComponentType<Props>;
