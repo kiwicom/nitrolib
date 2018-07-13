@@ -4,9 +4,10 @@
   "description": "Nitro's components.",
   "scripts": {
     "start": "yarn storybook",
-    "build": "run-p babel types",
-    "babel": "babel src -d lib --ignore '**/__tests__/*'",
+    "build": "run-p babel types generated",
+    "babel": "babel src -d lib --ignore '**/__tests__/*','**/__generated__/*'",
     "types": "copyfiles -u 1 'src/**/*.js.flow' lib",
+    "generated": "copyfiles -u 1 'src/**/*.graphql.js' lib",
     "relay": "relay-compiler --src src/ --schema schema.graphql --extensions jsx js",
     "relay:schema": "graphql get-schema",
     "test": "jest",
@@ -14,7 +15,7 @@
     "typecheck": "flow check",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -o dist-storybook",
-    "prepare": "rimraf lib && run-p test lint typecheck build"
+    "prepare": "rimraf lib && run-p test lint typecheck && yarn build"
   },
   "keywords": [
     "react",
