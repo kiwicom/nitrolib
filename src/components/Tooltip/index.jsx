@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { brandDefault } from "../../records/Brand";
 import mq from "../../styles/mediaQuery";
@@ -73,9 +73,9 @@ const Tip = styled.span`
         transform: translateX(-50%);
       `};
 
-  ${mq.gtTablet`
+  ${mq.gtTablet(css`
     display: block;
-  `} &:before {
+  `)} &:before {
     display: block;
     content: "";
     position: absolute;

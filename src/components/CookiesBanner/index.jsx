@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import Text from "../Text";
 import { brandDefault } from "../../records/Brand";
@@ -21,11 +21,11 @@ const Container = styled.div`
   transition: bottom 0.25s ease-in;
   box-shadow: 0 -1px 6px 0 rgba(0, 0, 0, 0.2);
 
-  ${mq.gtTablet`
+  ${mq.gtTablet(css`
     padding: 20px;
     color: ${({ theme }: ThemeProps) => theme.colors["grey-800"]};
     background: white;
-  `};
+  `)};
 `;
 
 Container.defaultProps = {
@@ -35,9 +35,9 @@ Container.defaultProps = {
 const Message = styled.p`
   opacity: 0.5;
 
-  ${mq.gtTablet`
+  ${mq.gtTablet(css`
     opacity: 1;
-  `};
+  `)};
 `;
 
 const InfoLink = styled.a`
@@ -49,11 +49,11 @@ const InfoLink = styled.a`
     opacity: 1;
   }
 
-  ${mq.gtTablet`
+  ${mq.gtTablet(css`
     &:hover {
       color: initial;
     }
-  `};
+  `)};
 `;
 
 const AcceptButton = styled.a`

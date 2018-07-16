@@ -1,8 +1,8 @@
 // @flow strict
 /* eslint-disable fp/no-rest-parameters */
 import { css } from "styled-components";
+import type { Interpolation } from "styled-components";
 import * as R from "ramda";
-import type { Interpolation, ThemedCssFunction } from "styled-components";
 
 import { BREAKPOINTS } from "../consts/device";
 
@@ -32,10 +32,10 @@ const LIMITS_MAP: $ObjMap<typeof SIZES, () => string> = R.map(
   SIZES,
 );
 
-type SizeQueryFunction = (style: ThemedCssFunction<any>) => Array<Interpolation>;
+type SizeQueryFunction = (style: Interpolation[]) => Interpolation[];
 
 const SIZED_QUERIES: $ObjMap<typeof LIMITS_MAP, () => SizeQueryFunction> = R.map(
-  query => (style: ThemedCssFunction<any>) => css`
+  query => (style: Interpolation[]) => css`
     @media ${query} {
       ${style /* eslint-disable-line prettier/prettier */}
     }
@@ -44,13 +44,13 @@ const SIZED_QUERIES: $ObjMap<typeof LIMITS_MAP, () => SizeQueryFunction> = R.map
 );
 
 const SPECIAL_QUERIES = {
-  retinaOnly: (style: ThemedCssFunction<any>) => css`
+  retinaOnly: (style: Interpolation[]) => css`
     @media only screen and (-webkit-min-device-pixel-ratio: 2),
       only screen and (min-device-pixel-ratio: 2) {
       ${style /* eslint-disable-line prettier/prettier */}
     }
   `,
-  retinaMobileOnly: (style: ThemedCssFunction<any>) => css`
+  retinaMobileOnly: (style: Interpolation[]) => css`
     @media only screen and (-webkit-min-device-pixel-ratio: 2) and ${LIMITS_MAP.mobile},
       only screen and (min-device-pixel-ratio: 2) and ${LIMITS_MAP.mobile} {
       ${style /* eslint-disable-line prettier/prettier */}

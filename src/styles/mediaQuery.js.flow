@@ -1,9 +1,9 @@
 // @flow strict
-import type { Interpolation, ThemedCssFunction } from "styled-components";
+import type { Interpolation } from "styled-components";
 
-type SizeQueryFunction = (style: ThemedCssFunction<any>) => Interpolation;
+type SizeQueryFunction = (style: Interpolation[]) => Interpolation[];
 
-declare export default {
+declare export default {|
   gtDesktop: SizeQueryFunction,
   ltDesktop: SizeQueryFunction,
   tablet: SizeQueryFunction,
@@ -21,4 +21,4 @@ declare export default {
   ltSmallMobile: SizeQueryFunction,
   retinaOnly: SizeQueryFunction,
   retinaMobileOnly: SizeQueryFunction,
-};
+|};
