@@ -1,5 +1,5 @@
 // @flow strict
-import { forEachObjIndexed } from "ramda";
+import * as R from "ramda";
 
 import { BREAKPOINTS } from "../../consts/device";
 import mq from "../mediaQuery";
@@ -32,14 +32,14 @@ const EXPECTED_QUERIES = {
 };
 
 describe("#mediaQuery", () => {
-  forEachObjIndexed((query, name) => {
+  R.forEachObjIndexed((query, name) => {
     test(name, () => {
       expect(mq[name]).toBeInstanceOf(Function);
     });
     test(`${name} result`, () => {
-      const result = mq[name]`
+      const result = mq[name](`
         color: red;
-      `;
+      `);
 
       expect(result).toBeInstanceOf(Array);
 

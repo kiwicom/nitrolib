@@ -1,7 +1,7 @@
 // @flow strict
-import type { Interpolation } from "styled-components";
+import type { Interpolation, ThemedCssFunction } from "styled-components";
 
-type SizeQueryFunction = (...args: any[]) => Array<Interpolation>;
+type SizeQueryFunction = (style: ThemedCssFunction<any>) => Interpolation;
 
 declare export default {
   gtDesktop: SizeQueryFunction,
@@ -19,6 +19,6 @@ declare export default {
   smallMobile: SizeQueryFunction,
   gtSmallMobile: SizeQueryFunction,
   ltSmallMobile: SizeQueryFunction,
-  retinaOnly: (...args: any[]) => Interpolation,
-  retinaMobileOnly: (...args: any[]) => Interpolation,
+  retinaOnly: SizeQueryFunction,
+  retinaMobileOnly: SizeQueryFunction,
 };
