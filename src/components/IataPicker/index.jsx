@@ -53,10 +53,10 @@ export default class IataPicker extends React.PureComponent<Props, State> {
     open: false,
   };
 
-  handleChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
+  handleChange = (value: string) => {
     const { onSelect } = this.props;
 
-    onSelect(ev.target.value);
+    onSelect(value);
   };
 
   handleSelect = (value: string) => {
