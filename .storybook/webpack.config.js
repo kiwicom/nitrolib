@@ -5,4 +5,15 @@
 // IMPORTANT
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
-module.exports = {};
+module.exports = {
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
+  module: {
+    rules: [{
+      test: /\.jsx?$/,
+      use: "babel-loader",
+      exclude: /node_modules/,
+    }]
+  }
+};

@@ -33,5 +33,16 @@ storybook:
 
 release:
   stage: release
+  image: kiwicom/s3cmd-plus-docker
+  environment:
+    name: storybook/$CI_COMMIT_REF_SLUG
+    url: https://nitro-$CI_COMMIT_REF_SLUG.fe.staging.kiwi.com/nitrolib/
   script:
-    - echo "Upload to S3"
+    - >
+      s3cmd sync
+      --no-preserve
+      --no-mime-magic
+      --guess-mime-type
+      --default-mime-type="application/json"
+      --recursive dist-storybook/*
+      s3://frontend-nitro-dev/nitrolib/${CI_COMMIT_REF_SLUG}/

@@ -9,11 +9,16 @@ type Props = {
   error: boolean,
   active: boolean,
   visited: boolean,
+  hint: boolean,
 };
 
-export function getBorderState({ error, visited }: Props) {
+export function getBorderState({ error, visited, hint }: Props) {
   if (error && visited) {
     return "error";
+  }
+
+  if (hint) {
+    return "hint";
   }
 
   if (visited) {
@@ -26,6 +31,7 @@ export function getBorderState({ error, visited }: Props) {
 const stateToColor = {
   base: "neutral-200",
   success: "primary-600",
+  hint: "primary-600",
   error: "danger-700",
 };
 
@@ -36,7 +42,7 @@ const borderHoverMixin = css`
 `;
 
 type StateProps = ThemeProps & {
-  state: "base" | "success" | "error",
+  state: "base" | "success" | "error" | "hint",
 };
 
 const borderMixin = css`
