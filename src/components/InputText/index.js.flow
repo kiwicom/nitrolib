@@ -4,7 +4,7 @@ import * as React from "react";
 type Props = {
   id: string,
   value: string,
-  onChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onChange: (value: string, id: string) => void,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onError?: (err: string, id: string) => void,
