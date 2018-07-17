@@ -7,9 +7,21 @@ describe("#border", () => {
       active: false,
       visited: true,
       error: true,
+      hint: false,
     });
 
     expect(res).toBe("error");
+  });
+
+  test("border state hint", () => {
+    const res = getBorderState({
+      active: false,
+      visited: false,
+      error: false,
+      hint: true,
+    });
+
+    expect(res).toBe("hint");
   });
 
   test("border state success", () => {
@@ -17,6 +29,7 @@ describe("#border", () => {
       active: false,
       visited: true,
       error: false,
+      hint: false,
     });
 
     expect(res).toBe("success");
@@ -27,6 +40,7 @@ describe("#border", () => {
       active: false,
       visited: false,
       error: false,
+      hint: false,
     });
 
     expect(res).toBe("base");
