@@ -652,7 +652,7 @@ exports[`#InputText render hint 1`] = `
       t="common.did_you_mean"
       values={
         Object {
-          "x": "<u><b>hint</b></u>",
+          "x": "<a class=\\"InputText__HintText-og24tu-4 bIXLjl\\">hint</a>",
         }
       }
     />

@@ -1,5 +1,6 @@
 // @flow strict
 import * as React from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import * as R from "ramda";
 import styled, { css } from "styled-components";
 
@@ -63,9 +64,14 @@ Error.defaultProps = {
   theme: brandDefault.theme,
 };
 
-const Hint = styled.a`
+const Hint = styled.span`
   ${stateMixin};
   color: ${({ theme }: ErrorProps) => theme.colors["primary-600"]};
+`;
+
+const HintText = styled.a`
+  font-weight: 700;
+  text-decoration: underline;
   cursor: pointer;
 `;
 
@@ -193,7 +199,11 @@ export default class InputText extends React.PureComponent<Props, State> {
 
         {borderState === "hint" && (
           <Hint onClick={this.handleHint}>
-            <Text t={__("common.did_you_mean")} values={{ x: `<u><b>${hint}</b></u>` }} html />
+            <Text
+              t={__("common.did_you_mean")}
+              values={{ x: renderToStaticMarkup(<HintText>{hint}</HintText>) }}
+              html
+            />
           </Hint>
         )}
       </Label>
