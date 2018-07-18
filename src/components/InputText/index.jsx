@@ -73,22 +73,20 @@ Hint.defaultProps = {
   theme: brandDefault.theme,
 };
 
-const omitProps = R.omit([
-  "showState",
-  "inputRef",
-  "onError",
-  "validate",
-  "normalize",
-  "corrector",
-]);
+const omitProps = R.omit(["showState", "inputRef", "validate", "normalize", "corrector"]);
+
+export type Change = {|
+  value: string,
+  error: string,
+  id: string,
+|};
 
 type Props = {
   id: string,
   value: string,
-  onChange: (value: string, id: string) => void,
+  onChange: Change => void,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
-  onError?: (err: string, id: string) => void,
   placeholder: ?string,
   type: string,
   error: string,
@@ -124,21 +122,18 @@ export default class InputText extends React.PureComponent<Props, State> {
 
   handleHint = () => {
     const { hint } = this.state;
-    const { id, normalize, validate, onError, onChange } = this.props;
+    const { id, normalize, validate, onChange } = this.props;
 
     const value = normalize(hint);
     const error = validate(value);
 
     this.setState({ hint: "" });
 
-    onChange(value, id);
-    if (onError) {
-      onError(error, id);
-    }
+    onChange({ value, error, id });
   };
 
   handleChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
-    const { id, normalize, validate, corrector, onChange, onError } = this.props;
+    const { id, normalize, validate, corrector, onChange } = this.props;
 
     const value = normalize(ev.target.value);
     const error = validate(value);
@@ -146,10 +141,7 @@ export default class InputText extends React.PureComponent<Props, State> {
 
     this.setState({ hint });
 
-    onChange(value, id);
-    if (onError) {
-      onError(error, id);
-    }
+    onChange({ value, error, id });
   };
 
   handleFocus = (ev: SyntheticInputEvent<HTMLInputElement>) => {

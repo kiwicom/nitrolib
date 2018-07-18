@@ -23,7 +23,7 @@ describe("#IataPicker", () => {
     const onSelect = jest.fn();
     const wrapper = shallow(<IataPicker id="test" value="VIE" onSelect={onSelect} error="" />);
 
-    wrapper.instance().handleChange("kek");
+    wrapper.instance().handleChange({ value: "kek" });
 
     expect(onSelect).toBeCalledWith("kek");
   });

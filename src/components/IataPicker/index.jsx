@@ -4,6 +4,7 @@ import styled from "styled-components";
 import FaPlane from "react-icons/lib/fa/plane";
 
 import InputText from "../InputText";
+import type { Change } from "../InputText";
 import IconText from "../IconText";
 import ClickOutside from "../ClickOutside";
 import Text from "../Text";
@@ -53,7 +54,7 @@ export default class IataPicker extends React.PureComponent<Props, State> {
     open: false,
   };
 
-  handleChange = (value: string) => {
+  handleChange = ({ value }: Change) => {
     const { onSelect } = this.props;
 
     onSelect(value);

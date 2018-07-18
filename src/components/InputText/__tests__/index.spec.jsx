@@ -14,7 +14,6 @@ describe("#InputText", () => {
         id="kek"
         value="A value"
         onChange={jest.fn()}
-        onError={jest.fn()}
         normalize={jest.fn()}
         validate={jest.fn()}
         corrector={jest.fn()}
@@ -147,69 +146,47 @@ describe("#InputText", () => {
 
     wrapper.find("InputText__Input").simulate("change", { target: { id: "kek", value: "lol" } });
 
-    expect(onChange).toBeCalledWith("lol", "kek");
+    expect(onChange).toBeCalledWith({ value: "lol", error: "", id: "kek" });
   });
 
   test("on change with on error", () => {
     const onChange = jest.fn();
-    const onError = jest.fn();
-    const wrapper = shallow(
-      <InputText id="kek" value="A value" onChange={onChange} onError={onError} />,
-    );
+    const wrapper = shallow(<InputText id="kek" value="A value" onChange={onChange} />);
 
     wrapper.find("InputText__Input").simulate("change", { target: { id: "kek", value: "lol" } });
 
-    expect(onChange).toBeCalledWith("lol", "kek");
-    expect(onError).toBeCalledWith("", "kek");
+    expect(onChange).toBeCalledWith({ value: "lol", error: "", id: "kek" });
   });
 
   test("on change normalized", () => {
     const onChange = jest.fn();
-    const onError = jest.fn();
     const wrapper = shallow(
-      <InputText
-        id="kek"
-        value="A value"
-        onChange={onChange}
-        onError={onError}
-        normalize={() => "normal"}
-      />,
+      <InputText id="kek" value="A value" onChange={onChange} normalize={() => "normal"} />,
     );
 
     wrapper.find("InputText__Input").simulate("change", { target: { id: "kek", value: "lol" } });
 
-    expect(onChange).toBeCalledWith("normal", "kek");
-    expect(onError).toBeCalledWith("", "kek");
+    expect(onChange).toBeCalledWith({ value: "normal", error: "", id: "kek" });
   });
 
   test("on change validated", () => {
     const onChange = jest.fn();
-    const onError = jest.fn();
     const wrapper = shallow(
-      <InputText
-        id="kek"
-        value="A value"
-        onChange={onChange}
-        onError={onError}
-        validate={() => "error"}
-      />,
+      <InputText id="kek" value="A value" onChange={onChange} validate={() => "error"} />,
     );
 
     wrapper.find("InputText__Input").simulate("change", { target: { id: "kek", value: "lol" } });
 
-    expect(onChange).toBeCalledWith("lol", "kek");
-    expect(onError).toBeCalledWith("error", "kek");
+    expect(onChange).toBeCalledWith({ value: "lol", error: "error", id: "kek" });
   });
 
   test("on change corrected", () => {
     const onChange = jest.fn();
-    const onError = jest.fn();
     const wrapper = shallow(
       <InputText
         id="kek"
         value="A value"
         onChange={onChange}
-        onError={onError}
         placeholder="Placeholder"
         corrector={() => "correct"}
       />,
@@ -217,8 +194,7 @@ describe("#InputText", () => {
 
     wrapper.find("InputText__Input").simulate("change", { target: { id: "kek", value: "lol" } });
 
-    expect(onChange).toBeCalledWith("lol", "kek");
-    expect(onError).toBeCalledWith("", "kek");
+    expect(onChange).toBeCalledWith({ value: "lol", error: "", id: "kek" });
     expect(wrapper.state("hint")).toBe("correct");
   });
 
@@ -277,26 +253,18 @@ describe("#InputText", () => {
     wrapper.setState({ hint: "lol" });
     wrapper.find("InputText__Hint").simulate("click");
 
-    expect(onChange).toBeCalledWith("lol", "kek");
+    expect(onChange).toBeCalledWith({ value: "lol", error: "", id: "kek" });
   });
 
   test("on hint with error", () => {
     const onChange = jest.fn();
-    const onError = jest.fn();
     const wrapper = shallow(
-      <InputText
-        id="kek"
-        value="A value"
-        onChange={onChange}
-        onError={onError}
-        validate={() => "error"}
-      />,
+      <InputText id="kek" value="A value" onChange={onChange} validate={() => "error"} />,
     );
 
     wrapper.setState({ hint: "lol" });
     wrapper.find("InputText__Hint").simulate("click");
 
-    expect(onChange).toBeCalledWith("lol", "kek");
-    expect(onError).toBeCalledWith("error", "kek");
+    expect(onChange).toBeCalledWith({ value: "lol", error: "error", id: "kek" });
   });
 });

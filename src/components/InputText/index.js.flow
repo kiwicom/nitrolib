@@ -1,13 +1,18 @@
 // @flow strict
 import * as React from "react";
 
+export type Change = {|
+  value: string,
+  error: string,
+  id: string,
+|};
+
 type Props = {
   id: string,
   value: string,
-  onChange: (value: string, id: string) => void,
+  onChange: Change => void,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
-  onError?: (err: string, id: string) => void,
   placeholder?: ?string,
   type?: string,
   error?: string,
