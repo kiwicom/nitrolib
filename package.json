@@ -4,10 +4,11 @@
   "description": "Nitro's components.",
   "scripts": {
     "start": "yarn storybook",
-    "build": "run-p babel types generated",
+    "build": "run-p babel types generated keys",
     "babel": "babel src -d lib --ignore '**/__tests__/*','**/__generated__/*'",
     "types": "copyfiles -u 1 'src/**/*.js.flow' lib",
     "generated": "copyfiles -u 1 'src/**/*.graphql.js' lib",
+    "keys": "node etc/collectKeys.js",
     "relay": "relay-compiler --src src/ --schema schema.graphql --extensions jsx js",
     "relay:schema": "graphql get-schema",
     "test": "jest",
@@ -25,7 +26,7 @@
   "files": [
     "bin",
     "lib",
-    "src",
+    "tkeys.json",
     "README.md"
   ],
   "bin": {
@@ -36,6 +37,7 @@
     "date-fns": "^2.0.0-alpha.7",
     "fs-extra": "^6.0.1",
     "idx": "^2.3.0",
+    "i18n-extract": "^0.6.0",
     "node-fetch": "^2.1.2",
     "prop-types": "^15.6.2"
   },

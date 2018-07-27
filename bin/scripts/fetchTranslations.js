@@ -18,7 +18,9 @@ function fetchTranslations() /* : Promise<void> */ {
 
   if (!fs.existsSync(TKEYS)) {
     return Promise.reject(
-      new Error("Translations require collecting translation keys to a 'data/tkeys.json' file!"),
+      new Error(
+        "Translations require collecting translation keys to a 'data/tkeys.json' file! This can be done using the 'nitro keys <globs>' command.",
+      ),
     );
   }
   const tkeys = fs.readJsonSync(TKEYS);

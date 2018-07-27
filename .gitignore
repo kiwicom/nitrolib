@@ -8,3 +8,4 @@ lib
 .env
 npm-debug.log
 yarn-error.log
+tkeys.json
