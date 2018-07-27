@@ -1,7 +1,7 @@
 // @flow
 const { extractFromFiles } = require("i18n-extract");
 
-function collectKeys(globs) {
+function collectKeys(globs /* : string[] */) {
   const keys = extractFromFiles(globs, {
     marker: "__",
   });
