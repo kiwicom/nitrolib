@@ -36,7 +36,7 @@ if (!commands[command]) {
 function keys() {
   const ours = JSON.parse(fs.readFileSync(path.join(__dirname, "../tkeys.json")));
 
-  const globs = process.argv.slice(2).map(glob => path.join(process.cwd(), glob));
+  const globs = process.argv.slice(3).map(glob => path.join(process.cwd(), glob));
   const collected = collectKeys(globs);
 
   const data = R.merge(ours, collected);
