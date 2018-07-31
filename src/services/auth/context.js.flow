@@ -5,6 +5,7 @@ import type { User } from "../../records/User";
 
 type Props = {|
   token: string,
+  children: React.Node,
 |};
 
 type Value = {|
