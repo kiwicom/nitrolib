@@ -4,7 +4,7 @@ import * as React from "react";
 import type { User } from "../../records/User";
 
 type Props = {|
-  token: string,
+  token: ?string,
   children: React.Node,
 |};
 
