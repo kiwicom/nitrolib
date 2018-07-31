@@ -1,0 +1,25 @@
+// @flow strict
+export type User = {|
+  id: string,
+  email: string,
+  verified: boolean,
+  firstname: string,
+  lastname: string,
+  // apiToken: string,
+  // affiliateId: string,
+  // cardDiscount: number,
+  // balanceDiscount: number,
+  // balances: Array<{ amount: number, currency: string }>, ???
+|};
+
+declare export var userDefault: ?User;
+
+export type MapUserInput = {|
+  user_id: string,
+  email: string,
+  email_verified: boolean,
+  first_name: string,
+  last_name: string,
+|};
+
+declare export function mapUser(input: MapUserInput): User;

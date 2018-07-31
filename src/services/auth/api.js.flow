@@ -1,0 +1,23 @@
+// @flow strict
+import type { User } from "../../records/User";
+
+declare export function getTokenUser(token: string): Promise<User>;
+
+type LoginInput = {|
+  email: string,
+  password: string,
+  brand: string,
+|};
+
+declare export function signIn(input: LoginInput): Promise<{ user: User, token: string }>;
+declare export function logout(token: string): Promise<void>;
+
+type RegisterInput = {|
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string,
+  brand: string,
+|};
+
+declare export function register(input: RegisterInput): Promise<void>;

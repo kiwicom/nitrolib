@@ -71,7 +71,7 @@ export async function signIn(input: LoginInput): Promise<{ user: User, token: st
   return { user, token: res.token };
 }
 
-export async function logout(token: string) {
+export async function logout(token: string): Promise<void> {
   return fetch(`${config.apiAuthUrl}/v1/user.logout`, {
     method: "POST",
     headers: {
@@ -79,7 +79,9 @@ export async function logout(token: string) {
       Authorization: makeAuthHeader(token),
     },
     body: JSON.stringify(token),
-  });
+  })
+    .then(handleError)
+    .then(() => {});
 }
 
 type RegisterInput = {|
