@@ -1,9 +1,21 @@
 // @flow strict
 import * as React from "react";
 
-import { intlDefault } from "../../records/Intl";
+import type { Translate } from "./translate";
 
-const ctx = React.createContext(intlDefault);
+type Props = {|
+  locale: string,
+  translations: { [key: string]: string },
+  children: React.Node,
+|};
 
-declare export var Consumer: typeof ctx.Consumer;
-declare export var Provider: typeof ctx.Provider;
+type Value = {|
+  locale: string,
+  translations: { [key: string]: string },
+  translate: Translate,
+|};
+
+declare export var Provider: React.ComponentType<Props>;
+declare export var Consumer: React.ComponentType<{
+  children: (props: Value) => React.Node,
+}>;
