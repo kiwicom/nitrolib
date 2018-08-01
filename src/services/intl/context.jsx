@@ -4,19 +4,20 @@ import * as React from "react";
 import { intlDefault } from "../../records/Intl";
 import translate from "./translate";
 import type { Values } from "./translate";
+import type { LangInfo } from "../../records/LangInfo";
 
 const { Consumer, Provider } = React.createContext(intlDefault);
 
 type Props = {|
-  locale: string,
+  language: LangInfo,
   translations: { [key: string]: string },
   children: React.Node,
 |};
 
-const IntlProvider = ({ locale, translations, children }: Props) => (
+const IntlProvider = ({ language, translations, children }: Props) => (
   <Provider
     value={{
-      locale,
+      language,
       translations,
       translate: (key: string, values: Values) => translate(translations, key, values),
     }}

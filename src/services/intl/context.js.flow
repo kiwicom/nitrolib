@@ -1,16 +1,17 @@
 // @flow strict
 import * as React from "react";
 
+import type { LangInfo } from "../../records/LangInfo";
 import type { Translate } from "./translate";
 
 type Props = {|
-  locale: string,
+  language: LangInfo,
   translations: { [key: string]: string },
   children: React.Node,
 |};
 
 type Value = {|
-  locale: string,
+  language: LangInfo,
   translations: { [key: string]: string },
   translate: Translate,
 |};
