@@ -164,10 +164,7 @@ export default class Menu extends React.Component<Props, State> {
                   width={getLanguageWrapperWidth(filteredLanguages)}
                 >
                   {filteredLanguages.map(language => (
-                    <LanguageItem
-                      key={language.id}
-                      onClick={() => this.handleChange(language.id)}
-                    >
+                    <LanguageItem key={language.id} onClick={() => this.handleChange(language.id)}>
                       <LanguageName language={language} key={language.id} />
                     </LanguageItem>
                   ))}
