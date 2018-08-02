@@ -5,6 +5,7 @@ import styled, { css } from "styled-components";
 
 import * as fetchedContext from "../../services/fetched/context";
 import Text from "../Text";
+import { brandDefault } from "../../records/Brand";
 import type { ThemeProps } from "../../records/Brand";
 import type { Languages } from "../../records/Languages";
 import mq from "../../styles/mediaQuery";
@@ -51,6 +52,10 @@ const ContinentItem = styled(Flex)`
     color: ${({ theme }: ActiveProps) => theme.colors["primary-600"]};
   }
 `;
+
+ContinentItem.defaultProps = {
+  theme: brandDefault.theme,
+};
 
 const LanguageList = styled.div`
   padding: 10px;
@@ -102,6 +107,10 @@ const LanguageItem = styled.div`
     width: 100%;
   `)};
 `;
+
+LanguageItem.defaultProps = {
+  theme: brandDefault.theme,
+};
 
 type Props = {|
   onChange: (lang: string) => void,

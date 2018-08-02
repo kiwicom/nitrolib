@@ -6,6 +6,7 @@ import styled from "styled-components";
 import ClickOutside from "../ClickOutside";
 import * as intlContext from "../../services/intl/context";
 import * as fetchedContext from "../../services/fetched/context";
+import { brandDefault } from "../../records/Brand";
 import type { ThemeProps } from "../../records/Brand";
 import LanguageName from "./LanguageName";
 import Menu from "./Menu";
@@ -22,6 +23,10 @@ const OpenButton = styled.div`
     }
   }
 `;
+
+OpenButton.defaultProps = {
+  theme: brandDefault.theme,
+};
 
 type Props = {|
   onChange: (lang: string) => void,

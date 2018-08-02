@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-type Props = {|
+type Props = {
   marginTop?: number,
   marginBottom?: number,
   x?:
@@ -16,6 +16,6 @@ type Props = {|
   direction?: "row" | "row-reverse" | "column" | "column-reverse" | "initial" | "inherit",
   wrap?: "nowrap" | "wrap" | "wrap-reverse",
   children: React.Node | React.Node[],
-|};
+};
 
 declare export default React.ComponentType<Props>;
