@@ -116,26 +116,22 @@ export default class Menu extends React.Component<Props, State> {
     continent: "",
   };
 
-  handleContinent = (continent: string) => {
-    this.setState({ continent });
-  };
-
-  changeLanguage = (languageId: string) => {
-    const { onChange } = this.props;
-    const loc = window.location;
-    const parts = loc.pathname.split("/");
-    const restOfUrl = parts.slice(2).join("/");
-
-    onChange(languageId);
-    window.location.assign(`${loc.origin}/${languageId}/${restOfUrl}${loc.search}`);
-  };
-
-  filterLanguages = (languages: Languages) => {
+  getFilteredLanguages = (languages: Languages) => {
     const { continent } = this.state;
 
     return R.values(languages).filter(
       language => continent === "" || continent === language.continent,
     );
+  };
+
+  handleContinent = (continent: string) => {
+    this.setState({ continent });
+  };
+
+  handleChange = (lang: string) => {
+    const { onChange } = this.props;
+
+    onChange(lang);
   };
 
   render() {
@@ -144,7 +140,7 @@ export default class Menu extends React.Component<Props, State> {
     return (
       <fetchedContext.Consumer>
         {fetched => {
-          const filteredLanguages = this.filterLanguages(fetched.brandLanguage.languages);
+          const filteredLanguages = this.getFilteredLanguages(fetched.brandLanguage.languages);
 
           return (
             <MenuWrapper>
@@ -170,7 +166,7 @@ export default class Menu extends React.Component<Props, State> {
                   {filteredLanguages.map(language => (
                     <LanguageItem
                       key={language.id}
-                      onClick={() => this.changeLanguage(language.id)}
+                      onClick={() => this.handleChange(language.id)}
                     >
                       <LanguageName language={language} key={language.id} />
                     </LanguageItem>

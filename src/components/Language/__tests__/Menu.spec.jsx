@@ -15,12 +15,9 @@ describe("#Menu", () => {
   test("redirects to new language", () => {
     const onChange = jest.fn();
     const wrapper = shallow(<Menu onChange={onChange} />);
-    const setHrefMockFn = jest.fn();
 
-    window.location.assign = setHrefMockFn;
-    wrapper.instance().changeLanguage("cz");
+    wrapper.instance().handleChange("cz");
 
-    expect(setHrefMockFn).toBeCalledWith("null/cz/");
     expect(onChange).toBeCalledWith("cz");
   });
 
@@ -34,7 +31,7 @@ describe("#Menu", () => {
     const continent = "eu";
     const wrapper = shallow(<Menu onChange={jest.fn()} />).setState({ continent });
 
-    const filteredLanguages = wrapper.instance().filterLanguages(languages);
+    const filteredLanguages = wrapper.instance().getFilteredLanguages(languages);
     expect(filteredLanguages).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
