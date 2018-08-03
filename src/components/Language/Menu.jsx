@@ -119,6 +119,7 @@ LanguageItem.defaultProps = {
 
 type Props = {|
   onChange: (lang: string) => void,
+  withContinents: boolean,
 |};
 
 type State = {|
@@ -150,6 +151,7 @@ export default class Menu extends React.Component<Props, State> {
 
   render() {
     const { continent } = this.state;
+    const { withContinents } = this.props;
 
     return (
       <fetchedContext.Consumer>
@@ -158,20 +160,22 @@ export default class Menu extends React.Component<Props, State> {
 
           return (
             <MenuWrapper>
-              <ContinentList>
-                <ContinentItem onClick={() => this.handleContinent("")}>
-                  <Text t={__("common.languages_all")} />
-                </ContinentItem>
-                {fetched.brandLanguage.continents.map(item => (
-                  <ContinentItem
-                    onClick={() => this.handleContinent(item)}
-                    key={item}
-                    active={item === continent}
-                  >
-                    <ContinentName id={item} />
+              {withContinents && (
+                <ContinentList>
+                  <ContinentItem onClick={() => this.handleContinent("")}>
+                    <Text t={__("common.languages_all")} />
                   </ContinentItem>
-                ))}
-              </ContinentList>
+                  {fetched.brandLanguage.continents.map(item => (
+                    <ContinentItem
+                      onClick={() => this.handleContinent(item)}
+                      key={item}
+                      active={item === continent}
+                    >
+                      <ContinentName id={item} />
+                    </ContinentItem>
+                  ))}
+                </ContinentList>
+              )}
               <LanguageList>
                 <LanguageListWrapper
                   height={getLanguageWrapperHeight(filteredLanguages)}

@@ -30,6 +30,7 @@ OpenButton.defaultProps = {
 
 type Props = {|
   onChange: (lang: string) => void,
+  withContinents: boolean,
 |};
 
 type State = {|
@@ -37,6 +38,10 @@ type State = {|
 |};
 
 export default class Language extends React.Component<Props, State> {
+  static defaultProps = {
+    withContinents: true,
+  };
+
   state = {
     shown: false,
   };
@@ -46,7 +51,7 @@ export default class Language extends React.Component<Props, State> {
   };
 
   render() {
-    const { onChange } = this.props;
+    const { onChange, withContinents } = this.props;
     const { shown } = this.state;
 
     return (
@@ -61,7 +66,7 @@ export default class Language extends React.Component<Props, State> {
                   </OpenButton>
                   {shown && (
                     <ClickOutside onClickOutside={this.handleToggle}>
-                      <Menu onChange={onChange} />
+                      <Menu onChange={onChange} withContinents={withContinents} />
                     </ClickOutside>
                   )}
                 </>
