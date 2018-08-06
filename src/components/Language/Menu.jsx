@@ -5,8 +5,8 @@ import styled, { css } from "styled-components";
 
 import * as fetchedContext from "../../services/fetched/context";
 import Text from "../Text";
-import { brandDefault } from "../../records/Brand";
-import type { ThemeProps } from "../../records/Brand";
+import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 import type { Languages } from "../../records/Languages";
 import mq from "../../styles/mediaQuery";
 import Flex from "../../primitives/Flex";
@@ -42,16 +42,20 @@ type ActiveProps = ThemeProps & {|
 |};
 
 const ContinentItem = styled(Flex)`
-  background-color: ${({ theme, active }: ActiveProps) => active && theme.colors["neutral-100"]};
-  color: ${({ theme, active }: ActiveProps) => active && theme.colors["primary-600"]};
+  background-color: ${({ theme, active }: ActiveProps) => active && theme.orbit.paletteCloudNormal};
+  color: ${({ theme, active }: ActiveProps) => active && theme.orbit.paletteProductNormal};
   padding: 14px 16px;
   line-height: 16px;
   cursor: pointer;
   &:hover {
-    background-color: ${({ theme }: ActiveProps) => theme.colors["neutral-100"]};
-    color: ${({ theme }: ActiveProps) => theme.colors["primary-600"]};
+    background-color: ${({ theme }: ActiveProps) => theme.orbit.paletteCloudNormal};
+    color: ${({ theme }: ActiveProps) => theme.orbit.paletteProductNormal};
   }
 `;
+
+ContinentItem.defaultProps = {
+  theme: themeDefault,
+};
 
 ContinentItem.defaultProps = {
   theme: brandDefault.theme,
@@ -89,8 +93,9 @@ const LanguageListWrapper = styled.div`
 `;
 
 const LanguageItem = styled.div`
-  background-color: ${({ theme, active }: ActiveProps) => active && theme.colors["primary-600"]};
-  color: ${({ theme, active }: ActiveProps) => active && theme.colors.white};
+  background-color: ${({ theme, active }: ActiveProps) =>
+    active && theme.orbit.paletteProductNormal};
+  color: ${({ theme, active }: ActiveProps) => active && theme.orbit.paletteWhite};
   width: 33%;
   height: 26px;
   display: inline-flex;
@@ -101,7 +106,7 @@ const LanguageItem = styled.div`
   box-sizing: border-box;
   cursor: pointer;
   &:hover {
-    background-color: ${({ theme }: ActiveProps) => theme.colors["neutral-200"]};
+    background-color: ${({ theme }: ActiveProps) => theme.orbit.paletteCloudNormalHover};
   }
   ${mq.ltTablet(css`
     width: 100%;
@@ -109,7 +114,7 @@ const LanguageItem = styled.div`
 `;
 
 LanguageItem.defaultProps = {
-  theme: brandDefault.theme,
+  theme: themeDefault,
 };
 
 type Props = {|

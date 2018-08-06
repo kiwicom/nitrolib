@@ -3,7 +3,7 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
-import { brandDefault } from "../../records/Brand";
+import { themeDefault } from "../../records/Theme";
 import mq from "../../styles/mediaQuery";
 
 const TIP_ARROW_SIZE = 5;
@@ -89,25 +89,25 @@ const Tip = styled.span`
         `
           right: 0;
           border-right-width: 0;
-          border-left-color: ${theme.colors["grey-900"]};
+          border-left-color: ${theme.orbit.paletteInkDark};
         `) ||
       (position === "right" &&
         `
           left: 0;
           border-left-width: 0;
-          border-right-color: ${theme.colors["grey-900"]};
+          border-right-color: ${theme.orbit.paletteInkDark};
         `) ||
       (position === "top" &&
         `
           bottom: 0;
           border-bottom-width: 0;
-          border-top-color: ${theme.colors["grey-900"]};
+          border-top-color: ${theme.orbit.paletteInkDark};
         `) ||
       (position === "bottom" &&
         `
           top: 0;
           border-top-width: 0;
-          border-bottom-color: ${theme.colors["grey-900"]};
+          border-bottom-color: ${theme.orbit.paletteInkDark};
         `)};
 
     ${({ position }) =>
@@ -131,19 +131,19 @@ Tip.propTypes = {
 };
 
 Tip.defaultProps = {
-  theme: brandDefault.theme,
+  theme: themeDefault,
 };
 
 const TipContent = styled.span`
   display: block;
   padding: 6px 8px;
-  color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.colors["grey-900"]};
+  color: ${({ theme }) => theme.orbit.paletteWhite};
+  background-color: ${({ theme }) => theme.orbit.paletteInkDark};
   border-radius: 3px;
 `;
 
 TipContent.defaultProps = {
-  theme: brandDefault.theme,
+  theme: themeDefault,
 };
 
 type Props = {|

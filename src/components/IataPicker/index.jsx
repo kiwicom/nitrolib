@@ -9,8 +9,8 @@ import IconText from "../IconText";
 import ClickOutside from "../ClickOutside";
 import Text from "../Text";
 import { Consumer as IntlConsumer } from "../../services/intl/context";
-import { brandDefault } from "../../records/Brand";
-import type { ThemeProps } from "../../records/Brand";
+import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 import AirportListData from "./AirportListData";
 
 const Container = styled.div`
@@ -26,11 +26,11 @@ const ResultWrapper = styled.div`
   overflow-y: scroll;
   z-index: 2;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.16), 0 1px 32px rgba(0, 0, 0, 0.32);
-  background: ${({ theme }): ThemeProps => theme.colors.white};
+  background: ${({ theme }): ThemeProps => theme.orbit.paletteWhite};
 `;
 
 ResultWrapper.defaultProps = {
-  theme: brandDefault.theme,
+  theme: themeDefault,
 };
 
 type Props = {|
