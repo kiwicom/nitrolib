@@ -1,0 +1,10 @@
+// @flow strict
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import { withKnobs } from "@storybook/addon-knobs/react";
+
+import Language from "../src/components/Language";
+
+storiesOf("Language", module)
+  .addDecorator(withKnobs)
+  .add("basic", () => <Language onChange={() => console.log("change")} />);
