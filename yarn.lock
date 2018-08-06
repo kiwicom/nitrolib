@@ -1077,6 +1077,10 @@
     request-promise "^4.1.1"
     yargs "^8.0.2"
 
+"@kiwicom/orbit-design-tokens@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-design-tokens/-/orbit-design-tokens-0.1.2.tgz#7f0d2bf4e084d1967bf0e28c73659b1a87aaf211"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

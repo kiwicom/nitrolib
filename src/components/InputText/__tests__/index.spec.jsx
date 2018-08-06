@@ -5,7 +5,7 @@ import "jest-styled-components";
 
 import InputText from "..";
 
-import { brandDefault } from "../../../records/Brand";
+import { themeDefault } from "../../../records/Theme";
 
 describe("#InputText", () => {
   test("removing unwanted props", () => {
@@ -63,7 +63,7 @@ describe("#InputText", () => {
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.find("InputText__Label")).toHaveStyleRule(
       "border",
-      `1px solid ${brandDefault.theme.colors["primary-600"]}`,
+      `1px solid ${themeDefault.orbit.paletteProductNormal}`,
     );
   });
 
@@ -83,7 +83,7 @@ describe("#InputText", () => {
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.find("InputText__Error")).toHaveStyleRule(
       "color",
-      brandDefault.theme.colors["danger-700"],
+      themeDefault.orbit.colorTextError,
     );
   });
 
@@ -103,7 +103,7 @@ describe("#InputText", () => {
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.find("InputText__Error")).toHaveStyleRule(
       "color",
-      brandDefault.theme.colors["primary-600"],
+      themeDefault.orbit.paletteProductNormal,
     );
   });
 
@@ -122,7 +122,7 @@ describe("#InputText", () => {
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.find("InputText__Error")).toHaveStyleRule(
       "color",
-      brandDefault.theme.colors["danger-700"],
+      themeDefault.orbit.colorTextError,
     );
   });
 
@@ -136,7 +136,7 @@ describe("#InputText", () => {
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.find("InputText__Hint")).toHaveStyleRule(
       "color",
-      brandDefault.theme.colors["primary-600"],
+      themeDefault.orbit.paletteProductNormal,
     );
   });
 

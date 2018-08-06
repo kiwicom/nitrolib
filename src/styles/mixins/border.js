@@ -1,7 +1,7 @@
 // @flow strict
 import { css } from "styled-components";
 
-import type { ThemeProps } from "../../records/Brand";
+import type { ThemeProps } from "../../records/Theme";
 
 import { border } from "..";
 
@@ -29,15 +29,15 @@ export function getBorderState({ error, visited, hint }: Props) {
 }
 
 const stateToColor = {
-  base: "neutral-200",
-  success: "primary-600",
-  hint: "primary-600",
-  error: "danger-700",
+  base: "paletteCloudNormalHover",
+  success: "paletteProductNormal",
+  hint: "paletteProductNormal",
+  error: "paletteRedNormal",
 };
 
 const borderHoverMixin = css`
   &:hover {
-    border-color: ${({ theme }: ThemeProps) => theme.colors["neutral-700"]};
+    border-color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   }
 `;
 
@@ -47,7 +47,7 @@ type StateProps = ThemeProps & {
 
 const borderMixin = css`
   border: ${border.size}px solid
-    ${({ theme, state }): StateProps => theme.colors[stateToColor[state]]};
+    ${({ theme, state }): StateProps => theme.orbit[stateToColor[state]]};
   border-radius: ${border.radius}px;
   ${({ state }: StateProps) => state === "base" && borderHoverMixin};
 `;

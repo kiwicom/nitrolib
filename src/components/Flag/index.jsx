@@ -3,20 +3,20 @@ import * as React from "react";
 import styled from "styled-components";
 
 import config from "../../consts/config";
-import { brandDefault } from "../../records/Brand";
-import type { ThemeProps } from "../../records/Brand";
+import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 
 const Img = styled.img`
   margin-right: 4px;
   vertical-align: middle;
   height: 20px; // Default size
   filter: drop-shadow(
-    0 0 0 ${({ theme }: ThemeProps) => theme.colors["grey-700"]}
+    0 0 0 ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal}
   ); // Especially for flags with white background
 `;
 
 Img.defaultProps = {
-  theme: brandDefault.theme,
+  theme: themeDefault,
 };
 
 type Props = {|

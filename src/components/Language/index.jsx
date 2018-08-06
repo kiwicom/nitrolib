@@ -6,7 +6,8 @@ import styled from "styled-components";
 import ClickOutside from "../ClickOutside";
 import * as intlContext from "../../services/intl/context";
 import * as fetchedContext from "../../services/fetched/context";
-import type { ThemeProps } from "../../records/Brand";
+import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 import LanguageName from "./LanguageName";
 import Menu from "./Menu";
 import LanguageNameText from "./LanguageNameText";
@@ -18,10 +19,14 @@ const OpenButton = styled.div`
   cursor: pointer;
   &:hover {
     ${LanguageNameText} {
-      color: ${({ theme }: ThemeProps) => theme.colors["primary-600"]};
+      color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
     }
   }
 `;
+
+OpenButton.defaultProps = {
+  theme: themeDefault,
+};
 
 type Props = {|
   onChange: (lang: string) => void,

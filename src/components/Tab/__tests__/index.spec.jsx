@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import { brandDefault } from "../../../records/Brand";
+import { themeDefault } from "../../../records/Theme";
 
 import Tab from "..";
 
@@ -15,7 +15,7 @@ describe("#Tab", () => {
     );
 
     expect(wrapper).toMatchSnapshot();
-    expect(wrapper).toHaveStyleRule("background", brandDefault.theme.colors.white);
+    expect(wrapper).toHaveStyleRule("background", themeDefault.orbit.paletteWhite);
     expect(wrapper).toHaveStyleRule("cursor", "pointer");
   });
 
@@ -26,10 +26,10 @@ describe("#Tab", () => {
       </Tab>,
     );
 
-    expect(wrapper).toHaveStyleRule("background", brandDefault.theme.colors["neutral-100"]);
+    expect(wrapper).toHaveStyleRule("background", themeDefault.orbit.paletteCloudNormal);
     expect(wrapper).toHaveStyleRule(
       "box-shadow",
-      `0 0 3px 0 ${brandDefault.theme.colors["neutral-400"]} inset`,
+      `0 0 3px 0 ${themeDefault.orbit.paletteInkLighter} inset`,
     );
   });
 
