@@ -2,19 +2,19 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
-import { brandDefault } from "../../records/Brand";
-import type { ThemeProps } from "../../records/Brand";
+import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 import { border } from "../../styles";
 
 const shadowMixin = css`
-  box-shadow: 0 0 3px 0 ${({ theme }: ThemeProps) => theme.colors["neutral-400"]} inset;
+  box-shadow: 0 0 3px 0 ${({ theme }: ThemeProps) => theme.orbit.paletteInkLighter} inset;
 `;
 
 const hoverMixin = css`
   cursor: pointer;
 
   &:hover {
-    background: ${({ theme }: ThemeProps) => theme.colors.white};
+    background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   }
 `;
 
@@ -29,10 +29,10 @@ const Container = styled.button`
   height: 34px;
   line-height: 34px;
   border-width: ${border.size}px ${border.size}px ${border.size}px 0;
-  border-color: ${({ theme }: ContainerProps) => theme.colors["neutral-400"]};
+  border-color: ${({ theme }: ContainerProps) => theme.orbit.paletteInkLighter};
   border-radius: 0;
   background: ${({ theme, active }: ContainerProps) =>
-    theme.colors[active ? "neutral-100" : "white"]};
+    theme.orbit[active ? "paletteCloudNormal" : "paletteWhite"]};
   font-size: 15px;
   font-weight: 500;
   ${({ active }: ContainerProps) => active && shadowMixin};
@@ -57,12 +57,12 @@ const Container = styled.button`
   }
 
   &:disabled {
-    color: ${({ theme }: ContainerProps) => theme.colors["text-secondary"]};
+    color: ${({ theme }: ContainerProps) => theme.orbit.paletteInkDark};
   }
 `;
 
 Container.defaultProps = {
-  theme: brandDefault.theme,
+  theme: themeDefault,
 };
 
 type Props = {|

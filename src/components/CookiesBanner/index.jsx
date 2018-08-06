@@ -3,9 +3,9 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 
 import Text from "../Text";
-import { brandDefault } from "../../records/Brand";
+import { themeDefault } from "../../records/Theme";
 import mq from "../../styles/mediaQuery";
-import type { ThemeProps } from "../../records/Brand";
+import type { ThemeProps } from "../../records/Theme";
 
 const Container = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ const Container = styled.div`
   width: 100%;
   padding: 10px 20px;
   font-size: 12px;
-  background: ${({ theme }: ThemeProps) => theme.colors["grey-900"]};
+  background: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
   color: white;
   opacity: 0.94;
   transition: bottom 0.25s ease-in;
@@ -23,13 +23,13 @@ const Container = styled.div`
 
   ${mq.gtTablet(css`
     padding: 20px;
-    color: ${({ theme }: ThemeProps) => theme.colors["grey-800"]};
+    color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormalActive};
     background: white;
   `)};
 `;
 
 Container.defaultProps = {
-  theme: brandDefault.theme,
+  theme: themeDefault,
 };
 
 const Message = styled.p`

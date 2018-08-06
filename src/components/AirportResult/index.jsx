@@ -5,8 +5,8 @@ import styled from "styled-components";
 import idx from "idx";
 
 import Flag from "../Flag";
-import { brandDefault } from "../../records/Brand";
-import type { ThemeProps } from "../../records/Brand";
+import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 import type { AirportResult_item } from "./__generated__/AirportResult_item.graphql";
 
 type ButtonProps = ThemeProps & {
@@ -21,14 +21,14 @@ const Container = styled.button`
   padding: 12px;
   margin: 0;
   background: ${({ theme, selected }: ButtonProps) =>
-    theme.colors[selected ? "neutral-100" : "white"]};
+    theme.orbit[selected ? "paletteCloudNormal" : "paletteWhite"]};
   text-align: start;
   border: none;
-  box-shadow: 0 1px 0 ${({ theme }: ThemeProps) => theme.colors["neutral-100"]};
+  box-shadow: 0 1px 0 ${({ theme }: ThemeProps) => theme.orbit.paletteCloudNormal};
   transition: background 0.3s;
 
   &:hover {
-    background: ${({ theme }: ThemeProps) => theme.colors["neutral-100"]};
+    background: ${({ theme }: ThemeProps) => theme.orbit.paletteCloudNormal};
   }
 
   &:focus {
@@ -37,7 +37,7 @@ const Container = styled.button`
 `;
 
 Container.defaultProps = {
-  theme: brandDefault.theme,
+  theme: themeDefault,
 };
 
 type Props = {|

@@ -6,8 +6,8 @@ import styled, { css } from "styled-components";
 
 import Text from "../Text";
 import borderMixin, { getBorderState } from "../../styles/mixins/border";
-import { brandDefault } from "../../records/Brand";
-import type { ThemeProps } from "../../records/Brand";
+import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 
 const Label = styled.label`
   display: flex;
@@ -17,11 +17,11 @@ const Label = styled.label`
   align-items: center;
   ${borderMixin};
   margin-bottom: 20px;
-  background: ${({ theme }: ThemeProps) => theme.colors.white};
+  background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
 `;
 
 Label.defaultProps = {
-  theme: brandDefault.theme,
+  theme: themeDefault,
 };
 
 const Input = styled.input`
@@ -30,7 +30,7 @@ const Input = styled.input`
   padding: 0;
   border: none;
   width: 100%;
-  color: ${({ theme }: ThemeProps) => theme.colors["neutral-800"]};
+  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormalActive};
   font-size: 14px;
   font-weight: 500;
 
@@ -40,7 +40,7 @@ const Input = styled.input`
 `;
 
 Input.defaultProps = {
-  theme: brandDefault.theme,
+  theme: themeDefault,
 };
 
 type ErrorProps = ThemeProps & {
@@ -57,16 +57,17 @@ const stateMixin = css`
 
 const Error = styled.div`
   ${stateMixin};
-  color: ${({ theme, active }: ErrorProps) => theme.colors[active ? "primary-600" : "danger-700"]};
+  color: ${({ theme, active }: ErrorProps) =>
+    theme.orbit[active ? "paletteProductNormal" : "colorTextError"]};
 `;
 
 Error.defaultProps = {
-  theme: brandDefault.theme,
+  theme: themeDefault,
 };
 
 const Hint = styled.span`
   ${stateMixin};
-  color: ${({ theme }: ErrorProps) => theme.colors["primary-600"]};
+  color: ${({ theme }: ErrorProps) => theme.orbit.paletteProductNormal};
 `;
 
 const HintText = styled.a`
@@ -76,7 +77,7 @@ const HintText = styled.a`
 `;
 
 Hint.defaultProps = {
-  theme: brandDefault.theme,
+  theme: themeDefault,
 };
 
 const omitProps = R.omit(["showState", "inputRef", "validate", "normalize", "corrector"]);
