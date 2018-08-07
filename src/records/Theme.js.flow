@@ -7,7 +7,7 @@ export type Theme = {|
   orbit: Tokens,
 |};
 
-export type ThemeProps = { theme: Theme };
+export type ThemeProps = {| theme: Theme |};
 
 declare export var themeDefault: Theme;
 
