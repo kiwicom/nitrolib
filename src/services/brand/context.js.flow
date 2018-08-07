@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import { themeDefault } from "../../records/Theme";
+import { brandDefault } from "../../records/Brand";
 
 const ctx = React.createContext(brandDefault);
 

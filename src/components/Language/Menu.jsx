@@ -57,10 +57,6 @@ ContinentItem.defaultProps = {
   theme: themeDefault,
 };
 
-ContinentItem.defaultProps = {
-  theme: brandDefault.theme,
-};
-
 const LanguageList = styled.div`
   padding: 10px;
   line-height: 20px;
@@ -119,7 +115,7 @@ LanguageItem.defaultProps = {
 
 type Props = {|
   onChange: (lang: string) => void,
-  withContinents: boolean,
+  flat: boolean,
 |};
 
 type State = {|
@@ -151,7 +147,7 @@ export default class Menu extends React.Component<Props, State> {
 
   render() {
     const { continent } = this.state;
-    const { withContinents } = this.props;
+    const { flat } = this.props;
 
     return (
       <fetchedContext.Consumer>
@@ -160,7 +156,7 @@ export default class Menu extends React.Component<Props, State> {
 
           return (
             <MenuWrapper>
-              {withContinents && (
+              {!flat && (
                 <ContinentList>
                   <ContinentItem onClick={() => this.handleContinent("")}>
                     <Text t={__("common.languages_all")} />

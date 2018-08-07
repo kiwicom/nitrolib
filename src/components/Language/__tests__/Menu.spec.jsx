@@ -5,8 +5,20 @@ import { shallow } from "enzyme";
 import Menu from "../Menu";
 
 describe("#Menu", () => {
+  test("render full", () => {
+    const wrapper = shallow(<Menu onChange={jest.fn()} flat={false} />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  test("render flat", () => {
+    const wrapper = shallow(<Menu onChange={jest.fn()} flat />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   test("changes continent filter", () => {
-    const wrapper = shallow(<Menu onChange={jest.fn()} />);
+    const wrapper = shallow(<Menu onChange={jest.fn()} flat={false} />);
     wrapper.instance().handleContinent("eu");
 
     expect(wrapper.state().continent).toEqual("eu");
@@ -14,7 +26,7 @@ describe("#Menu", () => {
 
   test("redirects to new language", () => {
     const onChange = jest.fn();
-    const wrapper = shallow(<Menu onChange={onChange} />);
+    const wrapper = shallow(<Menu onChange={onChange} flat={false} />);
 
     wrapper.instance().handleChange("cz");
 
@@ -29,7 +41,7 @@ describe("#Menu", () => {
       se: { id: "se", continent: "ds" },
     };
     const continent = "eu";
-    const wrapper = shallow(<Menu onChange={jest.fn()} />).setState({ continent });
+    const wrapper = shallow(<Menu onChange={jest.fn()} flat={false} />).setState({ continent });
 
     const filteredLanguages = wrapper.instance().getFilteredLanguages(languages);
     expect(filteredLanguages).toEqual(
