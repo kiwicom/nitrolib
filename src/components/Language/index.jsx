@@ -81,7 +81,7 @@ export default class Language extends React.Component<Props, State> {
               R.has(intl.language.id, fetched.brandLanguage.languages) && (
                 <>
                   <OpenButton onClick={this.handleToggle}>
-                    <LanguageName language={fetched.brandLanguage.languages[intl.language.id]} />
+                    <LanguageName language={intl.language} />
                   </OpenButton>
                   <Wrapper>
                     <MobileSelect

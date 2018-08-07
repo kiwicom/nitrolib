@@ -2,12 +2,12 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import type { Language } from "../../records/Languages";
+import type { LangInfo } from "../../records/LangInfo";
 import config from "../../consts/config";
 import LanguageNameText from "./LanguageNameText";
 
 type Props = {|
-  language: Language,
+  language: LangInfo,
 |};
 
 const Icon = styled.i`
