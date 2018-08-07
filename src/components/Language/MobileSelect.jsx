@@ -20,14 +20,14 @@ const NativeSelect = styled.select`
   outline: 0;
   margin-left: 2px;
   font-size: 12px;
+  line-height: 21px;
   font-weight: 500;
   font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
+  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
   letter-spacing: 0.02em;
   -webkit-font-smoothing: antialiased;
   &:hover {
-    ${LanguageNameText} {
-      color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductDark};
-    }
+    color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
   }
 `;
 
