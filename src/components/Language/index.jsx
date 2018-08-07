@@ -12,7 +12,6 @@ import type { ThemeProps } from "../../records/Theme";
 import LanguageName from "./LanguageName";
 import Menu from "./Menu";
 import LanguageNameText from "./LanguageNameText";
-import { brandDefault } from "../../records/Brand";
 import mq from "../../styles/mediaQuery";
 
 const OpenButton = styled.div`
@@ -31,7 +30,7 @@ const OpenButton = styled.div`
 `;
 
 OpenButton.defaultProps = {
-  theme: brandDefault.theme,
+  theme: themeDefault,
 };
 
 const Wrapper = styled.span`
