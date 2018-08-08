@@ -13,18 +13,21 @@ import LanguageName from "./LanguageName";
 import Menu from "./Menu";
 import LanguageNameText from "./LanguageNameText";
 import mq from "../../styles/mediaQuery";
+import button from "../../styles/mixins/button";
 
-const OpenButton = styled.div`
+const OpenButton = styled.button`
+  ${button};
   display: flex;
   flex-direction: row;
   align-items: center;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
-  cursor: pointer;
+
   &:hover {
     ${LanguageNameText} {
       color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
     }
   }
+
   ${mq.ltTablet(css`
     display: none;
   `)};

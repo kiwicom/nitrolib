@@ -6,7 +6,6 @@ import type { Language } from "../../records/Languages";
 import type { LangInfo } from "../../records/LangInfo";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
-import LanguageNameText from "./LanguageNameText";
 import config from "../../consts/config";
 
 const NativeSelect = styled.select`
