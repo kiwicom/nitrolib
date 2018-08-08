@@ -75,7 +75,7 @@ export default class Language extends React.Component<Props, State> {
   handleChange = (value: string) => {
     const { onChange } = this.props;
 
-    this.handleToggle();
+    this.setState({ shown: false });
     onChange(value);
   };
 

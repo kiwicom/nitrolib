@@ -18,6 +18,16 @@ describe("#Language", () => {
     expect(wrapper.state().shown).toEqual(true);
   });
 
+  test("handles change", () => {
+    const onChange = jest.fn();
+    const wrapper = shallow(<Language onChange={onChange} />);
+
+    wrapper.instance().handleChange("kek");
+
+    expect(wrapper.state().shown).toEqual(false);
+    expect(onChange).toBeCalledWith("kek");
+  });
+
   test("closes on change", () => {
     const onChange = jest.fn();
     const wrapper = shallow(<Language onChange={onChange} />);
