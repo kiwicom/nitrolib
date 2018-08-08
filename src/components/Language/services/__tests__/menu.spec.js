@@ -13,8 +13,8 @@ describe("#Menu service", () => {
       { id: "de", continent: "eu", defaultCountry: "de", flag: "de", name: "German" },
     ];
 
-    expect(getLanguageWrapperWidth(emptyFilteredLanguages)).toBe(360);
-    expect(getLanguageWrapperWidth(filteredLanguages)).toBe(540);
+    expect(getLanguageWrapperWidth(emptyFilteredLanguages, false)).toBe(360);
+    expect(getLanguageWrapperWidth(filteredLanguages, false)).toBe(540);
   });
 
   test("Calculates height for language picker correctly", () => {
@@ -35,8 +35,8 @@ describe("#Menu service", () => {
       name: "Czech",
     });
 
-    expect(getLanguageWrapperHeight(emptyFilteredLanguages)).toBe(0);
-    expect(getLanguageWrapperHeight(filteredLanguages)).toBe(62);
-    expect(getLanguageWrapperHeight(longFilteredLanguages)).toBe(651);
+    expect(getLanguageWrapperHeight(emptyFilteredLanguages, false)).toBe(0);
+    expect(getLanguageWrapperHeight(filteredLanguages, false)).toBe(62);
+    expect(getLanguageWrapperHeight(longFilteredLanguages, false)).toBe(651);
   });
 });
