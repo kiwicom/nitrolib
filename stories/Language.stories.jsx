@@ -7,4 +7,5 @@ import Language from "../src/components/Language";
 
 storiesOf("Language", module)
   .addDecorator(withKnobs)
-  .add("basic", () => <Language onChange={() => console.log("change")} />);
+  .add("regular", () => <Language onChange={() => console.log("change")} />)
+  .add("flat", () => <Language onChange={() => console.log("change")} flat />);

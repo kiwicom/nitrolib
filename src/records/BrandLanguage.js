@@ -20,7 +20,7 @@ export const brandLanguageDefault: BrandLanguage = {
     en: {
       id: "en",
       name: "English",
-      flag: "uk",
+      flag: "gb",
       defaultCountry: "uk",
       continent: "eu",
     },

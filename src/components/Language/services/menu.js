@@ -5,8 +5,8 @@ import { language as languageConsts } from "../../../styles";
 const getWidthConstant = (filteredLanguages: Language[]) =>
   filteredLanguages.length < languageConsts.limit ? 2 : 3; // 2 || 3 columns
 
-export const getLanguageWrapperHeight = (filteredLanguages: Language[]) => {
-  const widthConstant = getWidthConstant(filteredLanguages);
+export const getLanguageWrapperHeight = (filteredLanguages: Language[], flat: boolean) => {
+  const widthConstant = flat ? 1 : getWidthConstant(filteredLanguages);
 
   // For filtered cases - enables to wrap to (2 || 3) cols every time
   const heightConstraint =
@@ -16,5 +16,5 @@ export const getLanguageWrapperHeight = (filteredLanguages: Language[]) => {
     : heightConstraint;
 };
 
-export const getLanguageWrapperWidth = (filteredLanguages: Language[]) =>
-  getWidthConstant(filteredLanguages) * languageConsts.row.width;
+export const getLanguageWrapperWidth = (filteredLanguages: Language[], flat: boolean) =>
+  (flat ? 1 : getWidthConstant(filteredLanguages)) * languageConsts.row.width;

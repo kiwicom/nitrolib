@@ -57,6 +57,10 @@ ContinentItem.defaultProps = {
   theme: themeDefault,
 };
 
+type FlatProps = {|
+  flat: boolean,
+|};
+
 const LanguageList = styled.div`
   padding: 10px;
   line-height: 20px;
@@ -64,9 +68,11 @@ const LanguageList = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   max-height: calc(100vh - 60px);
-  ${mq.gtTablet(css`
-    width: 560px;
-  `)};
+  ${({ flat }: FlatProps) =>
+    !flat &&
+    mq.gtTablet(css`
+      width: 560px;
+    `)};
   ${mq.ltTablet(css`
     padding: 15px 12px;
   `)};
@@ -78,8 +84,8 @@ type SizeProps = {|
 |};
 
 const LanguageListWrapper = styled.div`
-  width: ${({ width }: SizeProps) => width};
-  height: ${({ height }: SizeProps) => height};
+  width: ${({ width }: SizeProps) => width}px;
+  height: ${({ height }: SizeProps) => height}px;
   max-height: 682px;
   ${mq.gtTablet(css`
     display: flex;
@@ -92,7 +98,7 @@ const LanguageItem = styled.div`
   background-color: ${({ theme, active }: ActiveProps) =>
     active && theme.orbit.paletteProductNormal};
   color: ${({ theme, active }: ActiveProps) => active && theme.orbit.paletteWhite};
-  width: 33%;
+  width: 180px;
   height: 26px;
   display: inline-flex;
   align-items: center;
@@ -172,10 +178,10 @@ export default class Menu extends React.Component<Props, State> {
                   ))}
                 </ContinentList>
               )}
-              <LanguageList>
+              <LanguageList flat={flat}>
                 <LanguageListWrapper
-                  height={getLanguageWrapperHeight(filteredLanguages)}
-                  width={getLanguageWrapperWidth(filteredLanguages)}
+                  height={getLanguageWrapperHeight(filteredLanguages, flat)}
+                  width={getLanguageWrapperWidth(filteredLanguages, flat)}
                 >
                   {filteredLanguages.map(language => (
                     <LanguageItem key={language.id} onClick={() => this.handleChange(language.id)}>
