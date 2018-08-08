@@ -18,6 +18,7 @@ const OpenButton = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
   cursor: pointer;
   &:hover {
     ${LanguageNameText} {
