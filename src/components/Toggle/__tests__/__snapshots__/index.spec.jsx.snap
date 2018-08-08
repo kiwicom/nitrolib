@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Currency render 1`] = `
+<div
+  active={false}
+  onToggle={[Function]}
+  open={false}
+>
+  LOL
+</div>
+`;
