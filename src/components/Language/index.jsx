@@ -72,8 +72,15 @@ export default class Language extends React.Component<Props, State> {
     this.setState(state => ({ shown: !state.shown }));
   };
 
+  handleChange = (value: string) => {
+    const { onChange } = this.props;
+
+    this.handleToggle();
+    onChange(value);
+  };
+
   render() {
-    const { onChange, flat } = this.props;
+    const { flat } = this.props;
     const { shown } = this.state;
 
     return (
@@ -90,12 +97,12 @@ export default class Language extends React.Component<Props, State> {
                     <MobileSelect
                       current={intl.language}
                       languages={R.values(fetched.brandLanguage.languages)}
-                      onChange={onChange}
+                      onChange={this.handleChange}
                     />
                   </Wrapper>
                   {shown && (
                     <ClickOutside onClickOutside={this.handleToggle}>
-                      <Menu onChange={onChange} flat={flat} />
+                      <Menu onChange={this.handleChange} flat={flat} />
                     </ClickOutside>
                   )}
                 </>
