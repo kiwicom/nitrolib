@@ -52,7 +52,10 @@ type Props = {|
 const MobileSelect = ({ current, languages, onChange }: Props) => (
   <>
     <Icon flagId={current.flag} />
-    <NativeSelect value={current.id} onChange={onChange}>
+    <NativeSelect
+      value={current.id}
+      onChange={(ev: SyntheticInputEvent<HTMLSelectElement>) => onChange(ev.target.value)}
+    >
       {languages.map(language => (
         <option key={language.id} value={language.id}>
           {language.name}
