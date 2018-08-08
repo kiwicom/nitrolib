@@ -1,0 +1,10 @@
+// @flow strict
+import * as React from "react";
+
+import type { Splitster } from "../../records/Splitster";
+
+type Props = {|
+  splitster?: Splitster,
+|};
+
+declare export default React.ComponentType<Props>;
