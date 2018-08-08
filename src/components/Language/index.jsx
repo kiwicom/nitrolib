@@ -40,6 +40,8 @@ OpenButton.defaultProps = {
 const Wrapper = styled.span`
   display: flex;
   flex-direction: row;
+  align-items: center;
+  position: relative;
 
   ${mq.gtTablet(css`
     display: none;

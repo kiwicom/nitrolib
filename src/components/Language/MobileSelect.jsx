@@ -9,22 +9,19 @@ import type { ThemeProps } from "../../records/Theme";
 import config from "../../consts/config";
 
 const NativeSelect = styled.select`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  position: absolute;
   appearance: none;
   cursor: pointer;
   background-color: transparent;
   border: 0;
   outline: 0;
-  margin-left: 2px;
+  padding-left: 35px;
   font-size: 12px;
   line-height: 21px;
   font-weight: 500;
-  font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
+  font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
   letter-spacing: 0.02em;
-  -webkit-font-smoothing: antialiased;
   &:hover {
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
   }
