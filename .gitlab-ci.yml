@@ -31,6 +31,21 @@ storybook:
     paths:
       - dist-storybook/
 
+test:
+  stage: build
+  script:
+    - yarn test
+
+lint:
+  stage: build
+  script:
+    - yarn lint
+
+flow:
+  stage: build
+  script:
+    - yarn flow check
+
 release:
   stage: release
 #  image: kiwicom/s3cmd-plus-docker
