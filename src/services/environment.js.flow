@@ -1,4 +1,0 @@
-// @flow strict
-import type { Environment } from "react-relay";
-
-declare export default Environment;

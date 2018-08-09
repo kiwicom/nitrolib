@@ -1,2 +1,0 @@
-// @flow strict
-declare export default function separateList<T>(n: number, list: T[]): T[][];

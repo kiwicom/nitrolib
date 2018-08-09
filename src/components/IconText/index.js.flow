@@ -1,9 +1,0 @@
-// @flow strict
-import * as React from "react";
-
-type Props = {|
-  Icon: React.ComponentType<{ className: string }>,
-  children: React.Node,
-|};
-
-declare export default React.ComponentType<Props>;

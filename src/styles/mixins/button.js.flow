@@ -1,4 +1,0 @@
-// @flow strict
-import type { Interpolation } from "styled-components";
-
-declare export default Interpolation;

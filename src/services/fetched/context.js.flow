@@ -1,9 +1,0 @@
-// @flow strict
-import * as React from "react";
-
-import { fetchedDefault } from "../../records/Fetched";
-
-const ctx = React.createContext(fetchedDefault);
-
-declare export var Consumer: typeof ctx.Consumer;
-declare export var Provider: typeof ctx.Provider;

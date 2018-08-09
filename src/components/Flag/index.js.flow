@@ -1,8 +1,0 @@
-// @flow strict
-import * as React from "react";
-
-type Props = {|
-  country: string,
-|};
-
-declare export default React.ComponentType<Props>;

@@ -1,9 +1,0 @@
-// @flow strict
-import * as React from "react";
-
-import { brandDefault } from "../../records/Brand";
-
-const ctx = React.createContext(brandDefault);
-
-declare export var Consumer: typeof ctx.Consumer;
-declare export var Provider: typeof ctx.Provider;

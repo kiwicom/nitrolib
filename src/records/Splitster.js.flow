@@ -1,8 +1,0 @@
-// @flow strict
-export type Splitster = {
-  HEADER_LINKS_PACKAGE_PROVIDER_LASTMINUTE: string,
-  HEADER_LINKS_PACKAGE_PROVIDER: string,
-};
-
-// eslint-disable-next-line import/prefer-default-export
-declare export var splisterDefault: Splitster;
