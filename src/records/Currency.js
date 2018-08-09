@@ -29,3 +29,5 @@ export const currencyDefault: Currency = {
   fallback: "",
   rate: 1,
 };
+
+export const MOST_USED_CURRENCIES = ["usd", "eur", "gbp", "aud", "sek", "dkk"];

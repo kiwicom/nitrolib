@@ -1,7 +1,7 @@
 // @flow srict
 import { getLanguageWrapperWidth, getLanguageWrapperHeight } from "../menu";
 
-describe("#Menu service", () => {
+describe("#Language/Menu service", () => {
   test("Calculates width for language picker correctly", () => {
     const emptyFilteredLanguages = [];
     const filteredLanguages = [

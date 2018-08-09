@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import { shallow } from "enzyme";
 
@@ -11,31 +11,15 @@ describe("#Language", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test("opens when clicked", () => {
-    const wrapper = shallow(<Language onChange={jest.fn()} />);
-    wrapper.instance().handleToggle();
+  test("render - native", () => {
+    const wrapper = shallow(<Language onChange={jest.fn()} native />);
 
-    expect(wrapper.state().shown).toEqual(true);
+    expect(wrapper).toMatchSnapshot();
   });
 
-  test("handles change", () => {
-    const onChange = jest.fn();
-    const wrapper = shallow(<Language onChange={onChange} />);
+  test("render - flat", () => {
+    const wrapper = shallow(<Language onChange={jest.fn()} flat />);
 
-    wrapper.instance().handleChange("kek");
-
-    expect(wrapper.state().shown).toEqual(false);
-    expect(onChange).toBeCalledWith("kek");
-  });
-
-  test("closes on change", () => {
-    const onChange = jest.fn();
-    const wrapper = shallow(<Language onChange={onChange} />);
-
-    wrapper.setState({ shown: true });
-    wrapper.instance().handleChange("kek");
-
-    expect(wrapper.state().shown).toEqual(false);
-    expect(onChange).toBeCalledWith("kek");
+    expect(wrapper).toMatchSnapshot();
   });
 });

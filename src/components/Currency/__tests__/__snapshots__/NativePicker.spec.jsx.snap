@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Currency/NativePicker render 1`] = `
+<NativePicker__Container>
+  <NativeGroupedSelect
+    divider="-----------------"
+    groups={
+      Array [
+        Object {
+          "items": Array [
+            Object {
+              "text": "EUR - €",
+              "value": "eur",
+            },
+          ],
+          "key": "current",
+        },
+        Object {
+          "items": Array [
+            Object {
+              "text": "EUR - €",
+              "value": "eur",
+            },
+            Object {
+              "text": "CZK - Kč",
+              "value": "czk",
+            },
+            Object {
+              "text": "GBP - £",
+              "value": "gbp",
+            },
+          ],
+          "key": "recommended",
+        },
+        Object {
+          "items": Array [
+            Object {
+              "text": "GBP - £",
+              "value": "gbp",
+            },
+            Object {
+              "text": "EUR - €",
+              "value": "eur",
+            },
+            Object {
+              "text": "CZK - Kč",
+              "value": "czk",
+            },
+            Object {
+              "text": "USD - $",
+              "value": "usd",
+            },
+          ],
+          "key": "all",
+        },
+      ]
+    }
+    icon={
+      <Exchange
+        className="CurrencySwitcher-icon"
+        size="small"
+      />
+    }
+    onChange={[MockFunction]}
+    value="eur"
+  />
+</NativePicker__Container>
+`;

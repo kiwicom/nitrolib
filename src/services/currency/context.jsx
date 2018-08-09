@@ -3,7 +3,7 @@
 import * as React from "react";
 import idx from "idx";
 
-import { currencyDefault } from "../../records/Currency";
+import { currencyDefault, MOST_USED_CURRENCIES } from "../../records/Currency";
 import type { Currency, Currencies } from "../../records/Currency";
 import type { Countries } from "../../records/Country";
 import filterCurrencies from "./services/filterCurrencies";
@@ -11,6 +11,7 @@ import resolveCurrency from "./services/resolveCurrency";
 import getGeoCountryCall from "./services/getGeoCountry";
 import getCurrenciesCall from "./services/getCurrencies";
 import getCandidate from "./services/getCandidate";
+import getRecommended from "./services/getRecommended";
 
 type Props = {|
   whitelist: string[],
@@ -19,6 +20,7 @@ type Props = {|
   ip: string,
   initialCurrency: string,
   langCurrency: string,
+  mostUsed: string[],
   children: React.Node,
   onChange: string => void,
   // DI
@@ -30,12 +32,14 @@ type State = {|
   currency: ?Currency,
   all: Currencies,
   available: Currencies,
+  recommended: Currency[],
   country: string,
 |};
 
 type Context = {|
   currency: Currency,
   available: Currencies,
+  recommended: Currency[],
   setCurrency: (code: string) => void,
 |};
 
@@ -43,6 +47,7 @@ const { Consumer, Provider } = React.createContext(
   ({
     currency: currencyDefault,
     available: { eur: currencyDefault },
+    recommended: [],
     setCurrency: () => {},
   }: Context),
 );
@@ -51,6 +56,7 @@ const { Consumer, Provider } = React.createContext(
 // would require too much 'Currencies' type refactoring, so not done immediately
 export class CurrencyProvider extends React.PureComponent<Props, State> {
   static defaultProps = {
+    mostUsed: MOST_USED_CURRENCIES,
     getCurrencies: getCurrenciesCall,
     getGeoCountry: getGeoCountryCall,
   };
@@ -59,6 +65,7 @@ export class CurrencyProvider extends React.PureComponent<Props, State> {
     currency: null,
     all: {},
     available: {},
+    recommended: [],
     country: "",
   };
 
@@ -81,17 +88,28 @@ export class CurrencyProvider extends React.PureComponent<Props, State> {
       return null;
     }
 
+    const countryCurrency = idx(props.countries, _ => _[state.country].currency) || "";
+    const languageCurrency = props.langCurrency;
+
     const candidate = getCandidate({
       initial: props.initialCurrency,
-      country: idx(props.countries, _ => _[state.country].currency) || "",
-      lang: props.langCurrency,
+      country: countryCurrency,
+      lang: languageCurrency,
     });
 
     const available = filterCurrencies(props.affiliate, props.whitelist, state.all);
 
+    const recommended = getRecommended(
+      countryCurrency,
+      languageCurrency,
+      props.mostUsed,
+      available,
+    );
+
     return {
       currency: resolveCurrency(state.all, available, candidate),
       available,
+      recommended,
     };
   }
 
@@ -115,7 +133,7 @@ export class CurrencyProvider extends React.PureComponent<Props, State> {
   }
 
   render() {
-    const { currency, available } = this.state;
+    const { currency, available, recommended } = this.state;
     const { children } = this.props;
 
     if (!currency) {
@@ -127,6 +145,7 @@ export class CurrencyProvider extends React.PureComponent<Props, State> {
         value={{
           currency,
           available,
+          recommended,
           setCurrency: this.setCurrency,
         }}
       >

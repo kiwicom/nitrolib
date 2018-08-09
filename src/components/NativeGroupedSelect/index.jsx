@@ -2,13 +2,10 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import type { Language } from "../../records/Languages";
-import type { LangInfo } from "../../records/LangInfo";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
-import config from "../../consts/config";
 
-const NativeSelect = styled.select`
+const Container = styled.select`
   position: absolute;
   appearance: none;
   cursor: pointer;
@@ -27,39 +24,51 @@ const NativeSelect = styled.select`
   }
 `;
 
-NativeSelect.defaultProps = {
+Container.defaultProps = {
   theme: themeDefault,
 };
 
-const Icon = styled.i`
-  background: ${({ flagId }: { flagId: string }) =>
-    `url("${config.imagesUrl}flags/32x32/${flagId}.png")`};
-  align-items: center;
-  height: 32px;
-  width: 32px;
-  transform: scale(0.7);
-`;
+type Item = {|
+  value: string,
+  text: string,
+|};
+
+type Group = {|
+  key: string,
+  items: Item[],
+|};
 
 type Props = {|
-  current: LangInfo,
-  languages: Language[],
+  icon: React.Node,
+  value: string,
+  groups: Group[],
+  divider: ?string,
   onChange: (value: string) => void,
 |};
 
-const MobileSelect = ({ current, languages, onChange }: Props) => (
+const NativeGroupedSelect = ({ icon, value, groups, divider, onChange }: Props) => (
   <>
-    <Icon flagId={current.flag} />
-    <NativeSelect
-      value={current.id}
+    {icon}
+    <Container
+      value={value}
       onChange={(ev: SyntheticInputEvent<HTMLSelectElement>) => onChange(ev.target.value)}
     >
-      {languages.map(language => (
-        <option key={language.id} value={language.id}>
-          {language.name}
-        </option>
+      {groups.filter(group => group.items.length > 0).map((group, index) => (
+        <optgroup key={group.key} label={index > 0 ? divider : null}>
+          {group.items.map(item => (
+            <option key={item.value} value={item.value}>
+              {item.text}
+            </option>
+          ))}
+        </optgroup>
       ))}
-    </NativeSelect>
+    </Container>
   </>
 );
 
-export default MobileSelect;
+NativeGroupedSelect.defaultProps = {
+  icon: null,
+  divider: "-----------------",
+};
+
+export default NativeGroupedSelect;

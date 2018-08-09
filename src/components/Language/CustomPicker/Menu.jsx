@@ -1,18 +1,17 @@
 // @flow strict
 import * as React from "react";
-import * as R from "ramda";
 import styled, { css } from "styled-components";
 
-import * as fetchedContext from "../../services/fetched/context";
-import Text from "../Text";
-import { themeDefault } from "../../records/Theme";
-import type { ThemeProps } from "../../records/Theme";
-import type { Languages } from "../../records/Languages";
-import mq from "../../styles/mediaQuery";
-import Flex from "../../primitives/Flex";
+import Text from "../../Text";
+import { themeDefault } from "../../../records/Theme";
+import type { ThemeProps } from "../../../records/Theme";
+import { getByContinent } from "../../../records/Languages";
+import type { Language } from "../../../records/Languages";
+import mq from "../../../styles/mediaQuery";
+import Flex from "../../../primitives/Flex";
 import LanguageName from "./LanguageName";
 import ContinentName from "./ContinentName";
-import { getLanguageWrapperHeight, getLanguageWrapperWidth } from "./services/menu";
+import { getLanguageWrapperHeight, getLanguageWrapperWidth } from "../services/menu";
 
 const MenuWrapper = styled.div`
   background-color: white;
@@ -120,6 +119,8 @@ LanguageItem.defaultProps = {
 };
 
 type Props = {|
+  languages: Language[],
+  continents: string[],
   onChange: (lang: string) => void,
   flat: boolean,
 |};
@@ -131,14 +132,6 @@ type State = {|
 export default class Menu extends React.Component<Props, State> {
   state = {
     continent: "",
-  };
-
-  getFilteredLanguages = (languages: Languages) => {
-    const { continent } = this.state;
-
-    return R.values(languages).filter(
-      language => continent === "" || continent === language.continent,
-    );
   };
 
   handleContinent = (continent: string) => {
@@ -153,47 +146,41 @@ export default class Menu extends React.Component<Props, State> {
 
   render() {
     const { continent } = this.state;
-    const { flat } = this.props;
+    const { flat, languages, continents } = this.props;
+
+    const filteredLanguages = continent === "" ? languages : getByContinent(languages, continent);
 
     return (
-      <fetchedContext.Consumer>
-        {fetched => {
-          const filteredLanguages = this.getFilteredLanguages(fetched.brandLanguage.languages);
-
-          return (
-            <MenuWrapper>
-              {!flat && (
-                <ContinentList>
-                  <ContinentItem onClick={() => this.handleContinent("")}>
-                    <Text t={__("common.languages_all")} />
-                  </ContinentItem>
-                  {fetched.brandLanguage.continents.map(item => (
-                    <ContinentItem
-                      onClick={() => this.handleContinent(item)}
-                      key={item}
-                      active={item === continent}
-                    >
-                      <ContinentName id={item} />
-                    </ContinentItem>
-                  ))}
-                </ContinentList>
-              )}
-              <LanguageList flat={flat}>
-                <LanguageListWrapper
-                  height={getLanguageWrapperHeight(filteredLanguages, flat)}
-                  width={getLanguageWrapperWidth(filteredLanguages, flat)}
-                >
-                  {filteredLanguages.map(language => (
-                    <LanguageItem key={language.id} onClick={() => this.handleChange(language.id)}>
-                      <LanguageName language={language} key={language.id} />
-                    </LanguageItem>
-                  ))}
-                </LanguageListWrapper>
-              </LanguageList>
-            </MenuWrapper>
-          );
-        }}
-      </fetchedContext.Consumer>
+      <MenuWrapper>
+        {!flat && (
+          <ContinentList>
+            <ContinentItem onClick={() => this.handleContinent("")}>
+              <Text t={__("common.languages_all")} />
+            </ContinentItem>
+            {continents.map(item => (
+              <ContinentItem
+                onClick={() => this.handleContinent(item)}
+                key={item}
+                active={item === continent}
+              >
+                <ContinentName id={item} />
+              </ContinentItem>
+            ))}
+          </ContinentList>
+        )}
+        <LanguageList flat={flat}>
+          <LanguageListWrapper
+            height={getLanguageWrapperHeight(filteredLanguages, flat)}
+            width={getLanguageWrapperWidth(filteredLanguages, flat)}
+          >
+            {filteredLanguages.map(language => (
+              <LanguageItem key={language.id} onClick={() => this.handleChange(language.id)}>
+                <LanguageName language={language} key={language.id} />
+              </LanguageItem>
+            ))}
+          </LanguageListWrapper>
+        </LanguageList>
+      </MenuWrapper>
     );
   }
 }

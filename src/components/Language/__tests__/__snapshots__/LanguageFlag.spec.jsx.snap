@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Language/LanguageFlag render 1`] = `
+.c0 {
+  background: url("//images.kiwi.com/flags/32x32/gb.png");
+  height: 32px;
+  width: 32px;
+  display: block;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+<i
+  className="c0"
+  scale={1}
+/>
+`;
+
+exports[`#Language/LanguageFlag render with scale 1`] = `
+.c0 {
+  background: url("//images.kiwi.com/flags/32x32/gb.png");
+  height: 32px;
+  width: 32px;
+  display: block;
+  -webkit-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  transform: scale(0.5);
+}
+
+<i
+  className="c0"
+  scale={0.5}
+/>
+`;
