@@ -19,7 +19,7 @@ const IntlProvider = ({ language, translations, children }: Props) => (
     value={{
       language,
       translations,
-      translate: (key: string, values: Values) => translate(translations, key, values),
+      translate: (key: string, values?: Values) => translate(translations, key, values),
     }}
   >
     {children}
