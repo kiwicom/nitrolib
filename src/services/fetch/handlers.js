@@ -5,7 +5,7 @@ export async function handleError(res: Response): Promise<Response> {
 
     return Promise.reject(
       new Error(
-        `Fetch error - ${res.status} ${res.statusText}. ${JSON.stringify(data, null, "  ")}`,
+        `Fetch: ${res.status} ${res.statusText}. Data: ${JSON.stringify(data, null, "  ")}`,
       ),
     );
   }
