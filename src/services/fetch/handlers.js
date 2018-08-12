@@ -4,11 +4,9 @@ export async function handleError(res: Response): Promise<Response> {
     const data = await res.json();
 
     return Promise.reject(
-      new Error({
-        status: res.status,
-        statusText: res.statusText,
-        data,
-      }),
+      new Error(
+        `Fetch error - ${res.status} ${res.statusText}. ${JSON.stringify(data, null, "  ")}`,
+      ),
     );
   }
 
