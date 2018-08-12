@@ -6,6 +6,7 @@
     ["@babel/stage-2", { "decoratorsLegacy": true }]
   ],
   "plugins": [
+    "@babel/transform-runtime",
     "id",
     "relay",
     "idx",

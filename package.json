@@ -33,6 +33,7 @@
     "nitro": "./bin/nitro.js"
   },
   "dependencies": {
+    "@babel/runtime": "^7.0.0-rc.1",
     "@kiwicom/orbit-design-tokens": "^0.1.2",
     "chalk": "^2.4.1",
     "date-fns": "^2.0.0-alpha.7",
@@ -55,6 +56,7 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.52",
     "@babel/core": "^7.0.0-beta.52",
+    "@babel/plugin-transform-runtime": "^7.0.0-rc.1",
     "@babel/preset-env": "^7.0.0-beta.52",
     "@babel/preset-flow": "^7.0.0-beta.56",
     "@babel/preset-react": "^7.0.0-beta.52",
