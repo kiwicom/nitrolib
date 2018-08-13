@@ -10,13 +10,17 @@
     "id",
     "relay",
     "idx",
-    ["styled-components", { "ssr": true }]
+    ["styled-components", { "ssr": true }],
+    "ramda"
   ],
   "ignore": ["**/__generated__/*"],
   "env": {
     "modules": {
       "presets": [
         ["@babel/env", { "modules": false, "targets": { "browsers": "last 2 versions" } }]
+      ],
+      "plugins": [
+        ["ramda", { "useES": true }]
       ]
     }
   }
