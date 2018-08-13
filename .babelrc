@@ -11,5 +11,13 @@
     "relay",
     "idx",
     ["styled-components", { "ssr": true }]
-  ]
+  ],
+  "ignore": ["**/__generated__/*"],
+  "env": {
+    "modules": {
+      "presets": [
+        ["@babel/env", { "modules": false, "targets": { "browsers": "last 2 versions" } }]
+      ]
+    }
+  }
 }
