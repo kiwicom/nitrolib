@@ -663,7 +663,7 @@ exports[`#Select render 1`] = `
       }
     }
   >
-    <MdExpandMore />
+    <Component />
   </Select__Icon>
 </Select__Container>
 `;

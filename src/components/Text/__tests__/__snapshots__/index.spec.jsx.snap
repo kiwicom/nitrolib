@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#Text html 1`] = `<[object Object] />`;
+exports[`#Text html 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
 
-exports[`#Text string 1`] = `<[object Object] />`;
+exports[`#Text string 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

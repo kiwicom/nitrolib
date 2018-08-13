@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#Currency render 1`] = `
-<React.Fragment>
+<Fragment>
   <HeaderLinks__MediaTablet>
-    <Toggle />
+    <Toggle>
+      <Component />
+    </Toggle>
   </HeaderLinks__MediaTablet>
   <HeaderLinks__MediaDesktop>
     <Links />
   </HeaderLinks__MediaDesktop>
-</React.Fragment>
+</Fragment>
 `;

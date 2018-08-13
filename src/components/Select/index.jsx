@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import MdExpandMore from "react-icons/lib/md/expand-more";
+import { MdExpandMore } from "react-icons/md/index";
 import styled from "styled-components";
 
 import borderMixin from "../../styles/mixins/border";

@@ -74,7 +74,8 @@ const CookiesBanner = ({ onShowInfo, onAccept }: Props) => (
       <Text t={__("content.cookies.popup.full")} />{" "}
       <InfoLink onClick={onShowInfo}>
         <Text t={__("common.learn_more")} />
-      </InfoLink>.
+      </InfoLink>
+      .
     </Message>
     <AcceptButton onClick={onAccept}>
       <Text t={__("common.got_it")} />

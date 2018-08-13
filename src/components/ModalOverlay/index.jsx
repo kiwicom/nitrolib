@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import Close from "react-icons/lib/md/close";
+import { MdClose } from "react-icons/md/index";
 
 /**
  * This is a copy of FE's old modal design.
@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   width: 400px;
 `;
 
-const StyledClose = styled(Close)`
+const StyledClose = styled(MdClose)`
   position: absolute;
   height: 24px;
   width: 24px;

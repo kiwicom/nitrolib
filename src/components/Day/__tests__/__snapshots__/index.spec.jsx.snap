@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#Day format custom 1`] = `<[object Object] />`;
+exports[`#Day format custom 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
 
-exports[`#Day format default 1`] = `<[object Object] />`;
+exports[`#Day format default 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

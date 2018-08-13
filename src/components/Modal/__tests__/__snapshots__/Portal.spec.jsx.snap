@@ -20,7 +20,7 @@ exports[`#Modal - Portal render - with target 2`] = `
 </div>
 `;
 
-exports[`#Modal - Portal render - with target 3`] = `""`;
+exports[`#Modal - Portal render - with target 3`] = `null`;
 
 exports[`#Modal - Portal render - with target 4`] = `
 <div
@@ -38,6 +38,6 @@ exports[`#Modal - Portal render - without target 1`] = `
 
 exports[`#Modal - Portal render - without target 2`] = `null`;
 
-exports[`#Modal - Portal render - without target 3`] = `""`;
+exports[`#Modal - Portal render - without target 3`] = `null`;
 
 exports[`#Modal - Portal render - without target 4`] = `null`;

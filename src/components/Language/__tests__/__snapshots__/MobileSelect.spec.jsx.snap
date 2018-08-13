@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#MobileSelect render 1`] = `
-<React.Fragment>
+<Fragment>
   <MobileSelect__Icon
     flagId="gb"
   />
@@ -337,5 +337,5 @@ exports[`#MobileSelect render 1`] = `
       English
     </option>
   </MobileSelect__NativeSelect>
-</React.Fragment>
+</Fragment>
 `;

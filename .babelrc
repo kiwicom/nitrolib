@@ -2,11 +2,11 @@
   "presets": [
     "@babel/react",
     "@babel/flow",
-    ["@babel/env", { "targets": { "browsers": "last 2 versions" } }],
-    ["@babel/stage-2", { "decoratorsLegacy": true }]
+    ["@babel/env", { "targets": { "browsers": "last 2 versions" } }]
   ],
   "plugins": [
     "@babel/transform-runtime",
+    "@babel/proposal-class-properties",
     "id",
     "relay",
     "idx",

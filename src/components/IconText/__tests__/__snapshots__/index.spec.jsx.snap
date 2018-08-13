@@ -2,7 +2,7 @@
 
 exports[`#IconText render 1`] = `
 <IconText__Container>
-  <MdClose
+  <Component
     className="icon"
   />
   <IconText__Text>

@@ -13,7 +13,9 @@ exports[`#CookiesModal render 1`] = `
       />
     </CookiesModal__Title>
     <CookiesModal__Content>
-      <[object Object] />
+      <ContextConsumer>
+        <Component />
+      </ContextConsumer>
     </CookiesModal__Content>
   </CookiesModal__Container>
 </Modal>
