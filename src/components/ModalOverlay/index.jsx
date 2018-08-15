@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import { MdClose } from "react-icons/md/index";
+import MdClose from "react-icons/lib/md/close";
 
 /**
  * This is a copy of FE's old modal design.

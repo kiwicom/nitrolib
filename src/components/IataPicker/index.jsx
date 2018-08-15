@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import { FaPlane } from "react-icons/fa/index";
+import FaPlane from "react-icons/lib/fa/plane";
 
 import InputText from "../InputText";
 import type { Change } from "../InputText";

@@ -2,7 +2,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withKnobs, text } from "@storybook/addon-knobs/react";
-import { MdClose } from "react-icons/md/index";
+import MdClose from "react-icons/lib/md/close";
 
 import IconText from "../src/components/IconText";
 

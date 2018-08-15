@@ -49,7 +49,7 @@
     "ramda": "^0.25.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-icons": "^3.0.5",
+    "react-icons": "^2.2.7",
     "react-relay": "^1.6.2",
     "relay-runtime": "^1.6.2",
     "styled-components": "^3.4.2"
@@ -108,7 +108,7 @@
     "ramda": "^0.25.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-icons": "^3.0.5",
+    "react-icons": "^2.2.7",
     "react-relay": "^1.6.2",
     "relay-compiler": "^1.6.2",
     "relay-runtime": "^1.6.2",

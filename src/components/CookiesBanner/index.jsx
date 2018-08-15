@@ -4,8 +4,8 @@ import styled, { css } from "styled-components";
 
 import Text from "../Text";
 import { themeDefault } from "../../records/Theme";
-import mq from "../../styles/mediaQuery";
 import type { ThemeProps } from "../../records/Theme";
+import mq from "../../styles/mediaQuery";
 
 const Container = styled.div`
   display: flex;

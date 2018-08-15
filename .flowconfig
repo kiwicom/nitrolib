@@ -11,7 +11,6 @@ unclear-type=off
 sketchy-null=off
 
 [ignore]
-<PROJECT_ROOT>\/node_modules\/graphviz\/.*
 
 [include]
 
