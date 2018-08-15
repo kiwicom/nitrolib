@@ -13,7 +13,6 @@
     ["styled-components", { "ssr": true }],
     "ramda"
   ],
-  "ignore": ["**/__generated__/*"],
   "env": {
     "modules": {
       "presets": [
