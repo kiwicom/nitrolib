@@ -33,8 +33,8 @@ const StyledLink = styled.a`
     padding-left: 10px;
     font-size: 16px;
     font-weight: 400;
-    span {
-      padding-left: 10px;
+    i {
+      padding-right: 10px;
     }
   `)};
 `;
