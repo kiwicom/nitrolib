@@ -80,7 +80,7 @@ describe("#NativeGroupedSelect", () => {
       />,
     );
 
-    wrapper.find("NativeGroupedSelect__Container").simulate("change", { target: { value: "c" } });
+    wrapper.find("NativeGroupedSelect__Select").simulate("change", { target: { value: "c" } });
 
     expect(onChange).toBeCalledWith("c");
   });

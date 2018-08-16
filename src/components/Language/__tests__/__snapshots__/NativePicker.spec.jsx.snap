@@ -1,39 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#Language/NativePicker render 1`] = `
-<NativePicker__Container>
-  <NativeGroupedSelect
-    divider="-----------------"
-    groups={
-      Array [
-        Object {
-          "items": Array [
-            Object {
-              "text": "English",
-              "value": "en",
-            },
-          ],
-          "key": "current",
-        },
-        Object {
-          "items": Array [
-            Object {
-              "text": "English",
-              "value": "en",
-            },
-          ],
-          "key": "all",
-        },
-      ]
-    }
-    icon={
-      <LanguageFlag
-        flagId="gb"
-        scale={0.5}
-      />
-    }
-    onChange={[MockFunction]}
-    value="en"
-  />
-</NativePicker__Container>
+<NativeGroupedSelect
+  divider="-----------------"
+  groups={
+    Array [
+      Object {
+        "items": Array [
+          Object {
+            "text": "English",
+            "value": "en",
+          },
+        ],
+        "key": "current",
+      },
+      Object {
+        "items": Array [
+          Object {
+            "text": "English",
+            "value": "en",
+          },
+        ],
+        "key": "all",
+      },
+    ]
+  }
+  icon={
+    <LanguageFlag
+      flagId="gb"
+      scale={0.5}
+    />
+  }
+  onChange={[MockFunction]}
+  value="en"
+/>
 `;

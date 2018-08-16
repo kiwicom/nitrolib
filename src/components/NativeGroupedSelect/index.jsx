@@ -5,26 +5,36 @@ import styled from "styled-components";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 
-const Container = styled.select`
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+type SelectProps = {|
+  ...ThemeProps,
+  hasIcon: boolean,
+|};
+
+const Select = styled.select`
   position: absolute;
   appearance: none;
   cursor: pointer;
   background-color: transparent;
   border: 0;
   outline: 0;
-  padding-left: 35px;
+  padding-left: ${({ hasIcon }: SelectProps) => (hasIcon ? "35px" : "0")};
   font-size: 12px;
   line-height: 21px;
   font-weight: 500;
-  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
+  color: ${({ theme }: SelectProps) => theme.orbit.paletteInkDark};
   font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
   letter-spacing: 0.02em;
   &:hover {
-    color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
+    color: ${({ theme }: SelectProps) => theme.orbit.paletteProductNormal};
   }
 `;
 
-Container.defaultProps = {
+Select.defaultProps = {
   theme: themeDefault,
 };
 
@@ -47,11 +57,12 @@ type Props = {|
 |};
 
 const NativeGroupedSelect = ({ icon, value, groups, divider, onChange }: Props) => (
-  <>
+  <Container>
     {icon}
-    <Container
+    <Select
       value={value}
       onChange={(ev: SyntheticInputEvent<HTMLSelectElement>) => onChange(ev.target.value)}
+      hasIcon={Boolean(icon)}
     >
       {groups.filter(group => group.items.length > 0).map((group, index) => (
         <optgroup key={group.key} label={index > 0 ? divider : null}>
@@ -62,8 +73,8 @@ const NativeGroupedSelect = ({ icon, value, groups, divider, onChange }: Props) 
           ))}
         </optgroup>
       ))}
-    </Container>
-  </>
+    </Select>
+  </Container>
 );
 
 NativeGroupedSelect.defaultProps = {

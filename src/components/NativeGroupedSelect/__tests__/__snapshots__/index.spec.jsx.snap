@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#NativeGroupedSelect render - multiple groups 1`] = `
-<Fragment>
-  <NativeGroupedSelect__Container
+<NativeGroupedSelect__Container>
+  <NativeGroupedSelect__Select
+    hasIcon={false}
     onChange={[Function]}
     theme={
       Object {
@@ -414,13 +415,14 @@ exports[`#NativeGroupedSelect render - multiple groups 1`] = `
         four
       </option>
     </optgroup>
-  </NativeGroupedSelect__Container>
-</Fragment>
+  </NativeGroupedSelect__Select>
+</NativeGroupedSelect__Container>
 `;
 
 exports[`#NativeGroupedSelect render - skip empty groups 1`] = `
-<Fragment>
-  <NativeGroupedSelect__Container
+<NativeGroupedSelect__Container>
+  <NativeGroupedSelect__Select
+    hasIcon={false}
     onChange={[Function]}
     theme={
       Object {
@@ -803,13 +805,14 @@ exports[`#NativeGroupedSelect render - skip empty groups 1`] = `
         four
       </option>
     </optgroup>
-  </NativeGroupedSelect__Container>
-</Fragment>
+  </NativeGroupedSelect__Select>
+</NativeGroupedSelect__Container>
 `;
 
 exports[`#NativeGroupedSelect render - with custom divider 1`] = `
-<Fragment>
-  <NativeGroupedSelect__Container
+<NativeGroupedSelect__Container>
+  <NativeGroupedSelect__Select
+    hasIcon={false}
     onChange={[Function]}
     theme={
       Object {
@@ -1221,16 +1224,17 @@ exports[`#NativeGroupedSelect render - with custom divider 1`] = `
         four
       </option>
     </optgroup>
-  </NativeGroupedSelect__Container>
-</Fragment>
+  </NativeGroupedSelect__Select>
+</NativeGroupedSelect__Container>
 `;
 
 exports[`#NativeGroupedSelect render - with icon 1`] = `
-<Fragment>
+<NativeGroupedSelect__Container>
   <i>
     Icon
   </i>
-  <NativeGroupedSelect__Container
+  <NativeGroupedSelect__Select
+    hasIcon={true}
     onChange={[Function]}
     theme={
       Object {
@@ -1584,13 +1588,14 @@ exports[`#NativeGroupedSelect render - with icon 1`] = `
         four
       </option>
     </optgroup>
-  </NativeGroupedSelect__Container>
-</Fragment>
+  </NativeGroupedSelect__Select>
+</NativeGroupedSelect__Container>
 `;
 
 exports[`#NativeGroupedSelect render 1`] = `
-<Fragment>
-  <NativeGroupedSelect__Container
+<NativeGroupedSelect__Container>
+  <NativeGroupedSelect__Select
+    hasIcon={false}
     onChange={[Function]}
     theme={
       Object {
@@ -1944,6 +1949,6 @@ exports[`#NativeGroupedSelect render 1`] = `
         four
       </option>
     </optgroup>
-  </NativeGroupedSelect__Container>
-</Fragment>
+  </NativeGroupedSelect__Select>
+</NativeGroupedSelect__Container>
 `;
