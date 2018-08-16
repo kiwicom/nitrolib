@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 3eb0e1bfd94e116f58479d5173267895
+ * @relayHash 24e11739cb8a59715b0db9a5dbc1691c
  */
 
 /* eslint-disable */
@@ -17,6 +17,10 @@ export type AirportListDataQueryResponse = {|
   +allLocations: ?{|
     +$fragmentRefs: AirportList_list$ref
   |}
+|};
+export type AirportListDataQuery = {|
+  variables: AirportListDataQueryVariables,
+  response: AirportListDataQueryResponse,
 |};
 */
 
@@ -35,6 +39,7 @@ fragment AirportList_list on LocationConnection {
     node {
       locationId
       ...AirportResult_item
+      id
     }
   }
 }
@@ -96,7 +101,7 @@ return {
   "operationKind": "query",
   "name": "AirportListDataQuery",
   "id": null,
-  "text": "query AirportListDataQuery(\n  $input: String!\n) {\n  allLocations(search: $input, options: {locationType: airport}) {\n    ...AirportList_list\n  }\n}\n\nfragment AirportList_list on LocationConnection {\n  edges {\n    node {\n      locationId\n      ...AirportResult_item\n    }\n  }\n}\n\nfragment AirportResult_item on Location {\n  locationId\n  name\n  type\n  city {\n    name\n  }\n  country {\n    locationId\n  }\n}\n",
+  "text": "query AirportListDataQuery(\n  $input: String!\n) {\n  allLocations(search: $input, options: {locationType: airport}) {\n    ...AirportList_list\n  }\n}\n\nfragment AirportList_list on LocationConnection {\n  edges {\n    node {\n      locationId\n      ...AirportResult_item\n      id\n    }\n  }\n}\n\nfragment AirportResult_item on Location {\n  locationId\n  name\n  type\n  city {\n    name\n  }\n  country {\n    locationId\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -187,6 +192,13 @@ return {
                     "selections": [
                       v2
                     ]
+                  },
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "id",
+                    "args": null,
+                    "storageKey": null
                   }
                 ]
               }

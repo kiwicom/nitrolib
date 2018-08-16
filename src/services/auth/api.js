@@ -4,6 +4,7 @@ import { mapUser } from "../../records/User";
 import type { User } from "../../records/User";
 import { handleError, handleJSON } from "../fetch/handlers";
 import { JSON_BOTH } from "../fetch/headers";
+import getOAuthRedirectUrl from "./services/getOAuthRedirectUrl";
 
 // noinspection SpellCheckingInspection
 const USER = "5433ecccaff67";
@@ -110,4 +111,28 @@ export function register(input: RegisterInput): Promise<void> {
   })
     .then(handleError)
     .then(() => {});
+}
+
+type SocialAuthProvider = "facebook" | "google";
+
+export async function socialAuth(
+  provider: SocialAuthProvider,
+  redirectUrl: string = window.location.href,
+): Promise<boolean> {
+  const response = await fetch(`${config.apiAuthUrl}/v1/oauth.getAuthorizationUrl`, {
+    method: "POST",
+    headers: JSON_BOTH,
+    body: JSON.stringify({
+      provider_id: provider,
+      app_id: config.userAppAppId,
+      redirect_url: getOAuthRedirectUrl(redirectUrl),
+    }),
+  }).then(handleJSON);
+
+  if (response.authorization_url) {
+    window.location.href = response.authorization_url;
+    return true;
+  }
+
+  return false;
 }
