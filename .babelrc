@@ -17,9 +17,6 @@
     "modules": {
       "presets": [
         ["@babel/env", { "modules": false, "targets": { "browsers": "last 2 versions" } }]
-      ],
-      "plugins": [
-        ["ramda", { "useES": true }]
       ]
     }
   }
