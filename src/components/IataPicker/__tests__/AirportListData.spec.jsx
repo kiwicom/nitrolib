@@ -11,6 +11,7 @@ const res = {
       edges: [
         {
           node: {
+            id: "VIE",
             locationId: "VIE",
             name: "Vienna airport",
             type: "airport",

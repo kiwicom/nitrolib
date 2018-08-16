@@ -2,8 +2,8 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import { brandLanguageDefault } from "../../../../records/BrandLanguage";
-import { tKeys } from "../../../../records/Continents";
+import { brandLanguageDefault } from "../../../../../records/BrandLanguage";
+import { tKeys } from "../../../../../records/Continents";
 import Menu from "../Menu";
 
 const languages = [brandLanguageDefault.languages.en];

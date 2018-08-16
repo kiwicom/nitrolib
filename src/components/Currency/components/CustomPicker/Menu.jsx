@@ -3,10 +3,10 @@ import * as React from "react";
 import * as R from "ramda";
 import styled, { css } from "styled-components";
 
-import type { Currency } from "../../../records/Currency";
-import mq from "../../../styles/mediaQuery";
-import { themeDefault } from "../../../records/Theme";
-import type { ThemeProps } from "../../../records/Theme";
+import type { Currency } from "../../../../records/Currency";
+import mq from "../../../../styles/mediaQuery";
+import { themeDefault } from "../../../../records/Theme";
+import type { ThemeProps } from "../../../../records/Theme";
 import CurrencyList from "./CurrencyList";
 
 type Props = {|

@@ -3,19 +3,19 @@ import * as React from "react";
 
 import * as currencyContext from "../../services/currency/context";
 import NativePicker from "./NativePicker";
-import CustomPicker from "./CustomPicker";
-import getAvailableList from "./services/getAvailableList";
+import CustomPicker from "./components/CustomPicker";
+import { getAvailableList } from "../../records/Currency";
 
 type Props = {|
   native: boolean,
-  loadingContent: React.Node,
+  loading: React.Node,
 |};
 
-const Currency = ({ native, loadingContent }: Props) => (
+const Currency = ({ native, loading }: Props) => (
   <currencyContext.Consumer>
     {({ currency, available, recommended, setCurrency }) => {
       if (!currency) {
-        return loadingContent;
+        return loading;
       }
 
       const availableList = getAvailableList(available);
@@ -41,7 +41,7 @@ const Currency = ({ native, loadingContent }: Props) => (
 
 Currency.defaultProps = {
   native: false,
-  loadingContent: null,
+  loading: null,
 };
 
 export default Currency;

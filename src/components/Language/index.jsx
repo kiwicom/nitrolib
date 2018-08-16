@@ -5,7 +5,7 @@ import * as R from "ramda";
 import * as intlContext from "../../services/intl/context";
 import * as fetchedContext from "../../services/fetched/context";
 import NativePicker from "./NativePicker";
-import CustomPicker from "./CustomPicker";
+import CustomPicker from "./components/CustomPicker";
 
 type Props = {|
   onChange: (lang: string) => void,

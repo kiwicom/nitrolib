@@ -2,11 +2,11 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
-import mq from "../../../styles/mediaQuery";
-import { themeDefault } from "../../../records/Theme";
-import type { ThemeProps } from "../../../records/Theme";
-import ClickOutside from "../../ClickOutside";
-import type { Currency } from "../../../records/Currency";
+import mq from "../../../../styles/mediaQuery";
+import { themeDefault } from "../../../../records/Theme";
+import type { ThemeProps } from "../../../../records/Theme";
+import ClickOutside from "../../../ClickOutside";
+import type { Currency } from "../../../../records/Currency";
 import Current from "./Current";
 import Menu from "./Menu";
 

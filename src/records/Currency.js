@@ -1,4 +1,6 @@
 // @flow strict
+import * as R from "ramda";
+
 export type Currency = {|
   id: string,
   name: string,
@@ -18,6 +20,11 @@ export const getCode = (code: string) => code.toUpperCase();
 export const getSymbol = (format: string) => format.replace("__price__", "").trim();
 export const format = (currency: Currency, price: number) =>
   currency.format.replace("__price__", String(price * currency.rate));
+
+export const getAvailableList: Currencies => Currency[] = R.compose(
+  R.sortBy(R.prop("id")),
+  R.values,
+);
 
 export const currencyDefault: Currency = {
   id: "eur",

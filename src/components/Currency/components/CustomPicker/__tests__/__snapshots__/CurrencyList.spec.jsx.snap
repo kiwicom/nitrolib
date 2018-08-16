@@ -1455,20 +1455,20 @@ exports[`#Currency/CustomPicker/CurrencyList render 2`] = `
   background: #00a991;
 }
 
-.c0 .Code-vzgv6u-0 {
+.c0 .Code-olhdp3-0 {
   font-weight: bold;
 }
 
-.c0 .Sign-s1oaqq8p-0 {
+.c0 .Sign-srczss-0 {
   margin-left: 10px;
 }
 
-.c0 .Name-s1hjmgmm-0 {
+.c0 .Name-s1vpea7j-0 {
   margin-left: 10px;
 }
 
 @media (min-width:769px) {
-  .c0 .Name-s1hjmgmm-0 {
+  .c0 .Name-s1vpea7j-0 {
     display: none;
   }
 }
@@ -1503,20 +1503,20 @@ exports[`#Currency/CustomPicker/CurrencyList render 3`] = `
   background: transparent;
 }
 
-.c0 .Code-vzgv6u-0 {
+.c0 .Code-olhdp3-0 {
   font-weight: bold;
 }
 
-.c0 .Sign-s1oaqq8p-0 {
+.c0 .Sign-srczss-0 {
   margin-left: 10px;
 }
 
-.c0 .Name-s1hjmgmm-0 {
+.c0 .Name-s1vpea7j-0 {
   margin-left: 10px;
 }
 
 @media (min-width:769px) {
-  .c0 .Name-s1hjmgmm-0 {
+  .c0 .Name-s1vpea7j-0 {
     display: none;
   }
 }
