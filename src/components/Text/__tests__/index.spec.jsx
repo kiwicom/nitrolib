@@ -16,4 +16,10 @@ describe("#Text", () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  test("html with a component", () => {
+    const wrapper = shallow(<Text t="lol __x__ kek" html values={{ x: <span>rofl</span> }} />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

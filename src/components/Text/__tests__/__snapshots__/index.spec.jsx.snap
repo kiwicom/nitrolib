@@ -6,6 +6,12 @@ exports[`#Text html 1`] = `
 </ContextConsumer>
 `;
 
+exports[`#Text html with a component 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
 exports[`#Text string 1`] = `
 <ContextConsumer>
   <Component />
