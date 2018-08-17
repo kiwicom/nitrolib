@@ -11,76 +11,76 @@ Run `yarn nitro <command>`. Available commands:
 
 Located in `@kiwicom/nitro/lib/components/<component>`.
 
-* [AirportResult](./src/components/AirportResult/index.js.flow)
-* [BrandName](./src/components/BrandName/index.js.flow)
-* [ClickOutside](./src/components/ClickOutside/index.js.flow) - calls a callback when a user clicks outside of this component
-* [ClientOnly](./src/components/ClientOnly/index.js.flow) - only rendered client-side, useful for code performing side effects on mount
-* [CookiesBanner](./src/components/CookiesBanner/index.js.flow)
-* [CookiesModal](./src/components/CookiesModal/index.js.flow)
-* [Day](./src/components/Day/index.js.flow)
-* [Flag](./src/components/Flag/index.js.flow)
-* [IataPicker](./src/components/IataPicker/index.js.flow)
-* [IconText](./src/components/IconText/index.js.flow)
-* [InputDate](./src/components/InputDate/index.js.flow)
-* [InputText](./src/components/InputText/index.js.flow)
-* [Modal](./src/components/Modal/index.js.flow)
-* [ModalOverlay](./src/components/ModalOverlay/index.js.flow)
-* [Price](./src/components/Price/index.js.flow)
-* [Select](./src/components/Select/index.js.flow)
-* [Tab](./src/components/Tab/index.js.flow)
-* [Text](./src/components/Text/index.js.flow)
-* [Time](./src/components/Time/index.js.flow)
-* [Tooltip](./src/components/Tooltip/index.js.flow)
+* [AirportResult](./src/components/AirportResult/index.jsx)
+* [BrandName](./src/components/BrandName/index.jsx)
+* [ClickOutside](./src/components/ClickOutside/index.jsx) - calls a callback when a user clicks outside of this component
+* [ClientOnly](./src/components/ClientOnly/index.jsx) - only rendered client-side, useful for code performing side effects on mount
+* [CookiesBanner](./src/components/CookiesBanner/index.jsx)
+* [CookiesModal](./src/components/CookiesModal/index.jsx)
+* [Day](./src/components/Day/index.jsx)
+* [Flag](./src/components/Flag/index.jsx)
+* [IataPicker](./src/components/IataPicker/index.jsx)
+* [IconText](./src/components/IconText/index.jsx)
+* [InputDate](./src/components/InputDate/index.jsx)
+* [InputText](./src/components/InputText/index.jsx)
+* [Modal](./src/components/Modal/index.jsx)
+* [ModalOverlay](./src/components/ModalOverlay/index.jsx)
+* [Price](./src/components/Price/index.jsx)
+* [Select](./src/components/Select/index.jsx)
+* [Tab](./src/components/Tab/index.jsx)
+* [Text](./src/components/Text/index.jsx)
+* [Time](./src/components/Time/index.jsx)
+* [Tooltip](./src/components/Tooltip/index.jsx)
 
 ## Consts
 
 Located in `@kiwicom/nitro/lib/consts/<const>`.
 
-* [config](./src/consts/config.js.flow)
-* [device](./src/consts/device.js.flow)
+* [config](./src/consts/config.js)
+* [device](./src/consts/device.js)
 
 ## Primitives
 
 Located in `@kiwicom/nitro/lib/primitives/<primitive>`.
 
-* [Flex](./src/primitives/Flex.js.flow)
+* [Flex](./src/primitives/Flex.js)
 
 ## Records
 
 Located in `@kiwicom/nitro/lib/records/<record>`.
 
-* [Brand](./src/records/Brand.js.flow)
-* [BrandLanguage](./src/records/BrandLanguage.js.flow)
-* [Continents](./src/records/Continents.js.flow)
-* [Country](./src/records/Country.js.flow)
-* [Currency](./src/records/Currency.js.flow)
-* [Fetched](./src/records/Fetched.js.flow)
-* [Intl](./src/records/Intl.js.flow)
-* [LangInfo](./src/records/LangInfo.js.flow)
-* [Languages](./src/records/Languages.js.flow)
+* [Brand](./src/records/Brand.js)
+* [BrandLanguage](./src/records/BrandLanguage.js)
+* [Continents](./src/records/Continents.js)
+* [Country](./src/records/Country.js)
+* [Currency](./src/records/Currency.js)
+* [Fetched](./src/records/Fetched.js)
+* [Intl](./src/records/Intl.js)
+* [LangInfo](./src/records/LangInfo.js)
+* [Languages](./src/records/Languages.js)
 
 ## Services
 
 Located in `@kiwicom/nitro/lib/services/<service>`.
 
-* [intl/translate](./src/services/intl/translate.js.flow) - a translation function
+* [intl/translate](./src/services/intl/translate.js) - a translation function
 
 ### Contexts
 
 Located in `@kiwicom/nitro/lib/services/<service>/context.js`.
 
-* [brand](./src/services/brand/context.js.flow)
-* [currency](./src/services/currency/context.js.flow)
-* [fetched](./src/services/fetched/context.js.flow)
-* [intl](./src/services/intl/context.js.flow)
+* [brand](./src/services/brand/context.js)
+* [currency](./src/services/currency/context.jsx)
+* [fetched](./src/services/fetched/context.js)
+* [intl](./src/services/intl/context.js)
 
 ## Styles
 
 Located in `@kiwicom/nitro/lib/styles/<style>`
 
-* [index](./src/styles/index.js.flow) - has a bunch of constants regarding styles
-* [mediaQuery](./src/styles/mediaQuery.js.flow) - functions for generating media queries
-* [mixins/border](./src/styles/mixins/border.js.flow) - determines border state based on supplied component state
+* [index](./src/styles/index.js) - has a bunch of constants regarding styles
+* [mediaQuery](./src/styles/mediaQuery.js) - functions for generating media queries
+* [mixins/border](./src/styles/mixins/border.js) - determines border state based on supplied component state
 
 ## License
 
