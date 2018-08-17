@@ -15,8 +15,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [BrandName](./src/components/BrandName/index.jsx)
 * [ClickOutside](./src/components/ClickOutside/index.jsx) - calls a callback when a user clicks outside of this component
 * [ClientOnly](./src/components/ClientOnly/index.jsx) - only rendered client-side, useful for code performing side effects on mount
-* [CookiesBanner](./src/components/CookiesBanner/index.jsx)
-* [CookiesModal](./src/components/CookiesModal/index.jsx)
+* [CookiesConsent](./src/components/CookiesConsent/index.jsx)
 * [Day](./src/components/Day/index.jsx)
 * [Flag](./src/components/Flag/index.jsx)
 * [IataPicker](./src/components/IataPicker/index.jsx)

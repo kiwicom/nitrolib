@@ -2,9 +2,9 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import Modal from "../Modal";
-import Text from "../Text";
-import { Consumer as BrandConsumer } from "../../services/brand/context";
+import Modal from "../../../Modal/index";
+import Text from "../../../Text/index";
+import { Consumer as BrandConsumer } from "../../../../services/brand/context";
 
 const Container = styled.div``;
 

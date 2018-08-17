@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import CookiesBanner from "..";
+import CookiesBanner from "../index";
 
 describe("#CookiesBanner", () => {
   test("render", () => {

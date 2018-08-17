@@ -2,10 +2,10 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
-import Text from "../Text";
-import { themeDefault } from "../../records/Theme";
-import type { ThemeProps } from "../../records/Theme";
-import mq from "../../styles/mediaQuery";
+import Text from "../../../Text/index";
+import { themeDefault } from "../../../../records/Theme";
+import type { ThemeProps } from "../../../../records/Theme";
+import mq from "../../../../styles/mediaQuery";
 
 const Container = styled.div`
   display: flex;

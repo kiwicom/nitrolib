@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import CookiesModal from "..";
+import CookiesModal from "../index";
 
 describe("#CookiesModal", () => {
   test("render", () => {
