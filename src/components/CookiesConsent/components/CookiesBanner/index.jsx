@@ -1,6 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
+import MdClose from "react-icons/lib/md/close";
 
 import Text from "../../../Text/index";
 import { themeDefault } from "../../../../records/Theme";
@@ -8,6 +9,7 @@ import type { ThemeProps } from "../../../../records/Theme";
 import mq from "../../../../styles/mediaQuery";
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,47 +40,42 @@ const Message = styled.p`
   ${mq.gtTablet(css`
     opacity: 1;
   `)};
-`;
 
-const InfoLink = styled.a`
-  text-decoration: underline;
-  cursor: pointer;
-
-  &:hover {
-    color: white;
-    opacity: 1;
+  a {
+    text-decoration: none;
+    font-weight: 700;
+    color: ${({ theme }: ThemeProps) => theme.orbit.colorTextPrimary};
   }
-
-  ${mq.gtTablet(css`
-    &:hover {
-      color: initial;
-    }
-  `)};
 `;
+
+Message.defaultProps = {
+  theme: themeDefault,
+};
 
 const AcceptButton = styled.a`
-  padding: 10px 10px 10px 20px;
-  font-weight: bold;
-  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
   cursor: pointer;
+`;
+
+const Close = styled(MdClose)`
+  height: 20px;
+  width: 20px;
 `;
 
 type Props = {|
-  onShowInfo: () => void,
   onAccept: () => void,
 |};
 
-const CookiesBanner = ({ onShowInfo, onAccept }: Props) => (
+const CookiesBanner = ({ onAccept }: Props) => (
   <Container>
     <Message>
-      <Text t={__("content.cookies.popup.full")} />{" "}
-      <InfoLink onClick={onShowInfo}>
-        <Text t={__("common.learn_more")} />
-      </InfoLink>
-      .
+      <Text t={__("content.cookies.banner.text")} />
     </Message>
     <AcceptButton onClick={onAccept}>
-      <Text t={__("common.got_it")} />
+      <Close />
     </AcceptButton>
   </Container>
 );
