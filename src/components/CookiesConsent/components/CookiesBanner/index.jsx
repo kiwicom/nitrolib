@@ -15,7 +15,7 @@ const Container = styled.div`
   align-items: center;
   box-sizing: border-box;
   width: 100%;
-  padding: 10px 20px 10px 50px;
+  padding: 10px 50px 10px 20px;
   font-size: 12px;
   line-height: 20px;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
@@ -25,7 +25,7 @@ const Container = styled.div`
   box-shadow: 0 -1px 6px 0 rgba(0, 0, 0, 0.2);
 
   ${mq.gtTablet(css`
-    padding: 20px 20px 20px 50px;
+    padding: 20px 50px 20px 20px;
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormalActive};
     background: white;
   `)};
