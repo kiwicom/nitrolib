@@ -648,7 +648,7 @@ exports[`#CookiesBanner render 1`] = `
     }
   >
     <Text
-      html={false}
+      html={true}
       t="content.cookies.banner.text"
       values={Object {}}
     />
