@@ -15,8 +15,9 @@ const Container = styled.div`
   align-items: center;
   box-sizing: border-box;
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 20px 10px 50px;
   font-size: 12px;
+  line-height: 20px;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
   color: white;
   opacity: 0.94;
@@ -44,7 +45,11 @@ const Message = styled.p`
   a {
     text-decoration: none;
     font-weight: 700;
-    color: ${({ theme }: ThemeProps) => theme.orbit.colorTextPrimary};
+    color: ${({ theme }: ThemeProps) => theme.orbit.colorTextLinkPrimary};
+
+    &:hover {
+      color: ${({ theme }: ThemeProps) => theme.orbit.colorTextLinkPrimaryHover};
+    }
   }
 `;
 
