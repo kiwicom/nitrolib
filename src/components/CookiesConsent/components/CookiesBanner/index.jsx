@@ -72,7 +72,7 @@ type Props = {|
 const CookiesBanner = ({ onAccept }: Props) => (
   <Container>
     <Message>
-      <Text t={__("content.cookies.banner.text")} />
+      <Text t={__("content.cookies.banner.text")} html />
     </Message>
     <AcceptButton onClick={onAccept}>
       <Close />
