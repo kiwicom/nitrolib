@@ -25,16 +25,4 @@ describe("#CookiesConsent", () => {
 
     expect(onAccept).toBeCalled();
   });
-
-  test("showInfo / hideInfo", () => {
-    const wrapper = shallow(<CookiesConsent accepted onAccept={jest.fn()} />);
-
-    const instance = wrapper.instance();
-
-    instance.handleShowInfo();
-    expect(wrapper).toMatchSnapshot();
-
-    instance.handleHideInfo();
-    expect(wrapper).toMatchSnapshot();
-  });
 });

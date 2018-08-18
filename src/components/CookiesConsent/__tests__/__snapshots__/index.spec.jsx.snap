@@ -1,40 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#CookiesConsent render - cookies accepted 1`] = `
-<Fragment>
-  <CookiesBanner
-    onAccept={[Function]}
-    onShowInfo={[Function]}
-  />
-</Fragment>
+<CookiesBanner
+  onAccept={[Function]}
+/>
 `;
 
 exports[`#CookiesConsent render - cookies not accepted 1`] = `
-<Fragment>
-  <CookiesBanner
-    onAccept={[Function]}
-    onShowInfo={[Function]}
-  />
-</Fragment>
-`;
-
-exports[`#CookiesConsent showInfo / hideInfo 1`] = `
-<Fragment>
-  <CookiesBanner
-    onAccept={[Function]}
-    onShowInfo={[Function]}
-  />
-  <CookiesModal
-    onClose={[Function]}
-  />
-</Fragment>
-`;
-
-exports[`#CookiesConsent showInfo / hideInfo 2`] = `
-<Fragment>
-  <CookiesBanner
-    onAccept={[Function]}
-    onShowInfo={[Function]}
-  />
-</Fragment>
+<CookiesBanner
+  onAccept={[Function]}
+/>
 `;

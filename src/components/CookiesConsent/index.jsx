@@ -17,7 +17,7 @@ class CookiesConsent extends React.PureComponent<Props, State> {
     accepted: false,
   };
 
-  static getDerivedStateFromProps(props: Props, state: State) {
+  static getDerivedStateFromProps(props: Props) {
     return {
       accepted: props.accepted,
     };
