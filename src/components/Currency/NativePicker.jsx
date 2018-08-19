@@ -4,8 +4,8 @@ import * as R from "ramda";
 import { Exchange } from "@kiwicom/orbit-components/lib/icons";
 
 import NativeGroupedSelect from "../NativeGroupedSelect";
-import { getCode, getSymbol } from "../../records/Currency";
-import type { Currency } from "../../records/Currency";
+import { getCode, getSymbol } from "records/Currency";
+import type { Currency } from "records/Currency";
 
 const mapCurrencies = R.map(currency => ({
   value: currency.id,

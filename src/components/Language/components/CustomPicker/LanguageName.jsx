@@ -2,8 +2,8 @@
 import * as React from "react";
 
 import LanguageFlag from "../../LanguageFlag";
-import type { LangInfo } from "../../../../records/LangInfo";
-import type { Language } from "../../../../records/Languages";
+import type { LangInfo } from "records/LangInfo";
+import type { Language } from "records/Languages";
 import LanguageNameText from "./LanguageNameText";
 
 type Props = {|

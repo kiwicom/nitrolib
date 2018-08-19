@@ -3,8 +3,8 @@ import * as React from "react";
 import * as R from "ramda";
 
 import NativeGroupedSelect from "../NativeGroupedSelect";
-import type { Language } from "../../records/Languages";
-import type { LangInfo } from "../../records/LangInfo";
+import type { Language } from "records/Languages";
+import type { LangInfo } from "records/LangInfo";
 import LanguageFlag from "./LanguageFlag";
 
 const mapLanguages = R.map(language => ({

@@ -5,7 +5,7 @@ import setDate from "date-fns/setDate";
 import setMonth from "date-fns/setMonth";
 import setYear from "date-fns/setYear";
 
-import Flex from "../../primitives/Flex";
+import Flex from "primitives/Flex";
 import calculateRanges from "./services/calculateRanges";
 import Dates from "./Dates";
 import Months from "./Months";

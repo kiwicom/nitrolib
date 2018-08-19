@@ -5,7 +5,7 @@ import "jest-styled-components";
 
 import InputText from "..";
 
-import { themeDefault } from "../../../records/Theme";
+import { themeDefault } from "records/Theme";
 
 describe("#InputText", () => {
   test("removing unwanted props", () => {

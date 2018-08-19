@@ -1,8 +1,8 @@
 // @flow strict
 import * as React from "react";
 
-import { userDefault } from "../../records/User";
-import type { User } from "../../records/User";
+import { userDefault } from "records/User";
+import type { User } from "records/User";
 import * as api from "./api";
 
 type Props = {|

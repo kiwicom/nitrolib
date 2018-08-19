@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import NativeGroupedSelect from "../index";
+import NativeGroupedSelect from "..";
 
 const items = [
   { value: "a", text: "one" },

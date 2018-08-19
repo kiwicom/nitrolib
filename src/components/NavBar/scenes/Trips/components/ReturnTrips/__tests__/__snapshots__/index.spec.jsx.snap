@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#ReturnTrips render 1`] = `
+<TripItem
+  arrivalCity="Kuala Lumpur"
+  arrivalTime="2018-03-06T10:45:00.000Z"
+  countOtherCities={0}
+  departureCity="Johor Bahru"
+  departureTime="2018-02-26T06:00:00.000Z"
+  id="Qm9va2luZ1JldHVybjo1NTk2Mjk0"
+  img="url"
+  lang="en"
+  passengerCount={1}
+/>
+`;

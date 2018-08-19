@@ -11,7 +11,10 @@
     "relay",
     "idx",
     ["styled-components", { "ssr": true }],
-    "ramda"
+    "ramda",
+    ["module-resolver", {
+      "root": ["./src"]
+    }]
   ],
   "env": {
     "modules": {

@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import Language from "../index";
+import Language from "..";
 
 describe("#Language", () => {
   test("render", () => {

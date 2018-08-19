@@ -1,7 +1,7 @@
 // @flow strict
 import config from "../../consts/config";
-import { mapUser } from "../../records/User";
-import type { User } from "../../records/User";
+import { mapUser } from "records/User";
+import type { User } from "records/User";
 import { handleError, handleJSON } from "../fetch/handlers";
 import { JSON_BOTH } from "../fetch/headers";
 import getOAuthRedirectUrl from "./services/getOAuthRedirectUrl";

@@ -1,10 +1,10 @@
 // @flow strict
 import * as React from "react";
 
-import { intlDefault } from "../../records/Intl";
+import { intlDefault } from "records/Intl";
 import translate from "./translate";
 import type { Values } from "./translate";
-import type { LangInfo } from "../../records/LangInfo";
+import type { LangInfo } from "records/LangInfo";
 
 const { Consumer, Provider } = React.createContext(intlDefault);
 

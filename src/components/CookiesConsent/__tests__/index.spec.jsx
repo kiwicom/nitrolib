@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import CookiesConsent from "../index";
+import CookiesConsent from "..";
 
 describe("#CookiesConsent", () => {
   test("render - cookies not accepted", () => {

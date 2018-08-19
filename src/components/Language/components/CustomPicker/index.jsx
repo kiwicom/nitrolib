@@ -6,12 +6,12 @@ import ClickOutside from "../../../ClickOutside";
 import LanguageName from "./LanguageName";
 import Menu from "./Menu";
 import LanguageNameText from "./LanguageNameText";
-import mq from "../../../../styles/mediaQuery";
-import button from "../../../../styles/mixins/button";
-import { themeDefault } from "../../../../records/Theme";
-import type { ThemeProps } from "../../../../records/Theme";
-import type { LangInfo } from "../../../../records/LangInfo";
-import type { Language } from "../../../../records/Languages";
+import mq from "styles/mediaQuery";
+import button from "styles/mixins/button";
+import { themeDefault } from "records/Theme";
+import type { ThemeProps } from "records/Theme";
+import type { LangInfo } from "records/LangInfo";
+import type { Language } from "records/Languages";
 
 const OpenButton = styled.button`
   ${button};

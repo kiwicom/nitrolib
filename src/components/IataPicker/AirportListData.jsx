@@ -2,7 +2,7 @@
 import * as React from "react";
 import { graphql, QueryRenderer } from "react-relay";
 
-import environmentReal from "../../services/environment";
+import environmentReal from "services/environment";
 import AirportList from "./AirportList";
 
 type Props = {|

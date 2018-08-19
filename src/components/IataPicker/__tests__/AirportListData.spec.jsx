@@ -3,7 +3,7 @@ import * as React from "react";
 import { mount } from "enzyme";
 
 import AirportListData from "../AirportListData";
-import makeEnvironment from "../../../services/utils/makeEnvironment";
+import makeEnvironment from "services/utils/makeEnvironment";
 
 const res = {
   data: {

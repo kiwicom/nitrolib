@@ -2,8 +2,8 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import { langInfoDefault } from "../../../records/LangInfo";
-import { brandLanguageDefault } from "../../../records/BrandLanguage";
+import { langInfoDefault } from "records/LangInfo";
+import { brandLanguageDefault } from "records/BrandLanguage";
 import NativePicker from "../NativePicker";
 
 describe("#Language/NativePicker", () => {

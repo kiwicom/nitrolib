@@ -2,10 +2,11 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import { langInfoDefault } from "../../../../../records/LangInfo";
-import { brandLanguageDefault } from "../../../../../records/BrandLanguage";
-import { tKeys } from "../../../../../records/Continents";
-import CustomPicker from "../index";
+import { langInfoDefault } from "records/LangInfo";
+import { brandLanguageDefault } from "records/BrandLanguage";
+import { tKeys } from "records/Continents";
+
+import CustomPicker from "..";
 
 const current = langInfoDefault;
 const languages = [brandLanguageDefault.languages.en];

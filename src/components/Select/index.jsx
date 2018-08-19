@@ -3,9 +3,9 @@ import * as React from "react";
 import MdExpandMore from "react-icons/lib/md/expand-more";
 import styled from "styled-components";
 
-import borderMixin from "../../styles/mixins/border";
-import { themeDefault } from "../../records/Theme";
-import type { ThemeProps } from "../../records/Theme";
+import borderMixin from "styles/mixins/border";
+import { themeDefault } from "records/Theme";
+import type { ThemeProps } from "records/Theme";
 
 const Container = styled.div`
   position: relative;

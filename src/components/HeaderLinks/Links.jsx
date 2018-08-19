@@ -5,12 +5,12 @@ import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
 import CarRental from "@kiwicom/orbit-components/lib/icons/CarRental";
 import Suitcase from "@kiwicom/orbit-components/lib/icons/Suitcase";
 
-import * as intlContext from "../../services/intl/context";
-import * as currencyContext from "../../services/currency/context";
+import * as intlContext from "services/intl/context";
+import * as currencyContext from "services/currency/context";
 import Text from "../Text";
 import Link from "./Link";
 import { getCarsLanguage, getLink } from "./services/link";
-import type { Splitster } from "../../records/Splitster";
+import type { Splitster } from "records/Splitster";
 
 type Props = {|
   splitster?: Splitster,

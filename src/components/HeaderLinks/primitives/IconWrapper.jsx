@@ -1,9 +1,9 @@
 // @flow
 import styled, { css } from "styled-components";
 
-import { themeDefault } from "../../../records/Theme";
-import type { ThemeProps } from "../../../records/Theme";
-import mq from "../../../styles/mediaQuery";
+import { themeDefault } from "records/Theme";
+import type { ThemeProps } from "records/Theme";
+import mq from "styles/mediaQuery";
 
 type ActiveProps = {|
   ...ThemeProps,

@@ -5,7 +5,7 @@ export type Splitster = {
 };
 
 // eslint-disable-next-line import/prefer-default-export
-export const splisterDefault: Splitster = {
+export const splitsterDefault: Splitster = {
   HEADER_LINKS_PACKAGE_PROVIDER_LASTMINUTE: "",
   HEADER_LINKS_PACKAGE_PROVIDER: "",
 };

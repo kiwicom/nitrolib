@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import HeaderLinks from "../index";
+import HeaderLinks from "..";
 
 describe("#Currency", () => {
   test("render", async () => {

@@ -5,8 +5,8 @@ import styled from "styled-components";
 import idx from "idx";
 
 import Flag from "../Flag";
-import { themeDefault } from "../../records/Theme";
-import type { ThemeProps } from "../../records/Theme";
+import { themeDefault } from "records/Theme";
+import type { ThemeProps } from "records/Theme";
 import type { AirportResult_item } from "./__generated__/AirportResult_item.graphql";
 
 type ButtonProps = ThemeProps & {

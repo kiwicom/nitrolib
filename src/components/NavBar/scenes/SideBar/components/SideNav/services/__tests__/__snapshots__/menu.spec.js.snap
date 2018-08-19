@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Sidenav service menu fetches company section 1`] = `
+Object {
+  "about": Object {
+    "Icon": [Function],
+    "enabled": true,
+    "fully_qualified": false,
+    "link": "/pages/content/about",
+    "title": "content.pages.about.title",
+  },
+  "careers": Object {
+    "Icon": [Function],
+    "enabled": true,
+    "fully_qualified": true,
+    "link": "https://www.kiwi.com/jobs",
+    "title": "content.pages.careers.title",
+  },
+  "faq": Object {
+    "enabled": true,
+    "fully_qualified": false,
+    "link": "/helpcenter",
+  },
+  "guarantee": Object {
+    "Icon": [Function],
+    "enabled": true,
+    "fully_qualified": false,
+    "link": "/pages/guarantee",
+    "title": "content.pages.guarantee.title",
+  },
+  "invite": Object {
+    "Icon": [Function],
+    "enabled": true,
+    "link": "/pages/invite",
+    "title": "pages.buddy.landing.title",
+  },
+  "media": Object {
+    "Icon": [Function],
+    "enabled": true,
+    "fully_qualified": false,
+    "link": "/pages/content/media",
+    "title": "content.pages_v2.media.press_kit",
+  },
+  "privacy": Object {
+    "Icon": [Function],
+    "enabled": true,
+    "fully_qualified": false,
+    "link": "/content/privacy",
+    "title": "content.pages.privacy.title",
+  },
+  "security": Object {
+    "Icon": [Function],
+    "enabled": true,
+    "link": "/pages/security",
+    "title": "content.pages.security_title",
+  },
+  "stories": Object {
+    "Icon": [Function],
+    "enabled": true,
+    "link": "https://www.kiwi.com/stories/?utm_source=kiwicom&utm_medium=website",
+    "title": "content.stories",
+  },
+  "terms": Object {
+    "Icon": [Function],
+    "enabled": true,
+    "fully_qualified": false,
+    "link": "/pages/content/legal",
+    "title": "content.pages.legal.title",
+  },
+  "top_routes": Object {
+    "enabled": true,
+    "fully_qualified": false,
+    "link": "/cheap-flights",
+  },
+}
+`;
+
+exports[`#Sidenav service menu filters social media 1`] = `
+Array [
+  Object {
+    "Icon": [Function],
+    "enabled": true,
+    "link": "https://instagram.com/kiwicom247",
+    "type": "instagram",
+  },
+  Object {
+    "Icon": [Function],
+    "enabled": true,
+    "link": "https://twitter.com/kiwicom247",
+    "type": "twitter",
+  },
+  Object {
+    "Icon": [Function],
+    "enabled": true,
+    "link": "https://www.linkedin.com/company/Kiwi.com",
+    "type": "linkedin",
+  },
+  Object {
+    "Icon": [Function],
+    "enabled": true,
+    "link": "https://www.facebook.com/kiwicom247",
+    "type": "facebook",
+  },
+]
+`;

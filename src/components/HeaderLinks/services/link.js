@@ -1,7 +1,7 @@
 // @flow strict
-import type { Currency } from "../../../records/Currency";
-import type { LangInfo } from "../../../records/LangInfo";
-import type { Splitster } from "../../../records/Splitster";
+import type { Currency } from "records/Currency";
+import type { LangInfo } from "records/LangInfo";
+import type { Splitster } from "records/Splitster";
 
 // holidays.kiwi.com are powered by Logitravel
 const getLogitravelDeeplink = (isoShort: string) => {

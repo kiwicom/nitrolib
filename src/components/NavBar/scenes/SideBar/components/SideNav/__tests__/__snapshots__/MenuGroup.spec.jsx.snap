@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#SideNav MenuGroup render 1`] = `
+<MenuGroup__Menu
+  itemScope={true}
+  itemType="http://www.schema.org/SiteNavigationElement"
+>
+  KEK
+</MenuGroup__Menu>
+`;

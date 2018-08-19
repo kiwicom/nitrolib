@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import Currency from "../index";
+import Currency from "..";
 
 describe("#Currency", () => {
   test("render", () => {

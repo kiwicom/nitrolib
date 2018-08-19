@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#SideNav render 1`] = `
+<Fragment>
+  <SideNav__MenuOpen
+    onClick={[Function]}
+  >
+     
+    <MenuHamburger />
+  </SideNav__MenuOpen>
+</Fragment>
+`;

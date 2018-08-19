@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#OneWayTrips render 1`] = `
+<TripItem
+  arrivalCity="Moscow"
+  arrivalTime="2017-08-03T23:45:00.000Z"
+  countOtherCities={0}
+  departureCity="Prague"
+  departureTime="2017-08-03T21:10:00.000Z"
+  id="Qm9va2luZ09uZVdheTozNzA1ODU5"
+  img="url"
+  lang="en"
+  passengerCount={2}
+/>
+`;

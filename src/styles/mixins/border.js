@@ -1,7 +1,7 @@
 // @flow strict
 import { css } from "styled-components";
 
-import type { ThemeProps } from "../../records/Theme";
+import type { ThemeProps } from "records/Theme";
 
 import { border } from "..";
 

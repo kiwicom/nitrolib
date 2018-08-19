@@ -2,7 +2,7 @@
 import * as React from "react";
 import format from "date-fns/format";
 
-import { Consumer } from "../../services/intl/context";
+import { Consumer } from "services/intl/context";
 
 type Props = {
   date: Date,

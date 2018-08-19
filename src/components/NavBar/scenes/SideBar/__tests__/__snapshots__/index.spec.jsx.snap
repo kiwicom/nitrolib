@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#SideBar render 1`] = `
+<Fragment>
+  <ContextConsumer>
+    <Component />
+  </ContextConsumer>
+  <SideNav
+    debug={false}
+    onOpenChat={[MockFunction]}
+    onOpenRegister={[Function]}
+    onOpenSignIn={[Function]}
+    onOpenSubscription={[MockFunction]}
+    onSaveLanguage={[MockFunction]}
+  />
+</Fragment>
+`;
+
+exports[`#SideBar render with modal 1`] = `
+<Fragment>
+  <ContextConsumer>
+    <Component />
+  </ContextConsumer>
+  <SideNav
+    debug={false}
+    onOpenChat={[MockFunction]}
+    onOpenRegister={[Function]}
+    onOpenSignIn={[Function]}
+    onOpenSubscription={[MockFunction]}
+    onSaveLanguage={[MockFunction]}
+  />
+  <Modal
+    onClose={[Function]}
+  >
+    <Login
+      onOpenMyBooking={[Function]}
+      onOpenRegister={[Function]}
+      onOpenSignIn={[Function]}
+      onSaveToken={[MockFunction]}
+      open="myBooking"
+    />
+  </Modal>
+</Fragment>
+`;

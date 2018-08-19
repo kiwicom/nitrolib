@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import { Consumer } from "../../services/intl/context";
+import { Consumer } from "services/intl/context";
 
 type Props = {
   t: string,
