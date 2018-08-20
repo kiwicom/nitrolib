@@ -2,12 +2,12 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import { withKnobs } from "@storybook/addon-knobs/react";
 
 import CookiesConsent from "../src/components/CookiesConsent";
+import withData from "./decorators/withData";
 
 storiesOf("CookiesConsent", module)
-  .addDecorator(withKnobs)
+  .addDecorator(withData)
   .add("default", () => (
     <>
       <div id="modal" />
