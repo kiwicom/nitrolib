@@ -112,6 +112,7 @@
     "react-dom": "^16.4.2",
     "react-icons": "^2.2.7",
     "react-relay": "^1.6.2",
+    "react-transition-group": "^2.4.0",
     "relay-compiler": "^1.6.2",
     "relay-runtime": "^1.6.2",
     "renamer": "^1.0.0",

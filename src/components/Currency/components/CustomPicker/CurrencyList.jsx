@@ -37,22 +37,23 @@ const ItemText = styled.div`
   background: ${({ theme, active }) => (active ? theme.orbit.paletteProductNormal : "transparent")};
 
   &:hover {
-    background: ${({ theme, active }) => theme.orbit[active ? "primary-600" : "grey-100"]};
+    background: ${({ theme, active }) =>
+      theme.orbit[active ? "paletteProductNormal" : "paletteCloudNormal"]};
   }
 
   ${Code} {
     font-weight: bold;
-    color: ${({ theme, active }) => theme.orbit[active ? "white" : "grey-900"]};
+    color: ${({ theme, active }) => theme.orbit[active ? "paletteWhite" : "paletteInkNormal"]};
   }
 
   ${Sign} {
     margin-left: 10px;
-    color: ${({ theme, active }) => theme.orbit[active ? "white" : "grey-700"]};
+    color: ${({ theme, active }) => theme.orbit[active ? "paletteWhite" : "paletteInkNormal"]};
   }
 
   ${Name} {
     margin-left: 10px;
-    color: ${({ theme, active }) => theme.orbit[active ? "white" : "inherit"]};
+    color: ${({ theme, active }) => theme.orbit[active ? "paletteWhite" : "inherit"]};
   }
 
   ${mq.gtTablet(css`
