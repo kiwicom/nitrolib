@@ -2,9 +2,9 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import type { ThemeProps } from "records/Theme";
-import { themeDefault } from "records/Theme";
-import buttonMixin from "styles/mixins/button";
+import type { ThemeProps } from "../../../records/Theme";
+import { themeDefault } from "../../../records/Theme";
+import buttonMixin from "../../../styles/mixins/button";
 
 const Button = styled.button`
   ${buttonMixin};

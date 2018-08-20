@@ -2,14 +2,14 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
-import { getLanguageWrapperHeight, getLanguageWrapperWidth } from "../../services/menu";
+import { themeDefault } from "../../../../records/Theme";
+import type { ThemeProps } from "../../../../records/Theme";
+import { getByContinent } from "../../../../records/Languages";
+import type { Language } from "../../../../records/Languages";
+import mq from "../../../../styles/mediaQuery";
+import Flex from "../../../../primitives/Flex";
 import Text from "../../../Text";
-import { themeDefault } from "records/Theme";
-import type { ThemeProps } from "records/Theme";
-import { getByContinent } from "records/Languages";
-import type { Language } from "records/Languages";
-import mq from "styles/mediaQuery";
-import Flex from "primitives/Flex";
+import { getLanguageWrapperHeight, getLanguageWrapperWidth } from "../../services/menu";
 import LanguageName from "./LanguageName";
 import ContinentName from "./ContinentName";
 

@@ -1,6 +1,6 @@
 // @flow strict
-import type { Language } from "records/Languages";
-import { language as languageConsts } from "styles";
+import type { Language } from "../../../records/Languages";
+import { language as languageConsts } from "../../../styles";
 
 const getWidthConstant = (filteredLanguages: Language[]) =>
   filteredLanguages.length < languageConsts.limit ? 2 : 3; // 2 || 3 columns

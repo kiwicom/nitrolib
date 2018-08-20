@@ -2,20 +2,20 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
+import { navbar } from "../../styles";
+import mq from "../../styles/mediaQuery";
 import ClientOnly from "../ClientOnly";
-import type { ThemeProps } from "records/Theme";
-import { themeDefault } from "records/Theme";
-import Flex from "primitives/Flex";
-import { navbar } from "styles";
-import mq from "styles/mediaQuery";
+import type { ThemeProps } from "../../records/Theme";
+import { themeDefault } from "../../records/Theme";
+import Flex from "../../primitives/Flex";
 import Language from "../Language";
 import HeaderLinks from "../HeaderLinks";
-import type { Splitster } from "records/Splitster";
-import { splitsterDefault } from "records/Splitster";
-import * as brandContext from "services/brand/context";
-import SideBar from "./scenes/SideBar";
+import type { Splitster } from "../../records/Splitster";
+import { splitsterDefault } from "../../records/Splitster";
+import * as brandContext from "../../services/brand/context";
+import SideBar from "./components/SideBar";
 import Logo from "./components/Logo";
-import Currency from "./components/Currency";
+import Currency from "../Currency";
 
 const Container = styled(Flex)`
   width: 100%;
@@ -24,6 +24,7 @@ const Container = styled(Flex)`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
   padding: 0 10px;
   box-sizing: border-box;
+
   ${mq.gtTablet(css`
     position: fixed;
     top: 0;

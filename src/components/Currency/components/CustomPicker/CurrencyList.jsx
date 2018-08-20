@@ -2,12 +2,12 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
+import type { Currency } from "../../../../records/Currency";
+import { themeDefault } from "../../../../records/Theme";
+import separateList from "../../../../services/utils/separateList";
+import Flex from "../../../../primitives/Flex";
+import mq from "../../../../styles/mediaQuery";
 import Tooltip from "../../../Tooltip";
-import type { Currency } from "records/Currency";
-import { themeDefault } from "records/Theme";
-import separateList from "services/utils/separateList";
-import Flex from "primitives/Flex";
-import mq from "styles/mediaQuery";
 import CurrencyItem from "./CurrencyItem";
 import Code from "./Code";
 import Name from "./Name";

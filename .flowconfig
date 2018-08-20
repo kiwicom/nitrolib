@@ -19,12 +19,6 @@ types/
 
 [options]
 emoji=true
-module.name_mapper='^components\(.*\)$' -> '<PROJECT_ROOT>/src/components/\1'
-module.name_mapper='^consts\(.*\)$' -> '<PROJECT_ROOT>/src/consts/\1'
-module.name_mapper='^primitives\(.*\)$' -> '<PROJECT_ROOT>/src/primitives/\1'
-module.name_mapper='^records\(.*\)$' -> '<PROJECT_ROOT>/src/records/\1'
-module.name_mapper='^services\(.*\)$' -> '<PROJECT_ROOT>/src/services/\1'
-module.name_mapper='^styles\(.*\)$' -> '<PROJECT_ROOT>/src/styles/\1'
 suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpected

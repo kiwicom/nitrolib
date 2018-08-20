@@ -4,13 +4,13 @@ import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
 
+import mq from "../../styles/mediaQuery";
 import ClickOutside from "../ClickOutside";
-import mq from "styles/mediaQuery";
 import Toggle from "../Toggle";
 import Popup from "./primitives/Popup";
 import IconWrapper from "./primitives/IconWrapper";
 import Links from "./Links";
-import type { Splitster } from "records/Splitster";
+import type { Splitster } from "../../records/Splitster";
 
 // TODO: should be fixed according to later Navbar changes
 const MediaTablet = styled.div`

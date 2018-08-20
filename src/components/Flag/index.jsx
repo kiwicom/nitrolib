@@ -2,9 +2,9 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import config from "consts/config";
-import { themeDefault } from "records/Theme";
-import type { ThemeProps } from "records/Theme";
+import config from "../../consts/config";
+import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 
 const Img = styled.img`
   margin-right: 4px;

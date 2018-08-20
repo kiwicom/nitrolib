@@ -1,8 +1,8 @@
 // @flow
 import styled from "styled-components";
 
-import { themeDefault } from "records/Theme";
-import type { ThemeProps } from "records/Theme";
+import { themeDefault } from "../../../records/Theme";
+import type { ThemeProps } from "../../../records/Theme";
 
 const Popup = styled.div`
   z-index: 1000;

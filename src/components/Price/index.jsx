@@ -1,8 +1,8 @@
 // @flow strict
 import * as React from "react";
 
-import { Consumer } from "services/currency/context";
-import { format } from "records/Currency";
+import { Consumer } from "../../services/currency/context";
+import { format } from "../../records/Currency";
 
 type Props = {|
   value: number,

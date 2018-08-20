@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import config from "consts/config";
+import config from "../../consts/config";
 
 type Props = {
   flagId: string,

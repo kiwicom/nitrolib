@@ -3,9 +3,9 @@
 import * as React from "react";
 import idx from "idx";
 
-import { currencyDefault, MOST_USED_CURRENCIES } from "records/Currency";
-import type { Currency, Currencies } from "records/Currency";
-import type { Countries } from "records/Country";
+import { currencyDefault, MOST_USED_CURRENCIES } from "../../records/Currency";
+import type { Currency, Currencies } from "../../records/Currency";
+import type { Countries } from "../../records/Country";
 import filterCurrencies from "./services/filterCurrencies";
 import resolveCurrency from "./services/resolveCurrency";
 import getGeoCountryCall from "./services/getGeoCountry";

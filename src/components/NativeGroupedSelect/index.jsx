@@ -2,8 +2,8 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { themeDefault } from "records/Theme";
-import type { ThemeProps } from "records/Theme";
+import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 
 const Container = styled.div`
   display: flex;

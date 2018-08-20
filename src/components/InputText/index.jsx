@@ -4,10 +4,10 @@ import { renderToStaticMarkup } from "react-dom/server";
 import * as R from "ramda";
 import styled, { css } from "styled-components";
 
+import borderMixin, { getBorderState } from "../../styles/mixins/border";
 import Text from "../Text";
-import borderMixin, { getBorderState } from "styles/mixins/border";
-import { themeDefault } from "records/Theme";
-import type { ThemeProps } from "records/Theme";
+import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 
 const Label = styled.label`
   display: flex;

@@ -2,8 +2,8 @@
 /* eslint-disable react/no-danger */
 import * as React from "react";
 
-import type { Values } from "services/intl/translate";
-import { Consumer } from "services/intl/context";
+import type { Values } from "../../services/intl/translate";
+import { Consumer } from "../../services/intl/context";
 
 type Props = {
   t: string,

@@ -3,8 +3,8 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
-import { themeDefault } from "records/Theme";
-import mq from "styles/mediaQuery";
+import mq from "../../styles/mediaQuery";
+import { themeDefault } from "../../records/Theme";
 
 const TIP_ARROW_SIZE = 5;
 const TIP_OFFSET = 2;

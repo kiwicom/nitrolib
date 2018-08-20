@@ -8,9 +8,9 @@ import type { Change } from "../InputText";
 import IconText from "../IconText";
 import ClickOutside from "../ClickOutside";
 import Text from "../Text";
-import { Consumer as IntlConsumer } from "services/intl/context";
-import { themeDefault } from "records/Theme";
-import type { ThemeProps } from "records/Theme";
+import { Consumer as IntlConsumer } from "../../services/intl/context";
+import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 import AirportListData from "./AirportListData";
 
 const Container = styled.div`

@@ -2,9 +2,9 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
-import { getCode, getSymbol } from "records/Currency";
-import type { Currency } from "records/Currency";
-import mq from "styles/mediaQuery";
+import { getCode, getSymbol } from "../../../../records/Currency";
+import type { Currency } from "../../../../records/Currency";
+import mq from "../../../../styles/mediaQuery";
 import Code from "./Code";
 import Sign from "./Sign";
 import Name from "./Name";

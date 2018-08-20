@@ -1,7 +1,7 @@
 // @flow strict
 import * as R from "ramda";
 
-import type { Currency, Currencies } from "records/Currency";
+import type { Currency, Currencies } from "../../../records/Currency";
 
 const MAX_RECOMMENDED_CURRENCIES = 4;
 

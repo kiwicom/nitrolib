@@ -2,9 +2,9 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
-import { themeDefault } from "records/Theme";
-import type { ThemeProps } from "records/Theme";
-import { border } from "styles";
+import { border } from "../../styles";
+import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 
 const shadowMixin = css`
   box-shadow: 0 0 3px 0 ${({ theme }: ThemeProps) => theme.orbit.paletteInkLighter} inset;
