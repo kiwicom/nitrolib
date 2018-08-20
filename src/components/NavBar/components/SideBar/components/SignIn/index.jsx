@@ -6,11 +6,14 @@ import FaEnvelope from "react-icons/lib/fa/envelope";
 import MdLock from "react-icons/lib/md/lock";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Button from "@kiwicom/orbit-components/lib/Button";
+import TextOrbit from "@kiwicom/orbit-components/lib/Text";
 
+import linkMixin from "../../../../../../styles/mixins/link";
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
 import IconText from "../../../../../IconText";
 import Text from "../../../../../Text";
+import { themeDefault } from "../../../../../../records/Theme";
 import * as validators from "../../../../../../services/input/validators";
 import * as normalizers from "../../../../../../services/input/normalizers";
 import isEmptish from "../../../../../../services/utils/isEmptish";
@@ -21,6 +24,14 @@ const FieldWrap = styled.div`
   position: relative;
   margin: 15px 0;
 `;
+
+const FieldPolicy = styled(FieldWrap)`
+  ${linkMixin};
+`;
+
+FieldPolicy.defaultProps = {
+  theme: themeDefault,
+};
 
 type Props = {|
   brandId: string,
@@ -139,6 +150,11 @@ export default class SignIn extends React.PureComponent<Props, State> {
             showState={submitted}
           />
         </FieldWrap>
+        <FieldPolicy>
+          <TextOrbit>
+            <Text t={__("account.registration_privacy_policy")} html />
+          </TextOrbit>
+        </FieldPolicy>
         <Button block onClick={this.handleSubmit} disabled={loading}>
           <Text t={__("account.sign_in")} />
         </Button>

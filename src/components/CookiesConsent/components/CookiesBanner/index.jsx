@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import MdClose from "react-icons/lib/md/close";
 
 import mq from "../../../../styles/mediaQuery";
+import linkMixin from "../../../../styles/mixins/link";
 import Text from "../../../Text";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
@@ -36,21 +37,12 @@ Container.defaultProps = {
 };
 
 const Message = styled.p`
+  ${linkMixin};
   opacity: 0.5;
 
   ${mq.gtTablet(css`
     opacity: 1;
   `)};
-
-  a {
-    text-decoration: none;
-    font-weight: 700;
-    color: ${({ theme }: ThemeProps) => theme.orbit.colorTextLinkPrimary};
-
-    &:hover {
-      color: ${({ theme }: ThemeProps) => theme.orbit.colorTextLinkPrimaryHover};
-    }
-  }
 `;
 
 Message.defaultProps = {

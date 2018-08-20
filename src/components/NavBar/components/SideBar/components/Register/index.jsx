@@ -7,6 +7,7 @@ import FaEnvelope from "react-icons/lib/fa/envelope";
 import MdLock from "react-icons/lib/md/lock";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Button from "@kiwicom/orbit-components/lib/Button";
+import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
@@ -35,6 +36,10 @@ const passwordValidator = compose(
 const FieldWrap = styled.div`
   position: relative;
   margin: 15px 0;
+`;
+
+const TextCenter = styled.div`
+  text-align: center;
 `;
 
 type Props = {|
@@ -200,6 +205,13 @@ export default class Register extends React.PureComponent<Props, State> {
         <Button block onClick={this.handleSubmit} disabled={loading}>
           <Text t={__("account.sign_up")} />
         </Button>
+        <FieldWrap>
+          <TextCenter>
+            <TextLink>
+              <Text t={__("account.forgot_password")} />
+            </TextLink>
+          </TextCenter>
+        </FieldWrap>
       </>
     );
   }
