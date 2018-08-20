@@ -5,6 +5,8 @@ import styled from "styled-components";
 import FaUser from "react-icons/lib/fa/user";
 import FaEnvelope from "react-icons/lib/fa/envelope";
 import MdLock from "react-icons/lib/md/lock";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
+import Button from "@kiwicom/orbit-components/lib/Button";
 
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
@@ -132,11 +134,12 @@ export default class Register extends React.PureComponent<Props, State> {
 
     return (
       <>
+        {error && (
+          <FieldWrap>
+            <Alert type="critical">{error}</Alert>
+          </FieldWrap>
+        )}
         <FieldWrap>
-          <h2>
-            {/* TODO <Alert /> */}
-            {error}
-          </h2>
           <IconText Icon={FaUser}>
             <Text t={__("common.firstname.colon")} />
           </IconText>
@@ -194,9 +197,9 @@ export default class Register extends React.PureComponent<Props, State> {
             showState={submitted}
           />
         </FieldWrap>
-        <button type="button" onClick={this.handleSubmit} disabled={loading}>
+        <Button block onClick={this.handleSubmit} disabled={loading}>
           <Text t={__("account.sign_up")} />
-        </button>
+        </Button>
       </>
     );
   }

@@ -6,6 +6,8 @@ import FaBarcode from "react-icons/lib/fa/barcode";
 import FaCalendar from "react-icons/lib/fa/calendar";
 import MdEmail from "react-icons/lib/md/email";
 import addYears from "date-fns/addYears";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
+import Button from "@kiwicom/orbit-components/lib/Button";
 
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
@@ -17,7 +19,6 @@ import { Consumer as IntlConsumer } from "../../../../../../services/intl/contex
 import * as normalizers from "../../../../../../services/input/normalizers";
 import * as validators from "../../../../../../services/input/validators";
 import isEmptish from "../../../../../../services/utils/isEmptish";
-// import Button from "@kiwicom/orbit-components/lib/Button";
 import mmbRedirect from "./services/mmbRedirect";
 
 const FieldWrap = styled.div`
@@ -162,9 +163,9 @@ export default class MyBooking extends React.PureComponent<Props, State> {
       <IntlConsumer>
         {intl => (
           <>
-            {error !== "" && (
+            {error && (
               <FieldWrap>
-                <h2>Error! {error}</h2>
+                <Alert type="critical">{error}</Alert>
               </FieldWrap>
             )}
             <FieldWrap>
@@ -218,9 +219,9 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                 max={MAX}
               />
             </FieldWrap>
-            <button type="button" onClick={this.handleSubmit} disabled={loading}>
+            <Button block onClick={this.handleSubmit} disabled={loading}>
               <Text t={__("submit")} />
-            </button>
+            </Button>
           </>
         )}
       </IntlConsumer>

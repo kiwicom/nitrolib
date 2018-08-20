@@ -4,6 +4,8 @@ import * as R from "ramda";
 import styled from "styled-components";
 import FaEnvelope from "react-icons/lib/fa/envelope";
 import MdLock from "react-icons/lib/md/lock";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
+import Button from "@kiwicom/orbit-components/lib/Button";
 
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
@@ -103,10 +105,11 @@ export default class SignIn extends React.PureComponent<Props, State> {
 
     return (
       <>
-        <h2>
-          {/* TODO <Alert /> */}
-          {error}
-        </h2>
+        {error && (
+          <FieldWrap>
+            <Alert type="critical">{error}</Alert>
+          </FieldWrap>
+        )}
         <FieldWrap>
           <IconText Icon={FaEnvelope}>
             <Text t={__("common.email.colon")} />
@@ -136,9 +139,9 @@ export default class SignIn extends React.PureComponent<Props, State> {
             showState={submitted}
           />
         </FieldWrap>
-        <button type="button" onClick={this.handleSubmit} disabled={loading}>
+        <Button block onClick={this.handleSubmit} disabled={loading}>
           <Text t={__("account.sign_in")} />
-        </button>
+        </Button>
       </>
     );
   }
