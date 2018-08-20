@@ -7,7 +7,8 @@ import { themeDefault } from "../../../../../records/Theme";
 
 const Popup = styled.div`
   position: absolute;
-  right: 0;
+  top: 50px;
+  right: 50px;
   min-width: 320px;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteCloudLight};
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
@@ -19,6 +20,7 @@ const Popup = styled.div`
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 
   ${mq.gtTablet(css`
+    right: 0;
     font-size: 14px;
     width: auto;
     min-height: 220px;

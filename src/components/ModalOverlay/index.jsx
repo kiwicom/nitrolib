@@ -22,8 +22,7 @@ const Container = styled.section`
 
 const Wrapper = styled.div`
   position: relative;
-  flex: 0;
-  width: 400px;
+  flex: 0 1 400px;
 `;
 
 const StyledClose = styled(MdClose)`
@@ -31,7 +30,7 @@ const StyledClose = styled(MdClose)`
   height: 24px;
   width: 24px;
   top: -28px;
-  right: -5px;
+  right: 8px;
   cursor: pointer;
   color: white;
 `;
