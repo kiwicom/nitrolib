@@ -7,7 +7,7 @@ import FaEnvelope from "react-icons/lib/fa/envelope";
 import MdLock from "react-icons/lib/md/lock";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Button from "@kiwicom/orbit-components/lib/Button";
-import TextLink from "@kiwicom/orbit-components/lib/TextLink";
+import TextOrbit from "@kiwicom/orbit-components/lib/Text";
 
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
@@ -20,6 +20,8 @@ import emailCorrector from "../../../../../../services/input/emailCorrector";
 import addScript from "../../../../../../services/utils/addScript";
 import isEmptish from "../../../../../../services/utils/isEmptish";
 import * as api from "../../../../../../services/auth/api";
+import linkMixin from "../../../../../../styles/mixins/link";
+import { themeDefault } from "../../../../../../records/Theme";
 
 const ZXCVBN_URL = "https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js";
 
@@ -38,9 +40,13 @@ const FieldWrap = styled.div`
   margin: 15px 0;
 `;
 
-const TextCenter = styled.div`
-  text-align: center;
+const FieldPolicy = styled(FieldWrap)`
+  ${linkMixin};
 `;
+
+FieldPolicy.defaultProps = {
+  theme: themeDefault,
+};
 
 type Props = {|
   brandId: string,
@@ -202,16 +208,14 @@ export default class Register extends React.PureComponent<Props, State> {
             showState={submitted}
           />
         </FieldWrap>
+        <FieldPolicy>
+          <TextOrbit>
+            <Text t={__("account.registration_privacy_policy")} html />
+          </TextOrbit>
+        </FieldPolicy>
         <Button block onClick={this.handleSubmit} disabled={loading}>
           <Text t={__("account.sign_up")} />
         </Button>
-        <FieldWrap>
-          <TextCenter>
-            <TextLink>
-              <Text t={__("account.forgot_password")} />
-            </TextLink>
-          </TextCenter>
-        </FieldWrap>
       </>
     );
   }
