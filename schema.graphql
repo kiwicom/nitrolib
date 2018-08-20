@@ -1,5 +1,5 @@
 # source: https://graphql.kiwi.com
-# timestamp: Fri Jul 13 2018 14:14:57 GMT+0200 (CEST)
+# timestamp: Mon Aug 20 2018 15:33:18 GMT+0200 (CEST)
 
 schema {
   query: RootQuery
@@ -110,14 +110,17 @@ type BoardingPass {
 
   """The date when the boarding pass will be available for download"""
   availableAt: Date
+
+  """pkpasses connected to the boarding pass"""
+  pkpasses: [Pkpass]
 }
 
 type BoardingTimelineEvent implements TimelineEvent {
   """Time of appearance in the timeline."""
   timestamp: DateTime
 
-  """Gate at which boarding is done"""
-  gate: String
+  """Terminal at which boarding is done"""
+  terminal: String
 }
 
 type BookedFlightTimelineEvent implements TimelineEvent {
@@ -209,6 +212,12 @@ type Booking {
 
   """All services provided via whitelabels."""
   availableWhitelabeledServices: WhitelabeledServices
+  onlineCheckinIsAvailable: Boolean
+  insurancePrices: [InsurancePrice]
+  authToken: String
+
+  """Nearest upcoming leg by arrival time."""
+  upcomingLeg: Leg
   oneWay: BookingOneWay
   return: BookingReturn
   multicity: BookingMulticity
@@ -306,6 +315,12 @@ interface BookingInterface {
 
   """All services provided via whitelabels."""
   availableWhitelabeledServices: WhitelabeledServices
+  onlineCheckinIsAvailable: Boolean
+  insurancePrices: [InsurancePrice]
+  authToken: String
+
+  """Nearest upcoming leg by arrival time."""
+  upcomingLeg: Leg
 }
 
 """A connection to a list of items."""
@@ -364,6 +379,12 @@ type BookingMulticity implements BookingInterface & Node {
 
   """All services provided via whitelabels."""
   availableWhitelabeledServices: WhitelabeledServices
+  onlineCheckinIsAvailable: Boolean
+  insurancePrices: [InsurancePrice]
+  authToken: String
+
+  """Nearest upcoming leg by arrival time."""
+  upcomingLeg: Leg
 
   """Initial origin."""
   start: RouteStop
@@ -416,6 +437,12 @@ type BookingOneWay implements BookingInterface & Node {
 
   """All services provided via whitelabels."""
   availableWhitelabeledServices: WhitelabeledServices
+  onlineCheckinIsAvailable: Boolean
+  insurancePrices: [InsurancePrice]
+  authToken: String
+
+  """Nearest upcoming leg by arrival time."""
+  upcomingLeg: Leg
   trip: Trip
 }
 
@@ -458,6 +485,12 @@ type BookingReturn implements BookingInterface & Node {
 
   """All services provided via whitelabels."""
   availableWhitelabeledServices: WhitelabeledServices
+  onlineCheckinIsAvailable: Boolean
+  insurancePrices: [InsurancePrice]
+  authToken: String
+
+  """Nearest upcoming leg by arrival time."""
+  upcomingLeg: Leg
 
   """Trip from origin to destination."""
   outbound: Trip
@@ -467,14 +500,14 @@ type BookingReturn implements BookingInterface & Node {
 }
 
 enum BookingStatus {
-  NEW
-  REFUNDED
-  PENDING
-  CONFIRMED
-  CANCELLED
-  DELETED
   CLOSED
-  EXPIRED
+  CONFIRMED
+  REFUNDED
+  NEW @deprecated(reason: "Never valid value for Booking Status, only for Booking Extra Status")
+  PENDING @deprecated(reason: "Never valid value for Booking Status, only for Booking Extra Status")
+  CANCELLED @deprecated(reason: "Never valid value for Booking Status, only for Booking Extra Status")
+  DELETED @deprecated(reason: "Never valid value for Booking Status, only for Booking Extra Status")
+  EXPIRED @deprecated(reason: "Never valid value for Booking Status, only for Booking Extra Status")
 }
 
 type BookingTimeline {
@@ -507,6 +540,11 @@ type Carrier {
 
   """Indicates whether it is low cost carrier."""
   isLowCost: Boolean
+}
+
+type CheckinClosingTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
 }
 
 type Coordinates {
@@ -758,6 +796,14 @@ enum CustomerBookingsOnlyEnum {
   PAST
 }
 
+type CustomerSupportNumber {
+  """Customer Support phone number locale territory"""
+  localeTerritory: String
+
+  """Customer Support phone number"""
+  number: String
+}
+
 """
 A date string, such as 2007-12-03, compliant with the `full-date` format
 outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for
@@ -823,6 +869,29 @@ enum DirectAccessURLValues {
   VALIDATE_PAYMENT
   TRAVEL_DOCUMENTS
   PAYMENT
+}
+
+interface DocumentInterface {
+  """URL of the document"""
+  url: String
+}
+
+"""A connection to a list of items."""
+type DocumentInterfaceConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [DocumentInterfaceEdge]
+}
+
+"""An edge in a connection."""
+type DocumentInterfaceEdge {
+  """The item at the end of the edge"""
+  node: DocumentInterface
+
+  """A cursor for use in pagination"""
+  cursor: String!
 }
 
 type DownloadBoardingPassTimelineEvent implements TimelineEvent {
@@ -917,6 +986,11 @@ input DynamicPackagesSimpleSearchInput {
   """Return date"""
   returnDate: Date!
   passengers: PassengersInput!
+}
+
+type EnterDetailsTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
 }
 
 type FAQArticle {
@@ -1395,6 +1469,15 @@ type HotelRoomPhotoEdge {
   cursor: String!
 }
 
+type HotelService {
+  relevantLocations: [HotelServiceRelevantLocation]
+}
+
+type HotelServiceRelevantLocation {
+  location: Location
+  hotelCity: HotelCity
+}
+
 input HotelsFilterInput {
   """List of hotels classes (stars) you want to filter."""
   starsRating: [Int]
@@ -1459,9 +1542,22 @@ type Identity {
   login: String
 }
 
+type InsurancePrice {
+  price: Price
+
+  """Insurance type"""
+  insuranceType: InsuranceType
+}
+
 type InsuranceService {
   """Returns passengers allowed to buy a travel insurance."""
   passengers: [Passenger]
+}
+
+"""Insurance Terms and Conditions document"""
+type InsuranceTerms implements DocumentInterface {
+  """URL of the document"""
+  url: String
 }
 
 """The possible insurance type values"""
@@ -1536,7 +1632,6 @@ type Leg {
   id: ID!
   airline: Airline
   operatingAirline: OperatingAirline
-  vehicle: Vehicle
   arrival: RouteStop
   departure: RouteStop
 
@@ -1550,6 +1645,7 @@ type Leg {
 
   """Determines whether Leg is related to return flight."""
   isReturn: Boolean
+  vehicle: Vehicle
   type: VehicleType
 
   """Information about who covers the transfer"""
@@ -1656,12 +1752,14 @@ type Location {
   alternativeNames: [String]
   autonomousTerritory: LocationArea
   rank: Int
+  code: String
 }
 
 type LocationArea {
   locationId: String
   name: String
   slug: String
+  code: String
 }
 
 """A connection to a list of items."""
@@ -1717,6 +1815,11 @@ type LoungeServiceRelevantAirports {
   location: Location
 }
 
+type NavigateToTerminalTimelineEvent implements TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
+}
+
 """An object with an ID"""
 interface Node {
   """The id of the object."""
@@ -1767,6 +1870,19 @@ type Passenger {
 
   """Visa information for the passenger"""
   visaInformation: Visa
+
+  """Url needed for apple wallet integration"""
+  pkpasses: [Pkpass] @deprecated(reason: "Use pkpass under boarding pass instead")
+}
+
+input PassengerInput {
+  passengerId: Int!
+
+  """Expiry date of travel document"""
+  documentExpiry: Date
+
+  """Number of travel document"""
+  documentNumber: String!
 }
 
 input PassengersInput {
@@ -1777,6 +1893,15 @@ input PassengersInput {
 type PaymentConfirmedTimelineEvent implements TimelineEvent {
   """Time of appearance in the timeline."""
   timestamp: DateTime
+}
+
+"""Url needed for apple wallet integration"""
+type Pkpass {
+  flightNumber: String
+
+  """The url to the pkpass file"""
+  url: String
+  passenger: Passenger
 }
 
 type Price {
@@ -1824,10 +1949,19 @@ type RootMutation {
   ): FAQArticle
   login(email: String!, password: String!): User
   resetPassword(email: String!): ResetPasswordResponse
+  updatePassenger(
+    """The global booking id"""
+    id: ID!
+    simpleToken: String
+    passengers: [PassengerInput!]!
+  ): UpdatePassenger
 }
 
 """Root Query"""
 type RootQuery {
+  """AirHelp+ offer that can be purchased with booking"""
+  airHelpPlusOffer: AirHelpPlusOffer
+
   """
   Search for all available hotels in one location. It's necessary to send
   checkin and checkout dates as well as rooms configuration to get availability info.
@@ -1846,6 +1980,9 @@ type RootQuery {
     before: String
     last: Int
   ): BookingConnection @deprecated(reason: "Use \"customerBookings\" query instead.")
+
+  """Search for the urls of public documents"""
+  allDocuments(after: String, first: Int, before: String, last: Int): DocumentInterfaceConnection
 
   """
   All dynamic packages. Dynamic package is a combination of return flight and
@@ -1937,6 +2074,13 @@ type RootQuery {
     id: ID!
   ): Booking @deprecated(reason: "Use \"node\" query instead.")
 
+  """Get the timeline for your booking."""
+  bookingTimeline(
+    """Only Booking id can be used as ID."""
+    id: ID!
+    authToken: String
+  ): BookingTimeline
+
   """Currencies used on Kiwi.com frontend"""
   currencies(after: String, first: Int, before: String, last: Int): CurrencyDetailConnection
 
@@ -1962,6 +2106,9 @@ type RootQuery {
     last: Int
   ): BookingInterfaceConnection
 
+  """Get customer support number for your locale"""
+  customerSupportNumber: CustomerSupportNumber
+
   """Retrieve single FAQ article."""
   FAQArticle(
     """ID of FAQ article to retrieve."""
@@ -1974,7 +2121,8 @@ type RootQuery {
     id: ID!
 
     """
-    Fetch only subsection of FAQ based on the current situation of customer.
+    DEPRECATED: Subsection of FAQ is handled automatically now, this has no
+    effect.Fetch only subsection of FAQ based on the current situation of customer.
     """
     section: FAQSection
   ): FAQCategory
@@ -2020,20 +2168,22 @@ type RootQuery {
   """
   nearestBooking: BookingInterface
 
-  """Get the timeline for your booking."""
-  bookingTimeline(
-    """Only Booking id can be used as ID."""
-    id: ID!
-  ): BookingTimeline
-
   """Fetches an object given its ID"""
   node(
     """The ID of an object"""
     id: ID!
   ): Node
 
-  """AirHelp+ offer that can be purchased with booking"""
-  airHelpPlusOffer(bookingId: String!): AirHelpPlusOffer
+  """Find booking by its id and its simple access token."""
+  singleBooking(
+    """
+    Database ID (human readable ID) of the booking. You should use "node" query if you want to use opaque ID.
+    """
+    id: Int!
+
+    """Simple auth token that lets you fetch a unique booking."""
+    authToken: String!
+  ): BookingInterface
 }
 
 type RouteStop {
@@ -2043,6 +2193,12 @@ type RouteStop {
 
   """City id of the route stop"""
   cityId: String
+
+  """Terminal of the route stop"""
+  terminal: String
+
+  """Gate for the route stop"""
+  gate: String
 }
 
 type Services {
@@ -2059,6 +2215,11 @@ input StopoversInput {
 }
 
 interface TimelineEvent {
+  """Time of appearance in the timeline."""
+  timestamp: DateTime
+}
+
+type TimeToCheckinTimelineEvent implements TimelineEvent {
   """Time of appearance in the timeline."""
   timestamp: DateTime
 }
@@ -2082,6 +2243,10 @@ type Trip {
   """Trip duration in minutes."""
   duration: Int
   legs: [Leg]
+}
+
+type UpdatePassenger {
+  success: Boolean
 }
 
 type User {
@@ -2117,4 +2282,5 @@ type WhitelabeledServices {
   lounge: LoungeService
   parking: ParkingService
   carRental: CarRentalService
+  hotel: HotelService
 }

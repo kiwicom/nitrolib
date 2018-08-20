@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 
 import type { Currency } from "../../../../records/Currency";
 import { themeDefault } from "../../../../records/Theme";
+import type { ThemeProps } from "../../../../records/Theme";
 import separateList from "../../../../services/utils/separateList";
 import Flex from "../../../../primitives/Flex";
 import mq from "../../../../styles/mediaQuery";
@@ -12,6 +13,11 @@ import CurrencyItem from "./CurrencyItem";
 import Code from "./Code";
 import Name from "./Name";
 import Sign from "./Sign";
+
+type ActiveProps = {|
+  ...ThemeProps,
+  active: boolean,
+|};
 
 const COLUMNS = 4;
 
@@ -34,26 +40,30 @@ const ItemText = styled.div`
   padding-left: 5px;
   border-radius: 3px;
   cursor: pointer;
-  background: ${({ theme, active }) => (active ? theme.orbit.paletteProductNormal : "transparent")};
+  background: ${({ theme, active }: ActiveProps) =>
+    active ? theme.orbit.paletteProductNormal : "transparent"};
 
   &:hover {
-    background: ${({ theme, active }) =>
+    background: ${({ theme, active }: ActiveProps) =>
       theme.orbit[active ? "paletteProductNormal" : "paletteCloudNormal"]};
   }
 
   ${Code} {
     font-weight: bold;
-    color: ${({ theme, active }) => theme.orbit[active ? "paletteWhite" : "paletteInkNormal"]};
+    color: ${({ theme, active }: ActiveProps) =>
+      theme.orbit[active ? "paletteWhite" : "paletteInkNormal"]};
   }
 
   ${Sign} {
     margin-left: 10px;
-    color: ${({ theme, active }) => theme.orbit[active ? "paletteWhite" : "paletteInkNormal"]};
+    color: ${({ theme, active }: ActiveProps) =>
+      theme.orbit[active ? "paletteWhite" : "paletteInkNormal"]};
   }
 
   ${Name} {
     margin-left: 10px;
-    color: ${({ theme, active }) => theme.orbit[active ? "paletteWhite" : "inherit"]};
+    color: ${({ theme, active }: ActiveProps) =>
+      theme.orbit[active ? "paletteWhite" : "paletteInkNormal"]};
   }
 
   ${mq.gtTablet(css`

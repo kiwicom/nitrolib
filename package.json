@@ -44,7 +44,8 @@
     "mailcheck": "^1.1.1",
     "node-fetch": "^2.2.0",
     "prop-types": "^15.6.2",
-    "validator": "^10.6.0"
+    "validator": "^10.6.0",
+    "react-transition-group": "^2.4.0"
   },
   "peerDependencies": {
     "@kiwicom/orbit-components": "^0.7.0",
@@ -112,7 +113,6 @@
     "react-dom": "^16.4.2",
     "react-icons": "^2.2.7",
     "react-relay": "^1.6.2",
-    "react-transition-group": "^2.4.0",
     "relay-compiler": "^1.6.2",
     "relay-runtime": "^1.6.2",
     "renamer": "^1.0.0",

@@ -8,5 +8,10 @@ exports[`#SideNav render 1`] = `
      
     <MenuHamburger />
   </SideNav__MenuOpen>
+  <CSSTransition
+    classNames="sidebar"
+    in={false}
+    timeout={0}
+  />
 </Fragment>
 `;

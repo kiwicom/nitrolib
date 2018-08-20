@@ -1455,16 +1455,23 @@ exports[`#Currency/CustomPicker/CurrencyList render 2`] = `
   background: #00a991;
 }
 
+.c0:hover {
+  background: #00a991;
+}
+
 .c0 .Code-olhdp3-0 {
   font-weight: bold;
+  color: #fff;
 }
 
 .c0 .Sign-srczss-0 {
   margin-left: 10px;
+  color: #fff;
 }
 
 .c0 .Name-s1vpea7j-0 {
   margin-left: 10px;
+  color: #fff;
 }
 
 @media (min-width:769px) {
@@ -1503,16 +1510,23 @@ exports[`#Currency/CustomPicker/CurrencyList render 3`] = `
   background: transparent;
 }
 
+.c0:hover {
+  background: #e8edf1;
+}
+
 .c0 .Code-olhdp3-0 {
   font-weight: bold;
+  color: #46515e;
 }
 
 .c0 .Sign-srczss-0 {
   margin-left: 10px;
+  color: #46515e;
 }
 
 .c0 .Name-s1vpea7j-0 {
   margin-left: 10px;
+  color: #46515e;
 }
 
 @media (min-width:769px) {
