@@ -11,7 +11,7 @@ cache:
   policy: pull
 
 before_script:
-  - yarn || true # Don't blow up when 'yarn' doesn't exist
+  - yarn --ignore-scripts || true # Don't blow up when 'yarn' doesn't exist
 
 install:
   stage: build
