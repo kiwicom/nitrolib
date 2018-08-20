@@ -1,0 +1,4 @@
+// @flow strict
+import type { Continents } from "../../src/records/Continents";
+
+declare export default Continents;

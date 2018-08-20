@@ -2,6 +2,7 @@
 .idea
 .tmp
 coverage
+data
 dist-storybook
 node_modules
 lib
