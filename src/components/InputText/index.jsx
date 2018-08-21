@@ -1,11 +1,11 @@
 // @flow strict
 import * as React from "react";
-import { renderToStaticMarkup } from "react-dom/server";
 import * as R from "ramda";
 import styled, { css } from "styled-components";
 
 import borderMixin, { getBorderState } from "../../styles/mixins/border";
 import Text from "../Text";
+import TextNode from "../TextNode";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 
@@ -200,11 +200,7 @@ export default class InputText extends React.PureComponent<Props, State> {
 
         {borderState === "hint" && (
           <Hint onClick={this.handleHint}>
-            <Text
-              t={__("common.did_you_mean")}
-              values={{ x: renderToStaticMarkup(<HintText>{hint}</HintText>) }}
-              html
-            />
+            <TextNode t={__("common.did_you_mean")} values={{ x: <HintText>{hint}</HintText> }} />
           </Hint>
         )}
       </Label>

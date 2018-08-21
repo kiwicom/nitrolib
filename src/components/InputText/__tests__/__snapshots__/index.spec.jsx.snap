@@ -2306,12 +2306,13 @@ exports[`#InputText render hint 1`] = `
       }
     }
   >
-    <Text
-      html={true}
+    <TextNode
       t="common.did_you_mean"
       values={
         Object {
-          "x": "<a class=\\"InputText__HintText-og24tu-4 bIXLjl\\">hint</a>",
+          "x": <InputText__HintText>
+            hint
+          </InputText__HintText>,
         }
       }
     />
