@@ -7,7 +7,7 @@ type Props = {|
 |};
 
 export default class Portal extends React.Component<Props> {
-  node = document.getElementById("sidenav");
+  node = document.getElementById("sidenav") || document.body;
 
   el = document.createElement("div");
 

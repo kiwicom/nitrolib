@@ -9,8 +9,9 @@ describe("#Modal - Portal", () => {
     const target = document.createElement("div");
     target.setAttribute("id", "sidenav");
 
-    // $FlowIssue
-    document.body.appendChild(target);
+    if (document.body) {
+      document.body.appendChild(target);
+    }
 
     const wrapper = mount(
       <Portal>
@@ -26,8 +27,9 @@ describe("#Modal - Portal", () => {
     expect(wrapper).toMatchSnapshot();
     expect(document.getElementById("modal")).toMatchSnapshot();
 
-    // $FlowIssue
-    document.body.removeChild(target);
+    if (document.body) {
+      document.body.removeChild(target);
+    }
   });
 
   test("render - without target", () => {

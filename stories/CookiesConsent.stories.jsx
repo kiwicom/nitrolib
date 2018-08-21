@@ -8,9 +8,4 @@ import withData from "./decorators/withData";
 
 storiesOf("CookiesConsent", module)
   .addDecorator(withData)
-  .add("default", () => (
-    <>
-      <div id="modal" />
-      <CookiesConsent onAccept={action("onAccept")} />
-    </>
-  ));
+  .add("default", () => <CookiesConsent onAccept={action("onAccept")} />);

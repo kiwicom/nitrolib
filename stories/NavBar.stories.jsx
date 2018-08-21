@@ -9,14 +9,10 @@ import withData from "./decorators/withData";
 storiesOf("NavBar", module)
   .addDecorator(withData)
   .add("default", () => (
-    <>
-      <div id="sidenav" />
-      <div id="modal" />
-      <NavBar
-        onOpenChat={action("Open chat")}
-        onOpenSubscription={action("Open subscription")}
-        onSaveLanguage={action("Save language")}
-        onSaveToken={action("Save token")}
-      />
-    </>
+    <NavBar
+      onOpenChat={action("Open chat")}
+      onOpenSubscription={action("Open subscription")}
+      onSaveLanguage={action("Save language")}
+      onSaveToken={action("Save token")}
+    />
   ));

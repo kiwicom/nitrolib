@@ -6,8 +6,9 @@ type Props = {|
   children: React.Node,
 |};
 
+// FIXME unify Portals
 export default class Portal extends React.Component<Props> {
-  node = document.getElementById("modal");
+  node = document.getElementById("modal") || document.body;
 
   el = document.createElement("div");
 

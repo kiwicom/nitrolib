@@ -5,13 +5,26 @@ exports[`#SideNav render 1`] = `
   <SideNav__MenuOpen
     onClick={[Function]}
   >
-     
     <MenuHamburger />
   </SideNav__MenuOpen>
-  <CSSTransition
-    classNames="sidebar"
-    in={false}
-    timeout={0}
-  />
+  <Portal>
+    <Transition
+      appear={false}
+      enter={true}
+      exit={true}
+      in={false}
+      mountOnEnter={false}
+      onEnter={[Function]}
+      onEntered={[Function]}
+      onEntering={[Function]}
+      onExit={[Function]}
+      onExited={[Function]}
+      onExiting={[Function]}
+      timeout={250}
+      unmountOnExit={false}
+    >
+      <Component />
+    </Transition>
+  </Portal>
 </Fragment>
 `;

@@ -2,6 +2,7 @@
 import styled from "styled-components";
 
 import type { ThemeProps } from "../../../../records/Theme";
+import { themeDefault } from "../../../../records/Theme";
 
 const LanguageNameText = styled.span`
   margin-left: 3px;
@@ -12,5 +13,9 @@ const LanguageNameText = styled.span`
   letter-spacing: 0.02em;
   font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
 `;
+
+LanguageNameText.defaultProps = {
+  theme: themeDefault,
+};
 
 export default LanguageNameText;

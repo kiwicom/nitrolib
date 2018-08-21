@@ -29,7 +29,6 @@ const Container = styled(Flex)`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
   `)};
 `;
 

@@ -1,5 +1,5 @@
-// flow-typed signature: 1d070c8c148bbd6cffdd01bd531ba221
-// flow-typed version: be6afbe662/@storybook/addon-knobs_v3.x.x/flow_vx.x.x
+// flow-typed signature: e1fa5b202e518e43c07af8454a5eb14c
+// flow-typed version: 5f2932adb9/@storybook/addon-knobs_v3.x.x/flow_vx.x.x
 
 declare module "@storybook/addon-knobs/react" {
   declare type Renderable = React$Element<any>;
@@ -9,7 +9,7 @@ declare module "@storybook/addon-knobs/react" {
   declare function boolean(string, boolean, ?GroupId): boolean;
   declare function button(string, ((?{}) => void), ?GroupId): void;
   declare function color(string, string, ?GroupId): string;
-  declare function date(string, Date, ?GroupId): Date;
+  declare function date(string, Date, ?GroupId): number;
   declare function number(string, number, ?{ range?: boolean, min?: number, max?: number, step?: number }, ?GroupId): number;
   declare function object(string, any, ?GroupId): any;
   declare function select<T>(string, Array<T> | { [T]: string }, T, ?GroupId): T;
