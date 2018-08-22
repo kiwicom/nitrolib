@@ -22,7 +22,7 @@ const Container = styled.section`
 
 const Wrapper = styled.div`
   position: relative;
-  flex: 0 1 400px;
+  flex: 0 1 auto;
 `;
 
 const StyledClose = styled(MdClose)`

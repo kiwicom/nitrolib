@@ -59,19 +59,6 @@ type Props = {|
 const SocialLogin = ({ facebook, google, socialAuth }: Props) => (
   <>
     <Flex>
-      {facebook && (
-        <ButtonWrap>
-          <Button
-            type="facebook"
-            block
-            bordered
-            icon={<FacebookIcon />}
-            onClick={() => socialAuth("facebook")}
-          >
-            <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
-          </Button>
-        </ButtonWrap>
-      )}
       {google && (
         <ButtonWrap>
           <Button
@@ -82,6 +69,19 @@ const SocialLogin = ({ facebook, google, socialAuth }: Props) => (
             onClick={() => socialAuth("google")}
           >
             <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
+          </Button>
+        </ButtonWrap>
+      )}
+      {facebook && (
+        <ButtonWrap>
+          <Button
+            type="facebook"
+            block
+            bordered
+            icon={<FacebookIcon />}
+            onClick={() => socialAuth("facebook")}
+          >
+            <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
           </Button>
         </ButtonWrap>
       )}

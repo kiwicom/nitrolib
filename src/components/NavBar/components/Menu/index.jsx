@@ -7,9 +7,11 @@ import Modal from "../../../Modal";
 import Text from "../../../Text";
 import mq from "../../../../styles/mediaQuery";
 import * as authContext from "../../../../services/auth/context";
+import { Consumer as BrandConsumer } from "../../../../services/brand/context";
 import Button from "../../primitives/Button";
 import Trips from "../Trips";
 import Login from "./components/Login";
+import ForgotPassword from "./components/ForgotPassword";
 import SideNav from "./components/SideNav";
 import MenuSpacings from "../../primitives/MenuSpacings";
 
@@ -21,10 +23,10 @@ type Props = {|
   onSaveLanguage: (lang: string) => void,
 |};
 
-type LoginModal = "myBooking" | "register" | "signIn";
+type AuthModal = "myBooking" | "register" | "signIn" | "forgotPassword";
 
 type State = {|
-  modalOpen: "" | LoginModal,
+  modalOpen: "" | AuthModal,
 |};
 
 const Desktop = styled.div`
@@ -60,6 +62,10 @@ export default class Menu extends React.PureComponent<Props, State> {
 
   handleOpenSignIn = () => {
     this.setState({ modalOpen: "signIn" });
+  };
+
+  handleOpenForgotPassword = () => {
+    this.setState({ modalOpen: "forgotPassword" });
   };
 
   render() {
@@ -99,13 +105,20 @@ export default class Menu extends React.PureComponent<Props, State> {
 
         {modalOpen !== "" && (
           <Modal onClose={this.handleClose}>
-            <Login
-              open={modalOpen}
-              onOpenMyBooking={this.handleOpenMyBooking}
-              onOpenRegister={this.handleOpenRegister}
-              onOpenSignIn={this.handleOpenSignIn}
-              onSaveToken={onSaveToken}
-            />
+            {modalOpen === "forgotPassword" ? (
+              <BrandConsumer>
+                {brand => <ForgotPassword brandId={brand.id} onClose={this.handleClose} />}
+              </BrandConsumer>
+            ) : (
+              <Login
+                open={modalOpen}
+                onOpenMyBooking={this.handleOpenMyBooking}
+                onOpenRegister={this.handleOpenRegister}
+                onOpenSignIn={this.handleOpenSignIn}
+                onOpenForgotPassword={this.handleOpenForgotPassword}
+                onSaveToken={onSaveToken}
+              />
+            )}
           </Modal>
         )}
       </>

@@ -29,10 +29,18 @@ type Props = {|
   onOpenMyBooking: () => void,
   onOpenRegister: () => void,
   onOpenSignIn: () => void,
+  onOpenForgotPassword: () => void,
   onSaveToken: (token: string) => void,
 |};
 
-const Login = ({ open, onOpenMyBooking, onOpenRegister, onOpenSignIn, onSaveToken }: Props) => (
+const Login = ({
+  open,
+  onOpenMyBooking,
+  onOpenRegister,
+  onOpenSignIn,
+  onOpenForgotPassword,
+  onSaveToken,
+}: Props) => (
   <Container>
     <BrandConsumer>
       {brand =>
@@ -61,7 +69,12 @@ const Login = ({ open, onOpenMyBooking, onOpenRegister, onOpenSignIn, onSaveToke
         {brand => (
           <AuthConsumer>
             {auth => (
-              <SignIn brandId={brand.id} onSetUser={auth.setUser} onSaveToken={onSaveToken} />
+              <SignIn
+                brandId={brand.id}
+                onSetUser={auth.setUser}
+                onSaveToken={onSaveToken}
+                onOpenForgotPassword={onOpenForgotPassword}
+              />
             )}
           </AuthConsumer>
         )}
