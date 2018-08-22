@@ -29,7 +29,7 @@ const { Consumer, Provider } = React.createContext(
   }: Context),
 );
 
-export class CurrencyProvider extends React.PureComponent<Props, State> {
+export class AuthProvider extends React.PureComponent<Props, State> {
   state = {
     user: userDefault,
     loading: false,
@@ -69,4 +69,4 @@ export class CurrencyProvider extends React.PureComponent<Props, State> {
   }
 }
 
-export { Consumer, CurrencyProvider as Provider };
+export { Consumer, AuthProvider as Provider };
