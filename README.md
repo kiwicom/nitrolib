@@ -7,7 +7,13 @@ Stuff common for our webs! :fire:
 Run `yarn nitro <command>`. Available commands:
 * `fetch` - fetches production data
 
-## Components
+## Documentation
+
+* [Components](./docs/components.md)
+
+## Links
+
+### Components
 
 Located in `@kiwicom/nitro/lib/components/<component>`.
 
@@ -31,20 +37,20 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [Time](./src/components/Time/index.jsx)
 * [Tooltip](./src/components/Tooltip/index.jsx)
 
-## Consts
+### Consts
 
 Located in `@kiwicom/nitro/lib/consts/<const>`.
 
 * [config](./src/consts/config.js)
 * [device](./src/consts/device.js)
 
-## Primitives
+### Primitives
 
 Located in `@kiwicom/nitro/lib/primitives/<primitive>`.
 
 * [Flex](./src/primitives/Flex.js)
 
-## Records
+### Records
 
 Located in `@kiwicom/nitro/lib/records/<record>`.
 
@@ -58,7 +64,7 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [LangInfo](./src/records/LangInfo.js)
 * [Languages](./src/records/Languages.js)
 
-## Services
+### Services
 
 Located in `@kiwicom/nitro/lib/services/<service>`.
 
@@ -73,7 +79,7 @@ Located in `@kiwicom/nitro/lib/services/<service>/context.js`.
 * [fetched](./src/services/fetched/context.js)
 * [intl](./src/services/intl/context.js)
 
-## Styles
+### Styles
 
 Located in `@kiwicom/nitro/lib/styles/<style>`
 
