@@ -17,9 +17,10 @@ type Props = {|
 
 const TripList = ({ list, lang }: Props) => {
   const trips = list.edges && list.edges.map(edge => edge && edge.node).filter(Boolean);
-  const firstTwo = trips && trips.slice(0, 2);
-  const futureTrips = trips && trips.slice(2, 6);
-  if (trips && trips.length === 0) return <Text t={__("account.no_trips")} />;
+  const upcoming = trips && trips.filter(trip => trip && !trip.isPastBooking && trip);
+  const firstTwo = upcoming && upcoming.slice(0, 2);
+  const futureTrips = upcoming && upcoming.slice(2, 6);
+  if (upcoming && upcoming.length === 0) return <Text t={__("account.no_trips")} />;
 
   return (
     <>
@@ -69,6 +70,7 @@ export default createFragmentContainer(
         node {
           __typename
           id
+          isPastBooking
           destinationImageUrl
           ...OneWayTrips_item
           ...MulticityTrips_item

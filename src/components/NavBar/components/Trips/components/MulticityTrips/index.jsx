@@ -14,7 +14,7 @@ type Props = {|
 const MulticityTrips = ({ item, lang }: Props) => {
   const { trips } = item;
   const multicityFirst = trips && trips.slice(1, 2)[0];
-  const countOtherCities = trips && trips.slice(2);
+  const countOtherCities = trips && trips.slice(1);
   return (
     <TripItem
       id={item.id}
