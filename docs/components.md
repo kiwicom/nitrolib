@@ -1,6 +1,6 @@
 # Components
 
-Located in `@kiwicom/lib/components/<component>`.
+Located in `@kiwicom/nitro/lib/components/<component>`.
 
 ## Features
 
@@ -57,6 +57,10 @@ Things that help in development.
 
 Fires a callback whenever a user clicks outside of this component.
 
+```js
+import ClickOutside from "@kiwicom/nitro/lib/components/ClickOutside";
+```
+
 Props:
 ```js
 type Props = {|
@@ -78,6 +82,10 @@ const MyComponent = ({ onCloseModal }: Props) => (
 
 Renders only on the client, useful for wrapping components that break **server-side rendering**.
 
+```js
+import ClientOnly from "@kiwicom/nitro/lib/components/ClientOnly";
+```
+
 Example:
 ```js
 const MyComponent = () => (
@@ -96,6 +104,10 @@ Renders a formatted price.
 
 Context needs:
 * **currency**
+
+```js
+import Price from "@kiwicom/nitro/lib/components/Price";
+```
 
 Props:
 ```js
@@ -121,6 +133,10 @@ Translates the supplied key.
 
 Context needs:
 * **intl**
+
+```js
+import Text from "@kiwicom/nitro/lib/components/Text";
+```
 
 Props:
 ```js
@@ -148,6 +164,10 @@ The same as `Text`, except values are `React.Node`. Useful when you need to inje
 
 Context needs:
 * **intl**
+
+```js
+import TextNode from "@kiwicom/nitro/lib/components/TextNode";
+```
 
 Props:
 ```js
