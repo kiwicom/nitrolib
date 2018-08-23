@@ -2,6 +2,17 @@
 
 Located in `@kiwicom/nitro/lib/components/<component>`.
 
+Features:
+* [CookiesConsent](#CookiesConsent)
+* [NavBar](#NavBar)
+
+Utilities:
+* [ClickOutside](#ClickOutside)
+* [ClientOnly](#ClientOnly)
+* [Price](#Price)
+* [Text](#Text)
+* [TextNode](#TextNode)
+
 ## Features
 
 Actual components that do stuff.
