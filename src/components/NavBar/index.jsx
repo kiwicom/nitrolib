@@ -64,24 +64,14 @@ const Desktop = styled.div`
 
 type Props = {|
   headerLinks: React.Node,
-  // TODO make these injectables into a container
-  onOpenSubscription: () => void,
-  onOpenChat: () => void,
+  chat: React.Node,
+  subscription: React.Node,
+  debug?: React.Node,
   onSaveToken: (token: string) => void,
   onSaveLanguage: (lang: string) => void,
-  debug: boolean,
-  onOpenDebug?: () => void,
 |};
 
-const NavBar = ({
-  headerLinks,
-  onOpenSubscription,
-  onOpenChat,
-  onSaveToken,
-  onSaveLanguage,
-  debug,
-  onOpenDebug,
-}: Props) => (
+const NavBar = ({ headerLinks, chat, subscription, debug, onSaveToken, onSaveLanguage }: Props) => (
   <Container x="space-between" y="center">
     <Flex y="center" x="flex-start">
       <Logo />
@@ -98,12 +88,11 @@ const NavBar = ({
           </ClientOnly>
         </Desktop>
         <SideBar
-          onOpenSubscription={onOpenSubscription}
-          onOpenChat={onOpenChat}
+          chat={chat}
+          subscription={subscription}
+          debug={debug}
           onSaveToken={onSaveToken}
           onSaveLanguage={onSaveLanguage}
-          debug={debug}
-          onOpenDebug={onOpenDebug}
         />
       </Wrapper>
     </Flex>

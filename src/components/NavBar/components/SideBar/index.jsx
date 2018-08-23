@@ -13,10 +13,9 @@ import Login from "./components/Login";
 import SideNav from "./components/SideNav";
 
 type Props = {|
-  debug: boolean,
-  onOpenDebug?: () => void,
-  onOpenSubscription: () => void,
-  onOpenChat: () => void,
+  chat: React.Node,
+  subscription: React.Node,
+  debug?: React.Node,
   onSaveToken: (token: string) => void,
   onSaveLanguage: (lang: string) => void,
 |};
@@ -63,14 +62,7 @@ export default class SideBar extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const {
-      onOpenChat,
-      onOpenSubscription,
-      debug,
-      onOpenDebug,
-      onSaveToken,
-      onSaveLanguage,
-    } = this.props;
+    const { chat, subscription, debug, onSaveToken, onSaveLanguage } = this.props;
     const { modalOpen } = this.state;
 
     return (
@@ -96,12 +88,11 @@ export default class SideBar extends React.PureComponent<Props, State> {
           }
         </authContext.Consumer>
         <SideNav
-          onOpenChat={onOpenChat}
-          onOpenSubscription={onOpenSubscription}
+          chat={chat}
+          subscription={subscription}
+          debug={debug}
           onOpenRegister={this.handleOpenRegister}
           onOpenSignIn={this.handleOpenSignIn}
-          debug={debug}
-          onOpenDebug={onOpenDebug}
           onSaveLanguage={onSaveLanguage}
         />
 

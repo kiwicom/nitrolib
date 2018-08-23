@@ -8,9 +8,9 @@ describe("#SideBar", () => {
   test("render", () => {
     const wrapper = shallow(
       <SideBar
-        onOpenChat={jest.fn()}
-        onOpenSubscription={jest.fn()}
-        debug={false}
+        chat={<div>chat</div>}
+        subscription={<div>subscription</div>}
+        debug={<div>debug</div>}
         onSaveToken={jest.fn()}
         onSaveLanguage={jest.fn()}
       />,
@@ -22,9 +22,8 @@ describe("#SideBar", () => {
   test("render with modal", () => {
     const wrapper = shallow(
       <SideBar
-        onOpenChat={jest.fn()}
-        onOpenSubscription={jest.fn()}
-        debug={false}
+        chat={<div>chat</div>}
+        subscription={<div>subscription</div>}
         onSaveToken={jest.fn()}
         onSaveLanguage={jest.fn()}
       />,
@@ -38,9 +37,8 @@ describe("#SideBar", () => {
   test("handle close", () => {
     const wrapper = shallow(
       <SideBar
-        onOpenChat={jest.fn()}
-        onOpenSubscription={jest.fn()}
-        debug={false}
+        chat={<div>chat</div>}
+        subscription={<div>subscription</div>}
         onSaveToken={jest.fn()}
         onSaveLanguage={jest.fn()}
       />,
@@ -55,9 +53,8 @@ describe("#SideBar", () => {
   test("handle open my booking", () => {
     const wrapper = shallow(
       <SideBar
-        onOpenChat={jest.fn()}
-        onOpenSubscription={jest.fn()}
-        debug={false}
+        chat={<div>chat</div>}
+        subscription={<div>subscription</div>}
         onSaveToken={jest.fn()}
         onSaveLanguage={jest.fn()}
       />,
@@ -71,9 +68,8 @@ describe("#SideBar", () => {
   test("handle open register", () => {
     const wrapper = shallow(
       <SideBar
-        onOpenChat={jest.fn()}
-        onOpenSubscription={jest.fn()}
-        debug={false}
+        chat={<div>chat</div>}
+        subscription={<div>subscription</div>}
         onSaveToken={jest.fn()}
         onSaveLanguage={jest.fn()}
       />,
@@ -87,9 +83,8 @@ describe("#SideBar", () => {
   test("handle open sign in", () => {
     const wrapper = shallow(
       <SideBar
-        onOpenChat={jest.fn()}
-        onOpenSubscription={jest.fn()}
-        debug={false}
+        chat={<div>chat</div>}
+        subscription={<div>subscription</div>}
         onSaveToken={jest.fn()}
         onSaveLanguage={jest.fn()}
       />,

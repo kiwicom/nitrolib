@@ -6,6 +6,7 @@ import FaAngleRight from "react-icons/lib/fa/angle-right";
 import { Transition } from "react-transition-group";
 
 import ClientOnly from "../../../../../ClientOnly";
+import Modal from "../../../../../Modal";
 import Text from "../../../../../Text";
 import mq from "../../../../../../styles/mediaQuery";
 import Language from "../../../../../Language";
@@ -130,15 +131,15 @@ Link.defaultProps = {
 
 type State = {|
   shown: boolean,
+  modalOpen: "" | "chat" | "subscription" | "debug",
 |};
 
 type Props = {|
-  onOpenSubscription: () => void,
-  onOpenChat: () => void,
-  onOpenRegister: () => void,
+  chat: React.Node,
+  subscription: React.Node,
+  debug?: React.Node,
   onOpenSignIn: () => void,
-  debug?: boolean,
-  onOpenDebug?: () => void,
+  onOpenRegister: () => void,
   onSaveLanguage: (lang: string) => void,
 |};
 
@@ -149,6 +150,7 @@ export default class SideNav extends React.Component<Props, State> {
 
   state = {
     shown: false,
+    modalOpen: "",
   };
 
   handleToggle = () => {
@@ -157,21 +159,48 @@ export default class SideNav extends React.Component<Props, State> {
     }));
   };
 
-  openSignIn = () => {
+  handleOpenSignIn = () => {
     const { onOpenSignIn } = this.props;
     onOpenSignIn();
     this.handleToggle();
   };
 
-  openRegister = () => {
+  handleOpenRegister = () => {
     const { onOpenRegister } = this.props;
     onOpenRegister();
     this.handleToggle();
   };
 
+  handleOpenChat = () => {
+    this.setState({
+      shown: false,
+      modalOpen: "chat",
+    });
+  };
+
+  handleOpenSubscription = () => {
+    this.setState({
+      shown: false,
+      modalOpen: "subscription",
+    });
+  };
+
+  handleOpenDebug = () => {
+    this.setState({
+      shown: false,
+      modalOpen: "debug",
+    });
+  };
+
+  handleCloseModal = () => {
+    this.setState({
+      modalOpen: "",
+    });
+  };
+
   render = () => {
-    const { debug, onOpenDebug, onOpenSubscription, onOpenChat, onSaveLanguage } = this.props;
-    const { shown } = this.state;
+    const { chat, subscription, debug, onSaveLanguage } = this.props;
+    const { shown, modalOpen } = this.state;
 
     return (
       <>
@@ -197,7 +226,7 @@ export default class SideNav extends React.Component<Props, State> {
                         <MenuGroup text="Dev features">
                           <MenuItem
                             Icon={icons.Settings}
-                            onClick={onOpenDebug}
+                            onClick={this.handleOpenDebug}
                             text="Show debug window"
                           />
                         </MenuGroup>
@@ -225,19 +254,19 @@ export default class SideNav extends React.Component<Props, State> {
                           {auth.user ? (
                             <MenuItem
                               Icon={icons.AccountCircle}
-                              onClick={this.openSignIn}
+                              onClick={this.handleOpenSignIn}
                               text={<Text t={__("account.log_out")} />}
                             />
                           ) : (
                             <>
                               <MenuItem
                                 Icon={icons.AccountCircle}
-                                onClick={this.openSignIn}
+                                onClick={this.handleOpenSignIn}
                                 text={<Text t={__("account.sign_in")} />}
                               />
                               <MenuItem
                                 Icon={icons.AccountCircle}
-                                onClick={this.openRegister}
+                                onClick={this.handleOpenRegister}
                                 text={<Text t={__("account.sign_up")} />}
                               />
                             </>
@@ -269,7 +298,7 @@ export default class SideNav extends React.Component<Props, State> {
                               {brand.communication.newsletter.enabled && (
                                 <MenuItem
                                   Icon={icons.ContactEmail}
-                                  onClick={onOpenSubscription}
+                                  onClick={this.handleOpenSubscription}
                                   text={<Text t={__("common.subscribe")} />}
                                 />
                               )}
@@ -295,7 +324,7 @@ export default class SideNav extends React.Component<Props, State> {
                               {brand.contacts.chat.enabled && (
                                 <MenuItem
                                   Icon={icons.Chat}
-                                  onClick={onOpenChat}
+                                  onClick={this.handleOpenChat}
                                   text={<Text t={__("booking.abandonment.help.chat_action")} />}
                                 />
                               )}
@@ -417,6 +446,15 @@ export default class SideNav extends React.Component<Props, State> {
             )}
           </Transition>
         </Portal>
+
+        {/* MODALS */}
+        {modalOpen === "chat" && <Modal onClose={this.handleCloseModal}>{chat}</Modal>}
+
+        {modalOpen === "subscription" && (
+          <Modal onClose={this.handleCloseModal}>{subscription}</Modal>
+        )}
+
+        {modalOpen === "debug" && <Modal onClose={this.handleCloseModal}>{debug}</Modal>}
       </>
     );
   };

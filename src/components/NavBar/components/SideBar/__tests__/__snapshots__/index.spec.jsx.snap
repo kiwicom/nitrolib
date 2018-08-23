@@ -6,12 +6,24 @@ exports[`#SideBar render 1`] = `
     <Component />
   </ContextConsumer>
   <SideNav
-    debug={false}
-    onOpenChat={[MockFunction]}
+    chat={
+      <div>
+        chat
+      </div>
+    }
+    debug={
+      <div>
+        debug
+      </div>
+    }
     onOpenRegister={[Function]}
     onOpenSignIn={[Function]}
-    onOpenSubscription={[MockFunction]}
     onSaveLanguage={[MockFunction]}
+    subscription={
+      <div>
+        subscription
+      </div>
+    }
   />
 </Fragment>
 `;
@@ -22,12 +34,20 @@ exports[`#SideBar render with modal 1`] = `
     <Component />
   </ContextConsumer>
   <SideNav
+    chat={
+      <div>
+        chat
+      </div>
+    }
     debug={false}
-    onOpenChat={[MockFunction]}
     onOpenRegister={[Function]}
     onOpenSignIn={[Function]}
-    onOpenSubscription={[MockFunction]}
     onSaveLanguage={[MockFunction]}
+    subscription={
+      <div>
+        subscription
+      </div>
+    }
   />
   <Modal
     onClose={[Function]}

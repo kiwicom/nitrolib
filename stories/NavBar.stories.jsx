@@ -16,8 +16,9 @@ storiesOf("NavBar", module)
   .addDecorator(withData)
   .add("default", () => (
     <NavBar
-      onOpenChat={action("Open chat")}
-      onOpenSubscription={action("Open subscription")}
+      chat={<h1>Chat</h1>}
+      subscription={<h1>Subscription</h1>}
+      debug={<h1>Debug</h1>}
       onSaveLanguage={action("Save language")}
       onSaveToken={action("Save token")}
       headerLinks={<HeaderLinks provider={select("Provider", providers, "none", GROUP_ID)} />}
