@@ -1,7 +1,6 @@
 // @flow strict
 import type { Currency } from "../../../records/Currency";
 import type { LangInfo } from "../../../records/LangInfo";
-import type { Splitster } from "../../../records/Splitster";
 
 // holidays.kiwi.com are powered by Logitravel
 const getLogitravelDeeplink = (isoShort: string) => {
@@ -42,6 +41,9 @@ export const getCarsLanguage = (isoShort: string) => (isoShort === "el" ? "gr" :
 // Supported currenceis on Logitravel
 const HOLIDAYS_CURRENCIES = ["eur", "gbp"];
 const PACKAGES = {
+  none: {
+    getLink: (lang: string) => lang,
+  },
   holidays: {
     getLink: (lang: string) => getLogitravelDeeplink(lang),
   },
@@ -50,25 +52,23 @@ const PACKAGES = {
   },
 };
 
-export function getLink(currency: Currency, language: LangInfo, splitster: Splitster) {
-  const packageProvider = splitster.HEADER_LINKS_PACKAGE_PROVIDER;
-  const packageProvideLastminuteSupported =
-    splitster.HEADER_LINKS_PACKAGE_PROVIDER_LASTMINUTE === "show";
+export type Provider = "none" | "lastminute" | "holidays";
 
-  const packageProviderSet = packageProvider && packageProvider !== "none";
+export function getLink(currency: Currency, language: LangInfo, provider: Provider) {
+  const packageProviderSet = provider !== "none";
 
   // Intersection of Logitravel & Lastminute
   // Let AB test decide (packageProvider)
   const showPackagesIntersection = packageProviderSet && HOLIDAYS_CURRENCIES.includes(currency.id);
-  const packages = showPackagesIntersection && PACKAGES[packageProvider];
+  const packages = showPackagesIntersection && PACKAGES[provider];
 
   // Lastminute extra
   const packagesLastMinute =
-    !showPackagesIntersection && packageProvideLastminuteSupported && PACKAGES.lastminute;
+    !showPackagesIntersection && provider === "lastminute" && PACKAGES.lastminute;
 
   if (packages) {
-    const lang = packageProvider === "holidays" ? language.iso.substring(0, 2) : language.id;
-    return PACKAGES[packageProvider].getLink(lang);
+    const lang = provider === "holidays" ? language.iso.substring(0, 2) : language.id;
+    return PACKAGES[provider].getLink(lang);
   }
   if (packagesLastMinute) {
     return PACKAGES.lastminute.getLink(language.id);

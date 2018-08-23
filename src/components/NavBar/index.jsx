@@ -9,9 +9,6 @@ import type { ThemeProps } from "../../records/Theme";
 import { themeDefault } from "../../records/Theme";
 import Flex from "../../primitives/Flex";
 import Language from "../Language";
-import HeaderLinks from "../HeaderLinks";
-import type { Splitster } from "../../records/Splitster";
-import { splitsterDefault } from "../../records/Splitster";
 import * as brandContext from "../../services/brand/context";
 import SideBar from "./components/SideBar";
 import Logo from "./components/Logo";
@@ -66,33 +63,32 @@ const Desktop = styled.div`
 `;
 
 type Props = {|
+  headerLinks: React.Node,
+  // TODO make these injectables into a container
   onOpenSubscription: () => void,
   onOpenChat: () => void,
-  debug: boolean,
-  onOpenDebug?: () => void,
   onSaveToken: (token: string) => void,
   onSaveLanguage: (lang: string) => void,
-  splitster: Splitster,
+  debug: boolean,
+  onOpenDebug?: () => void,
 |};
 
 const NavBar = ({
+  headerLinks,
   onOpenSubscription,
   onOpenChat,
-  debug,
-  onOpenDebug,
   onSaveToken,
   onSaveLanguage,
-  splitster,
+  debug,
+  onOpenDebug,
 }: Props) => (
   <Container x="space-between" y="center">
-    <brandContext.Consumer>
-      {brand => (
-        <Flex y="center" x="flex-start">
-          <Logo />
-          {brand.id === "kiwicom" && <HeaderLinks splitster={splitster} />}
-        </Flex>
-      )}
-    </brandContext.Consumer>
+    <Flex y="center" x="flex-start">
+      <Logo />
+      <brandContext.Consumer>
+        {brand => brand.id === "kiwicom" && headerLinks}
+      </brandContext.Consumer>
+    </Flex>
     <Flex y="center">
       <Wrapper>
         <Desktop>
@@ -104,10 +100,10 @@ const NavBar = ({
         <SideBar
           onOpenSubscription={onOpenSubscription}
           onOpenChat={onOpenChat}
-          debug={debug}
-          onOpenDebug={onOpenDebug}
           onSaveToken={onSaveToken}
           onSaveLanguage={onSaveLanguage}
+          debug={debug}
+          onOpenDebug={onOpenDebug}
         />
       </Wrapper>
     </Flex>
@@ -116,7 +112,6 @@ const NavBar = ({
 
 NavBar.defaultProps = {
   debug: false,
-  splitster: splitsterDefault,
 };
 
 export default NavBar;

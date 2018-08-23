@@ -7,16 +7,16 @@ import Suitcase from "@kiwicom/orbit-components/lib/icons/Suitcase";
 
 import * as intlContext from "../../services/intl/context";
 import * as currencyContext from "../../services/currency/context";
-import type { Splitster } from "../../records/Splitster";
 import Text from "../Text";
 import Link from "./Link";
 import { getCarsLanguage, getLink } from "./services/link";
+import type { Provider } from "./services/link";
 
 type Props = {|
-  splitster?: Splitster,
+  provider: Provider,
 |};
 
-const Links = ({ splitster }: Props) => (
+const Links = ({ provider }: Props) => (
   <intlContext.Consumer>
     {intl => (
       <>
@@ -45,7 +45,7 @@ const Links = ({ splitster }: Props) => (
         />
         <currencyContext.Consumer>
           {currencyObj => {
-            const link = splitster && getLink(currencyObj.currency, intl.language, splitster);
+            const link = getLink(currencyObj.currency, intl.language, provider);
 
             return (
               link && (

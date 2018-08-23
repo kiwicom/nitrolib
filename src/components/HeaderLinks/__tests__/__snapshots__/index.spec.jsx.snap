@@ -8,7 +8,9 @@ exports[`#Currency render 1`] = `
     </Toggle>
   </HeaderLinks__MediaTablet>
   <HeaderLinks__MediaDesktop>
-    <Links />
+    <Links
+      provider="none"
+    />
   </HeaderLinks__MediaDesktop>
 </Fragment>
 `;

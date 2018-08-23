@@ -72,21 +72,6 @@ const language = {
   zipCodePlaceholder: "10005",
 };
 
-const splitster = {
-  HEADER_LINKS_PACKAGE_PROVIDER: "holidays",
-  HEADER_LINKS_PACKAGE_PROVIDER_LASTMINUTE: "show",
-};
-
-const splitsterLastminute = {
-  HEADER_LINKS_PACKAGE_PROVIDER: "lastminute",
-  HEADER_LINKS_PACKAGE_PROVIDER_LASTMINUTE: "show",
-};
-
-const splitsterNone = {
-  HEADER_LINKS_PACKAGE_PROVIDER: "none",
-  HEADER_LINKS_PACKAGE_PROVIDER_LASTMINUTE: "hide",
-};
-
 describe("#HeaderLinks/service/link", () => {
   test("getCarsLanguage", () => {
     expect(getCarsLanguage("pt")).toEqual("pt");
@@ -97,12 +82,12 @@ describe("#HeaderLinks/service/link", () => {
   });
 
   test("getLink", () => {
-    expect(getLink(currency, language, splitster)).toEqual("//holidays.kiwi.com/gb/?utm_id=24897");
+    expect(getLink(currency, language, "holidays")).toEqual("//holidays.kiwi.com/gb/?utm_id=24897");
 
-    expect(getLink(currencySE, language, splitsterLastminute)).toEqual(
+    expect(getLink(currencySE, language, "lastminute")).toEqual(
       "https://kiwicom.lastminute.com/flight-hotel/?utm_source=kiwicom_header_link",
     );
 
-    expect(getLink(currencySE, language, splitsterNone)).toEqual(null);
+    expect(getLink(currencySE, language, "none")).toBeNull();
   });
 });

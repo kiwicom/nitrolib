@@ -5,8 +5,8 @@ import { shallow } from "enzyme";
 import HeaderLinks from "..";
 
 describe("#Currency", () => {
-  test("render", async () => {
-    const wrapper = shallow(<HeaderLinks />);
+  test("render", () => {
+    const wrapper = shallow(<HeaderLinks provider="none" />);
 
     expect(wrapper).toMatchSnapshot();
   });

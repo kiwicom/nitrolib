@@ -10,9 +10,8 @@ import Toggle from "../Toggle";
 import Popup from "./primitives/Popup";
 import IconWrapper from "./primitives/IconWrapper";
 import Links from "./Links";
-import type { Splitster } from "../../records/Splitster";
+import type { Provider } from "./services/link";
 
-// TODO: should be fixed according to later Navbar changes
 const MediaTablet = styled.div`
   display: none;
 
@@ -34,10 +33,10 @@ const MediaDesktop = styled.div`
 `;
 
 type Props = {|
-  splitster?: Splitster,
+  provider: Provider,
 |};
 
-const HeaderLinks = ({ splitster }: Props) => (
+const HeaderLinks = ({ provider }: Props) => (
   <>
     <MediaTablet>
       <Toggle>
@@ -46,7 +45,7 @@ const HeaderLinks = ({ splitster }: Props) => (
             {open && (
               <ClickOutside onClickOutside={onToggle}>
                 <Popup>
-                  <Links splitster={splitster} />
+                  <Links provider={provider} />
                 </Popup>
               </ClickOutside>
             )}
@@ -59,7 +58,7 @@ const HeaderLinks = ({ splitster }: Props) => (
       </Toggle>
     </MediaTablet>
     <MediaDesktop>
-      <Links splitster={splitster} />
+      <Links provider={provider} />
     </MediaDesktop>
   </>
 );
