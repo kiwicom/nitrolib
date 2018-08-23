@@ -191,7 +191,7 @@ type Props = {
 Example:
 ```js
 const MyComponent = () => (
-  <Text
+  <TextNode
     t={__("Click this: __x__")}
     values={{ x: <button onClick={() => alert("Clicked")}>Yo</button> }}
   />
