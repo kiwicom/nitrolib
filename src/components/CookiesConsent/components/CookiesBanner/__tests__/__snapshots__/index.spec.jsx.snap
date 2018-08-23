@@ -2,6 +2,7 @@
 
 exports[`#CookiesBanner render 1`] = `
 <CookiesBanner__Container
+  data-test="cookie"
   theme={
     Object {
       "orbit": Object {
@@ -654,6 +655,7 @@ exports[`#CookiesBanner render 1`] = `
     />
   </CookiesBanner__Message>
   <CookiesBanner__AcceptButton
+    data-test="close"
     onClick={[MockFunction]}
   >
     <CookiesBanner__Close />
