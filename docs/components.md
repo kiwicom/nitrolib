@@ -4,6 +4,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 
 Features:
 * [CookiesConsent](#CookiesConsent)
+* [HeaderLinks](#HeaderLinks)
 * [NavBar](#NavBar)
 
 Utilities:
@@ -15,13 +16,13 @@ Utilities:
 
 ## Features
 
-Actual components that do stuff.
+Actual components that do stuff. See [storybook](https://nitro-storybook-master.fe.staging.kiwi.com) for a live example.
 
 ### CookiesConsent
 
 Context needs:
 * **intl**
-* **branding**
+* **brand**
 
 ```js
 import CookiesConsent from "@kiwicom/nitro/lib/components/CookiesConsent";
@@ -34,11 +35,29 @@ type Props = {|
 |};
 ```
 
+### HeaderLinks
+
+Context needs:
+* **intl**
+* **brand**
+* **currency**
+
+```js
+import HeaderLinks from "@kiwicom/nitro/lib/components/HeaderLinks";
+```
+
+Props:
+```js
+type Props = {|
+  provider: Provider, // "none" | "holidays" | "lastminute"
+|};
+```
+
 ### NavBar
 
 Context needs:
 * **intl**
-* **branding**
+* **brand**
 * **fetched**
 * **currency**
 * **auth**
@@ -50,13 +69,12 @@ import NavBar from "@kiwicom/nitro/lib/components/NavBar";
 Props:
 ```js
 type Props = {|
-  onOpenSubscription: () => void, // fired when the user opens subscription
-  onOpenChat: () => void, // fired when the user opens chat 
-  debug: boolean, // whether to render the debug button
-  onOpenDebug?: () => void, // fired when the debug button is pressed
+  headerLinks: React.Node, // header links component
+  chat: React.Node, // chat component
+  subscription: React.Node, // subscription component
+  debug?: React.Node, // debug component
   onSaveToken: (token: string) => void, // fired when the user logges in
   onSaveLanguage: (lang: string) => void, // fired when the user changes language
-  splitster: Splitster, // see 'records'
 |};
 ```
 
