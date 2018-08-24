@@ -1,8 +1,7 @@
 // @flow strict
 import * as React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-import mq from "../../../../styles/mediaQuery";
 import button from "../../../../styles/mixins/button";
 import ClickOutside from "../../../ClickOutside";
 import LanguageName from "./LanguageName";
@@ -23,10 +22,6 @@ const OpenButton = styled.button`
       color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
     }
   }
-
-  ${mq.ltTablet(css`
-    display: none;
-  `)};
 `;
 
 OpenButton.defaultProps = {

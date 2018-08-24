@@ -69,6 +69,10 @@ const MediaIcons = styled.div`
   margin-top: 20px;
 `;
 
+const CurrencySpacing = styled.div`
+  margin-top: 15px;
+`;
+
 const Content = styled.div`
   margin-top: 75px;
   padding-bottom: 24px;
@@ -253,12 +257,13 @@ export default class SideNav extends React.Component<Props, State> {
                       <Separator />
 
                       {/* Languages and Currencies */}
-                      {/* TODO: fix language icon for sidebar */}
                       <Mobile>
                         <MenuGroup>
-                          <Language onChange={onSaveLanguage} />
+                          <Language onChange={onSaveLanguage} native />
                           <ClientOnly>
-                            <MenuItem Icon={icons.Exchange} text={<Currency />} />
+                            <CurrencySpacing>
+                              <Currency native />
+                            </CurrencySpacing>
                           </ClientOnly>
                           <Separator />
                         </MenuGroup>
