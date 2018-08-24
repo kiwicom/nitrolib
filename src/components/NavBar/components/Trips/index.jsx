@@ -11,6 +11,7 @@ import Text from "../../../Text";
 import type { ThemeProps } from "../../../../records/Theme";
 import Toggle from "../../../Toggle";
 import TripDataList from "./components/TripDataList";
+import MenuSpacings from "../../primitives/MenuSpacings";
 
 type UserData = {|
   firstname: string,
@@ -58,28 +59,30 @@ const Trips = ({ user }: Props) => (
             <TripDataList />
           </ClickOutside>
         )}
-        <Desktop>
-          <Passenger size="small" />
-          <Button
-            fontSize="12px"
-            marginLeft={3}
-            marginRight={3}
-            onClick={onToggle}
-            direction="row"
-            y="center"
-          >
-            <Text t={__("account.my_bookings_action")} />
-          </Button>
-          <UserStyle>({`${idx(user, _ => _.firstname) || " "}...`})</UserStyle>
-        </Desktop>
-        <Mobile>
-          <Button fontSize="12px" marginRight={3} onClick={onToggle} y="center" direction="row">
+        <MenuSpacings>
+          <Desktop>
             <Passenger size="small" />
-            <UserStyle>
-              {`${idx(user, _ => _.firstname) || " "} ${idx(user, _ => _.lastname) || " "}`}
-            </UserStyle>
-          </Button>
-        </Mobile>
+            <Button
+              fontSize="12px"
+              marginLeft={3}
+              marginRight={3}
+              onClick={onToggle}
+              direction="row"
+              y="center"
+            >
+              <Text t={__("account.my_bookings_action")} />
+            </Button>
+            <UserStyle>({`${idx(user, _ => _.firstname) || " "}...`})</UserStyle>
+          </Desktop>
+          <Mobile>
+            <Button fontSize="12px" marginRight={3} onClick={onToggle} y="center" direction="row">
+              <Passenger size="small" />
+              <UserStyle>
+                {`${idx(user, _ => _.firstname) || " "} ${idx(user, _ => _.lastname) || " "}`}
+              </UserStyle>
+            </Button>
+          </Mobile>
+        </MenuSpacings>
       </>
     )}
   </Toggle>

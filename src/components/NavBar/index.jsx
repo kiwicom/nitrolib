@@ -13,6 +13,7 @@ import * as brandContext from "../../services/brand/context";
 import SideBar from "./components/SideBar";
 import Logo from "./components/Logo";
 import Currency from "../Currency";
+import MenuSpacings from "./primitives/MenuSpacings";
 
 const Container = styled(Flex)`
   width: 100%;
@@ -41,16 +42,6 @@ const Wrapper = styled.div`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
   font-size: 12px;
   font-weight: 500;
-
-  & > * {
-    margin-left: 5px;
-    cursor: pointer;
-    align-items: center;
-
-    ${mq.gtTablet(css`
-      margin-left: 20px;
-    `)};
-  }
 `;
 
 Wrapper.defaultProps = {
@@ -61,9 +52,6 @@ const Desktop = styled.div`
   display: none;
   ${mq.gtTablet(css`
     display: flex;
-    & > * {
-      margin-left: 20px;
-    }
   `)};
 `;
 
@@ -87,9 +75,13 @@ const NavBar = ({ headerLinks, chat, subscription, debug, onSaveToken, onSaveLan
     <Flex y="center">
       <Wrapper>
         <Desktop>
-          <Language onChange={onSaveLanguage} />
+          <MenuSpacings>
+            <Language onChange={onSaveLanguage} />
+          </MenuSpacings>
           <ClientOnly>
-            <Currency />
+            <MenuSpacings>
+              <Currency />
+            </MenuSpacings>
           </ClientOnly>
         </Desktop>
         <SideBar
