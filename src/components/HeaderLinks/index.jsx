@@ -10,7 +10,6 @@ import Toggle from "../Toggle";
 import Popup from "./primitives/Popup";
 import IconWrapper from "./primitives/IconWrapper";
 import Links from "./Links";
-import type { Provider } from "./services/link";
 
 const MediaTablet = styled.div`
   display: none;
@@ -33,10 +32,13 @@ const MediaDesktop = styled.div`
 `;
 
 type Props = {|
-  provider: Provider,
+  linkFlights: string,
+  linkRooms: string,
+  linkCars: string,
+  linkHolidays: string,
 |};
 
-const HeaderLinks = ({ provider }: Props) => (
+const HeaderLinks = ({ linkFlights, linkRooms, linkCars, linkHolidays }: Props) => (
   <>
     <MediaTablet>
       <Toggle>
@@ -45,7 +47,12 @@ const HeaderLinks = ({ provider }: Props) => (
             {open && (
               <ClickOutside onClickOutside={onToggle}>
                 <Popup>
-                  <Links provider={provider} />
+                  <Links
+                    linkFlights={linkFlights}
+                    linkRooms={linkRooms}
+                    linkCars={linkCars}
+                    linkHolidays={linkHolidays}
+                  />
                 </Popup>
               </ClickOutside>
             )}
@@ -58,7 +65,12 @@ const HeaderLinks = ({ provider }: Props) => (
       </Toggle>
     </MediaTablet>
     <MediaDesktop>
-      <Links provider={provider} />
+      <Links
+        linkFlights={linkFlights}
+        linkRooms={linkRooms}
+        linkCars={linkCars}
+        linkHolidays={linkHolidays}
+      />
     </MediaDesktop>
   </>
 );

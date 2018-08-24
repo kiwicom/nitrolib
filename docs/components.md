@@ -39,8 +39,6 @@ type Props = {|
 
 Context needs:
 * **intl**
-* **brand**
-* **currency**
 
 ```js
 import HeaderLinks from "@kiwicom/nitro/lib/components/HeaderLinks";
@@ -49,7 +47,10 @@ import HeaderLinks from "@kiwicom/nitro/lib/components/HeaderLinks";
 Props:
 ```js
 type Props = {|
-  provider: Provider, // "none" | "holidays" | "lastminute"
+  linkFlights: string,
+  linkRooms: string,
+  linkCars: string,
+  linkHolidays: string, // empty string to omit
 |};
 ```
 
