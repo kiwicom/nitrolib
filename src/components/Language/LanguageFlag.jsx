@@ -10,11 +10,12 @@ type Props = {
 };
 
 const LanguageFlag = styled.i`
-  background: ${({ flagId }: Props) => `url("${config.imagesUrl}flags/32x32/${flagId}.png")`};
-  height: 32px;
-  width: 32px;
-  display: block;
-  transform: ${({ scale }: Props) => `scale(${scale})`};
+  background: ${({ flagId }: Props) => `url("${config.imagesUrl}flags/24x0/flag-${flagId}.jpg")`};
+  height: 13px;
+  border-radius: 2px;
+  width: 24px;
+  margin-right: 8px;
+  xdisplay: block;
 `;
 
 // $FlowIssue

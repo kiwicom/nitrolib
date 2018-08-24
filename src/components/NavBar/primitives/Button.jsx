@@ -16,7 +16,8 @@ const Button = styled.button`
   cursor: pointer;
   font-weight: 500;
   text-decoration: none;
-  transition: color 0.2s ease-in-out;
+  font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
+  ${({ transition }) => transition && `transition: color 0.2s ease-in-out`};
   ${({ padding }) => padding && `padding: ${padding}`};
   ${({ marginLeft }) => marginLeft && `margin-left: ${marginLeft}px`};
   ${({ marginRight }) => marginRight && `margin-right: ${marginRight}px`};

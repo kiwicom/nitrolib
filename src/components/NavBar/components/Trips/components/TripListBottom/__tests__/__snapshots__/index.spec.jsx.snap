@@ -650,6 +650,7 @@ exports[`#TripListBottom render 1`] = `
         },
       }
     }
+    transition={true}
     y="center"
   >
     <Text

@@ -28,6 +28,10 @@ const PoweredByKiwi = styled.span`
   }
 `;
 
+const Link = styled.a`
+  display: flex;
+`;
+
 PoweredByKiwi.defaultProps = {
   theme: themeDefault,
 };
@@ -39,19 +43,19 @@ const Logo = () => (
     {brand => (
       <>
         {brand.id === "kiwicom" ? (
-          <a href={brand.home_redirect_url}>
+          <Link href={brand.home_redirect_url}>
             <SvgLogo height={logo.height} width={logo.width} title={brand.name} />
-          </a>
+          </Link>
         ) : (
           <>
-            <a href={brand.home_redirect_url}>
+            <Link href={brand.home_redirect_url}>
               <img
                 title={brand.name}
                 alt={brand.name}
                 srcSet={`${logoBaseUrl}/0x80/${brand.id}.png?v=1 2x`}
                 src={`${logoBaseUrl}/0x40/${brand.id}.png?v=1`}
               />
-            </a>
+            </Link>
             {brand.powered_by_kiwi && (
               <PoweredByKiwi>
                 Powered by <br /> Kiwi.com

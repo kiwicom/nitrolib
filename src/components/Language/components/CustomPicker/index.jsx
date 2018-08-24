@@ -18,8 +18,6 @@ const OpenButton = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
-
   &:hover {
     ${LanguageNameText} {
       color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};

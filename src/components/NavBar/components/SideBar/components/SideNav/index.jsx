@@ -104,7 +104,23 @@ const CloseIcon = styled(FaAngleRight)`
 
 const MenuOpen = styled.div`
   cursor: pointer;
+  display: flex;
+  &:hover {
+    background: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
+    border-radius: 3px;
+    svg {
+      fill: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
+      padding: 0 2px;
+    }
+  }
+  svg {
+    height: 20px;
+  }
 `;
+
+MenuOpen.defaultProps = {
+  theme: themeDefault,
+};
 
 const Separator = styled.div`
   width: 100%;

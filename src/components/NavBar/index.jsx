@@ -18,7 +18,7 @@ const Container = styled(Flex)`
   width: 100%;
   height: ${navbar.height}px;
   background-color: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
-  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
+  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   padding: 0 10px;
   box-sizing: border-box;
 
@@ -38,6 +38,7 @@ const Wrapper = styled.div`
   align-items: center;
   line-height: 50px;
   height: 50px;
+  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
   font-size: 12px;
   font-weight: 500;
 
@@ -51,6 +52,10 @@ const Wrapper = styled.div`
     `)};
   }
 `;
+
+Wrapper.defaultProps = {
+  theme: themeDefault,
+};
 
 const Desktop = styled.div`
   display: none;

@@ -28,7 +28,6 @@ const Container = styled.div`
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, .1);
   border-radius: 3px;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
-  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
 
   ${mq.gtTablet(css`
     width: 500px;

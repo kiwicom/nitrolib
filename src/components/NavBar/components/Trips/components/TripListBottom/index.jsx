@@ -12,7 +12,7 @@ type Props = {|
 const TripListBottom = ({ children }: Props) => (
   <ItemWrapper>
     {children}
-    <Button primary fontSize="1.1em" marginLeft={25} y="center">
+    <Button primary fontSize="1.1em" transition marginLeft={25} y="center">
       <Text t={__("account.all_trips")} />
     </Button>
   </ItemWrapper>

@@ -18,8 +18,9 @@ const Container = styled.div`
 
 const OpenButton = styled.div`
   cursor: pointer;
+  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
 
-  ${Container}:hover {
+  &:hover {
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
   }
 `;

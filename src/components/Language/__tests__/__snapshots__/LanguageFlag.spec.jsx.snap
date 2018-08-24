@@ -2,13 +2,12 @@
 
 exports[`#Language/LanguageFlag render 1`] = `
 .c0 {
-  background: url("//images.kiwi.com/flags/32x32/gb.png");
-  height: 32px;
-  width: 32px;
-  display: block;
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
+  background: url("//images.kiwi.com/flags/24x0/flag-gb.jpg");
+  height: 13px;
+  border-radius: 2px;
+  width: 24px;
+  margin-right: 8px;
+  xdisplay: block;
 }
 
 <i
@@ -19,13 +18,12 @@ exports[`#Language/LanguageFlag render 1`] = `
 
 exports[`#Language/LanguageFlag render with scale 1`] = `
 .c0 {
-  background: url("//images.kiwi.com/flags/32x32/gb.png");
-  height: 32px;
-  width: 32px;
-  display: block;
-  -webkit-transform: scale(0.5);
-  -ms-transform: scale(0.5);
-  transform: scale(0.5);
+  background: url("//images.kiwi.com/flags/24x0/flag-gb.jpg");
+  height: 13px;
+  border-radius: 2px;
+  width: 24px;
+  margin-right: 8px;
+  xdisplay: block;
 }
 
 <i

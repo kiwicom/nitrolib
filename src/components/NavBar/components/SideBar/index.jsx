@@ -30,7 +30,13 @@ const Desktop = styled.div`
   display: none;
   ${mq.gtTablet(css`
     display: flex;
+    height: 50px;
+    line-height: 50px;
   `)};
+`;
+
+const ManageBookings = styled.span`
+  line-height: 50px;
 `;
 
 const Mobile = styled.div`
@@ -73,7 +79,9 @@ export default class SideBar extends React.PureComponent<Props, State> {
               <>
                 <Desktop>
                   <Button onClick={this.handleOpenMyBooking}>
-                    <Text t={__("account.my_bookings_action")} />
+                    <ManageBookings>
+                      <Text t={__("account.my_bookings_action")} />
+                    </ManageBookings>
                   </Button>
                 </Desktop>
                 <Mobile>

@@ -7880,7 +7880,8 @@ exports[`#Tooltip render - right 2`] = `
 exports[`#Tooltip render - right 3`] = `
 .c0 {
   display: block;
-  padding: 6px 8px;
+  line-height: 30px;
+  padding: 0px 8px;
   color: #fff;
   background-color: #171b1e;
   border-radius: 3px;

@@ -136,7 +136,8 @@ Tip.defaultProps = {
 
 const TipContent = styled.span`
   display: block;
-  padding: 6px 8px;
+  line-height: 30px;
+  padding: 0px 8px;
   color: ${({ theme }) => theme.orbit.paletteWhite};
   background-color: ${({ theme }) => theme.orbit.paletteInkDark};
   border-radius: 3px;
