@@ -259,19 +259,19 @@ export default class SideNav extends React.Component<Props, State> {
                                 text={<Text t={__("account.log_out")} />}
                               />
                             ) : (
-                               <>
-                                 <MenuItem
-                                   Icon={icons.AccountCircle}
-                                   onClick={this.handleOpenSignIn}
-                                   text={<Text t={__("account.sign_in")} />}
-                                 />
-                                 <MenuItem
-                                   Icon={icons.AccountCircle}
-                                   onClick={this.handleOpenRegister}
-                                   text={<Text t={__("account.sign_up")} />}
-                                 />
-                               </>
-                             )}
+                              <>
+                                <MenuItem
+                                  Icon={icons.AccountCircle}
+                                  onClick={this.handleOpenSignIn}
+                                  text={<Text t={__("account.sign_in")} />}
+                                />
+                                <MenuItem
+                                  Icon={icons.AccountCircle}
+                                  onClick={this.handleOpenRegister}
+                                  text={<Text t={__("account.sign_up")} />}
+                                />
+                              </>
+                            )}
                           </MenuGroup>
                         )}
                       </AuthConsumer>
