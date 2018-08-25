@@ -107,6 +107,20 @@ export type Brand = {|
       sorting: {|
         enabled: boolean,
       |},
+      modes: {|
+        return: {
+          enabled: boolean,
+        },
+        oneway: {
+          enabled: boolean,
+        },
+        salesman: {
+          enabled: boolean,
+        },
+        multicity: {
+          enabled: boolean,
+        },
+      |},
     |},
     legal: {|
       booking_agreement: {|
@@ -134,6 +148,7 @@ export type Brand = {|
         code: string,
         enabled: boolean,
       |},
+      rentalcars: {},
       mobile_apps: {|
         download: {|
           link: string,
@@ -199,6 +214,11 @@ export type Brand = {|
         link: string,
         enabled: boolean,
       |},
+      gdpr_terms: {
+        fully_qualified: boolean,
+        link: string,
+        enabled: boolean,
+      },
       faq: {|
         fully_qualified: boolean,
         link: string,
@@ -308,6 +328,15 @@ export type Brand = {|
       "success-600": string,
       "accent-400": string,
       "primary-700": string,
+    |},
+    palette: {|
+      productNormal: string,
+      productNormalHover: string,
+      productLight: string,
+      productDark: string,
+      productLightHover: string,
+      productLightActive: string,
+      productNormalActive: string,
     |},
   |},
   company_name: string,
@@ -514,9 +543,9 @@ export const brandDefault: Brand = {
           native_support: "Mon - Fri 9am-5pm CEST; English 24/7",
         },
         it: {
-          number: "39 0694806508",
+          number: "39 0694800452",
           id: "it",
-          native_support: "Mon - Fri 9am-5pm CEST; English 24/7",
+          native_support: "Mon - Fri 8am-6pm CEST; English 24/7",
         },
         ec: {
           number: "34 911985069",
@@ -526,7 +555,7 @@ export const brandDefault: Brand = {
         cz: {
           number: "420 228885100",
           id: "cz",
-          native_support: "Mon - Fri 9am-5pm CEST; English 24/7",
+          native_support: "Mon - Fri 8am-6pm CEST; English 24/7",
         },
         ar: {
           number: "44 2038085910",
@@ -566,7 +595,7 @@ export const brandDefault: Brand = {
         es: {
           number: "34 911985069",
           id: "es",
-          native_support: "Mon - Fri 9am-5pm CEST; English 24/7",
+          native_support: "Mon - Fri 8am-6pm CEST; English 24/7",
         },
         ct: {
           number: "34 911985069",
@@ -579,7 +608,7 @@ export const brandDefault: Brand = {
           native_support: "Support Available in English 24/7",
         },
         ru: {
-          number: "7 (499)3482751",
+          number: "74993488053",
           id: "ru",
           native_support: "Mon - Fri 8am-4pm CEST; English 24/7",
         },
@@ -591,7 +620,7 @@ export const brandDefault: Brand = {
         pt: {
           number: "351 308808567",
           id: "pt",
-          native_support: "Mon - Fri 9am-5pm CEST; English 24/7",
+          native_support: "Mon - Fri 8am-6pm CEST; English 24/7",
         },
         no: {
           number: "47 81503187",
@@ -661,7 +690,7 @@ export const brandDefault: Brand = {
         pl: {
           number: "48 223077259",
           id: "pl",
-          native_support: "Support Available in English 24/7",
+          native_support: "Mon - Fri 8am-6pm CEST; English 24/7",
         },
         be: {
           number: "33 182885114",
@@ -671,7 +700,7 @@ export const brandDefault: Brand = {
         fr: {
           number: "33 (0) 182885114",
           id: "fr",
-          native_support: "Mon - Fri 9am-5pm CEST; English 24/7",
+          native_support: "Mon - Fri 8am-8pm CEST; English 24/7",
         },
         bg: {
           number: "44 2038085910",
@@ -694,9 +723,9 @@ export const brandDefault: Brand = {
           native_support: "Support Available in English 24/7",
         },
         de: {
-          number: "49 302 1782595",
+          number: "49 322 21099872",
           id: "de",
-          native_support: "Mon - Fri 9am-5pm CEST; English 24/7",
+          native_support: "Mon - Fri 8am-6pm CEST; English 24/7",
         },
         jp: {
           number: "81 34 580 7554",
@@ -834,6 +863,9 @@ export const brandDefault: Brand = {
           native_support: "Support Available in English 24/7",
         },
       },
+    },
+    chat: {
+      enabled: false,
     },
     emails: {
       enabled: true,
@@ -1230,9 +1262,6 @@ export const brandDefault: Brand = {
         },
       },
     },
-    chat: {
-      enabled: false,
-    },
   },
   base_url: "https://www.kiwi.com",
   content: {
@@ -1271,6 +1300,20 @@ export const brandDefault: Brand = {
       sorting: {
         enabled: true,
       },
+      modes: {
+        return: {
+          enabled: true,
+        },
+        oneway: {
+          enabled: true,
+        },
+        salesman: {
+          enabled: true,
+        },
+        multicity: {
+          enabled: true,
+        },
+      },
     },
     legal: {
       booking_agreement: {
@@ -1298,6 +1341,7 @@ export const brandDefault: Brand = {
         code: "KIWICOM2017",
         enabled: true,
       },
+      rentalcars: {},
       mobile_apps: {
         download: {
           link: "https://kiwi.com/app",
@@ -1315,7 +1359,7 @@ export const brandDefault: Brand = {
         },
       },
       car_rental: {
-        mail_link_base_url: "https://rentalcars.com/SearchLoaderRC.do?",
+        mail_link_base_url: "https://cars.kiwi.com/SearchLoaderRC.do?",
         mail_link:
           "http://www.rentalcars.com/Home.do?affiliateCode=skypicker&preflang=en&adcamp=link&adplat=confemail",
         enabled: true,
@@ -1323,7 +1367,7 @@ export const brandDefault: Brand = {
         email_enabled: true,
       },
       accommodation: {
-        mail_link_base_url: "http://hotels.kiwi.com/searchresults.html?",
+        mail_link_base_url: "http://rooms.kiwi.com/searchresults.html?",
         enabled: true,
         external: false,
         email_enabled: true,
@@ -1377,6 +1421,11 @@ export const brandDefault: Brand = {
         link: "http://brand.kiwi.com/",
         enabled: false,
       },
+      gdpr_terms: {
+        fully_qualified: false,
+        link: "/pages/content/terms",
+        enabled: true,
+      },
       security: {
         link: "/pages/security",
         enabled: true,
@@ -1408,17 +1457,17 @@ export const brandDefault: Brand = {
       "danger-400": " #ff5858",
       "accent-100": "#F8CA32",
       "grey-400": "#adb9c5",
-      "neutral-200": "#d5dee7", // paletteCloudNormalHover
+      "neutral-200": "#d5dee7",
       "neutral-500": "#94a2b0",
       "primary-300": "#4de3d0",
       "success-200": "#b2f79c",
       "warning-400": "#ffce67",
       "grey-200": "#d5dee7",
-      "neutral-400": "#adb9c5", // paletteInkLighter
+      "neutral-400": "#adb9c5",
       "warning-500": "#ffc345",
       "trip-start": "#0097a9",
       "google-500": "#ff5542",
-      "neutral-700": "#57626c", // paletteInkNormal
+      "neutral-700": "#57626c",
       "accent-800": "#F8CA32",
       "neutral-300": "#c6d0dc",
       "accent-900": "#F8CA32",
@@ -1427,9 +1476,9 @@ export const brandDefault: Brand = {
       "accent-300": "#F8CA32",
       "danger-200": " #ffa8a8",
       "insurance-plus": "#F5922A",
-      "grey-700": "#57626c", // paletteInkNormal
+      "grey-700": "#57626c",
       white: "#ffffff",
-      "grey-900": "#171b1e", // paletteInkDark
+      "grey-900": "#171b1e",
       "grey-600": "#7c8b99",
       "neutral-900": "#171b1e",
       "facebook-500": "#4465ad",
@@ -1439,13 +1488,13 @@ export const brandDefault: Brand = {
       "warning-600": "#f0b539",
       "warning-800": "#c9972e",
       "facebook-600": "#3b5998",
-      "primary-600": "#01bba5", // paletteProductNormal
-      "grey-800": "#2e353b", // paletteInkNormalActive
+      "primary-600": "#01bba5",
+      "grey-800": "#2e353b",
       "success-700": "#2eb300",
       "warning-700": "#dda734",
       "primary-100": "#b2f3eb",
-      "neutral-100": "#e9eef2", // paletteCloudNormal
-      "text-secondary": "#2f2f2f", // paletteInkDark
+      "neutral-100": "#e9eef2",
+      "text-secondary": "#2f2f2f",
       "mail-footer-500": "#0097A9",
       "success-100": "#d3fac5",
       "warning-100": "#fff1cf",
@@ -1462,17 +1511,26 @@ export const brandDefault: Brand = {
       "text-primary": "#ffffff",
       "accent-600": "#F8CA32",
       "brand-info": "",
-      "danger-700": "#d21c1c", // colorTextError, paletteRedNormal
+      "danger-700": "#d21c1c",
       "warning-900": "#ac8127",
       "trip-end": "#d50c6a",
       "accent-700": "#F8CA32",
-      "neutral-800": "#2e353b", // paletteInkNormalActive
+      "neutral-800": "#2e353b",
       "danger-600": " #e51f1f",
       "success-800": "#29a000",
       "danger-100": " #ffc7c7",
       "success-600": "#37c207",
       "accent-400": "#F8CA32",
       "primary-700": "#00ad98",
+    },
+    palette: {
+      productNormal: "#00a991",
+      productNormalHover: "#009882",
+      productLight: "#9ae5da",
+      productDark: "#005448",
+      productLightHover: "#7fded0",
+      productLightActive: "#64d7c6",
+      productNormalActive: "#008f7b",
     },
   },
   company_name: "Kiwi.com",
@@ -1760,7 +1818,7 @@ export const brandDefault: Brand = {
       enabled: true,
     },
   },
-  web_title: "www.kiwi.com",
+  fallbackDomain: "",
   affilid: "skypicker",
   services: {
     add_bags: {
@@ -1782,7 +1840,7 @@ export const brandDefault: Brand = {
       enabled: true,
     },
   },
-  fallbackDomain: "",
+  web_title: "www.kiwi.com",
   name: "Kiwi.com",
   web_link: "https://www.kiwi.com",
   payments: {
@@ -1810,7 +1868,6 @@ export const brandDefault: Brand = {
       "ars",
       "aud",
       "bhd",
-      "brl",
       "byn",
       "cad",
       "chf",
@@ -1856,6 +1913,7 @@ export const brandDefault: Brand = {
       "uzs",
       "yer",
       "zar",
+      "brl",
     ],
     payment_methods: {
       alipay: {

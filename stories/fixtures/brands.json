@@ -41,12 +41,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -1519,12 +1520,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -2997,12 +2999,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -5987,12 +5990,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -7465,12 +7469,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -8933,12 +8938,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -10410,12 +10416,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -11899,12 +11906,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -13376,12 +13384,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -14853,12 +14862,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -16330,12 +16340,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -17807,12 +17818,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -19284,12 +19296,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -20761,12 +20774,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -22238,12 +22252,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -23715,12 +23730,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -25196,12 +25212,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -26674,12 +26691,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -28153,12 +28171,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -29630,12 +29649,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -31107,12 +31127,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -32584,12 +32605,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -34064,12 +34086,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {
@@ -35532,12 +35555,13 @@
       },
       "_is_endconfig": false,
       "sms_sending": {
-        "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
-        "enabled": true,
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "nexmo_number": "12242258702",
-        "company_name": "Kiwi.com"
+        "enabled": true,
+        "twilio_number": "+12027596303"
       }
     },
     "api": {

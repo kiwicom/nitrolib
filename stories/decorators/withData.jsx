@@ -1,5 +1,6 @@
 // @flow strict
 import * as React from "react";
+import { ThemeProvider } from "styled-components";
 import { addDecorator } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, select } from "@storybook/addon-knobs/react";
@@ -14,6 +15,7 @@ import continents from "../fixtures/continents";
 import countries from "../fixtures/countries";
 import languages from "../fixtures/languages";
 import translations from "../fixtures/translations";
+import { getBrandTheme } from "../../src/records/Theme";
 
 const GROUP_ID = "Context";
 
@@ -25,30 +27,33 @@ const withData = (storyFn: () => React.Node) => {
 
   return (
     <BrandProvider value={brands[brandId]}>
-      <IntlProvider
-        language={languages[localeId]}
-        translations={translations[languages[localeId].phraseApp]}
-      >
-        <FetchedProvider
-          value={{
-            countries,
-            continents,
-            brandLanguage: brandLanguages[brandId][localeId],
-          }}
+      {/* $FlowExpected - ThemeProvider has bad typedefs */}
+      <ThemeProvider theme={getBrandTheme(brands[brandId])}>
+        <IntlProvider
+          language={languages[localeId]}
+          translations={translations[languages[localeId].phraseApp]}
         >
-          <CurrencyProvider
-            whitelist={brands[brandId].payments.whitelisted_currencies}
-            countries={countries}
-            affiliate=""
-            ip="1.3.3.7"
-            initialCurrency="EUR"
-            langCurrency={languages[localeId].currency}
-            onChange={action("Save currency")}
+          <FetchedProvider
+            value={{
+              countries,
+              continents,
+              brandLanguage: brandLanguages[brandId][localeId],
+            }}
           >
-            {storyFn()}
-          </CurrencyProvider>
-        </FetchedProvider>
-      </IntlProvider>
+            <CurrencyProvider
+              whitelist={brands[brandId].payments.whitelisted_currencies}
+              countries={countries}
+              affiliate=""
+              ip="1.3.3.7"
+              initialCurrency="EUR"
+              langCurrency={languages[localeId].currency}
+              onChange={action("Save currency")}
+            >
+              {storyFn()}
+            </CurrencyProvider>
+          </FetchedProvider>
+        </IntlProvider>
+      </ThemeProvider>
     </BrandProvider>
   );
 };

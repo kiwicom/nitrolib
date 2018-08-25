@@ -21,6 +21,13 @@ Object {
     "fully_qualified": false,
     "link": "/helpcenter",
   },
+  "gdpr_terms": Object {
+    "Icon": [Function],
+    "enabled": true,
+    "fully_qualified": false,
+    "link": "/pages/content/terms",
+    "title": "content.pages.terms.title",
+  },
   "guarantee": Object {
     "Icon": [Function],
     "enabled": true,

@@ -26,6 +26,7 @@
     "common.lastname.colon": "Фамилно име:",
     "common.email.colon": "Имейл:",
     "account.password.colon": "Парола:",
+    "account.registration_privacy_policy": "Регистрацията и последващото използване на Вашия профил се уреждат от <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Условията за ползване</a>. Вашите лични данни ще бъдат обработени в съответствие с нашата <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Декларация за поверителност</a>.",
     "common.hide": "Скриване",
     "account.log_out": "Изход",
     "sidenav.connect": "Свържете се с нас",
@@ -34,6 +35,7 @@
     "booking.abandonment.help.chat_action": "Чат на живо",
     "sidenav.company": "Компанията",
     "content.pages.legal.title": "Общи условия",
+    "account.forgot_password": "Забравили ли сте паролата си?",
     "account.my_bookings_action": "Управление на моите резервации",
     "common.loading": "Зареждане",
     "account.no_trips": "Нямате предстоящи пътувания. Може би е време да си направите резервация.",
@@ -58,9 +60,7 @@
     "forms.wrong_format_email": "Имейлът е в грешен формат",
     "common.error": "Съжаляваме, но възникна грешка, докато обработвахме заявката Ви. Опреснете страницата.",
     "account.password_too_short": "Паролата трябва да съдържа 8 или повече знака.",
-    "account.password_too_simple": "Паролата Ви трябва да бъде по-сложна.",
-    "account.forgot_password": "Забравили ли сте паролата си?",
-    "account.registration_privacy_policy": "Регистрацията и последващото използване на Вашия профил се уреждат от <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Условията за ползване</a>. Вашите лични данни ще бъдат обработени в съответствие с нашата <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Декларация за поверителност</a>."
+    "account.password_too_simple": "Паролата Ви трябва да бъде по-сложна."
   },
   "es-ES": {
     "content.cookies.banner.text": "Mientras visitas nuestra web, recopilamos y procesamos tus datos personales. Tienes más información sobre por qué y cómo procesamos tus datos personales en nuestra <a href=\"/pages/content/privacy\">Política de privacidad</a>. Para recopilas tus datos personales, utilizamos <a href=\"/pages/content/privacy#cookies\">cookies</a>. Si no quieres que te enviemos cookies, puedes deshabilitarlas en cualquier momento cambiando las <a href=\"/pages/cookies_settings\">preferencias de cookies aquí</a>.",
@@ -89,6 +89,7 @@
     "common.lastname.colon": "Apellido:",
     "common.email.colon": "Correo electrónico:",
     "account.password.colon": "Contraseña:",
+    "account.registration_privacy_policy": "El registro y el posterior uso de tu cuenta se regirán mediante estos <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Términos de uso</a>. Tus datos personales se procesarán según nuestra <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Política de privacidad</a>.",
     "common.hide": "Ocultar",
     "account.log_out": "Cerrar sesión",
     "sidenav.connect": "Conéctate con nosotros",
@@ -97,6 +98,7 @@
     "booking.abandonment.help.chat_action": "Iniciar chat",
     "sidenav.company": "Empresa",
     "content.pages.legal.title": "Términos y condiciones",
+    "account.forgot_password": "¿Has olvidado tu contraseña?",
     "account.my_bookings_action": "Gestionar mi reserva",
     "common.loading": "Cargando",
     "account.no_trips": "No tienes viajes próximamente. Quizá es buen momento para hacer una reserva.",
@@ -121,9 +123,7 @@
     "forms.wrong_format_email": "El formato del correo electrónico no es correcto",
     "common.error": "Lo sentimos, se ha producido un error mientras procesábamos tu solicitud. Actualiza la página.",
     "account.password_too_short": "Tu contraseña debe contener al menos 8 caracteres.",
-    "account.password_too_simple": "Tu contraseña debe ser más compleja.",
-    "account.forgot_password": "¿Has olvidado tu contraseña?",
-    "account.registration_privacy_policy": "El registro y el posterior uso de tu cuenta se regirán mediante estos <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Términos de uso</a>. Tus datos personales se procesarán según nuestra <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Política de privacidad</a>."
+    "account.password_too_simple": "Tu contraseña debe ser más compleja."
   },
   "cs-CZ": {
     "content.cookies.banner.text": "Zatímco si prohlížíte náš web, shromažďujeme a zpracováváme vaše osobní údaje. Více informací o tom, proč a jak vaše osobní údaje zpracováváme, najdete v našich <a href=\"/pages/content/privacy\">zásadách ochrany osobních údajů</a>. Ke shromažďování vašich osobních údajů používáme soubory <a href=\"/pages/content/privacy#cookies\">cookie</a>. Pokud nechcete, abychom vám soubory cookie posílali, můžete je kdykoli vypnout v <a href=\"/pages/cookies_settings\">nastavení souborů cookie zde</a>.",
@@ -152,6 +152,7 @@
     "common.lastname.colon": "Příjmení:",
     "common.email.colon": "E-mail:",
     "account.password.colon": "Heslo:",
+    "account.registration_privacy_policy": "Registrace a následné používání vašeho účtu se řídí těmito <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">podmínkami používání</a>. Vaše osobní údaje budeme zpracovávat v souladu s našimi <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">zásadami ochrany osobních údajů</a>.",
     "common.hide": "Schovat",
     "account.log_out": "Odhlášení",
     "sidenav.connect": "Spojte se s námi",
@@ -160,6 +161,7 @@
     "booking.abandonment.help.chat_action": "Otevřít chat",
     "sidenav.company": "Společnost",
     "content.pages.legal.title": "Obchodní podmínky",
+    "account.forgot_password": "Zapomněli jste heslo?",
     "account.my_bookings_action": "Spravovat moje rezervace",
     "common.loading": "Načítá se",
     "account.no_trips": "Nemáte naplánované žádné cesty. Možná byste si měli nějakou zarezervovat.",
@@ -184,9 +186,7 @@
     "forms.wrong_format_email": "Nesprávný formát emailu",
     "common.error": "Je nám líto, ale při zpracovávání vašeho požadavku došlo k chybě. Aktualizujte stránku.",
     "account.password_too_short": "Heslo by se mělo skládat alespoň z 8 znaků.",
-    "account.password_too_simple": "Heslo by mělo být složitější.",
-    "account.forgot_password": "Zapomněli jste heslo?",
-    "account.registration_privacy_policy": "Registrace a následné používání vašeho účtu se řídí těmito <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">podmínkami používání</a>. Vaše osobní údaje budeme zpracovávat v souladu s našimi <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">zásadami ochrany osobních údajů</a>."
+    "account.password_too_simple": "Heslo by mělo být složitější."
   },
   "da-DK": {
     "content.cookies.banner.text": "Når du browser på vores websted, indsamler og behandler vi dine personlige oplysninger. Du kan få mere at vide om hvorfor og hvordan vi behandler dine personlige oplysninger i vores <a href=\"/pages/content/privacy\">Privatlivspolitik</a>. Vi bruger <a href=\"/pages/content/privacy#cookies\">cookies</a> til at indsamle dine personlige oplysninger. Hvis du ikke ønsker at modtage cookies, kan du slå dem fra når som helst ved at ændre dine <a href=\"/pages/cookies_settings\">indstillinger for cookies her</a>.",
@@ -215,6 +215,7 @@
     "common.lastname.colon": "Efternavn:",
     "common.email.colon": "E-mail:",
     "account.password.colon": "Adgangskode:",
+    "account.registration_privacy_policy": "Tilmeldingen og den efterfølgende brug af din konto er underlagt disse <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Brugsvilkår</a>. Dine personlige oplysninger vil blive behandlet i henhold til vores <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privatlivspolitik</a>.",
     "common.hide": "Skjul",
     "account.log_out": "Log ud",
     "sidenav.connect": "Kom i kontakt med os",
@@ -223,6 +224,7 @@
     "booking.abandonment.help.chat_action": "Åbn live-chat",
     "sidenav.company": "Virksomhed",
     "content.pages.legal.title": "Vilkår og betingelser",
+    "account.forgot_password": "Har du glemt din adgangskode?",
     "account.my_bookings_action": "Administrer min booking",
     "common.loading": "Indlæser",
     "account.no_trips": "Du har ingen kommende rejser. Måske er det tid til at booke en.",
@@ -247,9 +249,7 @@
     "forms.wrong_format_email": "E-mail er i forkert format",
     "common.error": "Beklager, der skete en fejl, da vi behandlede din anmodning. Genindlæs siden.",
     "account.password_too_short": "Din adgangskode skal have 8 eller flere tegn.",
-    "account.password_too_simple": "Din adgangskode skal være mere kompleks.",
-    "account.forgot_password": "Har du glemt din adgangskode?",
-    "account.registration_privacy_policy": "Tilmeldingen og den efterfølgende brug af din konto er underlagt disse <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Brugsvilkår</a>. Dine personlige oplysninger vil blive behandlet i henhold til vores <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privatlivspolitik</a>."
+    "account.password_too_simple": "Din adgangskode skal være mere kompleks."
   },
   "de-DE": {
     "content.cookies.banner.text": "Während Sie unsere Website besuchen, sammeln und verarbeiten wir Ihre persönlichen Daten Wenn Sie mehr darüber erfahren möchten, warum und wie wir Ihre persönlichen Daten verarbeiten, können Sie unsere <a href=\"/pages/content/privacy\">Datenschutzrichtlinien</a> lesen. Zum Sammeln Ihrer persönlichen Daten verwenden wir <a href=\"/pages/content/privacy#cookies\">Cookies</a>. Wenn Sie nicht möchten, dass wir Ihnen Cookies schicken, können Sie diese jederzeit deaktivieren, indem Sie Ihre <a href=\"/pages/cookies_settings\">Cookie-Präferenzen hier ändern</a>.",
@@ -278,6 +278,7 @@
     "common.lastname.colon": "Nachname:",
     "common.email.colon": "E-Mail:",
     "account.password.colon": "Passwort:",
+    "account.registration_privacy_policy": "Für die Anmeldung and anschließende Nutzung Ihres Konto gelten diese <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Nutzungsbedingungen</a>. Ihre persönlichen Daten werden gemäß unseren <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Datenschutzrichtlinien</a> verarbeitet.",
     "common.hide": "Ausblenden",
     "account.log_out": "Abmelden",
     "sidenav.connect": "Kontaktieren Sie uns",
@@ -286,6 +287,7 @@
     "booking.abandonment.help.chat_action": "Live-Chat öffnen",
     "sidenav.company": "Unternehmen",
     "content.pages.legal.title": "Allgemeine Geschäftsbedingungen",
+    "account.forgot_password": "Passwort vergessen?",
     "account.my_bookings_action": "Meine Buchung verwalten",
     "common.loading": "Lädt",
     "account.no_trips": "Sie haben keine anstehenden Reisen. Vielleicht ist es Zeit, etwas zu buchen.",
@@ -310,9 +312,7 @@
     "forms.wrong_format_email": "Die E-Mail-Adresse hat ein falsches Format",
     "common.error": "Leider hat es bei der Bearbeitung Ihres Antrags einen Fehler gegeben. Bitte laden Sie die Seite erneut.",
     "account.password_too_short": "Ihr Passwort sollte aus mindestens 8 Zeichen bestehen.",
-    "account.password_too_simple": "Ihr Passwort sollte komplexer sein.",
-    "account.forgot_password": "Passwort vergessen?",
-    "account.registration_privacy_policy": "Für die Anmeldung and anschließende Nutzung Ihres Konto gelten diese <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Nutzungsbedingungen</a>. Ihre persönlichen Daten werden gemäß unseren <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Datenschutzrichtlinien</a> verarbeitet."
+    "account.password_too_simple": "Ihr Passwort sollte komplexer sein."
   },
   "el-GR": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
@@ -404,6 +404,7 @@
     "common.lastname.colon": "Last name:",
     "common.email.colon": "Email:",
     "account.password.colon": "Password:",
+    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>.",
     "common.hide": "Hide",
     "account.log_out": "Sign Out",
     "sidenav.connect": "Connect with us",
@@ -412,6 +413,7 @@
     "booking.abandonment.help.chat_action": "Open Live Chat",
     "sidenav.company": "Company",
     "content.pages.legal.title": "Terms & Conditions",
+    "account.forgot_password": "Forgot Your Password?",
     "account.my_bookings_action": "Manage My Booking",
     "common.loading": "Loading",
     "account.no_trips": "You don't have any upcoming trips. Maybe it's time to book something.",
@@ -436,9 +438,7 @@
     "forms.wrong_format_email": "Incorrect email format",
     "common.error": "Sorry, there was an error while processing your request. Please refresh the page.",
     "account.password_too_short": "Your password should have 8 or more characters.",
-    "account.password_too_simple": "Your password should be more complex.",
-    "account.forgot_password": "Forgot Your Password?",
-    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>."
+    "account.password_too_simple": "Your password should be more complex."
   },
   "es-MX": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
@@ -467,6 +467,7 @@
     "common.lastname.colon": "Apellidos",
     "common.email.colon": "Correo electrónico",
     "account.password.colon": "Contraseña",
+    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>.",
     "common.hide": "Ocultar",
     "account.log_out": "Cerrar sesión",
     "sidenav.connect": "Conectar",
@@ -475,6 +476,7 @@
     "booking.abandonment.help.chat_action": "Chat en vivo",
     "sidenav.company": "Compañía",
     "content.pages.legal.title": "Términos y condiciones",
+    "account.forgot_password": "¿Ha olvidado su contraseña?",
     "account.my_bookings_action": "Gestionar Mi Reserva",
     "common.loading": "Cargando",
     "account.no_trips": "You don't have any upcoming trips. Maybe it's time to book something.",
@@ -499,9 +501,7 @@
     "forms.wrong_format_email": "El correo electrónico tiene un formato erróneo",
     "common.error": "Error",
     "account.password_too_short": "La contraseña es demasiado corta.",
-    "account.password_too_simple": "La contraseña es demasiado simple.",
-    "account.forgot_password": "¿Ha olvidado su contraseña?",
-    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>."
+    "account.password_too_simple": "La contraseña es demasiado simple."
   },
   "fr-FR": {
     "content.cookies.banner.text": "Lorsque vous naviguez sur notre site Web, nous recueillons et nous traitons vos données personnelles. Vous pouvez en savoir plus sur les raisons et la façon dont nous traitons vos données personnelles en consultant notre <a href=\"/pages/content/privacy\">Politique de confidentialité</a>. Pour recueillir vos données personnelles, nous utilisons des <a href=\"/pages/content/privacy#cookies\">cookies</a>. Si vous ne souhaitez pas que nous vous envoyions des cookies, vous pouvez les désactiver à tout moment en modifiant vos <a href=\"/pages/cookies_settings\">préférences en matière de cookies ici</a>.",
@@ -530,6 +530,7 @@
     "common.lastname.colon": "Nom :",
     "common.email.colon": "Adresse e-mail :",
     "account.password.colon": "Mot de passe :",
+    "account.registration_privacy_policy": "L'enregistrement et l'utilisation ultérieure de votre compte sont régis par les présentes <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Conditions d'utilisation</a>. Vos Données personnelles seront traitées conformément à notre <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Politique de confidentialité</a>.",
     "common.hide": "Masquer",
     "account.log_out": "Se déconnecter",
     "sidenav.connect": "Rejoignez-nous",
@@ -538,6 +539,7 @@
     "booking.abandonment.help.chat_action": "Ouvrir le chat en direct",
     "sidenav.company": "Entreprise",
     "content.pages.legal.title": "Conditions générales",
+    "account.forgot_password": "Mot de passe oublié ?",
     "account.my_bookings_action": "Gérer ma réservation",
     "common.loading": "Chargement",
     "account.no_trips": "Vous n'avez aucun voyage à venir. Il est peut-être temps de réserver un voyage.",
@@ -562,9 +564,7 @@
     "forms.wrong_format_email": "L'e-mail présente un format erroné",
     "common.error": "Désolé, une erreur s'est produite lors du traitement de votre demande. Veuillez actualiser la page.",
     "account.password_too_short": "Votre mot de passe doit contenir 8 caractères ou plus.",
-    "account.password_too_simple": "Votre mot de passe doit être plus complexe.",
-    "account.forgot_password": "Mot de passe oublié ?",
-    "account.registration_privacy_policy": "L'enregistrement et l'utilisation ultérieure de votre compte sont régis par les présentes <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Conditions d'utilisation</a>. Vos Données personnelles seront traitées conformément à notre <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Politique de confidentialité</a>."
+    "account.password_too_simple": "Votre mot de passe doit être plus complexe."
   },
   "sr-RS-Latn": {
     "content.cookies.banner.text": "Dok pretražujete naš veb-sajt, mi prikupljamo i obrađujemo vaše lične podatke. Više o tome na koji način obrađujemo vaše lične podatke možete saznati u našoj <a href=\"/pages/content/privacy\">Politici privatnosti</a>. Za prikupljanje ličnih podataka, koristimo <a href=\"/pages/content/privacy#cookies\">kolačiće</a>. Ako ne želite da primate kolačiće, možete isključiti ovu opciju u bilo koje doba promenom u <a href=\"/pages/cookies_settings\">željenim postavkama kolačića ovde</a>.",
@@ -593,6 +593,7 @@
     "common.lastname.colon": "Prezime:",
     "common.email.colon": "Imejl:",
     "account.password.colon": "Lozinka:",
+    "account.registration_privacy_policy": "Registracija i upotreba naloga regulisana je ovim <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Uslovima korišćenja</a>.",
     "common.hide": "Sakrij",
     "account.log_out": "Odjavite se",
     "sidenav.connect": "Povežite se sa nama",
@@ -601,6 +602,7 @@
     "booking.abandonment.help.chat_action": "Otvorite čet uživo",
     "sidenav.company": "Kompanija",
     "content.pages.legal.title": "Odredbe i uslovi",
+    "account.forgot_password": "Zaboravili ste lozinku?",
     "account.my_bookings_action": "Upravljanje rezervacijom",
     "common.loading": "Učitavanje",
     "account.no_trips": "Nemate predstojećih putovanja. Možda je vreme da rezervišete neko.",
@@ -625,9 +627,7 @@
     "forms.wrong_format_email": "E-adresa je u pogrešnom formatu",
     "common.error": "Žao nam je, došlo je do greške pri obradi vašeg zahteva. Osvežite stranicu.",
     "account.password_too_short": "Lozinka treba da sadrži 8 ili više karaktera.",
-    "account.password_too_simple": "Lozinka treba da bude složenija.",
-    "account.forgot_password": "Zaboravili ste lozinku?",
-    "account.registration_privacy_policy": "Registracija i upotreba naloga regulisana je ovim <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Uslovima korišćenja</a>."
+    "account.password_too_simple": "Lozinka treba da bude složenija."
   },
   "id-ID": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
@@ -656,6 +656,7 @@
     "common.lastname.colon": "Nama belakang",
     "common.email.colon": "Surel",
     "account.password.colon": "Sandi",
+    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>.",
     "common.hide": "Sembunyikan",
     "account.log_out": "Keluar",
     "sidenav.connect": "Hubungi",
@@ -664,6 +665,7 @@
     "booking.abandonment.help.chat_action": "Buka live chat",
     "sidenav.company": "Perusahaan",
     "content.pages.legal.title": "Syarat dan Ketentuan",
+    "account.forgot_password": "Lupa sandi Anda?",
     "account.my_bookings_action": "Kelola pemesanan saya",
     "common.loading": "Memuat",
     "account.no_trips": "You don't have any upcoming trips. Maybe it's time to book something.",
@@ -688,9 +690,7 @@
     "forms.wrong_format_email": "Format email salah",
     "common.error": "Kesalahan",
     "account.password_too_short": "Sandi terlalu singkat.",
-    "account.password_too_simple": "Sandi terlalu sederhana.",
-    "account.forgot_password": "Lupa sandi Anda?",
-    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>."
+    "account.password_too_simple": "Sandi terlalu sederhana."
   },
   "it-IT": {
     "content.cookies.banner.text": "Mentre navighi sul nostro sito web, raccogliamo e gestiamo i tuoi dati personali. Puoi avere altre informazioni su perché e come gestiamo i tuoi dati personali nella nostra <a href=\"/pages/content/privacy\">Informativa sulla Privacy</a>. Per raccogliere i tuoi dati personali, utilizziamo i <a href=\"/pages/content/privacy#cookies\">cookies</a>. Se non vuoi inviarci i tuoi cookies, puoi disattivarli in qualunque momento modificando le tue <a href=\"/pages/cookies_settings\">preferenze sui cookies qui</a>.",
@@ -719,6 +719,7 @@
     "common.lastname.colon": "Cognome:",
     "common.email.colon": "E-mail:",
     "account.password.colon": "Password:",
+    "account.registration_privacy_policy": "La registrazione e il conseguente uso del tuo account è regolato da questi <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Termini di utilizzo</a>. I tuoi dati personali verranno utilizzati nel rispetto della nostra <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Informativa sulla privacy</a>.",
     "common.hide": "Chiudi",
     "account.log_out": "Disconnetti",
     "sidenav.connect": "Entra in contatto con noi",
@@ -727,6 +728,7 @@
     "booking.abandonment.help.chat_action": "Apri Chat Live",
     "sidenav.company": "Azienda",
     "content.pages.legal.title": "Termini e condizioni",
+    "account.forgot_password": "Password dimenticata?",
     "account.my_bookings_action": "Gestisci prenotazione",
     "common.loading": "Caricamento in corso",
     "account.no_trips": "Non hai nessun viaggio in programma. Forse è giunto il momento di prenotarne uno.",
@@ -751,9 +753,7 @@
     "forms.wrong_format_email": "L'email è in un formato sbagliato",
     "common.error": "Spiacenti, si è verificato un errore durante l'elaborazione della tua richiesta. Aggiorna la pagina.",
     "account.password_too_short": "La password deve contenere almeno 8 caratteri.",
-    "account.password_too_simple": "Scegli una password più complessa.",
-    "account.forgot_password": "Password dimenticata?",
-    "account.registration_privacy_policy": "La registrazione e il conseguente uso del tuo account è regolato da questi <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Termini di utilizzo</a>. I tuoi dati personali verranno utilizzati nel rispetto della nostra <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Informativa sulla privacy</a>."
+    "account.password_too_simple": "Scegli una password più complessa."
   },
   "ja-JP": {
     "content.cookies.banner.text": "当サイト閲覧中に、お客様の個人データを収集・処理させていただくことがあります。個人データを収集させていただく理由、およびその処理方法に関する詳細は、<a href=\"/pages/content/privacy\">プライバシーポリシー</a>をご覧ください。また、個人データの収集に<a href=\"/pages/content/privacy#cookies\">クッキー</a>を使用しています。クッキーの受信を希望しない場合は、<a href=\"/pages/cookies_settings\">クッキー設定</a>からクッキーを無効にしてください。",
@@ -782,6 +782,7 @@
     "common.lastname.colon": "姓：",
     "common.email.colon": "eメール：",
     "account.password.colon": "パスワード：",
+    "account.registration_privacy_policy": "ユーザー登録および登録後のアカウントのご利用に際しては、<a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">本利用規約</a>が適用されます。",
     "common.hide": "閉じる",
     "account.log_out": "ログアウト",
     "sidenav.connect": "お問い合わせ",
@@ -790,6 +791,7 @@
     "booking.abandonment.help.chat_action": "ライブチャットを始める",
     "sidenav.company": "会社情報",
     "content.pages.legal.title": "諸条件",
+    "account.forgot_password": "パスワードをお忘れですか？",
     "account.my_bookings_action": "予約の管理",
     "common.loading": "読み込み中です",
     "account.no_trips": "旅行のご予約は入っていません。そろそろ旅行のご予約をしませんか。",
@@ -814,9 +816,7 @@
     "forms.wrong_format_email": "Eメールの形式が誤っています",
     "common.error": "申し訳ありませんが、リクエストの処理中にエラーが発生しました。ページを再読込してください。",
     "account.password_too_short": "パスワードは8文字以上でなければなりません。",
-    "account.password_too_simple": "パスワードが簡単すぎます。",
-    "account.forgot_password": "パスワードをお忘れですか？",
-    "account.registration_privacy_policy": "ユーザー登録および登録後のアカウントのご利用に際しては、<a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">本利用規約</a>が適用されます。"
+    "account.password_too_simple": "パスワードが簡単すぎます。"
   },
   "lt-LT": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
@@ -845,6 +845,7 @@
     "common.lastname.colon": "Last name:",
     "common.email.colon": "El. paštas",
     "account.password.colon": "Slaptažodis",
+    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>.",
     "common.hide": "Slėpti",
     "account.log_out": "Atsijungti",
     "sidenav.connect": "Connect with us",
@@ -853,6 +854,7 @@
     "booking.abandonment.help.chat_action": "Open Live Chat",
     "sidenav.company": "Company",
     "content.pages.legal.title": "Nuostatos ir sąlygos",
+    "account.forgot_password": "Pamiršote slaptažodį?",
     "account.my_bookings_action": "Tvarkyti mano užsakymus",
     "common.loading": "Įkeliama",
     "account.no_trips": "You don't have any upcoming trips. Maybe it's time to book something.",
@@ -877,9 +879,7 @@
     "forms.wrong_format_email": "Incorrect email format",
     "common.error": "Sorry, there was an error while processing your request. Please refresh the page.",
     "account.password_too_short": "Your password should have 8 or more characters.",
-    "account.password_too_simple": "Your password should be more complex.",
-    "account.forgot_password": "Pamiršote slaptažodį?",
-    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>."
+    "account.password_too_simple": "Your password should be more complex."
   },
   "he-IL": {
     "content.cookies.banner.text": "אנחנו אוספים ממך מידע אישי בזמן הגלישה באתר שלנו ומשתמשים בו בדרכים שונות. רוצה לדעת למה ואיך אנחנו משתמשים במידע האישי שלך? כל התשובות לשאלות אלה ועוד נמצאות ב<a href=\"/pages/content/privacy\">מדיניות הפרטיות</a> שלנו. אנחנו משתמשים <a href=\"/pages/content/privacy#cookies\">בקובצי Cookie</a> כדי לאסוף ממך מידע אישי. לא רוצה שנשתמש בקובצי Cookie במכשיר שלך? אין בעיה. <a href=\"/pages/cookies_settings\">כאן</a> אפשר לשנות את הגדרות השימוש בקובצי Cookie.",
@@ -908,6 +908,7 @@
     "common.lastname.colon": "שם משפחה:",
     "common.email.colon": "דוא\"ל:",
     "account.password.colon": "סיסמה:",
+    "account.registration_privacy_policy": "ההרשמה והשימוש בחשבון כפופים <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">לתנאי השימוש</a> האלה. השימוש במידע האישי שלך יעשה בהתאם ל<a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">מדיניות הפרטיות</a> שלנו.",
     "common.hide": "הסתרה",
     "account.log_out": "יציאה מהחשבון",
     "sidenav.connect": "נשמח לשמור על קשר",
@@ -916,6 +917,7 @@
     "booking.abandonment.help.chat_action": "פתיחת צ'אט חי",
     "sidenav.company": "חברה",
     "content.pages.legal.title": "תנאי השימוש",
+    "account.forgot_password": "שכחת את הסיסמה?",
     "account.my_bookings_action": "ניהול ההזמנה שלי",
     "common.loading": "טוען",
     "account.no_trips": "לא מוזמנת לך אף נסיעה כרגע. לא מתחשק לך לצאת לחופש?",
@@ -940,9 +942,7 @@
     "forms.wrong_format_email": "האימייל בפורמט שגוי",
     "common.error": "משהו השתבש בזמן שטיפלנו בבקשה. צריך לרענן את הדף.",
     "account.password_too_short": "הסיסמה צריכה להכיל 8 תווים לפחות.",
-    "account.password_too_simple": "הסיסמה צריכה להיות מורכבת יותר.",
-    "account.forgot_password": "שכחת את הסיסמה?",
-    "account.registration_privacy_policy": "ההרשמה והשימוש בחשבון כפופים <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">לתנאי השימוש</a> האלה. השימוש במידע האישי שלך יעשה בהתאם ל<a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">מדיניות הפרטיות</a> שלנו."
+    "account.password_too_simple": "הסיסמה צריכה להיות מורכבת יותר."
   },
   "hu-HU": {
     "content.cookies.banner.text": "Amikor Ön a webhelyünket böngészi, mi személyes adatokat gyűjtünk Önről, és feldolgozzuk azokat. Az <a href=\"/pages/content/privacy\">Adatvédelmi szabályzatunkban</a> olvashat arról, hogy miért és hogyan dolgozzuk fel az Ön személyes adatait. A személyes adatok gyűjtéséhez <a href=\"/pages/content/privacy#cookies\">cookie-kat</a> használunk. Ha nem szeretné, hogy cookie-kat küldjünk Önnek, akkor bármikor leállíthatja azt a <a href=\"/pages/cookies_settings\">cookie-beállítások</a> módosításával.",
@@ -971,6 +971,7 @@
     "common.lastname.colon": "Vezetéknév:",
     "common.email.colon": "E-mail:",
     "account.password.colon": "Jelszó:",
+    "account.registration_privacy_policy": "A regisztrációt és az azt követő fiókhasználatot a <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Felhasználási feltételek</a> szabályozzák. Személyes adatait az <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Adatvédelmi szabályzatunkban</a> foglaltak szerint dolgozzuk fel.",
     "common.hide": "Elrejtés",
     "account.log_out": "Kijelentkezés",
     "sidenav.connect": "Vegye fel velünk a kapcsolatot",
@@ -979,6 +980,7 @@
     "booking.abandonment.help.chat_action": "Élő csevegés megnyitása",
     "sidenav.company": "Vállalat",
     "content.pages.legal.title": "Felhasználási feltételek",
+    "account.forgot_password": "Elfelejtette a jelszavát?",
     "account.my_bookings_action": "Foglalásaim kezelése",
     "common.loading": "Töltés",
     "account.no_trips": "Nincsenek közelgő utazásai. Talán itt az ideje, hogy foglaljon.",
@@ -1003,9 +1005,7 @@
     "forms.wrong_format_email": "Az e-mail nem megfelelő formátumú",
     "common.error": "Sajnos hiba történt a kérelem feldolgozásakor. Frissítse a lapot.",
     "account.password_too_short": "A jelszónak legalább 8 karakterből kell állnia.",
-    "account.password_too_simple": "Összetettebb jelszó szükséges.",
-    "account.forgot_password": "Elfelejtette a jelszavát?",
-    "account.registration_privacy_policy": "A regisztrációt és az azt követő fiókhasználatot a <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Felhasználási feltételek</a> szabályozzák. Személyes adatait az <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Adatvédelmi szabályzatunkban</a> foglaltak szerint dolgozzuk fel."
+    "account.password_too_simple": "Összetettebb jelszó szükséges."
   },
   "nl-NL": {
     "content.cookies.banner.text": "Wanneer je onze website bezoekt, verzamelen en verwerken we persoonsgegevens van jou. Ga voor meer informatie over hoe en waarom we jouw persoonsgegevens verwerken naar ons <a href=\"/pages/content/privacy\">Privacybeleid</a>. Voor het verzamelen van persoonsgegevens gebruiken we <a href=\"/pages/content/privacy#cookies\">cookies</a>. Wanneer je niet wilt dat we van cookies gebruikmaken, dan kun je dit te allen tijde aanpassen via <a href=\"/pages/cookies_settings\">cookievoorkeuren</a>.",
@@ -1034,6 +1034,7 @@
     "common.lastname.colon": "Achternaam:",
     "common.email.colon": "E-mail:",
     "account.password.colon": "Wachtwoord:",
+    "account.registration_privacy_policy": "De volgende <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Gebruiksvoorwaarden</a> zijn van toepassing op de registratie en het gebruik van je account. Je persoonsgegevens worden verwerkt overeenkomst ons <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacybeleid</a>.",
     "common.hide": "Verbergen",
     "account.log_out": "Uitloggen",
     "sidenav.connect": "Neem contact met ons op",
@@ -1042,6 +1043,7 @@
     "booking.abandonment.help.chat_action": "Live chat openen",
     "sidenav.company": "Bedrijf",
     "content.pages.legal.title": "Algemene voorwaarden",
+    "account.forgot_password": "Wachtwoord vergeten?",
     "account.my_bookings_action": "Mijn boeking beheren",
     "common.loading": "Laden",
     "account.no_trips": "Er staan geen reizen gepland. Misschien is het tijd om iets te boeken.",
@@ -1066,9 +1068,7 @@
     "forms.wrong_format_email": "E-mail is in het verkeerde formaat",
     "common.error": "Sorry, er is een fout opgetreden bij het verwerken van je aanvraag. Vernieuw de pagina.",
     "account.password_too_short": "Je wachtwoord moet 8 of meer tekens bevatten.",
-    "account.password_too_simple": "Je wachtwoord is te eenvoudig.",
-    "account.forgot_password": "Wachtwoord vergeten?",
-    "account.registration_privacy_policy": "De volgende <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Gebruiksvoorwaarden</a> zijn van toepassing op de registratie en het gebruik van je account. Je persoonsgegevens worden verwerkt overeenkomst ons <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacybeleid</a>."
+    "account.password_too_simple": "Je wachtwoord is te eenvoudig."
   },
   "nb-NO": {
     "content.cookies.banner.text": "Vi innhenter og behandler personopplysninger når du bruker nettstedet vårt. Du kan lese mer om hvorfor og hvordan vi behandler personopplysninger i <a href=\"/pages/content/privacy\">personvernerklæringen</a>. Vi bruker <a href=\"/pages/content/privacy#cookies\">informasjonskapsler</a> for å innhente personopplysninger. Hvis du ikke vil at vi skal sende informasjonskapsler til deg, kan du når som helst slå dem av ved å endre <a href=\"/pages/cookies_settings\">innstillinger for informasjonskapsler her</a>.",
@@ -1097,6 +1097,7 @@
     "common.lastname.colon": "Etternavn:",
     "common.email.colon": "E-post:",
     "account.password.colon": "Passord:",
+    "account.registration_privacy_policy": "Registreringen og påfølgende bruk av kontoen er underlagt disse <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">bruksvilkårene</a>. Personopplysninger blir behandlet i tråd med <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">personvernerklæringen</a>.",
     "common.hide": "Skjul",
     "account.log_out": "Logg ut",
     "sidenav.connect": "Snakk med oss",
@@ -1105,6 +1106,7 @@
     "booking.abandonment.help.chat_action": "Åpne livechat",
     "sidenav.company": "Selskapet",
     "content.pages.legal.title": "Vilkår",
+    "account.forgot_password": "Har du glemt passordet?",
     "account.my_bookings_action": "Administrer min bestilling",
     "common.loading": "Laster",
     "account.no_trips": "Du har ingen forestående reiser. Kanskje det er på tide å bestille noe?",
@@ -1129,9 +1131,7 @@
     "forms.wrong_format_email": "E-posten er i feil format",
     "common.error": "Beklager, det oppstod en feil mens vi behandlet forespørselen din. Oppdater siden.",
     "account.password_too_short": "Passordet må bestå av minst 8 tegn.",
-    "account.password_too_simple": "Passordet må være mer komplekst.",
-    "account.forgot_password": "Har du glemt passordet?",
-    "account.registration_privacy_policy": "Registreringen og påfølgende bruk av kontoen er underlagt disse <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">bruksvilkårene</a>. Personopplysninger blir behandlet i tråd med <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">personvernerklæringen</a>."
+    "account.password_too_simple": "Passordet må være mer komplekst."
   },
   "pl-PL": {
     "content.cookies.banner.text": "Możemy gromadzić i przetwarzać Twoje dane osobowe, kiedy przeglądasz naszą stronę internetową. Szczegóły dotyczące rodzaju i sposobu przetwarzania danych zawiera nasza <a href=\"/pages/content/privacy\">Polityka prywatności</a>. Do gromadzenia danych osobowych wykorzystujemy pliki <a href=\"/pages/content/privacy#cookies\">cookie</a>. Jeśli nie chcesz ich otrzymywać, zmień <a href=\"/pages/cookies_settings\">ustawienia plików cookie</a>.",
@@ -1160,6 +1160,7 @@
     "common.lastname.colon": "Nazwisko:",
     "common.email.colon": "E-mail:",
     "account.password.colon": "Hasło:",
+    "account.registration_privacy_policy": "Rejestracja i sposób użytkowania konta podlega zapisom niniejszego <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Regulaminu</a>. Twoje dane będą przetwarzane zgodnie z naszą <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Polityką prywatności</a>.",
     "common.hide": "Zwiń",
     "account.log_out": "Wyloguj się",
     "sidenav.connect": "Kontakt",
@@ -1168,6 +1169,7 @@
     "booking.abandonment.help.chat_action": "Otwórz czat na żywo",
     "sidenav.company": "O firmie",
     "content.pages.legal.title": "Regulamin",
+    "account.forgot_password": "Nie pamiętasz hasła?",
     "account.my_bookings_action": "Zarządzaj rezerwacją",
     "common.loading": "Ładowanie",
     "account.no_trips": "Nie masz żadnych nadchodzących podróży. Może już czas zarezerwować podróż?",
@@ -1192,9 +1194,7 @@
     "forms.wrong_format_email": "E-mail ma nieprawidłowy format",
     "common.error": "Przykro nam, wystąpił błąd podczas przetwarzania wniosku. Prosimy odświeżyć stronę.",
     "account.password_too_short": "Hasło musi składać się z co najmniej 8 znaków.",
-    "account.password_too_simple": "Hasło mus być bardziej skomplikowane.",
-    "account.forgot_password": "Nie pamiętasz hasła?",
-    "account.registration_privacy_policy": "Rejestracja i sposób użytkowania konta podlega zapisom niniejszego <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Regulaminu</a>. Twoje dane będą przetwarzane zgodnie z naszą <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Polityką prywatności</a>."
+    "account.password_too_simple": "Hasło mus być bardziej skomplikowane."
   },
   "pt-PT": {
     "content.cookies.banner.text": "Enquanto navega no nosso Web site, recolhemos e processamos os seus dados pessoais. Pode obter mais informações sobre o motivo e como processamos os seus dados pessoais na nossa <a href=\"/pages/content/privacy\">Política de Privacidade</a>. Para recolhermos os seus dados pessoais, utilizamos <a href=\"/pages/content/privacy#cookies\">cookies</a>. Se não pretende que lhe enviemos cookies, pode desativá-los em qualquer momento alterando as suas <a href=\"/pages/cookies_settings\">preferências de cookies aqui</a>.",
@@ -1223,6 +1223,7 @@
     "common.lastname.colon": "Sobrenome:",
     "common.email.colon": "E-mail:",
     "account.password.colon": "Palavra-passe:",
+    "account.registration_privacy_policy": "O registo e a posterior utilização da sua conta tem por base estes <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Termos de Utilização</a>. Os seus Dados Pessoais serão processados de acordo com a nossa <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Política de Privacidade</a>.",
     "common.hide": "Ocultar",
     "account.log_out": "Terminar sessão",
     "sidenav.connect": "Ligue-se a nós",
@@ -1231,6 +1232,7 @@
     "booking.abandonment.help.chat_action": "Abra o Chat em Direto",
     "sidenav.company": "Empresa",
     "content.pages.legal.title": "Termos e Condições",
+    "account.forgot_password": "Esqueceu-se da palavra-passe?",
     "account.my_bookings_action": "Gerir a minha reserva",
     "common.loading": "A carregar",
     "account.no_trips": "Não tem viagens previstas. Talvez esteja na altura de reservar alguma.",
@@ -1255,9 +1257,7 @@
     "forms.wrong_format_email": "O e-mail está no formato errado",
     "common.error": "Lamentamos, houve um erro aquando do processamento do seu pedido. Atualize a página.",
     "account.password_too_short": "A sua palavra-passe deve ter pelo menos 8 caracteres.",
-    "account.password_too_simple": "A sua palavra-passe deve ser mais complexa.",
-    "account.forgot_password": "Esqueceu-se da palavra-passe?",
-    "account.registration_privacy_policy": "O registo e a posterior utilização da sua conta tem por base estes <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Termos de Utilização</a>. Os seus Dados Pessoais serão processados de acordo com a nossa <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Política de Privacidade</a>."
+    "account.password_too_simple": "A sua palavra-passe deve ser mais complexa."
   },
   "ro-RO": {
     "content.cookies.banner.text": "În timp ce navigați pe site-ul nostru web, noi colectăm și procesăm datele dvs. cu caracter personal. Puteți găsi mai multe informații cu privire la motivul pentru care și la modul în care procesăm datele cu caracter personal în <a href=\"/pages/content/privacy\">Politica noastră privind confidențialitatea</a>. Pentru a colecta datele dvs. cu caracter personal, utilizăm <a href=\"/pages/content/privacy#cookies\">cookie-uri</a>. Dacă nu doriți să vă trimitem cookie-uri, le puteți dezactiva în orice moment, modificând <a href=\"/pages/cookies_settings\">preferințele dvs. privind cookie-urile aici</a>.",
@@ -1286,6 +1286,7 @@
     "common.lastname.colon": "Nume:",
     "common.email.colon": "E-mail:",
     "account.password.colon": "Parolă:",
+    "account.registration_privacy_policy": "Înregistrarea și utilizarea ulterioară a contului dvs. sunt reglementate de acești <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Termeni de utilizare</a>.",
     "common.hide": "Ascundere",
     "account.log_out": "Deconectare",
     "sidenav.connect": "Conectați-vă cu noi",
@@ -1294,6 +1295,7 @@
     "booking.abandonment.help.chat_action": "Deschidere Live Chat",
     "sidenav.company": "Companie",
     "content.pages.legal.title": "Termeni şi condiţii",
+    "account.forgot_password": "Ați uitat parola?",
     "account.my_bookings_action": "Administrarea rezervării mele",
     "common.loading": "Se încarcă",
     "account.no_trips": "Nu aveți călătorii viitoare. Poate că este momentul să rezervați ceva.",
@@ -1318,9 +1320,7 @@
     "forms.wrong_format_email": "E-mailul este în format greșit",
     "common.error": "Eroare",
     "account.password_too_short": "Parola dvs. trebuie să conțină cel puțin 8 caractere.",
-    "account.password_too_simple": "Parola dvs. trebuie să fie mai complexă.",
-    "account.forgot_password": "Ați uitat parola?",
-    "account.registration_privacy_policy": "Înregistrarea și utilizarea ulterioară a contului dvs. sunt reglementate de acești <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Termeni de utilizare</a>."
+    "account.password_too_simple": "Parola dvs. trebuie să fie mai complexă."
   },
   "ru-RU": {
     "content.cookies.banner.text": "Мы собираем и обрабатываем ваши персональные данные пока вы находитесь на нашем сайте. Вы можете узнать больше о том, почему и как мы обрабатываем ваши персональные данные, прочитав нашу <a href=\"/pages/content/privacy\">Политику конфиденциальности</a>. Мы используем <a href=\"/pages/content/privacy#cookies\">cookie-файлы</a> для сбора ваших персональных данных. Если вы не хотите, чтобы мы отправляли вам cookie-файлы, то можете отключить их в любое время, изменив <a href=\"/pages/cookies_settings\">параметры cookie-файлов здесь</a>.",
@@ -1349,6 +1349,7 @@
     "common.lastname.colon": "Фамилия:",
     "common.email.colon": "Адрес эл. почты:",
     "account.password.colon": "Пароль:",
+    "account.registration_privacy_policy": "Регистрация и последующее пользование вашей учетной записью регулируется настоящими <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Правилами пользования</a>. Ваши личные данные будут обработаны в соответствии с нашей <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Политикой конфиденциальности</a>.",
     "common.hide": "Скрыть",
     "account.log_out": "Выйти",
     "sidenav.connect": "Контакты",
@@ -1357,6 +1358,7 @@
     "booking.abandonment.help.chat_action": "Открыть онлайн-чат",
     "sidenav.company": "Компания",
     "content.pages.legal.title": "Условия обслуживания",
+    "account.forgot_password": "Забыли пароль?",
     "account.my_bookings_action": "Управление бронированием",
     "common.loading": "Загрузка...",
     "account.no_trips": "У вас нет предстоящих поездок. Самое время забронировать путешествие.",
@@ -1381,9 +1383,7 @@
     "forms.wrong_format_email": "Неверный формат адреса эл. почты",
     "common.error": "Извините, при обработке вашего запроса произошла ошибка. Обновите страницу.",
     "account.password_too_short": "Ваш пароль должен состоять из 8 и более символов.",
-    "account.password_too_simple": "Придумайте более сложный пароль.",
-    "account.forgot_password": "Забыли пароль?",
-    "account.registration_privacy_policy": "Регистрация и последующее пользование вашей учетной записью регулируется настоящими <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Правилами пользования</a>. Ваши личные данные будут обработаны в соответствии с нашей <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Политикой конфиденциальности</a>."
+    "account.password_too_simple": "Придумайте более сложный пароль."
   },
   "sk-SK": {
     "content.cookies.banner.text": "Počas prehľadávania našej stránky zhromažďujeme a spracovávame vaše osobné údaje. Viac o tom, prečo tak konáme a ako spracovávame vaše osobné údaje, si môžete prečítať v našich <a href=\"/pages/content/privacy\">Pravidlách o ochrane osobných údajov</a>. Na zhromažďovanie vašich osobných údajov používame <a href=\"/pages/content/privacy#cookies\">súbory cookie</a>. Ak nechcete, aby sme vám odosielali súbory cookies, môžete ich kedykoľvek vypnúť zmenou svojich <a href=\"/pages/cookies_settings\">preferencií týkajúcich sa súborov cookie tu</a>.",
@@ -1412,6 +1412,7 @@
     "common.lastname.colon": "Priezvisko:",
     "common.email.colon": "E-mail:",
     "account.password.colon": "Heslo:",
+    "account.registration_privacy_policy": "Registrácia a následné používanie sa riadi podľa týchto <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Podmienok používania</a>.",
     "common.hide": "Skryť",
     "account.log_out": "Odhlásenie",
     "sidenav.connect": "Spojte sa s nami",
@@ -1420,6 +1421,7 @@
     "booking.abandonment.help.chat_action": "Otvoriť chat",
     "sidenav.company": "Spoločnosť",
     "content.pages.legal.title": "Zmluvné podmienky",
+    "account.forgot_password": "Zabudli ste vaše heslo?",
     "account.my_bookings_action": "Spravovať moje rezervácie",
     "common.loading": "Načítavanie",
     "account.no_trips": "Nemáte žiadne nadchádzajúce cesty. Možno nastal čas niečo si zarezervovať.",
@@ -1444,9 +1446,7 @@
     "forms.wrong_format_email": "E-mailová adresa má nesprávny formát",
     "common.error": "Je nám to ľúto, ale pri spracovaní vašej žiadosti sa vyskytla chyba. Obnovte stránku.",
     "account.password_too_short": "Vaše heslo musí obsahovať 8 alebo viac znakov.",
-    "account.password_too_simple": "Vaše heslo by malo byť zložitejšie.",
-    "account.forgot_password": "Zabudli ste vaše heslo?",
-    "account.registration_privacy_policy": "Registrácia a následné používanie sa riadi podľa týchto <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Podmienok používania</a>."
+    "account.password_too_simple": "Vaše heslo by malo byť zložitejšie."
   },
   "fi-FI": {
     "content.cookies.banner.text": "Kun käytät verkkosivustoamme, keräämme ja käsittelemme henkilötietojasi. Saat lisätietoja henkilötietojesi käsittelyn syistä ja tavoista, kun luet <a href=\"/pages/content/privacy\">tietosuojakäytäntömme</a>. Käytämme <a href=\"/pages/content/privacy#cookies\">evästeitä</a> henkilötietojen keräämiseen. Jos et halua meidän lähettävän sinulle evästeitä, voit ottaa ne pois käytöstä milloin tahansa muuttamalla <a href=\"/pages/cookies_settings\">evästeasetuksiasi tässä.</a>",
@@ -1475,6 +1475,7 @@
     "common.lastname.colon": "Sukunimi:",
     "common.email.colon": "Sähköposti:",
     "account.password.colon": "Salasana:",
+    "account.registration_privacy_policy": "Näitä <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">käyttöehtoja</a> sovelletaan tilin luomiseen ja käyttöön. Henkilötietojasi käsitellään <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">tietosuojakäytäntömme</a> mukaisesti.",
     "common.hide": "Piilota",
     "account.log_out": "Kirjaudu ulos",
     "sidenav.connect": "Ota meihin yhteyttä",
@@ -1483,6 +1484,7 @@
     "booking.abandonment.help.chat_action": "Avaa live-chat",
     "sidenav.company": "Yhtiö",
     "content.pages.legal.title": "Käyttöehdot",
+    "account.forgot_password": "Unohtuiko salasana?",
     "account.my_bookings_action": "Varausten hallinta",
     "common.loading": "Ladataan",
     "account.no_trips": "Sinulla ei ole tulevia matkoja. Ehkäpä olisi aika varata jotain.",
@@ -1507,9 +1509,7 @@
     "forms.wrong_format_email": "Sähköposti on väärässä muodossa",
     "common.error": "Virhe käsiteltäessä pyyntöäsi. Päivitä tämä sivu.",
     "account.password_too_short": "Salasanassasi pitäisi olla vähintään 8 merkkiä.",
-    "account.password_too_simple": "Salasanasi pitäisi olla monimutkaisempi.",
-    "account.forgot_password": "Unohtuiko salasana?",
-    "account.registration_privacy_policy": "Näitä <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">käyttöehtoja</a> sovelletaan tilin luomiseen ja käyttöön. Henkilötietojasi käsitellään <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">tietosuojakäytäntömme</a> mukaisesti."
+    "account.password_too_simple": "Salasanasi pitäisi olla monimutkaisempi."
   },
   "sv-SE": {
     "content.cookies.banner.text": "När du besöker vår webbplats samlar vi in och behandlar dina personuppgifter. Du får mer information om hur och varför vi behandlar dina personuppgifter i vår <a href=\"/pages/content/privacy\">Sekretesspolicy</a>. I syfte att samla in dina personuppgifter använder vi <a href=\"/pages/content/privacy#cookies\">cookies</a>. Om du inte vill att vi skickar cookies kan du när som helst inaktivera dem genom att ändra dina <a href=\"/pages/cookies_settings\">inställningar för cookies här</a>.",
@@ -1538,6 +1538,7 @@
     "common.lastname.colon": "Efternamn:",
     "common.email.colon": "E-post:",
     "account.password.colon": "Lösenord:",
+    "account.registration_privacy_policy": "Registrering och därpå följande användning av ditt konto styrs av dessa <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Användningsvillkor</a>. Dina personuppgifter behandlas i överensstämmelse med vår <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Sekretesspolicy</a>.",
     "common.hide": "Dölj",
     "account.log_out": "Logga ut",
     "sidenav.connect": "Kontakta oss ",
@@ -1546,6 +1547,7 @@
     "booking.abandonment.help.chat_action": "Öppna livechatt",
     "sidenav.company": "Företag",
     "content.pages.legal.title": "Villkor",
+    "account.forgot_password": "Glömt ditt lösenord?",
     "account.my_bookings_action": "Hantera min bokning",
     "common.loading": "Laddar",
     "account.no_trips": "Du har inte några kommande resor. Det kanske är dags att boka en?",
@@ -1570,9 +1572,7 @@
     "forms.wrong_format_email": "E-postmeddelandet är i fel format",
     "common.error": "Tyvärr inträffade ett fel när vi behandlade din förfrågan.  Uppdatera sidan.",
     "account.password_too_short": "Ditt lösenord måste bestå av minst 8 tecken.",
-    "account.password_too_simple": "Ditt lösenord bör vara mer komplext.",
-    "account.forgot_password": "Glömt ditt lösenord?",
-    "account.registration_privacy_policy": "Registrering och därpå följande användning av ditt konto styrs av dessa <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Användningsvillkor</a>. Dina personuppgifter behandlas i överensstämmelse med vår <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Sekretesspolicy</a>."
+    "account.password_too_simple": "Ditt lösenord bör vara mer komplext."
   },
   "th-TH": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
@@ -1601,6 +1601,7 @@
     "common.lastname.colon": "นามสกุล",
     "common.email.colon": "อีเมล",
     "account.password.colon": "รหัสผ่าน",
+    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>.",
     "common.hide": "ซ่อน",
     "account.log_out": "ลงชื่อออก",
     "sidenav.connect": "เชื่อมต่อ",
@@ -1609,6 +1610,7 @@
     "booking.abandonment.help.chat_action": "เปิดไลฟ์แชท",
     "sidenav.company": "บริษัท",
     "content.pages.legal.title": "เงื่อนไขและข้อตกลง",
+    "account.forgot_password": "ลืมรหัสผ่าน?",
     "account.my_bookings_action": "คำสั่งซื้อของฉัน",
     "common.loading": "กำลังโหลด",
     "account.no_trips": "You don't have any upcoming trips. Maybe it's time to book something.",
@@ -1633,9 +1635,7 @@
     "forms.wrong_format_email": "อีเมลมีรูปแบบไม่ถูกต้อง",
     "common.error": "ขัดข้อง",
     "account.password_too_short": "รหัสผ่านสั้นเกินไป",
-    "account.password_too_simple": "รหัสผ่านง่ายเกินไป",
-    "account.forgot_password": "ลืมรหัสผ่าน?",
-    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>."
+    "account.password_too_simple": "รหัสผ่านง่ายเกินไป"
   },
   "tr-TR": {
     "content.cookies.banner.text": "Web sitemize göz atarken kişisel verilerinizi toplar ve işleriz. Kişisel verilerinizi neden ve nasıl işlediğimiz hakkında daha fazlasını <a href=\"/pages/content/privacy\">Gizlilik İlkemizden</a> öğrenebilirsiniz. Kişisel verilerinizi toplamak için <a href=\"/pages/content/privacy#cookies\">çerezler</a> kullanmaktayız. Size çerez göndermemizi istemiyorsanız <a href=\"/pages/cookies_settings\">buradan çerez tercihlerinizi</a> değiştirerek dilediğiniz zaman bunları kapatabilirsiniz.",
@@ -1664,6 +1664,7 @@
     "common.lastname.colon": "Soyad:",
     "common.email.colon": "E-posta:",
     "account.password.colon": "Şifre:",
+    "account.registration_privacy_policy": "Kayıt ve ardından hesabınızın kullanımı bu <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Kullanım Koşulları</a>'na tabidir. Kişisel Verileriniz <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Gizlilik İlkemiz</a>'e göre kullanılacaktır.",
     "common.hide": "Gizle",
     "account.log_out": "Oturumu kapat",
     "sidenav.connect": "Bizimle bağlanın",
@@ -1672,6 +1673,7 @@
     "booking.abandonment.help.chat_action": "Canlı Sohbeti Aç",
     "sidenav.company": "Şirket",
     "content.pages.legal.title": "Koşul ve Şartlar",
+    "account.forgot_password": "Şifrenizi mi unuttunuz?",
     "account.my_bookings_action": "Rezervasyonumu Yönet",
     "common.loading": "Yükleniyor",
     "account.no_trips": "Yaklaşan yolculuğunuz bulunmuyor. Belki de rezervasyon yapmanın tam zamanıdır.",
@@ -1696,9 +1698,7 @@
     "forms.wrong_format_email": "Eposta formatı yanlış",
     "common.error": "Üzgünüz, talebiniz işlenirken bir hata oluştu. Lütfen sayfayı yenileyin.",
     "account.password_too_short": "Şifreniz 8 veya daha fazla karakterden oluşmalı.",
-    "account.password_too_simple": "Şifreniz daha karmaşık olmalı.",
-    "account.forgot_password": "Şifrenizi mi unuttunuz?",
-    "account.registration_privacy_policy": "Kayıt ve ardından hesabınızın kullanımı bu <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Kullanım Koşulları</a>'na tabidir. Kişisel Verileriniz <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Gizlilik İlkemiz</a>'e göre kullanılacaktır."
+    "account.password_too_simple": "Şifreniz daha karmaşık olmalı."
   },
   "vi-VN": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
@@ -1727,6 +1727,7 @@
     "common.lastname.colon": "Họ",
     "common.email.colon": "E-mail",
     "account.password.colon": "Mật khẩu",
+    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>.",
     "common.hide": "Ẩn",
     "account.log_out": "Thoát",
     "sidenav.connect": "Kết nối",
@@ -1735,6 +1736,7 @@
     "booking.abandonment.help.chat_action": "Mở trò chuyện trực tuyến",
     "sidenav.company": "Công ty",
     "content.pages.legal.title": "Điều khoản và Điều kiện",
+    "account.forgot_password": "Quên mật khẩu?",
     "account.my_bookings_action": "Quản lý việc đặt chỗ của tôi",
     "common.loading": "Đang tải",
     "account.no_trips": "You don't have any upcoming trips. Maybe it's time to book something.",
@@ -1759,9 +1761,7 @@
     "forms.wrong_format_email": "Định dạng email không đúng",
     "common.error": "Lỗi",
     "account.password_too_short": "Mật khẩu quá ngắn.",
-    "account.password_too_simple": "Mật khẩu quá đơn giản.",
-    "account.forgot_password": "Quên mật khẩu?",
-    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>."
+    "account.password_too_simple": "Mật khẩu quá đơn giản."
   },
   "uk-UA": {
     "content.cookies.banner.text": "Коли ви користуєтесь нашим веб-сайтом, ми збираємо й обробляємо ваші персональні дані. Чому та як ми обробляємо ваші персональні дані, ви можете докладніше дізнатися в нашій <a href=\"/pages/content/privacy\">Політиці конфіденційності</a>. Для збору персональних даних ми використовуємо <a href=\"/pages/content/privacy#cookies\">файли cookie</a>. Якщо ви не бажаєте отримувати від нас файли cookie, ви можете в будь-який час вимкнути їх, змінивши свої <a href=\"/pages/cookies_settings\">налаштування файлів cookie тут</a>.",
@@ -1790,6 +1790,7 @@
     "common.lastname.colon": "Прізвище:",
     "common.email.colon": "Електронна пошта:",
     "account.password.colon": "Пароль:",
+    "account.registration_privacy_policy": "На реєстрацію та подальше користування обліковим записом поширюються наступні <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Умови використання</a>.",
     "common.hide": "Сховати",
     "account.log_out": "Вийти",
     "sidenav.connect": "Зв’язатися з нами",
@@ -1798,6 +1799,7 @@
     "booking.abandonment.help.chat_action": "Відкрити живий чат",
     "sidenav.company": "Компанія",
     "content.pages.legal.title": "Умови",
+    "account.forgot_password": "Забули пароль?",
     "account.my_bookings_action": "Управління бронюванням",
     "common.loading": "Завантаження",
     "account.no_trips": "У вас немає майбутніх подорожей. Можливо, саме час щось забронювати.",
@@ -1822,9 +1824,7 @@
     "forms.wrong_format_email": "Неправильний формат електронної пошти",
     "common.error": "На жаль, під час обробки вашого запиту виникла помилка. Будь ласка, оновіть сторінку.",
     "account.password_too_short": "Пароль повинен складатися не менш ніж з 8 символів.",
-    "account.password_too_simple": "Ваш пароль занадто простий.",
-    "account.forgot_password": "Забули пароль?",
-    "account.registration_privacy_policy": "На реєстрацію та подальше користування обліковим записом поширюються наступні <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Умови використання</a>."
+    "account.password_too_simple": "Ваш пароль занадто простий."
   },
   "ar-AE": {
     "content.cookies.banner.text": "أثناء تصفح موقع الويب الخاص بنا، سنجمع بياناتك الشخصية ونعالجها. يمكنك معرفة المزيد حول سبب وكيفية معالجتنا لبياناتك الشخصية في <a href=\"/pages/content/privacy\">سياسة الخصوصية</a>. نحن نستخدم لجمع بياناتك الشخصية <a href=\"/pages/content/privacy#cookies\">ملفات تعريف الارتباط</a>. إذا كنت لا تريد أن نرسل لك ملفات تعريف ارتباط، يمكنك إيقافها في أي وقت عن طريق تغيير <a href=\"/pages/cookies_settings\">تفضيلات ملفات تعريف الارتباط هنا</a>.",
@@ -1853,6 +1853,7 @@
     "common.lastname.colon": "الاسم الأخير:",
     "common.email.colon": "البريد الإلكتروني:",
     "account.password.colon": "كلمة المرور:",
+    "account.registration_privacy_policy": "يخضع التسجيل والاستخدام اللاحق لحسابك إلى <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">شروط الاستخدام</a> هذه. وستتم معالجة بياناتك الشخصية بحسب <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">سياسة الخصوصية</a>.",
     "common.hide": "إخفاء",
     "account.log_out": "تسجيل الخروج",
     "sidenav.connect": "تواصل معنا",
@@ -1861,6 +1862,7 @@
     "booking.abandonment.help.chat_action": "فتح المحادثة المباشرة",
     "sidenav.company": "الشركة",
     "content.pages.legal.title": "الشروط والأحكام",
+    "account.forgot_password": "هل نسيت كلمة المرور؟",
     "account.my_bookings_action": "إدارة الحجز",
     "common.loading": "تحميل",
     "account.no_trips": "ليس لديك أي رحلات قادمة. ربما حان الوقت لحجز رحلة.",
@@ -1885,9 +1887,7 @@
     "forms.wrong_format_email": "صيغة البريد الإلكتروني غير صحيحة",
     "common.error": "معذرةً، حدث خطأ أثناء معالجة طلبك. يرجى تحديث الصفحة.",
     "account.password_too_short": "يجب أن تحتوي كلمة المرور على 8 أحرف أو أكثر.",
-    "account.password_too_simple": "يجب أن تكون كلمة المرور الخاصة بك أكثر تعقيدًا.",
-    "account.forgot_password": "هل نسيت كلمة المرور؟",
-    "account.registration_privacy_policy": "يخضع التسجيل والاستخدام اللاحق لحسابك إلى <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">شروط الاستخدام</a> هذه. وستتم معالجة بياناتك الشخصية بحسب <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">سياسة الخصوصية</a>."
+    "account.password_too_simple": "يجب أن تكون كلمة المرور الخاصة بك أكثر تعقيدًا."
   },
   "ko-KR": {
     "content.cookies.banner.text": "당사는 당사의 웹사이트를 방문한 고객님의 개인 데이터를 수집 및 처리하고 있습니다. 당사의 <a href=\"/pages/content/privacy\">개인정보보호정책</a>에서 개인정보 처리의 이유와 방법을 더 자세히 확인하세요. 당사는 개인 데이터 수집을 위해 <a href=\"/pages/content/privacy#cookies\">쿠키</a>를 사용합니다. 쿠키를 허용하고 싶지 않다면 언제든 <a href=\"/pages/cookies_settings\">쿠키 설정</a>에서 쿠키를 차단하실 수 있습니다.",
@@ -1916,6 +1916,7 @@
     "common.lastname.colon": "성:",
     "common.email.colon": "이메일:",
     "account.password.colon": "비밀번호:",
+    "account.registration_privacy_policy": "계정의 등록 및 이후 계정 사용에는 <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">서비스 약관</a>이 적용됩니다.",
     "common.hide": "숨기기",
     "account.log_out": "로그아웃",
     "sidenav.connect": "당사와 연락하기",
@@ -1924,6 +1925,7 @@
     "booking.abandonment.help.chat_action": "라이브 채팅 열기",
     "sidenav.company": "회사 소개",
     "content.pages.legal.title": "이용 약관",
+    "account.forgot_password": "비밀번호를 분실하셨나요?",
     "account.my_bookings_action": "내 예약 관리",
     "common.loading": "로딩중",
     "account.no_trips": "예정된 여행이 없습니다. 지금 예약해 보는 건 어떨까요?",
@@ -1948,9 +1950,7 @@
     "forms.wrong_format_email": "올바른 이메일 형식이 아닙니다.",
     "common.error": "오류",
     "account.password_too_short": "비밀번호 길이가 8자 이상이어야 합니다.",
-    "account.password_too_simple": "비밀번호가 더 복잡해야 합니다.",
-    "account.forgot_password": "비밀번호를 분실하셨나요?",
-    "account.registration_privacy_policy": "계정의 등록 및 이후 계정 사용에는 <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">서비스 약관</a>이 적용됩니다."
+    "account.password_too_simple": "비밀번호가 더 복잡해야 합니다."
   },
   "zh-CN-Hans": {
     "content.cookies.banner.text": "在浏览我们的网站时，我们将收集和处理您的个人数据。请阅读我们的<a href=\"/pages/content/privacy\">隐私政策</a>，了解我们处理个人数据的原因和方式。我们使用 <a href=\"/pages/content/privacy#cookies\">cookies</a> 来收集您的个人数据。如果您不想我们给您发送 cookies，您可以在<a href=\"/pages/cookies_settings\">此处更改您的 cookies 首选项</a>，以便随时关闭 cookies。",
@@ -1979,6 +1979,7 @@
     "common.lastname.colon": "姓：",
     "common.email.colon": "电子邮件：",
     "account.password.colon": "密码：",
+    "account.registration_privacy_policy": "账户的注册及后续使用遵循<a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">使用条款</a>。",
     "common.hide": "隐藏",
     "account.log_out": "登出",
     "sidenav.connect": "联系我们",
@@ -1987,6 +1988,7 @@
     "booking.abandonment.help.chat_action": "在线咨询",
     "sidenav.company": "公司",
     "content.pages.legal.title": "条款和条件",
+    "account.forgot_password": "忘记密码？",
     "account.my_bookings_action": "管理我的订单",
     "common.loading": "加载中",
     "account.no_trips": "您没有未出行订单。现在下单，开启未来之旅。",
@@ -2011,9 +2013,7 @@
     "forms.wrong_format_email": "电子邮件格式不正确",
     "common.error": "抱歉，系统处理您请求时出错。请刷新页面",
     "account.password_too_short": "密码应至少包含 8 位字符。",
-    "account.password_too_simple": "密码强度不够。",
-    "account.forgot_password": "忘记密码？",
-    "account.registration_privacy_policy": "账户的注册及后续使用遵循<a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">使用条款</a>。"
+    "account.password_too_simple": "密码强度不够。"
   },
   "zh-TW-Hant": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
@@ -2042,6 +2042,7 @@
     "common.lastname.colon": "姓氏",
     "common.email.colon": "電子郵件",
     "account.password.colon": "密碼",
+    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>.",
     "common.hide": "隱藏",
     "account.log_out": "登出",
     "sidenav.connect": "連結",
@@ -2050,6 +2051,7 @@
     "booking.abandonment.help.chat_action": "開啟即時聊天",
     "sidenav.company": "公司",
     "content.pages.legal.title": "條款與細則",
+    "account.forgot_password": "忘記你的密碼了嗎？",
     "account.my_bookings_action": "我的訂單",
     "common.loading": "讀取中",
     "account.no_trips": "You don't have any upcoming trips. Maybe it's time to book something.",
@@ -2074,8 +2076,6 @@
     "forms.wrong_format_email": "電子郵件的格式錯誤",
     "common.error": "錯誤",
     "account.password_too_short": "密碼太短了。",
-    "account.password_too_simple": "密碼太簡單了。",
-    "account.forgot_password": "忘記你的密碼了嗎？",
-    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>."
+    "account.password_too_simple": "密碼太簡單了。"
   }
 }
