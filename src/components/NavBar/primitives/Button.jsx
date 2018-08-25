@@ -14,6 +14,7 @@ const Button = styled.button`
       ? `color: ${theme.orbit.paletteProductNormal}`
       : `color: ${theme.orbit.paletteInkNormal}`};
   cursor: pointer;
+  line-height: 50px;
   font-weight: 500;
   line-height: 50px;
   text-decoration: none;

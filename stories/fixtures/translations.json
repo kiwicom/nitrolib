@@ -60,7 +60,8 @@
     "forms.wrong_format_email": "Имейлът е в грешен формат",
     "common.error": "Съжаляваме, но възникна грешка, докато обработвахме заявката Ви. Опреснете страницата.",
     "account.password_too_short": "Паролата трябва да съдържа 8 или повече знака.",
-    "account.password_too_simple": "Паролата Ви трябва да бъде по-сложна."
+    "account.password_too_simple": "Паролата Ви трябва да бъде по-сложна.",
+    "common.help": "Помощ"
   },
   "es-ES": {
     "content.cookies.banner.text": "Mientras visitas nuestra web, recopilamos y procesamos tus datos personales. Tienes más información sobre por qué y cómo procesamos tus datos personales en nuestra <a href=\"/pages/content/privacy\">Política de privacidad</a>. Para recopilas tus datos personales, utilizamos <a href=\"/pages/content/privacy#cookies\">cookies</a>. Si no quieres que te enviemos cookies, puedes deshabilitarlas en cualquier momento cambiando las <a href=\"/pages/cookies_settings\">preferencias de cookies aquí</a>.",
@@ -123,7 +124,8 @@
     "forms.wrong_format_email": "El formato del correo electrónico no es correcto",
     "common.error": "Lo sentimos, se ha producido un error mientras procesábamos tu solicitud. Actualiza la página.",
     "account.password_too_short": "Tu contraseña debe contener al menos 8 caracteres.",
-    "account.password_too_simple": "Tu contraseña debe ser más compleja."
+    "account.password_too_simple": "Tu contraseña debe ser más compleja.",
+    "common.help": "Ayuda"
   },
   "cs-CZ": {
     "content.cookies.banner.text": "Zatímco si prohlížíte náš web, shromažďujeme a zpracováváme vaše osobní údaje. Více informací o tom, proč a jak vaše osobní údaje zpracováváme, najdete v našich <a href=\"/pages/content/privacy\">zásadách ochrany osobních údajů</a>. Ke shromažďování vašich osobních údajů používáme soubory <a href=\"/pages/content/privacy#cookies\">cookie</a>. Pokud nechcete, abychom vám soubory cookie posílali, můžete je kdykoli vypnout v <a href=\"/pages/cookies_settings\">nastavení souborů cookie zde</a>.",
@@ -186,7 +188,8 @@
     "forms.wrong_format_email": "Nesprávný formát emailu",
     "common.error": "Je nám líto, ale při zpracovávání vašeho požadavku došlo k chybě. Aktualizujte stránku.",
     "account.password_too_short": "Heslo by se mělo skládat alespoň z 8 znaků.",
-    "account.password_too_simple": "Heslo by mělo být složitější."
+    "account.password_too_simple": "Heslo by mělo být složitější.",
+    "common.help": "Nápověda"
   },
   "da-DK": {
     "content.cookies.banner.text": "Når du browser på vores websted, indsamler og behandler vi dine personlige oplysninger. Du kan få mere at vide om hvorfor og hvordan vi behandler dine personlige oplysninger i vores <a href=\"/pages/content/privacy\">Privatlivspolitik</a>. Vi bruger <a href=\"/pages/content/privacy#cookies\">cookies</a> til at indsamle dine personlige oplysninger. Hvis du ikke ønsker at modtage cookies, kan du slå dem fra når som helst ved at ændre dine <a href=\"/pages/cookies_settings\">indstillinger for cookies her</a>.",
@@ -249,7 +252,8 @@
     "forms.wrong_format_email": "E-mail er i forkert format",
     "common.error": "Beklager, der skete en fejl, da vi behandlede din anmodning. Genindlæs siden.",
     "account.password_too_short": "Din adgangskode skal have 8 eller flere tegn.",
-    "account.password_too_simple": "Din adgangskode skal være mere kompleks."
+    "account.password_too_simple": "Din adgangskode skal være mere kompleks.",
+    "common.help": "Hjælp"
   },
   "de-DE": {
     "content.cookies.banner.text": "Während Sie unsere Website besuchen, sammeln und verarbeiten wir Ihre persönlichen Daten Wenn Sie mehr darüber erfahren möchten, warum und wie wir Ihre persönlichen Daten verarbeiten, können Sie unsere <a href=\"/pages/content/privacy\">Datenschutzrichtlinien</a> lesen. Zum Sammeln Ihrer persönlichen Daten verwenden wir <a href=\"/pages/content/privacy#cookies\">Cookies</a>. Wenn Sie nicht möchten, dass wir Ihnen Cookies schicken, können Sie diese jederzeit deaktivieren, indem Sie Ihre <a href=\"/pages/cookies_settings\">Cookie-Präferenzen hier ändern</a>.",
@@ -312,7 +316,8 @@
     "forms.wrong_format_email": "Die E-Mail-Adresse hat ein falsches Format",
     "common.error": "Leider hat es bei der Bearbeitung Ihres Antrags einen Fehler gegeben. Bitte laden Sie die Seite erneut.",
     "account.password_too_short": "Ihr Passwort sollte aus mindestens 8 Zeichen bestehen.",
-    "account.password_too_simple": "Ihr Passwort sollte komplexer sein."
+    "account.password_too_simple": "Ihr Passwort sollte komplexer sein.",
+    "common.help": "Hilfe"
   },
   "el-GR": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
@@ -375,7 +380,8 @@
     "forms.wrong_format_email": "Το email έχει λάθος μορφή",
     "common.error": "Σφάλμα",
     "account.password_too_short": "Your password should have 8 or more characters.",
-    "account.password_too_simple": "Your password should be more complex."
+    "account.password_too_simple": "Your password should be more complex.",
+    "common.help": "Help"
   },
   "en-GB": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
@@ -438,7 +444,8 @@
     "forms.wrong_format_email": "Incorrect email format",
     "common.error": "Sorry, there was an error while processing your request. Please refresh the page.",
     "account.password_too_short": "Your password should have 8 or more characters.",
-    "account.password_too_simple": "Your password should be more complex."
+    "account.password_too_simple": "Your password should be more complex.",
+    "common.help": "Help"
   },
   "es-MX": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
@@ -501,7 +508,8 @@
     "forms.wrong_format_email": "El correo electrónico tiene un formato erróneo",
     "common.error": "Error",
     "account.password_too_short": "La contraseña es demasiado corta.",
-    "account.password_too_simple": "La contraseña es demasiado simple."
+    "account.password_too_simple": "La contraseña es demasiado simple.",
+    "common.help": "Help"
   },
   "fr-FR": {
     "content.cookies.banner.text": "Lorsque vous naviguez sur notre site Web, nous recueillons et nous traitons vos données personnelles. Vous pouvez en savoir plus sur les raisons et la façon dont nous traitons vos données personnelles en consultant notre <a href=\"/pages/content/privacy\">Politique de confidentialité</a>. Pour recueillir vos données personnelles, nous utilisons des <a href=\"/pages/content/privacy#cookies\">cookies</a>. Si vous ne souhaitez pas que nous vous envoyions des cookies, vous pouvez les désactiver à tout moment en modifiant vos <a href=\"/pages/cookies_settings\">préférences en matière de cookies ici</a>.",
@@ -564,7 +572,8 @@
     "forms.wrong_format_email": "L'e-mail présente un format erroné",
     "common.error": "Désolé, une erreur s'est produite lors du traitement de votre demande. Veuillez actualiser la page.",
     "account.password_too_short": "Votre mot de passe doit contenir 8 caractères ou plus.",
-    "account.password_too_simple": "Votre mot de passe doit être plus complexe."
+    "account.password_too_simple": "Votre mot de passe doit être plus complexe.",
+    "common.help": "Aide"
   },
   "sr-RS-Latn": {
     "content.cookies.banner.text": "Dok pretražujete naš veb-sajt, mi prikupljamo i obrađujemo vaše lične podatke. Više o tome na koji način obrađujemo vaše lične podatke možete saznati u našoj <a href=\"/pages/content/privacy\">Politici privatnosti</a>. Za prikupljanje ličnih podataka, koristimo <a href=\"/pages/content/privacy#cookies\">kolačiće</a>. Ako ne želite da primate kolačiće, možete isključiti ovu opciju u bilo koje doba promenom u <a href=\"/pages/cookies_settings\">željenim postavkama kolačića ovde</a>.",
@@ -627,7 +636,8 @@
     "forms.wrong_format_email": "E-adresa je u pogrešnom formatu",
     "common.error": "Žao nam je, došlo je do greške pri obradi vašeg zahteva. Osvežite stranicu.",
     "account.password_too_short": "Lozinka treba da sadrži 8 ili više karaktera.",
-    "account.password_too_simple": "Lozinka treba da bude složenija."
+    "account.password_too_simple": "Lozinka treba da bude složenija.",
+    "common.help": "Pomoć"
   },
   "id-ID": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
@@ -690,7 +700,8 @@
     "forms.wrong_format_email": "Format email salah",
     "common.error": "Kesalahan",
     "account.password_too_short": "Sandi terlalu singkat.",
-    "account.password_too_simple": "Sandi terlalu sederhana."
+    "account.password_too_simple": "Sandi terlalu sederhana.",
+    "common.help": "Help"
   },
   "it-IT": {
     "content.cookies.banner.text": "Mentre navighi sul nostro sito web, raccogliamo e gestiamo i tuoi dati personali. Puoi avere altre informazioni su perché e come gestiamo i tuoi dati personali nella nostra <a href=\"/pages/content/privacy\">Informativa sulla Privacy</a>. Per raccogliere i tuoi dati personali, utilizziamo i <a href=\"/pages/content/privacy#cookies\">cookies</a>. Se non vuoi inviarci i tuoi cookies, puoi disattivarli in qualunque momento modificando le tue <a href=\"/pages/cookies_settings\">preferenze sui cookies qui</a>.",
@@ -753,7 +764,8 @@
     "forms.wrong_format_email": "L'email è in un formato sbagliato",
     "common.error": "Spiacenti, si è verificato un errore durante l'elaborazione della tua richiesta. Aggiorna la pagina.",
     "account.password_too_short": "La password deve contenere almeno 8 caratteri.",
-    "account.password_too_simple": "Scegli una password più complessa."
+    "account.password_too_simple": "Scegli una password più complessa.",
+    "common.help": "Aiuto"
   },
   "ja-JP": {
     "content.cookies.banner.text": "当サイト閲覧中に、お客様の個人データを収集・処理させていただくことがあります。個人データを収集させていただく理由、およびその処理方法に関する詳細は、<a href=\"/pages/content/privacy\">プライバシーポリシー</a>をご覧ください。また、個人データの収集に<a href=\"/pages/content/privacy#cookies\">クッキー</a>を使用しています。クッキーの受信を希望しない場合は、<a href=\"/pages/cookies_settings\">クッキー設定</a>からクッキーを無効にしてください。",
@@ -816,7 +828,8 @@
     "forms.wrong_format_email": "Eメールの形式が誤っています",
     "common.error": "申し訳ありませんが、リクエストの処理中にエラーが発生しました。ページを再読込してください。",
     "account.password_too_short": "パスワードは8文字以上でなければなりません。",
-    "account.password_too_simple": "パスワードが簡単すぎます。"
+    "account.password_too_simple": "パスワードが簡単すぎます。",
+    "common.help": "ヘルプ"
   },
   "lt-LT": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
@@ -879,7 +892,8 @@
     "forms.wrong_format_email": "Incorrect email format",
     "common.error": "Sorry, there was an error while processing your request. Please refresh the page.",
     "account.password_too_short": "Your password should have 8 or more characters.",
-    "account.password_too_simple": "Your password should be more complex."
+    "account.password_too_simple": "Your password should be more complex.",
+    "common.help": "Help"
   },
   "he-IL": {
     "content.cookies.banner.text": "אנחנו אוספים ממך מידע אישי בזמן הגלישה באתר שלנו ומשתמשים בו בדרכים שונות. רוצה לדעת למה ואיך אנחנו משתמשים במידע האישי שלך? כל התשובות לשאלות אלה ועוד נמצאות ב<a href=\"/pages/content/privacy\">מדיניות הפרטיות</a> שלנו. אנחנו משתמשים <a href=\"/pages/content/privacy#cookies\">בקובצי Cookie</a> כדי לאסוף ממך מידע אישי. לא רוצה שנשתמש בקובצי Cookie במכשיר שלך? אין בעיה. <a href=\"/pages/cookies_settings\">כאן</a> אפשר לשנות את הגדרות השימוש בקובצי Cookie.",
@@ -942,7 +956,8 @@
     "forms.wrong_format_email": "האימייל בפורמט שגוי",
     "common.error": "משהו השתבש בזמן שטיפלנו בבקשה. צריך לרענן את הדף.",
     "account.password_too_short": "הסיסמה צריכה להכיל 8 תווים לפחות.",
-    "account.password_too_simple": "הסיסמה צריכה להיות מורכבת יותר."
+    "account.password_too_simple": "הסיסמה צריכה להיות מורכבת יותר.",
+    "common.help": "עזרה"
   },
   "hu-HU": {
     "content.cookies.banner.text": "Amikor Ön a webhelyünket böngészi, mi személyes adatokat gyűjtünk Önről, és feldolgozzuk azokat. Az <a href=\"/pages/content/privacy\">Adatvédelmi szabályzatunkban</a> olvashat arról, hogy miért és hogyan dolgozzuk fel az Ön személyes adatait. A személyes adatok gyűjtéséhez <a href=\"/pages/content/privacy#cookies\">cookie-kat</a> használunk. Ha nem szeretné, hogy cookie-kat küldjünk Önnek, akkor bármikor leállíthatja azt a <a href=\"/pages/cookies_settings\">cookie-beállítások</a> módosításával.",
@@ -1005,7 +1020,8 @@
     "forms.wrong_format_email": "Az e-mail nem megfelelő formátumú",
     "common.error": "Sajnos hiba történt a kérelem feldolgozásakor. Frissítse a lapot.",
     "account.password_too_short": "A jelszónak legalább 8 karakterből kell állnia.",
-    "account.password_too_simple": "Összetettebb jelszó szükséges."
+    "account.password_too_simple": "Összetettebb jelszó szükséges.",
+    "common.help": "Súgó"
   },
   "nl-NL": {
     "content.cookies.banner.text": "Wanneer je onze website bezoekt, verzamelen en verwerken we persoonsgegevens van jou. Ga voor meer informatie over hoe en waarom we jouw persoonsgegevens verwerken naar ons <a href=\"/pages/content/privacy\">Privacybeleid</a>. Voor het verzamelen van persoonsgegevens gebruiken we <a href=\"/pages/content/privacy#cookies\">cookies</a>. Wanneer je niet wilt dat we van cookies gebruikmaken, dan kun je dit te allen tijde aanpassen via <a href=\"/pages/cookies_settings\">cookievoorkeuren</a>.",
@@ -1068,7 +1084,8 @@
     "forms.wrong_format_email": "E-mail is in het verkeerde formaat",
     "common.error": "Sorry, er is een fout opgetreden bij het verwerken van je aanvraag. Vernieuw de pagina.",
     "account.password_too_short": "Je wachtwoord moet 8 of meer tekens bevatten.",
-    "account.password_too_simple": "Je wachtwoord is te eenvoudig."
+    "account.password_too_simple": "Je wachtwoord is te eenvoudig.",
+    "common.help": "Help"
   },
   "nb-NO": {
     "content.cookies.banner.text": "Vi innhenter og behandler personopplysninger når du bruker nettstedet vårt. Du kan lese mer om hvorfor og hvordan vi behandler personopplysninger i <a href=\"/pages/content/privacy\">personvernerklæringen</a>. Vi bruker <a href=\"/pages/content/privacy#cookies\">informasjonskapsler</a> for å innhente personopplysninger. Hvis du ikke vil at vi skal sende informasjonskapsler til deg, kan du når som helst slå dem av ved å endre <a href=\"/pages/cookies_settings\">innstillinger for informasjonskapsler her</a>.",
@@ -1131,7 +1148,8 @@
     "forms.wrong_format_email": "E-posten er i feil format",
     "common.error": "Beklager, det oppstod en feil mens vi behandlet forespørselen din. Oppdater siden.",
     "account.password_too_short": "Passordet må bestå av minst 8 tegn.",
-    "account.password_too_simple": "Passordet må være mer komplekst."
+    "account.password_too_simple": "Passordet må være mer komplekst.",
+    "common.help": "Hjelp"
   },
   "pl-PL": {
     "content.cookies.banner.text": "Możemy gromadzić i przetwarzać Twoje dane osobowe, kiedy przeglądasz naszą stronę internetową. Szczegóły dotyczące rodzaju i sposobu przetwarzania danych zawiera nasza <a href=\"/pages/content/privacy\">Polityka prywatności</a>. Do gromadzenia danych osobowych wykorzystujemy pliki <a href=\"/pages/content/privacy#cookies\">cookie</a>. Jeśli nie chcesz ich otrzymywać, zmień <a href=\"/pages/cookies_settings\">ustawienia plików cookie</a>.",
@@ -1194,7 +1212,8 @@
     "forms.wrong_format_email": "E-mail ma nieprawidłowy format",
     "common.error": "Przykro nam, wystąpił błąd podczas przetwarzania wniosku. Prosimy odświeżyć stronę.",
     "account.password_too_short": "Hasło musi składać się z co najmniej 8 znaków.",
-    "account.password_too_simple": "Hasło mus być bardziej skomplikowane."
+    "account.password_too_simple": "Hasło mus być bardziej skomplikowane.",
+    "common.help": "Pomoc"
   },
   "pt-PT": {
     "content.cookies.banner.text": "Enquanto navega no nosso Web site, recolhemos e processamos os seus dados pessoais. Pode obter mais informações sobre o motivo e como processamos os seus dados pessoais na nossa <a href=\"/pages/content/privacy\">Política de Privacidade</a>. Para recolhermos os seus dados pessoais, utilizamos <a href=\"/pages/content/privacy#cookies\">cookies</a>. Se não pretende que lhe enviemos cookies, pode desativá-los em qualquer momento alterando as suas <a href=\"/pages/cookies_settings\">preferências de cookies aqui</a>.",
@@ -1257,7 +1276,8 @@
     "forms.wrong_format_email": "O e-mail está no formato errado",
     "common.error": "Lamentamos, houve um erro aquando do processamento do seu pedido. Atualize a página.",
     "account.password_too_short": "A sua palavra-passe deve ter pelo menos 8 caracteres.",
-    "account.password_too_simple": "A sua palavra-passe deve ser mais complexa."
+    "account.password_too_simple": "A sua palavra-passe deve ser mais complexa.",
+    "common.help": "Ajuda"
   },
   "ro-RO": {
     "content.cookies.banner.text": "În timp ce navigați pe site-ul nostru web, noi colectăm și procesăm datele dvs. cu caracter personal. Puteți găsi mai multe informații cu privire la motivul pentru care și la modul în care procesăm datele cu caracter personal în <a href=\"/pages/content/privacy\">Politica noastră privind confidențialitatea</a>. Pentru a colecta datele dvs. cu caracter personal, utilizăm <a href=\"/pages/content/privacy#cookies\">cookie-uri</a>. Dacă nu doriți să vă trimitem cookie-uri, le puteți dezactiva în orice moment, modificând <a href=\"/pages/cookies_settings\">preferințele dvs. privind cookie-urile aici</a>.",
@@ -1320,7 +1340,8 @@
     "forms.wrong_format_email": "E-mailul este în format greșit",
     "common.error": "Eroare",
     "account.password_too_short": "Parola dvs. trebuie să conțină cel puțin 8 caractere.",
-    "account.password_too_simple": "Parola dvs. trebuie să fie mai complexă."
+    "account.password_too_simple": "Parola dvs. trebuie să fie mai complexă.",
+    "common.help": "Ajutor"
   },
   "ru-RU": {
     "content.cookies.banner.text": "Мы собираем и обрабатываем ваши персональные данные пока вы находитесь на нашем сайте. Вы можете узнать больше о том, почему и как мы обрабатываем ваши персональные данные, прочитав нашу <a href=\"/pages/content/privacy\">Политику конфиденциальности</a>. Мы используем <a href=\"/pages/content/privacy#cookies\">cookie-файлы</a> для сбора ваших персональных данных. Если вы не хотите, чтобы мы отправляли вам cookie-файлы, то можете отключить их в любое время, изменив <a href=\"/pages/cookies_settings\">параметры cookie-файлов здесь</a>.",
@@ -1383,7 +1404,8 @@
     "forms.wrong_format_email": "Неверный формат адреса эл. почты",
     "common.error": "Извините, при обработке вашего запроса произошла ошибка. Обновите страницу.",
     "account.password_too_short": "Ваш пароль должен состоять из 8 и более символов.",
-    "account.password_too_simple": "Придумайте более сложный пароль."
+    "account.password_too_simple": "Придумайте более сложный пароль.",
+    "common.help": "Справка"
   },
   "sk-SK": {
     "content.cookies.banner.text": "Počas prehľadávania našej stránky zhromažďujeme a spracovávame vaše osobné údaje. Viac o tom, prečo tak konáme a ako spracovávame vaše osobné údaje, si môžete prečítať v našich <a href=\"/pages/content/privacy\">Pravidlách o ochrane osobných údajov</a>. Na zhromažďovanie vašich osobných údajov používame <a href=\"/pages/content/privacy#cookies\">súbory cookie</a>. Ak nechcete, aby sme vám odosielali súbory cookies, môžete ich kedykoľvek vypnúť zmenou svojich <a href=\"/pages/cookies_settings\">preferencií týkajúcich sa súborov cookie tu</a>.",
@@ -1446,7 +1468,8 @@
     "forms.wrong_format_email": "E-mailová adresa má nesprávny formát",
     "common.error": "Je nám to ľúto, ale pri spracovaní vašej žiadosti sa vyskytla chyba. Obnovte stránku.",
     "account.password_too_short": "Vaše heslo musí obsahovať 8 alebo viac znakov.",
-    "account.password_too_simple": "Vaše heslo by malo byť zložitejšie."
+    "account.password_too_simple": "Vaše heslo by malo byť zložitejšie.",
+    "common.help": "Pomocník"
   },
   "fi-FI": {
     "content.cookies.banner.text": "Kun käytät verkkosivustoamme, keräämme ja käsittelemme henkilötietojasi. Saat lisätietoja henkilötietojesi käsittelyn syistä ja tavoista, kun luet <a href=\"/pages/content/privacy\">tietosuojakäytäntömme</a>. Käytämme <a href=\"/pages/content/privacy#cookies\">evästeitä</a> henkilötietojen keräämiseen. Jos et halua meidän lähettävän sinulle evästeitä, voit ottaa ne pois käytöstä milloin tahansa muuttamalla <a href=\"/pages/cookies_settings\">evästeasetuksiasi tässä.</a>",
@@ -1509,7 +1532,8 @@
     "forms.wrong_format_email": "Sähköposti on väärässä muodossa",
     "common.error": "Virhe käsiteltäessä pyyntöäsi. Päivitä tämä sivu.",
     "account.password_too_short": "Salasanassasi pitäisi olla vähintään 8 merkkiä.",
-    "account.password_too_simple": "Salasanasi pitäisi olla monimutkaisempi."
+    "account.password_too_simple": "Salasanasi pitäisi olla monimutkaisempi.",
+    "common.help": "Ohje"
   },
   "sv-SE": {
     "content.cookies.banner.text": "När du besöker vår webbplats samlar vi in och behandlar dina personuppgifter. Du får mer information om hur och varför vi behandlar dina personuppgifter i vår <a href=\"/pages/content/privacy\">Sekretesspolicy</a>. I syfte att samla in dina personuppgifter använder vi <a href=\"/pages/content/privacy#cookies\">cookies</a>. Om du inte vill att vi skickar cookies kan du när som helst inaktivera dem genom att ändra dina <a href=\"/pages/cookies_settings\">inställningar för cookies här</a>.",
@@ -1572,7 +1596,8 @@
     "forms.wrong_format_email": "E-postmeddelandet är i fel format",
     "common.error": "Tyvärr inträffade ett fel när vi behandlade din förfrågan.  Uppdatera sidan.",
     "account.password_too_short": "Ditt lösenord måste bestå av minst 8 tecken.",
-    "account.password_too_simple": "Ditt lösenord bör vara mer komplext."
+    "account.password_too_simple": "Ditt lösenord bör vara mer komplext.",
+    "common.help": "Hjälp"
   },
   "th-TH": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
@@ -1635,7 +1660,8 @@
     "forms.wrong_format_email": "อีเมลมีรูปแบบไม่ถูกต้อง",
     "common.error": "ขัดข้อง",
     "account.password_too_short": "รหัสผ่านสั้นเกินไป",
-    "account.password_too_simple": "รหัสผ่านง่ายเกินไป"
+    "account.password_too_simple": "รหัสผ่านง่ายเกินไป",
+    "common.help": "Help"
   },
   "tr-TR": {
     "content.cookies.banner.text": "Web sitemize göz atarken kişisel verilerinizi toplar ve işleriz. Kişisel verilerinizi neden ve nasıl işlediğimiz hakkında daha fazlasını <a href=\"/pages/content/privacy\">Gizlilik İlkemizden</a> öğrenebilirsiniz. Kişisel verilerinizi toplamak için <a href=\"/pages/content/privacy#cookies\">çerezler</a> kullanmaktayız. Size çerez göndermemizi istemiyorsanız <a href=\"/pages/cookies_settings\">buradan çerez tercihlerinizi</a> değiştirerek dilediğiniz zaman bunları kapatabilirsiniz.",
@@ -1698,7 +1724,8 @@
     "forms.wrong_format_email": "Eposta formatı yanlış",
     "common.error": "Üzgünüz, talebiniz işlenirken bir hata oluştu. Lütfen sayfayı yenileyin.",
     "account.password_too_short": "Şifreniz 8 veya daha fazla karakterden oluşmalı.",
-    "account.password_too_simple": "Şifreniz daha karmaşık olmalı."
+    "account.password_too_simple": "Şifreniz daha karmaşık olmalı.",
+    "common.help": "Yardım"
   },
   "vi-VN": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
@@ -1761,7 +1788,8 @@
     "forms.wrong_format_email": "Định dạng email không đúng",
     "common.error": "Lỗi",
     "account.password_too_short": "Mật khẩu quá ngắn.",
-    "account.password_too_simple": "Mật khẩu quá đơn giản."
+    "account.password_too_simple": "Mật khẩu quá đơn giản.",
+    "common.help": "Help"
   },
   "uk-UA": {
     "content.cookies.banner.text": "Коли ви користуєтесь нашим веб-сайтом, ми збираємо й обробляємо ваші персональні дані. Чому та як ми обробляємо ваші персональні дані, ви можете докладніше дізнатися в нашій <a href=\"/pages/content/privacy\">Політиці конфіденційності</a>. Для збору персональних даних ми використовуємо <a href=\"/pages/content/privacy#cookies\">файли cookie</a>. Якщо ви не бажаєте отримувати від нас файли cookie, ви можете в будь-який час вимкнути їх, змінивши свої <a href=\"/pages/cookies_settings\">налаштування файлів cookie тут</a>.",
@@ -1824,7 +1852,8 @@
     "forms.wrong_format_email": "Неправильний формат електронної пошти",
     "common.error": "На жаль, під час обробки вашого запиту виникла помилка. Будь ласка, оновіть сторінку.",
     "account.password_too_short": "Пароль повинен складатися не менш ніж з 8 символів.",
-    "account.password_too_simple": "Ваш пароль занадто простий."
+    "account.password_too_simple": "Ваш пароль занадто простий.",
+    "common.help": "Довідка"
   },
   "ar-AE": {
     "content.cookies.banner.text": "أثناء تصفح موقع الويب الخاص بنا، سنجمع بياناتك الشخصية ونعالجها. يمكنك معرفة المزيد حول سبب وكيفية معالجتنا لبياناتك الشخصية في <a href=\"/pages/content/privacy\">سياسة الخصوصية</a>. نحن نستخدم لجمع بياناتك الشخصية <a href=\"/pages/content/privacy#cookies\">ملفات تعريف الارتباط</a>. إذا كنت لا تريد أن نرسل لك ملفات تعريف ارتباط، يمكنك إيقافها في أي وقت عن طريق تغيير <a href=\"/pages/cookies_settings\">تفضيلات ملفات تعريف الارتباط هنا</a>.",
@@ -1887,7 +1916,8 @@
     "forms.wrong_format_email": "صيغة البريد الإلكتروني غير صحيحة",
     "common.error": "معذرةً، حدث خطأ أثناء معالجة طلبك. يرجى تحديث الصفحة.",
     "account.password_too_short": "يجب أن تحتوي كلمة المرور على 8 أحرف أو أكثر.",
-    "account.password_too_simple": "يجب أن تكون كلمة المرور الخاصة بك أكثر تعقيدًا."
+    "account.password_too_simple": "يجب أن تكون كلمة المرور الخاصة بك أكثر تعقيدًا.",
+    "common.help": "تعليمات"
   },
   "ko-KR": {
     "content.cookies.banner.text": "당사는 당사의 웹사이트를 방문한 고객님의 개인 데이터를 수집 및 처리하고 있습니다. 당사의 <a href=\"/pages/content/privacy\">개인정보보호정책</a>에서 개인정보 처리의 이유와 방법을 더 자세히 확인하세요. 당사는 개인 데이터 수집을 위해 <a href=\"/pages/content/privacy#cookies\">쿠키</a>를 사용합니다. 쿠키를 허용하고 싶지 않다면 언제든 <a href=\"/pages/cookies_settings\">쿠키 설정</a>에서 쿠키를 차단하실 수 있습니다.",
@@ -1950,7 +1980,8 @@
     "forms.wrong_format_email": "올바른 이메일 형식이 아닙니다.",
     "common.error": "오류",
     "account.password_too_short": "비밀번호 길이가 8자 이상이어야 합니다.",
-    "account.password_too_simple": "비밀번호가 더 복잡해야 합니다."
+    "account.password_too_simple": "비밀번호가 더 복잡해야 합니다.",
+    "common.help": "도움말"
   },
   "zh-CN-Hans": {
     "content.cookies.banner.text": "在浏览我们的网站时，我们将收集和处理您的个人数据。请阅读我们的<a href=\"/pages/content/privacy\">隐私政策</a>，了解我们处理个人数据的原因和方式。我们使用 <a href=\"/pages/content/privacy#cookies\">cookies</a> 来收集您的个人数据。如果您不想我们给您发送 cookies，您可以在<a href=\"/pages/cookies_settings\">此处更改您的 cookies 首选项</a>，以便随时关闭 cookies。",
@@ -2013,7 +2044,8 @@
     "forms.wrong_format_email": "电子邮件格式不正确",
     "common.error": "抱歉，系统处理您请求时出错。请刷新页面",
     "account.password_too_short": "密码应至少包含 8 位字符。",
-    "account.password_too_simple": "密码强度不够。"
+    "account.password_too_simple": "密码强度不够。",
+    "common.help": "帮助"
   },
   "zh-TW-Hant": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
@@ -2076,6 +2108,7 @@
     "forms.wrong_format_email": "電子郵件的格式錯誤",
     "common.error": "錯誤",
     "account.password_too_short": "密碼太短了。",
-    "account.password_too_simple": "密碼太簡單了。"
+    "account.password_too_simple": "密碼太簡單了。",
+    "common.help": "Help"
   }
 }

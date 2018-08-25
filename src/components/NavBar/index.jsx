@@ -10,7 +10,8 @@ import { themeDefault } from "../../records/Theme";
 import Flex from "../../primitives/Flex";
 import Language from "../Language";
 import * as brandContext from "../../services/brand/context";
-import SideBar from "./components/Menu";
+import Help from "./components/Help";
+import Menu from "./components/Menu";
 import Logo from "./components/Logo";
 import Currency from "../Currency";
 import MenuSpacings from "./primitives/MenuSpacings";
@@ -54,6 +55,7 @@ const Desktop = styled.div`
 
 type Props = {|
   headerLinks: React.Node,
+  faq: React.Node,
   chat: React.Node,
   subscription: React.Node,
   debug?: React.Node,
@@ -61,7 +63,15 @@ type Props = {|
   onSaveLanguage: (lang: string) => void,
 |};
 
-const NavBar = ({ headerLinks, chat, subscription, debug, onSaveToken, onSaveLanguage }: Props) => (
+const NavBar = ({
+  headerLinks,
+  faq,
+  chat,
+  subscription,
+  debug,
+  onSaveToken,
+  onSaveLanguage,
+}: Props) => (
   <Container x="space-between" y="center">
     <Flex y="center" x="flex-start">
       <Logo />
@@ -80,8 +90,11 @@ const NavBar = ({ headerLinks, chat, subscription, debug, onSaveToken, onSaveLan
               <Currency />
             </MenuSpacings>
           </ClientOnly>
+          <MenuSpacings>
+            <Help faq={faq} />
+          </MenuSpacings>
         </Desktop>
-        <SideBar
+        <Menu
           chat={chat}
           subscription={subscription}
           debug={debug}
@@ -92,9 +105,5 @@ const NavBar = ({ headerLinks, chat, subscription, debug, onSaveToken, onSaveLan
     </Flex>
   </Container>
 );
-
-NavBar.defaultProps = {
-  debug: false,
-};
 
 export default NavBar;

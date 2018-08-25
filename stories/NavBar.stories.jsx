@@ -2,6 +2,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
+import SmartFAQ from "@kiwicom/smart-faq";
 
 import NavBar from "../src/components/NavBar";
 import HeaderLinks from "../src/components/HeaderLinks";
@@ -11,11 +12,6 @@ storiesOf("NavBar", module)
   .addDecorator(withData)
   .add("default", () => (
     <NavBar
-      chat={<h1>Chat</h1>}
-      subscription={<h1>Subscription</h1>}
-      debug={<h1>Debug</h1>}
-      onSaveLanguage={action("Save language")}
-      onSaveToken={action("Save token")}
       headerLinks={
         <HeaderLinks
           linkFlights="https://www.kiwi.com/en/?headerLink=linkFlights"
@@ -24,5 +20,11 @@ storiesOf("NavBar", module)
           linkHolidays="https://www.kiwi.com/en/?headerLink=linkHolidays"
         />
       }
+      faq={<SmartFAQ />}
+      chat={<h1>Chat</h1>}
+      subscription={<h1>Subscription</h1>}
+      debug={<h1>Debug</h1>}
+      onSaveLanguage={action("Save language")}
+      onSaveToken={action("Save token")}
     />
   ));
