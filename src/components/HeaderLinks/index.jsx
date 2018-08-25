@@ -22,9 +22,7 @@ const MediaTablet = styled.div`
 `;
 
 const MediaDesktop = styled.div`
-  position: absolute;
   display: flex;
-  left: 100px;
 
   ${mq.mobile(css`
     display: none;

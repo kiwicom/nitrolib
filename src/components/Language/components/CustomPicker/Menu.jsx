@@ -25,6 +25,9 @@ const MenuWrapper = styled.div`
   ${mq.ltTablet(css`
     left: 20px;
   `)};
+  ${mq.gtDesktop(css`
+    right: 150px;
+  `)};
 `;
 
 const ContinentList = styled.div`

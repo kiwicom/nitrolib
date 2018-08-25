@@ -11,6 +11,7 @@ import Button from "../../primitives/Button";
 import Trips from "../Trips";
 import Login from "./components/Login";
 import SideNav from "./components/SideNav";
+import MenuSpacings from "../../primitives/MenuSpacings";
 
 type Props = {|
   chat: React.Node,
@@ -76,7 +77,7 @@ export default class SideBar extends React.PureComponent<Props, State> {
         <authContext.Consumer>
           {({ user }) =>
             user === null ? (
-              <>
+              <MenuSpacings>
                 <Desktop>
                   <Button onClick={this.handleOpenMyBooking}>
                     <ManageBookings>
@@ -89,7 +90,7 @@ export default class SideBar extends React.PureComponent<Props, State> {
                     <AccountCircle />
                   </Button>
                 </Mobile>
-              </>
+              </MenuSpacings>
             ) : (
               <Trips user={user} />
             )
