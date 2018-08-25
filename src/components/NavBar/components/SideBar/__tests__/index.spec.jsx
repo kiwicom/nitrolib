@@ -1,97 +1,50 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
-import SideBar from "..";
+import SideBar from "../index";
 
-describe("#SideBar", () => {
-  test("render", () => {
-    const wrapper = shallow(
-      <SideBar
-        chat={<div>chat</div>}
-        subscription={<div>subscription</div>}
-        debug={<div>debug</div>}
-        onSaveToken={jest.fn()}
-        onSaveLanguage={jest.fn()}
-      />,
+describe("#index", () => {
+  test("render - with target", () => {
+    const target = document.createElement("div");
+    target.setAttribute("id", "sidebar");
+
+    if (document.body) {
+      document.body.appendChild(target);
+    }
+
+    const wrapper = mount(
+      <SideBar shown>
+        <p>Content</p>
+      </SideBar>,
     );
 
     expect(wrapper).toMatchSnapshot();
-  });
+    expect(document.getElementById("sidebar")).toMatchSnapshot();
 
-  test("render with modal", () => {
-    const wrapper = shallow(
-      <SideBar
-        chat={<div>chat</div>}
-        subscription={<div>subscription</div>}
-        onSaveToken={jest.fn()}
-        onSaveLanguage={jest.fn()}
-      />,
-    );
-
-    wrapper.setState({ modalOpen: "myBooking" });
+    wrapper.unmount();
 
     expect(wrapper).toMatchSnapshot();
+    expect(document.getElementById("sidebar")).toMatchSnapshot();
+
+    if (document.body) {
+      document.body.removeChild(target);
+    }
   });
 
-  test("handle close", () => {
-    const wrapper = shallow(
-      <SideBar
-        chat={<div>chat</div>}
-        subscription={<div>subscription</div>}
-        onSaveToken={jest.fn()}
-        onSaveLanguage={jest.fn()}
-      />,
+  test("render - without target", () => {
+    const wrapper = mount(
+      <SideBar shown>
+        <p>Content</p>
+      </SideBar>,
     );
 
-    wrapper.setState({ modalOpen: "myBooking" });
-    wrapper.instance().handleClose();
+    expect(wrapper).toMatchSnapshot();
+    expect(document.getElementById("sidebar")).toMatchSnapshot();
 
-    expect(wrapper.state("modalOpen")).toBe("");
-  });
+    wrapper.unmount();
 
-  test("handle open my booking", () => {
-    const wrapper = shallow(
-      <SideBar
-        chat={<div>chat</div>}
-        subscription={<div>subscription</div>}
-        onSaveToken={jest.fn()}
-        onSaveLanguage={jest.fn()}
-      />,
-    );
-
-    wrapper.instance().handleOpenMyBooking();
-
-    expect(wrapper.state("modalOpen")).toBe("myBooking");
-  });
-
-  test("handle open register", () => {
-    const wrapper = shallow(
-      <SideBar
-        chat={<div>chat</div>}
-        subscription={<div>subscription</div>}
-        onSaveToken={jest.fn()}
-        onSaveLanguage={jest.fn()}
-      />,
-    );
-
-    wrapper.instance().handleOpenRegister();
-
-    expect(wrapper.state("modalOpen")).toBe("register");
-  });
-
-  test("handle open sign in", () => {
-    const wrapper = shallow(
-      <SideBar
-        chat={<div>chat</div>}
-        subscription={<div>subscription</div>}
-        onSaveToken={jest.fn()}
-        onSaveLanguage={jest.fn()}
-      />,
-    );
-
-    wrapper.instance().handleOpenSignIn();
-
-    expect(wrapper.state("modalOpen")).toBe("signIn");
+    expect(wrapper).toMatchSnapshot();
+    expect(document.getElementById("sidebar")).toMatchSnapshot();
   });
 });

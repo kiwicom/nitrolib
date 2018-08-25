@@ -1,122 +1,85 @@
 // @flow strict
 import * as React from "react";
+import ReactDOM from "react-dom";
 import styled, { css } from "styled-components";
-import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
+import { Transition } from "react-transition-group";
 
-import Modal from "../../../Modal";
-import Text from "../../../Text";
 import mq from "../../../../styles/mediaQuery";
-import * as authContext from "../../../../services/auth/context";
-import Button from "../../primitives/Button";
-import Trips from "../Trips";
-import Login from "./components/Login";
-import SideNav from "./components/SideNav";
-import MenuSpacings from "../../primitives/MenuSpacings";
+
+const DURATION = 250;
+
+type ShownProps = {|
+  shown: boolean,
+  showing: boolean,
+|};
+
+const Container = styled.section`
+  display: flex;
+  visibility: ${({ shown }: ShownProps) => (shown ? "visible" : "hidden")};
+  position: fixed;
+  top: 0;
+  right: ${({ showing }: ShownProps) => (showing ? "0" : "-480px")};
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: right ${DURATION}ms ease-in-out;
+`;
+
+const Wrapper = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 480px;
+  font-weight: 500;
+  font-size: 14px;
+  background: white;
+  overflow-y: auto;
+  box-shadow: 0 6px 16px rgba(46, 53, 59, 0.22), 0 1px 3px rgba(0, 0, 0, 0.09);
+
+  ${mq.ltTablet(css`
+    max-width: 320px;
+    width: 100%;
+  `)};
+`;
 
 type Props = {|
-  chat: React.Node,
-  subscription: React.Node,
-  debug?: React.Node,
-  onSaveToken: (token: string) => void,
-  onSaveLanguage: (lang: string) => void,
+  shown: boolean,
+  children: React.Node,
 |};
 
-type LoginModal = "myBooking" | "register" | "signIn";
+export default class SideBar extends React.Component<Props> {
+  node = document.getElementById("sidebar") || document.body;
 
-type State = {|
-  modalOpen: "" | LoginModal,
-|};
+  el = document.createElement("div");
 
-const Desktop = styled.div`
-  display: none;
-  ${mq.gtTablet(css`
-    display: flex;
-    height: 50px;
-    line-height: 50px;
-  `)};
-`;
+  componentDidMount() {
+    if (this.node) {
+      this.node.appendChild(this.el);
+    }
+  }
 
-const ManageBookings = styled.span`
-  line-height: 50px;
-`;
-
-const Mobile = styled.div`
-  display: flex;
-  ${mq.gtTablet(css`
-    display: none;
-  `)};
-`;
-
-export default class SideBar extends React.PureComponent<Props, State> {
-  state = {
-    modalOpen: "",
-  };
-
-  handleClose = () => {
-    this.setState({ modalOpen: "" });
-  };
-
-  handleOpenMyBooking = () => {
-    this.setState({ modalOpen: "myBooking" });
-  };
-
-  handleOpenRegister = () => {
-    this.setState({ modalOpen: "register" });
-  };
-
-  handleOpenSignIn = () => {
-    this.setState({ modalOpen: "signIn" });
-  };
+  componentWillUnmount() {
+    if (this.node) {
+      this.node.removeChild(this.el);
+    }
+  }
 
   render() {
-    const { chat, subscription, debug, onSaveToken, onSaveLanguage } = this.props;
-    const { modalOpen } = this.state;
+    const { shown, children } = this.props;
 
-    return (
-      <>
-        <authContext.Consumer>
-          {({ user }) =>
-            user === null ? (
-              <MenuSpacings>
-                <Desktop>
-                  <Button onClick={this.handleOpenMyBooking}>
-                    <ManageBookings>
-                      <Text t={__("account.my_bookings_action")} />
-                    </ManageBookings>
-                  </Button>
-                </Desktop>
-                <Mobile>
-                  <Button onClick={this.handleOpenMyBooking} padding="13px 9px">
-                    <AccountCircle />
-                  </Button>
-                </Mobile>
-              </MenuSpacings>
-            ) : (
-              <Trips user={user} />
-            )
-          }
-        </authContext.Consumer>
-        <SideNav
-          chat={chat}
-          subscription={subscription}
-          debug={debug}
-          onOpenRegister={this.handleOpenRegister}
-          onOpenSignIn={this.handleOpenSignIn}
-          onSaveLanguage={onSaveLanguage}
-        />
-
-        {modalOpen !== "" && (
-          <Modal onClose={this.handleClose}>
-            <Login
-              open={modalOpen}
-              onOpenMyBooking={this.handleOpenMyBooking}
-              onOpenRegister={this.handleOpenRegister}
-              onOpenSignIn={this.handleOpenSignIn}
-              onSaveToken={onSaveToken}
-            />
-          </Modal>
+    return ReactDOM.createPortal(
+      <Transition in={shown} timeout={DURATION}>
+        {status => (
+          <Container
+            shown={status !== "exited"}
+            showing={status === "entering" || status === "entered"}
+          >
+            <Wrapper>{children}</Wrapper>
+          </Container>
         )}
-      </>
+      </Transition>,
+      this.el,
     );
   }
 }

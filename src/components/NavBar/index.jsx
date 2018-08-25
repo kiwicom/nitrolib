@@ -10,7 +10,7 @@ import { themeDefault } from "../../records/Theme";
 import Flex from "../../primitives/Flex";
 import Language from "../Language";
 import * as brandContext from "../../services/brand/context";
-import SideBar from "./components/SideBar";
+import SideBar from "./components/Menu";
 import Logo from "./components/Logo";
 import Currency from "../Currency";
 import MenuSpacings from "./primitives/MenuSpacings";

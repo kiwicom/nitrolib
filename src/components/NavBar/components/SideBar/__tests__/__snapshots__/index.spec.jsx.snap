@@ -1,64 +1,225 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#SideBar render 1`] = `
-<Fragment>
-  <ContextConsumer>
-    <Component />
-  </ContextConsumer>
-  <SideNav
-    chat={
-      <div>
-        chat
-      </div>
-    }
-    debug={
-      <div>
-        debug
-      </div>
-    }
-    onOpenRegister={[Function]}
-    onOpenSignIn={[Function]}
-    onSaveLanguage={[MockFunction]}
-    subscription={
-      <div>
-        subscription
-      </div>
-    }
-  />
-</Fragment>
+exports[`#index render - with target 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: visible;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  -webkit-transition: right 250ms ease-in-out;
+  transition: right 250ms ease-in-out;
+}
+
+.c1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 480px;
+  font-weight: 500;
+  font-size: 14px;
+  background: white;
+  overflow-y: auto;
+  box-shadow: 0 6px 16px rgba(46,53,59,0.22),0 1px 3px rgba(0,0,0,0.09);
+}
+
+@media (max-width:768px) {
+  .c1 {
+    max-width: 320px;
+    width: 100%;
+  }
+}
+
+<SideBar
+  shown={true}
+>
+  <Transition
+    appear={false}
+    enter={true}
+    exit={true}
+    in={true}
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={250}
+    unmountOnExit={false}
+  >
+    <SideBar__Container
+      showing={true}
+      shown={true}
+    >
+      <section
+        className="c0"
+      >
+        <SideBar__Wrapper>
+          <div
+            className="c1"
+          >
+            <p>
+              Content
+            </p>
+          </div>
+        </SideBar__Wrapper>
+      </section>
+    </SideBar__Container>
+  </Transition>
+</SideBar>
 `;
 
-exports[`#SideBar render with modal 1`] = `
-<Fragment>
-  <ContextConsumer>
-    <Component />
-  </ContextConsumer>
-  <SideNav
-    chat={
-      <div>
-        chat
+exports[`#index render - with target 2`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: visible;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  -webkit-transition: right 250ms ease-in-out;
+  transition: right 250ms ease-in-out;
+}
+
+.c1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 480px;
+  font-weight: 500;
+  font-size: 14px;
+  background: white;
+  overflow-y: auto;
+  box-shadow: 0 6px 16px rgba(46,53,59,0.22),0 1px 3px rgba(0,0,0,0.09);
+}
+
+@media (max-width:768px) {
+  .c1 {
+    max-width: 320px;
+    width: 100%;
+  }
+}
+
+<div
+  id="sidebar"
+>
+  <div>
+    <section
+      class="c0"
+    >
+      <div
+        class="c1"
+      >
+        <p>
+          Content
+        </p>
       </div>
-    }
-    debug={false}
-    onOpenRegister={[Function]}
-    onOpenSignIn={[Function]}
-    onSaveLanguage={[MockFunction]}
-    subscription={
-      <div>
-        subscription
-      </div>
-    }
-  />
-  <Modal
-    onClose={[Function]}
-  >
-    <Login
-      onOpenMyBooking={[Function]}
-      onOpenRegister={[Function]}
-      onOpenSignIn={[Function]}
-      onSaveToken={[MockFunction]}
-      open="myBooking"
-    />
-  </Modal>
-</Fragment>
+    </section>
+  </div>
+</div>
 `;
+
+exports[`#index render - with target 3`] = `null`;
+
+exports[`#index render - with target 4`] = `
+<div
+  id="sidebar"
+/>
+`;
+
+exports[`#index render - without target 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: visible;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  -webkit-transition: right 250ms ease-in-out;
+  transition: right 250ms ease-in-out;
+}
+
+.c1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 480px;
+  font-weight: 500;
+  font-size: 14px;
+  background: white;
+  overflow-y: auto;
+  box-shadow: 0 6px 16px rgba(46,53,59,0.22),0 1px 3px rgba(0,0,0,0.09);
+}
+
+@media (max-width:768px) {
+  .c1 {
+    max-width: 320px;
+    width: 100%;
+  }
+}
+
+<SideBar
+  shown={true}
+>
+  <Transition
+    appear={false}
+    enter={true}
+    exit={true}
+    in={true}
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={250}
+    unmountOnExit={false}
+  >
+    <SideBar__Container
+      showing={true}
+      shown={true}
+    >
+      <section
+        className="c0"
+      >
+        <SideBar__Wrapper>
+          <div
+            className="c1"
+          >
+            <p>
+              Content
+            </p>
+          </div>
+        </SideBar__Wrapper>
+      </section>
+    </SideBar__Container>
+  </Transition>
+</SideBar>
+`;
+
+exports[`#index render - without target 2`] = `null`;
+
+exports[`#index render - without target 3`] = `null`;
+
+exports[`#index render - without target 4`] = `null`;
