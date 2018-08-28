@@ -32,7 +32,7 @@ const MediaIcons = styled.div`
 `;
 
 const CurrencySpacing = styled.div`
-  margin-top: 15px;
+  margin-top: 10px;
 `;
 
 const Content = styled.div`

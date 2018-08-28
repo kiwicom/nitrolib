@@ -15,20 +15,23 @@ type SelectProps = {|
   hasIcon: boolean,
 |};
 
+const IconContainer = styled.div`
+  width: 35px;
+`;
+
 const Select = styled.select`
-  position: absolute;
   appearance: none;
   cursor: pointer;
   background-color: transparent;
   border: 0;
   outline: 0;
-  padding-left: ${({ hasIcon }: SelectProps) => (hasIcon ? "35px" : "0")};
   font-size: 12px;
   line-height: 21px;
   font-weight: 500;
   color: ${({ theme }: SelectProps) => theme.orbit.paletteInkDark};
   font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
   letter-spacing: 0.02em;
+
   &:hover {
     color: ${({ theme }: SelectProps) => theme.orbit.paletteProductNormal};
   }
@@ -58,11 +61,10 @@ type Props = {|
 
 const NativeGroupedSelect = ({ icon, value, groups, divider, onChange }: Props) => (
   <Container>
-    {icon}
+    <IconContainer>{icon}</IconContainer>
     <Select
       value={value}
       onChange={(ev: SyntheticInputEvent<HTMLSelectElement>) => onChange(ev.target.value)}
-      hasIcon={Boolean(icon)}
     >
       {groups.filter(group => group.items.length > 0).map((group, index) => (
         <optgroup key={group.key} label={index > 0 ? divider : null}>

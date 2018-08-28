@@ -1,11 +1,11 @@
 // @flow strict
 import * as React from "react";
 import * as R from "ramda";
+import CountryFlag from "@kiwicom/orbit-components/lib/CountryFlag";
 
 import type { Language } from "../../records/Languages";
 import type { LangInfo } from "../../records/LangInfo";
 import NativeGroupedSelect from "../NativeGroupedSelect";
-import LanguageFlag from "./LanguageFlag";
 
 const mapLanguages = R.map(language => ({
   value: language.id,
@@ -25,7 +25,8 @@ const NativePicker = ({ current, languages, onChange }: Props) => (
       { key: "current", items: mapLanguages([current]) },
       { key: "all", items: mapLanguages(languages) },
     ]}
-    icon={<LanguageFlag flagId={current.flag} scale={0.5} />}
+    // $FlowExpected - type too specific
+    icon={<CountryFlag code={current.flag} />}
     onChange={onChange}
   />
 );

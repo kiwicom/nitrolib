@@ -395,16 +395,9 @@ exports[`#Language/CustomPicker/Menu render flat 1`] = `
         }
       >
         <LanguageName
+          flag="gb"
           key="en"
-          language={
-            Object {
-              "continent": "eu",
-              "defaultCountry": "uk",
-              "flag": "gb",
-              "id": "en",
-              "name": "English",
-            }
-          }
+          name="English"
         />
       </Menu__LanguageItem>
     </Menu__LanguageListWrapper>
@@ -2759,16 +2752,9 @@ exports[`#Language/CustomPicker/Menu render full 1`] = `
         }
       >
         <LanguageName
+          flag="gb"
           key="en"
-          language={
-            Object {
-              "continent": "eu",
-              "defaultCountry": "uk",
-              "flag": "gb",
-              "id": "en",
-              "name": "English",
-            }
-          }
+          name="English"
         />
       </Menu__LanguageItem>
     </Menu__LanguageListWrapper>

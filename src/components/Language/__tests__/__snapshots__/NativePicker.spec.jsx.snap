@@ -26,9 +26,8 @@ exports[`#Language/NativePicker render 1`] = `
     ]
   }
   icon={
-    <LanguageFlag
-      flagId="gb"
-      scale={0.5}
+    <CountryFlag
+      code="gb"
     />
   }
   onChange={[MockFunction]}

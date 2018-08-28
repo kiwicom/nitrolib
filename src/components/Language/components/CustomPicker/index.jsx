@@ -67,7 +67,7 @@ export default class CustomPicker extends React.Component<Props, State> {
     return (
       <>
         <OpenButton onClick={this.handleToggle}>
-          <LanguageName language={current} />
+          <LanguageName name={current.name} flag={current.flag} />
         </OpenButton>
 
         {shown && (

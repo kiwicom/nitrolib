@@ -178,7 +178,7 @@ export default class Menu extends React.Component<Props, State> {
           >
             {filteredLanguages.map(language => (
               <LanguageItem key={language.id} onClick={() => this.handleChange(language.id)}>
-                <LanguageName language={language} key={language.id} />
+                <LanguageName name={language.name} flag={language.flag} key={language.id} />
               </LanguageItem>
             ))}
           </LanguageListWrapper>

@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import * as R from "ramda";
-import { Exchange } from "@kiwicom/orbit-components/lib/icons";
+import Exchange from "@kiwicom/orbit-components/lib/icons/Exchange";
 
 import { getCode, getSymbol } from "../../records/Currency";
 import type { Currency } from "../../records/Currency";

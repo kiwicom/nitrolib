@@ -5,7 +5,7 @@ import type { ThemeProps } from "../../../../records/Theme";
 import { themeDefault } from "../../../../records/Theme";
 
 const LanguageNameText = styled.span`
-  margin-left: 3px;
+  margin-left: 10px;
   font-size: 12px;
   font-weight: 500;
   line-height: 50px;

@@ -1,20 +1,28 @@
 // @flow strict
 import * as React from "react";
+import styled from "styled-components";
+import CountryFlag from "@kiwicom/orbit-components/lib/CountryFlag";
 
-import type { LangInfo } from "../../../../records/LangInfo";
-import type { Language } from "../../../../records/Languages";
-import LanguageFlag from "../../LanguageFlag";
 import LanguageNameText from "./LanguageNameText";
 
 type Props = {|
-  language: Language | LangInfo,
+  flag: string,
+  name: string,
 |};
 
-const LanguageName = ({ language }: Props) => (
-  <>
-    <LanguageFlag flagId={language.flag} scale={0.8} />
-    <LanguageNameText>{language.name}</LanguageNameText>
-  </>
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const LanguageName = ({ flag, name }: Props) => (
+  <Container>
+    <div>
+      {/* $FlowExpected - their props are too specific */}
+      <CountryFlag code={flag} />
+    </div>
+    <LanguageNameText>{name}</LanguageNameText>
+  </Container>
 );
 
 export default LanguageName;
