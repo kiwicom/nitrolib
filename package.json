@@ -27,6 +27,8 @@
   "files": [
     "bin",
     "lib",
+    "types",
+    ".flowconfig",
     "tkeys.json",
     "README.md"
   ],
