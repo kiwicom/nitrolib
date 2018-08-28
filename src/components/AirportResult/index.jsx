@@ -3,8 +3,8 @@ import * as React from "react";
 import { createFragmentContainer, graphql } from "react-relay";
 import styled from "styled-components";
 import idx from "idx";
+import CountryFlag from "@kiwicom/orbit-components/lib/CountryFlag";
 
-import Flag from "../Flag";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 import type { AirportResult_item } from "./__generated__/AirportResult_item.graphql";
@@ -65,7 +65,8 @@ class AirportResult extends React.PureComponent<Props> {
     const country = idx(item, _ => _.country.locationId) || "anywhere";
     return (
       <Container onClick={this.handleClick} selected={selected}>
-        <Flag country={country.toLowerCase()} />
+        {/* $FlowExpected - CountryFlag's types are way too explicit */}
+        <CountryFlag code={country.toLowerCase()} />
         {`${String(idx(item, _ => _.city.name))} (${String(item.locationId)})`}
       </Container>
     );

@@ -386,8 +386,8 @@ exports[`#AirportResult render 1`] = `
     }
   }
 >
-  <Flag
-    country="at"
+  <CountryFlag
+    code="at"
   />
   Vienna (VIE)
 </AirportResult__Container>
@@ -779,8 +779,8 @@ exports[`#AirportResult render without country 1`] = `
     }
   }
 >
-  <Flag
-    country="anywhere"
+  <CountryFlag
+    code="anywhere"
   />
   Vienna (VIE)
 </AirportResult__Container>
