@@ -2,9 +2,19 @@
 
 exports[`#Modal - Portal render - with target 1`] = `
 <Portal>
-  <p>
-    Content
-  </p>
+  <Portal
+    containerInfo={
+      <div>
+        <p>
+          Content
+        </p>
+      </div>
+    }
+  >
+    <p>
+      Content
+    </p>
+  </Portal>
 </Portal>
 `;
 
@@ -30,9 +40,19 @@ exports[`#Modal - Portal render - with target 4`] = `
 
 exports[`#Modal - Portal render - without target 1`] = `
 <Portal>
-  <p>
-    Content
-  </p>
+  <Portal
+    containerInfo={
+      <div>
+        <p>
+          Content
+        </p>
+      </div>
+    }
+  >
+    <p>
+      Content
+    </p>
+  </Portal>
 </Portal>
 `;
 
