@@ -1,6 +1,4 @@
 // @flow
-import * as R from "ramda";
-
 import * as fns from "../countries";
 
 const input = {
@@ -31,14 +29,8 @@ const input = {
 };
 
 describe("#countries", () => {
-  test("get countries", () => {
-    const res = fns.getCountries(R.map(R.assoc("kek", "bur"), input));
-
-    expect(res).toEqual(input);
-  });
-
   test("get continents", () => {
-    const res = fns.getContinents(fns.getCountries(input));
+    const res = fns.getContinents(input);
 
     expect(res).toEqual({
       euro: ["gb", "ru", "sk"],
