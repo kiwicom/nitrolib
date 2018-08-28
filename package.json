@@ -4,7 +4,7 @@
   "description": "Nitro's components.",
   "scripts": {
     "start": "yarn storybook",
-    "build": "yarn modules && run-p babel types keys",
+    "build": "run-p babel types keys",
     "babel": "babel src -d lib --ignore '**/__tests__/*'",
     "modules": "cross-env BABEL_ENV=modules babel src -d lib --ignore '**/__tests__/*' && renamer --find .js --replace .mjs 'lib/**'",
     "types": "flow-copy-source src lib --ignore '**/__tests__/*','**/__generated__/*' && renamer --find .jsx.flow --replace .js.flow 'lib/**'",
