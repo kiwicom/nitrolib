@@ -34,9 +34,10 @@ type Props = {|
   linkRooms: string,
   linkCars: string,
   linkHolidays: string,
+  forceNewWindow: boolean,
 |};
 
-const HeaderLinks = ({ linkFlights, linkRooms, linkCars, linkHolidays }: Props) => (
+const HeaderLinks = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewWindow }: Props) => (
   <>
     <MediaTablet>
       <Toggle>
@@ -50,6 +51,7 @@ const HeaderLinks = ({ linkFlights, linkRooms, linkCars, linkHolidays }: Props) 
                     linkRooms={linkRooms}
                     linkCars={linkCars}
                     linkHolidays={linkHolidays}
+                    forceNewWindow={forceNewWindow}
                   />
                 </Popup>
               </ClickOutside>
@@ -68,9 +70,14 @@ const HeaderLinks = ({ linkFlights, linkRooms, linkCars, linkHolidays }: Props) 
         linkRooms={linkRooms}
         linkCars={linkCars}
         linkHolidays={linkHolidays}
+        forceNewWindow={forceNewWindow}
       />
     </MediaDesktop>
   </>
 );
+
+HeaderLinks.defaultProps = {
+  forceNewWindow: false,
+};
 
 export default HeaderLinks;

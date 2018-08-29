@@ -13,13 +13,15 @@ type Props = {|
   linkRooms: string,
   linkCars: string,
   linkHolidays: string,
+  forceNewWindow: boolean,
 |};
 
-const Links = ({ linkFlights, linkRooms, linkCars, linkHolidays }: Props) => (
+const Links = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewWindow }: Props) => (
   <>
     <Link
       logTab="flights"
       link={linkFlights}
+      newWindow={forceNewWindow}
       icon={<Airplane />}
       text={<Text t={__("search.service.travel_anywhere")} />}
     />

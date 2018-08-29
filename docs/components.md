@@ -51,6 +51,7 @@ type Props = {|
   linkRooms: string,
   linkCars: string,
   linkHolidays: string, // empty string to omit
+  forceNewWindow: boolean, // force opening links in a new window
 |};
 ```
 
