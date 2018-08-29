@@ -1,8 +1,6 @@
 // @flow
 const R = require("ramda");
 
-const getCountries = R.map(R.pick(["id", "continent", "currency", "EN"]));
-
 const getContinents = R.compose(
   R.map(R.sortBy(R.identity)),
   R.reduce(
@@ -30,6 +28,5 @@ const getContinents = R.compose(
 );
 
 module.exports = {
-  getCountries,
   getContinents,
 };

@@ -26,7 +26,7 @@ const whitelist = [
 
 function write(name, data) {
   if (name === "countries") {
-    fs.outputJsonSync(path.join(OUT, "countries.json"), countries.getCountries(data), {
+    fs.outputJsonSync(path.join(OUT, "countries.json"), data, {
       spaces: 2,
     });
 
