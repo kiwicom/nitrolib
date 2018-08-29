@@ -9,6 +9,7 @@ exports[`#Currency render 1`] = `
   </HeaderLinks__MediaTablet>
   <HeaderLinks__MediaDesktop>
     <Links
+      forceNewWindow={false}
       linkCars="https://www.kiwi.com/en/?headerLink=linkCars"
       linkFlights="https://www.kiwi.com/en/?headerLink=linkFlights"
       linkHolidays="https://www.kiwi.com/en/?headerLink=linkHolidays"
