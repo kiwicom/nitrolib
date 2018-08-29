@@ -341,6 +341,7 @@
     "common.lastname.colon": "Επώνυμο",
     "common.email.colon": "E-mail",
     "account.password.colon": "Κωδικός",
+    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>.",
     "common.hide": "Απόκρυψη",
     "account.log_out": "Αποσύνδεση",
     "sidenav.connect": "Σύνδεση",
@@ -349,6 +350,7 @@
     "booking.abandonment.help.chat_action": "Ανοίξτε ζωντανή συνομιλία",
     "sidenav.company": "Εταιρία",
     "content.pages.legal.title": "Όροι και Προϋποθέσεις",
+    "account.forgot_password": "Ξεχάσατε τον κωδικό σας;",
     "account.my_bookings_action": "Οι παραγγελίες μου",
     "common.loading": "Γίνεται φόρτωση",
     "account.no_trips": "You don't have any upcoming trips. Maybe it's time to book something.",
@@ -373,9 +375,7 @@
     "forms.wrong_format_email": "Το email έχει λάθος μορφή",
     "common.error": "Σφάλμα",
     "account.password_too_short": "Your password should have 8 or more characters.",
-    "account.password_too_simple": "Your password should be more complex.",
-    "account.forgot_password": "Ξεχάσατε τον κωδικό σας;",
-    "account.registration_privacy_policy": "The registration and subsequent use of your account is governed by these <a href=\"/pages/content/terms\" rel=\"noreferrer noopener\" target=\"_blank\">Terms of Use</a>. Your Personal Data will be processed according to our <a href=\"/pages/content/privacy\" rel=\"noreferrer noopener\" target=\"_blank\">Privacy Policy</a>."
+    "account.password_too_simple": "Your password should be more complex."
   },
   "en-GB": {
     "content.cookies.banner.text": "While browsing our website, we collect and process your personal data. You can learn more about why and how we process your personal data in our <a href=\"/pages/content/privacy\">Privacy Policy</a>. To collect your personal data, we use <a href=\"/pages/content/privacy#cookies\">cookies</a>. If you don't want us to send you cookies, you can turn them off at any time by changing your <a href=\"/pages/cookies_settings\">cookies preferences here</a>.",
