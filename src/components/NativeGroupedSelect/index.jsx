@@ -17,6 +17,9 @@ type SelectProps = {|
 
 const IconContainer = styled.div`
   width: 35px;
+  height: 21px;
+  display: flex;
+  align-items: center;
 `;
 
 const Select = styled.select`
@@ -29,8 +32,6 @@ const Select = styled.select`
   line-height: 21px;
   font-weight: 500;
   color: ${({ theme }: SelectProps) => theme.orbit.paletteInkDark};
-  font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
-  letter-spacing: 0.02em;
 
   &:hover {
     color: ${({ theme }: SelectProps) => theme.orbit.paletteProductNormal};

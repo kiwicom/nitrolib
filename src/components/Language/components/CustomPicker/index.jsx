@@ -15,8 +15,8 @@ import type { Language } from "../../../../records/Languages";
 const OpenButton = styled.button`
   ${button};
   display: flex;
-  flex-direction: row;
   align-items: center;
+
   &:hover {
     ${LanguageNameText} {
       color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};

@@ -22,9 +22,11 @@ const MenuWrapper = styled.div`
   display: flex;
   border-radius: 3px;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+
   ${mq.ltTablet(css`
     left: 20px;
   `)};
+
   ${mq.gtDesktop(css`
     right: 150px;
   `)};
@@ -34,6 +36,7 @@ const ContinentList = styled.div`
   min-width: 200px;
   font-size: 12px;
   font-weight: 500;
+
   ${mq.ltTablet(css`
     display: none;
   `)};
