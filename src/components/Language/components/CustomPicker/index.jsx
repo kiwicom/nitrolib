@@ -16,6 +16,7 @@ const OpenButton = styled.button`
   ${button};
   display: flex;
   align-items: center;
+  line-height: 50px;
 
   &:hover {
     ${LanguageNameText} {

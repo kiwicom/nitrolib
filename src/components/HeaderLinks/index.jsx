@@ -13,7 +13,6 @@ import Links from "./Links";
 
 const MediaTablet = styled.div`
   display: none;
-
   ${mq.mobile(css`
     display: flex;
     width: 50%;
@@ -23,7 +22,6 @@ const MediaTablet = styled.div`
 
 const MediaDesktop = styled.div`
   display: flex;
-
   ${mq.mobile(css`
     display: none;
   `)};

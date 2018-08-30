@@ -9,14 +9,19 @@ import ClickOutside from "../../../ClickOutside";
 import type { Currency } from "../../../../records/Currency";
 import Current from "./Current";
 import Menu from "./Menu";
+import button from "../../../../styles/mixins/button";
 
 const Container = styled.div`
+  display: flex;
   ${mq.gtDesktop(css`
     position: relative;
   `)};
 `;
 
-const OpenButton = styled.div`
+const OpenButton = styled.button`
+  ${button};
+  display: flex;
+  align-items: center;
   cursor: pointer;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
 

@@ -19,6 +19,7 @@ type Props = {|
 const Container = styled.div`
   position: absolute;
   right: 0;
+  top: 50px;
   width: calc(100% - 40px);
   max-height: calc(100vh - 200px);
   margin: 0 20px;
@@ -26,7 +27,7 @@ const Container = styled.div`
   padding: 15px 12px;
   overflow-y: scroll;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, .1);
-  border-radius: 3px;
+  border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
 
   ${mq.gtTablet(css`

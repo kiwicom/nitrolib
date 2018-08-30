@@ -17,10 +17,8 @@ const Container = styled.div`
 
 const LanguageName = ({ flag, name }: Props) => (
   <Container>
-    <div>
-      {/* $FlowExpected - their props are too specific */}
-      <CountryFlag code={flag} />
-    </div>
+    {/* $FlowExpected - their props are too specific */}
+    <CountryFlag code={flag} />
     <LanguageNameText>{name}</LanguageNameText>
   </Container>
 );

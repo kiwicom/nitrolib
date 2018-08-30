@@ -37,10 +37,7 @@ Container.defaultProps = {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  line-height: 50px;
-  height: 50px;
-  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
-  font-size: 12px;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
   font-weight: 500;
 `;
 

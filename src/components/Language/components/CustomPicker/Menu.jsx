@@ -28,7 +28,7 @@ const MenuWrapper = styled.div`
   `)};
 
   ${mq.gtDesktop(css`
-    right: 150px;
+    right: -50px;
   `)};
 `;
 
