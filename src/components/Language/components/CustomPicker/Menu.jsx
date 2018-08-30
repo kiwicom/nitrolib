@@ -17,14 +17,12 @@ const MenuWrapper = styled.div`
   background-color: white;
   position: absolute;
   top: 45px;
-  right: 20px;
   left: auto;
   display: flex;
   border-radius: 3px;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
-
-  ${mq.ltTablet(css`
-    left: 20px;
+  ${mq.gtTablet(css`
+    right: -242px;
   `)};
 
   ${mq.gtDesktop(css`

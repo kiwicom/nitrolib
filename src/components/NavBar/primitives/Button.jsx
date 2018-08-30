@@ -17,7 +17,6 @@ const Button = styled.button`
   font-weight: 500;
   line-height: 50px;
   text-decoration: none;
-  font-family: ${({ theme }: ThemeProps) => theme.orbit.fontFamily};
   ${({ transition }) => transition && `transition: color 0.2s ease-in-out`};
   ${({ padding }) => padding && `padding: ${padding}`};
   ${({ marginLeft }) => marginLeft && `margin-left: ${marginLeft}px`};
