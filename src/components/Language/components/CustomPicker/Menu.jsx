@@ -13,21 +13,26 @@ import { getLanguageWrapperHeight, getLanguageWrapperWidth } from "../../service
 import LanguageName from "./LanguageName";
 import ContinentName from "./ContinentName";
 
+type FlatProps = {|
+  flat: boolean,
+|};
+
 const MenuWrapper = styled.div`
   background-color: white;
-  position: absolute;
-  top: 45px;
-  left: auto;
+  position: relative;
   display: flex;
   border-radius: 3px;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
-  ${mq.gtTablet(css`
-    right: -242px;
-  `)};
-
-  ${mq.gtDesktop(css`
-    right: -50px;
-  `)};
+  ${({ flat }: FlatProps) =>
+    !flat &&
+    mq.gtTablet(css`
+      margin-right: -280px;
+    `)};
+  ${({ flat }: FlatProps) =>
+    !flat &&
+    mq.gtDesktop(css`
+      margin-right: -100px;
+    `)};
 `;
 
 const ContinentList = styled.div`
@@ -59,10 +64,6 @@ const ContinentItem = styled(Flex)`
 ContinentItem.defaultProps = {
   theme: themeDefault,
 };
-
-type FlatProps = {|
-  flat: boolean,
-|};
 
 const LanguageList = styled.div`
   padding: 10px;
@@ -155,7 +156,7 @@ export default class Menu extends React.Component<Props, State> {
     const filteredLanguages = continent === "" ? languages : getByContinent(languages, continent);
 
     return (
-      <MenuWrapper>
+      <MenuWrapper flat={flat}>
         {!flat && (
           <ContinentList>
             <ContinentItem onClick={() => this.handleContinent("")}>

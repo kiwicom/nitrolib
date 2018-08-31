@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#Language/CustomPicker render 1`] = `
-<Fragment>
+<CustomPicker__LanguageWrapper>
   <CustomPicker__OpenButton
     onClick={[Function]}
     theme={
@@ -391,5 +391,5 @@ exports[`#Language/CustomPicker render 1`] = `
       name="English"
     />
   </CustomPicker__OpenButton>
-</Fragment>
+</CustomPicker__LanguageWrapper>
 `;

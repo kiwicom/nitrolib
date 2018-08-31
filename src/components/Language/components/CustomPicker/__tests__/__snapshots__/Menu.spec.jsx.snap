@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#Language/CustomPicker/Menu render flat 1`] = `
-<Menu__MenuWrapper>
+<Menu__MenuWrapper
+  flat={true}
+>
   <Menu__LanguageList
     flat={true}
   >
@@ -406,7 +408,9 @@ exports[`#Language/CustomPicker/Menu render flat 1`] = `
 `;
 
 exports[`#Language/CustomPicker/Menu render full 1`] = `
-<Menu__MenuWrapper>
+<Menu__MenuWrapper
+  flat={false}
+>
   <Menu__ContinentList>
     <Menu__ContinentItem
       onClick={[Function]}
