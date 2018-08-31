@@ -18,11 +18,11 @@ type FlatProps = {|
 |};
 
 const MenuWrapper = styled.div`
-  background-color: white;
+  background-color: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   position: relative;
   display: flex;
-  border-radius: 3px;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
+  box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
   ${({ flat }: FlatProps) =>
     !flat &&
     mq.gtTablet(css`
@@ -34,6 +34,10 @@ const MenuWrapper = styled.div`
       margin-right: -100px;
     `)};
 `;
+
+MenuWrapper.defaultProps = {
+  theme: themeDefault,
+};
 
 const ContinentList = styled.div`
   min-width: 200px;
