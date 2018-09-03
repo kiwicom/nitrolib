@@ -9,9 +9,11 @@ const MenuSpacings = styled.div`
   margin-${rtl.right}: 20px;
   cursor: pointer;
   display: flex;
+  position: relative;
 
   ${mq.ltTablet(css`
     margin-${rtl.right}: 5px;
+    position: inherit;
   `)};
 `;
 

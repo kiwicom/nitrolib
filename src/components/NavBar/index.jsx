@@ -17,7 +17,6 @@ import Menu from "./components/Menu";
 import Logo from "./components/Logo";
 import Currency from "../Currency";
 import MenuSpacings from "./primitives/MenuSpacings";
-import Starred from "../Starred";
 
 const Container = styled(Flex)`
   width: 100%;
@@ -92,7 +91,7 @@ const NavBar = ({
             <Help faq={faq} />
           </MenuSpacings>
         </Desktop>
-        <MenuSpacings>{starred}</MenuSpacings>
+        {starred && <MenuSpacings>{starred}</MenuSpacings>}
         <Menu
           chat={chat}
           subscription={subscription}
@@ -104,9 +103,5 @@ const NavBar = ({
     </Flex>
   </Container>
 );
-
-NavBar.defaultProps = {
-  starred: <Starred />,
-};
 
 export default NavBar;

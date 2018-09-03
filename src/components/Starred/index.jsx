@@ -9,6 +9,8 @@ import Toggle from "../Toggle";
 import ClickOutside from "../ClickOutside";
 import Button from "../NavBar/primitives/Button";
 import mq from "../../styles/mediaQuery";
+import Desktop from "../../primitives/Desktop";
+import Mobile from "../../primitives/Mobile";
 
 const Popup = styled.div`
   position: absolute;
@@ -61,22 +63,6 @@ const TripsCounter = styled.span`
   font-weight: 700;
 `;
 
-const MediaTablet = styled.div`
-  display: none;
-  ${mq.mobile(css`
-    display: flex;
-    width: 50%;
-    margin-left: 20px;
-  `)};
-`;
-
-const MediaDesktop = styled.div`
-  display: flex;
-  ${mq.mobile(css`
-    display: none;
-  `)};
-`;
-
 const Starred = () => (
   <Toggle>
     {({ open, onToggle, active }) => (
@@ -94,14 +80,14 @@ const Starred = () => (
             </Popup>
           </ClickOutside>
         )}
-        <MediaDesktop>
+        <Desktop>
           <Button onClick={onToggle}>Starred</Button>
-        </MediaDesktop>
-        <MediaTablet>
+        </Desktop>
+        <Mobile>
           <Button onClick={onToggle}>
             <StarIcon color={active ? "secondary" : "primary"} />
           </Button>
-        </MediaTablet>
+        </Mobile>
       </>
     )}
   </Toggle>
