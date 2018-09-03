@@ -1,12 +1,13 @@
 // @flow
 import * as React from "react";
 import idx from "idx";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import Passenger from "@kiwicom/orbit-components/lib/icons/Passenger";
 
-import mq from "../../../../styles/mediaQuery";
 import Button from "../../primitives/Button";
 import ClickOutside from "../../../ClickOutside";
+import Desktop from "../../../Desktop";
+import Mobile from "../../../Mobile";
 import Text from "../../../Text";
 import type { ThemeProps } from "../../../../records/Theme";
 import Toggle from "../../../Toggle";
@@ -36,22 +37,6 @@ const UserStyle = styled.div`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
 `;
 
-const Desktop = styled.div`
-  display: none;
-
-  ${mq.gtTablet(css`
-    display: flex;
-  `)};
-`;
-
-const Mobile = styled.div`
-  display: flex;
-
-  ${mq.gtTablet(css`
-    display: none;
-  `)};
-`;
-
 const Trips = ({ user }: Props) => (
   <Toggle>
     {({ open, onToggle }) => (
@@ -62,7 +47,7 @@ const Trips = ({ user }: Props) => (
           </ClickOutside>
         )}
         <MenuSpacings>
-          <Desktop>
+          <Desktop display="flex">
             <Passenger size="small" />
             <Button
               fontSize="12px"
@@ -76,7 +61,7 @@ const Trips = ({ user }: Props) => (
             </Button>
             <UserStyle>({`${idx(user, _ => _.firstname) || " "}...`})</UserStyle>
           </Desktop>
-          <Mobile>
+          <Mobile display="flex">
             <Button fontSize="12px" marginRight={3} onClick={onToggle} y="center" direction="row">
               <Passenger size="small" />
               <UserStyle>

@@ -3,6 +3,9 @@ import * as React from "react";
 import styled from "styled-components";
 import MdClose from "react-icons/lib/md/close";
 
+import * as rtl from "../../styles/rtl";
+import { themeDefault } from "../../records/Theme";
+
 /**
  * This is a copy of FE's old modal design.
  * Refresh once the new design is done.
@@ -22,7 +25,7 @@ const Container = styled.section`
 
 const Wrapper = styled.div`
   position: relative;
-  flex: 0 1 400px;
+  flex: 0 1 auto;
 `;
 
 const StyledClose = styled(MdClose)`
@@ -30,10 +33,14 @@ const StyledClose = styled(MdClose)`
   height: 24px;
   width: 24px;
   top: -28px;
-  right: 8px;
+  ${rtl.right}: 8px;
   cursor: pointer;
   color: white;
 `;
+
+StyledClose.defaultProps = {
+  theme: themeDefault,
+};
 
 type Props = {|
   children: React.Node,

@@ -7,6 +7,7 @@ import type { ThemeProps } from "../../../../records/Theme";
 import { getByContinent } from "../../../../records/Languages";
 import type { Language } from "../../../../records/Languages";
 import mq from "../../../../styles/mediaQuery";
+import * as rtl from "../../../../styles/rtl";
 import Flex from "../../../../primitives/Flex";
 import Text from "../../../Text";
 import { getLanguageWrapperHeight, getLanguageWrapperWidth } from "../../services/menu";
@@ -26,12 +27,12 @@ const MenuWrapper = styled.div`
   ${({ flat }: FlatProps) =>
     !flat &&
     mq.gtTablet(css`
-      margin-right: -280px;
+      margin-${rtl.right}: -280px;
     `)};
   ${({ flat }: FlatProps) =>
     !flat &&
     mq.gtDesktop(css`
-      margin-right: -100px;
+      margin-${rtl.right}: -100px;
     `)};
 `;
 
@@ -111,7 +112,7 @@ const LanguageItem = styled.div`
   display: inline-flex;
   align-items: center;
   border-radius: 3px;
-  padding-left: 5px;
+  padding-${rtl.left}: 5px;
   margin-bottom: 5px;
   box-sizing: border-box;
   cursor: pointer;

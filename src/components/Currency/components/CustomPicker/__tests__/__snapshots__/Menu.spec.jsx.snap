@@ -381,6 +381,7 @@ exports[`#Currency/Menu render - no recommended 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >
@@ -827,6 +828,7 @@ exports[`#Currency/Menu render 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >
@@ -1210,6 +1212,7 @@ exports[`#Currency/Menu render 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >

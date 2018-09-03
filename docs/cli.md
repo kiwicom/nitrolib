@@ -1,8 +1,8 @@
 # CLI
 
 Run `yarn nitro <command>`. Available commands:
-* [Keys](#Keys)
-* [Fetch](#Fetch)
+* [Keys](#keys)
+* [Fetch](#fetch)
 
 All files are saved into the `<PROJECT_ROOT>/data` folder.
 

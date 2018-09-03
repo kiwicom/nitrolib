@@ -4,7 +4,9 @@ import styled, { css } from "styled-components";
 
 import { navbar } from "../../styles";
 import mq from "../../styles/mediaQuery";
+import * as rtl from "../../styles/rtl";
 import ClientOnly from "../ClientOnly";
+import Desktop from "../Desktop";
 import type { ThemeProps } from "../../records/Theme";
 import { themeDefault } from "../../records/Theme";
 import Flex from "../../primitives/Flex";
@@ -27,7 +29,7 @@ const Container = styled(Flex)`
   ${mq.gtTablet(css`
     position: fixed;
     top: 0;
-    left: 0;
+    ${rtl.left}: 0;
   `)};
 `;
 
@@ -45,13 +47,6 @@ const Wrapper = styled.div`
 Wrapper.defaultProps = {
   theme: themeDefault,
 };
-
-const Desktop = styled.div`
-  display: none;
-  ${mq.gtTablet(css`
-    display: flex;
-  `)};
-`;
 
 type Props = {|
   headerLinks: React.Node,
@@ -83,7 +78,7 @@ const NavBar = ({
     </Flex>
     <Flex y="center">
       <Wrapper>
-        <Desktop>
+        <Desktop display="flex">
           <MenuSpacings>
             <Language onChange={onSaveLanguage} />
           </MenuSpacings>

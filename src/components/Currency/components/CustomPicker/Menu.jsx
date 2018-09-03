@@ -5,6 +5,7 @@ import styled, { css } from "styled-components";
 
 import type { Currency } from "../../../../records/Currency";
 import mq from "../../../../styles/mediaQuery";
+import * as rtl from "../../../../styles/rtl";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import CurrencyList from "./CurrencyList";
@@ -18,7 +19,7 @@ type Props = {|
 
 const Container = styled.div`
   position: absolute;
-  right: 0;
+  ${rtl.right}: 0;
   top: 50px;
   width: calc(100% - 40px);
   max-height: calc(100vh - 200px);
@@ -39,13 +40,13 @@ const Container = styled.div`
   `)}
 
   ${mq.tablet(css`
-    right: 0; /* TODO: RTL */
-    left: inherit; /* TODO: RTL */
+    ${rtl.right}: 0;
+    ${rtl.left}: inherit;
   `)}
 
   ${mq.gtDesktop(css`
-    left: -290px; /* TODO: RTL */
-    right: inherit; /* TODO: RTL */
+    ${rtl.left}: -290px;
+    ${rtl.right}: inherit;
   `)}
 `;
 
@@ -62,7 +63,7 @@ const Recommended = styled.div`
   &:after {
     position: absolute;
     bottom: 0;
-    left: 0;
+    ${rtl.left}: 0;
     display: block;
     content: "";
     width: calc(100% - 10px);

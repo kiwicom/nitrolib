@@ -28,6 +28,37 @@ exports[`#Menu render 1`] = `
 </Fragment>
 `;
 
+exports[`#Menu render with forgot password modal 1`] = `
+<Fragment>
+  <ContextConsumer>
+    <Component />
+  </ContextConsumer>
+  <SideNav
+    chat={
+      <div>
+        chat
+      </div>
+    }
+    debug={false}
+    onOpenRegister={[Function]}
+    onOpenSignIn={[Function]}
+    onSaveLanguage={[MockFunction]}
+    subscription={
+      <div>
+        subscription
+      </div>
+    }
+  />
+  <Modal
+    onClose={[Function]}
+  >
+    <ContextConsumer>
+      <Component />
+    </ContextConsumer>
+  </Modal>
+</Fragment>
+`;
+
 exports[`#Menu render with modal 1`] = `
 <Fragment>
   <ContextConsumer>
@@ -53,6 +84,7 @@ exports[`#Menu render with modal 1`] = `
     onClose={[Function]}
   >
     <Login
+      onOpenForgotPassword={[Function]}
       onOpenMyBooking={[Function]}
       onOpenRegister={[Function]}
       onOpenSignIn={[Function]}

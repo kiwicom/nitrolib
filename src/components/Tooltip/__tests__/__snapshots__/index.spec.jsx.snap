@@ -394,6 +394,7 @@ exports[`#Tooltip mouse over + out 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -777,6 +778,7 @@ exports[`#Tooltip mouse over + out 1`] = `
             "zIndexOnTheTop": "900",
             "zIndexSticky": "100",
           },
+          "rtl": false,
         }
       }
     >
@@ -1210,6 +1212,7 @@ exports[`#Tooltip mouse over + out 2`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -1612,6 +1615,7 @@ exports[`#Tooltip mouse over + out 3`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -1995,6 +1999,7 @@ exports[`#Tooltip mouse over + out 3`] = `
             "zIndexOnTheTop": "900",
             "zIndexSticky": "100",
           },
+          "rtl": false,
         }
       }
     >
@@ -2431,6 +2436,7 @@ exports[`#Tooltip mouse over + out 4`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -2833,6 +2839,7 @@ exports[`#Tooltip render - block 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -3216,6 +3223,7 @@ exports[`#Tooltip render - block 1`] = `
             "zIndexOnTheTop": "900",
             "zIndexSticky": "100",
           },
+          "rtl": false,
         }
       }
     >
@@ -3625,6 +3633,7 @@ exports[`#Tooltip render - block 2`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -4008,6 +4017,7 @@ exports[`#Tooltip render - block 2`] = `
             "zIndexOnTheTop": "900",
             "zIndexSticky": "100",
           },
+          "rtl": false,
         }
       }
     >
@@ -4411,6 +4421,7 @@ exports[`#Tooltip render - bottom 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -4794,6 +4805,7 @@ exports[`#Tooltip render - bottom 1`] = `
             "zIndexOnTheTop": "900",
             "zIndexSticky": "100",
           },
+          "rtl": false,
         }
       }
     >
@@ -5230,6 +5242,7 @@ exports[`#Tooltip render - bottom 2`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -5632,6 +5645,7 @@ exports[`#Tooltip render - inline 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -6015,6 +6029,7 @@ exports[`#Tooltip render - inline 1`] = `
             "zIndexOnTheTop": "900",
             "zIndexSticky": "100",
           },
+          "rtl": false,
         }
       }
     >
@@ -6423,6 +6438,7 @@ exports[`#Tooltip render - inline 2`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -6806,6 +6822,7 @@ exports[`#Tooltip render - inline 2`] = `
             "zIndexOnTheTop": "900",
             "zIndexSticky": "100",
           },
+          "rtl": false,
         }
       }
     >
@@ -7209,6 +7226,7 @@ exports[`#Tooltip render - left 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -7592,6 +7610,7 @@ exports[`#Tooltip render - left 1`] = `
             "zIndexOnTheTop": "900",
             "zIndexSticky": "100",
           },
+          "rtl": false,
         }
       }
     >
@@ -8028,6 +8047,7 @@ exports[`#Tooltip render - left 2`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -8430,6 +8450,7 @@ exports[`#Tooltip render - right 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -8813,6 +8834,7 @@ exports[`#Tooltip render - right 1`] = `
             "zIndexOnTheTop": "900",
             "zIndexSticky": "100",
           },
+          "rtl": false,
         }
       }
     >
@@ -9249,6 +9271,7 @@ exports[`#Tooltip render - right 2`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -9668,6 +9691,7 @@ exports[`#Tooltip render - top 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -10051,6 +10075,7 @@ exports[`#Tooltip render - top 1`] = `
             "zIndexOnTheTop": "900",
             "zIndexSticky": "100",
           },
+          "rtl": false,
         }
       }
     >
@@ -10487,6 +10512,7 @@ exports[`#Tooltip render - top 2`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >

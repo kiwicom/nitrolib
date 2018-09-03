@@ -1,15 +1,17 @@
 // @flow strict
 import * as React from "react";
-import styled, { css } from "styled-components";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
 
+import Desktop from "../../../Desktop";
+import Mobile from "../../../Mobile";
 import Modal from "../../../Modal";
 import Text from "../../../Text";
-import mq from "../../../../styles/mediaQuery";
 import * as authContext from "../../../../services/auth/context";
+import { Consumer as BrandConsumer } from "../../../../services/brand/context";
 import Button from "../../primitives/Button";
 import Trips from "../Trips";
 import Login from "./components/Login";
+import ForgotPassword from "./components/ForgotPassword";
 import SideNav from "./components/SideNav";
 import MenuSpacings from "../../primitives/MenuSpacings";
 
@@ -21,25 +23,11 @@ type Props = {|
   onSaveLanguage: (lang: string) => void,
 |};
 
-type LoginModal = "myBooking" | "register" | "signIn";
+type AuthModal = "myBooking" | "register" | "signIn" | "forgotPassword";
 
 type State = {|
-  modalOpen: "" | LoginModal,
+  modalOpen: "" | AuthModal,
 |};
-
-const Desktop = styled.div`
-  display: none;
-  ${mq.gtTablet(css`
-    display: flex;
-  `)};
-`;
-
-const Mobile = styled.div`
-  display: flex;
-  ${mq.gtTablet(css`
-    display: none;
-  `)};
-`;
 
 export default class Menu extends React.PureComponent<Props, State> {
   state = {
@@ -62,6 +50,10 @@ export default class Menu extends React.PureComponent<Props, State> {
     this.setState({ modalOpen: "signIn" });
   };
 
+  handleOpenForgotPassword = () => {
+    this.setState({ modalOpen: "forgotPassword" });
+  };
+
   render() {
     const { chat, subscription, debug, onSaveToken, onSaveLanguage } = this.props;
     const { modalOpen } = this.state;
@@ -72,12 +64,12 @@ export default class Menu extends React.PureComponent<Props, State> {
           {({ user }) =>
             user === null ? (
               <MenuSpacings>
-                <Desktop>
+                <Desktop display="flex">
                   <Button onClick={this.handleOpenMyBooking}>
                     <Text t={__("account.my_bookings_action")} />
                   </Button>
                 </Desktop>
-                <Mobile>
+                <Mobile display="flex">
                   <Button onClick={this.handleOpenMyBooking} padding="13px 9px">
                     <AccountCircle />
                   </Button>
@@ -99,13 +91,20 @@ export default class Menu extends React.PureComponent<Props, State> {
 
         {modalOpen !== "" && (
           <Modal onClose={this.handleClose}>
-            <Login
-              open={modalOpen}
-              onOpenMyBooking={this.handleOpenMyBooking}
-              onOpenRegister={this.handleOpenRegister}
-              onOpenSignIn={this.handleOpenSignIn}
-              onSaveToken={onSaveToken}
-            />
+            {modalOpen === "forgotPassword" ? (
+              <BrandConsumer>
+                {brand => <ForgotPassword brandId={brand.id} onClose={this.handleClose} />}
+              </BrandConsumer>
+            ) : (
+              <Login
+                open={modalOpen}
+                onOpenMyBooking={this.handleOpenMyBooking}
+                onOpenRegister={this.handleOpenRegister}
+                onOpenSignIn={this.handleOpenSignIn}
+                onOpenForgotPassword={this.handleOpenForgotPassword}
+                onSaveToken={onSaveToken}
+              />
+            )}
           </Modal>
         )}
       </>

@@ -34,6 +34,21 @@ describe("#Menu", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  test("render with forgot password modal", () => {
+    const wrapper = shallow(
+      <Menu
+        chat={<div>chat</div>}
+        subscription={<div>subscription</div>}
+        onSaveToken={jest.fn()}
+        onSaveLanguage={jest.fn()}
+      />,
+    );
+
+    wrapper.setState({ modalOpen: "forgotPassword" });
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   test("handle close", () => {
     const wrapper = shallow(
       <Menu
@@ -93,5 +108,20 @@ describe("#Menu", () => {
     wrapper.instance().handleOpenSignIn();
 
     expect(wrapper.state("modalOpen")).toBe("signIn");
+  });
+
+  test("handle open forgot password", () => {
+    const wrapper = shallow(
+      <Menu
+        chat={<div>chat</div>}
+        subscription={<div>subscription</div>}
+        onSaveToken={jest.fn()}
+        onSaveLanguage={jest.fn()}
+      />,
+    );
+
+    wrapper.instance().handleOpenForgotPassword();
+
+    expect(wrapper.state("modalOpen")).toBe("forgotPassword");
   });
 });

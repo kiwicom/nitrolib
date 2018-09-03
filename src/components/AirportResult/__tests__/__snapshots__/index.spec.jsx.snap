@@ -383,13 +383,16 @@ exports[`#AirportResult render 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >
   <CountryFlag
     code="at"
   />
-  Vienna (VIE)
+  <AirportResult__Name>
+    Vienna (VIE)
+  </AirportResult__Name>
 </AirportResult__Container>
 `;
 
@@ -776,12 +779,15 @@ exports[`#AirportResult render without country 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >
   <CountryFlag
     code="anywhere"
   />
-  Vienna (VIE)
+  <AirportResult__Name>
+    Vienna (VIE)
+  </AirportResult__Name>
 </AirportResult__Container>
 `;

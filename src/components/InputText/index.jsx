@@ -3,6 +3,7 @@ import * as React from "react";
 import * as R from "ramda";
 import styled, { css } from "styled-components";
 
+import * as rtl from "../../styles/rtl";
 import borderMixin, { getBorderState } from "../../styles/mixins/border";
 import Text from "../Text";
 import TextNode from "../TextNode";
@@ -51,7 +52,7 @@ const stateMixin = css`
   position: absolute;
   font-size: 10px;
   font-weight: 400;
-  right: 0;
+  ${rtl.right}: 0;
   bottom: -14px;
 `;
 
@@ -70,15 +71,15 @@ const Hint = styled.span`
   color: ${({ theme }: ErrorProps) => theme.orbit.paletteProductNormal};
 `;
 
+Hint.defaultProps = {
+  theme: themeDefault,
+};
+
 const HintText = styled.a`
   font-weight: 700;
   text-decoration: underline;
   cursor: pointer;
 `;
-
-Hint.defaultProps = {
-  theme: themeDefault,
-};
 
 const omitProps = R.omit(["showState", "inputRef", "validate", "normalize", "corrector"]);
 

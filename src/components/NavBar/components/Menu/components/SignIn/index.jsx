@@ -3,11 +3,14 @@ import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
 import FaEnvelope from "react-icons/lib/fa/envelope";
+import FaLongArrowRight from "react-icons/lib/fa/long-arrow-right";
 import MdLock from "react-icons/lib/md/lock";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 
+import * as rtl from "../../../../../../styles/rtl";
+import { themeDefault } from "../../../../../../records/Theme";
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
 import IconText from "../../../../../IconText";
@@ -27,10 +30,20 @@ const FieldCentered = styled(FieldWrap)`
   text-align: center;
 `;
 
+const ForgotPasswordArrow = styled.span`
+  margin-${rtl.left}: 5px;
+  margin-top: -2px;
+`;
+
+ForgotPasswordArrow.defaultProps = {
+  theme: themeDefault,
+};
+
 type Props = {|
   brandId: string,
   onSetUser: (user: ?User) => void,
   onSaveToken: (token: string) => void,
+  onOpenForgotPassword: () => void,
   // DI
   signIn: typeof api.signIn,
 |};
@@ -108,6 +121,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
 
   render() {
     const { fields, submitted, loading, error } = this.state;
+    const { onOpenForgotPassword } = this.props;
 
     return (
       <>
@@ -150,8 +164,11 @@ export default class SignIn extends React.PureComponent<Props, State> {
         </Button>
         <FieldWrap>
           <FieldCentered>
-            <TextLink>
+            <TextLink onClick={onOpenForgotPassword}>
               <Text t={__("account.forgot_password")} />
+              <ForgotPasswordArrow>
+                <FaLongArrowRight />
+              </ForgotPasswordArrow>
             </TextLink>
           </FieldCentered>
         </FieldWrap>

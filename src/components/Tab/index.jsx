@@ -3,6 +3,7 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 
 import { border } from "../../styles";
+import * as rtl from "../../styles/rtl";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 
@@ -28,7 +29,7 @@ const Container = styled.button`
   padding: 0;
   height: 34px;
   line-height: 34px;
-  border-width: ${border.size}px ${border.size}px ${border.size}px 0;
+  border-width: ${rtl.box(`${border.size}px ${border.size}px ${border.size}px 0`)};
   border-color: ${({ theme }: ContainerProps) => theme.orbit.paletteInkLighter};
   border-radius: 0;
   background: ${({ theme, active }: ContainerProps) =>
@@ -41,11 +42,11 @@ const Container = styled.button`
 
   &:first-child {
     border-width: ${border.size}px;
-    border-radius: 3px 0 0 3px;
+    border-radius: ${rtl.box("3px 0 0 3px")};
   }
 
   &:last-child {
-    border-radius: 0 3px 3px 0;
+    border-radius: ${rtl.box("0 3px 3px 0")};
   }
 
   &:focus {

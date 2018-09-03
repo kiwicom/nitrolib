@@ -381,6 +381,7 @@ exports[`#TripListBottom render 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >
@@ -768,6 +769,7 @@ exports[`#TripListBottom render 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
     transition={true}

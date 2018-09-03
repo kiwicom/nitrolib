@@ -3,16 +3,18 @@
 Located in `@kiwicom/nitro/lib/components/<component>`.
 
 Features:
-* [CookiesConsent](#CookiesConsent)
-* [HeaderLinks](#HeaderLinks)
-* [NavBar](#NavBar)
+* [CookiesConsent](#cookiesconsent)
+* [HeaderLinks](#headerlinks)
+* [NavBar](#navbar)
 
 Utilities:
-* [ClickOutside](#ClickOutside)
-* [ClientOnly](#ClientOnly)
-* [Price](#Price)
-* [Text](#Text)
-* [TextNode](#TextNode)
+* [ClickOutside](#clickoutside)
+* [ClientOnly](#clientonly)
+* [Desktop](#desktop)
+* [Mobile](#mobile)
+* [Price](#price)
+* [Text](#text)
+* [TextNode](#textnode)
 
 ## Features
 
@@ -126,6 +128,62 @@ const MyComponent = () => (
       <ComponentUsingTheWindowObject />
     </>
   </ClientOnly>
+);
+```
+
+### Desktop
+
+Renders only above **tablet** width.
+
+```js
+import Desktop from "@kiwicom/nitro/lib/components/Desktop";
+```
+
+Props:
+```js
+type Props = {|
+  display: "block" | "inline" | "inline-block" | "flex", // default "block"
+  children: React.Node | React.Node[],
+|};
+```
+
+Example:
+```js
+const NavBar = () => (
+  <>
+    <Desktop>
+      <Button>A desktop-only button</Button>
+    </Desktop>
+    <Menu />
+  </>
+);
+```
+
+### Mobile
+
+Renders only below **tablet** width.
+
+```js
+import Mobile from "@kiwicom/nitro/lib/components/Mobile";
+```
+
+Props:
+```js
+type Props = {|
+  display: "block" | "inline" | "inline-block" | "flex", // default "block"
+  children: React.Node | React.Node[],
+|};
+```
+
+Example:
+```js
+const NavBar = () => (
+  <>
+    <Mobile>
+      <Button>A mobile-only button</Button>
+    </Mobile>
+    <Menu />
+  </>
 );
 ```
 

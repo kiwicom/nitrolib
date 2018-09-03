@@ -383,6 +383,7 @@ exports[`#Help render 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -393,6 +394,7 @@ exports[`#Help render 1`] = `
     />
   </Button>
   <SideBar
+    onClick={[Function]}
     shown={false}
   >
     lol

@@ -1,9 +1,12 @@
 // @flow strict
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { withKnobs, select, text } from "@storybook/addon-knobs/react";
+import { select, text } from "@storybook/addon-knobs/react";
 
 import Tooltip from "../src/components/Tooltip";
+import withData from "./decorators/withData";
+
+const GROUP_ID = "Component";
 
 const positions = {
   left: "Left",
@@ -31,27 +34,31 @@ const defaultTipContent = `<span>Tooltip message</span>&nbsp;
 const defaultTargetContent = `Hover<br />me!`;
 
 storiesOf("Tooltip", module)
-  .addDecorator(withKnobs)
-  .add("default", () => (
-    <div style={wrapperStyle}>
-      <Tooltip
-        position={select("Tip position", positions, "right")}
-        tip={
+  .addDecorator(withData)
+  .add(
+    "default",
+    () => (
+      <div style={wrapperStyle}>
+        <Tooltip
+          position={select("Tip position", positions, "right", GROUP_ID)}
+          tip={
+            <span
+              style={tipStyle}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: text("Tip content", defaultTipContent, GROUP_ID),
+              }}
+            />
+          }
+        >
           <span
-            style={tipStyle}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
-              __html: text("Tip content", defaultTipContent),
+              __html: text("Target content", defaultTargetContent, GROUP_ID),
             }}
           />
-        }
-      >
-        <span
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: text("Target content", defaultTargetContent),
-          }}
-        />
-      </Tooltip>
-    </div>
-  ));
+        </Tooltip>
+      </div>
+    ),
+    { knobs: { escapeHTML: false } },
+  );

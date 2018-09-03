@@ -1,17 +1,18 @@
 // @flow strict
 import * as React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import MenuHamburger from "@kiwicom/orbit-components/lib/icons/MenuHamburger";
 import FaAngleRight from "react-icons/lib/fa/angle-right";
 
 import ClientOnly from "../../../../../ClientOnly";
 import Modal from "../../../../../Modal";
+import Mobile from "../../../../../Mobile";
 import Text from "../../../../../Text";
-import mq from "../../../../../../styles/mediaQuery";
 import Language from "../../../../../Language";
 import * as brandContext from "../../../../../../services/brand/context";
 import type { ThemeProps } from "../../../../../../records/Theme";
 import { themeDefault } from "../../../../../../records/Theme";
+import * as rtl from "../../../../../../styles/rtl";
 import { Consumer as AuthConsumer } from "../../../../../../services/auth/context";
 import Currency from "../../../../../Currency";
 import SideBar from "../../../SideBar";
@@ -19,13 +20,6 @@ import MenuGroup from "./MenuGroup";
 import MenuItem from "./MenuItem";
 import BrandedMenuItem from "./BrandedMenuItem";
 import { icons, getPagesItems, getSocialMediaItems } from "./services/menu";
-
-const Mobile = styled.div`
-  display: flex;
-  ${mq.gtTablet(css`
-    display: none;
-  `)};
-`;
 
 const MediaIcons = styled.div`
   margin-top: 20px;
@@ -50,9 +44,9 @@ const Content = styled.div`
 const Close = styled.div`
   position: absolute;
   top: 0;
-  right: 0;
+  ${rtl.right}: 0;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
-  padding: 23px 30px 10px 0;
+  padding: ${rtl.box("23px 30px 10px 0")};
   font-size: 14px;
   cursor: pointer;
 `;
@@ -65,8 +59,12 @@ const CloseIcon = styled(FaAngleRight)`
   height: 14px;
   width: 14px;
   top: -28px;
-  right: -5px;
+  ${rtl.right}: -5px;
 `;
+
+CloseIcon.defaultProps = {
+  theme: themeDefault,
+};
 
 const MenuOpen = styled.div`
   cursor: pointer;
@@ -190,7 +188,7 @@ export default class SideNav extends React.Component<Props, State> {
           <MenuHamburger />
         </MenuOpen>
         {modalOpen === "" && (
-          <SideBar shown={shown}>
+          <SideBar onClick={this.handleToggle} shown={shown}>
             <Close onClick={this.handleToggle}>
               <Text t={__("common.hide")} /> <CloseIcon />
             </Close>
@@ -212,7 +210,7 @@ export default class SideNav extends React.Component<Props, State> {
               <Separator />
 
               {/* Languages and Currencies */}
-              <Mobile>
+              <Mobile display="flex">
                 <MenuGroup>
                   <Language onChange={onSaveLanguage} native />
                   <ClientOnly>

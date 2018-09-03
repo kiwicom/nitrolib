@@ -385,6 +385,7 @@ exports[`#Select render 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
     value="kek"
@@ -780,6 +781,7 @@ exports[`#Select render 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >

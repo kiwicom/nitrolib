@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
 import mq from "../../styles/mediaQuery";
+import * as rtl from "../../styles/rtl";
 import { themeDefault } from "../../records/Theme";
 
 const TIP_ARROW_SIZE = 5;
@@ -36,18 +37,18 @@ const Tip = styled.span`
     `}
   transition: opacity 0.2s;
   z-index: 2;
-  ${({ position }) =>
+  ${({ position, theme }) =>
     (position === "left" &&
       `
-        right: 100%;
-        padding-right: ${TIP_ARROW_SIZE}px;
-        margin-right: ${TIP_OFFSET}px;
+        ${rtl.right({ theme })}: 100%;
+        padding-${rtl.right({ theme })}: ${TIP_ARROW_SIZE}px;
+        margin-${rtl.right({ theme })}: ${TIP_OFFSET}px;
       `) ||
     (position === "right" &&
       `
-        left: 100%;
-        padding-left: ${TIP_ARROW_SIZE}px;
-        margin-left: ${TIP_OFFSET}px;
+        ${rtl.left({ theme })}: 100%;
+        padding-${rtl.left({ theme })}: ${TIP_ARROW_SIZE}px;
+        margin-${rtl.left({ theme })}: ${TIP_OFFSET}px;
       `) ||
     (position === "top" &&
       `
@@ -87,15 +88,15 @@ const Tip = styled.span`
     ${({ theme, position }) =>
       (position === "left" &&
         `
-          right: 0;
-          border-right-width: 0;
-          border-left-color: ${theme.orbit.paletteInkDark};
+          ${rtl.right({ theme })}: 0;
+          border-${rtl.right({ theme })}-width: 0;
+          border-${rtl.left({ theme })}-color: ${theme.orbit.paletteInkDark};
         `) ||
       (position === "right" &&
         `
-          left: 0;
-          border-left-width: 0;
-          border-right-color: ${theme.orbit.paletteInkDark};
+          ${rtl.left({ theme })}: 0;
+          border-${rtl.left({ theme })}-width: 0;
+          border-${rtl.right({ theme })}-color: ${theme.orbit.paletteInkDark};
         `) ||
       (position === "top" &&
         `

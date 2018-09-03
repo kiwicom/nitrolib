@@ -5,6 +5,8 @@ import styled, { css } from "styled-components";
 import { Transition } from "react-transition-group";
 
 import mq from "../../../../styles/mediaQuery";
+import * as rtl from "../../../../styles/rtl";
+import { themeDefault } from "../../../../records/Theme";
 
 const DURATION = 250;
 
@@ -18,17 +20,21 @@ const Container = styled.section`
   visibility: ${({ shown }: ShownProps) => (shown ? "visible" : "hidden")};
   position: fixed;
   top: 0;
-  right: ${({ showing }: ShownProps) => (showing ? "0" : "-480px")};
+  ${rtl.right}: ${({ showing }: ShownProps) => (showing ? "0" : "-480px")};
   bottom: 0;
-  left: 0;
+  ${rtl.left}: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: right ${DURATION}ms ease-in-out;
+  transition: ${rtl.right} ${DURATION}ms ease-in-out;
 `;
+
+Container.defaultProps = {
+  theme: themeDefault,
+};
 
 const Wrapper = styled.div`
   position: absolute;
   top: 0;
-  right: 0;
+  ${rtl.right}: 0;
   bottom: 0;
   width: 480px;
   font-weight: 500;
@@ -43,8 +49,13 @@ const Wrapper = styled.div`
   `)};
 `;
 
+Wrapper.defaultProps = {
+  theme: themeDefault,
+};
+
 type Props = {|
   shown: boolean,
+  onClick: () => void,
   children: React.Node,
 |};
 
@@ -52,6 +63,8 @@ export default class SideBar extends React.Component<Props> {
   node = document.getElementById("sidebar") || document.body;
 
   el = document.createElement("div");
+
+  ref = React.createRef();
 
   componentDidMount() {
     if (this.node) {
@@ -66,7 +79,7 @@ export default class SideBar extends React.Component<Props> {
   }
 
   render() {
-    const { shown, children } = this.props;
+    const { shown, onClick, children } = this.props;
 
     return ReactDOM.createPortal(
       <Transition in={shown} timeout={DURATION}>
@@ -74,6 +87,14 @@ export default class SideBar extends React.Component<Props> {
           <Container
             shown={status !== "exited"}
             showing={status === "entering" || status === "entered"}
+            innerRef={this.ref}
+            onClick={(ev: SyntheticEvent<HTMLDivElement>) => {
+              if (this.ref.current === ev.target) {
+                onClick();
+              }
+            }}
+            role="button"
+            tabIndex="0"
           >
             <Wrapper>{children}</Wrapper>
           </Container>

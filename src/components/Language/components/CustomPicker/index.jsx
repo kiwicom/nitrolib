@@ -2,6 +2,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import * as rtl from "../../../../styles/rtl";
 import button from "../../../../styles/mixins/button";
 import ClickOutside from "../../../ClickOutside";
 import LanguageName from "./LanguageName";
@@ -30,7 +31,7 @@ const LanguageWrapper = styled.div`
   flex-direction: column;
   align-items: flex-end;
   position: absolute;
-  right: 0;
+  ${rtl.right}: 0;
   top: 0;
 `;
 

@@ -5,6 +5,8 @@ import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
 
 import mq from "../../styles/mediaQuery";
+import * as rtl from "../../styles/rtl";
+import { themeDefault } from "../../records/Theme";
 import ClickOutside from "../ClickOutside";
 import Toggle from "../Toggle";
 import Popup from "./primitives/Popup";
@@ -16,9 +18,13 @@ const MediaTablet = styled.div`
   ${mq.mobile(css`
     display: flex;
     width: 50%;
-    margin-left: 20px;
+    margin-${rtl.left}: 20px;
   `)};
 `;
+
+MediaTablet.defaultProps = {
+  theme: themeDefault,
+};
 
 const MediaDesktop = styled.div`
   display: flex;

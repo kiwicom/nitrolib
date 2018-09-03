@@ -136,3 +136,17 @@ export async function socialAuth(
 
   return false;
 }
+
+export function resetPassword(email: string, brandId: string) {
+  return fetch(`${config.apiAuthUrl}/v1/user.resetPassword`, {
+    method: "POST",
+    headers: {
+      ...JSON_BOTH,
+      Authorization: makeAuthHeader(""),
+    },
+    body: JSON.stringify({
+      login: email,
+      brand: brandId,
+    }),
+  }).then(handleJSON);
+}

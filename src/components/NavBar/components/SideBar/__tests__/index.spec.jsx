@@ -14,7 +14,7 @@ describe("#index", () => {
     }
 
     const wrapper = mount(
-      <SideBar shown>
+      <SideBar onClick={jest.fn()} shown>
         <p>Content</p>
       </SideBar>,
     );
@@ -34,7 +34,7 @@ describe("#index", () => {
 
   test("render - without target", () => {
     const wrapper = mount(
-      <SideBar shown>
+      <SideBar onClick={jest.fn()} shown>
         <p>Content</p>
       </SideBar>,
     );
@@ -46,5 +46,31 @@ describe("#index", () => {
 
     expect(wrapper).toMatchSnapshot();
     expect(document.getElementById("sidebar")).toMatchSnapshot();
+  });
+
+  test("on click container", () => {
+    const onClick = jest.fn();
+    const wrapper = mount(
+      <SideBar onClick={onClick} shown>
+        <p>Content</p>
+      </SideBar>,
+    );
+
+    wrapper.find("SideBar__Container").simulate("click");
+
+    expect(onClick).toBeCalled();
+  });
+
+  test("on click wrapper", () => {
+    const onClick = jest.fn();
+    const wrapper = mount(
+      <SideBar onClick={onClick} shown>
+        <p>Content</p>
+      </SideBar>,
+    );
+
+    wrapper.find("SideBar__Wrapper").simulate("click");
+
+    expect(onClick).not.toBeCalled();
   });
 });

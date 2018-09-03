@@ -1,9 +1,11 @@
 // @flow strict
 import * as React from "react";
 import { graphql, QueryRenderer } from "react-relay";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
 
 import environmentReal from "../../services/environment";
 import AirportList from "./AirportList";
+import Text from "../Text";
 
 type Props = {|
   value: string,
@@ -24,11 +26,14 @@ const AirportListData = ({ value, onSelect, environment }: Props) => (
     variables={{ input: value }}
     render={res => {
       if (res.error) {
-        // TODO <Alert />
-        return <span>Error :(</span>;
+        return (
+          <Alert type="critical">
+            <Text t={__("common.api_error")} />
+          </Alert>
+        );
       }
 
-      if (!res.props) {
+      if (!res.props || !res.props.allLocations) {
         return null;
       }
 

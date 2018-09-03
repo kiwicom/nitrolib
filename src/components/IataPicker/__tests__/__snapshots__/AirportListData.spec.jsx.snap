@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#AirportListData render error 1`] = `"<span>Error :(</span>"`;
+exports[`#AirportListData render error 1`] = `"<div class=\\"Alert__StyledAlert-cJJYQC ijwHLA\\"><div class=\\"Alert__ContentWrapper-glEZbs cPHqb\\"><div class=\\"Alert__Content-KRSaN gfBZrC\\">common.api_error</div></div></div>"`;
 
 exports[`#AirportListData render loading 1`] = `null`;
 
-exports[`#AirportListData render results 1`] = `"<button class=\\"AirportResult__Container-s1cbq8wi-0 fPTHK\\"><img class=\\"CountryFlag__StyledCountryFlag-jOGErF hUauOo\\" src=\\"//images.kiwi.com/flags/24x0/flag-at.jpg\\" srcset=\\"//images.kiwi.com/flags/48x0/flag-at.jpg 2x\\" alt=\\"Anywhere\\" title=\\"Anywhere\\">Vienna (VIE)</button>"`;
+exports[`#AirportListData render results 1`] = `"<button class=\\"AirportResult__Container-s1cbq8wi-0 fPTHK\\"><img class=\\"CountryFlag__StyledCountryFlag-jOGErF hUauOo\\" src=\\"//images.kiwi.com/flags/24x0/flag-at.jpg\\" srcset=\\"//images.kiwi.com/flags/48x0/flag-at.jpg 2x\\" alt=\\"Anywhere\\" title=\\"Anywhere\\"><span class=\\"AirportResult__Name-s1cbq8wi-1 dEaDMZ\\">Vienna (VIE)</span></button>"`;
