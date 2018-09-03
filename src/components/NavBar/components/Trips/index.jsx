@@ -38,6 +38,7 @@ const UserStyle = styled.div`
 
 const Desktop = styled.div`
   display: none;
+
   ${mq.gtTablet(css`
     display: flex;
   `)};
@@ -45,6 +46,7 @@ const Desktop = styled.div`
 
 const Mobile = styled.div`
   display: flex;
+
   ${mq.gtTablet(css`
     display: none;
   `)};

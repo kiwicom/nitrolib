@@ -25,6 +25,15 @@ const OpenButton = styled.button`
   }
 `;
 
+const LanguageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  right: 0;
+  top: 0;
+`;
+
 OpenButton.defaultProps = {
   theme: themeDefault,
 };
@@ -66,11 +75,10 @@ export default class CustomPicker extends React.Component<Props, State> {
     const { shown } = this.state;
 
     return (
-      <>
+      <LanguageWrapper>
         <OpenButton onClick={this.handleToggle}>
           <LanguageName name={current.name} flag={current.flag} />
         </OpenButton>
-
         {shown && (
           <ClickOutside onClickOutside={this.handleToggle}>
             <Menu
@@ -81,7 +89,7 @@ export default class CustomPicker extends React.Component<Props, State> {
             />
           </ClickOutside>
         )}
-      </>
+      </LanguageWrapper>
     );
   }
 }

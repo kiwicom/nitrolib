@@ -55,6 +55,7 @@ const Desktop = styled.div`
 
 type Props = {|
   headerLinks: React.Node,
+  starred: React.Node,
   faq: React.Node,
   chat: React.Node,
   subscription: React.Node,
@@ -65,6 +66,7 @@ type Props = {|
 
 const NavBar = ({
   headerLinks,
+  starred,
   faq,
   chat,
   subscription,
@@ -94,6 +96,7 @@ const NavBar = ({
             <Help faq={faq} />
           </MenuSpacings>
         </Desktop>
+        {starred && <MenuSpacings>{starred}</MenuSpacings>}
         <Menu
           chat={chat}
           subscription={subscription}
