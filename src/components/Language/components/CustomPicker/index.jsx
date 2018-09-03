@@ -31,6 +31,7 @@ const LanguageWrapper = styled.div`
   align-items: flex-end;
   position: absolute;
   right: 0;
+  top: 0;
 `;
 
 OpenButton.defaultProps = {
