@@ -10,7 +10,7 @@ nonstrict-import=off
 unclear-type=off
 sketchy-null=off
 
-[include]
+[libs]
 types/
 
 [options]
