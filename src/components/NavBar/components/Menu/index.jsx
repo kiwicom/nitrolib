@@ -1,11 +1,11 @@
 // @flow strict
 import * as React from "react";
-import styled, { css } from "styled-components";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
 
+import Desktop from "../../../Desktop";
+import Mobile from "../../../Mobile";
 import Modal from "../../../Modal";
 import Text from "../../../Text";
-import mq from "../../../../styles/mediaQuery";
 import * as authContext from "../../../../services/auth/context";
 import { Consumer as BrandConsumer } from "../../../../services/brand/context";
 import Button from "../../primitives/Button";
@@ -28,20 +28,6 @@ type AuthModal = "myBooking" | "register" | "signIn" | "forgotPassword";
 type State = {|
   modalOpen: "" | AuthModal,
 |};
-
-const Desktop = styled.div`
-  display: none;
-  ${mq.gtTablet(css`
-    display: flex;
-  `)};
-`;
-
-const Mobile = styled.div`
-  display: flex;
-  ${mq.gtTablet(css`
-    display: none;
-  `)};
-`;
 
 export default class Menu extends React.PureComponent<Props, State> {
   state = {
@@ -78,12 +64,12 @@ export default class Menu extends React.PureComponent<Props, State> {
           {({ user }) =>
             user === null ? (
               <MenuSpacings>
-                <Desktop>
+                <Desktop display="flex">
                   <Button onClick={this.handleOpenMyBooking}>
                     <Text t={__("account.my_bookings_action")} />
                   </Button>
                 </Desktop>
-                <Mobile>
+                <Mobile display="flex">
                   <Button onClick={this.handleOpenMyBooking} padding="13px 9px">
                     <AccountCircle />
                   </Button>

@@ -3,16 +3,16 @@
 Located in `@kiwicom/nitro/lib/services/<service>`.
 
 Context:
-* [Intl](#Intl)
-* [Brand](#Brand)
-* [Theme](#Theme)
-* [Fetched](#Fetched)
-* [Currency](#Currency)
-* [Auth](#Auth)
+* [Intl](#intl)
+* [Brand](#brand)
+* [Theme](#theme)
+* [Fetched](#fetched)
+* [Currency](#currency)
+* [Auth](#auth)
 
 Extra:
-* [Fetch](#Fetch)
-* [Input](#Input)
+* [Fetch](#fetch)
+* [Input](#input)
 
 ## Context
 

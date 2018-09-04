@@ -1,13 +1,13 @@
 // @flow strict
 import * as React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import MenuHamburger from "@kiwicom/orbit-components/lib/icons/MenuHamburger";
 import FaAngleRight from "react-icons/lib/fa/angle-right";
 
 import ClientOnly from "../../../../../ClientOnly";
 import Modal from "../../../../../Modal";
+import Mobile from "../../../../../Mobile";
 import Text from "../../../../../Text";
-import mq from "../../../../../../styles/mediaQuery";
 import Language from "../../../../../Language";
 import * as brandContext from "../../../../../../services/brand/context";
 import type { ThemeProps } from "../../../../../../records/Theme";
@@ -19,13 +19,6 @@ import MenuGroup from "./MenuGroup";
 import MenuItem from "./MenuItem";
 import BrandedMenuItem from "./BrandedMenuItem";
 import { icons, getPagesItems, getSocialMediaItems } from "./services/menu";
-
-const Mobile = styled.div`
-  display: flex;
-  ${mq.gtTablet(css`
-    display: none;
-  `)};
-`;
 
 const MediaIcons = styled.div`
   margin-top: 20px;
@@ -212,7 +205,7 @@ export default class SideNav extends React.Component<Props, State> {
               <Separator />
 
               {/* Languages and Currencies */}
-              <Mobile>
+              <Mobile display="flex">
                 <MenuGroup>
                   <Language onChange={onSaveLanguage} native />
                   <ClientOnly>

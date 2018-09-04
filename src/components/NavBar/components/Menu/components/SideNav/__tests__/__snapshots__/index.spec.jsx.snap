@@ -1181,7 +1181,9 @@ exports[`#SideNav render 1`] = `
           }
         }
       />
-      <SideNav__Mobile>
+      <Mobile
+        display="flex"
+      >
         <MenuGroup>
           <Language
             flat={false}
@@ -1582,7 +1584,7 @@ exports[`#SideNav render 1`] = `
             }
           />
         </MenuGroup>
-      </SideNav__Mobile>
+      </Mobile>
       <ContextConsumer>
         <Component />
       </ContextConsumer>
