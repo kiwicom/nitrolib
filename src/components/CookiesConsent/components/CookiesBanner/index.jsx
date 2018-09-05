@@ -21,7 +21,6 @@ const Container = styled.div`
   line-height: 20px;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
   color: white;
-  opacity: 0.94;
   transition: bottom 0.25s ease-in;
   box-shadow: 0 -1px 6px 0 rgba(0, 0, 0, 0.2);
 
