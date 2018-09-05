@@ -393,6 +393,7 @@ exports[`#Help render 1`] = `
     />
   </Button>
   <SideBar
+    onClick={[Function]}
     shown={false}
   >
     lol

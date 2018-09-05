@@ -45,6 +45,7 @@ const Wrapper = styled.div`
 
 type Props = {|
   shown: boolean,
+  onClick: () => void,
   children: React.Node,
 |};
 
@@ -52,6 +53,8 @@ export default class SideBar extends React.Component<Props> {
   node = document.getElementById("sidebar") || document.body;
 
   el = document.createElement("div");
+
+  ref = React.createRef();
 
   componentDidMount() {
     if (this.node) {
@@ -66,7 +69,7 @@ export default class SideBar extends React.Component<Props> {
   }
 
   render() {
-    const { shown, children } = this.props;
+    const { shown, onClick, children } = this.props;
 
     return ReactDOM.createPortal(
       <Transition in={shown} timeout={DURATION}>
@@ -74,6 +77,14 @@ export default class SideBar extends React.Component<Props> {
           <Container
             shown={status !== "exited"}
             showing={status === "entering" || status === "entered"}
+            innerRef={this.ref}
+            onClick={(ev: SyntheticEvent<HTMLDivElement>) => {
+              if (this.ref.current === ev.target) {
+                onClick();
+              }
+            }}
+            role="button"
+            tabIndex="0"
           >
             <Wrapper>{children}</Wrapper>
           </Container>

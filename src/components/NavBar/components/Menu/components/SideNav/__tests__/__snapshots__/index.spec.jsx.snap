@@ -389,6 +389,7 @@ exports[`#SideNav render 1`] = `
     <MenuHamburger />
   </SideNav__MenuOpen>
   <SideBar
+    onClick={[Function]}
     shown={false}
   >
     <SideNav__Close

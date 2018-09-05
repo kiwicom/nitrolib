@@ -183,7 +183,7 @@ export default class SideNav extends React.Component<Props, State> {
           <MenuHamburger />
         </MenuOpen>
         {modalOpen === "" && (
-          <SideBar shown={shown}>
+          <SideBar onClick={this.handleToggle} shown={shown}>
             <Close onClick={this.handleToggle}>
               <Text t={__("common.hide")} /> <CloseIcon />
             </Close>

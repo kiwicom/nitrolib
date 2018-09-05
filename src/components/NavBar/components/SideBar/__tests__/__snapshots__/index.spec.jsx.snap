@@ -38,6 +38,7 @@ exports[`#index render - with target 1`] = `
 }
 
 <SideBar
+  onClick={[MockFunction]}
   shown={true}
 >
   <Portal
@@ -81,6 +82,8 @@ exports[`#index render - with target 1`] = `
 <div>
         <section
           class="c0"
+          role="button"
+          tabindex="0"
         >
           <div
             class="c1"
@@ -109,11 +112,34 @@ exports[`#index render - with target 1`] = `
       unmountOnExit={false}
     >
       <SideBar__Container
+        innerRef={
+          Object {
+            "current": <section
+              class="c0"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="c1"
+              >
+                <p>
+                  Content
+                </p>
+              </div>
+            </section>,
+          }
+        }
+        onClick={[Function]}
+        role="button"
         showing={true}
         shown={true}
+        tabIndex="0"
       >
         <section
           className="c0"
+          onClick={[Function]}
+          role="button"
+          tabIndex="0"
         >
           <SideBar__Wrapper>
             <div
@@ -174,6 +200,8 @@ exports[`#index render - with target 2`] = `
   <div>
     <section
       class="c0"
+      role="button"
+      tabindex="0"
     >
       <div
         class="c1"
@@ -233,6 +261,7 @@ exports[`#index render - without target 1`] = `
 }
 
 <SideBar
+  onClick={[MockFunction]}
   shown={true}
 >
   <Portal
@@ -276,6 +305,8 @@ exports[`#index render - without target 1`] = `
 <div>
         <section
           class="c0"
+          role="button"
+          tabindex="0"
         >
           <div
             class="c1"
@@ -304,11 +335,34 @@ exports[`#index render - without target 1`] = `
       unmountOnExit={false}
     >
       <SideBar__Container
+        innerRef={
+          Object {
+            "current": <section
+              class="c0"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="c1"
+              >
+                <p>
+                  Content
+                </p>
+              </div>
+            </section>,
+          }
+        }
+        onClick={[Function]}
+        role="button"
         showing={true}
         shown={true}
+        tabIndex="0"
       >
         <section
           className="c0"
+          onClick={[Function]}
+          role="button"
+          tabIndex="0"
         >
           <SideBar__Wrapper>
             <div

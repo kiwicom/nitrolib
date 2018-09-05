@@ -37,6 +37,10 @@ class Help extends React.Component<Props, State> {
     this.setState(state => ({ shown: !state.shown }));
   };
 
+  handleClose = () => {
+    this.setState({ shown: false });
+  };
+
   render() {
     const { faq } = this.props;
     const { shown } = this.state;
@@ -46,7 +50,7 @@ class Help extends React.Component<Props, State> {
         <Button onClick={this.handleToggle}>
           <Text t={__("common.help")} />
         </Button>
-        <SideBar shown={shown}>{faq}</SideBar>
+        <SideBar onClick={this.handleClose} shown={shown}>{faq}</SideBar>
       </>
     );
   }
