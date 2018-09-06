@@ -50,7 +50,9 @@ class Help extends React.Component<Props, State> {
         <Button onClick={this.handleToggle}>
           <Text t={__("common.help")} />
         </Button>
-        <SideBar onClick={this.handleClose} shown={shown}>{faq}</SideBar>
+        <SideBar onClick={this.handleClose} shown={shown}>
+          {faq}
+        </SideBar>
       </>
     );
   }
