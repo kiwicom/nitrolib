@@ -37,10 +37,10 @@ Container.defaultProps = {
 
 const Message = styled.p`
   ${linkMixin};
-  opacity: 0.5;
+  line-height: 16px;
 
   ${mq.gtTablet(css`
-    opacity: 1;
+    line-height: 20px;
   `)};
 `;
 
