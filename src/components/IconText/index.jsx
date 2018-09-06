@@ -2,17 +2,24 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import * as rtl from "../../styles/rtl";
+import { themeDefault } from "../../records/Theme";
+
 const Container = styled.div`
   position: relative;
   display: flex;
   align-items: center;
 
   .icon {
-    padding-right: 10px;
+    padding-${rtl.right}: 10px;
     height: 26px;
     width: 26px;
   }
 `;
+
+Container.defaultProps = {
+  theme: themeDefault,
+};
 
 const Text = styled.span`
   font-size: 14px;

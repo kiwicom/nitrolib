@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { themeDefault } from "../../../../../../records/Theme";
 import type { ThemeProps } from "../../../../../../records/Theme";
+import * as rtl from "../../../../../../styles/rtl";
 
 type Props = {
   text?: React.Node,
@@ -11,8 +12,12 @@ type Props = {
 };
 
 const Menu = styled.div`
-  padding-left: 35px;
+  padding-${rtl.left}: 35px;
 `;
+
+Menu.defaultProps = {
+  theme: themeDefault,
+};
 
 const Title = styled.span`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};

@@ -381,6 +381,7 @@ exports[`#SideBar/ForgotPassword render 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >
@@ -811,6 +812,7 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >
@@ -1273,6 +1275,7 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >

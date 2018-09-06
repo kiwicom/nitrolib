@@ -5,6 +5,8 @@ import setDate from "date-fns/setDate";
 import setMonth from "date-fns/setMonth";
 import setYear from "date-fns/setYear";
 
+import * as rtl from "../../styles/rtl";
+import { themeDefault } from "../../records/Theme";
 import Flex from "../../primitives/Flex";
 import calculateRanges from "./services/calculateRanges";
 import Dates from "./Dates";
@@ -16,13 +18,17 @@ const SelectContainer = styled.div`
   margin: 0 5px;
 
   &:first-child {
-    margin-left: 0;
+    margin-${rtl.left}: 0;
   }
 
   &:last-child {
-    margin-right: 0;
+    margin-${rtl.right}: 0;
   }
 `;
+
+SelectContainer.defaultProps = {
+  theme: themeDefault,
+};
 
 type Props = {|
   id: string,

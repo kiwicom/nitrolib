@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { themeDefault } from "../../../../../../records/Theme";
 import type { ThemeProps } from "../../../../../../records/Theme";
+import * as rtl from "../../../../../../styles/rtl";
 
 const Link = styled.a`
   display: flex;
@@ -25,7 +26,7 @@ const Container = styled.div`
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
     width: 16px;
     height: 16px;
-    margin-right: 10px;
+    margin-${rtl.right}: 10px;
   }
 
   &:hover {

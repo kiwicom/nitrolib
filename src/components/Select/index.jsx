@@ -3,6 +3,7 @@ import * as React from "react";
 import MdExpandMore from "react-icons/lib/md/expand-more";
 import styled from "styled-components";
 
+import * as rtl from "../../styles/rtl";
 import borderMixin from "../../styles/mixins/border";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
@@ -34,7 +35,7 @@ const Icon = styled.span`
   pointer-events: none;
   position: absolute;
   top: 13px;
-  right: 13px;
+  ${rtl.right}: 13px;
 `;
 
 Icon.defaultProps = {

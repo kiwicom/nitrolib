@@ -9,6 +9,8 @@ import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 
+import * as rtl from "../../../../../../styles/rtl";
+import { themeDefault } from "../../../../../../records/Theme";
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
 import IconText from "../../../../../IconText";
@@ -29,9 +31,13 @@ const FieldCentered = styled(FieldWrap)`
 `;
 
 const ForgotPasswordArrow = styled.span`
-  margin-left: 5px;
+  margin-${rtl.left}: 5px;
   margin-top: -2px;
 `;
+
+ForgotPasswordArrow.defaultProps = {
+  theme: themeDefault,
+};
 
 type Props = {|
   brandId: string,

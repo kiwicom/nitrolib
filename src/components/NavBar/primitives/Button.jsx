@@ -2,6 +2,7 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
+import * as rtl from "../../../styles/rtl";
 import type { ThemeProps } from "../../../records/Theme";
 import { themeDefault } from "../../../records/Theme";
 import buttonMixin from "../../../styles/mixins/button";
@@ -20,8 +21,8 @@ const Button = styled.button`
   text-decoration: none;
   ${({ transition }) => transition && `transition: color 0.2s ease-in-out`};
   ${({ padding }) => padding && `padding: ${padding}`};
-  ${({ marginLeft }) => marginLeft && `margin-left: ${marginLeft}px`};
-  ${({ marginRight }) => marginRight && `margin-right: ${marginRight}px`};
+  ${({ marginLeft, theme }) => marginLeft && `margin-${rtl.left({ theme })}: ${marginLeft}px`};
+  ${({ marginRight, theme }) => marginRight && `margin-${rtl.right({ theme })}: ${marginRight}px`};
   ${({ fontSize }) => fontSize && `font-size: ${fontSize}`};
   ${({ x, y, direction }) => x && `justify-content: ${direction === "column" ? y : x}`};
   ${({ x, y, direction }) => y && `align-items: ${direction === "column" ? x : y}`};

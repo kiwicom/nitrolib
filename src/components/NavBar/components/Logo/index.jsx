@@ -7,20 +7,21 @@ import type { ThemeProps } from "../../../../records/Theme";
 import { themeDefault } from "../../../../records/Theme";
 import { Consumer as BrandConsumer } from "../../../../services/brand/context";
 import SvgLogo from "./SvgLogo";
+import * as rtl from "../../../../styles/rtl";
 import mq from "../../../../styles/mediaQuery";
 
 const PoweredByKiwi = styled.span`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
   position: relative;
   font-size: 12px;
-  margin-left: 10px;
-  padding-left: 10px;
+  margin-${rtl.left}: 10px;
+  padding-${rtl.left}: 10px;
   font-weight: 500;
   &:before {
     content: "";
     top: 0;
     bottom: 0;
-    left: 0;
+    ${rtl.left}: 0;
     margin: auto;
     position: absolute;
     width: 2px;
@@ -31,10 +32,14 @@ const PoweredByKiwi = styled.span`
   ${mq.ltTablet(css`
     font-size: 10px;
     font-weight: 400;
-    margin-left: 7px;
-    padding-left: 7px;
+    margin-${rtl.left}: 7px;
+    padding-${rtl.left}: 7px;
   `)};
 `;
+
+PoweredByKiwi.defaultProps = {
+  theme: themeDefault,
+};
 
 const LogoLinkStyled = styled.a`
   display: flex;
@@ -63,10 +68,6 @@ const LogoStyledMobile = styled.img`
 const Link = styled.a`
   display: flex;
 `;
-
-PoweredByKiwi.defaultProps = {
-  theme: themeDefault,
-};
 
 const logoBaseUrl = "https://images.kiwi.com/whitelabels";
 

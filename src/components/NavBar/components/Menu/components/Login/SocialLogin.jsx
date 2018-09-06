@@ -10,14 +10,19 @@ import type { ThemeProps } from "../../../../../../records/Theme";
 import { themeDefault } from "../../../../../../records/Theme";
 import Flex from "../../../../../../primitives/Flex";
 import * as api from "../../../../../../services/auth/api";
+import * as rtl from "../../../../../../styles/rtl";
 
 const ButtonWrap = styled.div`
   flex: 1;
 
   &:nth-child(2) {
-    margin-left: 10px;
+    margin-${rtl.left}: 10px;
   }
 `;
+
+ButtonWrap.defaultProps = {
+  theme: themeDefault,
+};
 
 const Or = styled.div`
   position: relative;

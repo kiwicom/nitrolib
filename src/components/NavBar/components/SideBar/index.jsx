@@ -5,6 +5,8 @@ import styled, { css } from "styled-components";
 import { Transition } from "react-transition-group";
 
 import mq from "../../../../styles/mediaQuery";
+import * as rtl from "../../../../styles/rtl";
+import { themeDefault } from "../../../../records/Theme";
 
 const DURATION = 250;
 
@@ -18,17 +20,21 @@ const Container = styled.section`
   visibility: ${({ shown }: ShownProps) => (shown ? "visible" : "hidden")};
   position: fixed;
   top: 0;
-  right: ${({ showing }: ShownProps) => (showing ? "0" : "-480px")};
+  ${rtl.right}: ${({ showing }: ShownProps) => (showing ? "0" : "-480px")};
   bottom: 0;
-  left: 0;
+  ${rtl.left}: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: right ${DURATION}ms ease-in-out;
+  transition: ${rtl.right} ${DURATION}ms ease-in-out;
 `;
+
+Container.defaultProps = {
+  theme: themeDefault,
+};
 
 const Wrapper = styled.div`
   position: absolute;
   top: 0;
-  right: 0;
+  ${rtl.right}: 0;
   bottom: 0;
   width: 480px;
   font-weight: 500;
@@ -42,6 +48,10 @@ const Wrapper = styled.div`
     width: 100%;
   `)};
 `;
+
+Wrapper.defaultProps = {
+  theme: themeDefault,
+};
 
 type Props = {|
   shown: boolean,

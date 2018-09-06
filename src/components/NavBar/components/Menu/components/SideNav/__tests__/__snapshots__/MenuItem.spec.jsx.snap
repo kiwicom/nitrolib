@@ -382,6 +382,7 @@ exports[`#SideNav MenuItem render 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >
@@ -767,6 +768,7 @@ exports[`#SideNav MenuItem render 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >

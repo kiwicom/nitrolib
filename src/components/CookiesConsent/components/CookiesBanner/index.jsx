@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import MdClose from "react-icons/lib/md/close";
 
 import mq from "../../../../styles/mediaQuery";
+import * as rtl from "../../../../styles/rtl";
 import linkMixin from "../../../../styles/mixins/link";
 import Text from "../../../Text";
 import { themeDefault } from "../../../../records/Theme";
@@ -16,7 +17,7 @@ const Container = styled.div`
   align-items: center;
   box-sizing: border-box;
   width: 100%;
-  padding: 10px 50px 10px 20px;
+  padding: ${rtl.box("10px 50px 10px 20px")};
   font-size: 12px;
   line-height: 20px;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
@@ -25,7 +26,7 @@ const Container = styled.div`
   box-shadow: 0 -1px 6px 0 rgba(0, 0, 0, 0.2);
 
   ${mq.gtTablet(css`
-    padding: 20px 50px 20px 20px;
+    padding: ${rtl.box("20px 50px 20px 20px")};
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormalActive};
     background: white;
   `)};
@@ -51,10 +52,14 @@ Message.defaultProps = {
 const AcceptButton = styled.a`
   position: absolute;
   top: 0;
-  right: 0;
+  ${rtl.right}: 0;
   padding: 10px;
   cursor: pointer;
 `;
+
+AcceptButton.defaultProps = {
+  theme: themeDefault,
+};
 
 const Close = styled(MdClose)`
   height: 20px;

@@ -40,6 +40,10 @@ Container.defaultProps = {
   theme: themeDefault,
 };
 
+const Name = styled.span`
+  direction: ltr;
+`;
+
 type Props = {|
   item: AirportResult_item,
   onClick: (id: string) => void,
@@ -67,7 +71,7 @@ class AirportResult extends React.PureComponent<Props> {
       <Container onClick={this.handleClick} selected={selected}>
         {/* $FlowExpected - CountryFlag's types are way too explicit */}
         <CountryFlag code={country.toLowerCase()} />
-        {`${String(idx(item, _ => _.city.name))} (${String(item.locationId)})`}
+        <Name>{`${String(idx(item, _ => _.city.name))} (${String(item.locationId)})`}</Name>
       </Container>
     );
   }

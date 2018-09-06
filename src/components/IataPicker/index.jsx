@@ -12,6 +12,7 @@ import { Consumer as IntlConsumer } from "../../services/intl/context";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 import AirportListData from "./AirportListData";
+import * as rtl from "../../styles/rtl";
 
 const Container = styled.div`
   position: relative;
@@ -20,7 +21,7 @@ const Container = styled.div`
 const ResultWrapper = styled.div`
   position: absolute;
   top: 74px;
-  left: 0;
+  ${rtl.left}: 0;
   width: 100%;
   max-height: 300px;
   overflow-y: scroll;

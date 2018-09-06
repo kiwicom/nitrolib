@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
 import mq from "../../../styles/mediaQuery";
+import * as rtl from "../../../styles/rtl";
 
 type LinkProps = {|
   ...ThemeProps,
@@ -20,7 +21,7 @@ const StyledLink = styled.a`
   text-decoration: none;
   position: relative;
   cursor: pointer;
-  margin-left: 20px;
+  margin-${rtl.left}: 20px;
   height: 50px;
   line-height: 50px;
 
@@ -29,12 +30,12 @@ const StyledLink = styled.a`
   }
 
   ${mq.mobile(css`
-    margin-left: 0;
-    padding-left: 10px;
+    margin-${rtl.left}: 0;
+    padding-${rtl.left}: 10px;
     font-size: 16px;
     font-weight: 400;
     i {
-      padding-right: 10px;
+      padding-${rtl.right}: 10px;
     }
   `)};
 `;

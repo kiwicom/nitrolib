@@ -384,6 +384,7 @@ exports[`#NativeGroupedSelect render - multiple groups 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
     value="a"
@@ -863,6 +864,7 @@ exports[`#NativeGroupedSelect render - skip empty groups 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
     value="a"
@@ -1313,6 +1315,7 @@ exports[`#NativeGroupedSelect render - with custom divider 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
     value="a"
@@ -1796,6 +1799,7 @@ exports[`#NativeGroupedSelect render - with icon 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
     value="a"
@@ -2217,6 +2221,7 @@ exports[`#NativeGroupedSelect render 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
     value="a"

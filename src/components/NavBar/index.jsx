@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 
 import { navbar } from "../../styles";
 import mq from "../../styles/mediaQuery";
+import * as rtl from "../../styles/rtl";
 import ClientOnly from "../ClientOnly";
 import Desktop from "../Desktop";
 import type { ThemeProps } from "../../records/Theme";
@@ -28,7 +29,7 @@ const Container = styled(Flex)`
   ${mq.gtTablet(css`
     position: fixed;
     top: 0;
-    left: 0;
+    ${rtl.left}: 0;
   `)};
 `;
 

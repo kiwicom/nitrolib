@@ -2,13 +2,14 @@
 import styled, { css } from "styled-components";
 
 import mq from "../../../../../styles/mediaQuery";
+import * as rtl from "../../../../../styles/rtl";
 import type { ThemeProps } from "../../../../../records/Theme";
 import { themeDefault } from "../../../../../records/Theme";
 
 const Popup = styled.div`
   position: absolute;
   top: 50px;
-  right: 50px;
+  ${rtl.right}: 50px;
   min-width: 320px;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteCloudLight};
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
@@ -20,7 +21,7 @@ const Popup = styled.div`
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 
   ${mq.gtTablet(css`
-    right: 0;
+    ${rtl.right}: 0;
     font-size: 14px;
     width: auto;
     min-height: 220px;

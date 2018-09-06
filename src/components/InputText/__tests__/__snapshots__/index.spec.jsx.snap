@@ -391,6 +391,7 @@ Object {
       "zIndexOnTheTop": "900",
       "zIndexSticky": "100",
     },
+    "rtl": false,
   },
   "type": "text",
   "value": "A value",
@@ -779,6 +780,7 @@ exports[`#InputText render active error 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >
@@ -1168,6 +1170,7 @@ exports[`#InputText render active error 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
     type="text"
@@ -1554,6 +1557,7 @@ exports[`#InputText render active error 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -1948,6 +1952,7 @@ exports[`#InputText render hint 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >
@@ -2337,6 +2342,7 @@ exports[`#InputText render hint 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
     type="text"
@@ -2723,6 +2729,7 @@ exports[`#InputText render hint 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -3122,6 +3129,7 @@ exports[`#InputText render label 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >
@@ -3516,6 +3524,7 @@ exports[`#InputText render label 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
     type="text"
@@ -3906,6 +3915,7 @@ exports[`#InputText render no label 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >
@@ -4295,6 +4305,7 @@ exports[`#InputText render no label 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
     type="text"
@@ -4685,6 +4696,7 @@ exports[`#InputText render regular error 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >
@@ -5074,6 +5086,7 @@ exports[`#InputText render regular error 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
     type="text"
@@ -5460,6 +5473,7 @@ exports[`#InputText render regular error 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >
@@ -5854,6 +5868,7 @@ exports[`#InputText render show state 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >
@@ -6243,6 +6258,7 @@ exports[`#InputText render show state 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
     type="text"
@@ -6633,6 +6649,7 @@ exports[`#InputText render show state error 1`] = `
         "zIndexOnTheTop": "900",
         "zIndexSticky": "100",
       },
+      "rtl": false,
     }
   }
 >
@@ -7022,6 +7039,7 @@ exports[`#InputText render show state error 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
     type="text"
@@ -7408,6 +7426,7 @@ exports[`#InputText render show state error 1`] = `
           "zIndexOnTheTop": "900",
           "zIndexSticky": "100",
         },
+        "rtl": false,
       }
     }
   >

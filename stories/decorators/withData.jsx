@@ -25,10 +25,15 @@ const withData = (storyFn: () => React.Node) => {
   const brandId = select("Brand", Object.keys(brands), "kiwicom", GROUP_ID);
   const localeId = select("Locale", Object.keys(languages), "en", GROUP_ID);
 
+  // eslint-disable-next-line no-undef
+  window.document.querySelector("html").dir = languages[localeId].direction;
+
   return (
     <BrandProvider value={brands[brandId]}>
       {/* $FlowExpected - ThemeProvider has bad typedefs */}
-      <ThemeProvider theme={getBrandTheme(brands[brandId])}>
+      <ThemeProvider
+        theme={getBrandTheme(brands[brandId], languages[localeId].direction === "rtl")}
+      >
         <IntlProvider
           language={languages[localeId]}
           translations={translations[languages[localeId].phraseApp]}

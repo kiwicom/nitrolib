@@ -12,6 +12,7 @@ import Language from "../../../../../Language";
 import * as brandContext from "../../../../../../services/brand/context";
 import type { ThemeProps } from "../../../../../../records/Theme";
 import { themeDefault } from "../../../../../../records/Theme";
+import * as rtl from "../../../../../../styles/rtl";
 import { Consumer as AuthConsumer } from "../../../../../../services/auth/context";
 import Currency from "../../../../../Currency";
 import SideBar from "../../../SideBar";
@@ -43,9 +44,9 @@ const Content = styled.div`
 const Close = styled.div`
   position: absolute;
   top: 0;
-  right: 0;
+  ${rtl.right}: 0;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
-  padding: 23px 30px 10px 0;
+  padding: ${rtl.box("23px 30px 10px 0")};
   font-size: 14px;
   cursor: pointer;
 `;
@@ -58,8 +59,12 @@ const CloseIcon = styled(FaAngleRight)`
   height: 14px;
   width: 14px;
   top: -28px;
-  right: -5px;
+  ${rtl.right}: -5px;
 `;
+
+CloseIcon.defaultProps = {
+  theme: themeDefault,
+};
 
 const MenuOpen = styled.div`
   cursor: pointer;
