@@ -1,14 +1,13 @@
 // @flow strict
 import type { ThemeProps } from "../records/Theme";
 
-const ltrOrRtl: <T1, T2>(valueLtr: T1, valueRtl: T2) => (themeProps: ThemeProps) => T1 | T2 = (
-  valueLtr,
-  valueRtl,
-) => ({ theme }) => (theme.rtl ? valueRtl : valueLtr);
+type LtrOrRtl = <T1, T2>(valueLtr: T1, valueRtl: T2) => (themeProps: ThemeProps) => T1 | T2;
 
-export const box: (ltrValue: string) => (themeProps: ThemeProps) => string = ltrValue => ({
-  theme,
-}) => {
+const ltrOrRtl: LtrOrRtl = (valueLtr, valueRtl) => ({ theme }) => (theme.rtl ? valueRtl : valueLtr);
+
+type Box = (ltrValue: string) => (themeProps: ThemeProps) => string;
+
+export const box: Box = ltrValue => ({ theme }) => {
   if (!theme.rtl) {
     return ltrValue;
   }
@@ -22,5 +21,5 @@ export const hOffset: (ltrValue: number) => (themeProps: ThemeProps) => number =
   theme,
 }) => (theme.rtl ? -ltrValue : ltrValue);
 
-export const left = ltrOrRtl<"left", "right">("left", "right");
-export const right = ltrOrRtl<"right", "left">("right", "left");
+export const left = ltrOrRtl("left", "right");
+export const right = ltrOrRtl("right", "left");
