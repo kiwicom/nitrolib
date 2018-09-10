@@ -25,16 +25,14 @@ const withData = (storyFn: () => React.Node) => {
   const brandId = select("Brand", Object.keys(brands), "kiwicom", GROUP_ID);
   const localeId = select("Locale", Object.keys(languages), "en", GROUP_ID);
 
+  const brand = brands[brandId];
+  const language = languages[localeId];
+
   return (
-    <BrandProvider value={brands[brandId]}>
+    <BrandProvider value={brand}>
       {/* $FlowExpected - ThemeProvider has bad typedefs */}
-      <ThemeProvider
-        theme={getBrandTheme(brands[brandId], languages[localeId].direction === "rtl")}
-      >
-        <IntlProvider
-          language={languages[localeId]}
-          translations={translations[languages[localeId].phraseApp]}
-        >
+      <ThemeProvider theme={getBrandTheme(brand, language.direction === "rtl")}>
+        <IntlProvider language={language} translations={translations[language.phraseApp]}>
           <FetchedProvider
             value={{
               countries,
@@ -43,12 +41,12 @@ const withData = (storyFn: () => React.Node) => {
             }}
           >
             <CurrencyProvider
-              whitelist={brands[brandId].payments.whitelisted_currencies}
+              whitelist={brand.payments.whitelisted_currencies}
               countries={countries}
               affiliate=""
               ip="1.3.3.7"
               initialCurrency="EUR"
-              langCurrency={languages[localeId].currency}
+              langCurrency={language.currency}
               onChange={action("Save currency")}
             >
               {storyFn()}
