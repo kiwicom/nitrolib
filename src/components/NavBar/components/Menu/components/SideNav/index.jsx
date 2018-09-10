@@ -187,15 +187,16 @@ export default class SideNav extends React.Component<Props, State> {
         <MenuOpen onClick={this.handleToggle}>
           <MenuHamburger />
         </MenuOpen>
-        {modalOpen === "" && (
-          <SideBar onClick={this.handleToggle} shown={shown}>
-            <Close onClick={this.handleToggle}>
-              <Text t={__("common.hide")} /> <CloseIcon />
-            </Close>
 
-            <Content>
-              {/* DEV FEATURES */}
-              <ClientOnly>
+        <ClientOnly>
+          {modalOpen === "" && (
+            <SideBar onClick={this.handleToggle} shown={shown}>
+              <Close onClick={this.handleToggle}>
+                <Text t={__("common.hide")} /> <CloseIcon />
+              </Close>
+
+              <Content>
+                {/* DEV FEATURES */}
                 {debug && (
                   <MenuGroup text="Dev features">
                     <MenuItem
@@ -205,214 +206,217 @@ export default class SideNav extends React.Component<Props, State> {
                     />
                   </MenuGroup>
                 )}
-              </ClientOnly>
 
-              <Separator />
+                <Separator />
 
-              {/* Languages and Currencies */}
-              <Mobile display="flex">
-                <MenuGroup>
-                  <Language onChange={onSaveLanguage} native />
-                  <ClientOnly>
+                {/* Languages and Currencies */}
+                <Mobile display="flex">
+                  <MenuGroup>
+                    <Language onChange={onSaveLanguage} native />
                     <CurrencySpacing>
                       <Currency native />
                     </CurrencySpacing>
-                  </ClientOnly>
-                  <Separator />
-                </MenuGroup>
-              </Mobile>
+                    <Separator />
+                  </MenuGroup>
+                </Mobile>
 
-              {/* SIGN-IN/UP/OUT */}
-              <AuthConsumer>
-                {auth => (
-                  <MenuGroup>
-                    {auth.user ? (
-                      <MenuItem
-                        Icon={icons.AccountCircle}
-                        onClick={this.handleOpenSignIn}
-                        text={<Text t={__("account.log_out")} />}
-                      />
-                    ) : (
-                      <>
+                {/* SIGN-IN/UP/OUT */}
+                <AuthConsumer>
+                  {auth => (
+                    <MenuGroup>
+                      {auth.user ? (
                         <MenuItem
                           Icon={icons.AccountCircle}
                           onClick={this.handleOpenSignIn}
-                          text={<Text t={__("account.sign_in")} />}
+                          text={<Text t={__("account.log_out")} />}
                         />
-                        <MenuItem
-                          Icon={icons.AccountCircle}
-                          onClick={this.handleOpenRegister}
-                          text={<Text t={__("account.sign_up")} />}
-                        />
+                      ) : (
+                        <>
+                          <MenuItem
+                            Icon={icons.AccountCircle}
+                            onClick={this.handleOpenSignIn}
+                            text={<Text t={__("account.sign_in")} />}
+                          />
+                          <MenuItem
+                            Icon={icons.AccountCircle}
+                            onClick={this.handleOpenRegister}
+                            text={<Text t={__("account.sign_up")} />}
+                          />
+                        </>
+                      )}
+                    </MenuGroup>
+                  )}
+                </AuthConsumer>
+
+                <Separator />
+
+                <brandContext.Consumer>
+                  {brand => {
+                    const company = getPagesItems(brand); // TODO move to provider
+                    const socialMedia = getSocialMediaItems(brand); // TODO move to provider
+
+                    return (
+                      <>
+                        {/* EXPLORE */}
+                        <MenuGroup text={<Text t={__("sidenav.connect")} />}>
+                          {company.invite && (
+                            <BrandedMenuItem
+                              title={company.invite.title}
+                              Icon={company.invite.Icon}
+                              link={company.invite.link}
+                            />
+                          )}
+
+                          {/* Newsletter */}
+                          {brand.communication.newsletter.enabled && (
+                            <MenuItem
+                              Icon={icons.ContactEmail}
+                              onClick={this.handleOpenSubscription}
+                              text={<Text t={__("common.subscribe")} />}
+                            />
+                          )}
+
+                          {/* Top routes */}
+                          {brand.content.pages.top_routes.enabled && (
+                            <MenuItem
+                              Icon={icons.StarFull}
+                              link="/flights"
+                              text={<Text t={__("navbar.top-routes")} />}
+                            />
+                          )}
+
+                          {company.stories && (
+                            <BrandedMenuItem
+                              title={company.stories.title}
+                              Icon={company.stories.Icon}
+                              link={company.stories.link}
+                            />
+                          )}
+
+                          {/* Chat */}
+                          {brand.contacts.chat.enabled && (
+                            <MenuItem
+                              Icon={icons.Chat}
+                              onClick={this.handleOpenChat}
+                              text={<Text t={__("booking.abandonment.help.chat_action")} />}
+                            />
+                          )}
+
+                          {/* --- Social links --- */}
+                          <MediaIcons>
+                            {socialMedia.map(({ link, Icon }) => (
+                              <Link
+                                key={link}
+                                link={link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <Icon className="socialIcon" />
+                              </Link>
+                            ))}
+                          </MediaIcons>
+                        </MenuGroup>
+
+                        <Separator />
+
+                        {/* COMPANY */}
+                        <MenuGroup text={<Text t={__("sidenav.company")} />}>
+                          {company.about && (
+                            <BrandedMenuItem
+                              title={company.about.title}
+                              Icon={company.about.Icon}
+                              link={company.about.link}
+                            />
+                          )}
+                          {company.careers && (
+                            <BrandedMenuItem
+                              title={company.careers.title}
+                              Icon={company.careers.Icon}
+                              link={company.careers.link}
+                            />
+                          )}
+                          {brand.id === "kiwicom" && (
+                            <>
+                              <MenuItem
+                                Icon={icons.KiwicomCare}
+                                link="https://care.kiwi.com/"
+                                text="Care Kiwi.com"
+                              />
+                              <MenuItem
+                                Icon={icons.Code}
+                                link="https://code.kiwi.com/"
+                                text="Code Kiwi.com"
+                              />
+                            </>
+                          )}
+                          {company.branding && (
+                            <BrandedMenuItem
+                              title={company.branding.title}
+                              Icon={company.branding.Icon}
+                              link={company.branding.link}
+                            />
+                          )}
+                          {company.guarantee && (
+                            <BrandedMenuItem
+                              title={company.guarantee.title}
+                              Icon={company.guarantee.Icon}
+                              link={company.guarantee.link}
+                            />
+                          )}
+                          {company.media && (
+                            <BrandedMenuItem
+                              title={company.media.title}
+                              Icon={company.media.Icon}
+                              link={company.media.link}
+                            />
+                          )}
+                        </MenuGroup>
+
+                        <Separator />
+
+                        <MenuGroup text={<Text t={__("content.pages.legal.title")} />}>
+                          {company.terms && (
+                            <BrandedMenuItem
+                              title={company.terms.title}
+                              Icon={company.terms.Icon}
+                              link={company.terms.link}
+                            />
+                          )}
+                          {company.gdpr_terms && (
+                            <BrandedMenuItem
+                              title={company.gdpr_terms.title}
+                              Icon={company.gdpr_terms.Icon}
+                              link={company.gdpr_terms.link}
+                            />
+                          )}
+                          {company.privacy && (
+                            <BrandedMenuItem
+                              title={company.privacy.title}
+                              Icon={company.privacy.Icon}
+                              link={company.privacy.link}
+                            />
+                          )}
+                          {company.security && (
+                            <BrandedMenuItem
+                              title={company.security.title}
+                              Icon={company.security.Icon}
+                              link={company.security.link}
+                            />
+                          )}
+                          <MenuItem
+                            text="Cookies settings"
+                            link="/pages/cookies_settings"
+                            Icon={icons.Settings}
+                          />
+                        </MenuGroup>
                       </>
-                    )}
-                  </MenuGroup>
-                )}
-              </AuthConsumer>
-
-              <Separator />
-
-              <brandContext.Consumer>
-                {brand => {
-                  const company = getPagesItems(brand); // TODO move to provider
-                  const socialMedia = getSocialMediaItems(brand); // TODO move to provider
-
-                  return (
-                    <>
-                      {/* EXPLORE */}
-                      <MenuGroup text={<Text t={__("sidenav.connect")} />}>
-                        {company.invite && (
-                          <BrandedMenuItem
-                            title={company.invite.title}
-                            Icon={company.invite.Icon}
-                            link={company.invite.link}
-                          />
-                        )}
-
-                        {/* Newsletter */}
-                        {brand.communication.newsletter.enabled && (
-                          <MenuItem
-                            Icon={icons.ContactEmail}
-                            onClick={this.handleOpenSubscription}
-                            text={<Text t={__("common.subscribe")} />}
-                          />
-                        )}
-
-                        {/* Top routes */}
-                        {brand.content.pages.top_routes.enabled && (
-                          <MenuItem
-                            Icon={icons.StarFull}
-                            link="/flights"
-                            text={<Text t={__("navbar.top-routes")} />}
-                          />
-                        )}
-
-                        {company.stories && (
-                          <BrandedMenuItem
-                            title={company.stories.title}
-                            Icon={company.stories.Icon}
-                            link={company.stories.link}
-                          />
-                        )}
-
-                        {/* Chat */}
-                        {brand.contacts.chat.enabled && (
-                          <MenuItem
-                            Icon={icons.Chat}
-                            onClick={this.handleOpenChat}
-                            text={<Text t={__("booking.abandonment.help.chat_action")} />}
-                          />
-                        )}
-
-                        {/* --- Social links --- */}
-                        <MediaIcons>
-                          {socialMedia.map(({ link, Icon }) => (
-                            <Link key={link} link={link} target="_blank" rel="noopener noreferrer">
-                              <Icon className="socialIcon" />
-                            </Link>
-                          ))}
-                        </MediaIcons>
-                      </MenuGroup>
-
-                      <Separator />
-
-                      {/* COMPANY */}
-                      <MenuGroup text={<Text t={__("sidenav.company")} />}>
-                        {company.about && (
-                          <BrandedMenuItem
-                            title={company.about.title}
-                            Icon={company.about.Icon}
-                            link={company.about.link}
-                          />
-                        )}
-                        {company.careers && (
-                          <BrandedMenuItem
-                            title={company.careers.title}
-                            Icon={company.careers.Icon}
-                            link={company.careers.link}
-                          />
-                        )}
-                        {brand.id === "kiwicom" && (
-                          <>
-                            <MenuItem
-                              Icon={icons.KiwicomCare}
-                              link="https://care.kiwi.com/"
-                              text="Care Kiwi.com"
-                            />
-                            <MenuItem
-                              Icon={icons.Code}
-                              link="https://code.kiwi.com/"
-                              text="Code Kiwi.com"
-                            />
-                          </>
-                        )}
-                        {company.branding && (
-                          <BrandedMenuItem
-                            title={company.branding.title}
-                            Icon={company.branding.Icon}
-                            link={company.branding.link}
-                          />
-                        )}
-                        {company.guarantee && (
-                          <BrandedMenuItem
-                            title={company.guarantee.title}
-                            Icon={company.guarantee.Icon}
-                            link={company.guarantee.link}
-                          />
-                        )}
-                        {company.media && (
-                          <BrandedMenuItem
-                            title={company.media.title}
-                            Icon={company.media.Icon}
-                            link={company.media.link}
-                          />
-                        )}
-                      </MenuGroup>
-
-                      <Separator />
-
-                      <MenuGroup text={<Text t={__("content.pages.legal.title")} />}>
-                        {company.terms && (
-                          <BrandedMenuItem
-                            title={company.terms.title}
-                            Icon={company.terms.Icon}
-                            link={company.terms.link}
-                          />
-                        )}
-                        {company.gdpr_terms && (
-                          <BrandedMenuItem
-                            title={company.gdpr_terms.title}
-                            Icon={company.gdpr_terms.Icon}
-                            link={company.gdpr_terms.link}
-                          />
-                        )}
-                        {company.privacy && (
-                          <BrandedMenuItem
-                            title={company.privacy.title}
-                            Icon={company.privacy.Icon}
-                            link={company.privacy.link}
-                          />
-                        )}
-                        {company.security && (
-                          <BrandedMenuItem
-                            title={company.security.title}
-                            Icon={company.security.Icon}
-                            link={company.security.link}
-                          />
-                        )}
-                        <MenuItem
-                          text="Cookies settings"
-                          link="/pages/cookies_settings"
-                          Icon={icons.Settings}
-                        />
-                      </MenuGroup>
-                    </>
-                  );
-                }}
-              </brandContext.Consumer>
-            </Content>
-          </SideBar>
-        )}
+                    );
+                  }}
+                </brandContext.Consumer>
+              </Content>
+            </SideBar>
+          )}
+        </ClientOnly>
 
         {/* MODALS */}
         {modalOpen === "chat" && <Modal onClose={this.handleCloseModal}>{chat}</Modal>}

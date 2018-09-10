@@ -1170,20 +1170,16 @@ exports[`#SideNav render 1`] = `
       />
     </SideNav__Close>
     <SideNav__Content>
-      <ClientOnly
-        loader={null}
+      <MenuGroup
+        text="Dev features"
       >
-        <MenuGroup
-          text="Dev features"
-        >
-          <MenuItem
-            Icon={[Function]}
-            link=""
-            onClick={[Function]}
-            text="Show debug window"
-          />
-        </MenuGroup>
-      </ClientOnly>
+        <MenuItem
+          Icon={[Function]}
+          link=""
+          onClick={[Function]}
+          text="Show debug window"
+        />
+      </MenuGroup>
       <SideNav__Separator
         theme={
           Object {
@@ -1577,16 +1573,12 @@ exports[`#SideNav render 1`] = `
             native={true}
             onChange={[MockFunction]}
           />
-          <ClientOnly
-            loader={null}
-          >
-            <SideNav__CurrencySpacing>
-              <Currency
-                loading={null}
-                native={true}
-              />
-            </SideNav__CurrencySpacing>
-          </ClientOnly>
+          <SideNav__CurrencySpacing>
+            <Currency
+              loading={null}
+              native={true}
+            />
+          </SideNav__CurrencySpacing>
           <SideNav__Separator
             theme={
               Object {
