@@ -42,13 +42,17 @@ MenuWrapper.defaultProps = {
 
 const ContinentList = styled.div`
   min-width: 200px;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
 
   ${mq.ltTablet(css`
     display: none;
   `)};
 `;
+
+ContinentList.defaultProps = {
+  theme: themeDefault,
+};
 
 type ActiveProps = ThemeProps & {|
   active: boolean,
@@ -111,7 +115,7 @@ const LanguageItem = styled.div`
   height: 26px;
   display: inline-flex;
   align-items: center;
-  border-radius: 3px;
+  border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   padding-${rtl.left}: 5px;
   margin-bottom: 5px;
   box-sizing: border-box;

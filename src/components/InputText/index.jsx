@@ -32,8 +32,8 @@ const Input = styled.input`
   border: none;
   width: 100%;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormalActive};
-  font-size: 14px;
-  font-weight: 500;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
 
   &:focus {
     outline: none;
@@ -51,7 +51,7 @@ type ErrorProps = ThemeProps & {
 const stateMixin = css`
   position: absolute;
   font-size: 10px;
-  font-weight: 400;
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
   ${rtl.right}: 0;
   bottom: -14px;
 `;
@@ -76,10 +76,14 @@ Hint.defaultProps = {
 };
 
 const HintText = styled.a`
-  font-weight: 700;
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightBold};
   text-decoration: underline;
   cursor: pointer;
 `;
+
+HintText.defaultProps = {
+  theme: themeDefault,
+};
 
 const omitProps = R.omit(["showState", "inputRef", "validate", "normalize", "corrector"]);
 

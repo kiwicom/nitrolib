@@ -16,8 +16,8 @@ const StyledLink = styled.a`
     active ? theme.orbit.paletteProductNormal : theme.orbit.paletteInkNormal};
   display: flex;
   align-items: center;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   text-decoration: none;
   position: relative;
   cursor: pointer;
@@ -32,8 +32,8 @@ const StyledLink = styled.a`
   ${mq.mobile(css`
     margin-${rtl.left}: 0;
     padding-${rtl.left}: 10px;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextLarge};
+    font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
     i {
       padding-${rtl.right}: 10px;
     }

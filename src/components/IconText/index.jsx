@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import * as rtl from "../../styles/rtl";
 import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 
 const Container = styled.div`
   position: relative;
@@ -22,11 +23,15 @@ Container.defaultProps = {
 };
 
 const Text = styled.span`
-  font-size: 14px;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
   height: 24px;
   line-height: 24px;
   white-space: nowrap;
 `;
+
+Text.defaultProps = {
+  theme: themeDefault,
+};
 
 type Props = {|
   Icon: React.ComponentType<{ className: string }>,

@@ -44,7 +44,7 @@ const ItemText = styled.div`
   display: flex;
   line-height: 30px;
   padding-${rtl.left}: 5px;
-  border-radius: 3px;
+  border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   cursor: pointer;
   background: ${({ theme, active }: ActiveProps) =>
     active ? theme.orbit.paletteProductNormal : "transparent"};

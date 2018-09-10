@@ -13,7 +13,7 @@ const ItemWrapper = styled.div`
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   box-shadow: inset 0 -1px ${({ theme }: ThemeProps) => theme.orbit.paletteCloudNormal};
   cursor: pointer;
-  font-weight: 500;
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   &:hover {
     background: ${({ theme }: ThemeProps) => theme.orbit.paletteCloudLight};
   }

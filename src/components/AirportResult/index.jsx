@@ -25,7 +25,7 @@ const Container = styled.button`
   text-align: start;
   border: none;
   box-shadow: 0 1px 0 ${({ theme }: ThemeProps) => theme.orbit.paletteCloudNormal};
-  transition: background 0.3s;
+  transition: background ${({ theme }: ThemeProps) => theme.orbit.durationNormal};
 
   &:hover {
     background: ${({ theme }: ThemeProps) => theme.orbit.paletteCloudNormal};

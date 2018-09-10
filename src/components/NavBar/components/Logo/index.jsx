@@ -13,10 +13,10 @@ import mq from "../../../../styles/mediaQuery";
 const PoweredByKiwi = styled.span`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
   position: relative;
-  font-size: 12px;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   margin-${rtl.left}: 10px;
   padding-${rtl.left}: 10px;
-  font-weight: 500;
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   &:before {
     content: "";
     top: 0;
@@ -31,7 +31,7 @@ const PoweredByKiwi = styled.span`
 
   ${mq.ltTablet(css`
     font-size: 10px;
-    font-weight: 400;
+    font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};;
     margin-${rtl.left}: 7px;
     padding-${rtl.left}: 7px;
   `)};
