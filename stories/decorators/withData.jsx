@@ -28,6 +28,11 @@ const withData = (storyFn: () => React.Node) => {
   const brand = brands[brandId];
   const language = languages[localeId];
 
+  const html = document.querySelector("html");
+  if (html) {
+    html.setAttribute("dir", language.direction);
+  }
+
   return (
     <BrandProvider value={brand}>
       {/* $FlowExpected - ThemeProvider has bad typedefs */}
