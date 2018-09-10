@@ -6,8 +6,8 @@ import Text from "../Text";
 import Toggle from "../Toggle";
 import ClickOutside from "../ClickOutside";
 import Button from "../NavBar/primitives/Button";
-import Desktop from "../../primitives/Desktop";
-import Mobile from "../../primitives/Mobile";
+import Desktop from "../Desktop";
+import Mobile from "../Mobile";
 import TripContainer from "../TripsContainer";
 
 const Starred = () => (
