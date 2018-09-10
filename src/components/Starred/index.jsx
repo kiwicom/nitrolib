@@ -9,8 +9,8 @@ import Toggle from "../Toggle";
 import ClickOutside from "../ClickOutside";
 import Button from "../NavBar/primitives/Button";
 import mq from "../../styles/mediaQuery";
-import Desktop from "../../primitives/Desktop";
-import Mobile from "../../primitives/Mobile";
+import Desktop from "../Desktop";
+import Mobile from "../Mobile";
 
 const Popup = styled.div`
   position: absolute;
