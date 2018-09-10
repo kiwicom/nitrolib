@@ -275,3 +275,33 @@ const MyComponent = () => (
   />
 );
 ```
+
+### Toggle
+
+A container that holds state of something being open.
+
+Props:
+```js
+type Data = {|
+  open: boolean,
+  onToggle: () => void,
+|};
+
+type Props = {|
+  children: (data: Data) => React.Node,
+|};
+```
+
+Example:
+```js
+const MyComponent = () => (
+  <Toggle>
+    {({ open, onToggle }) => (
+      <>
+        <h3>{open ? "Open" : "Closed"}</h3>
+        <Button onClick={onToggle}>Toggle</Button>
+      </>
+    )}
+  </Toggle>
+);
+```

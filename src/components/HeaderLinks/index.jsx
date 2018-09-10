@@ -45,7 +45,7 @@ const HeaderLinks = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewW
   <>
     <MediaTablet>
       <Toggle>
-        {({ open, active, onToggle }) => (
+        {({ open, onToggle }) => (
           <>
             {open && (
               <ClickOutside onClickOutside={onToggle}>
@@ -60,7 +60,7 @@ const HeaderLinks = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewW
                 </Popup>
               </ClickOutside>
             )}
-            <IconWrapper hover onClick={onToggle} act={active}>
+            <IconWrapper hover onClick={onToggle}>
               <Airplane />
               <ChevronDown size="small" />
             </IconWrapper>

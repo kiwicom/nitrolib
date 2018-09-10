@@ -8,8 +8,8 @@ describe("#Currency", () => {
   test("render", () => {
     const wrapper = shallow(
       <Toggle>
-        {({ open, onToggle, active }) => (
-          <div active={active} onToggle={onToggle} open={open}>
+        {({ open, onToggle }) => (
+          <div onToggle={onToggle} open={open}>
             LOL
           </div>
         )}
@@ -22,8 +22,8 @@ describe("#Currency", () => {
   test("toggle", () => {
     const wrapper = shallow(
       <Toggle>
-        {({ open, onToggle, active }) => (
-          <div active={active} onToggle={onToggle} open={open}>
+        {({ open, onToggle }) => (
+          <div onToggle={onToggle} open={open}>
             LOL
           </div>
         )}
