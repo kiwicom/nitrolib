@@ -28,9 +28,9 @@ const Select = styled.select`
   background-color: transparent;
   border: 0;
   outline: 0;
-  font-size: 12px;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   line-height: 21px;
-  font-weight: 500;
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   color: ${({ theme }: SelectProps) => theme.orbit.paletteInkDark};
 
   &:hover {

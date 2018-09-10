@@ -9,6 +9,7 @@ import ClickOutside from "../../../ClickOutside";
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
 import Text from "../../../Text";
+import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import Toggle from "../../../Toggle";
 import TripDataList from "./components/TripDataList";
@@ -32,10 +33,14 @@ const UserStyle = styled.div`
   display: flex;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-weight: 400;
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
   padding-left: 5px;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
 `;
+
+UserStyle.defaultProps = {
+  theme: themeDefault,
+};
 
 const Trips = ({ user }: Props) => (
   <Toggle>

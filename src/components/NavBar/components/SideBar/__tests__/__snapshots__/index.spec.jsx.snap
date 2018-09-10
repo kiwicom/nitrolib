@@ -25,7 +25,7 @@ exports[`#index render - with target 1`] = `
   width: 480px;
   font-weight: 500;
   font-size: 14px;
-  background: white;
+  background: #fff;
   overflow-y: auto;
   box-shadow: 0 6px 16px rgba(46,53,59,0.22),0 1px 3px rgba(0,0,0,0.09);
 }
@@ -67,7 +67,7 @@ exports[`#index render - with target 1`] = `
   width: 480px;
   font-weight: 500;
   font-size: 14px;
-  background: white;
+  background: #fff;
   overflow-y: auto;
   box-shadow: 0 6px 16px rgba(46,53,59,0.22),0 1px 3px rgba(0,0,0,0.09);
 }
@@ -947,7 +947,7 @@ exports[`#index render - with target 2`] = `
   width: 480px;
   font-weight: 500;
   font-size: 14px;
-  background: white;
+  background: #fff;
   overflow-y: auto;
   box-shadow: 0 6px 16px rgba(46,53,59,0.22),0 1px 3px rgba(0,0,0,0.09);
 }
@@ -1013,7 +1013,7 @@ exports[`#index render - without target 1`] = `
   width: 480px;
   font-weight: 500;
   font-size: 14px;
-  background: white;
+  background: #fff;
   overflow-y: auto;
   box-shadow: 0 6px 16px rgba(46,53,59,0.22),0 1px 3px rgba(0,0,0,0.09);
 }
@@ -1055,7 +1055,7 @@ exports[`#index render - without target 1`] = `
   width: 480px;
   font-weight: 500;
   font-size: 14px;
-  background: white;
+  background: #fff;
   overflow-y: auto;
   box-shadow: 0 6px 16px rgba(46,53,59,0.22),0 1px 3px rgba(0,0,0,0.09);
 }

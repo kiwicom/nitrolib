@@ -18,17 +18,17 @@ const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: ${rtl.box("10px 50px 10px 20px")};
-  font-size: 12px;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
   line-height: 20px;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
-  color: white;
+  color: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   transition: bottom 0.25s ease-in;
   box-shadow: 0 -1px 6px 0 rgba(0, 0, 0, 0.2);
 
   ${mq.gtTablet(css`
     padding: ${rtl.box("20px 50px 20px 20px")};
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormalActive};
-    background: white;
+    background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   `)};
 `;
 

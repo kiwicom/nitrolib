@@ -41,7 +41,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
-  font-weight: 500;
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
 `;
 
 Wrapper.defaultProps = {

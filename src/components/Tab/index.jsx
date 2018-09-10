@@ -35,10 +35,10 @@ const Container = styled.button`
   background: ${({ theme, active }: ContainerProps) =>
     theme.orbit[active ? "paletteCloudNormal" : "paletteWhite"]};
   font-size: 15px;
-  font-weight: 500;
+  font-weight: ${({ theme }: ContainerProps) => theme.orbit.fontWeightMedium};
   ${({ active }: ContainerProps) => active && shadowMixin};
   ${({ active }: ContainerProps) => !active && hoverMixin};
-  transition: background 0.3s;
+  transition: background ${({ theme }: ContainerProps) => theme.orbit.durationNormal};
 
   &:first-child {
     border-width: ${border.size}px;
