@@ -28,7 +28,7 @@ const AirportListData = ({ value, onSelect, environment }: Props) => (
         return <span>Error :(</span>;
       }
 
-      if (!res.props) {
+      if (!res.props || !res.props.allLocations) {
         return null;
       }
 
