@@ -97,6 +97,7 @@ export default class Menu extends React.PureComponent<Props, State> {
             ) : (
               <Login
                 open={modalOpen}
+                onCloseSuccess={this.handleClose}
                 onOpenMyBooking={this.handleOpenMyBooking}
                 onOpenRegister={this.handleOpenRegister}
                 onOpenSignIn={this.handleOpenSignIn}

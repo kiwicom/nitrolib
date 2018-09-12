@@ -42,6 +42,7 @@ ForgotPasswordArrow.defaultProps = {
 type Props = {|
   brandId: string,
   onSetAuth: (auth: ?Auth) => void,
+  onCloseSuccess: () => void,
   onOpenForgotPassword: () => void,
   // DI
   signIn: typeof api.signIn,
@@ -92,7 +93,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
   };
 
   handleSubmit = () => {
-    const { brandId, signIn, onSetAuth } = this.props;
+    const { brandId, signIn, onSetAuth, onCloseSuccess } = this.props;
     const { fields } = this.state;
 
     this.setState({ submitted: true });
@@ -108,6 +109,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
     })
       .then(({ user, token }) => {
         onSetAuth({ user, token });
+        onCloseSuccess();
         this.setState({ loading: false });
       })
       .catch(err => {

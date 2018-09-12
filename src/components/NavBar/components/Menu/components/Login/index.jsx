@@ -28,6 +28,7 @@ type Props = {|
   open: "myBooking" | "register" | "signIn",
   onOpenMyBooking: () => void,
   onOpenRegister: () => void,
+  onCloseSuccess: () => void,
   onOpenSignIn: () => void,
   onOpenForgotPassword: () => void,
 |};
@@ -35,6 +36,7 @@ type Props = {|
 const Login = ({
   open,
   onOpenMyBooking,
+  onCloseSuccess,
   onOpenRegister,
   onOpenSignIn,
   onOpenForgotPassword,
@@ -57,10 +59,14 @@ const Login = ({
       onOpenSignIn={onOpenSignIn}
     />
     {open === "myBooking" && (
-      <IntlConsumer>{intl => <MyBooking lang={intl.language.id} />}</IntlConsumer>
+      <IntlConsumer>
+        {intl => <MyBooking onCloseSuccess={onCloseSuccess} lang={intl.language.id} />}
+      </IntlConsumer>
     )}
     {open === "register" && (
-      <BrandConsumer>{brand => <Register brandId={brand.id} />}</BrandConsumer>
+      <BrandConsumer>
+        {brand => <Register onCloseSuccess={onCloseSuccess} brandId={brand.id} />}
+      </BrandConsumer>
     )}
     {open === "signIn" && (
       <BrandConsumer>
@@ -69,6 +75,7 @@ const Login = ({
             {auth => (
               <SignIn
                 brandId={brand.id}
+                onCloseSuccess={onCloseSuccess}
                 onSetAuth={auth.setAuth}
                 onOpenForgotPassword={onOpenForgotPassword}
               />
