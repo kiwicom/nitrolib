@@ -31,7 +31,7 @@ log(chalk.bold.green("NITRO"));
 if (!commands[command]) {
   log("Available commands:");
   log(`  ${chalk.underline("keys")} - collects translation keys`);
-  log(`  ${chalk.underline("fetch")} - fetches production data`);
+  log(`  ${chalk.underline("fetch")} [path to translation files] - fetches production data`);
 }
 
 function keys() {
