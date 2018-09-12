@@ -5,7 +5,7 @@ import MdClose from "react-icons/lib/md/close";
 
 import * as rtl from "../../styles/rtl";
 import { themeDefault } from "../../records/Theme";
-
+import type { ThemeProps } from "../../records/Theme";
 /**
  * This is a copy of FE's old modal design.
  * Refresh once the new design is done.
@@ -35,7 +35,7 @@ const StyledClose = styled(MdClose)`
   top: -28px;
   ${rtl.right}: 8px;
   cursor: pointer;
-  color: white;
+  color: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
 `;
 
 StyledClose.defaultProps = {

@@ -29,6 +29,7 @@ const FieldWrap = styled.div`
 type Props = {|
   lang: string,
   mmbRedirectCall: typeof mmbRedirect,
+  onCloseSuccess: () => void,
   now: Date,
 |};
 
@@ -134,7 +135,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
 
   handleSubmit = async () => {
     try {
-      const { lang, mmbRedirectCall } = this.props;
+      const { lang, mmbRedirectCall, onCloseSuccess } = this.props;
       const { fields } = this.state;
 
       this.setState({ submitted: true });
@@ -143,13 +144,17 @@ export default class MyBooking extends React.PureComponent<Props, State> {
       }
 
       this.setState({ loading: true });
-      return await mmbRedirectCall({
-        lang,
-        bid: fields.bid.value,
-        email: fields.email.value,
-        iata: fields.iata.value,
-        departure: fields.departure.value,
-      });
+
+      return (
+        await mmbRedirectCall({
+          lang,
+          bid: fields.bid.value,
+          email: fields.email.value,
+          iata: fields.iata.value,
+          departure: fields.departure.value,
+        }),
+        onCloseSuccess()
+      );
     } catch (err) {
       this.setState({ error: String(err), loading: false });
       return null;

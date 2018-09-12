@@ -8,13 +8,13 @@ const NOW = new Date(Date.UTC(2020, 0, 1));
 
 describe("#MyBooking", () => {
   test("render", () => {
-    const wrapper = shallow(<MyBooking lang="en" now={NOW} />);
+    const wrapper = shallow(<MyBooking lang="en" now={NOW} onCloseSuccess={jest.fn()} />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   test("render error", () => {
-    const wrapper = shallow(<MyBooking lang="en" now={NOW} />);
+    const wrapper = shallow(<MyBooking lang="en" now={NOW} onCloseSuccess={jest.fn()} />);
 
     wrapper.setState({ error: "Error! :(" });
 
@@ -22,7 +22,7 @@ describe("#MyBooking", () => {
   });
 
   test("not handle non-existent field", () => {
-    const wrapper = shallow(<MyBooking lang="en" now={NOW} />);
+    const wrapper = shallow(<MyBooking lang="en" now={NOW} onCloseSuccess={jest.fn()} />);
 
     wrapper.instance().handleChange({ id: "asdf", value: "omfg" });
 
@@ -30,7 +30,7 @@ describe("#MyBooking", () => {
   });
 
   test("handle change bid", () => {
-    const wrapper = shallow(<MyBooking lang="en" />);
+    const wrapper = shallow(<MyBooking lang="en" onCloseSuccess={jest.fn()} />);
 
     wrapper.instance().handleChange({ id: "bid", value: "1234" });
 
@@ -38,7 +38,7 @@ describe("#MyBooking", () => {
   });
 
   test("handle normalize bid", () => {
-    const wrapper = shallow(<MyBooking lang="en" />);
+    const wrapper = shallow(<MyBooking lang="en" onCloseSuccess={jest.fn()} />);
 
     wrapper.instance().handleChange({ id: "bid", value: "1234" });
 
@@ -46,7 +46,7 @@ describe("#MyBooking", () => {
   });
 
   test("handle change email", () => {
-    const wrapper = shallow(<MyBooking lang="en" />);
+    const wrapper = shallow(<MyBooking lang="en" onCloseSuccess={jest.fn()} />);
 
     wrapper.instance().handleChange({ id: "email", value: "lol@kek.bur" });
 
@@ -54,7 +54,7 @@ describe("#MyBooking", () => {
   });
 
   test("handle select iata", () => {
-    const wrapper = shallow(<MyBooking lang="en" />);
+    const wrapper = shallow(<MyBooking lang="en" onCloseSuccess={jest.fn()} />);
 
     wrapper.instance().handleSelectIata("VIE");
 
@@ -62,7 +62,7 @@ describe("#MyBooking", () => {
   });
 
   test("handle change departure", () => {
-    const wrapper = shallow(<MyBooking lang="en" />);
+    const wrapper = shallow(<MyBooking lang="en" onCloseSuccess={jest.fn()} />);
 
     const date = new Date(Date.UTC(2020, 0, 1));
     wrapper.instance().handleChangeDeparture(date);
@@ -72,7 +72,9 @@ describe("#MyBooking", () => {
 
   test("handle submit", async () => {
     const call = jest.fn().mockImplementation(() => Promise.resolve());
-    const wrapper = shallow(<MyBooking lang="en" mmbRedirectCall={call} />);
+    const wrapper = shallow(
+      <MyBooking lang="en" mmbRedirectCall={call} onCloseSuccess={jest.fn()} />,
+    );
 
     const date = new Date(Date.UTC(2020, 0, 1));
 
@@ -97,7 +99,9 @@ describe("#MyBooking", () => {
 
   test("handle submit form error", async () => {
     const call = jest.fn().mockImplementation(() => Promise.resolve());
-    const wrapper = shallow(<MyBooking lang="en" mmbRedirectCall={call} />);
+    const wrapper = shallow(
+      <MyBooking lang="en" mmbRedirectCall={call} onCloseSuccess={jest.fn()} />,
+    );
 
     await wrapper.instance().handleSubmit();
 
@@ -108,7 +112,9 @@ describe("#MyBooking", () => {
 
   test("handle submit error", async () => {
     const call = jest.fn().mockImplementation(() => Promise.reject(new Error("OMG")));
-    const wrapper = shallow(<MyBooking lang="en" mmbRedirectCall={call} />);
+    const wrapper = shallow(
+      <MyBooking lang="en" mmbRedirectCall={call} onCloseSuccess={jest.fn()} />,
+    );
 
     const date = new Date(Date.UTC(2020, 0, 1));
 
