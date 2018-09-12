@@ -1,6 +1,7 @@
-// @flow
+// @flow strict
 const fs = require("fs-extra");
 const path = require("path");
+const crypto = require("crypto");
 const fetch = require("node-fetch");
 const R = require("ramda");
 
@@ -10,7 +11,7 @@ const TKEYS = path.join(OUT, "tkeys.json");
 
 const makeFilename = (locale, hash) => `translations/${locale}_${hash}.json`;
 
-function fetchTranslations() /* : Promise<void> */ {
+function getTranslations(translationsPath /* : string | void */) /* : Promise<void> */ {
   if (!fs.existsSync(LANGS)) {
     return Promise.reject(new Error("Translations require fetching 'data/languages.json'!"));
   }
@@ -25,26 +26,34 @@ function fetchTranslations() /* : Promise<void> */ {
   }
   const tkeys = fs.readJsonSync(TKEYS);
 
+  const getTranslation = locale =>
+    translationsPath
+      ? Promise.resolve({
+          locale,
+          translations: fs.readJSONSync(path.join(translationsPath, `${locale}.json`)),
+        })
+      : fetch(`https://nitro-word.skypicker.com/${locale}`).then(res => {
+          if (!res.ok) {
+            return Promise.reject(new Error(`Failed to load translations for '${locale}'`));
+          }
+
+          return res.json();
+        });
+
   return Promise.all(
     R.map(
       lang =>
-        fetch(`https://nitro-word.skypicker.com/${lang.phraseApp}`)
-          .then(res => {
-            if (!res.ok) {
-              return Promise.reject(
-                new Error(`Failed to load translations for '${lang.phraseApp}'`),
-              );
-            }
-
-            return res.json();
-          })
-          .then(data => {
-            const filtered = R.mapObjIndexed((_, key) => R.prop(key, data.translations), tkeys);
-            fs.outputJsonSync(path.join(OUT, makeFilename(data.locale, data.hash)), filtered, {
-              spaces: 2,
-            });
-            return data;
-          }),
+        getTranslation(lang.phraseApp).then(({ translations, locale }) => {
+          const filtered = R.mapObjIndexed((_, key) => R.prop(key, translations), tkeys);
+          const hash = crypto
+            .createHash("sha1")
+            .update(JSON.stringify(filtered, null, 2), "binary")
+            .digest("hex");
+          fs.outputJsonSync(path.join(OUT, makeFilename(locale, hash)), filtered, {
+            spaces: 2,
+          });
+          return { locale, hash };
+        }),
       R.values(langs),
     ),
   ).then(all => {
@@ -59,4 +68,4 @@ function fetchTranslations() /* : Promise<void> */ {
   });
 }
 
-module.exports = fetchTranslations;
+module.exports = getTranslations;

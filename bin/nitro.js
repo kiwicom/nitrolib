@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @flow strict
 /* eslint-disable flowtype/require-valid-file-annotation */
 const fs = require("fs-extra");
 const path = require("path");
@@ -8,7 +9,7 @@ const R = require("ramda");
 const collectKeys = require("./scripts/collectKeys");
 const fetchBrandConfig = require("./scripts/fetchBrandConfig");
 const fetchSpreadsheet = require("./scripts/fetchSpreadsheet");
-const fetchTranslations = require("./scripts/fetchTranslations");
+const getTranslations = require("./scripts/getTranslations");
 const mapLanguages = require("./scripts/mapLanguages");
 
 const command = process.argv[2];
@@ -51,9 +52,9 @@ function keys() {
   );
 }
 
-function fetch() {
+function fetch(translationsPath) {
   Promise.all([fetchSpreadsheet(), fetchBrandConfig()])
-    .then(fetchTranslations)
+    .then(() => getTranslations(translationsPath))
     .then(mapLanguages)
     .then(() => {
       log("DONE!");
@@ -69,5 +70,5 @@ if (command === commands.keys) {
 }
 
 if (command === commands.fetch) {
-  fetch();
+  fetch(process.argv[3]);
 }
