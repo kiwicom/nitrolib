@@ -9,11 +9,11 @@ import Modal from "../../../../../Modal";
 import Mobile from "../../../../../Mobile";
 import Text from "../../../../../Text";
 import Language from "../../../../../Language";
-import * as brandContext from "../../../../../../services/brand/context";
+import { Consumer as BrandConsumer } from "../../../../../../services/brand/context";
+import { Consumer as AuthConsumer } from "../../../../../../services/auth/context";
 import type { ThemeProps } from "../../../../../../records/Theme";
 import { themeDefault } from "../../../../../../records/Theme";
 import * as rtl from "../../../../../../styles/rtl";
-import { Consumer as AuthConsumer } from "../../../../../LoginOnMount/index";
 import Currency from "../../../../../Currency";
 import SideBar from "../../../SideBar";
 import MenuGroup from "./MenuGroup";
@@ -250,7 +250,7 @@ export default class SideNav extends React.Component<Props, State> {
 
                 <Separator />
 
-                <brandContext.Consumer>
+                <BrandConsumer>
                   {brand => {
                     const company = getPagesItems(brand); // TODO move to provider
                     const socialMedia = getSocialMediaItems(brand); // TODO move to provider
@@ -412,7 +412,7 @@ export default class SideNav extends React.Component<Props, State> {
                       </>
                     );
                   }}
-                </brandContext.Consumer>
+                </BrandConsumer>
               </Content>
             </SideBar>
           )}

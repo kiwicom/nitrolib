@@ -3,7 +3,7 @@ import * as React from "react";
 
 import type { Auth } from "../../records/Auth";
 
-export type Context = {|
+type Context = {|
   auth: Auth | null,
   loading: boolean,
   onMyBooking: (token: string) => void,

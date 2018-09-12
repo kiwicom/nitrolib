@@ -13,7 +13,7 @@ type Props = {|
 
 const Currency = ({ native, loading }: Props) => (
   <currencyContext.Consumer>
-    {({ currency, available, recommended, setCurrency }) => {
+    {({ currency, available, recommended, onChange }) => {
       if (!currency) {
         return loading;
       }
@@ -25,14 +25,14 @@ const Currency = ({ native, loading }: Props) => (
           current={currency}
           available={availableList}
           recommended={recommended}
-          onChange={setCurrency}
+          onChange={onChange}
         />
       ) : (
         <CustomPicker
           current={currency}
           available={availableList}
           recommended={recommended}
-          onChange={setCurrency}
+          onChange={onChange}
         />
       );
     }}

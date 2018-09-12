@@ -1968,9 +1968,9 @@ exports[`#SideNav render 1`] = `
             />
           </MenuGroup>
         </Mobile>
-        <Component>
+        <ContextConsumer>
           <Component />
-        </Component>
+        </ContextConsumer>
         <SideNav__Separator
           theme={
             Object {

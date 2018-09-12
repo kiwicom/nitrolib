@@ -2,7 +2,8 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import { Provider } from "../context";
+import InitCurrency from "../index";
+import { brandDefault } from "../../../records/Brand";
 
 const currencies = {
   eur: {
@@ -128,12 +129,12 @@ const countries = {
   },
 };
 
-describe("#currency/context", () => {
+describe("#InitCurrency", () => {
   test("render", () => {
     const wrapper = shallow(
-      <Provider
+      <InitCurrency
         countries={countries}
-        whitelist={["eur", "czk", "gbp"]}
+        brand={brandDefault}
         affiliate=""
         ip="1.2.3.4"
         initialCurrency="eur"
@@ -142,8 +143,8 @@ describe("#currency/context", () => {
         getCurrencies={jest.fn()}
         getGeoCountry={jest.fn()}
       >
-        Content
-      </Provider>,
+        {() => null}
+      </InitCurrency>,
     );
 
     expect(wrapper).toMatchSnapshot();
@@ -156,9 +157,9 @@ describe("#currency/context", () => {
     const getCurrencies = jest.fn().mockImplementation(() => currenciesPromise);
     const getGeoCountry = jest.fn().mockImplementation(() => countryPromise);
     const wrapper = shallow(
-      <Provider
+      <InitCurrency
         countries={countries}
-        whitelist={["eur", "czk", "gbp"]}
+        brand={brandDefault}
         affiliate=""
         ip="1.2.3.4"
         initialCurrency="eur"
@@ -167,8 +168,8 @@ describe("#currency/context", () => {
         getCurrencies={getCurrencies}
         getGeoCountry={getGeoCountry}
       >
-        Content
-      </Provider>,
+        {() => null}
+      </InitCurrency>,
     );
 
     expect(getCurrencies).toBeCalled();
@@ -187,9 +188,9 @@ describe("#currency/context", () => {
     const getCurrencies = jest.fn().mockImplementation(() => currenciesPromise);
     const getGeoCountry = jest.fn().mockImplementation(() => countryPromise);
     const wrapper = shallow(
-      <Provider
+      <InitCurrency
         countries={countries}
-        whitelist={["eur", "czk", "gbp"]}
+        brand={brandDefault}
         affiliate=""
         ip="1.2.3.4"
         initialCurrency="eur"
@@ -198,8 +199,8 @@ describe("#currency/context", () => {
         getCurrencies={getCurrencies}
         getGeoCountry={getGeoCountry}
       >
-        Content
-      </Provider>,
+        {() => null}
+      </InitCurrency>,
     );
 
     wrapper.setState({ all: {}, country: "" });
@@ -213,9 +214,9 @@ describe("#currency/context", () => {
   test("set currency", () => {
     const onChange = jest.fn();
     const wrapper = shallow(
-      <Provider
+      <InitCurrency
         countries={countries}
-        whitelist={["eur", "czk", "gbp"]}
+        brand={brandDefault}
         affiliate=""
         ip="1.2.3.4"
         initialCurrency="eur"
@@ -224,12 +225,12 @@ describe("#currency/context", () => {
         getCurrencies={jest.fn()}
         getGeoCountry={jest.fn()}
       >
-        Content
-      </Provider>,
+        {() => null}
+      </InitCurrency>,
     );
 
     wrapper.setState({ available: currencies });
-    wrapper.instance().setCurrency("gbp");
+    wrapper.instance().handleChange("gbp");
 
     expect(wrapper.state("currency")).toBe(currencies.gbp);
     expect(onChange).toBeCalledWith("gbp");
