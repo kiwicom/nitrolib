@@ -13,6 +13,7 @@ import type { ThemeProps } from "../../../../records/Theme";
 import Toggle from "../../../Toggle";
 import TripDataList from "./components/TripDataList";
 import MenuSpacings from "../../primitives/MenuSpacings";
+import Flex from "../../../../primitives/Flex";
 
 type Props = {|
   auth: Auth,
@@ -40,18 +41,20 @@ const Trips = ({ auth }: Props) => (
         )}
         <MenuSpacings>
           <Desktop display="flex">
-            <Passenger size="small" />
-            <Button
-              fontSize="12px"
-              marginLeft={3}
-              marginRight={3}
-              onClick={onToggle}
-              direction="row"
-              y="center"
-            >
-              <Text t={__("account.my_bookings_action")} />
-            </Button>
-            <UserStyle>({`${auth.user.firstname}...`})</UserStyle>
+            <Flex y="center">
+              <Passenger size="small" />
+              <Button
+                fontSize="12px"
+                marginLeft={3}
+                marginRight={3}
+                onClick={onToggle}
+                direction="row"
+                y="center"
+              >
+                <Text t={__("account.my_bookings_action")} />
+              </Button>
+              <UserStyle>({`${auth.user.firstname}...`})</UserStyle>
+            </Flex>
           </Desktop>
           <Mobile display="flex">
             <Button fontSize="12px" marginRight={3} onClick={onToggle} y="center" direction="row">
