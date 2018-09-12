@@ -4,6 +4,7 @@ import querystring from "query-string";
 
 import SideBar from "../SideBar";
 import Text from "../../../Text";
+import ClientOnly from "../../../ClientOnly";
 import Button from "../../primitives/Button";
 
 type Props = {|
@@ -50,9 +51,11 @@ class Help extends React.Component<Props, State> {
         <Button onClick={this.handleToggle}>
           <Text t={__("common.help")} />
         </Button>
-        <SideBar onClick={this.handleClose} shown={shown}>
-          {faq}
-        </SideBar>
+        <ClientOnly>
+          <SideBar onClick={this.handleClose} shown={shown}>
+            {faq}
+          </SideBar>
+        </ClientOnly>
       </>
     );
   }
