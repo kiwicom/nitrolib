@@ -7,7 +7,7 @@ import { themeDefault } from "../../../../../../records/Theme";
 import type { ThemeProps } from "../../../../../../records/Theme";
 import { Consumer as BrandConsumer } from "../../../../../../services/brand/context";
 import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
-import { Consumer as AuthConsumer } from "../../../../../../services/auth/context";
+import { Consumer as AuthConsumer } from "../../../../../LoginOnMount/index";
 import SocialLogin from "./SocialLogin";
 import Switch from "./Switch";
 import MyBooking from "../MyBooking";

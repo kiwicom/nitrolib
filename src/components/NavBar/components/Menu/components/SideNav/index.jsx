@@ -13,7 +13,7 @@ import * as brandContext from "../../../../../../services/brand/context";
 import type { ThemeProps } from "../../../../../../records/Theme";
 import { themeDefault } from "../../../../../../records/Theme";
 import * as rtl from "../../../../../../styles/rtl";
-import { Consumer as AuthConsumer } from "../../../../../../services/auth/context";
+import { Consumer as AuthConsumer } from "../../../../../LoginOnMount/index";
 import Currency from "../../../../../Currency";
 import SideBar from "../../../SideBar";
 import MenuGroup from "./MenuGroup";
