@@ -54,19 +54,10 @@ type Props = {|
   chat: React.Node,
   subscription: React.Node,
   debug?: React.Node,
-  onSaveToken: (token: string) => void,
   onSaveLanguage: (lang: string) => void,
 |};
 
-const NavBar = ({
-  headerLinks,
-  faq,
-  chat,
-  subscription,
-  debug,
-  onSaveToken,
-  onSaveLanguage,
-}: Props) => (
+const NavBar = ({ headerLinks, faq, chat, subscription, debug, onSaveLanguage }: Props) => (
   <Container x="space-between" y="center">
     <Flex y="center" x="flex-start">
       <Logo />
@@ -93,7 +84,6 @@ const NavBar = ({
           chat={chat}
           subscription={subscription}
           debug={debug}
-          onSaveToken={onSaveToken}
           onSaveLanguage={onSaveLanguage}
         />
       </Wrapper>

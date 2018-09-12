@@ -1,8 +1,8 @@
 // @flow strict
 import * as React from "react";
 
-import { userDefault } from "../../records/User";
-import type { User } from "../../records/User";
+import { authDefault } from "../../records/Auth";
+import type { Auth } from "../../records/Auth";
 import * as api from "./api";
 
 type Props = {|
@@ -11,27 +11,27 @@ type Props = {|
 |};
 
 type State = {|
-  user: ?User,
+  auth: Auth | null,
   loading: boolean,
 |};
 
 type Context = {|
-  user: ?User,
+  auth: Auth | null,
   loading: boolean,
-  setUser: (user: ?User) => void,
+  setAuth: (auth: ?Auth) => void,
 |};
 
 const { Consumer, Provider } = React.createContext(
   ({
-    user: userDefault,
+    auth: null,
     loading: false,
-    setUser: () => {},
+    setAuth: () => {},
   }: Context),
 );
 
 export class AuthProvider extends React.PureComponent<Props, State> {
   state = {
-    user: userDefault,
+    auth: authDefault,
     loading: false,
   };
 
@@ -43,24 +43,24 @@ export class AuthProvider extends React.PureComponent<Props, State> {
 
     this.setState({ loading: true });
     api.getTokenUser(token).then(user => {
-      this.setState({ user, loading: false });
+      this.setState({ auth: { user, token }, loading: false });
     });
   }
 
-  setUser = (user: ?User) => {
-    this.setState({ user });
+  setAuth = (auth: ?Auth) => {
+    this.setState({ auth });
   };
 
   render() {
-    const { user, loading } = this.state;
+    const { auth, loading } = this.state;
     const { children } = this.props;
 
     return (
       <Provider
         value={{
-          user,
+          auth,
           loading,
-          setUser: this.setUser,
+          setAuth: this.setAuth,
         }}
       >
         {children}

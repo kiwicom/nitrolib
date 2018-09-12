@@ -222,9 +222,9 @@ export default class SideNav extends React.Component<Props, State> {
 
                 {/* SIGN-IN/UP/OUT */}
                 <AuthConsumer>
-                  {auth => (
+                  {({ auth }) => (
                     <MenuGroup>
-                      {auth.user ? (
+                      {auth !== null ? (
                         <MenuItem
                           Icon={icons.AccountCircle}
                           onClick={this.handleOpenSignIn}

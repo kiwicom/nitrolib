@@ -30,7 +30,6 @@ type Props = {|
   onOpenRegister: () => void,
   onOpenSignIn: () => void,
   onOpenForgotPassword: () => void,
-  onSaveToken: (token: string) => void,
 |};
 
 const Login = ({
@@ -39,7 +38,6 @@ const Login = ({
   onOpenRegister,
   onOpenSignIn,
   onOpenForgotPassword,
-  onSaveToken,
 }: Props) => (
   <Container>
     <BrandConsumer>
@@ -71,8 +69,7 @@ const Login = ({
             {auth => (
               <SignIn
                 brandId={brand.id}
-                onSetUser={auth.setUser}
-                onSaveToken={onSaveToken}
+                onSetAuth={auth.setAuth}
                 onOpenForgotPassword={onOpenForgotPassword}
               />
             )}

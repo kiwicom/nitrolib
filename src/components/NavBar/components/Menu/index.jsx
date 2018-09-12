@@ -19,7 +19,6 @@ type Props = {|
   chat: React.Node,
   subscription: React.Node,
   debug?: React.Node,
-  onSaveToken: (token: string) => void,
   onSaveLanguage: (lang: string) => void,
 |};
 
@@ -55,14 +54,14 @@ export default class Menu extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { chat, subscription, debug, onSaveToken, onSaveLanguage } = this.props;
+    const { chat, subscription, debug, onSaveLanguage } = this.props;
     const { modalOpen } = this.state;
 
     return (
       <>
         <authContext.Consumer>
-          {({ user }) =>
-            user === null ? (
+          {({ auth }) =>
+            auth === null ? (
               <MenuSpacings>
                 <Desktop display="flex">
                   <Button onClick={this.handleOpenMyBooking}>
@@ -76,7 +75,7 @@ export default class Menu extends React.PureComponent<Props, State> {
                 </Mobile>
               </MenuSpacings>
             ) : (
-              <Trips user={user} />
+              <Trips auth={auth} />
             )
           }
         </authContext.Consumer>
@@ -102,7 +101,6 @@ export default class Menu extends React.PureComponent<Props, State> {
                 onOpenRegister={this.handleOpenRegister}
                 onOpenSignIn={this.handleOpenSignIn}
                 onOpenForgotPassword={this.handleOpenForgotPassword}
-                onSaveToken={onSaveToken}
               />
             )}
           </Modal>

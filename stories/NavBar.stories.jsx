@@ -25,6 +25,5 @@ storiesOf("NavBar", module)
       subscription={<h1>Subscription</h1>}
       debug={<h1>Debug</h1>}
       onSaveLanguage={action("Save language")}
-      onSaveToken={action("Save token")}
     />
   ));

@@ -77,7 +77,6 @@ type Props = {|
   chat: React.Node, // chat component
   subscription: React.Node, // subscription component
   debug?: React.Node, // debug component
-  onSaveToken: (token: string) => void, // fired when the user logges in
   onSaveLanguage: (lang: string) => void, // fired when the user changes language
 |};
 ```
