@@ -11,7 +11,31 @@ const TKEYS = path.join(OUT, "tkeys.json");
 
 const makeFilename = (locale, hash) => `translations/${locale}_${hash}.json`;
 
-function getTranslations(translationsPath /* : string | void */) /* : Promise<void> */ {
+/* ::
+type Intl = {|
+  locale: string,
+  translations: { [key: string]: string },
+|};
+*/
+
+function getLocale(locale, folder) /* : Promise<Intl> */ {
+  if (folder) {
+    return Promise.resolve({
+      locale,
+      translations: fs.readJsonSync(path.join(folder, `${locale}.json`)),
+    });
+  }
+
+  return fetch(`https://nitro-word.skypicker.com/${locale}`).then(res => {
+    if (!res.ok) {
+      return Promise.reject(new Error(`Failed to load translations for '${locale}'`));
+    }
+
+    return res.json();
+  });
+}
+
+function getTranslations(folder /* : ?string */) /* : Promise<void> */ {
   if (!fs.existsSync(LANGS)) {
     return Promise.reject(new Error("Translations require fetching 'data/languages.json'!"));
   }
@@ -26,32 +50,20 @@ function getTranslations(translationsPath /* : string | void */) /* : Promise<vo
   }
   const tkeys = fs.readJsonSync(TKEYS);
 
-  const getTranslation = locale =>
-    translationsPath
-      ? Promise.resolve({
-          locale,
-          translations: fs.readJSONSync(path.join(translationsPath, `${locale}.json`)),
-        })
-      : fetch(`https://nitro-word.skypicker.com/${locale}`).then(res => {
-          if (!res.ok) {
-            return Promise.reject(new Error(`Failed to load translations for '${locale}'`));
-          }
-
-          return res.json();
-        });
-
   return Promise.all(
     R.map(
       lang =>
-        getTranslation(lang.phraseApp).then(({ translations, locale }) => {
+        getLocale(lang.phraseApp, folder).then(({ translations, locale }) => {
           const filtered = R.mapObjIndexed((_, key) => R.prop(key, translations), tkeys);
           const hash = crypto
             .createHash("sha1")
             .update(JSON.stringify(filtered, null, 2), "binary")
             .digest("hex");
+
           fs.outputJsonSync(path.join(OUT, makeFilename(locale, hash)), filtered, {
             spaces: 2,
           });
+
           return { locale, hash };
         }),
       R.values(langs),

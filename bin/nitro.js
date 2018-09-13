@@ -22,6 +22,8 @@ function error(what) {
   console.log(`${chalk.bold.red(">")} ${what}`);
 }
 
+const resolve = glob => path.join(process.cwd(), glob);
+
 const commands = {
   keys: "keys",
   fetch: "fetch",
@@ -30,15 +32,19 @@ const commands = {
 log(chalk.bold.green("NITRO"));
 if (!commands[command]) {
   log("Available commands:");
-  log(`  ${chalk.underline("keys")} - collects translation keys`);
-  log(`  ${chalk.underline("fetch")} [path to translation files] - fetches production data`);
+  log(`  ${chalk.underline.bold("keys")} [...globs]      - collects translation keys`);
+  log(`    ${chalk.underline("globs")} - where to collect keys from`);
+  log("");
+  log(`  ${chalk.underline.bold("fetch")} [translations] - fetches production data`);
+  log(`    ${chalk.underline("translations")} (optional) - path to translations`);
+  log("");
+  log("See CLI docs for details at https://github.com/kiwicom/nitrolib");
 }
 
-function keys() {
+function keys(globs) {
   const ours = JSON.parse(fs.readFileSync(path.join(__dirname, "../tkeys.json")));
 
-  const globs = process.argv.slice(3).map(glob => path.join(process.cwd(), glob));
-  const collected = collectKeys(globs);
+  const collected = collectKeys(globs.map(resolve));
 
   const data = R.merge(ours, collected);
   fs.outputJsonSync(path.join(process.cwd(), "data/tkeys.json"), data, {
@@ -52,9 +58,9 @@ function keys() {
   );
 }
 
-function fetch(translationsPath) {
+function fetch(folder) {
   Promise.all([fetchSpreadsheet(), fetchBrandConfig()])
-    .then(() => getTranslations(translationsPath))
+    .then(() => getTranslations(folder && resolve(folder)))
     .then(mapLanguages)
     .then(() => {
       log("DONE!");
@@ -66,7 +72,7 @@ function fetch(translationsPath) {
 }
 
 if (command === commands.keys) {
-  keys();
+  keys(process.argv.slice(3));
 }
 
 if (command === commands.fetch) {

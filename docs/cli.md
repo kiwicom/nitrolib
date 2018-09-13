@@ -8,7 +8,12 @@ All files are saved into the `<PROJECT_ROOT>/data` folder.
 
 ## Keys
 
-Collects translation keys wrapped in the `__` function. Takes a list of globs where to search for translation keys as an argument.
+* `yarn nitro keys [...globs]`
+
+Collects translation keys wrapped in the `__` function.
+
+**Args:**
+* `globs` - a list of globs where to search for translation keys as an argument
 
 **Example:**
 * `yarn nitro keys` - only collects Nitrolib's keys
@@ -21,10 +26,16 @@ Collects translation keys wrapped in the `__` function. Takes a list of globs wh
 
 ## Fetch
 
+* `yarn nitro fetch [?translations]`
+
 Fetches production data. Requires the `data/tkeys.json` file to exist due to translation whitelisting, see the `keys` command.
 
+**Args:**
+* `translations` (optional) - path to a folder with translation files, named `<locale>.json`
+
 **Example:**
-* `yarn nitro fetch`
+* `yarn nitro fetch` - fetches data and translations from *Word*
+* `yarn nitro fetch ./node_modules/@kiwicom/translations/lib` - fetches data and translations from the `@kiwicom/translations` NPM package
 
 **Files:**
 * `translations/<locale>_<hash>.json` - translations for the given _locale_, cache-busted with the commit _hash_
