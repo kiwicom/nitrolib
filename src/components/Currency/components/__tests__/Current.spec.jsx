@@ -17,7 +17,7 @@ const currency = {
 
 describe("#Currency/CustomPicker/CurrencyItem", () => {
   test("render", () => {
-    const wrapper = shallow(<Current currency={currency} />);
+    const wrapper = shallow(<Current current={currency} />);
 
     expect(wrapper).toMatchSnapshot();
   });

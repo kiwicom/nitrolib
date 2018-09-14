@@ -1,9 +1,9 @@
 // @flow strict
 import styled from "styled-components";
 
-import * as rtl from "../../../../styles/rtl";
-import type { ThemeProps } from "../../../../records/Theme";
-import { themeDefault } from "../../../../records/Theme";
+import * as rtl from "../../../styles/rtl";
+import type { ThemeProps } from "../../../records/Theme";
+import { themeDefault } from "../../../records/Theme";
 
 const LanguageNameText = styled.span`
   margin-${rtl.left}: 10px;

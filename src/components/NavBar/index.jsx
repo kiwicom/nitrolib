@@ -69,7 +69,7 @@ const NavBar = ({ headerLinks, faq, chat, subscription, debug, onSaveLanguage }:
       <Wrapper>
         <Desktop display="flex">
           <MenuSpacings>
-            <Language onChange={onSaveLanguage} />
+            <Language onChange={onSaveLanguage} positionMenuDesktop={-270} positionMenuTablet={0} />
           </MenuSpacings>
           <ClientOnly>
             <MenuSpacings>
