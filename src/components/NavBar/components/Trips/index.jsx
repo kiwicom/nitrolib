@@ -1,6 +1,5 @@
 // @flow
 import * as React from "react";
-import idx from "idx";
 import styled from "styled-components";
 import Passenger from "@kiwicom/orbit-components/lib/icons/Passenger";
 
@@ -9,21 +8,15 @@ import ClickOutside from "../../../ClickOutside";
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
 import Text from "../../../Text";
+import type { Auth } from "../../../../records/Auth";
 import type { ThemeProps } from "../../../../records/Theme";
 import Toggle from "../../../Toggle";
 import TripDataList from "./components/TripDataList";
 import MenuSpacings from "../../primitives/MenuSpacings";
-
-type UserData = {|
-  firstname: string,
-  lastname: string,
-  verified: boolean,
-  id: string,
-  email: string,
-|};
+import Flex from "../../../../primitives/Flex";
 
 type Props = {|
-  user?: UserData,
+  auth: Auth,
 |};
 
 const UserStyle = styled.div`
@@ -32,41 +25,41 @@ const UserStyle = styled.div`
   display: flex;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-weight: 400;
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
   padding-left: 5px;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
 `;
 
-const Trips = ({ user }: Props) => (
+const Trips = ({ auth }: Props) => (
   <Toggle>
     {({ open, onToggle }) => (
       <>
         {open && (
           <ClickOutside onClickOutside={onToggle}>
-            <TripDataList />
+            <TripDataList token={auth.token} />
           </ClickOutside>
         )}
         <MenuSpacings>
           <Desktop display="flex">
-            <Passenger size="small" />
-            <Button
-              fontSize="12px"
-              marginLeft={3}
-              marginRight={3}
-              onClick={onToggle}
-              direction="row"
-              y="center"
-            >
-              <Text t={__("account.my_bookings_action")} />
-            </Button>
-            <UserStyle>({`${idx(user, _ => _.firstname) || " "}...`})</UserStyle>
+            <Flex y="center">
+              <Passenger size="small" />
+              <Button
+                fontSize="12px"
+                marginLeft={3}
+                marginRight={3}
+                onClick={onToggle}
+                direction="row"
+                y="center"
+              >
+                <Text t={__("account.my_bookings_action")} />
+              </Button>
+              <UserStyle>({`${auth.user.firstname}...`})</UserStyle>
+            </Flex>
           </Desktop>
           <Mobile display="flex">
             <Button fontSize="12px" marginRight={3} onClick={onToggle} y="center" direction="row">
               <Passenger size="small" />
-              <UserStyle>
-                {`${idx(user, _ => _.firstname) || " "} ${idx(user, _ => _.lastname) || " "}`}
-              </UserStyle>
+              <UserStyle>{`${auth.user.firstname} ${auth.user.lastname}`}</UserStyle>
             </Button>
           </Mobile>
         </MenuSpacings>

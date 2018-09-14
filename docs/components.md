@@ -77,7 +77,6 @@ type Props = {|
   chat: React.Node, // chat component
   subscription: React.Node, // subscription component
   debug?: React.Node, // debug component
-  onSaveToken: (token: string) => void, // fired when the user logges in
   onSaveLanguage: (lang: string) => void, // fired when the user changes language
 |};
 ```
@@ -273,5 +272,35 @@ const MyComponent = () => (
     t={__("Click this: __x__")}
     values={{ x: <button onClick={() => alert("Clicked")}>Yo</button> }}
   />
+);
+```
+
+### Toggle
+
+A container that holds state of something being open.
+
+Props:
+```js
+type Data = {|
+  open: boolean,
+  onToggle: () => void,
+|};
+
+type Props = {|
+  children: (data: Data) => React.Node,
+|};
+```
+
+Example:
+```js
+const MyComponent = () => (
+  <Toggle>
+    {({ open, onToggle }) => (
+      <>
+        <h3>{open ? "Open" : "Closed"}</h3>
+        <Button onClick={onToggle}>Toggle</Button>
+      </>
+    )}
+  </Toggle>
 );
 ```

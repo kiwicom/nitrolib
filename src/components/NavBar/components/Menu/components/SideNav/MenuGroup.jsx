@@ -21,7 +21,7 @@ Menu.defaultProps = {
 
 const Title = styled.span`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
-  font-size: 12px;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   text-transform: uppercase;
   line-height: 16px;
 `;

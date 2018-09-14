@@ -7,6 +7,7 @@ import { Transition } from "react-transition-group";
 import mq from "../../../../styles/mediaQuery";
 import * as rtl from "../../../../styles/rtl";
 import { themeDefault } from "../../../../records/Theme";
+import type { ThemeProps } from "../../../../records/Theme";
 
 const DURATION = 250;
 
@@ -37,9 +38,9 @@ const Wrapper = styled.div`
   ${rtl.right}: 0;
   bottom: 0;
   width: 480px;
-  font-weight: 500;
-  font-size: 14px;
-  background: white;
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
+  background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   overflow-y: auto;
   box-shadow: 0 6px 16px rgba(46, 53, 59, 0.22), 0 1px 3px rgba(0, 0, 0, 0.09);
 

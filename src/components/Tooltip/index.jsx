@@ -6,6 +6,7 @@ import styled, { css } from "styled-components";
 import mq from "../../styles/mediaQuery";
 import * as rtl from "../../styles/rtl";
 import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 
 const TIP_ARROW_SIZE = 5;
 const TIP_OFFSET = 2;
@@ -83,7 +84,7 @@ const Tip = styled.span`
     width: 0;
     height: 0;
     border-color: transparent;
-    border-style: solid;
+    border-style: ${({ theme }: ThemeProps) => theme.orbit.borderStyleCard};
     border-width: ${TIP_ARROW_SIZE + 1}px;
     ${({ theme, position }) =>
       (position === "left" &&
@@ -141,7 +142,7 @@ const TipContent = styled.span`
   padding: 0px 8px;
   color: ${({ theme }) => theme.orbit.paletteWhite};
   background-color: ${({ theme }) => theme.orbit.paletteInkDark};
-  border-radius: 3px;
+  border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
 `;
 
 TipContent.defaultProps = {

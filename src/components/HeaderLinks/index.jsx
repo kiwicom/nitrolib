@@ -6,30 +6,17 @@ import styled, { css } from "styled-components";
 
 import mq from "../../styles/mediaQuery";
 import * as rtl from "../../styles/rtl";
-import { themeDefault } from "../../records/Theme";
 import ClickOutside from "../ClickOutside";
 import Toggle from "../Toggle";
 import Popup from "./primitives/Popup";
 import IconWrapper from "./primitives/IconWrapper";
 import Links from "./Links";
+import Desktop from "../Desktop";
+import Mobile from "../Mobile";
 
-const MediaTablet = styled.div`
-  display: none;
+const Margin = styled.div`
   ${mq.mobile(css`
-    display: flex;
-    width: 50%;
     margin-${rtl.left}: 20px;
-  `)};
-`;
-
-MediaTablet.defaultProps = {
-  theme: themeDefault,
-};
-
-const MediaDesktop = styled.div`
-  display: flex;
-  ${mq.mobile(css`
-    display: none;
   `)};
 `;
 
@@ -43,32 +30,34 @@ type Props = {|
 
 const HeaderLinks = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewWindow }: Props) => (
   <>
-    <MediaTablet>
-      <Toggle>
-        {({ open, active, onToggle }) => (
-          <>
-            {open && (
-              <ClickOutside onClickOutside={onToggle}>
-                <Popup>
-                  <Links
-                    linkFlights={linkFlights}
-                    linkRooms={linkRooms}
-                    linkCars={linkCars}
-                    linkHolidays={linkHolidays}
-                    forceNewWindow={forceNewWindow}
-                  />
-                </Popup>
-              </ClickOutside>
-            )}
-            <IconWrapper hover onClick={onToggle} act={active}>
-              <Airplane />
-              <ChevronDown size="small" />
-            </IconWrapper>
-          </>
-        )}
-      </Toggle>
-    </MediaTablet>
-    <MediaDesktop>
+    <Mobile display="flex">
+      <Margin>
+        <Toggle>
+          {({ open, onToggle }) => (
+            <>
+              {open && (
+                <ClickOutside onClickOutside={onToggle}>
+                  <Popup>
+                    <Links
+                      linkFlights={linkFlights}
+                      linkRooms={linkRooms}
+                      linkCars={linkCars}
+                      linkHolidays={linkHolidays}
+                      forceNewWindow={forceNewWindow}
+                    />
+                  </Popup>
+                </ClickOutside>
+              )}
+              <IconWrapper hover onClick={onToggle}>
+                <Airplane />
+                <ChevronDown size="small" />
+              </IconWrapper>
+            </>
+          )}
+        </Toggle>
+      </Margin>
+    </Mobile>
+    <Desktop display="flex">
       <Links
         linkFlights={linkFlights}
         linkRooms={linkRooms}
@@ -76,7 +65,7 @@ const HeaderLinks = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewW
         linkHolidays={linkHolidays}
         forceNewWindow={forceNewWindow}
       />
-    </MediaDesktop>
+    </Desktop>
   </>
 );
 

@@ -41,7 +41,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
-  font-weight: 500;
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
 `;
 
 Wrapper.defaultProps = {
@@ -55,7 +55,6 @@ type Props = {|
   chat: React.Node,
   subscription: React.Node,
   debug?: React.Node,
-  onSaveToken: (token: string) => void,
   onSaveLanguage: (lang: string) => void,
 |};
 
@@ -66,8 +65,7 @@ const NavBar = ({
   chat,
   subscription,
   debug,
-  onSaveToken,
-  onSaveLanguage,
+  onSaveLanguage
 }: Props) => (
   <Container x="space-between" y="center">
     <Flex y="center" x="flex-start">
@@ -80,7 +78,7 @@ const NavBar = ({
       <Wrapper>
         <Desktop display="flex">
           <MenuSpacings>
-            <Language onChange={onSaveLanguage} />
+            <Language onChange={onSaveLanguage} positionMenuDesktop={-270} positionMenuTablet={0} />
           </MenuSpacings>
           <ClientOnly>
             <MenuSpacings>
@@ -96,7 +94,6 @@ const NavBar = ({
           chat={chat}
           subscription={subscription}
           debug={debug}
-          onSaveToken={onSaveToken}
           onSaveLanguage={onSaveLanguage}
         />
       </Wrapper>

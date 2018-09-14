@@ -27,6 +27,5 @@ storiesOf("NavBar", module)
       debug={<h1>Debug</h1>}
       starred={<Starred />}
       onSaveLanguage={action("Save language")}
-      onSaveToken={action("Save token")}
     />
   ));

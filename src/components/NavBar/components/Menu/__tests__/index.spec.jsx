@@ -11,7 +11,6 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         debug={<div>debug</div>}
-        onSaveToken={jest.fn()}
         onSaveLanguage={jest.fn()}
       />,
     );
@@ -24,7 +23,6 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
-        onSaveToken={jest.fn()}
         onSaveLanguage={jest.fn()}
       />,
     );
@@ -39,7 +37,6 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
-        onSaveToken={jest.fn()}
         onSaveLanguage={jest.fn()}
       />,
     );
@@ -54,7 +51,6 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
-        onSaveToken={jest.fn()}
         onSaveLanguage={jest.fn()}
       />,
     );
@@ -70,7 +66,6 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
-        onSaveToken={jest.fn()}
         onSaveLanguage={jest.fn()}
       />,
     );
@@ -85,7 +80,6 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
-        onSaveToken={jest.fn()}
         onSaveLanguage={jest.fn()}
       />,
     );
@@ -100,7 +94,6 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
-        onSaveToken={jest.fn()}
         onSaveLanguage={jest.fn()}
       />,
     );
@@ -115,7 +108,6 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
-        onSaveToken={jest.fn()}
         onSaveLanguage={jest.fn()}
       />,
     );

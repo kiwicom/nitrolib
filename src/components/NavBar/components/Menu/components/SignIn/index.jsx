@@ -19,7 +19,7 @@ import * as validators from "../../../../../../services/input/validators";
 import * as normalizers from "../../../../../../services/input/normalizers";
 import isEmptish from "../../../../../../services/utils/isEmptish";
 import * as api from "../../../../../../services/auth/api";
-import type { User } from "../../../../../../records/User";
+import type { Auth } from "../../../../../../records/Auth";
 
 const FieldWrap = styled.div`
   position: relative;
@@ -41,8 +41,8 @@ ForgotPasswordArrow.defaultProps = {
 
 type Props = {|
   brandId: string,
-  onSetUser: (user: ?User) => void,
-  onSaveToken: (token: string) => void,
+  onSignIn: (auth: ?Auth) => void,
+  onCloseSuccess: () => void,
   onOpenForgotPassword: () => void,
   // DI
   signIn: typeof api.signIn,
@@ -65,7 +65,6 @@ type State = {|
   error: string,
 |};
 
-// TODO make forgot password modal work
 export default class SignIn extends React.PureComponent<Props, State> {
   static defaultProps = {
     signIn: api.signIn,
@@ -94,7 +93,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
   };
 
   handleSubmit = () => {
-    const { brandId, signIn, onSetUser, onSaveToken } = this.props;
+    const { brandId, signIn, onSignIn, onCloseSuccess } = this.props;
     const { fields } = this.state;
 
     this.setState({ submitted: true });
@@ -109,8 +108,8 @@ export default class SignIn extends React.PureComponent<Props, State> {
       brand: brandId,
     })
       .then(({ user, token }) => {
-        onSetUser(user);
-        onSaveToken(token);
+        onSignIn({ user, token });
+        onCloseSuccess();
         this.setState({ loading: false });
       })
       .catch(err => {

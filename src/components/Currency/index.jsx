@@ -3,8 +3,10 @@ import * as React from "react";
 
 import * as currencyContext from "../../services/currency/context";
 import NativePicker from "./NativePicker";
-import CustomPicker from "./components/CustomPicker";
+import CustomPicker from "../CustomPicker";
 import { getAvailableList } from "../../records/Currency";
+import Current from "./components/Current";
+import Menu from "./components/Menu";
 
 type Props = {|
   native: boolean,
@@ -13,7 +15,7 @@ type Props = {|
 
 const Currency = ({ native, loading }: Props) => (
   <currencyContext.Consumer>
-    {({ currency, available, recommended, setCurrency }) => {
+    {({ currency, available, recommended, onChange }) => {
       if (!currency) {
         return loading;
       }
@@ -25,15 +27,19 @@ const Currency = ({ native, loading }: Props) => (
           current={currency}
           available={availableList}
           recommended={recommended}
-          onChange={setCurrency}
+          onChange={onChange}
         />
       ) : (
-        <CustomPicker
-          current={currency}
-          available={availableList}
-          recommended={recommended}
-          onChange={setCurrency}
-        />
+        <CustomPicker onChange={onChange} openButton={<Current current={currency} />}>
+          {render => (
+            <Menu
+              onChange={render.onChange}
+              current={currency}
+              available={availableList}
+              recommended={recommended}
+            />
+          )}
+        </CustomPicker>
       );
     }}
   </currencyContext.Consumer>

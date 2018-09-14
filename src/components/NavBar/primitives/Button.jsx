@@ -16,7 +16,7 @@ const Button = styled.button`
       : `color: ${theme.orbit.paletteInkNormal}`};
   cursor: pointer;
   line-height: 50px;
-  font-weight: 500;
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
   line-height: 50px;
   text-decoration: none;
   ${({ transition }) => transition && `transition: color 0.2s ease-in-out`};

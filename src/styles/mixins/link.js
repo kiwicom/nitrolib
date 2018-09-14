@@ -6,7 +6,7 @@ import type { ThemeProps } from "../../records/Theme";
 const linkMixin = css`
   a {
     text-decoration: none;
-    font-weight: 700;
+    font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightBold};
     color: ${({ theme }: ThemeProps) => theme.orbit.colorTextLinkPrimary};
 
     &:hover {

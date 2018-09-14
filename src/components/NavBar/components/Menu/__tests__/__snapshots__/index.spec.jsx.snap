@@ -84,11 +84,11 @@ exports[`#Menu render with modal 1`] = `
     onClose={[Function]}
   >
     <Login
+      onCloseSuccess={[Function]}
       onOpenForgotPassword={[Function]}
       onOpenMyBooking={[Function]}
       onOpenRegister={[Function]}
       onOpenSignIn={[Function]}
-      onSaveToken={[MockFunction]}
       open="myBooking"
     />
   </Modal>

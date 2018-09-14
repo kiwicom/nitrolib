@@ -47,7 +47,7 @@ const OrText = styled.span`
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   text-transform: uppercase;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
-  font-size: 14px;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
 `;
 
 OrText.defaultProps = {

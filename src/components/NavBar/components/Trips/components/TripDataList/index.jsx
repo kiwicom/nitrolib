@@ -4,7 +4,7 @@ import { graphql, QueryRenderer } from "react-relay";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import styled from "styled-components";
 
-import environment from "../../../../../../services/auth/environment";
+import environment from "../../../../../../services/environment";
 import * as intlContext from "../../../../../../services/intl/context";
 import Text from "../../../../../Text";
 import TripHeader from "../TripHeader";
@@ -12,6 +12,8 @@ import TripList from "../TripList";
 import TripContainer from "../../../../../TripsContainer";
 
 type Props = {|
+  token: string,
+  // DI
   env: typeof environment,
 |};
 
@@ -19,10 +21,10 @@ const StateContainer = styled.div`
   padding: 10px;
 `;
 
-const TripDataList = ({ env }: Props) => (
+const TripDataList = ({ env, token }: Props) => (
   <QueryRenderer
     environment={env}
-    variables={{}}
+    variables={{ token }}
     query={graphql`
       query TripDataListQuery {
         customerBookings {

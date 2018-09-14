@@ -52,6 +52,7 @@ type Props = {|
   brandId: string,
   // DI
   register: typeof api.register,
+  onCloseSuccess: () => void,
 |};
 
 type Field<T> = {|
@@ -115,7 +116,7 @@ export default class Register extends React.PureComponent<Props, State> {
   };
 
   handleSubmit = () => {
-    const { brandId, register } = this.props;
+    const { brandId, register, onCloseSuccess } = this.props;
     const { fields } = this.state;
 
     this.setState({ submitted: true });
@@ -133,6 +134,7 @@ export default class Register extends React.PureComponent<Props, State> {
     })
       .then(() => {
         this.setState({ loading: false });
+        onCloseSuccess();
       })
       .catch(err => {
         this.setState({ loading: false, error: String(err) });

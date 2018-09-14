@@ -5,15 +5,20 @@ import * as R from "ramda";
 import * as intlContext from "../../services/intl/context";
 import * as fetchedContext from "../../services/fetched/context";
 import NativePicker from "./NativePicker";
-import CustomPicker from "./components/CustomPicker";
+// import CustomPicker from "./components/CustomPicker";
+import CustomPicker from "../CustomPicker";
+import LanguageName from "./components/LanguageName";
+import Menu from "./components/Menu";
 
 type Props = {|
   onChange: (lang: string) => void,
   native: boolean,
+  positionMenuDesktop?: string | number,
+  positionMenuTablet?: string | number,
   flat: boolean,
 |};
 
-const Language = ({ onChange, native, flat }: Props) => (
+const Language = ({ onChange, native, flat, positionMenuDesktop, positionMenuTablet }: Props) => (
   <fetchedContext.Consumer>
     {fetched => (
       <intlContext.Consumer>
@@ -31,12 +36,20 @@ const Language = ({ onChange, native, flat }: Props) => (
             <NativePicker current={current} languages={languages} onChange={onChange} />
           ) : (
             <CustomPicker
-              current={current}
-              languages={languages}
-              continents={fetched.brandLanguage.continents}
               onChange={onChange}
-              flat={flat}
-            />
+              openButton={<LanguageName name={current.name} flag={current.flag} />}
+            >
+              {render => (
+                <Menu
+                  onChange={render.onChange}
+                  languages={languages}
+                  continents={fetched.brandLanguage.continents}
+                  positionMenuDesktop={positionMenuDesktop || 0}
+                  positionMenuTablet={positionMenuTablet || 0}
+                  flat={flat}
+                />
+              )}
+            </CustomPicker>
           );
         }}
       </intlContext.Consumer>

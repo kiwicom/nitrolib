@@ -7,7 +7,9 @@ const call = (input: Input) =>
     method: "POST",
     headers: {
       // Add authentication and other headers here
-      "content-type": "application/json",
+      "Content-type": "application/json",
+      Accept: "application/json",
+      Authorization: input.variables.token, // FIXME document this
     },
     body: JSON.stringify(input),
   }).then(res => res.json());

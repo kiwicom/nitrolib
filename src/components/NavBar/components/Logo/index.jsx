@@ -13,10 +13,10 @@ import mq from "../../../../styles/mediaQuery";
 const PoweredByKiwi = styled.span`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
   position: relative;
-  font-size: 12px;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   margin-${rtl.left}: 10px;
   padding-${rtl.left}: 10px;
-  font-weight: 500;
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   &:before {
     content: "";
     top: 0;
@@ -31,7 +31,7 @@ const PoweredByKiwi = styled.span`
 
   ${mq.ltTablet(css`
     font-size: 10px;
-    font-weight: 400;
+    font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};;
     margin-${rtl.left}: 7px;
     padding-${rtl.left}: 7px;
   `)};
@@ -73,37 +73,35 @@ const logoBaseUrl = "https://images.kiwi.com/whitelabels";
 
 const Logo = () => (
   <BrandConsumer>
-    {brand => (
-      <>
-        {brand.id === "kiwicom" ? (
-          <Link href={brand.home_redirect_url}>
-            <SvgLogo height={logo.height} width={logo.width} title={brand.name} />
-          </Link>
-        ) : (
-          <>
-            <LogoLinkStyled href={brand.home_redirect_url}>
-              <LogoStyled
-                title={brand.name}
-                alt={brand.name}
-                srcSet={`${logoBaseUrl}/0x80/${brand.id}.png?v=1 2x`}
-                src={`${logoBaseUrl}/0x40/${brand.id}.png?v=1`}
-              />
-              <LogoStyledMobile
-                title={brand.name}
-                alt={brand.name}
-                srcSet={`${logoBaseUrl}/0x80/${brand.id}-mobile.png?v=1 2x`}
-                src={`${logoBaseUrl}/0x40/${brand.id}-mobile.png?v=1`}
-              />
-            </LogoLinkStyled>
-            {brand.powered_by_kiwi && (
-              <PoweredByKiwi>
-                Powered by <br /> Kiwi.com
-              </PoweredByKiwi>
-            )}
-          </>
-        )}
-      </>
-    )}
+    {({ id, home_redirect_url, name, powered_by_kiwi }) =>
+      id === "kiwicom" ? (
+        <Link href={home_redirect_url}>
+          <SvgLogo height={logo.height} width={logo.width} title={name} />
+        </Link>
+      ) : (
+        <>
+          <LogoLinkStyled href={home_redirect_url}>
+            <LogoStyled
+              title={name}
+              alt={name}
+              srcSet={`${logoBaseUrl}/0x80/${id}.png?v=1 2x`}
+              src={`${logoBaseUrl}/0x40/${id}.png?v=1`}
+            />
+            <LogoStyledMobile
+              title={name}
+              alt={name}
+              srcSet={`${logoBaseUrl}/0x80/${id}-mobile.png?v=1 2x`}
+              src={`${logoBaseUrl}/0x40/${id}-mobile.png?v=1`}
+            />
+          </LogoLinkStyled>
+          {powered_by_kiwi && (
+            <PoweredByKiwi>
+              Powered by <br /> Kiwi.com
+            </PoweredByKiwi>
+          )}
+        </>
+      )
+    }
   </BrandConsumer>
 );
 
