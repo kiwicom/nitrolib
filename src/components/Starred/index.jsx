@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import StarIcon from "@kiwicom/orbit-components/lib/icons/StarFull";
 
@@ -10,14 +10,18 @@ import Desktop from "../Desktop";
 import Mobile from "../Mobile";
 import TripContainer from "../TripsContainer";
 
-const Starred = () => (
+type Props = {|
+  children: React.Node,
+|};
+
+const Starred = ({ children }: Props) => (
   <Toggle>
-    {({ open, onToggle, active }) => (
+    {({ open, onToggle }) => (
       <>
         {open && (
           <ClickOutside onClickOutside={onToggle}>
-            <TripContainer padding header={<Text t={__("starred.starred_flight")} />}>
-              <Text t={__("starred.no_flights")} />
+            <TripContainer padding header={<Text t={__("starred.starred_flights")} />}>
+              {children}
             </TripContainer>
           </ClickOutside>
         )}
@@ -26,7 +30,7 @@ const Starred = () => (
         </Desktop>
         <Mobile>
           <Button onClick={onToggle}>
-            <StarIcon color={active ? "secondary" : "primary"} />
+            <StarIcon color="primary" />
           </Button>
         </Mobile>
       </>

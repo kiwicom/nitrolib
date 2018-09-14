@@ -16,6 +16,7 @@ import Help from "./components/Help";
 import Menu from "./components/Menu";
 import Logo from "./components/Logo";
 import Currency from "../Currency";
+import Starred from "../Starred";
 import MenuSpacings from "./primitives/MenuSpacings";
 
 const Container = styled(Flex)`
@@ -65,7 +66,7 @@ const NavBar = ({
   chat,
   subscription,
   debug,
-  onSaveLanguage
+  onSaveLanguage,
 }: Props) => (
   <Container x="space-between" y="center">
     <Flex y="center" x="flex-start">
@@ -89,7 +90,11 @@ const NavBar = ({
             <Help faq={faq} />
           </MenuSpacings>
         </Desktop>
-        {starred && <MenuSpacings>{starred}</MenuSpacings>}
+        {starred && (
+          <MenuSpacings>
+            <Starred>{starred}</Starred>
+          </MenuSpacings>
+        )}
         <Menu
           chat={chat}
           subscription={subscription}

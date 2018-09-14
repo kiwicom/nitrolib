@@ -4,7 +4,6 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import SmartFAQ from "@kiwicom/smart-faq";
 
-import Starred from "../src/components/Starred";
 import NavBar from "../src/components/NavBar";
 import HeaderLinks from "../src/components/HeaderLinks";
 import withData from "./decorators/withData";
@@ -25,7 +24,7 @@ storiesOf("NavBar", module)
       chat={<h1>Chat</h1>}
       subscription={<h1>Subscription</h1>}
       debug={<h1>Debug</h1>}
-      starred={<Starred />}
+      starred={<h1>Starred</h1>}
       onSaveLanguage={action("Save language")}
     />
   ));
