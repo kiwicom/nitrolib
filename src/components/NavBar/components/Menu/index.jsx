@@ -1,10 +1,11 @@
 // @flow strict
 import * as React from "react";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
+import Modal from "@kiwicom/orbit-components/lib/Modal";
+import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
-import Modal from "../../../Modal";
 import Text from "../../../Text";
 import * as authContext from "../../../../services/auth/context";
 import { Consumer as BrandConsumer } from "../../../../services/brand/context";
@@ -89,21 +90,23 @@ export default class Menu extends React.PureComponent<Props, State> {
         />
 
         {modalOpen !== "" && (
-          <Modal onClose={this.handleClose}>
-            {modalOpen === "forgotPassword" ? (
-              <BrandConsumer>
-                {brand => <ForgotPassword brandId={brand.id} onClose={this.handleClose} />}
-              </BrandConsumer>
-            ) : (
-              <Login
-                open={modalOpen}
-                onCloseSuccess={this.handleClose}
-                onOpenMyBooking={this.handleOpenMyBooking}
-                onOpenRegister={this.handleOpenRegister}
-                onOpenSignIn={this.handleOpenSignIn}
-                onOpenForgotPassword={this.handleOpenForgotPassword}
-              />
-            )}
+          <Modal onClose={this.handleClose} size="small">
+            <ModalSection>
+              {modalOpen === "forgotPassword" ? (
+                <BrandConsumer>
+                  {brand => <ForgotPassword brandId={brand.id} onClose={this.handleClose} />}
+                </BrandConsumer>
+              ) : (
+                <Login
+                  open={modalOpen}
+                  onCloseSuccess={this.handleClose}
+                  onOpenMyBooking={this.handleOpenMyBooking}
+                  onOpenRegister={this.handleOpenRegister}
+                  onOpenSignIn={this.handleOpenSignIn}
+                  onOpenForgotPassword={this.handleOpenForgotPassword}
+                />
+              )}
+            </ModalSection>
           </Modal>
         )}
       </>

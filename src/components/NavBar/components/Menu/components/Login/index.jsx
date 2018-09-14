@@ -15,7 +15,6 @@ import Register from "../Register";
 import SignIn from "../SignIn";
 
 const Container = styled.div`
-  width: 400px;
   padding: ${padding.page}px;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
 `;

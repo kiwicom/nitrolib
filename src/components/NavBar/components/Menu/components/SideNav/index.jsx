@@ -3,9 +3,10 @@ import * as React from "react";
 import styled from "styled-components";
 import MenuHamburger from "@kiwicom/orbit-components/lib/icons/MenuHamburger";
 import FaAngleRight from "react-icons/lib/fa/angle-right";
+import Modal from "@kiwicom/orbit-components/lib/Modal";
+import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
 import ClientOnly from "../../../../../ClientOnly";
-import Modal from "../../../../../Modal";
 import Mobile from "../../../../../Mobile";
 import Text from "../../../../../Text";
 import Language from "../../../../../Language";
@@ -419,13 +420,23 @@ export default class SideNav extends React.Component<Props, State> {
         </ClientOnly>
 
         {/* MODALS */}
-        {modalOpen === "chat" && <Modal onClose={this.handleCloseModal}>{chat}</Modal>}
-
-        {modalOpen === "subscription" && (
-          <Modal onClose={this.handleCloseModal}>{subscription}</Modal>
+        {modalOpen === "chat" && (
+          <Modal onClose={this.handleCloseModal}>
+            <ModalSection>{chat}</ModalSection>
+          </Modal>
         )}
 
-        {modalOpen === "debug" && <Modal onClose={this.handleCloseModal}>{debug}</Modal>}
+        {modalOpen === "subscription" && (
+          <Modal onClose={this.handleCloseModal}>
+            <ModalSection>{subscription}</ModalSection>
+          </Modal>
+        )}
+
+        {modalOpen === "debug" && (
+          <Modal onClose={this.handleCloseModal}>
+            <ModalSection>{debug}</ModalSection>
+          </Modal>
+        )}
       </>
     );
   };
