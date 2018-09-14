@@ -8,11 +8,7 @@ import ClickOutside from "../../../ClickOutside";
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
 import Text from "../../../Text";
-<<<<<<< HEAD
 import type { Auth } from "../../../../records/Auth";
-=======
-import { themeDefault } from "../../../../records/Theme";
->>>>>>> f801dd2... Nitrolib: added orbit tokens
 import type { ThemeProps } from "../../../../records/Theme";
 import Toggle from "../../../Toggle";
 import TripDataList from "./components/TripDataList";
@@ -34,15 +30,7 @@ const UserStyle = styled.div`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
 `;
 
-<<<<<<< HEAD
 const Trips = ({ auth }: Props) => (
-=======
-UserStyle.defaultProps = {
-  theme: themeDefault,
-};
-
-const Trips = ({ user }: Props) => (
->>>>>>> f801dd2... Nitrolib: added orbit tokens
   <Toggle>
     {({ open, onToggle }) => (
       <>

@@ -60,7 +60,7 @@ describe("#Currency/Menu", () => {
         current={current}
         available={available}
         recommended={recommended}
-        onSetCurrency={jest.fn()}
+        onChange={jest.fn()}
       />,
     );
 
@@ -69,7 +69,7 @@ describe("#Currency/Menu", () => {
 
   test("render - no recommended", () => {
     const wrapper = shallow(
-      <Menu current={current} available={available} recommended={[]} onSetCurrency={jest.fn()} />,
+      <Menu current={current} available={available} recommended={[]} onChange={jest.fn()} />,
     );
 
     expect(wrapper).toMatchSnapshot();

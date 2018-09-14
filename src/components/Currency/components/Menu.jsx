@@ -3,18 +3,18 @@ import * as React from "react";
 import * as R from "ramda";
 import styled, { css } from "styled-components";
 
-import type { Currency } from "../../../../records/Currency";
-import mq from "../../../../styles/mediaQuery";
-import * as rtl from "../../../../styles/rtl";
-import { themeDefault } from "../../../../records/Theme";
-import type { ThemeProps } from "../../../../records/Theme";
+import type { Currency } from "../../../records/Currency";
+import mq from "../../../styles/mediaQuery";
+import * as rtl from "../../../styles/rtl";
+import { themeDefault } from "../../../records/Theme";
+import type { ThemeProps } from "../../../records/Theme";
 import CurrencyList from "./CurrencyList";
 
 type Props = {|
   current: Currency,
   available: Currency[],
   recommended: Currency[],
-  onSetCurrency: (code: string) => void,
+  onChange: (code: string) => void,
 |};
 
 const Container = styled.div`
@@ -77,14 +77,14 @@ Recommended.defaultProps = {
   theme: themeDefault,
 };
 
-const Menu = ({ current, available, recommended, onSetCurrency }: Props) => (
+const Menu = ({ current, available, recommended, onChange }: Props) => (
   <Container>
     {!R.isEmpty(recommended) && (
       <Recommended>
-        <CurrencyList list={recommended} active={current} onSetCurrency={onSetCurrency} />
+        <CurrencyList list={recommended} active={current} onSetCurrency={onChange} />
       </Recommended>
     )}
-    <CurrencyList list={available} active={current} onSetCurrency={onSetCurrency} />
+    <CurrencyList list={available} active={current} onSetCurrency={onChange} />
   </Container>
 );
 

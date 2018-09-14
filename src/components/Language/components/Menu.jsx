@@ -2,37 +2,48 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
-import { themeDefault } from "../../../../records/Theme";
-import type { ThemeProps } from "../../../../records/Theme";
-import { getByContinent } from "../../../../records/Languages";
-import type { Language } from "../../../../records/Languages";
-import mq from "../../../../styles/mediaQuery";
-import * as rtl from "../../../../styles/rtl";
-import Flex from "../../../../primitives/Flex";
-import Text from "../../../Text";
-import { getLanguageWrapperHeight, getLanguageWrapperWidth } from "../../services/menu";
+import { themeDefault } from "../../../records/Theme";
+import type { ThemeProps } from "../../../records/Theme";
+import { getByContinent } from "../../../records/Languages";
+import type { Language } from "../../../records/Languages";
+import mq from "../../../styles/mediaQuery";
+import * as rtl from "../../../styles/rtl";
+import Flex from "../../../primitives/Flex";
+import Text from "../../Text";
+import { getLanguageWrapperHeight, getLanguageWrapperWidth } from "../services/menu";
 import LanguageName from "./LanguageName";
 import ContinentName from "./ContinentName";
 
 type FlatProps = {|
   flat: boolean,
+  positionMenuTablet: string | number,
+  positionMenuDesktop: string | number,
 |};
 
 const MenuWrapper = styled.div`
   background-color: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
-  position: relative;
+  position: absolute;
+  top: 50px;
   display: flex;
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
   ${({ flat }: FlatProps) =>
     !flat &&
     mq.gtTablet(css`
-      margin-${rtl.right}: -280px;
+      ${({ positionMenuDesktop }: FlatProps) =>
+        positionMenuDesktop &&
+        css`
+          ${rtl.right}: ${positionMenuDesktop}px;
+        `};
     `)};
   ${({ flat }: FlatProps) =>
     !flat &&
     mq.gtDesktop(css`
-      margin-${rtl.right}: -100px;
+      ${({ positionMenuTablet }: FlatProps) =>
+        positionMenuTablet &&
+        css`
+          ${rtl.right}: ${positionMenuTablet}px;
+        `};
     `)};
 `;
 
@@ -135,8 +146,10 @@ LanguageItem.defaultProps = {
 type Props = {|
   languages: Language[],
   continents: string[],
-  onChange: (lang: string) => void,
   flat: boolean,
+  onChange?: (input: string) => void,
+  positionMenuDesktop: string | number,
+  positionMenuTablet: string | number,
 |};
 
 type State = {|
@@ -154,18 +167,21 @@ export default class Menu extends React.Component<Props, State> {
 
   handleChange = (lang: string) => {
     const { onChange } = this.props;
-
-    onChange(lang);
+    return onChange ? onChange(lang) : "eur";
   };
 
   render() {
     const { continent } = this.state;
-    const { flat, languages, continents } = this.props;
+    const { flat, languages, continents, positionMenuDesktop, positionMenuTablet } = this.props;
 
     const filteredLanguages = continent === "" ? languages : getByContinent(languages, continent);
 
     return (
-      <MenuWrapper flat={flat}>
+      <MenuWrapper
+        flat={flat}
+        positionMenuDesktop={positionMenuDesktop}
+        positionMenuTablet={positionMenuTablet}
+      >
         {!flat && (
           <ContinentList>
             <ContinentItem onClick={() => this.handleContinent("")}>
