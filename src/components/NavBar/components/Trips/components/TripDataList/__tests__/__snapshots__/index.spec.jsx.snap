@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#TripDataList render 1`] = `
-<Menu>
+<TripContainer>
   <TripDataList__StateContainer>
     <Text
       html={false}
@@ -9,5 +9,5 @@ exports[`#TripDataList render 1`] = `
       values={Object {}}
     />
   </TripDataList__StateContainer>
-</Menu>
+</TripContainer>
 `;

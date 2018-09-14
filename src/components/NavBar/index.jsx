@@ -16,6 +16,7 @@ import Help from "./components/Help";
 import Menu from "./components/Menu";
 import Logo from "./components/Logo";
 import Currency from "../Currency";
+import Starred from "../Starred";
 import MenuSpacings from "./primitives/MenuSpacings";
 
 const Container = styled(Flex)`
@@ -50,6 +51,7 @@ Wrapper.defaultProps = {
 
 type Props = {|
   headerLinks: React.Node,
+  starred: React.Node,
   faq: React.Node,
   chat: React.Node,
   subscription: React.Node,
@@ -57,7 +59,15 @@ type Props = {|
   onSaveLanguage: (lang: string) => void,
 |};
 
-const NavBar = ({ headerLinks, faq, chat, subscription, debug, onSaveLanguage }: Props) => (
+const NavBar = ({
+  headerLinks,
+  starred,
+  faq,
+  chat,
+  subscription,
+  debug,
+  onSaveLanguage,
+}: Props) => (
   <Container x="space-between" y="center">
     <Flex y="center" x="flex-start">
       <Logo />
@@ -80,6 +90,11 @@ const NavBar = ({ headerLinks, faq, chat, subscription, debug, onSaveLanguage }:
             <Help faq={faq} />
           </MenuSpacings>
         </Desktop>
+        {starred && (
+          <MenuSpacings>
+            <Starred>{starred}</Starred>
+          </MenuSpacings>
+        )}
         <Menu
           chat={chat}
           subscription={subscription}

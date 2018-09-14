@@ -7,9 +7,9 @@ import styled from "styled-components";
 import environment from "../../../../../../services/environment";
 import * as intlContext from "../../../../../../services/intl/context";
 import Text from "../../../../../Text";
-import Menu from "../Menu";
 import TripHeader from "../TripHeader";
 import TripList from "../TripList";
+import TripContainer from "../../../../../TripsContainer";
 
 type Props = {|
   token: string,
@@ -36,44 +36,43 @@ const TripDataList = ({ env, token }: Props) => (
     render={res => {
       if (res.error) {
         return (
-          <Menu>
+          <TripContainer>
             <StateContainer>
               <Alert type="critical">{String(res.error)}</Alert>
             </StateContainer>
-          </Menu>
+          </TripContainer>
         );
       }
 
       if (!res.props) {
         return (
-          <Menu>
+          <TripContainer>
             <StateContainer>
               <Text t={__("common.loading")} />
             </StateContainer>
-          </Menu>
+          </TripContainer>
         );
       }
 
       const { customerBookings } = res.props;
       if (!customerBookings) {
         return (
-          <Menu>
+          <TripContainer>
             <StateContainer>
               <Alert>
                 <Text t={__("account.no_trips")} />
               </Alert>
             </StateContainer>
-          </Menu>
+          </TripContainer>
         );
       }
 
       return (
-        <Menu>
-          <TripHeader trips={customerBookings} />
+        <TripContainer header={<TripHeader trips={customerBookings} />}>
           <intlContext.Consumer>
             {intl => <TripList list={customerBookings} lang={intl.language.id} />}
           </intlContext.Consumer>
-        </Menu>
+        </TripContainer>
       );
     }}
   />
