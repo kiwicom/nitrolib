@@ -442,6 +442,7 @@ exports[`#Currency/Menu render - no recommended 1`] = `
         },
       ]
     }
+    onSetCurrency={[MockFunction]}
   />
 </Menu__Container>
 `;
@@ -1262,6 +1263,7 @@ exports[`#Currency/Menu render 1`] = `
           },
         ]
       }
+      onSetCurrency={[MockFunction]}
     />
   </Menu__Recommended>
   <CurrencyList
@@ -1321,6 +1323,7 @@ exports[`#Currency/Menu render 1`] = `
         },
       ]
     }
+    onSetCurrency={[MockFunction]}
   />
 </Menu__Container>
 `;

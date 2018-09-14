@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import styled from "styled-components";
 
@@ -24,31 +24,33 @@ OpenButton.defaultProps = {
   theme: themeDefault,
 };
 
+type Arg = {|
+  onChange: (input: string) => void,
+|};
+
 type Props = {|
   openButton: React.Node | React.Node[],
-  children: React.Element<any>,
+  children: (arg: Arg) => React.Node,
   onChange: (input: string) => void,
 |};
 
 const CustomPicker = ({ openButton, children, onChange }: Props) => (
   <Toggle>
-    {({ open, onToggle }) => {
-      const onChangewithToggle = input => {
-        onChange(input);
-        onToggle();
-      };
-
-      return (
-        <>
-          <OpenButton onClick={onToggle}>{openButton}</OpenButton>
-          {open && (
-            <ClickOutside onClickOutside={onToggle}>
-              {React.cloneElement(children, { onChange: input => onChangewithToggle(input) })}
-            </ClickOutside>
-          )}
-        </>
-      );
-    }}
+    {({ open, onToggle }) => (
+      <>
+        <OpenButton onClick={onToggle}>{openButton}</OpenButton>
+        {open && (
+          <ClickOutside onClickOutside={onToggle}>
+            {children({
+              onChange: (input: string) => {
+                onChange(input);
+                onToggle();
+              },
+            })}
+          </ClickOutside>
+        )}
+      </>
+    )}
   </Toggle>
 );
 

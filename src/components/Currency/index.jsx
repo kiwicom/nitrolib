@@ -31,12 +31,14 @@ const Currency = ({ native, loading }: Props) => (
         />
       ) : (
         <CustomPicker onChange={onChange} openButton={<Current current={currency} />}>
-          <Menu
-            onChange={onChange}
-            current={currency}
-            available={availableList}
-            recommended={recommended}
-          />
+          {render => (
+            <Menu
+              onChange={render.onChange}
+              current={currency}
+              available={availableList}
+              recommended={recommended}
+            />
+          )}
         </CustomPicker>
       );
     }}

@@ -147,7 +147,7 @@ type Props = {|
   languages: Language[],
   continents: string[],
   flat: boolean,
-  onChange?: (input: string) => void,
+  onChange: (input: string) => void,
   positionMenuDesktop: string | number,
   positionMenuTablet: string | number,
 |};

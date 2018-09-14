@@ -10,13 +10,6 @@ import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
 import CurrencyList from "./CurrencyList";
 
-type Props = {|
-  current: Currency,
-  available: Currency[],
-  recommended: Currency[],
-  onChange: (code: string) => void,
-|};
-
 const Container = styled.div`
   position: absolute;
   ${rtl.right}: 0;
@@ -76,6 +69,13 @@ const Recommended = styled.div`
 Recommended.defaultProps = {
   theme: themeDefault,
 };
+
+type Props = {|
+  current: Currency,
+  available: Currency[],
+  recommended: Currency[],
+  onChange: (code: string) => void,
+|};
 
 const Menu = ({ current, available, recommended, onChange }: Props) => (
   <Container>
