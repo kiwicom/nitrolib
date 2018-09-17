@@ -10,13 +10,6 @@ import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
 import CurrencyList from "./CurrencyList";
 
-type Props = {|
-  current: Currency,
-  available: Currency[],
-  recommended: Currency[],
-  onChange: (code: string) => void,
-|};
-
 const Container = styled.div`
   position: absolute;
   ${rtl.right}: 0;
@@ -40,13 +33,13 @@ const Container = styled.div`
   `)}
 
   ${mq.tablet(css`
-    ${rtl.right}: 0;
+    ${rtl.right}: ${({ positionMenuTablet }) => positionMenuTablet}px;
     ${rtl.left}: inherit;
   `)}
 
   ${mq.gtDesktop(css`
-    ${rtl.left}: -290px;
-    ${rtl.right}: inherit;
+    ${rtl.left}: inherit;
+    ${rtl.right}: ${({ positionMenuDesktop }) => positionMenuDesktop}px;
   `)}
 `;
 
@@ -77,8 +70,24 @@ Recommended.defaultProps = {
   theme: themeDefault,
 };
 
-const Menu = ({ current, available, recommended, onChange }: Props) => (
-  <Container>
+type Props = {|
+  current: Currency,
+  available: Currency[],
+  recommended: Currency[],
+  onChange: (code: string) => void,
+  positionMenuTablet?: string | number,
+  positionMenuDesktop?: string | number,
+|};
+
+const Menu = ({
+  current,
+  available,
+  recommended,
+  onChange,
+  positionMenuDesktop,
+  positionMenuTablet,
+}: Props) => (
+  <Container positionMenuDesktop={positionMenuDesktop} positionMenuTablet={positionMenuTablet}>
     {!R.isEmpty(recommended) && (
       <Recommended>
         <CurrencyList list={recommended} active={current} onSetCurrency={onChange} />

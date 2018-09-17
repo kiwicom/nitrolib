@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @flow strict
 /* eslint-disable flowtype/require-valid-file-annotation */
 const fs = require("fs-extra");
 const path = require("path");
@@ -8,7 +9,7 @@ const R = require("ramda");
 const collectKeys = require("./scripts/collectKeys");
 const fetchBrandConfig = require("./scripts/fetchBrandConfig");
 const fetchSpreadsheet = require("./scripts/fetchSpreadsheet");
-const fetchTranslations = require("./scripts/fetchTranslations");
+const getTranslations = require("./scripts/getTranslations");
 const mapLanguages = require("./scripts/mapLanguages");
 
 const command = process.argv[2];
@@ -21,6 +22,8 @@ function error(what) {
   console.log(`${chalk.bold.red(">")} ${what}`);
 }
 
+const resolve = glob => path.join(process.cwd(), glob);
+
 const commands = {
   keys: "keys",
   fetch: "fetch",
@@ -29,15 +32,19 @@ const commands = {
 log(chalk.bold.green("NITRO"));
 if (!commands[command]) {
   log("Available commands:");
-  log(`  ${chalk.underline("keys")} - collects translation keys`);
-  log(`  ${chalk.underline("fetch")} - fetches production data`);
+  log(`  ${chalk.underline.bold("keys")} [...globs]      - collects translation keys`);
+  log(`    ${chalk.underline("globs")} - where to collect keys from`);
+  log("");
+  log(`  ${chalk.underline.bold("fetch")} [translations] - fetches production data`);
+  log(`    ${chalk.underline("translations")} (optional) - path to translations`);
+  log("");
+  log("See CLI docs for details at https://github.com/kiwicom/nitrolib");
 }
 
-function keys() {
+function keys(globs) {
   const ours = JSON.parse(fs.readFileSync(path.join(__dirname, "../tkeys.json")));
 
-  const globs = process.argv.slice(3).map(glob => path.join(process.cwd(), glob));
-  const collected = collectKeys(globs);
+  const collected = collectKeys(globs.map(resolve));
 
   const data = R.merge(ours, collected);
   fs.outputJsonSync(path.join(process.cwd(), "data/tkeys.json"), data, {
@@ -51,9 +58,9 @@ function keys() {
   );
 }
 
-function fetch() {
+function fetch(folder) {
   Promise.all([fetchSpreadsheet(), fetchBrandConfig()])
-    .then(fetchTranslations)
+    .then(() => getTranslations(folder && resolve(folder)))
     .then(mapLanguages)
     .then(() => {
       log("DONE!");
@@ -65,9 +72,9 @@ function fetch() {
 }
 
 if (command === commands.keys) {
-  keys();
+  keys(process.argv.slice(3));
 }
 
 if (command === commands.fetch) {
-  fetch();
+  fetch(process.argv[3]);
 }

@@ -30,19 +30,15 @@ Contains all necessary information regarding **i18n**:
 **Provider** props:
 ```js
 type Props = {|
-  language: LangInfo, // see records/LangInfo.js
-  translations: { [key: string]: string },
+  value: Intl, // see records/Intl.js
 |};
 ```
 
-**Consumer** render function props:
-```js
-type RenderPropArg = {|
-  language: LangInfo, // see records/LangInfo.js
-  translations: { [key: string]: string },
-  translate: Translate, // see services/intl/translate.js
-|};
-```
+#### InitIntl
+
+_TODO_
+
+#### Translate
 
 There's a pure function used for translating in `services/intl/translate.js` exported as default, with a bunch of types regarding translating.
 
@@ -74,8 +70,6 @@ type Props = {|
   value: Brand, // see records/Brand.js
 |};
 ```
-
-**Consumer** receives the brand as the render prop argument.
 
 ### Theme
 

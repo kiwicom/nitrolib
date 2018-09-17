@@ -3,17 +3,18 @@ import * as React from "react";
 import styled from "styled-components";
 import MenuHamburger from "@kiwicom/orbit-components/lib/icons/MenuHamburger";
 import FaAngleRight from "react-icons/lib/fa/angle-right";
+import Modal from "@kiwicom/orbit-components/lib/Modal";
+import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
 import ClientOnly from "../../../../../ClientOnly";
-import Modal from "../../../../../Modal";
 import Mobile from "../../../../../Mobile";
 import Text from "../../../../../Text";
 import Language from "../../../../../Language";
-import * as brandContext from "../../../../../../services/brand/context";
+import { Consumer as BrandConsumer } from "../../../../../../services/brand/context";
+import { Consumer as AuthConsumer } from "../../../../../../services/auth/context";
 import type { ThemeProps } from "../../../../../../records/Theme";
 import { themeDefault } from "../../../../../../records/Theme";
 import * as rtl from "../../../../../../styles/rtl";
-import { Consumer as AuthConsumer } from "../../../../../../services/auth/context";
 import Currency from "../../../../../Currency";
 import SideBar from "../../../SideBar";
 import MenuGroup from "./MenuGroup";
@@ -250,7 +251,7 @@ export default class SideNav extends React.Component<Props, State> {
 
                 <Separator />
 
-                <brandContext.Consumer>
+                <BrandConsumer>
                   {brand => {
                     const company = getPagesItems(brand); // TODO move to provider
                     const socialMedia = getSocialMediaItems(brand); // TODO move to provider
@@ -412,20 +413,30 @@ export default class SideNav extends React.Component<Props, State> {
                       </>
                     );
                   }}
-                </brandContext.Consumer>
+                </BrandConsumer>
               </Content>
             </SideBar>
           )}
         </ClientOnly>
 
         {/* MODALS */}
-        {modalOpen === "chat" && <Modal onClose={this.handleCloseModal}>{chat}</Modal>}
-
-        {modalOpen === "subscription" && (
-          <Modal onClose={this.handleCloseModal}>{subscription}</Modal>
+        {modalOpen === "chat" && (
+          <Modal onClose={this.handleCloseModal}>
+            <ModalSection>{chat}</ModalSection>
+          </Modal>
         )}
 
-        {modalOpen === "debug" && <Modal onClose={this.handleCloseModal}>{debug}</Modal>}
+        {modalOpen === "subscription" && (
+          <Modal onClose={this.handleCloseModal}>
+            <ModalSection>{subscription}</ModalSection>
+          </Modal>
+        )}
+
+        {modalOpen === "debug" && (
+          <Modal onClose={this.handleCloseModal}>
+            <ModalSection>{debug}</ModalSection>
+          </Modal>
+        )}
       </>
     );
   };

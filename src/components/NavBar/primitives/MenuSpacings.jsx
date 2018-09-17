@@ -7,11 +7,13 @@ import { themeDefault } from "../../../records/Theme";
 
 const MenuSpacings = styled.div`
   margin-${rtl.right}: 20px;
-  position: relative;
   cursor: pointer;
   display: flex;
+  position: relative;
+
   ${mq.ltTablet(css`
     margin-${rtl.right}: 5px;
+    position: inherit;
   `)};
 `;
 

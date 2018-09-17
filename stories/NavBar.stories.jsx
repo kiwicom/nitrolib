@@ -24,6 +24,7 @@ storiesOf("NavBar", module)
       chat={<h1>Chat</h1>}
       subscription={<h1>Subscription</h1>}
       debug={<h1>Debug</h1>}
+      starred={<h1>Starred</h1>}
       onSaveLanguage={action("Save language")}
     />
   ));

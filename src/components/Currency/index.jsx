@@ -11,11 +11,13 @@ import Menu from "./components/Menu";
 type Props = {|
   native: boolean,
   loading: React.Node,
+  positionMenuTablet?: string | number,
+  positionMenuDesktop?: string | number,
 |};
 
-const Currency = ({ native, loading }: Props) => (
+const Currency = ({ native, loading, positionMenuDesktop, positionMenuTablet }: Props) => (
   <currencyContext.Consumer>
-    {({ currency, available, recommended, setCurrency }) => {
+    {({ currency, available, recommended, onChange }) => {
       if (!currency) {
         return loading;
       }
@@ -27,16 +29,20 @@ const Currency = ({ native, loading }: Props) => (
           current={currency}
           available={availableList}
           recommended={recommended}
-          onChange={setCurrency}
+          onChange={onChange}
         />
       ) : (
-        <CustomPicker onChange={setCurrency} openButton={<Current current={currency} />}>
-          <Menu
-            onChange={setCurrency}
-            current={currency}
-            available={availableList}
-            recommended={recommended}
-          />
+        <CustomPicker onChange={onChange} openButton={<Current current={currency} />}>
+          {render => (
+            <Menu
+              onChange={render.onChange}
+              current={currency}
+              available={availableList}
+              recommended={recommended}
+              positionMenuDesktop={positionMenuDesktop}
+              positionMenuTablet={positionMenuTablet}
+            />
+          )}
         </CustomPicker>
       );
     }}

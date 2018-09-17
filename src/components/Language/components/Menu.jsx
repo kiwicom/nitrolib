@@ -29,7 +29,7 @@ const MenuWrapper = styled.div`
   box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
   ${({ flat }: FlatProps) =>
     !flat &&
-    mq.gtTablet(css`
+    mq.gtDesktop(css`
       ${({ positionMenuDesktop }: FlatProps) =>
         positionMenuDesktop &&
         css`
@@ -38,7 +38,7 @@ const MenuWrapper = styled.div`
     `)};
   ${({ flat }: FlatProps) =>
     !flat &&
-    mq.gtDesktop(css`
+    mq.tablet(css`
       ${({ positionMenuTablet }: FlatProps) =>
         positionMenuTablet &&
         css`
@@ -147,7 +147,7 @@ type Props = {|
   languages: Language[],
   continents: string[],
   flat: boolean,
-  onChange?: (input: string) => void,
+  onChange: (input: string) => void,
   positionMenuDesktop: string | number,
   positionMenuTablet: string | number,
 |};

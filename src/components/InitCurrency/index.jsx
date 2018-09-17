@@ -3,7 +3,8 @@
 import * as React from "react";
 import idx from "idx";
 
-import { currencyDefault, MOST_USED_CURRENCIES } from "../../records/Currency";
+import { MOST_USED_CURRENCIES } from "../../records/Currency";
+import type { Brand } from "../../records/Brand";
 import type { Currency, Currencies } from "../../records/Currency";
 import type { Countries } from "../../records/Country";
 import filterCurrencies from "./services/filterCurrencies";
@@ -13,48 +14,41 @@ import getCurrenciesCall from "./services/getCurrencies";
 import getCandidate from "./services/getCandidate";
 import getRecommended from "./services/getRecommended";
 
+type Arg = {|
+  currency: Currency,
+  loading: boolean,
+  available: Currencies,
+  recommended: Currency[],
+  onChange: (code: string) => void,
+|};
+
 type Props = {|
-  whitelist: string[],
+  brand: Brand,
   countries: Countries,
   affiliate: string,
   ip: string,
   initialCurrency: string,
   langCurrency: string,
   mostUsed: string[],
-  children: React.Node,
-  onChange: string => void,
+  children: (arg: Arg) => React.Node,
+  onChange: (currency: string) => void,
   // DI
   getCurrencies: typeof getCurrenciesCall,
   getGeoCountry: typeof getGeoCountryCall,
 |};
 
 type State = {|
-  currency: ?Currency,
+  currency: Currency | null,
+  loading: boolean,
   all: Currencies,
   available: Currencies,
   recommended: Currency[],
   country: string,
 |};
 
-type Context = {|
-  currency: Currency,
-  available: Currencies,
-  recommended: Currency[],
-  setCurrency: (code: string) => void,
-|};
-
-const { Consumer, Provider } = React.createContext(
-  ({
-    currency: currencyDefault,
-    available: { eur: currencyDefault },
-    recommended: [],
-    setCurrency: () => {},
-  }: Context),
-);
-
 // FIXME try to rewrite to Relay
 // would require too much 'Currencies' type refactoring, so not done immediately
-export class CurrencyProvider extends React.PureComponent<Props, State> {
+export default class CurrencyProvider extends React.PureComponent<Props, State> {
   static defaultProps = {
     mostUsed: MOST_USED_CURRENCIES,
     getCurrencies: getCurrenciesCall,
@@ -63,6 +57,7 @@ export class CurrencyProvider extends React.PureComponent<Props, State> {
 
   state = {
     currency: null,
+    loading: false,
     all: {},
     available: {},
     recommended: [],
@@ -97,7 +92,11 @@ export class CurrencyProvider extends React.PureComponent<Props, State> {
       lang: languageCurrency,
     });
 
-    const available = filterCurrencies(props.affiliate, props.whitelist, state.all);
+    const available = filterCurrencies(
+      props.affiliate,
+      props.brand.payments.whitelisted_currencies,
+      state.all,
+    );
 
     const recommended = getRecommended(
       countryCurrency,
@@ -113,7 +112,7 @@ export class CurrencyProvider extends React.PureComponent<Props, State> {
     };
   }
 
-  setCurrency = (code: string) => {
+  handleChange = (code: string) => {
     const { available } = this.state;
     const { onChange } = this.props;
 
@@ -127,32 +126,27 @@ export class CurrencyProvider extends React.PureComponent<Props, State> {
   async loadData() {
     const { getCurrencies, getGeoCountry, ip } = this.props;
 
+    this.setState({ loading: true });
+
     const [all, country] = await Promise.all([getCurrencies(), getGeoCountry(ip)]);
 
-    this.setState({ all, country });
+    this.setState({ loading: false, all, country });
   }
 
   render() {
-    const { currency, available, recommended } = this.state;
+    const { currency, loading, available, recommended } = this.state;
     const { children } = this.props;
 
     if (!currency) {
       return children;
     }
 
-    return (
-      <Provider
-        value={{
-          currency,
-          available,
-          recommended,
-          setCurrency: this.setCurrency,
-        }}
-      >
-        {children}
-      </Provider>
-    );
+    return children({
+      currency,
+      loading,
+      available,
+      recommended,
+      onChange: this.handleChange,
+    });
   }
 }
-
-export { Consumer, CurrencyProvider as Provider };

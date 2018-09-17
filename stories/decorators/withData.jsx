@@ -9,6 +9,8 @@ import { Provider as BrandProvider } from "../../src/services/brand/context";
 import { Provider as IntlProvider } from "../../src/services/intl/context";
 import { Provider as FetchedProvider } from "../../src/services/fetched/context";
 import { Provider as CurrencyProvider } from "../../src/services/currency/context";
+import InitIntl from "../../src/components/InitIntl";
+import InitCurrency from "../../src/components/InitCurrency";
 import brandLanguages from "../fixtures/brandLanguages";
 import brands from "../fixtures/brands";
 import continents from "../fixtures/continents";
@@ -33,31 +35,52 @@ const withData = (storyFn: () => React.Node) => {
     html.setAttribute("dir", language.direction);
   }
 
+  const intlRaw = {
+    language,
+    translations: translations[language.phraseApp],
+  };
+
+  const fetched = {
+    countries,
+    continents,
+    brandLanguage: brandLanguages[brandId][localeId],
+  };
+
   return (
     <BrandProvider value={brand}>
       {/* $FlowExpected - ThemeProvider has bad typedefs */}
       <ThemeProvider theme={getBrandTheme(brand, language.direction === "rtl")}>
-        <IntlProvider language={language} translations={translations[language.phraseApp]}>
-          <FetchedProvider
-            value={{
-              countries,
-              continents,
-              brandLanguage: brandLanguages[brandId][localeId],
-            }}
-          >
-            <CurrencyProvider
-              whitelist={brand.payments.whitelisted_currencies}
-              countries={countries}
-              affiliate=""
-              ip="1.3.3.7"
-              initialCurrency="EUR"
-              langCurrency={language.currency}
-              onChange={action("Save currency")}
-            >
-              {storyFn()}
-            </CurrencyProvider>
-          </FetchedProvider>
-        </IntlProvider>
+        <InitIntl raw={intlRaw}>
+          {intl => (
+            <IntlProvider value={intl}>
+              <FetchedProvider value={fetched}>
+                <InitCurrency
+                  brand={brand}
+                  countries={countries}
+                  affiliate=""
+                  ip="1.3.3.7"
+                  initialCurrency="EUR"
+                  langCurrency={language.currency}
+                  onChange={action("Save currency")}
+                >
+                  {({ currency, loading, available, recommended, onChange }) => (
+                    <CurrencyProvider
+                      value={{
+                        currency,
+                        loading,
+                        available,
+                        recommended,
+                        onChange,
+                      }}
+                    >
+                      {storyFn()}
+                    </CurrencyProvider>
+                  )}
+                </InitCurrency>
+              </FetchedProvider>
+            </IntlProvider>
+          )}
+        </InitIntl>
       </ThemeProvider>
     </BrandProvider>
   );

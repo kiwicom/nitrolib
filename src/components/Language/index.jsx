@@ -39,13 +39,16 @@ const Language = ({ onChange, native, flat, positionMenuDesktop, positionMenuTab
               onChange={onChange}
               openButton={<LanguageName name={current.name} flag={current.flag} />}
             >
-              <Menu
-                languages={languages}
-                continents={fetched.brandLanguage.continents}
-                positionMenuDesktop={positionMenuDesktop || 0}
-                positionMenuTablet={positionMenuTablet || 0}
-                flat={flat}
-              />
+              {render => (
+                <Menu
+                  onChange={render.onChange}
+                  languages={languages}
+                  continents={fetched.brandLanguage.continents}
+                  positionMenuDesktop={positionMenuDesktop || 0}
+                  positionMenuTablet={positionMenuTablet || 0}
+                  flat={flat}
+                />
+              )}
             </CustomPicker>
           );
         }}

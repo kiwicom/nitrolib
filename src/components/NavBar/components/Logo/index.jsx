@@ -73,37 +73,35 @@ const logoBaseUrl = "https://images.kiwi.com/whitelabels";
 
 const Logo = () => (
   <BrandConsumer>
-    {brand => (
-      <>
-        {brand.id === "kiwicom" ? (
-          <Link href={brand.home_redirect_url}>
-            <SvgLogo height={logo.height} width={logo.width} title={brand.name} />
-          </Link>
-        ) : (
-          <>
-            <LogoLinkStyled href={brand.home_redirect_url}>
-              <LogoStyled
-                title={brand.name}
-                alt={brand.name}
-                srcSet={`${logoBaseUrl}/0x80/${brand.id}.png?v=1 2x`}
-                src={`${logoBaseUrl}/0x40/${brand.id}.png?v=1`}
-              />
-              <LogoStyledMobile
-                title={brand.name}
-                alt={brand.name}
-                srcSet={`${logoBaseUrl}/0x80/${brand.id}-mobile.png?v=1 2x`}
-                src={`${logoBaseUrl}/0x40/${brand.id}-mobile.png?v=1`}
-              />
-            </LogoLinkStyled>
-            {brand.powered_by_kiwi && (
-              <PoweredByKiwi>
-                Powered by <br /> Kiwi.com
-              </PoweredByKiwi>
-            )}
-          </>
-        )}
-      </>
-    )}
+    {({ id, home_redirect_url, name, powered_by_kiwi }) =>
+      id === "kiwicom" ? (
+        <Link href={home_redirect_url}>
+          <SvgLogo height={logo.height} width={logo.width} title={name} />
+        </Link>
+      ) : (
+        <>
+          <LogoLinkStyled href={home_redirect_url}>
+            <LogoStyled
+              title={name}
+              alt={name}
+              srcSet={`${logoBaseUrl}/0x80/${id}.png?v=1 2x`}
+              src={`${logoBaseUrl}/0x40/${id}.png?v=1`}
+            />
+            <LogoStyledMobile
+              title={name}
+              alt={name}
+              srcSet={`${logoBaseUrl}/0x80/${id}-mobile.png?v=1 2x`}
+              src={`${logoBaseUrl}/0x40/${id}-mobile.png?v=1`}
+            />
+          </LogoLinkStyled>
+          {powered_by_kiwi && (
+            <PoweredByKiwi>
+              Powered by <br /> Kiwi.com
+            </PoweredByKiwi>
+          )}
+        </>
+      )
+    }
   </BrandConsumer>
 );
 
