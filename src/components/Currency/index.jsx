@@ -11,8 +11,8 @@ import Menu from "./components/Menu";
 type Props = {|
   native: boolean,
   loading: React.Node,
-  positionMenuTablet?: string | number,
-  positionMenuDesktop?: string | number,
+  positionMenuTablet?: number,
+  positionMenuDesktop?: number,
 |};
 
 const Currency = ({ native, loading, positionMenuDesktop, positionMenuTablet }: Props) => (

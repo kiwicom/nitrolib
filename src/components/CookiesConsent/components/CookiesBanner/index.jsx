@@ -18,7 +18,7 @@ const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: ${rtl.box("10px 50px 10px 20px")};
-  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   line-height: 20px;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};

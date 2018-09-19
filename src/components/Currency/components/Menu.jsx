@@ -75,8 +75,8 @@ type Props = {|
   available: Currency[],
   recommended: Currency[],
   onChange: (code: string) => void,
-  positionMenuTablet?: string | number,
-  positionMenuDesktop?: string | number,
+  positionMenuTablet?: number,
+  positionMenuDesktop?: number,
 |};
 
 const Menu = ({

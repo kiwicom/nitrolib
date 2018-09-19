@@ -5,7 +5,6 @@ import * as R from "ramda";
 import * as intlContext from "../../services/intl/context";
 import * as fetchedContext from "../../services/fetched/context";
 import NativePicker from "./NativePicker";
-// import CustomPicker from "./components/CustomPicker";
 import CustomPicker from "../CustomPicker";
 import LanguageName from "./components/LanguageName";
 import Menu from "./components/Menu";
@@ -13,8 +12,8 @@ import Menu from "./components/Menu";
 type Props = {|
   onChange: (lang: string) => void,
   native: boolean,
-  positionMenuDesktop?: string | number,
-  positionMenuTablet?: string | number,
+  positionMenuDesktop?: number,
+  positionMenuTablet?: number,
   flat: boolean,
 |};
 

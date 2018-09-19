@@ -21,11 +21,10 @@ const Container = styled.section`
   visibility: ${({ shown }: ShownProps) => (shown ? "visible" : "hidden")};
   position: fixed;
   top: 0;
-  ${rtl.right}: ${({ showing }: ShownProps) => (showing ? "0" : "-480px")};
   bottom: 0;
+  ${rtl.right}: 0;
   ${rtl.left}: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: ${rtl.right} ${DURATION}ms ease-in-out;
 `;
 
 Container.defaultProps = {
@@ -33,15 +32,15 @@ Container.defaultProps = {
 };
 
 const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
-  ${rtl.right}: 0;
-  bottom: 0;
   width: 480px;
+  position: absolute;
+  ${rtl.right}: 0;
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   overflow-y: auto;
+  transform: translate3d(${({ shown }) => (shown ? `0, 0, 0` : `480px, 0, 0`)});
+  transition: transform ${DURATION}ms ease-in-out;
   box-shadow: 0 6px 16px rgba(46, 53, 59, 0.22), 0 1px 3px rgba(0, 0, 0, 0.09);
 
   ${mq.ltTablet(css`
@@ -97,7 +96,12 @@ export default class SideBar extends React.Component<Props> {
             role="button"
             tabIndex="0"
           >
-            <Wrapper>{children}</Wrapper>
+            <Wrapper
+              shown={status !== "exited"}
+              showing={status === "entering" || status === "entered"}
+            >
+              {children}
+            </Wrapper>
           </Container>
         )}
       </Transition>,

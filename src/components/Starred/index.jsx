@@ -12,8 +12,8 @@ import TripContainer from "../TripsContainer";
 
 type Props = {|
   children: React.Node,
-  positionMenuTablet?: string | number,
-  positionMenuDesktop?: string | number,
+  positionMenuTablet?: number,
+  positionMenuDesktop?: number,
 |};
 
 const Starred = ({ children, positionMenuTablet, positionMenuDesktop }: Props) => (

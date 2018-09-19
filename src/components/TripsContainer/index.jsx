@@ -10,8 +10,8 @@ type Props = {|
   children: React.Node,
   padding?: boolean,
   width?: string,
-  positionMenuTablet?: string | number,
-  positionMenuDesktop?: string | number,
+  positionMenuTablet?: number,
+  positionMenuDesktop?: number,
 |};
 
 const TripContainer = ({
@@ -27,7 +27,7 @@ const TripContainer = ({
     positionMenuDesktop={positionMenuDesktop}
     width={width}
   >
-    <Header>{header}</Header>
+    {header && <Header>{header}</Header>}
     <Content padding={padding}>{children}</Content>
   </Popup>
 );

@@ -8,8 +8,8 @@ import { themeDefault } from "../../../records/Theme";
 
 type Width = {|
   width: string,
-  positionMenuTablet: string | number,
-  positionMenuDesktop: string | number,
+  positionMenuTablet: number,
+  positionMenuDesktop: number,
 |};
 
 const Popup = styled.div`

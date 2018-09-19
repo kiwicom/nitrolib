@@ -16,8 +16,8 @@ import ContinentName from "./ContinentName";
 
 type FlatProps = {|
   flat: boolean,
-  positionMenuTablet: string | number,
-  positionMenuDesktop: string | number,
+  positionMenuTablet: number,
+  positionMenuDesktop: number,
 |};
 
 const MenuWrapper = styled.div`
@@ -29,18 +29,16 @@ const MenuWrapper = styled.div`
   box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
   ${({ flat }: FlatProps) =>
     !flat &&
-    mq.gtDesktop(css`
+    mq.gtTablet(css`
       ${({ positionMenuDesktop }: FlatProps) =>
-        positionMenuDesktop &&
         css`
           ${rtl.right}: ${positionMenuDesktop}px;
         `};
     `)};
   ${({ flat }: FlatProps) =>
     !flat &&
-    mq.tablet(css`
+    mq.gtDesktop(css`
       ${({ positionMenuTablet }: FlatProps) =>
-        positionMenuTablet &&
         css`
           ${rtl.right}: ${positionMenuTablet}px;
         `};
@@ -148,8 +146,8 @@ type Props = {|
   continents: string[],
   flat: boolean,
   onChange: (input: string) => void,
-  positionMenuDesktop: string | number,
-  positionMenuTablet: string | number,
+  positionMenuDesktop: number,
+  positionMenuTablet: number,
 |};
 
 type State = {|
