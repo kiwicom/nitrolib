@@ -25,27 +25,22 @@ type Props = {|
 |};
 
 const Links = ({ services, currency, language, adultsCount, childrenCount, aid }: Props) =>
-  services.items.map(item => {
-    const link = parseUrl(
-      ({
-        link: item.url,
-        currency,
-        language,
-        adultsCount,
-        childrenCount,
-        aid,
-      }: ParseUrl),
-    );
-
-    return (
-      <Link
-        logTab={item.id}
-        link={link}
-        // newWindow={forceNewWindow}
-        icon={<img src={item.image} alt="" />}
-        text={<Text t={item.translation} />}
-      />
-    );
-  });
+  services.items.map(item => (
+    <Link
+      logTab={item.id}
+      link={parseUrl(
+        ({
+          link: item.url,
+          currency,
+          language,
+          adultsCount,
+          childrenCount,
+          aid,
+        }: ParseUrl),
+      )}
+      icon={<img src={item.image} alt="" />}
+      text={<Text t={item.translation} />}
+    />
+  ));
 
 export default Links;
