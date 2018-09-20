@@ -1,6 +1,6 @@
 // @flow strict
-import React from "react";
-import AirplaneUp from "@kiwicom/orbit-components/lib/icons/AirplaneUp";
+import * as React from "react";
+import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
 
@@ -14,6 +14,7 @@ import Links from "./Links";
 import Desktop from "../Desktop";
 import Mobile from "../Mobile";
 import { Consumer as InvertedConsumer } from "../../services/inverted/context";
+import { getNavBarLinks } from "./services/api";
 
 const Margin = styled.div`
   ${mq.mobile(css`
@@ -21,63 +22,101 @@ const Margin = styled.div`
   `)};
 `;
 
-type Props = {|
-  linkFlights: string,
-  linkCars: string,
-  linkRooms: string,
-  linkHolidays: string,
-  forceNewWindow: boolean,
+// TODO: edit this
+type Services = any;
+
+type State = {|
+  services: ?Services,
 |};
 
-const HeaderLinks = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewWindow }: Props) => (
-  <InvertedConsumer>
-    {({ inverted }) => (
+type Props = {|
+  currency: string,
+  language: string,
+  adultsCount: number,
+  childrenCount: number,
+  aid: boolean,
+|};
+
+class HeaderLinks extends React.Component<Props, State> {
+  state = {
+    services: null,
+  };
+
+  static defaultProps = {
+    newWindow: false,
+    currency: "EUR",
+    language: "HR",
+    adultsCount: 1,
+    childrenCount: 0,
+    aid: true,
+  };
+
+  componentDidMount() {
+    this.getNavBarLinks();
+  }
+
+  getNavBarLinks = async () => {
+    try {
+      // Fetch services
+      const services: any = await getNavBarLinks();
+
+      // Update state
+      this.setState({ services });
+    } catch (e) {
+      // TODO: Track error
+    }
+  };
+
+  render() {
+    const { currency, language, adultsCount, childrenCount, aid } = this.props;
+    const { services } = this.state;
+
+    // Hide until response
+    if (!services) return null;
+
+    return (
       <>
         <Mobile display="flex">
           <Margin>
             <Toggle>
               {({ open, onToggle }) => (
-                <ClickOutside active={open} onClickOutside={onToggle}>
-                  <>
-                    {open && (
+                <>
+                  {open && (
+                    <ClickOutside onClickOutside={onToggle}>
                       <Popup>
                         <Links
-                          linkFlights={linkFlights}
-                          linkRooms={linkRooms}
-                          linkCars={linkCars}
-                          inverted={inverted}
-                          linkHolidays={linkHolidays}
-                          forceNewWindow={forceNewWindow}
+                          services={services}
+                          currency={currency}
+                          language={language}
+                          childrenCount={childrenCount}
+                          adultsCount={adultsCount}
+                          aid={aid}
                         />
                       </Popup>
-                    )}
-                    <IconWrapper act={open} onClick={onToggle} inverted={inverted}>
-                      <AirplaneUp />
-                      <ChevronDown size="small" />
-                    </IconWrapper>
-                  </>
-                </ClickOutside>
+                    </ClickOutside>
+                  )}
+                  <IconWrapper hover onClick={onToggle}>
+                    <Airplane />
+                    <ChevronDown size="small" />
+                  </IconWrapper>
+                </>
               )}
             </Toggle>
           </Margin>
         </Mobile>
         <Desktop display="flex">
           <Links
-            linkFlights={linkFlights}
-            linkRooms={linkRooms}
-            linkCars={linkCars}
-            inverted={inverted}
-            linkHolidays={linkHolidays}
-            forceNewWindow={forceNewWindow}
+            services={services}
+            currency={currency}
+            language={language}
+            childrenCount={childrenCount}
+            adultsCount={adultsCount}
+            aid={aid}
           />
         </Desktop>
       </>
-    )}
-  </InvertedConsumer>
-);
-
-HeaderLinks.defaultProps = {
-  forceNewWindow: false,
-};
+    );
+  }
+}
 
 export default HeaderLinks;
