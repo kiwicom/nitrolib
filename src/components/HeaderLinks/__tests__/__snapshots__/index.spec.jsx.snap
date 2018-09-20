@@ -1,22 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#Currency render 1`] = `
-<Fragment>
-  <HeaderLinks__LtDesktop>
-    <HeaderLinks__Margin>
-      <Toggle>
-        <Component />
-      </Toggle>
-    </HeaderLinks__Margin>
-  </HeaderLinks__LtDesktop>
-  <HeaderLinks__GtDesktop>
-    <Links
-      forceNewWindow={false}
-      linkCars="https://www.kiwi.com/en/?headerLink=linkCars"
-      linkFlights="https://www.kiwi.com/en/?headerLink=linkFlights"
-      linkHolidays="https://www.kiwi.com/en/?headerLink=linkHolidays"
-      linkRooms="https://www.kiwi.com/en/?headerLink=linkRooms"
-    />
-  </HeaderLinks__GtDesktop>
-</Fragment>
-`;
+exports[`#Currency render 1`] = `""`;

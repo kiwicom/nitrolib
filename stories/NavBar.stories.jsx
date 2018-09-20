@@ -12,14 +12,8 @@ storiesOf("NavBar", module)
   .addDecorator(withData, withKnobs)
   .add("default", () => (
     <NavBar
-      headerLinks={
-        <HeaderLinks
-          linkFlights="https://www.kiwi.com/en/?headerLink=linkFlights"
-          linkRooms="https://www.kiwi.com/en/?headerLink=linkRooms"
-          linkCars="https://www.kiwi.com/en/?headerLink=linkCars"
-          linkHolidays="https://www.kiwi.com/en/?headerLink=linkHolidays"
-        />
-      }
+      headerLinks={<HeaderLinks />}
+      faq={<SmartFAQ />}
       chat={<h1>Chat</h1>}
       subscription={<h1>Subscription</h1>}
       debug={<h1>Debug</h1>}
