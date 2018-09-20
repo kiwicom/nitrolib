@@ -118,16 +118,15 @@ class HeaderLinks extends React.Component<Props, State> {
                   {open && (
                     <ClickOutside onClickOutside={onToggle}>
                       <Popup>
-                        {services &&
-                          services.length > 0 && (
-                            <Links
-                              urlParam={urlParam}
-                              searchParams={searchParams}
-                              services={services}
-                              readyUrls={readyUrls}
-                              hiddenUrls={hiddenUrls}
-                            />
-                          )}
+                        {services && services.length > 0 && (
+                          <Links
+                            urlParam={urlParam}
+                            searchParams={searchParams}
+                            services={services}
+                            readyUrls={readyUrls}
+                            hiddenUrls={hiddenUrls}
+                          />
+                        )}
                       </Popup>
                     </ClickOutside>
                   )}
@@ -141,16 +140,15 @@ class HeaderLinks extends React.Component<Props, State> {
           </Margin>
         </Mobile>
         <Desktop display="flex">
-          {services &&
-            services.length > 0 && (
-              <Links
-                urlParam={urlParam}
-                searchParams={searchParams}
-                services={services}
-                readyUrls={readyUrls}
-                hiddenUrls={hiddenUrls}
-              />
-            )}
+          {services && services.length > 0 && (
+            <Links
+              urlParam={urlParam}
+              searchParams={searchParams}
+              services={services}
+              readyUrls={readyUrls}
+              hiddenUrls={hiddenUrls}
+            />
+          )}
         </Desktop>
       </>
     );
