@@ -34,7 +34,7 @@ storybook:
 test:
   stage: build
   script:
-    - yarn test
+    - yarn test --coverage
 
 lint:
   stage: build
