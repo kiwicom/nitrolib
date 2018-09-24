@@ -1577,10 +1577,9 @@ exports[`#SideNav render 1`] = `
               onChange={[MockFunction]}
             />
             <SideNav__CurrencySpacing>
-              <Currency
-                loading={null}
-                native={true}
-              />
+              <ContextConsumer>
+                <Component />
+              </ContextConsumer>
             </SideNav__CurrencySpacing>
             <SideNav__Separator
               theme={

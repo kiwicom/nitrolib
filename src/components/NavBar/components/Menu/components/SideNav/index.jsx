@@ -12,6 +12,7 @@ import Text from "../../../../../Text";
 import Language from "../../../../../Language";
 import { Consumer as BrandConsumer } from "../../../../../../services/brand/context";
 import { Consumer as AuthConsumer } from "../../../../../../services/auth/context";
+import { Consumer as LogConsumer } from "../../../../../../services/log/context";
 import type { ThemeProps } from "../../../../../../records/Theme";
 import { themeDefault } from "../../../../../../records/Theme";
 import * as rtl from "../../../../../../styles/rtl";
@@ -215,7 +216,7 @@ export default class SideNav extends React.Component<Props, State> {
                   <MenuGroup>
                     <Language onChange={onSaveLanguage} native />
                     <CurrencySpacing>
-                      <Currency native />
+                      <LogConsumer>{({ log }) => <Currency onLog={log} native />}</LogConsumer>
                     </CurrencySpacing>
                     <Separator />
                   </MenuGroup>

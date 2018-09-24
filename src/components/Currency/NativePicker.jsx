@@ -17,9 +17,10 @@ type Props = {|
   available: Currency[],
   recommended: Currency[],
   onChange: (code: string) => void,
+  onOpen: () => void,
 |};
 
-const NativePicker = ({ current, available, recommended, onChange }: Props) => (
+const NativePicker = ({ current, available, recommended, onChange, onOpen }: Props) => (
   <NativeGroupedSelect
     value={current.id}
     groups={[
@@ -29,6 +30,7 @@ const NativePicker = ({ current, available, recommended, onChange }: Props) => (
     ]}
     icon={<Exchange className="CurrencySwitcher-icon" size="small" />}
     onChange={onChange}
+    onOpen={onOpen}
   />
 );
 

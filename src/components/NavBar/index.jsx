@@ -11,7 +11,8 @@ import type { ThemeProps } from "../../records/Theme";
 import { themeDefault } from "../../records/Theme";
 import Flex from "../../primitives/Flex";
 import Language from "../Language";
-import * as brandContext from "../../services/brand/context";
+import { Consumer as BrandConsumer } from "../../services/brand/context";
+import { Consumer as LogConsumer } from "../../services/log/context";
 import Help from "./components/Help";
 import Menu from "./components/Menu";
 import Logo from "./components/Logo";
@@ -71,9 +72,7 @@ const NavBar = ({
   <Container x="space-between" y="center">
     <Flex y="center" x="flex-start">
       <Logo />
-      <brandContext.Consumer>
-        {brand => brand.id === "kiwicom" && headerLinks}
-      </brandContext.Consumer>
+      <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
     </Flex>
     <Flex y="center">
       <Wrapper>
@@ -87,7 +86,7 @@ const NavBar = ({
           </MenuSpacings>
           <ClientOnly>
             <MenuSpacings>
-              <Currency positionMenuDesktop={-200} positionMenuTablet={-287} />
+              <LogConsumer>{({ log }) => <Currency onLog={log} positionMenuDesktop={-200} positionMenuTablet={-287} />}</LogConsumer>
             </MenuSpacings>
           </ClientOnly>
           <MenuSpacings>

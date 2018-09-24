@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#ToggleLogger render 1`] = `
+<div
+  onToggle={[Function]}
+  open={false}
+>
+  LOL
+</div>
+`;
