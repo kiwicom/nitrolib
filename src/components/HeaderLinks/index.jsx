@@ -60,7 +60,6 @@ class HeaderLinks extends React.Component<Props, State> {
   };
 
   static defaultProps = {
-    newWindow: false,
     currency: "EUR",
     language: "HR",
     adultsCount: 1,

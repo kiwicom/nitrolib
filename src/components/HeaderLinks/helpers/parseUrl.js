@@ -10,14 +10,20 @@ export type ParseUrl = {|
   aid: boolean,
 |};
 
+export type ParseParameters = {|
+  link: string,
+  preparedLang: string,
+  preparedCurrency: string,
+  preparedAdultsCount: string,
+  preparedChildrenCount: string,
+  preparedAid: string,
+|};
+
 /*
   Some companies require different ISO format for language
   - format correct ISO format for given company
 */
-const parseLanguage = (language: string) => {
-  // TODO: Change this
-  const isoFormat = "case1";
-
+export const parseLanguage = (language: string, isoFormat: string) => {
   // Get correct language ISO format
   switch (isoFormat) {
     case "case1":
@@ -34,7 +40,7 @@ const parseLanguage = (language: string) => {
   - Wrap actual url & json encoded (tracking) object
     inside tracking template link
 */
-const trackingUrl = (url: string) => {
+export const trackingUrl = (url: string) => {
   // Tracking URL template
   const template = "https://red-tracking.com?url={url}&payload={json}";
 
@@ -50,6 +56,22 @@ const trackingUrl = (url: string) => {
   return template.replace(/{url}/, url).replace(/{json}/, jsonEncoded);
 };
 
+// Repace insert url parameters {lang} to "cro"
+export const parseParameters = ({
+  link,
+  preparedLang,
+  preparedCurrency,
+  preparedAdultsCount,
+  preparedChildrenCount,
+  preparedAid,
+}: ParseParameters) =>
+  link
+    .replace(/{lang}/g, preparedLang)
+    .replace(/{currency}/g, preparedCurrency)
+    .replace(/{adults}/g, preparedAdultsCount)
+    .replace(/{children}/g, preparedChildrenCount)
+    .replace(/{aid}/g, preparedAid);
+
 // Parse url
 export const parseUrl = ({
   link,
@@ -59,19 +81,15 @@ export const parseUrl = ({
   childrenCount,
   aid,
 }: ParseUrl) => {
-  // Prepare values
-  const preparedLang = parseLanguage(language);
-  const preparedAdultsCount = JSON.stringify(adultsCount);
-  const preparedChildrenCount = JSON.stringify(childrenCount);
-  const preparedAid = JSON.stringify(aid);
-
   // Replace variables with values
-  const url = link
-    .replace(/{lang}/g, preparedLang)
-    .replace(/{currency}/g, currency)
-    .replace(/{adults}/g, preparedAdultsCount)
-    .replace(/{children}/g, preparedChildrenCount)
-    .replace(/{aid}/g, preparedAid);
+  const url = parseParameters({
+    link,
+    preparedLang: parseLanguage(language, "case1"),
+    preparedCurrency: currency.toLowerCase(),
+    preparedAdultsCount: JSON.stringify(adultsCount),
+    preparedChildrenCount: JSON.stringify(childrenCount),
+    preparedAid: JSON.stringify(aid),
+  });
 
   // Generate tracking URL
   return trackingUrl(url);
