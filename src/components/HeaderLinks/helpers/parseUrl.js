@@ -111,6 +111,22 @@ export const generateSearchQuery = (params: Param[], searchParams: {}) => {
   return queryItems.join("&");
 };
 
+// Repace insert url parameters {lang} to "cro"
+export const parseParameters = ({
+  link,
+  preparedLang,
+  preparedCurrency,
+  preparedAdultsCount,
+  preparedChildrenCount,
+  preparedAid,
+}: ParseParameters) =>
+  link
+    .replace(/{lang}/g, preparedLang)
+    .replace(/{currency}/g, preparedCurrency)
+    .replace(/{adults}/g, preparedAdultsCount)
+    .replace(/{children}/g, preparedChildrenCount)
+    .replace(/{aid}/g, preparedAid);
+
 // Parse url
 export const parseUrl = ({ item, searchParams, urlParam, readyUrls, hiddenUrls }: ParseUrl) => {
   const { url, isoShort, isoCars, supportedLanguages, params } = item;
