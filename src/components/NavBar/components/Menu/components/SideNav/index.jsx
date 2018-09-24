@@ -214,10 +214,16 @@ export default class SideNav extends React.Component<Props, State> {
                 {/* Languages and Currencies */}
                 <Mobile display="flex">
                   <MenuGroup>
-                    <Language onChange={onSaveLanguage} native />
-                    <CurrencySpacing>
-                      <LogConsumer>{({ log }) => <Currency onLog={log} native />}</LogConsumer>
-                    </CurrencySpacing>
+                    <LogConsumer>
+                      {({ log }) => (
+                        <>
+                          <Language onChange={onSaveLanguage} onLog={log} native />
+                          <CurrencySpacing>
+                            <Currency onLog={log} native />
+                          </CurrencySpacing>
+                        </>
+                      )}
+                    </LogConsumer>
                     <Separator />
                   </MenuGroup>
                 </Mobile>

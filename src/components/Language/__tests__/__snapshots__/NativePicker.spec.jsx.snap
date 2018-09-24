@@ -31,6 +31,7 @@ exports[`#Language/NativePicker render 1`] = `
     />
   }
   onChange={[MockFunction]}
+  onOpen={[MockFunction]}
   value="en"
 />
 `;

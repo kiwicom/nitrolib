@@ -8,6 +8,6 @@ import withData from "./decorators/withData";
 
 storiesOf("Language", module)
   .addDecorator(withData)
-  .add("regular", () => <Language onChange={action("change")} />)
-  .add("flat", () => <Language onChange={action("change")} flat />)
-  .add("native", () => <Language onChange={action("change")} native />);
+  .add("regular", () => <Language onChange={action("Change")} onLog={action("Log")} />)
+  .add("flat", () => <Language onChange={action("Change")} onLog={action("Log")} flat />)
+  .add("native", () => <Language onChange={action("Change")} onLog={action("Log")} native />);

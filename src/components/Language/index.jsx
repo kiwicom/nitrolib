@@ -8,57 +8,75 @@ import NativePicker from "./NativePicker";
 import CustomPicker from "../CustomPicker";
 import LanguageName from "./components/LanguageName";
 import Menu from "./components/Menu";
+import type { Event } from "../../records/Event";
 
 type Props = {|
-  onChange: (lang: string) => void,
   native: boolean,
   positionMenuDesktop?: number,
   positionMenuTablet?: number,
   flat: boolean,
+  onChange: (lang: string) => void,
+  onLog: (event: Event<"openLanguage", {}>) => void,
 |};
 
-const Language = ({ onChange, native, flat, positionMenuDesktop, positionMenuTablet }: Props) => (
-  <fetchedContext.Consumer>
-    {fetched => (
-      <intlContext.Consumer>
-        {intl => {
-          const current = intl.language;
-          const languageMap = fetched.brandLanguage.languages;
+export default class Language extends React.PureComponent<Props> {
+  static defaultProps = {
+    native: false,
+    flat: false,
+  };
 
-          if (!R.has(current.id, languageMap)) {
-            return null;
-          }
+  handleOpen = () => {
+    const { onLog } = this.props;
 
-          const languages = R.values(languageMap);
+    onLog({ event: "openLanguage", data: {} });
+  };
 
-          return native ? (
-            <NativePicker current={current} languages={languages} onChange={onChange} />
-          ) : (
-            <CustomPicker
-              onChange={onChange}
-              openButton={<LanguageName name={current.name} flag={current.flag} />}
-            >
-              {render => (
-                <Menu
-                  onChange={render.onChange}
+  render() {
+    const { onChange, native, flat, positionMenuDesktop, positionMenuTablet } = this.props;
+
+    return (
+      <fetchedContext.Consumer>
+        {fetched => (
+          <intlContext.Consumer>
+            {intl => {
+              const current = intl.language;
+              const languageMap = fetched.brandLanguage.languages;
+
+              if (!R.has(current.id, languageMap)) {
+                return null;
+              }
+
+              const languages = R.values(languageMap);
+
+              return native ? (
+                <NativePicker
+                  current={current}
                   languages={languages}
-                  continents={fetched.brandLanguage.continents}
-                  positionMenuDesktop={positionMenuDesktop || 0}
-                  positionMenuTablet={positionMenuTablet || 0}
-                  flat={flat}
+                  onChange={onChange}
+                  onOpen={this.handleOpen}
                 />
-              )}
-            </CustomPicker>
-          );
-        }}
-      </intlContext.Consumer>
-    )}
-  </fetchedContext.Consumer>
-);
-
-Language.defaultProps = {
-  native: false,
-  flat: false,
-};
-
-export default Language;
+              ) : (
+                <CustomPicker
+                  openButton={<LanguageName name={current.name} flag={current.flag} />}
+                  onChange={onChange}
+                  onOpen={this.handleOpen}
+                >
+                  {render => (
+                    <Menu
+                      onChange={render.onChange}
+                      languages={languages}
+                      continents={fetched.brandLanguage.continents}
+                      positionMenuDesktop={positionMenuDesktop || 0}
+                      positionMenuTablet={positionMenuTablet || 0}
+                      flat={flat}
+                    />
+                  )}
+                </CustomPicker>
+              );
+            }}
+          </intlContext.Consumer>
+        )}
+      </fetchedContext.Consumer>
+    );
+  }
+}

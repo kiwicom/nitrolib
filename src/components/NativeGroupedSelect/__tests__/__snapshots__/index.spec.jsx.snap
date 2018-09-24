@@ -5,6 +5,7 @@ exports[`#NativeGroupedSelect render - multiple groups 1`] = `
   <NativeGroupedSelect__IconContainer />
   <NativeGroupedSelect__Select
     onChange={[Function]}
+    onClick={[MockFunction]}
     theme={
       Object {
         "orbit": Object {
@@ -485,6 +486,7 @@ exports[`#NativeGroupedSelect render - skip empty groups 1`] = `
   <NativeGroupedSelect__IconContainer />
   <NativeGroupedSelect__Select
     onChange={[Function]}
+    onClick={[MockFunction]}
     theme={
       Object {
         "orbit": Object {
@@ -936,6 +938,7 @@ exports[`#NativeGroupedSelect render - with custom divider 1`] = `
   <NativeGroupedSelect__IconContainer />
   <NativeGroupedSelect__Select
     onChange={[Function]}
+    onClick={[MockFunction]}
     theme={
       Object {
         "orbit": Object {
@@ -1420,6 +1423,7 @@ exports[`#NativeGroupedSelect render - with icon 1`] = `
   </NativeGroupedSelect__IconContainer>
   <NativeGroupedSelect__Select
     onChange={[Function]}
+    onClick={[MockFunction]}
     theme={
       Object {
         "orbit": Object {
@@ -1842,6 +1846,7 @@ exports[`#NativeGroupedSelect render 1`] = `
   <NativeGroupedSelect__IconContainer />
   <NativeGroupedSelect__Select
     onChange={[Function]}
+    onClick={[MockFunction]}
     theme={
       Object {
         "orbit": Object {

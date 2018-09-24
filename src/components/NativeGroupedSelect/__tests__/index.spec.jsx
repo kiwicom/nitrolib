@@ -14,7 +14,12 @@ const items = [
 describe("#NativeGroupedSelect", () => {
   test("render", () => {
     const wrapper = shallow(
-      <NativeGroupedSelect value="a" groups={[{ key: "groupA", items }]} onChange={jest.fn()} />,
+      <NativeGroupedSelect
+        value="a"
+        groups={[{ key: "groupA", items }]}
+        onChange={jest.fn()}
+        onOpen={jest.fn()}
+      />,
     );
 
     expect(wrapper).toMatchSnapshot();
@@ -26,6 +31,7 @@ describe("#NativeGroupedSelect", () => {
         value="a"
         groups={[{ key: "groupA", items }, { key: "groupB", items }, { key: "groupC", items }]}
         onChange={jest.fn()}
+        onOpen={jest.fn()}
       />,
     );
 
@@ -38,6 +44,7 @@ describe("#NativeGroupedSelect", () => {
         value="a"
         groups={[{ key: "groupA", items }, { key: "groupB", items: [] }, { key: "groupC", items }]}
         onChange={jest.fn()}
+        onOpen={jest.fn()}
       />,
     );
 
@@ -51,6 +58,7 @@ describe("#NativeGroupedSelect", () => {
         groups={[{ key: "groupA", items }]}
         onChange={jest.fn()}
         icon={<i>Icon</i>}
+        onOpen={jest.fn()}
       />,
     );
 
@@ -64,6 +72,7 @@ describe("#NativeGroupedSelect", () => {
         groups={[{ key: "groupA", items }, { key: "groupB", items }, { key: "groupC", items }]}
         divider="***"
         onChange={jest.fn()}
+        onOpen={jest.fn()}
       />,
     );
 
@@ -77,6 +86,7 @@ describe("#NativeGroupedSelect", () => {
         value="a"
         groups={[{ key: "groupA", items }, { key: "groupB", items }, { key: "groupC", items }]}
         onChange={onChange}
+        onOpen={jest.fn()}
       />,
     );
 

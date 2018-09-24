@@ -61,6 +61,7 @@ describe("#Currency/NativePicker", () => {
         available={available}
         recommended={recommended}
         onChange={jest.fn()}
+        onOpen={jest.fn()}
       />,
     );
 

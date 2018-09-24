@@ -41,28 +41,34 @@ export default class Currency extends React.PureComponent<Props> {
 
           const availableList = getAvailableList(available);
 
-      return native ? (
-        <NativePicker
-          current={currency}
-          available={availableList}
-          recommended={recommended}
-          onChange={onChange}
-        onOpen={this.handleOpen}/>
-      ) : (
-        <CustomPicker onChange={onChange}onOpen={this.handleOpen} openButton={<Current current={currency} />}>
-          {render => (
-            <Menu
-              onChange={render.onChange}
+          return native ? (
+            <NativePicker
               current={currency}
               available={availableList}
               recommended={recommended}
-            positionMenuDesktop={positionMenuDesktop}
-              positionMenuTablet={positionMenuTablet}/>
-          )}
-        </CustomPicker>
-      );
-    }}
-  </CurrencyConsumer>
-);
-}
+              onChange={onChange}
+              onOpen={this.handleOpen}
+            />
+          ) : (
+            <CustomPicker
+              onChange={onChange}
+              onOpen={this.handleOpen}
+              openButton={<Current current={currency} />}
+            >
+              {render => (
+                <Menu
+                  onChange={render.onChange}
+                  current={currency}
+                  available={availableList}
+                  recommended={recommended}
+                  positionMenuDesktop={positionMenuDesktop}
+                  positionMenuTablet={positionMenuTablet}
+                />
+              )}
+            </CustomPicker>
+          );
+        }}
+      </CurrencyConsumer>
+    );
   }
+}

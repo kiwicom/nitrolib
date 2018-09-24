@@ -61,6 +61,7 @@ exports[`#Currency/NativePicker render 1`] = `
     />
   }
   onChange={[MockFunction]}
+  onOpen={[MockFunction]}
   value="eur"
 />
 `;

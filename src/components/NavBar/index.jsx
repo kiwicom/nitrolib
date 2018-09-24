@@ -69,46 +69,51 @@ const NavBar = ({
   debug,
   onSaveLanguage,
 }: Props) => (
-  <Container x="space-between" y="center">
-    <Flex y="center" x="flex-start">
-      <Logo />
-      <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
-    </Flex>
-    <Flex y="center">
-      <Wrapper>
-        <Desktop display="flex">
-          <MenuSpacings>
-            <Language
-              onChange={onSaveLanguage}
-              positionMenuDesktop={-270}
-              positionMenuTablet={-349}
+  <LogConsumer>
+    {({ log }) => (
+      <Container x="space-between" y="center">
+        <Flex y="center" x="flex-start">
+          <Logo />
+          <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
+        </Flex>
+        <Flex y="center">
+          <Wrapper>
+            <Desktop display="flex">
+              <MenuSpacings>
+                <Language
+                  positionMenuDesktop={-270}
+                  positionMenuTablet={0}
+                  onChange={onSaveLanguage}
+                  onLog={log}
+                />
+              </MenuSpacings>
+              <ClientOnly>
+                <MenuSpacings>
+                  <Currency onLog={log} />
+                </MenuSpacings>
+              </ClientOnly>
+              <MenuSpacings>
+                <Help faq={faq} />
+              </MenuSpacings>
+            </Desktop>
+            {starred && (
+              <MenuSpacings>
+                <Starred positionMenuDesktop={-100} positionMenuTablet={-183}>
+                  {starred}
+                </Starred>
+              </MenuSpacings>
+            )}
+            <Menu
+              chat={chat}
+              subscription={subscription}
+              debug={debug}
+              onSaveLanguage={onSaveLanguage}
             />
-          </MenuSpacings>
-          <ClientOnly>
-            <MenuSpacings>
-              <LogConsumer>{({ log }) => <Currency onLog={log} positionMenuDesktop={-200} positionMenuTablet={-287} />}</LogConsumer>
-            </MenuSpacings>
-          </ClientOnly>
-          <MenuSpacings>
-            <Help faq={faq} />
-          </MenuSpacings>
-        </Desktop>
-        {starred && (
-          <MenuSpacings>
-            <Starred positionMenuDesktop={-100} positionMenuTablet={-183}>
-              {starred}
-            </Starred>
-          </MenuSpacings>
-        )}
-        <Menu
-          chat={chat}
-          subscription={subscription}
-          debug={debug}
-          onSaveLanguage={onSaveLanguage}
-        />
-      </Wrapper>
-    </Flex>
-  </Container>
+          </Wrapper>
+        </Flex>
+      </Container>
+    )}
+  </LogConsumer>
 );
 
 export default NavBar;
