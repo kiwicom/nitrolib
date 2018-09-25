@@ -14,7 +14,7 @@ type Props = {|
   loading: React.Node,
   positionMenuTablet?: number,
   positionMenuDesktop?: number,
-  onLog: (event: Event<"openCurrency", {}>) => void,
+  onLog: (event: Event<"openCurrency">) => void,
 |};
 
 export default class Currency extends React.PureComponent<Props> {
@@ -26,7 +26,7 @@ export default class Currency extends React.PureComponent<Props> {
   handleOpen = () => {
     const { onLog } = this.props;
 
-    onLog({ event: "openCurrency", data: {} });
+    onLog({ event: "openCurrency", data: null });
   };
 
   render() {

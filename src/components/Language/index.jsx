@@ -16,7 +16,7 @@ type Props = {|
   positionMenuTablet?: number,
   flat: boolean,
   onChange: (lang: string) => void,
-  onLog: (event: Event<"openLanguage", {}>) => void,
+  onLog: (event: Event<"openLanguage">) => void,
 |};
 
 export default class Language extends React.PureComponent<Props> {
@@ -28,7 +28,7 @@ export default class Language extends React.PureComponent<Props> {
   handleOpen = () => {
     const { onLog } = this.props;
 
-    onLog({ event: "openLanguage", data: {} });
+    onLog({ event: "openLanguage", data: null });
   };
 
   render() {

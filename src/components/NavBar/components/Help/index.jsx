@@ -10,7 +10,7 @@ import type { Event } from "../../../../records/Event";
 
 type Props = {|
   faq: React.Node,
-  onLog: (event: Event<"openFAQ", {}>) => void,
+  onLog: (event: Event<"openFAQ">) => void,
 |};
 
 type State = {|
@@ -39,7 +39,7 @@ class Help extends React.Component<Props, State> {
     }
 
     this.setState(state => ({ shown: !state.shown }));
-    onLog({ event: "openFAQ", data: {} });
+    onLog({ event: "openFAQ", data: null });
   };
 
   handleClose = () => {

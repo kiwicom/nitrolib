@@ -15,14 +15,14 @@ type Props = {|
   children: React.Node,
   positionMenuTablet?: number,
   positionMenuDesktop?: number,
-  onLog: (event: Event<"openStarred", {}>) => void,
+  onLog: (event: Event<"openStarred">) => void,
 |};
 
 export default class Starred extends React.PureComponent<Props> {
   handleOpen = () => {
     const { onLog } = this.props;
 
-    onLog({ event: "openStarred", data: {} });
+    onLog({ event: "openStarred", data: null });
   };
 
   render() {
