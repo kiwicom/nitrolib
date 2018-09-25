@@ -9,12 +9,14 @@ import CustomPicker from "../CustomPicker";
 import LanguageName from "./components/LanguageName";
 import Menu from "./components/Menu";
 import type { Event } from "../../records/Event";
+import type { Language as LanguageType } from "../../records/Languages";
 
 type Props = {|
   native: boolean,
   positionMenuDesktop?: number,
   positionMenuTablet?: number,
   flat: boolean,
+  favorite?: LanguageType[],
   onChange: (lang: string) => void,
   onLog: (event: Event<"openLanguage">) => void,
 |};
@@ -32,7 +34,14 @@ export default class Language extends React.PureComponent<Props> {
   };
 
   render() {
-    const { onChange, native, flat, positionMenuDesktop, positionMenuTablet } = this.props;
+    const {
+      onChange,
+      native,
+      flat,
+      positionMenuDesktop,
+      positionMenuTablet,
+      favorite,
+    } = this.props;
 
     return (
       <fetchedContext.Consumer>
@@ -52,6 +61,7 @@ export default class Language extends React.PureComponent<Props> {
                 <NativePicker
                   current={current}
                   languages={languages}
+                  favorite={favorite}
                   onChange={onChange}
                   onOpen={this.handleOpen}
                 />

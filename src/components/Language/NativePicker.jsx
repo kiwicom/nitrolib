@@ -15,17 +15,26 @@ const mapLanguages = R.map(language => ({
 type Props = {|
   current: LangInfo,
   languages: Language[],
+  favorite?: Language[],
   onChange: (value: string) => void,
   onOpen: () => void,
 |};
 
-const NativePicker = ({ current, languages, onChange, onOpen }: Props) => (
+const NativePicker = ({ current, languages, favorite, onChange, onOpen }: Props) => (
   <NativeGroupedSelect
     value={current.id}
-    groups={[
-      { key: "current", items: mapLanguages([current]) },
-      { key: "all", items: mapLanguages(languages) },
-    ]}
+    groups={
+      favorite
+        ? [
+            { key: "current", items: mapLanguages([current]) },
+            { key: "favorite", items: mapLanguages(favorite) },
+            { key: "all", items: mapLanguages(languages) },
+          ]
+        : [
+            { key: "current", items: mapLanguages([current]) },
+            { key: "all", items: mapLanguages(languages) },
+          ]
+    }
     // $FlowExpected - type too specific
     icon={<CountryFlag code={current.flag} />}
     onChange={onChange}
