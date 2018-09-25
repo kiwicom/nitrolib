@@ -23,9 +23,10 @@ exports[`#index render - with target 1`] = `
   font-size: 14px;
   background: #fff;
   overflow-y: auto;
-  -webkit-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  height: 100%;
+  -webkit-transform: translate3d( 0,0,0 );
+  -ms-transform: translate3d( 0,0,0 );
+  transform: translate3d( 0,0,0 );
   -webkit-transition: -webkit-transform 250ms ease-in-out;
   -webkit-transition: transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out;
@@ -67,9 +68,10 @@ exports[`#index render - with target 1`] = `
   font-size: 14px;
   background: #fff;
   overflow-y: auto;
-  -webkit-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  height: 100%;
+  -webkit-transform: translate3d( 0,0,0 );
+  -ms-transform: translate3d( 0,0,0 );
+  transform: translate3d( 0,0,0 );
   -webkit-transition: -webkit-transform 250ms ease-in-out;
   -webkit-transition: transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out;
@@ -135,7 +137,6 @@ exports[`#index render - with target 1`] = `
         }
         onClick={[Function]}
         role="button"
-        showing={true}
         shown={true}
         tabIndex="0"
         theme={
@@ -528,8 +529,6 @@ exports[`#index render - with target 1`] = `
           tabIndex="0"
         >
           <SideBar__Wrapper
-            showing={true}
-            shown={true}
             theme={
               Object {
                 "orbit": Object {
@@ -912,6 +911,7 @@ exports[`#index render - with target 1`] = `
                 "rtl": false,
               }
             }
+            toggleTransition={true}
           >
             <div
               className="c1"
@@ -951,9 +951,10 @@ exports[`#index render - with target 2`] = `
   font-size: 14px;
   background: #fff;
   overflow-y: auto;
-  -webkit-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  height: 100%;
+  -webkit-transform: translate3d( 0,0,0 );
+  -ms-transform: translate3d( 0,0,0 );
+  transform: translate3d( 0,0,0 );
   -webkit-transition: -webkit-transform 250ms ease-in-out;
   -webkit-transition: transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out;
@@ -1019,9 +1020,10 @@ exports[`#index render - without target 1`] = `
   font-size: 14px;
   background: #fff;
   overflow-y: auto;
-  -webkit-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  height: 100%;
+  -webkit-transform: translate3d( 0,0,0 );
+  -ms-transform: translate3d( 0,0,0 );
+  transform: translate3d( 0,0,0 );
   -webkit-transition: -webkit-transform 250ms ease-in-out;
   -webkit-transition: transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out;
@@ -1063,9 +1065,10 @@ exports[`#index render - without target 1`] = `
   font-size: 14px;
   background: #fff;
   overflow-y: auto;
-  -webkit-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  height: 100%;
+  -webkit-transform: translate3d( 0,0,0 );
+  -ms-transform: translate3d( 0,0,0 );
+  transform: translate3d( 0,0,0 );
   -webkit-transition: -webkit-transform 250ms ease-in-out;
   -webkit-transition: transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out;
@@ -1131,7 +1134,6 @@ exports[`#index render - without target 1`] = `
         }
         onClick={[Function]}
         role="button"
-        showing={true}
         shown={true}
         tabIndex="0"
         theme={
@@ -1524,8 +1526,6 @@ exports[`#index render - without target 1`] = `
           tabIndex="0"
         >
           <SideBar__Wrapper
-            showing={true}
-            shown={true}
             theme={
               Object {
                 "orbit": Object {
@@ -1908,6 +1908,7 @@ exports[`#index render - without target 1`] = `
                 "rtl": false,
               }
             }
+            toggleTransition={true}
           >
             <div
               className="c1"
