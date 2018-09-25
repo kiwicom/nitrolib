@@ -39,7 +39,10 @@ const Wrapper = styled.div`
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   overflow-y: auto;
-  transform: translate3d(${({ shown }) => (shown ? `0, 0, 0` : `480px, 0, 0`)});
+  height: 100%;
+  transform: translate3d(
+    ${({ toggleTransition }) => (toggleTransition ? `0, 0, 0` : `480px, 0, 0`)}
+  );
   transition: transform ${DURATION}ms ease-in-out;
   box-shadow: 0 6px 16px rgba(46, 53, 59, 0.22), 0 1px 3px rgba(0, 0, 0, 0.09);
 
@@ -86,7 +89,6 @@ export default class SideBar extends React.Component<Props> {
         {status => (
           <Container
             shown={status !== "exited"}
-            showing={status === "entering" || status === "entered"}
             innerRef={this.ref}
             onClick={(ev: SyntheticEvent<HTMLDivElement>) => {
               if (this.ref.current === ev.target) {
@@ -96,10 +98,7 @@ export default class SideBar extends React.Component<Props> {
             role="button"
             tabIndex="0"
           >
-            <Wrapper
-              shown={status !== "exited"}
-              showing={status === "entering" || status === "entered"}
-            >
+            <Wrapper toggleTransition={status !== "exited" && status === "entered"}>
               {children}
             </Wrapper>
           </Container>
