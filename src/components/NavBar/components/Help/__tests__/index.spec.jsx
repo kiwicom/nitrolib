@@ -6,14 +6,14 @@ import Help from "../index";
 
 describe("#Help", () => {
   test("render", () => {
-    const wrapper = shallow(<Help faq={<>lol</>} />);
+    const wrapper = shallow(<Help faq={<>lol</>} onLog={jest.fn()} />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   test("toggle", () => {
     window.location.assign = jest.fn();
-    const wrapper = shallow(<Help faq={<>lol</>} />);
+    const wrapper = shallow(<Help faq={<>lol</>} onLog={jest.fn()} />);
 
     wrapper.instance().handleToggle();
 
