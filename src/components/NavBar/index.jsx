@@ -93,12 +93,12 @@ const NavBar = ({
                 </MenuSpacings>
               </ClientOnly>
               <MenuSpacings>
-                <Help faq={faq} />
+                <Help faq={faq} onLog={log} />
               </MenuSpacings>
             </Desktop>
             {starred && (
               <MenuSpacings>
-                <Starred positionMenuDesktop={-100} positionMenuTablet={-183}>
+                <Starred positionMenuDesktop={-100} positionMenuTablet={-183} onLog={log}>
                   {starred}
                 </Starred>
               </MenuSpacings>
@@ -108,6 +108,7 @@ const NavBar = ({
               subscription={subscription}
               debug={debug}
               onSaveLanguage={onSaveLanguage}
+              onLog={log}
             />
           </Wrapper>
         </Flex>

@@ -6,9 +6,11 @@ import SideBar from "../SideBar";
 import Text from "../../../Text";
 import ClientOnly from "../../../ClientOnly";
 import Button from "../../primitives/Button";
+import type { Event } from "../../../../records/Event";
 
 type Props = {|
   faq: React.Node,
+  onLog: (event: Event<"openFAQ", {}>) => void,
 |};
 
 type State = {|
@@ -21,6 +23,7 @@ class Help extends React.Component<Props, State> {
   };
 
   handleToggle = () => {
+    const { onLog } = this.props;
     const { shown } = this.state;
     if (shown) {
       return;
@@ -36,6 +39,7 @@ class Help extends React.Component<Props, State> {
     }
 
     this.setState(state => ({ shown: !state.shown }));
+    onLog({ event: "openFAQ", data: {} });
   };
 
   handleClose = () => {
