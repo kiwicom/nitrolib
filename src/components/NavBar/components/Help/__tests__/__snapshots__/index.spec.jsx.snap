@@ -393,15 +393,5 @@ exports[`#Help render 1`] = `
       values={Object {}}
     />
   </Button>
-  <ClientOnly
-    loader={null}
-  >
-    <SideBar
-      onClick={[Function]}
-      shown={false}
-    >
-      lol
-    </SideBar>
-  </ClientOnly>
 </Fragment>
 `;

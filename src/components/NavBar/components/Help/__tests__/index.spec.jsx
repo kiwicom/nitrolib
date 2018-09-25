@@ -6,18 +6,19 @@ import Help from "../index";
 
 describe("#Help", () => {
   test("render", () => {
-    const wrapper = shallow(<Help faq={<>lol</>} onLog={jest.fn()} />);
+    const wrapper = shallow(<Help onOpen={jest.fn()} onLog={jest.fn()} />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   test("toggle", () => {
-    window.location.assign = jest.fn();
-    const wrapper = shallow(<Help faq={<>lol</>} onLog={jest.fn()} />);
+    const onOpen = jest.fn();
+    const onLog = jest.fn();
+    const wrapper = shallow(<Help onOpen={onOpen} onLog={onLog} />);
 
-    wrapper.instance().handleToggle();
+    wrapper.instance().handleOpen();
 
-    expect(wrapper.state("shown")).toBe(true);
-    expect(window.location.assign).toBeCalledWith("/?help=%2F");
+    expect(onOpen).toBeCalled();
+    expect(onLog).toBeCalledWith({ event: "openFAQ", data: null });
   });
 });

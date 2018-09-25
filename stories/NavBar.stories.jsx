@@ -2,7 +2,6 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import SmartFAQ from "@kiwicom/smart-faq";
 
 import NavBar from "../src/components/NavBar";
 import HeaderLinks from "../src/components/HeaderLinks";
@@ -20,11 +19,11 @@ storiesOf("NavBar", module)
           linkHolidays="https://www.kiwi.com/en/?headerLink=linkHolidays"
         />
       }
-      faq={<SmartFAQ />}
       chat={<h1>Chat</h1>}
       subscription={<h1>Subscription</h1>}
       debug={<h1>Debug</h1>}
       starred={<h1>Starred</h1>}
+      onOpenFaq={action("Open FAQ")}
       onSaveLanguage={action("Save language")}
     />
   ));

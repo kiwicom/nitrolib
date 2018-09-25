@@ -1,15 +1,12 @@
 // @flow strict
 import * as React from "react";
-import querystring from "query-string";
 
-import SideBar from "../SideBar";
 import Text from "../../../Text";
-import ClientOnly from "../../../ClientOnly";
 import Button from "../../primitives/Button";
 import type { Event } from "../../../../records/Event";
 
 type Props = {|
-  faq: React.Node,
+  onOpen: () => void,
   onLog: (event: Event<"openFAQ">) => void,
 |};
 
@@ -18,48 +15,19 @@ type State = {|
 |};
 
 class Help extends React.Component<Props, State> {
-  state = {
-    shown: false,
-  };
+  handleOpen = () => {
+    const { onOpen, onLog } = this.props;
 
-  handleToggle = () => {
-    const { onLog } = this.props;
-    const { shown } = this.state;
-    if (shown) {
-      return;
-    }
-
-    const { pathname, search, hash } = window.location;
-    const query = querystring.parse(search);
-
-    if (!query.help) {
-      window.location.assign(
-        `${pathname}?${querystring.stringify({ ...query, help: "/" })}${hash}`,
-      );
-    }
-
-    this.setState(state => ({ shown: !state.shown }));
     onLog({ event: "openFAQ", data: null });
-  };
-
-  handleClose = () => {
-    this.setState({ shown: false });
+    onOpen();
   };
 
   render() {
-    const { faq } = this.props;
-    const { shown } = this.state;
-
     return (
       <>
-        <Button onClick={this.handleToggle}>
+        <Button onClick={this.handleOpen}>
           <Text t={__("common.help")} />
         </Button>
-        <ClientOnly>
-          <SideBar onClick={this.handleClose} shown={shown}>
-            {faq}
-          </SideBar>
-        </ClientOnly>
       </>
     );
   }

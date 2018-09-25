@@ -53,20 +53,20 @@ Wrapper.defaultProps = {
 type Props = {|
   headerLinks: React.Node,
   starred: React.Node,
-  faq: React.Node,
   chat: React.Node,
   subscription: React.Node,
   debug?: React.Node,
+  onOpenFaq: () => void,
   onSaveLanguage: (lang: string) => void,
 |};
 
 const NavBar = ({
   headerLinks,
   starred,
-  faq,
   chat,
   subscription,
   debug,
+  onOpenFaq,
   onSaveLanguage,
 }: Props) => (
   <LogConsumer>
@@ -93,7 +93,7 @@ const NavBar = ({
                 </MenuSpacings>
               </ClientOnly>
               <MenuSpacings>
-                <Help faq={faq} onLog={log} />
+                <Help onOpen={onOpenFaq} onLog={log} />
               </MenuSpacings>
             </Desktop>
             {starred && (
