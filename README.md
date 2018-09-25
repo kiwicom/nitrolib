@@ -2,6 +2,10 @@
 
 Stuff common for our webs! :fire:
 
+## Setup
+
+* `yarn add @kiwicom/nitro`
+
 ## Documentation
 
 * [CLI](./docs/cli.md) - Nitro's CLI
