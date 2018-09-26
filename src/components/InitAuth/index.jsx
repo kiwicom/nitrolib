@@ -40,9 +40,15 @@ export default class InitAuth extends React.PureComponent<Props, State> {
     }
 
     this.setState({ loading: true });
-    api.getTokenUser(token).then(user => {
-      this.setState({ auth: { user, token }, loading: false });
-    });
+    api
+      .getTokenUser(token)
+      .then(user => {
+        this.setState({ auth: { user, token }, loading: false });
+      })
+      .catch(() => {
+        // Ignoring errors here
+        this.setState({ loading: false });
+      });
   }
 
   handleSignIn = (email: string, password: string): Promise<boolean> => {
