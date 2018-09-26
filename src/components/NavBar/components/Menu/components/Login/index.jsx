@@ -68,20 +68,17 @@ const Login = ({
       </BrandConsumer>
     )}
     {open === "signIn" && (
-      <BrandConsumer>
-        {brand => (
-          <AuthConsumer>
-            {auth => (
-              <SignIn
-                brandId={brand.id}
-                onCloseSuccess={onCloseSuccess}
-                onSignIn={auth.onSignIn}
-                onOpenForgotPassword={onOpenForgotPassword}
-              />
-            )}
-          </AuthConsumer>
+      <AuthConsumer>
+        {auth => (
+          <SignIn
+            loading={auth.loading}
+            error={auth.error}
+            onSignIn={auth.onSignIn}
+            onCloseSuccess={onCloseSuccess}
+            onOpenForgotPassword={onOpenForgotPassword}
+          />
         )}
-      </BrandConsumer>
+      </AuthConsumer>
     )}
   </Container>
 );

@@ -18,8 +18,6 @@ import Text from "../../../../../Text";
 import * as validators from "../../../../../../services/input/validators";
 import * as normalizers from "../../../../../../services/input/normalizers";
 import isEmptish from "../../../../../../services/utils/isEmptish";
-import * as api from "../../../../../../services/auth/api";
-import type { Auth } from "../../../../../../records/Auth";
 
 const FieldWrap = styled.div`
   position: relative;
@@ -40,12 +38,11 @@ ForgotPasswordArrow.defaultProps = {
 };
 
 type Props = {|
-  brandId: string,
-  onSignIn: (auth: ?Auth) => void,
+  loading: boolean,
+  error: string,
+  onSignIn: (email: string, password: string) => Promise<boolean>,
   onCloseSuccess: () => void,
   onOpenForgotPassword: () => void,
-  // DI
-  signIn: typeof api.signIn,
 |};
 
 type Field<T> = {|
@@ -61,15 +58,9 @@ type Fields = {|
 type State = {|
   fields: Fields,
   submitted: boolean,
-  loading: boolean,
-  error: string,
 |};
 
 export default class SignIn extends React.PureComponent<Props, State> {
-  static defaultProps = {
-    signIn: api.signIn,
-  };
-
   state = {
     fields: {
       email: {
@@ -82,8 +73,6 @@ export default class SignIn extends React.PureComponent<Props, State> {
       },
     },
     submitted: false,
-    loading: false,
-    error: "",
   };
 
   handleChange = ({ value, error, id }: Change) => {
@@ -93,7 +82,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
   };
 
   handleSubmit = () => {
-    const { brandId, signIn, onSignIn, onCloseSuccess } = this.props;
+    const { onSignIn, onCloseSuccess } = this.props;
     const { fields } = this.state;
 
     this.setState({ submitted: true });
@@ -101,26 +90,16 @@ export default class SignIn extends React.PureComponent<Props, State> {
       return;
     }
 
-    this.setState({ error: "", loading: true });
-    signIn({
-      email: fields.email.value,
-      password: fields.password.value,
-      brand: brandId,
-    })
-      .then(({ user, token }) => {
-        onSignIn({ user, token });
+    onSignIn(fields.email.value, fields.password.value).then(ok => {
+      if (ok) {
         onCloseSuccess();
-        this.setState({ loading: false });
-      })
-      .catch(err => {
-        this.setState({ loading: false, error: String(err) });
-        // TODO log
-      });
+      }
+    });
   };
 
   render() {
-    const { fields, submitted, loading, error } = this.state;
-    const { onOpenForgotPassword } = this.props;
+    const { fields, submitted } = this.state;
+    const { loading, error, onOpenForgotPassword } = this.props;
 
     return (
       <>

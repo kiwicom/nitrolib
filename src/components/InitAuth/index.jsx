@@ -10,7 +10,7 @@ type Arg = {|
   auth: Auth | null,
   loading: boolean,
   error: string,
-  onSignIn: (email: string, password: string) => void,
+  onSignIn: (email: string, password: string) => Promise<boolean>,
 |};
 
 type Props = {|
@@ -44,17 +44,19 @@ export default class InitAuth extends React.PureComponent<Props, State> {
     });
   }
 
-  handleSignIn = (email: string, password: string) => {
+  handleSignIn = (email: string, password: string): Promise<boolean> => {
     const { brand } = this.props;
 
     this.setState({ loading: true });
-    api
+    return api
       .signIn({ email, password, brand: brand.id })
       .then(auth => {
         this.setState({ auth, error: "", loading: false });
+        return true;
       })
       .catch(err => {
         this.setState({ auth: null, error: String(err), loading: false });
+        return false;
       });
   };
 

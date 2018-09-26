@@ -6,17 +6,19 @@ import type { Auth } from "../../records/Auth";
 type Context = {|
   auth: Auth | null,
   loading: boolean,
-  onMyBooking: (token: string) => void,
-  onRegister: () => void,
-  onSignIn: (auth: ?Auth) => void,
+  error: string,
+  onMyBooking: () => Promise<boolean>,
+  onRegister: () => Promise<boolean>,
+  onSignIn: (email: string, password: string) => Promise<boolean>,
 |};
 
 const contextDefault: Context = {
   auth: null,
   loading: false,
-  onMyBooking: () => {},
-  onRegister: () => {},
-  onSignIn: () => {},
+  error: "",
+  onMyBooking: () => Promise.resolve(true),
+  onRegister: () => Promise.resolve(true),
+  onSignIn: () => Promise.resolve(true),
 };
 
 export const { Consumer, Provider } = React.createContext(contextDefault);
