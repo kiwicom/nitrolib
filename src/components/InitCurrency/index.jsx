@@ -3,9 +3,9 @@
 import * as React from "react";
 import idx from "idx";
 
-import { MOST_USED_CURRENCIES } from "../../records/Currency";
 import type { Brand } from "../../records/Brand";
 import type { Currency, Currencies } from "../../records/Currency";
+import { currencyDefault, MOST_USED_CURRENCIES } from "../../records/Currency";
 import type { Countries } from "../../records/Country";
 import filterCurrencies from "./services/filterCurrencies";
 import resolveCurrency from "./services/resolveCurrency";
@@ -138,7 +138,13 @@ export default class CurrencyProvider extends React.PureComponent<Props, State> 
     const { children } = this.props;
 
     if (!currency) {
-      return children;
+      return children({
+        currency: currencyDefault,
+        loading: false,
+        available: {},
+        recommended: [],
+        onChange: () => {},
+      });
     }
 
     return children({
