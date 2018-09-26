@@ -15,7 +15,7 @@ storiesOf("Language", module)
   .add("native", () => (
     <Language
       onChange={action("Change")}
-      favorite={R.values(R.pick(["en", "cz", "sk"])(languages))}
+      favorite={R.values(R.pick(["en", "cz", "sk"], languages))}
       onLog={action("Log")}
       native
     />
