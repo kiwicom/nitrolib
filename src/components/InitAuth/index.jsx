@@ -16,6 +16,7 @@ type Arg = {|
 type Props = {|
   token: string | null,
   brand: Brand,
+  onToken: (token: string) => void,
   children: (arg: Arg) => React.Node,
 |};
 
@@ -45,12 +46,13 @@ export default class InitAuth extends React.PureComponent<Props, State> {
   }
 
   handleSignIn = (email: string, password: string): Promise<boolean> => {
-    const { brand } = this.props;
+    const { brand, onToken } = this.props;
 
     this.setState({ loading: true });
     return api
       .signIn({ email, password, brand: brand.id })
       .then(auth => {
+        onToken(auth.token);
         this.setState({ auth, error: "", loading: false });
         return true;
       })
