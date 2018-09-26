@@ -20,7 +20,6 @@ const Popup = styled.div`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   cursor: default;
-  width: 100%;
   z-index: 50;
   min-height: 450px;
   box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};

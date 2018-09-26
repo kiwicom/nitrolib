@@ -67,7 +67,11 @@ const TripDataList = ({ env }: Props) => (
       }
 
       return (
-        <TripContainer header={<TripHeader trips={customerBookings} />}>
+        <TripContainer
+          header={<TripHeader trips={customerBookings} />}
+          positionMenuTablet={0}
+          positionMenuDesktop={50}
+        >
           <intlContext.Consumer>
             {intl => <TripList list={customerBookings} lang={intl.language.id} />}
           </intlContext.Consumer>

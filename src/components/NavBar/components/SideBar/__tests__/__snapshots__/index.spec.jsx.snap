@@ -24,9 +24,9 @@ exports[`#index render - with target 1`] = `
   background: #fff;
   overflow-y: auto;
   height: 100%;
-  -webkit-transform: translate3d( 0,0,0 );
-  -ms-transform: translate3d( 0,0,0 );
-  transform: translate3d( 0,0,0 );
+  -webkit-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
   -webkit-transition: -webkit-transform 250ms ease-in-out;
   -webkit-transition: transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out;
@@ -69,9 +69,9 @@ exports[`#index render - with target 1`] = `
   background: #fff;
   overflow-y: auto;
   height: 100%;
-  -webkit-transform: translate3d( 0,0,0 );
-  -ms-transform: translate3d( 0,0,0 );
-  transform: translate3d( 0,0,0 );
+  -webkit-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
   -webkit-transition: -webkit-transform 250ms ease-in-out;
   -webkit-transition: transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out;
@@ -529,6 +529,7 @@ exports[`#index render - with target 1`] = `
           tabIndex="0"
         >
           <SideBar__Wrapper
+            shown={true}
             theme={
               Object {
                 "orbit": Object {
@@ -911,7 +912,6 @@ exports[`#index render - with target 1`] = `
                 "rtl": false,
               }
             }
-            toggleTransition={true}
           >
             <div
               className="c1"
@@ -952,9 +952,9 @@ exports[`#index render - with target 2`] = `
   background: #fff;
   overflow-y: auto;
   height: 100%;
-  -webkit-transform: translate3d( 0,0,0 );
-  -ms-transform: translate3d( 0,0,0 );
-  transform: translate3d( 0,0,0 );
+  -webkit-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
   -webkit-transition: -webkit-transform 250ms ease-in-out;
   -webkit-transition: transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out;
@@ -1021,9 +1021,9 @@ exports[`#index render - without target 1`] = `
   background: #fff;
   overflow-y: auto;
   height: 100%;
-  -webkit-transform: translate3d( 0,0,0 );
-  -ms-transform: translate3d( 0,0,0 );
-  transform: translate3d( 0,0,0 );
+  -webkit-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
   -webkit-transition: -webkit-transform 250ms ease-in-out;
   -webkit-transition: transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out;
@@ -1066,9 +1066,9 @@ exports[`#index render - without target 1`] = `
   background: #fff;
   overflow-y: auto;
   height: 100%;
-  -webkit-transform: translate3d( 0,0,0 );
-  -ms-transform: translate3d( 0,0,0 );
-  transform: translate3d( 0,0,0 );
+  -webkit-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
   -webkit-transition: -webkit-transform 250ms ease-in-out;
   -webkit-transition: transform 250ms ease-in-out;
   transition: transform 250ms ease-in-out;
@@ -1526,6 +1526,7 @@ exports[`#index render - without target 1`] = `
           tabIndex="0"
         >
           <SideBar__Wrapper
+            shown={true}
             theme={
               Object {
                 "orbit": Object {
@@ -1908,7 +1909,6 @@ exports[`#index render - without target 1`] = `
                 "rtl": false,
               }
             }
-            toggleTransition={true}
           >
             <div
               className="c1"

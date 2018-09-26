@@ -40,9 +40,7 @@ const Wrapper = styled.div`
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   overflow-y: auto;
   height: 100%;
-  transform: translate3d(
-    ${({ toggleTransition }) => (toggleTransition ? `0, 0, 0` : `480px, 0, 0`)}
-  );
+  transform: translate3d(${({ shown }) => (shown ? `0, 0, 0` : `480px, 0, 0`)});
   transition: transform ${DURATION}ms ease-in-out;
   box-shadow: 0 6px 16px rgba(46, 53, 59, 0.22), 0 1px 3px rgba(0, 0, 0, 0.09);
 
@@ -98,9 +96,7 @@ export default class SideBar extends React.Component<Props> {
             role="button"
             tabIndex="0"
           >
-            <Wrapper toggleTransition={status !== "exited" && status === "entered"}>
-              {children}
-            </Wrapper>
+            <Wrapper shown={status !== "exiting" && status !== "exited"}>{children}</Wrapper>
           </Container>
         )}
       </Transition>,

@@ -89,7 +89,7 @@ const NavBar = ({
               </MenuSpacings>
               <ClientOnly>
                 <MenuSpacings>
-                  <Currency onLog={log} />
+                  <Currency onLog={log} positionMenuDesktop={-270} positionMenuTablet={-200} />
                 </MenuSpacings>
               </ClientOnly>
               <MenuSpacings>
