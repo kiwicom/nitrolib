@@ -1,6 +1,7 @@
 // @flow strict
 import { mapUser } from "../../records/User";
 import type { User } from "../../records/User";
+import type { Auth } from "../../records/Auth";
 import config from "../../consts/config";
 import { handleError, handleJSON } from "../fetch/handlers";
 import { JSON_BOTH } from "../fetch/headers";
@@ -49,7 +50,7 @@ type LoginResponse = {|
   locks?: any[],
 |};
 
-export async function signIn(input: LoginInput): Promise<{ user: User, token: string }> {
+export async function signIn(input: LoginInput): Promise<Auth> {
   const res: LoginResponse = await fetch(`${config.apiAuthUrl}/v1/user.login`, {
     method: "POST",
     headers: {
