@@ -25,31 +25,29 @@ const Currency = ({ native, loading, positionMenuDesktop, positionMenuTablet }: 
 
       const availableList = getAvailableList(available);
 
-      return (
-        <>
-          <LogMount event={{ event: "openCurrency", data: null }} />
-          {native ? (
-            <NativePicker
-              current={currency}
-              available={availableList}
-              recommended={recommended}
-              onChange={onChange}
-            />
-          ) : (
-            <CustomPicker onChange={onChange} openButton={<Current current={currency} />}>
-              {render => (
-                <Menu
-                  onChange={render.onChange}
-                  current={currency}
-                  available={availableList}
-                  recommended={recommended}
-                  positionMenuDesktop={positionMenuDesktop}
-                  positionMenuTablet={positionMenuTablet}
-                />
-              )}
-            </CustomPicker>
+      return native ? (
+        <NativePicker
+          current={currency}
+          available={availableList}
+          recommended={recommended}
+          onChange={onChange}
+        />
+      ) : (
+        <CustomPicker onChange={onChange} openButton={<Current current={currency} />}>
+          {render => (
+            <>
+              <LogMount event={{ event: "openCurrency", data: null }} />
+              <Menu
+                onChange={render.onChange}
+                current={currency}
+                available={availableList}
+                recommended={recommended}
+                positionMenuDesktop={positionMenuDesktop}
+                positionMenuTablet={positionMenuTablet}
+              />
+            </>
           )}
-        </>
+        </CustomPicker>
       );
     }}
   </CurrencyConsumer>

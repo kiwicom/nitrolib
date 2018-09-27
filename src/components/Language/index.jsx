@@ -6,10 +6,10 @@ import * as intlContext from "../../services/intl/context";
 import * as fetchedContext from "../../services/fetched/context";
 import NativePicker from "./NativePicker";
 import CustomPicker from "../CustomPicker";
-import LogMount from "../LogMount";
 import LanguageName from "./components/LanguageName";
 import Menu from "./components/Menu";
 import type { Language as LanguageType } from "../../records/Languages";
+import LogMount from "../LogMount";
 
 type Props = {|
   native: boolean,
@@ -41,34 +41,32 @@ const Language = ({
 
           const languages = R.values(languageMap);
 
-          return (
-            <>
-              <LogMount event={{ event: "openLanguage", data: null }} />
-              {native ? (
-                <NativePicker
-                  current={current}
-                  languages={languages}
-                  favorite={favorite}
-                  onChange={onChange}
-                />
-              ) : (
-                <CustomPicker
-                  openButton={<LanguageName name={current.name} flag={current.flag} />}
-                  onChange={onChange}
-                >
-                  {render => (
-                    <Menu
-                      onChange={render.onChange}
-                      languages={languages}
-                      continents={fetched.brandLanguage.continents}
-                      positionMenuDesktop={positionMenuDesktop || 0}
-                      positionMenuTablet={positionMenuTablet || 0}
-                      flat={flat}
-                    />
-                  )}
-                </CustomPicker>
+          return native ? (
+            <NativePicker
+              current={current}
+              languages={languages}
+              favorite={favorite}
+              onChange={onChange}
+            />
+          ) : (
+            <CustomPicker
+              openButton={<LanguageName name={current.name} flag={current.flag} />}
+              onChange={onChange}
+            >
+              {render => (
+                <>
+                  <LogMount event={{ event: "openLanguage", data: null }} />
+                  <Menu
+                    onChange={render.onChange}
+                    languages={languages}
+                    continents={fetched.brandLanguage.continents}
+                    positionMenuDesktop={positionMenuDesktop || 0}
+                    positionMenuTablet={positionMenuTablet || 0}
+                    flat={flat}
+                  />
+                </>
               )}
-            </>
+            </CustomPicker>
           );
         }}
       </intlContext.Consumer>
