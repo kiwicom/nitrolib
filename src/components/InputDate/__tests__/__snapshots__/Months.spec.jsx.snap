@@ -7,124 +7,64 @@ exports[`#Months render 1`] = `
   value="0"
 >
   <option
-    key="0"
     value={0}
   >
-    <Text
-      html={false}
-      t="January"
-      values={Object {}}
-    />
+    January
   </option>
   <option
-    key="1"
     value={1}
   >
-    <Text
-      html={false}
-      t="February"
-      values={Object {}}
-    />
+    February
   </option>
   <option
-    key="2"
     value={2}
   >
-    <Text
-      html={false}
-      t="March"
-      values={Object {}}
-    />
+    March
   </option>
   <option
-    key="3"
     value={3}
   >
-    <Text
-      html={false}
-      t="April"
-      values={Object {}}
-    />
+    April
   </option>
   <option
-    key="4"
     value={4}
   >
-    <Text
-      html={false}
-      t="May"
-      values={Object {}}
-    />
+    May
   </option>
   <option
-    key="5"
     value={5}
   >
-    <Text
-      html={false}
-      t="June"
-      values={Object {}}
-    />
+    June
   </option>
   <option
-    key="6"
     value={6}
   >
-    <Text
-      html={false}
-      t="July"
-      values={Object {}}
-    />
+    July
   </option>
   <option
-    key="7"
     value={7}
   >
-    <Text
-      html={false}
-      t="August"
-      values={Object {}}
-    />
+    August
   </option>
   <option
-    key="8"
     value={8}
   >
-    <Text
-      html={false}
-      t="September"
-      values={Object {}}
-    />
+    September
   </option>
   <option
-    key="9"
     value={9}
   >
-    <Text
-      html={false}
-      t="October"
-      values={Object {}}
-    />
+    October
   </option>
   <option
-    key="10"
     value={10}
   >
-    <Text
-      html={false}
-      t="November"
-      values={Object {}}
-    />
+    November
   </option>
   <option
-    key="11"
     value={11}
   >
-    <Text
-      html={false}
-      t="December"
-      values={Object {}}
-    />
+    December
   </option>
 </Select>
 `;

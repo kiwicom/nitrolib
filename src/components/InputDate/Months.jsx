@@ -3,7 +3,7 @@ import * as React from "react";
 import getMonth from "date-fns/getMonth";
 
 import Select from "../Select";
-import Text from "../Text";
+import { Consumer } from "../../services/intl/context";
 
 const MONTHS = [
   __("January"),
@@ -28,13 +28,17 @@ type Props = {|
 |};
 
 const Months = ({ id, value, onChange, months }: Props) => (
-  <Select id={`${id}-month`} value={String(getMonth(value))} onChange={onChange}>
-    {months.map(month => (
-      <option key={month} value={month}>
-        <Text t={MONTHS[month]} />
-      </option>
-    ))}
-  </Select>
+  <Consumer>
+    {({ translate }) => (
+      <Select id={`${id}-month`} value={String(getMonth(value))} onChange={onChange}>
+        {months.map(month => (
+          <option key={month} value={month}>
+            {translate(MONTHS[month])}
+          </option>
+        ))}
+      </Select>
+    )}
+  </Consumer>
 );
 
 export default Months;
