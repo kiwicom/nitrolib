@@ -13,7 +13,6 @@ const makeCall = (token: string) => (input: Input) =>
   fetch("https://graphql.kiwi.com", {
     method: "POST",
     headers: {
-      // Add authentication and other headers here
       "Content-type": "application/json",
       Accept: "application/json",
       Authorization: token,
@@ -27,12 +26,14 @@ type Arg = {|
   error: string,
   environment: Environment,
   onSignIn: (email: string, password: string) => Promise<boolean>,
+  onSignOut: () => void,
 |};
 
 type Props = {|
   token: string | null,
   brand: Brand,
-  onToken: (token: string) => void,
+  onSignIn: (token: string) => void,
+  onSignOut: () => void,
   children: (arg: Arg) => React.Node,
 |};
 
@@ -68,13 +69,13 @@ export default class InitAuth extends React.PureComponent<Props, State> {
   }
 
   handleSignIn = (email: string, password: string): Promise<boolean> => {
-    const { brand, onToken } = this.props;
+    const { brand, onSignIn } = this.props;
 
     this.setState({ loading: true });
     return api
       .signIn({ email, password, brand: brand.id })
       .then(auth => {
-        onToken(auth.token);
+        onSignIn(auth.token);
         this.setState({ auth, error: "", loading: false });
         return true;
       })
@@ -82,6 +83,13 @@ export default class InitAuth extends React.PureComponent<Props, State> {
         this.setState({ auth: null, error: String(err), loading: false });
         return false;
       });
+  };
+
+  handleSignOut = () => {
+    const { onSignOut } = this.props;
+
+    onSignOut();
+    this.setState({ auth: null });
   };
 
   render() {
@@ -94,6 +102,7 @@ export default class InitAuth extends React.PureComponent<Props, State> {
       error,
       environment: makeEnvironment(makeCall(auth !== null ? auth.token : "")),
       onSignIn: this.handleSignIn,
+      onSignOut: this.handleSignOut,
     });
   }
 }

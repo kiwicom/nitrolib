@@ -13,6 +13,7 @@ type Context = {|
   onMyBooking: () => Promise<boolean>,
   onRegister: () => Promise<boolean>,
   onSignIn: (email: string, password: string) => Promise<boolean>,
+  onSignOut: () => void,
 |};
 
 const contextDefault: Context = {
@@ -23,6 +24,7 @@ const contextDefault: Context = {
   onMyBooking: () => Promise.resolve(true),
   onRegister: () => Promise.resolve(true),
   onSignIn: () => Promise.resolve(true),
+  onSignOut: () => {},
 };
 
 export const { Consumer, Provider } = React.createContext(contextDefault);
