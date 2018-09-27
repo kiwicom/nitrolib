@@ -4,34 +4,16 @@ import { shallow } from "enzyme";
 
 import Starred from "..";
 
-import ToggleLogger from "../../ToggleLogger";
-import TripsContainer from "../../TripsContainer";
-
-const onLog = jest.fn();
-const onOpen = jest.fn();
-const Children = () => "children";
-
 describe("#Starred", () => {
-  const component = shallow(
-    <Starred onLog={onLog}>
-      <ToggleLogger onOpen={onOpen}>
-        {({ open, onToggle }) => (
-          <div onToggle={onToggle} open={open}>
-            <TripsContainer>
-              <Children />
-            </TripsContainer>
-          </div>
-        )}
-      </ToggleLogger>
-    </Starred>,
-  );
+  test("render open", () => {
+    const wrapper = shallow(<Starred>starred</Starred>);
 
-  it("should match snapshot", () => {
-    expect(
-      component
-        .dive()
-        .dive()
-        .shallow(),
-    ).toMatchSnapshot();
+    expect(wrapper.prop("children")({ open: true, onToggle: jest.fn() })).toMatchSnapshot();
+  });
+
+  test("render closed", () => {
+    const wrapper = shallow(<Starred>starred</Starred>);
+
+    expect(wrapper.prop("children")({ open: false, onToggle: jest.fn() })).toMatchSnapshot();
   });
 });

@@ -83,11 +83,10 @@ const NavBar = ({
                   positionMenuDesktop={-270}
                   positionMenuTablet={0}
                   onChange={onSaveLanguage}
-                  onLog={log}
                 />
               </MenuSpacings>
               <MenuSpacings>
-                <Currency onLog={log} positionMenuDesktop={-270} positionMenuTablet={-200} />
+                <Currency positionMenuDesktop={-270} positionMenuTablet={-200} />
               </MenuSpacings>
               <MenuSpacings>
                 <Help onOpen={onOpenFaq} onLog={log} />
@@ -95,7 +94,7 @@ const NavBar = ({
             </Desktop>
             {starred && (
               <MenuSpacings>
-                <Starred positionMenuDesktop={-100} positionMenuTablet={-183} onLog={log}>
+                <Starred positionMenuDesktop={-100} positionMenuTablet={-183}>
                   {starred}
                 </Starred>
               </MenuSpacings>

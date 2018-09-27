@@ -1571,9 +1571,17 @@ exports[`#SideNav render 1`] = `
           display="flex"
         >
           <MenuGroup>
-            <ContextConsumer>
-              <Component />
-            </ContextConsumer>
+            <Language
+              flat={false}
+              native={true}
+              onChange={[MockFunction]}
+            />
+            <SideNav__CurrencySpacing>
+              <Currency
+                loading={null}
+                native={true}
+              />
+            </SideNav__CurrencySpacing>
             <SideNav__Separator
               theme={
                 Object {

@@ -5,7 +5,7 @@ import styled from "styled-components";
 import button from "../../styles/mixins/button";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
-import ToggleLogger from "../ToggleLogger";
+import Toggle from "../Toggle";
 import ClickOutside from "../ClickOutside";
 
 const OpenButton = styled.button`
@@ -32,11 +32,10 @@ type Props = {|
   openButton: React.Node | React.Node[],
   children: (arg: Arg) => React.Node,
   onChange: (input: string) => void,
-  onOpen: () => void,
 |};
 
-const CustomPicker = ({ openButton, children, onChange, onOpen }: Props) => (
-  <ToggleLogger onOpen={onOpen}>
+const CustomPicker = ({ openButton, children, onChange }: Props) => (
+  <Toggle>
     {({ open, onToggle }) => (
       <>
         <OpenButton onClick={onToggle}>{openButton}</OpenButton>
@@ -52,7 +51,7 @@ const CustomPicker = ({ openButton, children, onChange, onOpen }: Props) => (
         )}
       </>
     )}
-  </ToggleLogger>
+  </Toggle>
 );
 
 export default CustomPicker;

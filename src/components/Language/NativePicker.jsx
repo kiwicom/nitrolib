@@ -17,10 +17,9 @@ type Props = {|
   languages: Language[],
   favorite?: Language[],
   onChange: (value: string) => void,
-  onOpen: () => void,
 |};
 
-const NativePicker = ({ current, languages, favorite, onChange, onOpen }: Props) => (
+const NativePicker = ({ current, languages, favorite, onChange }: Props) => (
   <NativeGroupedSelect
     value={current.id}
     groups={
@@ -38,7 +37,6 @@ const NativePicker = ({ current, languages, favorite, onChange, onOpen }: Props)
     // $FlowExpected - type too specific
     icon={<CountryFlag code={current.flag} />}
     onChange={onChange}
-    onOpen={onOpen}
   />
 );
 

@@ -13,7 +13,6 @@ describe("#Language/NativePicker", () => {
         current={langInfoDefault}
         languages={[brandLanguageDefault.languages.en]}
         onChange={jest.fn()}
-        onOpen={jest.fn()}
       />,
     );
 

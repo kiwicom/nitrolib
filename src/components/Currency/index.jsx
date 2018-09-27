@@ -4,57 +4,39 @@ import * as React from "react";
 import { Consumer as CurrencyConsumer } from "../../services/currency/context";
 import NativePicker from "./NativePicker";
 import CustomPicker from "../CustomPicker";
-import { getAvailableList } from "../../records/Currency";
+import { currencyDefault, getAvailableList } from "../../records/Currency";
 import Current from "./components/Current";
 import Menu from "./components/Menu";
-import type { Event } from "../../records/Event";
+import LogMount from "../LogMount";
 
 type Props = {|
   native: boolean,
   loading: React.Node,
   positionMenuTablet?: number,
   positionMenuDesktop?: number,
-  onLog: (event: Event<"openCurrency">) => void,
 |};
 
-export default class Currency extends React.PureComponent<Props> {
-  static defaultProps = {
-    native: false,
-    loading: null,
-  };
+const Currency = ({ native, loading, positionMenuDesktop, positionMenuTablet }: Props) => (
+  <CurrencyConsumer>
+    {({ currency, available, recommended, onChange }) => {
+      if (currency === currencyDefault) {
+        return loading;
+      }
 
-  handleOpen = () => {
-    const { onLog } = this.props;
+      const availableList = getAvailableList(available);
 
-    onLog({ event: "openCurrency", data: null });
-  };
-
-  render() {
-    const { native, loading, positionMenuDesktop, positionMenuTablet } = this.props;
-
-    return (
-      <CurrencyConsumer>
-        {({ currency, available, recommended, onChange }) => {
-          if (!currency) {
-            return loading;
-          }
-
-          const availableList = getAvailableList(available);
-
-          return native ? (
+      return (
+        <>
+          <LogMount event={{ event: "openCurrency", data: null }} />
+          {native ? (
             <NativePicker
               current={currency}
               available={availableList}
               recommended={recommended}
               onChange={onChange}
-              onOpen={this.handleOpen}
             />
           ) : (
-            <CustomPicker
-              onChange={onChange}
-              onOpen={this.handleOpen}
-              openButton={<Current current={currency} />}
-            >
+            <CustomPicker onChange={onChange} openButton={<Current current={currency} />}>
               {render => (
                 <Menu
                   onChange={render.onChange}
@@ -66,9 +48,16 @@ export default class Currency extends React.PureComponent<Props> {
                 />
               )}
             </CustomPicker>
-          );
-        }}
-      </CurrencyConsumer>
-    );
-  }
-}
+          )}
+        </>
+      );
+    }}
+  </CurrencyConsumer>
+);
+
+Currency.defaultProps = {
+  native: false,
+  loading: null,
+};
+
+export default Currency;

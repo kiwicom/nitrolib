@@ -6,19 +6,19 @@ import Language from "..";
 
 describe("#Language", () => {
   test("render", () => {
-    const wrapper = shallow(<Language onChange={jest.fn()} onLog={jest.fn()} />);
+    const wrapper = shallow(<Language onChange={jest.fn()} />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   test("render - native", () => {
-    const wrapper = shallow(<Language onChange={jest.fn()} onLog={jest.fn()} native />);
+    const wrapper = shallow(<Language onChange={jest.fn()} native />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   test("render - flat", () => {
-    const wrapper = shallow(<Language onChange={jest.fn()} onLog={jest.fn()} flat />);
+    const wrapper = shallow(<Language onChange={jest.fn()} flat />);
 
     expect(wrapper).toMatchSnapshot();
   });

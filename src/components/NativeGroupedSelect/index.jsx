@@ -58,16 +58,14 @@ type Props = {|
   groups: Group[],
   divider: ?string,
   onChange: (value: string) => void,
-  onOpen: () => void,
 |};
 
-const NativeGroupedSelect = ({ icon, value, groups, divider, onChange, onOpen }: Props) => (
+const NativeGroupedSelect = ({ icon, value, groups, divider, onChange }: Props) => (
   <Container>
     <IconContainer>{icon}</IconContainer>
     <Select
       value={value}
       onChange={(ev: SyntheticInputEvent<HTMLSelectElement>) => onChange(ev.target.value)}
-      onClick={onOpen}
     >
       {groups.filter(group => group.items.length > 0).map((group, index) => (
         <optgroup key={group.key} label={index > 0 ? divider : null}>

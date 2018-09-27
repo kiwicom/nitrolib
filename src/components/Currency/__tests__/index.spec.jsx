@@ -6,13 +6,13 @@ import Currency from "..";
 
 describe("#Currency", () => {
   test("render", () => {
-    const wrapper = shallow(<Currency onLog={jest.fn()} />);
+    const wrapper = shallow(<Currency />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   test("render - native", () => {
-    const wrapper = shallow(<Currency onLog={jest.fn()} native />);
+    const wrapper = shallow(<Currency native />);
 
     expect(wrapper).toMatchSnapshot();
   });

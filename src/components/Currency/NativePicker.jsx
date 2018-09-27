@@ -17,7 +17,6 @@ type Props = {|
   available: Currency[],
   recommended: Currency[],
   onChange: (code: string) => void,
-  onOpen: () => void,
 |};
 
 const NativePicker = ({ current, available, recommended, onChange, onOpen }: Props) => (
@@ -30,7 +29,6 @@ const NativePicker = ({ current, available, recommended, onChange, onOpen }: Pro
     ]}
     icon={<Exchange className="CurrencySwitcher-icon" size="small" />}
     onChange={onChange}
-    onOpen={onOpen}
   />
 );
 

@@ -2,7 +2,6 @@
 import * as React from "react";
 import styled from "styled-components";
 import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
 
 import Currency from "../src/components/Currency";
 import * as rtl from "../src/styles/rtl";
@@ -17,7 +16,7 @@ storiesOf("Currency", module)
   .addDecorator(withData)
   .add("regular", () => (
     <RegularWrap>
-      <Currency onLog={action("Log")} />
+      <Currency />
     </RegularWrap>
   ))
-  .add("native", () => <Currency onLog={action("Log")} native />);
+  .add("native", () => <Currency native />);

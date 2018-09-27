@@ -6,9 +6,9 @@ import * as intlContext from "../../services/intl/context";
 import * as fetchedContext from "../../services/fetched/context";
 import NativePicker from "./NativePicker";
 import CustomPicker from "../CustomPicker";
+import LogMount from "../LogMount";
 import LanguageName from "./components/LanguageName";
 import Menu from "./components/Menu";
-import type { Event } from "../../records/Event";
 import type { Language as LanguageType } from "../../records/Languages";
 
 type Props = {|
@@ -18,58 +18,43 @@ type Props = {|
   flat: boolean,
   favorite?: LanguageType[],
   onChange: (lang: string) => void,
-  onLog: (event: Event<"openLanguage">) => void,
 |};
 
-export default class Language extends React.PureComponent<Props> {
-  static defaultProps = {
-    native: false,
-    flat: false,
-  };
+const Language = ({
+  onChange,
+  native,
+  flat,
+  positionMenuDesktop,
+  positionMenuTablet,
+  favorite,
+}: Props) => (
+  <fetchedContext.Consumer>
+    {fetched => (
+      <intlContext.Consumer>
+        {intl => {
+          const current = intl.language;
+          const languageMap = fetched.brandLanguage.languages;
 
-  handleOpen = () => {
-    const { onLog } = this.props;
+          if (!R.has(current.id, languageMap)) {
+            return null;
+          }
 
-    onLog({ event: "openLanguage", data: null });
-  };
+          const languages = R.values(languageMap);
 
-  render() {
-    const {
-      onChange,
-      native,
-      flat,
-      positionMenuDesktop,
-      positionMenuTablet,
-      favorite,
-    } = this.props;
-
-    return (
-      <fetchedContext.Consumer>
-        {fetched => (
-          <intlContext.Consumer>
-            {intl => {
-              const current = intl.language;
-              const languageMap = fetched.brandLanguage.languages;
-
-              if (!R.has(current.id, languageMap)) {
-                return null;
-              }
-
-              const languages = R.values(languageMap);
-
-              return native ? (
+          return (
+            <>
+              <LogMount event={{ event: "openLanguage", data: null }} />
+              {native ? (
                 <NativePicker
                   current={current}
                   languages={languages}
                   favorite={favorite}
                   onChange={onChange}
-                  onOpen={this.handleOpen}
                 />
               ) : (
                 <CustomPicker
                   openButton={<LanguageName name={current.name} flag={current.flag} />}
                   onChange={onChange}
-                  onOpen={this.handleOpen}
                 >
                   {render => (
                     <Menu
@@ -82,11 +67,19 @@ export default class Language extends React.PureComponent<Props> {
                     />
                   )}
                 </CustomPicker>
-              );
-            }}
-          </intlContext.Consumer>
-        )}
-      </fetchedContext.Consumer>
-    );
-  }
-}
+              )}
+              )
+            </>
+          );
+        }}
+      </intlContext.Consumer>
+    )}
+  </fetchedContext.Consumer>
+);
+
+Language.defaultProps = {
+  native: false,
+  flat: false,
+};
+
+export default Language;
