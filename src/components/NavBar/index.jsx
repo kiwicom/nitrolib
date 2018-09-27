@@ -5,7 +5,6 @@ import styled, { css } from "styled-components";
 import { navbar } from "../../styles";
 import mq from "../../styles/mediaQuery";
 import * as rtl from "../../styles/rtl";
-import ClientOnly from "../ClientOnly";
 import Desktop from "../Desktop";
 import type { ThemeProps } from "../../records/Theme";
 import { themeDefault } from "../../records/Theme";
