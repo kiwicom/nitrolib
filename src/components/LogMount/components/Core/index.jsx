@@ -8,7 +8,7 @@ type Props<E, D> = {|
   onLog: (event: Event<E, D>) => void,
 |};
 
-export default class Core<E, D> extends React.PureComponent<Props<E, D>> {
+export default class Core<E, D> extends React.Component<Props<E, D>> {
   componentDidMount() {
     const { event, onLog } = this.props;
 
