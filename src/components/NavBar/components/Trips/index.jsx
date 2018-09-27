@@ -38,7 +38,7 @@ const Trips = ({ auth, env }: Props) => (
       <>
         {open && (
           <ClickOutside onClickOutside={onToggle}>
-            <TripDataList env={env} token={auth.token} />
+            <TripDataList env={env} />
           </ClickOutside>
         )}
         <MenuSpacings>

@@ -50,7 +50,7 @@ describe("#TripDataList", () => {
     const promise = Promise.resolve(res);
     const environment = makeEnvironment(() => promise);
 
-    const wrapper = shallow(<TripDataList token="" env={environment} />);
+    const wrapper = shallow(<TripDataList env={environment} />);
 
     await promise;
 

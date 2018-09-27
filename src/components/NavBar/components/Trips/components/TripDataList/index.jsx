@@ -12,7 +12,6 @@ import TripList from "../TripList";
 import TripContainer from "../../../../../TripsContainer";
 
 type Props = {|
-  token: string,
   // DI
   env: Environment,
 |};
@@ -21,10 +20,9 @@ const StateContainer = styled.div`
   padding: 10px;
 `;
 
-const TripDataList = ({ env, token }: Props) => (
+const TripDataList = ({ env }: Props) => (
   <QueryRenderer
     environment={env}
-    variables={{ token }}
     query={graphql`
       query TripDataListQuery {
         customerBookings {
@@ -33,6 +31,7 @@ const TripDataList = ({ env, token }: Props) => (
         }
       }
     `}
+    variables={{}}
     render={res => {
       if (res.error) {
         return (
