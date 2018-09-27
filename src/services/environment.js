@@ -9,7 +9,6 @@ const call = (input: Input) =>
       // Add authentication and other headers here
       "Content-type": "application/json",
       Accept: "application/json",
-      Authorization: input.variables.token, // FIXME document this
     },
     body: JSON.stringify(input),
   }).then(res => res.json());

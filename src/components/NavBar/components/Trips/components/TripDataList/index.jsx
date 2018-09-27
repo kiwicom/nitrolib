@@ -1,10 +1,10 @@
 // @flow
 import * as React from "react";
 import { graphql, QueryRenderer } from "react-relay";
+import type { Environment } from "react-relay";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import styled from "styled-components";
 
-import environment from "../../../../../../services/environment";
 import * as intlContext from "../../../../../../services/intl/context";
 import Text from "../../../../../Text";
 import TripHeader from "../TripHeader";
@@ -14,7 +14,7 @@ import TripContainer from "../../../../../TripsContainer";
 type Props = {|
   token: string,
   // DI
-  env: typeof environment,
+  env: Environment,
 |};
 
 const StateContainer = styled.div`
@@ -77,9 +77,5 @@ const TripDataList = ({ env, token }: Props) => (
     }}
   />
 );
-
-TripDataList.defaultProps = {
-  env: environment,
-};
 
 export default TripDataList;

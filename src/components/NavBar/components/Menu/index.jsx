@@ -75,7 +75,7 @@ export default class Menu extends React.PureComponent<Props, State> {
     return (
       <>
         <authContext.Consumer>
-          {({ auth }) =>
+          {({ auth, environment }) =>
             auth === null ? (
               <MenuSpacings>
                 <Desktop display="flex">
@@ -90,7 +90,7 @@ export default class Menu extends React.PureComponent<Props, State> {
                 </Mobile>
               </MenuSpacings>
             ) : (
-              <Trips auth={auth} />
+              <Trips auth={auth} env={environment} />
             )
           }
         </authContext.Consumer>

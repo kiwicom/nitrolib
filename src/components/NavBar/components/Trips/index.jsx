@@ -1,6 +1,7 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import styled from "styled-components";
+import type { Environment } from "react-relay";
 import Passenger from "@kiwicom/orbit-components/lib/icons/Passenger";
 
 import Button from "../../primitives/Button";
@@ -17,6 +18,7 @@ import Flex from "../../../../primitives/Flex";
 
 type Props = {|
   auth: Auth,
+  env: Environment,
 |};
 
 const UserStyle = styled.div`
@@ -30,13 +32,13 @@ const UserStyle = styled.div`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
 `;
 
-const Trips = ({ auth }: Props) => (
+const Trips = ({ auth, env }: Props) => (
   <Toggle>
     {({ open, onToggle }) => (
       <>
         {open && (
           <ClickOutside onClickOutside={onToggle}>
-            <TripDataList token={auth.token} />
+            <TripDataList env={env} token={auth.token} />
           </ClickOutside>
         )}
         <MenuSpacings>

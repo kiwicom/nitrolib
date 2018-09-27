@@ -1,15 +1,31 @@
 // @flow strict
 import * as React from "react";
+import type { Environment } from "react-relay";
 
 import { authDefault } from "../../records/Auth";
 import type { Auth } from "../../records/Auth";
 import type { Brand } from "../../records/Brand";
 import * as api from "../../services/auth/api";
+import makeEnvironment from "../../services/utils/makeEnvironment";
+import type { Input } from "../../services/utils/makeEnvironment";
+
+const makeCall = (token: string) => (input: Input) =>
+  fetch("https://graphql.kiwi.com", {
+    method: "POST",
+    headers: {
+      // Add authentication and other headers here
+      "Content-type": "application/json",
+      Accept: "application/json",
+      Authorization: token,
+    },
+    body: JSON.stringify(input),
+  }).then(res => res.json());
 
 type Arg = {|
   auth: Auth | null,
   loading: boolean,
   error: string,
+  environment: Environment,
   onSignIn: (email: string, password: string) => Promise<boolean>,
 |};
 
@@ -72,6 +88,12 @@ export default class InitAuth extends React.PureComponent<Props, State> {
     const { auth, loading, error } = this.state;
     const { children } = this.props;
 
-    return children({ auth, loading, error, onSignIn: this.handleSignIn });
+    return children({
+      auth,
+      loading,
+      error,
+      environment: makeEnvironment(makeCall(auth !== null ? auth.token : "")),
+      onSignIn: this.handleSignIn,
+    });
   }
 }
