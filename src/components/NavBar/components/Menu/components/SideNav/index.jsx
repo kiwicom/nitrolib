@@ -230,12 +230,12 @@ export default class SideNav extends React.Component<Props, State> {
 
                 {/* SIGN-IN/UP/OUT */}
                 <AuthConsumer>
-                  {({ auth }) => (
+                  {({ auth, onSignOut }) => (
                     <MenuGroup>
                       {auth !== null ? (
                         <MenuItem
                           Icon={icons.AccountCircle}
-                          onClick={this.handleOpenSignIn}
+                          onClick={onSignOut}
                           text={<Text t={__("account.log_out")} />}
                         />
                       ) : (
