@@ -235,7 +235,10 @@ export default class SideNav extends React.Component<Props, State> {
                       {auth !== null ? (
                         <MenuItem
                           Icon={icons.AccountCircle}
-                          onClick={onSignOut}
+                          onClick={() => {
+                            onSignOut();
+                            this.handleToggle();
+                          }}
                           text={<Text t={__("account.log_out")} />}
                         />
                       ) : (
@@ -260,8 +263,8 @@ export default class SideNav extends React.Component<Props, State> {
 
                 <BrandConsumer>
                   {brand => {
-                    const company = getPagesItems(brand); // TODO move to provider
-                    const socialMedia = getSocialMediaItems(brand); // TODO move to provider
+                    const company = getPagesItems(brand);
+                    const socialMedia = getSocialMediaItems(brand);
 
                     return (
                       <>
