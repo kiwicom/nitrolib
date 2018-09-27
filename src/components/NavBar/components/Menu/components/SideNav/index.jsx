@@ -12,7 +12,6 @@ import Text from "../../../../../Text";
 import Language from "../../../../../Language";
 import { Consumer as BrandConsumer } from "../../../../../../services/brand/context";
 import { Consumer as AuthConsumer } from "../../../../../../services/auth/context";
-import { Consumer as LogConsumer } from "../../../../../../services/log/context";
 import type { ThemeProps } from "../../../../../../records/Theme";
 import { themeDefault } from "../../../../../../records/Theme";
 import * as rtl from "../../../../../../styles/rtl";

@@ -19,7 +19,7 @@ type Props = {|
   onChange: (code: string) => void,
 |};
 
-const NativePicker = ({ current, available, recommended, onChange, onOpen }: Props) => (
+const NativePicker = ({ current, available, recommended, onChange }: Props) => (
   <NativeGroupedSelect
     value={current.id}
     groups={[
