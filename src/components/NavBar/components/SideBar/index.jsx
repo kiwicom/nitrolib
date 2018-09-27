@@ -61,7 +61,7 @@ type Props = {|
 |};
 
 export default class SideBar extends React.Component<Props> {
-  node = document.getElementById("sidebar") || document.body;
+  node = document.body;
 
   el = document.createElement("div");
 

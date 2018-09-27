@@ -5,14 +5,7 @@ import { mount } from "enzyme";
 import SideBar from "../index";
 
 describe("#index", () => {
-  test("render - with target", () => {
-    const target = document.createElement("div");
-    target.setAttribute("id", "sidebar");
-
-    if (document.body) {
-      document.body.appendChild(target);
-    }
-
+  test("render", () => {
     const wrapper = mount(
       <SideBar onClick={jest.fn()} shown>
         <p>Content</p>
@@ -20,32 +13,12 @@ describe("#index", () => {
     );
 
     expect(wrapper).toMatchSnapshot();
-    expect(document.getElementById("sidebar")).toMatchSnapshot();
+    expect(document.body).toMatchSnapshot();
 
     wrapper.unmount();
 
     expect(wrapper).toMatchSnapshot();
-    expect(document.getElementById("sidebar")).toMatchSnapshot();
-
-    if (document.body) {
-      document.body.removeChild(target);
-    }
-  });
-
-  test("render - without target", () => {
-    const wrapper = mount(
-      <SideBar onClick={jest.fn()} shown>
-        <p>Content</p>
-      </SideBar>,
-    );
-
-    expect(wrapper).toMatchSnapshot();
-    expect(document.getElementById("sidebar")).toMatchSnapshot();
-
-    wrapper.unmount();
-
-    expect(wrapper).toMatchSnapshot();
-    expect(document.getElementById("sidebar")).toMatchSnapshot();
+    expect(document.body).toMatchSnapshot();
   });
 
   test("on click container", () => {
