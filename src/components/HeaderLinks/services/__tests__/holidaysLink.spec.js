@@ -1,5 +1,5 @@
 // @flow strict
-import { getLink, getCarsLanguage } from "../link";
+import { getLink, getCarsLanguage } from "../holidaysLink";
 
 const currency = {
   enabledOnAffilId: "",
@@ -72,7 +72,7 @@ const language = {
   zipCodePlaceholder: "10005",
 };
 
-describe("#HeaderLinks/service/link", () => {
+describe("#HeaderLinks/service/holidaysLink", () => {
   test("getCarsLanguage", () => {
     expect(getCarsLanguage("pt")).toEqual("pt");
 
@@ -82,12 +82,12 @@ describe("#HeaderLinks/service/link", () => {
   });
 
   test("getLink", () => {
-    expect(getLink(currency, language, "holidays")).toEqual("//holidays.kiwi.com/gb/?utm_id=24897");
+    expect(getLink("holidays", language, currency)).toEqual("//holidays.kiwi.com/gb/?utm_id=24897");
 
-    expect(getLink(currencySE, language, "lastminute")).toEqual(
+    expect(getLink("lastminute", language, currencySE)).toEqual(
       "https://kiwicom.lastminute.com/flight-hotel/?utm_source=kiwicom_header_link",
     );
 
-    expect(getLink(currencySE, language, "none")).toBeNull();
+    expect(getLink("none", language, currencySE)).toBeNull();
   });
 });
