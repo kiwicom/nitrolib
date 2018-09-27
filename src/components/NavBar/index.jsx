@@ -87,11 +87,9 @@ const NavBar = ({
                   onLog={log}
                 />
               </MenuSpacings>
-              <ClientOnly>
-                <MenuSpacings>
-                  <Currency onLog={log} positionMenuDesktop={-270} positionMenuTablet={-200} />
-                </MenuSpacings>
-              </ClientOnly>
+              <MenuSpacings>
+                <Currency onLog={log} positionMenuDesktop={-270} positionMenuTablet={-200} />
+              </MenuSpacings>
               <MenuSpacings>
                 <Help onOpen={onOpenFaq} onLog={log} />
               </MenuSpacings>
