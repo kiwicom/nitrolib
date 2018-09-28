@@ -35,9 +35,6 @@ const getLastminuteDeeplink = (lang: string) => {
   }
 };
 
-// cars.kiwi.com are powered by rentalcars.com
-export const getCarsLanguage = (isoShort: string) => (isoShort === "el" ? "gr" : isoShort); // "fix" greek language code
-
 // Supported currenceis on Logitravel
 const HOLIDAYS_CURRENCIES = ["eur", "gbp"];
 const PACKAGES = {
@@ -54,7 +51,7 @@ const PACKAGES = {
 
 export type Provider = "none" | "lastminute" | "holidays";
 
-export function getLink(provider: Provider, language: LangInfo, currency: Currency) {
+export default function getLink(provider: Provider, language: LangInfo, currency: Currency) {
   const packageProviderSet = provider !== "none";
 
   // Intersection of Logitravel & Lastminute
