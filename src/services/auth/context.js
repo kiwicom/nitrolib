@@ -5,7 +5,7 @@ import type { Environment } from "react-relay";
 import type { Auth } from "../../records/Auth";
 import environment from "../environment";
 
-type Context = {|
+export type Context = {|
   auth: Auth | null,
   loading: boolean,
   error: string,

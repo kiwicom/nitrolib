@@ -3,7 +3,7 @@ import * as React from "react";
 
 import type { Event } from "../../records/Event";
 
-type Context<E, D> = {|
+export type Context<E, D> = {|
   log: (event: Event<E, D>) => void,
 |};
 
