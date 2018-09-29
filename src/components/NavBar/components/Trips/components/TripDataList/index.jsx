@@ -35,7 +35,7 @@ const TripDataList = ({ env }: Props) => (
     render={res => {
       if (res.error) {
         return (
-          <TripContainer>
+          <TripContainer positionMenuTablet={0} positionMenuDesktop={50}>
             <StateContainer>
               <Alert type="critical">{String(res.error)}</Alert>
             </StateContainer>
@@ -45,7 +45,7 @@ const TripDataList = ({ env }: Props) => (
 
       if (!res.props) {
         return (
-          <TripContainer>
+          <TripContainer positionMenuTablet={0} positionMenuDesktop={50}>
             <StateContainer>
               <Text t={__("common.loading")} />
             </StateContainer>
@@ -56,7 +56,7 @@ const TripDataList = ({ env }: Props) => (
       const { customerBookings } = res.props;
       if (!customerBookings) {
         return (
-          <TripContainer>
+          <TripContainer positionMenuTablet={0} positionMenuDesktop={50}>
             <StateContainer>
               <Alert>
                 <Text t={__("account.no_trips")} />

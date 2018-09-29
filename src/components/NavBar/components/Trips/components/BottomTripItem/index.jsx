@@ -18,11 +18,13 @@ const Img = styled.img`
   display: flex;
   justify-content: center;
   overflow: hidden;
+  height: 50px;
+  width: 45px;
 `;
 
 const BottomTripItem = ({ id, imageUrl, lang }: Props) => (
   <ItemWrapper onClick={() => handleSelect(id, lang)}>
-    <Img src={imageUrl} alt="trips" height="45" />
+    <Img src={imageUrl} alt="trips" />
   </ItemWrapper>
 );
 

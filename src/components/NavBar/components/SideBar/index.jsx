@@ -24,7 +24,8 @@ const Container = styled.section`
   bottom: 0;
   ${rtl.right}: 0;
   ${rtl.left}: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: ${({ entered }) => (entered ? `rgba(0, 0, 0, .5)` : `transparent`)};
+  transition: background-color ${({ theme }: ThemeProps) => theme.orbit.durationNormal} ease-in-out;
 `;
 
 Container.defaultProps = {
@@ -41,7 +42,7 @@ const Wrapper = styled.div`
   overflow-y: auto;
   height: 100%;
   transform: translate3d(${({ shown }) => (shown ? `0, 0, 0` : `480px, 0, 0`)});
-  transition: transform ${DURATION}ms ease-in-out;
+  transition: transform ${({ theme }: ThemeProps) => theme.orbit.durationNormal} ease-in-out;
   box-shadow: 0 6px 16px rgba(46, 53, 59, 0.22), 0 1px 3px rgba(0, 0, 0, 0.09);
 
   ${mq.ltTablet(css`
@@ -87,6 +88,7 @@ export default class SideBar extends React.Component<Props> {
         {status => (
           <Container
             shown={status !== "exited"}
+            entered={status === "entered"}
             innerRef={this.ref}
             onClick={(ev: SyntheticEvent<HTMLDivElement>) => {
               if (this.ref.current === ev.target) {
