@@ -133,7 +133,7 @@ export default class CurrencyProvider extends React.PureComponent<Props, State> 
   }
 
   render() {
-    const { currency, loading, available, recommended } = this.state;
+    const { currency, available, recommended } = this.state;
     const { children } = this.props;
 
     if (!currency) {
