@@ -16,10 +16,19 @@ const makeFetchQuery = (call: Call) => (operation, variables) =>
 
 const store = new Store(new RecordSource());
 
-const makeEnvironment = (call: Call) =>
+export const makeCall = (token: string) => (input: Input) =>
+  fetch("https://graphql.kiwi.com", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+      Accept: "application/json",
+      Authorization: token,
+    },
+    body: JSON.stringify(input),
+  }).then(res => res.json());
+
+export const makeEnvironment = (call: Call) =>
   new Environment({
     network: Network.create(makeFetchQuery(call)),
     store,
   });
-
-export default makeEnvironment;

@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import makeEnvironment from "../../../../../../../services/utils/makeEnvironment";
+import { makeEnvironment } from "../../../../../../../services/utils/relay";
 
 import TripDataList from "..";
 

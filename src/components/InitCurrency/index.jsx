@@ -16,7 +16,6 @@ import getRecommended from "./services/getRecommended";
 
 type Arg = {|
   currency: Currency,
-  loading: boolean,
   available: Currencies,
   recommended: Currency[],
   onChange: (code: string) => void,
@@ -140,7 +139,6 @@ export default class CurrencyProvider extends React.PureComponent<Props, State> 
     if (!currency) {
       return children({
         currency: currencyDefault,
-        loading: false,
         available: {},
         recommended: [],
         onChange: () => {},
@@ -149,7 +147,6 @@ export default class CurrencyProvider extends React.PureComponent<Props, State> 
 
     return children({
       currency,
-      loading,
       available,
       recommended,
       onChange: this.handleChange,

@@ -1,6 +1,6 @@
 // @flow strict
-import makeEnvironment from "./utils/makeEnvironment";
-import type { Input } from "./utils/makeEnvironment";
+import { makeEnvironment } from "./utils/relay";
+import type { Input } from "./utils/relay";
 
 const call = (input: Input) =>
   fetch("https://graphql.kiwi.com", {

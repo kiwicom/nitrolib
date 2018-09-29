@@ -6,19 +6,7 @@ import { authDefault } from "../../records/Auth";
 import type { Auth } from "../../records/Auth";
 import type { Brand } from "../../records/Brand";
 import * as api from "../../services/auth/api";
-import makeEnvironment from "../../services/utils/makeEnvironment";
-import type { Input } from "../../services/utils/makeEnvironment";
-
-const makeCall = (token: string) => (input: Input) =>
-  fetch("https://graphql.kiwi.com", {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-      Accept: "application/json",
-      Authorization: token,
-    },
-    body: JSON.stringify(input),
-  }).then(res => res.json());
+import { makeCall, makeEnvironment } from "../../services/utils/relay";
 
 type Arg = {|
   auth: Auth | null,

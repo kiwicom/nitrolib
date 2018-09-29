@@ -63,19 +63,7 @@ const withData = (storyFn: () => React.Node) => {
                   langCurrency={language.currency}
                   onChange={action("Save currency")}
                 >
-                  {({ currency, loading, available, recommended, onChange }) => (
-                    <CurrencyProvider
-                      value={{
-                        currency,
-                        loading,
-                        available,
-                        recommended,
-                        onChange,
-                      }}
-                    >
-                      {storyFn()}
-                    </CurrencyProvider>
-                  )}
+                  {currency => <CurrencyProvider value={currency}>{storyFn()}</CurrencyProvider>}
                 </InitCurrency>
               </FetchedProvider>
             </IntlProvider>

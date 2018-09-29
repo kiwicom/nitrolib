@@ -1,10 +1,10 @@
 // @flow strict
 import { Environment } from "relay-runtime";
 
-import makeEnvironment from "../makeEnvironment";
+import { makeEnvironment } from "../relay";
 
-describe("#makeEnvironment", () => {
-  test("making a new one", () => {
+describe("#relay", () => {
+  test("make environment", () => {
     const res = makeEnvironment(jest.fn());
 
     expect(res instanceof Environment).toBe(true);

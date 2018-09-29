@@ -6,7 +6,6 @@ import { currencyDefault } from "../../records/Currency";
 
 export type Context = {|
   currency: Currency,
-  loading: boolean,
   available: Currencies,
   recommended: Currency[],
   onChange: (code: string) => void,
@@ -14,7 +13,6 @@ export type Context = {|
 
 const contextDefault: Context = {
   currency: currencyDefault,
-  loading: false,
   available: {},
   recommended: [],
   onChange: () => {},

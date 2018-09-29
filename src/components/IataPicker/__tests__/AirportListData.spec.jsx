@@ -2,7 +2,7 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import makeEnvironment from "../../../services/utils/makeEnvironment";
+import { makeEnvironment } from "../../../services/utils/relay";
 import AirportListData from "../AirportListData";
 
 const res = {
