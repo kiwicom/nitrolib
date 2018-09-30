@@ -5,16 +5,22 @@ type LtrOrRtl = <T1, T2>(valueLtr: T1, valueRtl: T2) => (themeProps: ThemeProps)
 
 const ltrOrRtl: LtrOrRtl = (valueLtr, valueRtl) => ({ theme }) => (theme.rtl ? valueRtl : valueLtr);
 
-type Box = (ltrValue: string) => (themeProps: ThemeProps) => string;
+type Box = (
+  top: number,
+  right: number,
+  bot: number,
+  left: number,
+) => (themeProps: ThemeProps) => string;
 
-export const box: Box = ltrValue => ({ theme }) => {
+const boxFormat = (top: number, right: number, bot: number, left: number): string =>
+  [top, right, bot, left].map(val => `${val}px`).join(" ");
+
+export const box: Box = (top, right, bot, left) => ({ theme }) => {
   if (!theme.rtl) {
-    return ltrValue;
+    return boxFormat(top, right, bot, left);
   }
 
-  const parts = ltrValue.split(" ");
-
-  return parts.length === 4 ? [parts[0], parts[3], parts[2], parts[1]].join(" ") : ltrValue;
+  return boxFormat(top, left, bot, right);
 };
 
 export const hOffset: (ltrValue: number) => (themeProps: ThemeProps) => number = ltrValue => ({
@@ -23,3 +29,17 @@ export const hOffset: (ltrValue: number) => (themeProps: ThemeProps) => number =
 
 export const left = ltrOrRtl("left", "right");
 export const right = ltrOrRtl("right", "left");
+
+type Translate3d = (x: string, y: string, z: string) => (themeProps: ThemeProps) => string;
+
+const translate3dFormat = (x: string, y: string, z: string): string =>
+  `translate3d(${x}, ${y}, ${z})`;
+
+export const translate3d: Translate3d = (x, y, z) => ({ theme }) => {
+  if (!theme.rtl) {
+    return translate3dFormat(x, y, z);
+  }
+
+  const newX = x[0] === "-" ? x.slice(1) : `-${x}`;
+  return translate3dFormat(newX, y, z);
+};

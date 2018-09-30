@@ -1,7 +1,7 @@
 // @flow
 import styled, { css } from "styled-components";
 
-import mq from "../../../styles/mediaQuery";
+import mq from "../../../styles/mq";
 import * as rtl from "../../../styles/rtl";
 import { themeDefault } from "../../../records/Theme";
 

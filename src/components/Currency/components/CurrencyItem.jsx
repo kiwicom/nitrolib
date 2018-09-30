@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 
 import { getCode, getSymbol } from "../../../records/Currency";
 import type { Currency } from "../../../records/Currency";
-import mq from "../../../styles/mediaQuery";
+import mq from "../../../styles/mq";
 import Code from "./Code";
 import Sign from "./Sign";
 import Name from "./Name";

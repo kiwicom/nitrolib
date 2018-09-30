@@ -7,7 +7,7 @@ import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
 import separateList from "../../../services/utils/separateList";
 import Flex from "../../../primitives/Flex";
-import mq from "../../../styles/mediaQuery";
+import mq from "../../../styles/mq";
 import * as rtl from "../../../styles/rtl";
 import Tooltip from "../../Tooltip";
 import CurrencyItem from "./CurrencyItem";

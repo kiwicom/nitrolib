@@ -6,7 +6,7 @@ import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
 import { getByContinent } from "../../../records/Languages";
 import type { Language } from "../../../records/Languages";
-import mq from "../../../styles/mediaQuery";
+import mq from "../../../styles/mq";
 import * as rtl from "../../../styles/rtl";
 import Flex from "../../../primitives/Flex";
 import Text from "../../Text";

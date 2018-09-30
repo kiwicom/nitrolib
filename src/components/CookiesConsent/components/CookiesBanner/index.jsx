@@ -3,7 +3,7 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import MdClose from "react-icons/lib/md/close";
 
-import mq from "../../../../styles/mediaQuery";
+import mq from "../../../../styles/mq";
 import * as rtl from "../../../../styles/rtl";
 import linkMixin from "../../../../styles/mixins/link";
 import Text from "../../../Text";
@@ -17,7 +17,7 @@ const Container = styled.div`
   align-items: center;
   box-sizing: border-box;
   width: 100%;
-  padding: ${rtl.box("10px 50px 10px 20px")};
+  padding: ${rtl.box(10, 50, 10, 20)};
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   line-height: 20px;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
@@ -26,7 +26,7 @@ const Container = styled.div`
   box-shadow: 0 -1px 6px 0 rgba(0, 0, 0, 0.2);
 
   ${mq.gtTablet(css`
-    padding: ${rtl.box("20px 50px 20px 20px")};
+    padding: ${rtl.box(20, 50, 20, 20)};
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormalActive};
     background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   `)};

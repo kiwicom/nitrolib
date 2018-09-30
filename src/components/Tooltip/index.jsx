@@ -3,7 +3,7 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
-import mq from "../../styles/mediaQuery";
+import mq from "../../styles/mq";
 import * as rtl from "../../styles/rtl";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";

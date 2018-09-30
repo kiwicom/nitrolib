@@ -29,7 +29,7 @@ const Container = styled.button`
   padding: 0;
   height: 34px;
   line-height: 34px;
-  border-width: ${rtl.box(`${border.size}px ${border.size}px ${border.size}px 0`)};
+  border-width: ${rtl.box(border.size, border.size, border.size, 0)};
   border-color: ${({ theme }: ContainerProps) => theme.orbit.paletteInkLighter};
   border-radius: 0;
   background: ${({ theme, active }: ContainerProps) =>
@@ -42,11 +42,11 @@ const Container = styled.button`
 
   &:first-child {
     border-width: ${border.size}px;
-    border-radius: ${rtl.box("3px 0 0 3px")};
+    border-radius: ${rtl.box(3, 0, 0, 3)};
   }
 
   &:last-child {
-    border-radius: ${rtl.box("0 3px 3px 0")};
+    border-radius: ${rtl.box(0, 3, 3, 0)};
   }
 
   &:focus {

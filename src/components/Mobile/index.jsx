@@ -2,7 +2,7 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
-import mq from "../../styles/mediaQuery";
+import mq from "../../styles/mq";
 
 type Props = {|
   display: "block" | "inline" | "inline-block" | "flex",

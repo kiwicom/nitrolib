@@ -2,7 +2,7 @@
 import * as R from "ramda";
 
 import { BREAKPOINTS } from "../../consts/device";
-import mq from "../mediaQuery";
+import mq from "../mq";
 
 const EXPECTED_QUERIES = {
   gtDesktop: `(min-width: ${BREAKPOINTS.DESKTOP}px)`,

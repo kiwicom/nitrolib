@@ -47,7 +47,7 @@ const Close = styled.div`
   top: 0;
   ${rtl.right}: 0;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
-  padding: ${rtl.box("23px 30px 10px 0")};
+  padding: ${rtl.box(23, 30, 10, 0)};
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
   cursor: pointer;
 `;

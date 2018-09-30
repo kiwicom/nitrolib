@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
-import mq from "../../../styles/mediaQuery";
+import mq from "../../../styles/mq";
 
 type ActiveProps = {|
   ...ThemeProps,

@@ -4,7 +4,7 @@ import * as R from "ramda";
 import styled, { css } from "styled-components";
 
 import type { Currency } from "../../../records/Currency";
-import mq from "../../../styles/mediaQuery";
+import mq from "../../../styles/mq";
 import * as rtl from "../../../styles/rtl";
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";

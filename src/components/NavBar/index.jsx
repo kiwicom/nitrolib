@@ -3,7 +3,7 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 
 import { navbar } from "../../styles";
-import mq from "../../styles/mediaQuery";
+import mq from "../../styles/mq";
 import * as rtl from "../../styles/rtl";
 import Desktop from "../Desktop";
 import type { ThemeProps } from "../../records/Theme";

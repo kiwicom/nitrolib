@@ -4,7 +4,7 @@ import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
 
-import mq from "../../styles/mediaQuery";
+import mq from "../../styles/mq";
 import * as rtl from "../../styles/rtl";
 import ClickOutside from "../ClickOutside";
 import Toggle from "../Toggle";

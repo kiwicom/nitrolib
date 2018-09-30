@@ -1,7 +1,7 @@
 // @flow strict
 import styled, { css } from "styled-components";
 
-import mq from "../styles/mediaQuery";
+import mq from "../styles/mq";
 
 const Desktop = styled.div`
   display: none;

@@ -8,7 +8,7 @@ import { themeDefault } from "../../../../records/Theme";
 import { Consumer as BrandConsumer } from "../../../../services/brand/context";
 import SvgLogo from "./SvgLogo";
 import * as rtl from "../../../../styles/rtl";
-import mq from "../../../../styles/mediaQuery";
+import mq from "../../../../styles/mq";
 
 const PoweredByKiwi = styled.span`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
