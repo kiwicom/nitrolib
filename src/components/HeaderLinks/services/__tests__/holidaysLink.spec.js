@@ -27,13 +27,17 @@ const currencySE = {
 };
 
 describe("#HeaderLinks/service/holidaysLink", () => {
-  test("getLink", () => {
+  test("getLink holidays", () => {
     expect(getLink("holidays", language, currency)).toEqual("//holidays.kiwi.com/gb/?utm_id=24897");
+  });
 
+  test("getLink lastminute", () => {
     expect(getLink("lastminute", language, currencySE)).toEqual(
       "https://kiwicom.lastminute.com/flight-hotel/?utm_source=kiwicom_header_link",
     );
+  });
 
+  test("getLink none", () => {
     expect(getLink("none", language, currencySE)).toBeNull();
   });
 });
