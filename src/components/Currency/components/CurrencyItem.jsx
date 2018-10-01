@@ -2,6 +2,8 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
+import Text from "@kiwicom/orbit-components/lib/Text";
+
 import { getCode, getSymbol } from "../../../records/Currency";
 import type { Currency } from "../../../records/Currency";
 import mq from "../../../styles/mq";
@@ -22,12 +24,12 @@ type Props = {|
 |};
 
 const CurrencyItem = ({ item }: Props) => (
-  <>
+  <Text>
     <Code>{getCode(item.id)}</Code>
     <Sign>{getSymbol(item.format)}</Sign>
     <NameSeparator>-</NameSeparator>
     <Name>{item.name}</Name>
-  </>
+  </Text>
 );
 
 export default CurrencyItem;

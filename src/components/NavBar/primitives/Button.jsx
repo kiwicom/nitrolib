@@ -16,8 +16,10 @@ const Button = styled.button`
       : `color: ${theme.orbit.paletteInkNormal}`};
   cursor: pointer;
   line-height: 50px;
-  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   line-height: 50px;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
+  font-family: ${({ theme }: ThemeProps) => theme.orbit.fontFamily};
   text-decoration: none;
   ${({ transition }) => transition && `transition: color 0.2s ease-in-out`};
   ${({ padding }) => padding && `padding: ${padding}`};

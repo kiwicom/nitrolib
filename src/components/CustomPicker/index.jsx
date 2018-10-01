@@ -14,6 +14,9 @@ const OpenButton = styled.button`
   align-items: center;
   line-height: 50px;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
+  font-family: ${({ theme }: ThemeProps) => theme.orbit.fontFamily};
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
 
   &:hover {
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
