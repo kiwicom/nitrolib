@@ -1,4 +1,7 @@
 // @flow strict
+import format from "date-fns/format";
+import querystring from "querystring";
+
 import { mapUser } from "../../records/User";
 import type { User } from "../../records/User";
 import type { Auth } from "../../records/Auth";
@@ -37,6 +40,34 @@ export async function getTokenUser(token: string): Promise<User> {
   }
 
   return mapUser(user[0]);
+}
+
+export type MyBookingInput = {|
+  bid: string,
+  email: string,
+  iata: string,
+  departure: Date,
+|};
+
+// eslint-disable-next-line import/prefer-default-export
+export function getMyBookingToken({ bid, email, iata, departure }: MyBookingInput) {
+  const query = {
+    email,
+    src: iata,
+    dtime: format(departure, config.apiDateFormat),
+  };
+
+  return fetch(
+    `${config.bookingApiUrl}/api/v0.1/users/get_simple_token/${bid}?${querystring.stringify(
+      query,
+    )}`,
+  ).then((res: Response) => {
+    if (!res.ok) {
+      return res.json().then(body => Promise.reject(body.msg));
+    }
+
+    return res.json().then(body => body.simple_token);
+  });
 }
 
 type LoginInput = {|
@@ -86,15 +117,14 @@ export async function logout(token: string): Promise<void> {
     .then(() => {});
 }
 
-type RegisterInput = {|
+export type RegisterInput = {|
   firstName: string,
   lastName: string,
   email: string,
   password: string,
-  brand: string,
 |};
 
-export function register(input: RegisterInput): Promise<void> {
+export function register(brand: string, input: RegisterInput): Promise<void> {
   return fetch(`${config.apiAuthUrl}/v1/user.save`, {
     method: "POST",
     headers: {
@@ -107,7 +137,7 @@ export function register(input: RegisterInput): Promise<void> {
       last_name: input.lastName,
       login: input.email,
       password: input.password,
-      brand: input.brand,
+      brand,
     }),
   })
     .then(handleError)
@@ -116,26 +146,18 @@ export function register(input: RegisterInput): Promise<void> {
 
 type SocialAuthProvider = "facebook" | "google";
 
-export async function socialAuth(
-  provider: SocialAuthProvider,
-  redirectUrl: string = window.location.href,
-): Promise<boolean> {
-  const response = await fetch(`${config.apiAuthUrl}/v1/oauth.getAuthorizationUrl`, {
+export async function socialAuth(provider: SocialAuthProvider, url: string): Promise<string> {
+  const res = await fetch(`${config.apiAuthUrl}/v1/oauth.getAuthorizationUrl`, {
     method: "POST",
     headers: JSON_BOTH,
     body: JSON.stringify({
       provider_id: provider,
       app_id: config.userAppAppId,
-      redirect_url: getOAuthRedirectUrl(redirectUrl),
+      redirect_url: getOAuthRedirectUrl(url),
     }),
   }).then(handleJSON);
 
-  if (response.authorization_url) {
-    window.location.href = response.authorization_url;
-    return true;
-  }
-
-  return false;
+  return res.authorization_url;
 }
 
 export function resetPassword(email: string, brandId: string) {

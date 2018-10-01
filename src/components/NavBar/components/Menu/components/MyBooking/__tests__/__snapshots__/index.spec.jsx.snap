@@ -2,7 +2,6 @@
 
 exports[`#MyBooking not handle non-existent field 1`] = `
 Object {
-  "error": "",
   "fields": Object {
     "asdf": Object {
       "error": undefined,
@@ -33,7 +32,6 @@ Object {
       "value": "",
     },
   },
-  "loading": false,
   "submitted": false,
 }
 `;

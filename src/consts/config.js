@@ -1,6 +1,6 @@
 // @flow strict
 const config = {
-  apiDateFormat: "DD/MM/YYYY",
+  apiDateFormat: "dd/MM/YYYY",
   apiUrl: "https://api.skypicker.com",
   apiBookingUrl: "https://booking-api.skypicker.com",
   bookingApiUrl: "https://booking-api.skypicker.com",
@@ -81,7 +81,7 @@ const config = {
   paypalEnabledCurrencies: ["eur"],
   paypalEnabledCurrenciesFull: "[]",
   twitter: "kiwicom247",
-  urlDateFormat: "DD-MM-YYYY",
+  urlDateFormat: "dd-MM-YYYY",
   userAppAppId: "5433ecccaff67",
   zoozIdSandbox: "PAPI_ZooZNP_DN3MVFFPPITAVM4Z5LJUYE6KTQ_47",
   zoozId: "skypicker_new",
@@ -95,7 +95,7 @@ const config = {
   facebookConversionId: "6029814468313",
   affiliateWindowAdvertiserId: "6682",
   googleConversionId: "940725268",
-  infinarioDateFormat: "DD-MM-YYYY",
+  infinarioDateFormat: "dd-MM-YYYY",
   continents: ["ap", "aas", "eu", "mea"],
   linkedin: "company/Kiwi.com",
   instagram: "kiwicom247",

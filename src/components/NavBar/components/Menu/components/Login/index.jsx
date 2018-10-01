@@ -6,7 +6,6 @@ import { padding } from "../../../../../../styles";
 import { themeDefault } from "../../../../../../records/Theme";
 import type { ThemeProps } from "../../../../../../records/Theme";
 import { Consumer as BrandConsumer } from "../../../../../../services/brand/context";
-import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
 import { Consumer as AuthConsumer } from "../../../../../../services/auth/context";
 import SocialLogin from "./SocialLogin";
 import Switch from "./Switch";
@@ -41,45 +40,54 @@ const Login = ({
   onOpenForgotPassword,
 }: Props) => (
   <Container>
-    <BrandConsumer>
-      {brand =>
-        (brand.auth.social_facebook.enabled || brand.auth.social_google.enabled) && (
-          <SocialLogin
-            facebook={brand.auth.social_facebook.enabled}
-            google={brand.auth.social_google.enabled}
+    <AuthConsumer>
+      {auth => (
+        <>
+          <BrandConsumer>
+            {brand =>
+              (brand.auth.social_facebook.enabled || brand.auth.social_google.enabled) && (
+                <SocialLogin
+                  facebook={brand.auth.social_facebook.enabled}
+                  google={brand.auth.social_google.enabled}
+                  onSocialAuth={auth.onSocialAuth}
+                />
+              )
+            }
+          </BrandConsumer>
+          <Switch
+            open={open}
+            onOpenMyBooking={onOpenMyBooking}
+            onOpenRegister={onOpenRegister}
+            onOpenSignIn={onOpenSignIn}
           />
-        )
-      }
-    </BrandConsumer>
-    <Switch
-      open={open}
-      onOpenMyBooking={onOpenMyBooking}
-      onOpenRegister={onOpenRegister}
-      onOpenSignIn={onOpenSignIn}
-    />
-    {open === "myBooking" && (
-      <IntlConsumer>
-        {intl => <MyBooking onCloseSuccess={onCloseSuccess} lang={intl.language.id} />}
-      </IntlConsumer>
-    )}
-    {open === "register" && (
-      <BrandConsumer>
-        {brand => <Register onCloseSuccess={onCloseSuccess} brandId={brand.id} />}
-      </BrandConsumer>
-    )}
-    {open === "signIn" && (
-      <AuthConsumer>
-        {auth => (
-          <SignIn
-            loading={auth.loading}
-            error={auth.error}
-            onSignIn={auth.onSignIn}
-            onCloseSuccess={onCloseSuccess}
-            onOpenForgotPassword={onOpenForgotPassword}
-          />
-        )}
-      </AuthConsumer>
-    )}
+          {open === "myBooking" && (
+            <MyBooking
+              loading={auth.loading}
+              error={auth.error}
+              onMyBooking={auth.onMyBooking}
+              onCloseSuccess={onCloseSuccess}
+            />
+          )}
+          {open === "register" && (
+            <Register
+              loading={auth.loading}
+              error={auth.error}
+              onRegister={auth.onRegister}
+              onCloseSuccess={onCloseSuccess}
+            />
+          )}
+          {open === "signIn" && (
+            <SignIn
+              loading={auth.loading}
+              error={auth.error}
+              onSignIn={auth.onSignIn}
+              onCloseSuccess={onCloseSuccess}
+              onOpenForgotPassword={onOpenForgotPassword}
+            />
+          )}
+        </>
+      )}
+    </AuthConsumer>
   </Container>
 );
 
