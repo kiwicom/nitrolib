@@ -8,6 +8,14 @@ import Language from "../src/components/Language";
 import withData from "./decorators/withData";
 import languages from "./fixtures/languages";
 
+const infoToLang = R.map(info => ({
+  id: info.id,
+  name: info.name,
+  flag: info.flag,
+  defaultCountry: info.defaultCountry,
+  continent: "",
+}));
+
 storiesOf("Language", module)
   .addDecorator(withData)
   .add("regular", () => <Language onChange={action("Change")} />)
@@ -15,7 +23,7 @@ storiesOf("Language", module)
   .add("native", () => (
     <Language
       onChange={action("Change")}
-      favorite={R.values(R.pick(["en", "cz", "sk"], languages))}
+      favorite={infoToLang(R.values(R.pick(["en", "cz", "sk"], languages)))}
       native
     />
   ));

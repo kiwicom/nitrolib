@@ -17,7 +17,7 @@ function resolveCurrency(all: Currencies, available: Currencies, candidate: stri
     return available[currencyDefault.id];
   }
 
-  return available[R.head(R.sortBy(R.identity, R.keys(available)))];
+  return available[R.head(R.sortBy(R.identity, R.keys(available))) || ""];
 }
 
 export default resolveCurrency;

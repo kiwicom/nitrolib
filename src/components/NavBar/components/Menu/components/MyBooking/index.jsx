@@ -138,6 +138,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
     const { fields } = this.state;
 
     this.setState({ submitted: true });
+    // $FlowFixMe - Date !== string
     if (!isEmptish(R.map(R.prop("error"), fields))) {
       return Promise.resolve(null);
     }

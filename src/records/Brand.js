@@ -214,11 +214,11 @@ export type Brand = {|
         link: string,
         enabled: boolean,
       |},
-      gdpr_terms: {
+      gdpr_terms: {|
         fully_qualified: boolean,
         link: string,
         enabled: boolean,
-      },
+      |},
       faq: {|
         fully_qualified: boolean,
         link: string,

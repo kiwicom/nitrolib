@@ -13,15 +13,9 @@ const getRecommended = (
 ): Currency[] =>
   R.pipe(
     R.uniq,
-    R.map(
-      R.prop(
-        // eslint-disable-next-line no-underscore-dangle
-        R.__,
-        available,
-      ),
-    ),
+    R.map(c => available[c]),
     R.filter(Boolean),
     R.take(MAX_RECOMMENDED_CURRENCIES),
-  )([countryCurrency, languageCurrency, ...mostUsed]);
+  )([countryCurrency || "", languageCurrency || "", ...mostUsed]);
 
 export default getRecommended;

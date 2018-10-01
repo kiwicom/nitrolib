@@ -23,7 +23,15 @@ const NativePicker = ({ current, available, recommended, onChange }: Props) => (
   <NativeGroupedSelect
     value={current.id}
     groups={[
-      { key: "current", items: mapCurrencies([current]) },
+      {
+        key: "current",
+        items: [
+          {
+            value: current.id,
+            text: `${getCode(current.id)} - ${getSymbol(current.format)}`,
+          },
+        ],
+      },
       { key: "recommended", items: mapCurrencies(recommended) },
       { key: "all", items: mapCurrencies(available) },
     ]}

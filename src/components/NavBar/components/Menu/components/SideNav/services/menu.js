@@ -105,6 +105,7 @@ export const getPagesItems = (brand: Brand): PageItems =>
   R.compose(
     R.mapObjIndexed((val, key) => R.merge(val, companyPagesUI[key])),
     R.filter(R.prop("enabled")),
+    // $FlowFixMe - some props are missing in certain objects
   )(brand.content.pages);
 
 const socialPagesUI = {
@@ -146,4 +147,5 @@ export const getSocialMediaItems = (brand: Brand): SocialMedia[] =>
     R.values,
     R.mapObjIndexed((val, key) => R.merge(val, socialPagesUI[key])),
     R.filter(R.prop("enabled")),
+    // $FlowFixMe - some props are missing in certain objects
   )(brand.content.media);

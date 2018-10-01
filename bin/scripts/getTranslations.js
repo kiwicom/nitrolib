@@ -70,7 +70,10 @@ function getTranslations(folder /* : ?string */) /* : Promise<void> */ {
     ),
   ).then(all => {
     const summary = all.reduce(
-      (acc, next) => R.assoc(next.locale, makeFilename(next.locale, next.hash), acc),
+      (acc, next) =>
+        Object.assign({}, acc, {
+          [next.locale]: makeFilename(next.locale, next.hash),
+        }),
       {},
     );
 

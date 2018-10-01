@@ -26,7 +26,10 @@ const SIZES = {
 
 const LIMITS_MAP: $ObjMap<typeof SIZES, () => string> = R.map(
   limits =>
-    [limits.min && `(min-width: ${limits.min}px)`, limits.max && `(max-width: ${limits.max}px)`]
+    [
+      typeof limits.min === "number" && `(min-width: ${limits.min}px)`,
+      typeof limits.max === "number" && `(max-width: ${limits.max}px)`,
+    ]
       .filter(Boolean)
       .join(" and "),
   SIZES,

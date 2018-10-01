@@ -23,7 +23,7 @@ const getBrandLanguages = (brands, languages, countries) =>
     const langs = brand.localization.languages;
     const enabledLanguageIds = getEnabledLanguageIds(langs.locales);
     const enabledLanguages = sortObjectByName(
-      R.map(
+      R.mapObjIndexed(
         language =>
           R.assoc("continent", R.path([language.defaultCountry, "continent"], countries), language),
         R.filter(language => R.contains(language.id, enabledLanguageIds), languages),

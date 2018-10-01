@@ -25,12 +25,12 @@ const NativePicker = ({ current, languages, favorite, onChange }: Props) => (
     groups={
       favorite
         ? [
-            { key: "current", items: mapLanguages([current]) },
+            { key: "current", items: [{ value: current.id, text: current.name }] },
             { key: "favorite", items: mapLanguages(favorite) },
             { key: "all", items: mapLanguages(languages) },
           ]
         : [
-            { key: "current", items: mapLanguages([current]) },
+            { key: "current", items: [{ value: current.id, text: current.name }] },
             { key: "all", items: mapLanguages(languages) },
           ]
     }

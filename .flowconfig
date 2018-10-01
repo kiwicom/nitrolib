@@ -10,6 +10,9 @@ nonstrict-import=off
 unclear-type=off
 sketchy-null=off
 
+[ignore]
+<PROJECT_ROOT>/lib/.*
+
 [libs]
 types/
 
