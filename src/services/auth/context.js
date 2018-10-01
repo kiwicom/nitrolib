@@ -2,16 +2,18 @@
 import * as React from "react";
 import type { Environment } from "react-relay";
 
-import type { Auth } from "../../records/Auth";
+import type { Auth, SocialProvider } from "../../records/Auth";
 import environment from "../environment";
+import type { MyBookingInput, RegisterInput } from "./api";
 
 export type Context = {|
   auth: Auth | null,
   loading: boolean,
   error: string,
   environment: Environment,
-  onMyBooking: () => Promise<boolean>,
-  onRegister: () => Promise<boolean>,
+  onMyBooking: (input: MyBookingInput) => Promise<boolean>,
+  onRegister: (input: RegisterInput) => Promise<boolean>,
+  onSocialAuth: (provider: SocialProvider) => Promise<boolean>,
   onSignIn: (email: string, password: string) => Promise<boolean>,
   onSignOut: () => void,
 |};
@@ -23,6 +25,7 @@ const contextDefault: Context = {
   environment,
   onMyBooking: () => Promise.resolve(true),
   onRegister: () => Promise.resolve(true),
+  onSocialAuth: () => Promise.resolve(true),
   onSignIn: () => Promise.resolve(true),
   onSignOut: () => {},
 };

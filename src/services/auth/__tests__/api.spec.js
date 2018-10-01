@@ -13,15 +13,15 @@ const input = {
 
 describe("#api", () => {
   test("get token ok", async () => {
-    const call = jest
+    window.fetch = jest
       .fn()
       .mockImplementation(() =>
         Promise.resolve(new Response(JSON.stringify({ simple_token: "token" }), { status: 200 })),
       );
 
-    const res = await api.getToken(input, call);
+    const res = await api.getMyBookingToken(input);
 
-    expect(call).toBeCalledWith(
+    expect(window.fetch).toBeCalledWith(
       `${
         config.bookingApiUrl
       }/api/v0.1/users/get_simple_token/123?email=lol%40kek.bur&src=VIE&dtime=01%2F01%2F2020`,
@@ -30,15 +30,15 @@ describe("#api", () => {
   });
 
   test("get token not ok", async () => {
-    const call = jest
+    window.fetch = jest
       .fn()
       .mockImplementation(() =>
         Promise.resolve(new Response(JSON.stringify({ msg: "asdf" }), { status: 400 })),
       );
 
-    const res = await api.getToken(input, call).catch(String);
+    const res = await api.getMyBookingToken(input).catch(String);
 
-    expect(call).toBeCalledWith(
+    expect(window.fetch).toBeCalledWith(
       `${
         config.bookingApiUrl
       }/api/v0.1/users/get_simple_token/123?email=lol%40kek.bur&src=VIE&dtime=01%2F01%2F2020`,

@@ -19,9 +19,9 @@ import compose from "../../../../../../services/input/composeValidator";
 import emailCorrector from "../../../../../../services/input/emailCorrector";
 import addScript from "../../../../../../services/utils/addScript";
 import isEmptish from "../../../../../../services/utils/isEmptish";
-import * as api from "../../../../../../services/auth/api";
 import linkMixin from "../../../../../../styles/mixins/link";
 import { themeDefault } from "../../../../../../records/Theme";
+import type { RegisterInput } from "../../../../../../services/auth/api";
 
 const ZXCVBN_URL = "https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js";
 
@@ -49,9 +49,9 @@ FieldPolicy.defaultProps = {
 };
 
 type Props = {|
-  brandId: string,
-  // DI
-  register: typeof api.register,
+  loading: boolean,
+  error: string,
+  onRegister: (input: RegisterInput) => Promise<boolean>,
   onCloseSuccess: () => void,
 |};
 
@@ -70,15 +70,9 @@ type Fields = {|
 type State = {|
   fields: Fields,
   submitted: boolean,
-  loading: boolean,
-  error: string,
 |};
 
 export default class Register extends React.PureComponent<Props, State> {
-  static defaultProps = {
-    register: api.register,
-  };
-
   state = {
     fields: {
       firstName: {
@@ -99,8 +93,6 @@ export default class Register extends React.PureComponent<Props, State> {
       },
     },
     submitted: false,
-    loading: false,
-    error: "",
   };
 
   componentDidMount() {
@@ -116,34 +108,29 @@ export default class Register extends React.PureComponent<Props, State> {
   };
 
   handleSubmit = () => {
-    const { brandId, register, onCloseSuccess } = this.props;
+    const { onRegister, onCloseSuccess } = this.props;
     const { fields } = this.state;
 
     this.setState({ submitted: true });
     if (!isEmptish(R.map(R.prop("error"), fields))) {
-      return;
+      return Promise.resolve(null);
     }
 
-    this.setState({ error: "", loading: true });
-    register({
+    return onRegister({
       firstName: fields.firstName.value,
       lastName: fields.lastName.value,
       email: fields.email.value,
       password: fields.password.value,
-      brand: brandId,
-    })
-      .then(() => {
-        this.setState({ loading: false });
+    }).then(ok => {
+      if (ok) {
         onCloseSuccess();
-      })
-      .catch(err => {
-        this.setState({ loading: false, error: String(err) });
-        // TODO log
-      });
+      }
+    });
   };
 
   render() {
-    const { fields, submitted, loading, error } = this.state;
+    const { loading, error } = this.props;
+    const { fields, submitted } = this.state;
 
     return (
       <>

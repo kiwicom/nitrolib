@@ -11,6 +11,7 @@ import { themeDefault } from "../../../../../../records/Theme";
 import Flex from "../../../../../../primitives/Flex";
 import * as api from "../../../../../../services/auth/api";
 import * as rtl from "../../../../../../styles/rtl";
+import type { SocialProvider } from "../../../../../../records/Auth";
 
 const ButtonWrap = styled.div`
   flex: 1;
@@ -57,11 +58,10 @@ OrText.defaultProps = {
 type Props = {|
   facebook: boolean,
   google: boolean,
-  // DI
-  socialAuth: typeof api.socialAuth,
+  onSocialAuth: (provider: SocialProvider) => any,
 |};
 
-const SocialLogin = ({ facebook, google, socialAuth }: Props) => (
+const SocialLogin = ({ facebook, google, onSocialAuth }: Props) => (
   <>
     <Flex>
       {google && (
@@ -71,7 +71,7 @@ const SocialLogin = ({ facebook, google, socialAuth }: Props) => (
             block
             bordered
             icon={<GoogleIcon />}
-            onClick={() => socialAuth("google")}
+            onClick={() => onSocialAuth("google")}
           >
             <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
           </Button>
@@ -84,7 +84,7 @@ const SocialLogin = ({ facebook, google, socialAuth }: Props) => (
             block
             bordered
             icon={<FacebookIcon />}
-            onClick={() => socialAuth("facebook")}
+            onClick={() => onSocialAuth("facebook")}
           >
             <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
           </Button>
@@ -99,9 +99,5 @@ const SocialLogin = ({ facebook, google, socialAuth }: Props) => (
     </Or>
   </>
 );
-
-SocialLogin.defaultProps = {
-  socialAuth: api.socialAuth,
-};
 
 export default SocialLogin;

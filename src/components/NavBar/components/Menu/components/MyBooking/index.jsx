@@ -19,7 +19,7 @@ import { Consumer as IntlConsumer } from "../../../../../../services/intl/contex
 import * as normalizers from "../../../../../../services/input/normalizers";
 import * as validators from "../../../../../../services/input/validators";
 import isEmptish from "../../../../../../services/utils/isEmptish";
-import mmbRedirect from "./services/mmbRedirect";
+import type { MyBookingInput } from "../../../../../../services/auth/api";
 
 const FieldWrap = styled.div`
   position: relative;
@@ -27,9 +27,11 @@ const FieldWrap = styled.div`
 `;
 
 type Props = {|
-  lang: string,
-  mmbRedirectCall: typeof mmbRedirect,
+  loading: boolean,
+  error: string,
+  onMyBooking: (input: MyBookingInput) => Promise<boolean>,
   onCloseSuccess: () => void,
+  // DI
   now: Date,
 |};
 
@@ -42,8 +44,6 @@ type Field<T> = {|
 
 type State = {|
   submitted: boolean,
-  loading: boolean,
-  error: string,
   fields: {|
     bid: Field<string>,
     email: Field<string>,
@@ -57,14 +57,11 @@ const MAX = addYears(new Date(), 1);
 
 export default class MyBooking extends React.PureComponent<Props, State> {
   static defaultProps = {
-    mmbRedirectCall: mmbRedirect,
     now: new Date(),
   };
 
   state = {
     submitted: false,
-    loading: false,
-    error: "",
     fields: {
       bid: {
         value: "",
@@ -134,7 +131,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
   };
 
   handleSubmit = () => {
-    const { lang, mmbRedirectCall, onCloseSuccess } = this.props;
+    const { onMyBooking, onCloseSuccess } = this.props;
     const { fields } = this.state;
 
     this.setState({ submitted: true });
@@ -143,25 +140,21 @@ export default class MyBooking extends React.PureComponent<Props, State> {
       return Promise.resolve(null);
     }
 
-    this.setState({ loading: true });
-
-    return mmbRedirectCall({
-      lang,
+    return onMyBooking({
       bid: fields.bid.value,
       email: fields.email.value,
       iata: fields.iata.value,
       departure: fields.departure.value,
-    })
-      .then(onCloseSuccess)
-      .then(() => null)
-      .catch(err => {
-        this.setState({ error: String(err), loading: false });
-        return null;
-      });
+    }).then(ok => {
+      if (ok) {
+        onCloseSuccess();
+      }
+    });
   };
 
   render() {
-    const { fields, submitted, loading, error } = this.state;
+    const { loading, error } = this.props;
+    const { fields, submitted } = this.state;
 
     return (
       <IntlConsumer>
