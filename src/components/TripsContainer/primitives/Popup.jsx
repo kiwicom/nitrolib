@@ -37,7 +37,7 @@ const Popup = styled.div`
     left: 0;
     font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
     min-height: 220px;
-    width: 100%;
+    min-width: 100%;
   `)};
 `;
 

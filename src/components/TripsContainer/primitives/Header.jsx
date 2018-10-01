@@ -16,7 +16,7 @@ const Header = styled.div`
   box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   z-index: 2;
-  padding: 0 20px;
+  padding: 0 ${({ theme }: ThemeProps) => theme.orbit.spaceXXLarge};
 `;
 
 Header.defaultProps = {

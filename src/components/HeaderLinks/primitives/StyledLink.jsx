@@ -12,12 +12,15 @@ type LinkProps = {|
 |};
 
 const StyledLink = styled.a`
+<<<<<<< HEAD
   &:link {
     color: ${({ active, theme }: LinkProps) =>
       active ? theme.orbit.paletteProductNormal : theme.orbit.paletteInkNormal};
   }
   color: ${({ active, theme }: LinkProps) =>
     active ? theme.orbit.paletteProductNormal : theme.orbit.paletteInkNormal};
+=======
+>>>>>>> fb7c332... NavBar: fixed link color, hamburger menu, onClick ev
   display: flex;
   align-items: center;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
@@ -28,6 +31,10 @@ const StyledLink = styled.a`
   margin-${rtl.left}: 20px;
   height: 50px;
   line-height: 50px;
+  &:link {
+    color: ${({ active, theme }: LinkProps) =>
+      active ? theme.orbit.paletteProductNormal : theme.orbit.paletteInkNormal};
+  }
 
   &:hover {
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};

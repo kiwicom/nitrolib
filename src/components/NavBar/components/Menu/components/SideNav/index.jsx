@@ -70,12 +70,12 @@ CloseIcon.defaultProps = {
 const MenuOpen = styled.div`
   cursor: pointer;
   display: flex;
+  padding: 0 2px;
   &:hover {
     background: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
     border-radius: 3px;
     svg {
       fill: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
-      padding: 0 2px;
     }
   }
   svg {

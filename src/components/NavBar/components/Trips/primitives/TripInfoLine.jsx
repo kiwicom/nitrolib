@@ -7,7 +7,6 @@ import type { ThemeProps } from "../../../../../records/Theme";
 
 const TripInfoLine = styled.div`
   display: flex;
-  flex-wrap: wrap;
   line-height: normal;
   ${({ darker, theme }) =>
     darker ? `color: ${theme.orbit.paletteInkNormal}` : `color: ${theme.orbit["neutral-700"]}`};
@@ -18,7 +17,6 @@ const TripInfoLine = styled.div`
           font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
         `};
   ${({ margin }) => (margin ? `margin: ${margin}` : `margin: 2px 0`)};
-  max-width: 100%;
   span {
     height: 18px;
     line-height: 18px;

@@ -3,8 +3,8 @@ import * as React from "react";
 import styled from "styled-components";
 import type { Environment } from "react-relay";
 import Passenger from "@kiwicom/orbit-components/lib/icons/Passenger";
+import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 
-import Button from "../../primitives/Button";
 import ClickOutside from "../../../ClickOutside";
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
@@ -37,7 +37,12 @@ const Trips = ({ auth, env }: Props) => (
     {({ open, onToggle }) => (
       <>
         {open && (
-          <ClickOutside onClickOutside={onToggle}>
+          <ClickOutside
+            onClickOutside={ev => {
+              ev.stopPropagation();
+              onToggle();
+            }}
+          >
             <TripDataList env={env} />
           </ClickOutside>
         )}
@@ -45,24 +50,17 @@ const Trips = ({ auth, env }: Props) => (
           <Desktop display="flex">
             <Flex y="center">
               <Passenger size="small" />
-              <Button
-                fontSize="12px"
-                marginLeft={3}
-                marginRight={3}
-                onClick={onToggle}
-                direction="row"
-                y="center"
-              >
+              <TextLink onClick={onToggle}>
                 <Text t={__("account.my_bookings_action")} />
-              </Button>
+              </TextLink>
               <UserStyle>({`${auth.user.firstname}...`})</UserStyle>
             </Flex>
           </Desktop>
           <Mobile display="flex">
-            <Button fontSize="12px" marginRight={3} onClick={onToggle} y="center" direction="row">
+            <TextLink type="secondary" onClick={onToggle}>
               <Passenger size="small" />
               <UserStyle>{`${auth.user.firstname} ${auth.user.lastname}`}</UserStyle>
-            </Button>
+            </TextLink>
           </Mobile>
         </MenuSpacings>
       </>
