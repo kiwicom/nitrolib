@@ -5,7 +5,7 @@ exports[`#Currency/CustomPicker/CurrencyItem render 1`] = `
   <Code>
     EUR
   </Code>
-   - 
+  <Separator>-</Separator>
   <Sign>
     €
   </Sign>
