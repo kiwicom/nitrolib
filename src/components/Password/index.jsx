@@ -13,6 +13,7 @@ import Flex from "../../primitives/Flex";
 import Trans from "../Text";
 import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
+import Edit from "@kiwicom/orbit-components/lib/icons/Edit";
 
 const SpacingXSmall = styled.div`
   & {
@@ -37,20 +38,9 @@ const Ruler = styled.div`
   }
 `;
 
-const Rectangle = styled.div`
-  & {
-    border-top: 1px solid #e8edf1;
-    width: 100%;
-    height: 128px;
-    background-color: #f5f7f9;
-    padding-top: 24px;
-    padding-bottom: 24px;
-    margin-top: 50px;
-    margin-bottom: 16px;
-  }
-`;
-
-type Props = {||};
+type Props = {|
+  +email: string,
+|};
 
 class InputDate extends React.PureComponent<Props> {
   render() {
@@ -63,30 +53,25 @@ class InputDate extends React.PureComponent<Props> {
         <Text>Sign in to access all of your bookings, Price Alerts, and Kiwi.com Credit.</Text>
         <Ruler />
         <SpacingMedium>
-          <Text weight="bold">Sign in with your email address</Text>
+          <Text>Email</Text>
+          <Text weight="bold">
+            {this.props.email} <Edit size="small" />
+          </Text>
         </SpacingMedium>
         <Flex y="flex-end">
           <span style={{ flexGrow: 1, marginRight: "8px" }}>
-            <InputField label="Email" placeholder="e.g. your@email.com" type="email" />
+            <InputField label="Password" type="password" />
           </span>
-          <Button>Continue</Button>
+          <Button>Sign In</Button>
         </Flex>
-        <Rectangle>
-          <Text weight="bold">Or use social account</Text>
-          <Flex>
-            <span style={{ flexGrow: 1, marginRight: "4px" }}>
-              <Button type="facebook" block bordered icon={<FacebookIcon />}>
-                <Trans t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
-              </Button>
-            </span>
-            <span style={{ flexGrow: 1, marginLeft: "4px" }}>
-              <Button type="google" block bordered icon={<GoogleIcon />}>
-                <Trans t={__("account.log_in_with")} values={{ provider: "Google" }} />
-              </Button>
-            </span>
-          </Flex>
-        </Rectangle>
-        <TextLink type="secondary">I don’t have an account</TextLink>
+
+        <Ruler />
+        <SpacingXSmall>
+          <Text>
+            Send <b>{this.props.email}</b> a link to sign in:
+          </Text>
+        </SpacingXSmall>
+        <Button type="secondary">Receive a sign in link email</Button>
       </React.Fragment>
     );
   }
