@@ -12,6 +12,10 @@ type LinkProps = {|
 |};
 
 const StyledLink = styled.a`
+  &:link {
+    color: ${({ active, theme }: LinkProps) =>
+      active ? theme.orbit.paletteProductNormal : theme.orbit.paletteInkNormal};
+  }
   color: ${({ active, theme }: LinkProps) =>
     active ? theme.orbit.paletteProductNormal : theme.orbit.paletteInkNormal};
   display: flex;
