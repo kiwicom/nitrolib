@@ -7,4 +7,13 @@ import withData from "./decorators/withData";
 
 storiesOf("AccountPassword", module)
   .addDecorator(withData)
-  .add("default", () => <AccountPassword email="example@example.com" />);
+  .add("default", () => (
+    <AccountPassword
+      onAskSignInLink={() => {}}
+      onChangeEmail={() => {}}
+      onPasswordChange={() => {}}
+      onSignIn={() => {}}
+      password="asdfg"
+      email="example@example.com"
+    />
+  ));

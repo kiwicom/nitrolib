@@ -9,6 +9,7 @@ storiesOf("AccountLogin", module)
   .addDecorator(withData)
   .add("default", () => (
     <AccountLogin
+      email=""
       onNoAccount={() => {}}
       onEmailChange={() => {}}
       onFacebookLogin={() => {}}
