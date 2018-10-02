@@ -2,9 +2,9 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 
-import Password from "../src/components/Password";
+import AccountLogin from "../src/components/AccountLogin";
 import withData from "./decorators/withData";
 
-storiesOf("Password", module)
+storiesOf("AccountLogin", module)
   .addDecorator(withData)
-  .add("default", () => <Password email="example@example.com" />);
+  .add("default", () => <AccountLogin />);
