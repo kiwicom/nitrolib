@@ -12,7 +12,6 @@ import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
 
 import Flex from "../../primitives/Flex";
 import Trans from "../Text";
-import { themeDefault } from "../../records/Theme";
 
 const SpacingXSmall = styled.div`
   & {
@@ -61,6 +60,14 @@ type Props = {|
 
 class InputDate extends React.PureComponent<Props> {
   render() {
+    const {
+      email,
+      onNoAccount,
+      onGoogleLogin,
+      onFacebookLogin,
+      onEmailChange,
+      onContinue,
+    } = this.props;
     return (
       <React.Fragment>
         <Illustration name="Login" size="small" />
@@ -78,11 +85,11 @@ class InputDate extends React.PureComponent<Props> {
               label="Email"
               placeholder="e.g. your@email.com"
               type="email"
-              value={this.props.email}
-              onChange={this.props.onEmailChange}
+              value={email}
+              onChange={onEmailChange}
             />
           </span>
-          <Button onClick={this.props.onContinue}>Continue</Button>
+          <Button onClick={onContinue}>Continue</Button>
         </Flex>
         <Rectangle>
           <Text weight="bold">Or use social account</Text>
@@ -93,25 +100,19 @@ class InputDate extends React.PureComponent<Props> {
                 block
                 bordered
                 icon={<FacebookIcon />}
-                onClick={this.props.onFacebookLogin}
+                onClick={onFacebookLogin}
               >
                 <Trans t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
               </Button>
             </span>
             <span style={{ flexGrow: 1, marginLeft: "4px" }}>
-              <Button
-                type="google"
-                block
-                bordered
-                icon={<GoogleIcon />}
-                onClick={this.props.onGoogleLogin}
-              >
+              <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
                 <Trans t={__("account.log_in_with")} values={{ provider: "Google" }} />
               </Button>
             </span>
           </Flex>
         </Rectangle>
-        <TextLink type="secondary" onClick={this.props.onNoAccount}>
+        <TextLink type="secondary" onClick={onNoAccount}>
           I don’t have an account
         </TextLink>
       </React.Fragment>

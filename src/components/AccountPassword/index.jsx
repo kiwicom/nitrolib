@@ -10,7 +10,6 @@ import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import Edit from "@kiwicom/orbit-components/lib/icons/Edit";
 
 import Flex from "../../primitives/Flex";
-import Trans from "../Text";
 
 const SpacingXSmall = styled.div`
   & {
@@ -46,6 +45,15 @@ type Props = {|
 
 class InputDate extends React.PureComponent<Props> {
   render() {
+    const {
+      email,
+      password,
+      onChangeEmail,
+      onAskSignInLink,
+      onPasswordChange,
+      onSignIn,
+    } = this.props;
+
     return (
       <React.Fragment>
         <Illustration name="Login" size="small" />
@@ -57,8 +65,8 @@ class InputDate extends React.PureComponent<Props> {
         <SpacingMedium>
           <Text>Email</Text>
           <Text weight="bold">
-            {this.props.email}
-            <TextLink type="primary" onClick={this.props.onChangeEmail}>
+            {email}
+            <TextLink type="primary" onClick={onChangeEmail}>
               <Edit size="small" />
             </TextLink>
           </Text>
@@ -68,20 +76,20 @@ class InputDate extends React.PureComponent<Props> {
             <InputField
               label="Password"
               type="password"
-              onChange={this.props.onPasswordChange}
-              value={this.props.password}
+              onChange={onPasswordChange}
+              value={password}
             />
           </span>
-          <Button onClick={this.props.onSignIn}>Sign In</Button>
+          <Button onClick={onSignIn}>Sign In</Button>
         </Flex>
 
         <Ruler />
         <SpacingXSmall>
           <Text>
-            Send <b>{this.props.email}</b> a link to sign in:
+            Send <b>{email}</b> a link to sign in:
           </Text>
         </SpacingXSmall>
-        <Button type="secondary" onClick={this.props.onAskSignInLink}>
+        <Button type="secondary" onClick={onAskSignInLink}>
           Receive a sign in link email
         </Button>
       </React.Fragment>
