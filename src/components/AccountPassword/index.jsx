@@ -37,6 +37,7 @@ const Ruler = styled.div`
 
 type Props = {|
   +email: string,
+  +password: string,
   +onChangeEmail: () => void,
   +onAskSignInLink: () => void,
   +onPasswordChange: () => void,
@@ -64,7 +65,12 @@ class InputDate extends React.PureComponent<Props> {
         </SpacingMedium>
         <Flex y="flex-end">
           <span style={{ flexGrow: 1, marginRight: "8px" }}>
-            <InputField label="Password" type="password" onChange={this.props.onPasswordChange} />
+            <InputField
+              label="Password"
+              type="password"
+              onChange={this.props.onPasswordChange}
+              value={this.props.password}
+            />
           </span>
           <Button onClick={this.props.onSignIn}>Sign In</Button>
         </Flex>
