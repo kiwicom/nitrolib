@@ -1,9 +1,8 @@
 // @flow strict
 import * as React from "react";
 import StarIcon from "@kiwicom/orbit-components/lib/icons/StarFull";
-import TextLink from "@kiwicom/orbit-components/lib/TextLink";
-import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 
+import Button from "../NavBar/primitives/Button";
 import Text from "../Text";
 import Toggle from "../Toggle";
 import ClickOutside from "../ClickOutside";
@@ -34,12 +33,12 @@ const Starred = ({ children, positionMenuTablet, positionMenuDesktop }: Props) =
           </ClickOutside>
         )}
         <Desktop>
-          <TextLink type="secondary" onClick={onToggle}>
-            <Text t={__("starred.starred")} />
-          </TextLink>
+          <Button onClick={onToggle}>Starred</Button>
         </Desktop>
         <Mobile>
-          <ButtonLink onClick={onToggle} icon={<StarIcon color="primary" />} />
+          <Button onClick={onToggle}>
+            <StarIcon color="primary" />
+          </Button>
         </Mobile>
       </>
     )}
