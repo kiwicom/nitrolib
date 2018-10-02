@@ -10,6 +10,7 @@ import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import Edit from "@kiwicom/orbit-components/lib/icons/Edit";
 
 import Flex from "../../primitives/Flex";
+import { Consumer } from "../../services/intl/context";
 
 const SpacingXSmall = styled.div`
   & {
@@ -55,44 +56,46 @@ class InputDate extends React.PureComponent<Props> {
     } = this.props;
 
     return (
-      <React.Fragment>
-        <Illustration name="Login" size="small" />
-        <SpacingXSmall>
-          <Heading element="h2">Manage your bookings</Heading>
-        </SpacingXSmall>
-        <Text>Sign in to access all of your bookings, Price Alerts, and Kiwi.com Credit.</Text>
-        <Ruler />
-        <SpacingMedium>
-          <Text>Email</Text>
-          <Text weight="bold">
-            {email}
-            <TextLink type="primary" onClick={onChangeEmail}>
-              <Edit size="small" />
-            </TextLink>
-          </Text>
-        </SpacingMedium>
-        <Flex y="flex-end">
-          <span style={{ flexGrow: 1, marginRight: "8px" }}>
-            <InputField
-              label="Password"
-              type="password"
-              onChange={onPasswordChange}
-              value={password}
-            />
-          </span>
-          <Button onClick={onSignIn}>Sign In</Button>
-        </Flex>
+      <Consumer>
+        {intl => (
+          <React.Fragment>
+            <Illustration name="Login" size="small" />
+            <SpacingXSmall>
+              <Heading element="h2">{intl.translate(__("account.manage_your_bookings"))}</Heading>
+            </SpacingXSmall>
+            <Text weight="bold">{intl.translate(__("account.sign_in_description"))}</Text>
+            <Ruler />
+            <SpacingMedium>
+              <Text>{intl.translate(__("account.email"))}</Text>
+              <Text weight="bold">
+                {email}
+                <TextLink type="primary" onClick={onChangeEmail}>
+                  <Edit size="small" />
+                </TextLink>
+              </Text>
+            </SpacingMedium>
+            <Flex y="flex-end">
+              <span style={{ flexGrow: 1, marginRight: "8px" }}>
+                <InputField
+                  label={intl.translate(__("account.password"))}
+                  type="password"
+                  onChange={onPasswordChange}
+                  value={password}
+                />
+              </span>
+              <Button onClick={onSignIn}>{intl.translate(__("account.sign_in"))}</Button>
+            </Flex>
 
-        <Ruler />
-        <SpacingXSmall>
-          <Text>
-            Send <b>{email}</b> a link to sign in:
-          </Text>
-        </SpacingXSmall>
-        <Button type="secondary" onClick={onAskSignInLink}>
-          Receive a sign in link email
-        </Button>
-      </React.Fragment>
+            <Ruler />
+            <SpacingXSmall>
+              <Text>{intl.translate(__("account.send_link_to"), { email })}</Text>
+            </SpacingXSmall>
+            <Button type="secondary" onClick={onAskSignInLink}>
+              {intl.translate(__("account.ask_sign_in_link"))}
+            </Button>
+          </React.Fragment>
+        )}
+      </Consumer>
     );
   }
 }

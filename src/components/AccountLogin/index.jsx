@@ -75,27 +75,27 @@ class InputDate extends React.PureComponent<Props> {
           <React.Fragment>
             <Illustration name="Login" size="small" />
             <SpacingXSmall>
-              <Heading element="h2">{intl.translate(_("account.manage_your_bookings"))}</Heading>
+              <Heading element="h2">{intl.translate(__("account.manage_your_bookings"))}</Heading>
             </SpacingXSmall>
-            <Text>{intl.translate(_("account.sign_in_description"))}</Text>
+            <Text>{intl.translate(__("account.sign_in_description"))}</Text>
             <Ruler />
             <SpacingMedium>
-              <Text weight="bold">{intl.translate(_("account.sign_in_description"))}</Text>
+              <Text weight="bold">{intl.translate(__("account.sign_in_description"))}</Text>
             </SpacingMedium>
             <Flex y="flex-end">
               <span style={{ flexGrow: 1, marginRight: "8px" }}>
                 <InputField
-                  label={intl.translate(_("account.email"))}
-                  placeholder={intl.translate(_("account.email_placeholder"))}
+                  label={intl.translate(__("account.email"))}
+                  placeholder={intl.translate(__("account.email_placeholder"))}
                   type="email"
                   value={email}
                   onChange={onEmailChange}
                 />
               </span>
-              <Button onClick={onContinue}>{intl.translate(_("account.continue"))}</Button>
+              <Button onClick={onContinue}>{intl.translate(__("account.continue"))}</Button>
             </Flex>
             <Rectangle>
-              <Text weight="bold">{intl.translate(_("account.or_social_account"))}</Text>
+              <Text weight="bold">{intl.translate(__("account.or_social_account"))}</Text>
               <Flex>
                 <span style={{ flexGrow: 1, marginRight: "4px" }}>
                   <Button
