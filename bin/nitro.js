@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // @flow strict
 /* eslint-disable flowtype/require-valid-file-annotation */
+/* eslint-disable no-console */
 const fs = require("fs-extra");
 const path = require("path");
 const chalk = require("chalk");
