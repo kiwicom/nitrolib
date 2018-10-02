@@ -7,4 +7,12 @@ import withData from "./decorators/withData";
 
 storiesOf("AccountLogin", module)
   .addDecorator(withData)
-  .add("default", () => <AccountLogin />);
+  .add("default", () => (
+    <AccountLogin
+      onNoAccount={() => {}}
+      onEmailChange={() => {}}
+      onFacebookLogin={() => {}}
+      onGoogleLogin={() => {}}
+      onContinue={() => {}}
+    />
+  ));

@@ -50,7 +50,13 @@ const Rectangle = styled.div`
   }
 `;
 
-type Props = {||};
+type Props = {|
+  +onNoAccount: () => void,
+  +onGoogleLogin: () => void,
+  +onFacebookLogin: () => void,
+  +onEmailChange: () => void,
+  +onContinue: () => void,
+|};
 
 class InputDate extends React.PureComponent<Props> {
   render() {
@@ -67,26 +73,45 @@ class InputDate extends React.PureComponent<Props> {
         </SpacingMedium>
         <Flex y="flex-end">
           <span style={{ flexGrow: 1, marginRight: "8px" }}>
-            <InputField label="Email" placeholder="e.g. your@email.com" type="email" />
+            <InputField
+              label="Email"
+              placeholder="e.g. your@email.com"
+              type="email"
+              onChange={this.props.onEmailChange}
+            />
           </span>
-          <Button>Continue</Button>
+          <Button onClick={this.props.onContinue}>Continue</Button>
         </Flex>
         <Rectangle>
           <Text weight="bold">Or use social account</Text>
           <Flex>
             <span style={{ flexGrow: 1, marginRight: "4px" }}>
-              <Button type="facebook" block bordered icon={<FacebookIcon />}>
+              <Button
+                type="facebook"
+                block
+                bordered
+                icon={<FacebookIcon />}
+                onClick={this.props.onFacebookLogin}
+              >
                 <Trans t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
               </Button>
             </span>
             <span style={{ flexGrow: 1, marginLeft: "4px" }}>
-              <Button type="google" block bordered icon={<GoogleIcon />}>
+              <Button
+                type="google"
+                block
+                bordered
+                icon={<GoogleIcon />}
+                onClick={this.props.onGoogleLogin}
+              >
                 <Trans t={__("account.log_in_with")} values={{ provider: "Google" }} />
               </Button>
             </span>
           </Flex>
         </Rectangle>
-        <TextLink type="secondary">I don’t have an account</TextLink>
+        <TextLink type="secondary" onClick={this.props.onNoAccount}>
+          I don’t have an account
+        </TextLink>
       </React.Fragment>
     );
   }
