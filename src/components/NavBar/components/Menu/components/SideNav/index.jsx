@@ -16,6 +16,8 @@ import type { ThemeProps } from "../../../../../../records/Theme";
 import { themeDefault } from "../../../../../../records/Theme";
 import * as rtl from "../../../../../../styles/rtl";
 import Currency from "../../../../../Currency";
+import LogMount from "../../../../../LogMount";
+import { OPEN_CHAT } from "../../../../../../consts/events";
 import SideBar from "../../../SideBar";
 import MenuGroup from "./MenuGroup";
 import MenuItem from "./MenuItem";
@@ -425,7 +427,10 @@ export default class SideNav extends React.Component<Props, State> {
         {/* MODALS */}
         {modalOpen === "chat" && (
           <Modal onClose={this.handleCloseModal}>
-            <ModalSection>{chat}</ModalSection>
+            <ModalSection>
+              <LogMount event={{ event: OPEN_CHAT, data: null }} />
+              {chat}
+            </ModalSection>
           </Modal>
         )}
 
