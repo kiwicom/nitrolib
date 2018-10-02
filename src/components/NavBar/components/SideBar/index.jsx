@@ -26,6 +26,7 @@ const Container = styled.section`
   ${rtl.left}: 0;
   background-color: ${({ entered }) => (entered ? `rgba(0, 0, 0, .5)` : `transparent`)};
   transition: background-color ${({ theme }: ThemeProps) => theme.orbit.durationNormal} ease-in-out;
+  z-index: ${({ theme }: ThemeProps) => theme.orbit.zIndexModal};
 `;
 
 Container.defaultProps = {

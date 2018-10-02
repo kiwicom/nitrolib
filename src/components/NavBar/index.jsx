@@ -26,6 +26,7 @@ const Container = styled(Flex)`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   padding: 0 10px;
   box-sizing: border-box;
+  z-index: ${({ theme }: ThemeProps) => theme.orbit.zIndexSticky};
 
   ${mq.gtTablet(css`
     position: fixed;
