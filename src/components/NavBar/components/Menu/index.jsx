@@ -16,6 +16,7 @@ import ForgotPassword from "./components/ForgotPassword";
 import SideNav from "./components/SideNav";
 import MenuSpacings from "../../primitives/MenuSpacings";
 import type { Event } from "../../../../records/Event";
+import { OPEN_MODAL } from "../../../../consts/events";
 
 type AuthModal = "myBooking" | "register" | "signIn" | "forgotPassword";
 
@@ -24,7 +25,7 @@ type Props = {|
   subscription: React.Node,
   debug?: React.Node,
   onSaveLanguage: (lang: string) => void,
-  onLog: (event: Event<"openLoginModal", { modal: AuthModal }>) => void,
+  onLog: (event: Event<"OPEN_MODAL", { modal: AuthModal }>) => void,
 |};
 
 type State = {|
@@ -44,28 +45,28 @@ export default class Menu extends React.PureComponent<Props, State> {
     const { onLog } = this.props;
 
     this.setState({ modalOpen: "myBooking" });
-    onLog({ event: "openLoginModal", data: { modal: "myBooking" } });
+    onLog({ event: OPEN_MODAL, data: { modal: "myBooking" } });
   };
 
   handleOpenRegister = () => {
     const { onLog } = this.props;
 
     this.setState({ modalOpen: "register" });
-    onLog({ event: "openLoginModal", data: { modal: "register" } });
+    onLog({ event: OPEN_MODAL, data: { modal: "register" } });
   };
 
   handleOpenSignIn = () => {
     const { onLog } = this.props;
 
     this.setState({ modalOpen: "signIn" });
-    onLog({ event: "openLoginModal", data: { modal: "signIn" } });
+    onLog({ event: OPEN_MODAL, data: { modal: "signIn" } });
   };
 
   handleOpenForgotPassword = () => {
     const { onLog } = this.props;
 
     this.setState({ modalOpen: "forgotPassword" });
-    onLog({ event: "openLoginModal", data: { modal: "forgotPassword" } });
+    onLog({ event: OPEN_MODAL, data: { modal: "forgotPassword" } });
   };
 
   render() {

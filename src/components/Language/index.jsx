@@ -9,7 +9,6 @@ import CustomPicker from "../CustomPicker";
 import LanguageName from "./components/LanguageName";
 import Menu from "./components/Menu";
 import type { Language as LanguageType } from "../../records/Languages";
-import LogMount from "../LogMount";
 
 type Props = {|
   native: boolean,
@@ -54,17 +53,14 @@ const Language = ({
               onChange={onChange}
             >
               {render => (
-                <>
-                  <LogMount event={{ event: "openLanguage", data: null }} />
-                  <Menu
-                    onChange={render.onChange}
-                    languages={languages}
-                    continents={fetched.brandLanguage.continents}
-                    positionMenuDesktop={positionMenuDesktop || 0}
-                    positionMenuTablet={positionMenuTablet || 0}
-                    flat={flat}
-                  />
-                </>
+                <Menu
+                  onChange={render.onChange}
+                  languages={languages}
+                  continents={fetched.brandLanguage.continents}
+                  positionMenuDesktop={positionMenuDesktop || 0}
+                  positionMenuTablet={positionMenuTablet || 0}
+                  flat={flat}
+                />
               )}
             </CustomPicker>
           );

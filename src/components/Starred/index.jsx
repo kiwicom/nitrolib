@@ -10,7 +10,6 @@ import ClickOutside from "../ClickOutside";
 import Desktop from "../Desktop";
 import Mobile from "../Mobile";
 import TripsContainer from "../TripsContainer";
-import LogMount from "../LogMount";
 
 type Props = {|
   children: React.Node,
@@ -24,7 +23,6 @@ const Starred = ({ children, positionMenuTablet, positionMenuDesktop }: Props) =
       <>
         {open && (
           <ClickOutside onClickOutside={onToggle}>
-            <LogMount event={{ event: "openStarred", data: null }} />
             <TripsContainer
               positionMenuTablet={positionMenuTablet || 0}
               positionMenuDesktop={positionMenuDesktop || 0}

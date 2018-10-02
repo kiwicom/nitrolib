@@ -42,14 +42,6 @@ exports[`#Starred render open 1`] = `
   <ClickOutside
     onClickOutside={[MockFunction]}
   >
-    <LogMount
-      event={
-        Object {
-          "data": null,
-          "event": "openStarred",
-        }
-      }
-    />
     <TripContainer
       header={
         <Text

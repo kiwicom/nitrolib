@@ -8,6 +8,7 @@ import { currencyDefault, getAvailableList } from "../../records/Currency";
 import Current from "./components/Current";
 import Menu from "./components/Menu";
 import LogMount from "../LogMount";
+import { OPEN_CURRENCY } from "../../consts/events";
 
 type Props = {|
   native: boolean,
@@ -36,7 +37,7 @@ const Currency = ({ native, loading, positionMenuDesktop, positionMenuTablet }: 
         <CustomPicker onChange={onChange} openButton={<Current current={currency} />}>
           {render => (
             <>
-              <LogMount event={{ event: "openCurrency", data: null }} />
+              <LogMount event={{ event: OPEN_CURRENCY, data: null }} />
               <Menu
                 onChange={render.onChange}
                 current={currency}
