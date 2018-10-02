@@ -26,7 +26,7 @@ const TripHeader = ({ trips }: Props) => {
           <TextLink type="primary" href={`/${intl.language.id}/account#future`}>
             <Text t={__("account.upcoming_trips")} values={{ trips: countTrips }} />
           </TextLink>
-          <TextLink type="primary" href={`/${intl.language.id}/account#past`}>
+          <TextLink type="secondary" href={`/${intl.language.id}/account#past`}>
             <Text t={__("account.past_trips")} />
           </TextLink>
         </>
