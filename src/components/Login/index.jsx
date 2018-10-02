@@ -1,18 +1,18 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-
-import { themeDefault } from "../../records/Theme";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
-import Flex from "../../primitives/Flex";
-import Trans from "../Text";
 import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
+
+import Flex from "../../primitives/Flex";
+import Trans from "../Text";
+import { themeDefault } from "../../records/Theme";
 
 const SpacingXSmall = styled.div`
   & {
