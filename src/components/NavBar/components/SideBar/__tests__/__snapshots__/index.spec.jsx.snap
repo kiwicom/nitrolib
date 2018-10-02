@@ -15,6 +15,7 @@ exports[`#index render 1`] = `
   background-color: rgba(0,0,0,.5);
   -webkit-transition: background-color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
+  z-index: 825;
 }
 
 .c1 {
@@ -62,6 +63,7 @@ exports[`#index render 1`] = `
   background-color: rgba(0,0,0,.5);
   -webkit-transition: background-color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
+  z-index: 825;
 }
 
 .c1 {
@@ -948,6 +950,7 @@ exports[`#index render 2`] = `
   background-color: rgba(0,0,0,.5);
   -webkit-transition: background-color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
+  z-index: 825;
 }
 
 .c1 {
