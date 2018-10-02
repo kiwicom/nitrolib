@@ -3,8 +3,8 @@ import * as React from "react";
 import styled from "styled-components";
 import type { Environment } from "react-relay";
 import Passenger from "@kiwicom/orbit-components/lib/icons/Passenger";
-import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 
+import Button from "../../primitives/Button";
 import ClickOutside from "../../../ClickOutside";
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
@@ -50,17 +50,17 @@ const Trips = ({ auth, env }: Props) => (
           <Desktop display="flex">
             <Flex y="center">
               <Passenger size="small" />
-              <TextLink onClick={onToggle}>
+              <Button onClick={onToggle}>
                 <Text t={__("account.my_bookings_action")} />
-              </TextLink>
+              </Button>
               <UserStyle>({`${auth.user.firstname}...`})</UserStyle>
             </Flex>
           </Desktop>
           <Mobile display="flex">
-            <TextLink type="secondary" onClick={onToggle}>
+            <Button onClick={onToggle}>
               <Passenger size="small" />
               <UserStyle>{`${auth.user.firstname} ${auth.user.lastname}`}</UserStyle>
-            </TextLink>
+            </Button>
           </Mobile>
         </MenuSpacings>
       </>

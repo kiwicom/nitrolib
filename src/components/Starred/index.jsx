@@ -2,10 +2,10 @@
 import * as React from "react";
 import StarIcon from "@kiwicom/orbit-components/lib/icons/StarFull";
 
+import Button from "../NavBar/primitives/Button";
 import Text from "../Text";
 import Toggle from "../Toggle";
 import ClickOutside from "../ClickOutside";
-import Button from "../NavBar/primitives/Button";
 import Desktop from "../Desktop";
 import Mobile from "../Mobile";
 import TripsContainer from "../TripsContainer";
