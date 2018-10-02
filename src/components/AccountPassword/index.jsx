@@ -2,6 +2,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import Text from "@kiwicom/orbit-components/lib/Text";
+import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 import Button from "@kiwicom/orbit-components/lib/Button";
@@ -36,6 +37,10 @@ const Ruler = styled.div`
 
 type Props = {|
   +email: string,
+  +onChangeEmail: () => void,
+  +onAskSignInLink: () => void,
+  +onPasswordChange: () => void,
+  +onSignIn: () => void,
 |};
 
 class InputDate extends React.PureComponent<Props> {
@@ -51,14 +56,17 @@ class InputDate extends React.PureComponent<Props> {
         <SpacingMedium>
           <Text>Email</Text>
           <Text weight="bold">
-            {this.props.email} <Edit size="small" />
+            {this.props.email}
+            <TextLink type="primary" onClick={this.props.onChangeEmail}>
+              <Edit size="small" />
+            </TextLink>
           </Text>
         </SpacingMedium>
         <Flex y="flex-end">
           <span style={{ flexGrow: 1, marginRight: "8px" }}>
-            <InputField label="Password" type="password" />
+            <InputField label="Password" type="password" onChange={this.props.onPasswordChange} />
           </span>
-          <Button>Sign In</Button>
+          <Button onClick={this.props.onSignIn}>Sign In</Button>
         </Flex>
 
         <Ruler />
@@ -67,7 +75,9 @@ class InputDate extends React.PureComponent<Props> {
             Send <b>{this.props.email}</b> a link to sign in:
           </Text>
         </SpacingXSmall>
-        <Button type="secondary">Receive a sign in link email</Button>
+        <Button type="secondary" onClick={this.props.onAskSignInLink}>
+          Receive a sign in link email
+        </Button>
       </React.Fragment>
     );
   }
