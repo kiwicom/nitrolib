@@ -51,6 +51,7 @@ const Rectangle = styled.div`
 `;
 
 type Props = {|
+  +email: string,
   +onNoAccount: () => void,
   +onGoogleLogin: () => void,
   +onFacebookLogin: () => void,
@@ -77,6 +78,7 @@ class InputDate extends React.PureComponent<Props> {
               label="Email"
               placeholder="e.g. your@email.com"
               type="email"
+              value={this.props.email}
               onChange={this.props.onEmailChange}
             />
           </span>
