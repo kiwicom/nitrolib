@@ -12,6 +12,7 @@ import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
 
 import Flex from "../../primitives/Flex";
 import Trans from "../Text";
+import { Consumer } from "../../services/intl/context";
 
 const SpacingXSmall = styled.div`
   & {
@@ -69,53 +70,63 @@ class InputDate extends React.PureComponent<Props> {
       onContinue,
     } = this.props;
     return (
-      <React.Fragment>
-        <Illustration name="Login" size="small" />
-        <SpacingXSmall>
-          <Heading element="h2">Manage your bookings</Heading>
-        </SpacingXSmall>
-        <Text>Sign in to access all of your bookings, Price Alerts, and Kiwi.com Credit.</Text>
-        <Ruler />
-        <SpacingMedium>
-          <Text weight="bold">Sign in with your email address</Text>
-        </SpacingMedium>
-        <Flex y="flex-end">
-          <span style={{ flexGrow: 1, marginRight: "8px" }}>
-            <InputField
-              label="Email"
-              placeholder="e.g. your@email.com"
-              type="email"
-              value={email}
-              onChange={onEmailChange}
-            />
-          </span>
-          <Button onClick={onContinue}>Continue</Button>
-        </Flex>
-        <Rectangle>
-          <Text weight="bold">Or use social account</Text>
-          <Flex>
-            <span style={{ flexGrow: 1, marginRight: "4px" }}>
-              <Button
-                type="facebook"
-                block
-                bordered
-                icon={<FacebookIcon />}
-                onClick={onFacebookLogin}
-              >
-                <Trans t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
-              </Button>
-            </span>
-            <span style={{ flexGrow: 1, marginLeft: "4px" }}>
-              <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
-                <Trans t={__("account.log_in_with")} values={{ provider: "Google" }} />
-              </Button>
-            </span>
-          </Flex>
-        </Rectangle>
-        <TextLink type="secondary" onClick={onNoAccount}>
-          I don’t have an account
-        </TextLink>
-      </React.Fragment>
+      <Consumer>
+        {intl => (
+          <React.Fragment>
+            <Illustration name="Login" size="small" />
+            <SpacingXSmall>
+              <Heading element="h2">{intl.translate(_("account.manage_your_bookings"))}</Heading>
+            </SpacingXSmall>
+            <Text>{intl.translate(_("account.sign_in_description"))}</Text>
+            <Ruler />
+            <SpacingMedium>
+              <Text weight="bold">{intl.translate(_("account.sign_in_description"))}</Text>
+            </SpacingMedium>
+            <Flex y="flex-end">
+              <span style={{ flexGrow: 1, marginRight: "8px" }}>
+                <InputField
+                  label={intl.translate(_("account.email"))}
+                  placeholder={intl.translate(_("account.email_placeholder"))}
+                  type="email"
+                  value={email}
+                  onChange={onEmailChange}
+                />
+              </span>
+              <Button onClick={onContinue}>{intl.translate(_("account.continue"))}</Button>
+            </Flex>
+            <Rectangle>
+              <Text weight="bold">{intl.translate(_("account.or_social_account"))}</Text>
+              <Flex>
+                <span style={{ flexGrow: 1, marginRight: "4px" }}>
+                  <Button
+                    type="facebook"
+                    block
+                    bordered
+                    icon={<FacebookIcon />}
+                    onClick={onFacebookLogin}
+                  >
+                    <Trans t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
+                  </Button>
+                </span>
+                <span style={{ flexGrow: 1, marginLeft: "4px" }}>
+                  <Button
+                    type="google"
+                    block
+                    bordered
+                    icon={<GoogleIcon />}
+                    onClick={onGoogleLogin}
+                  >
+                    <Trans t={__("account.log_in_with")} values={{ provider: "Google" }} />
+                  </Button>
+                </span>
+              </Flex>
+            </Rectangle>
+            <TextLink type="secondary" onClick={onNoAccount}>
+              {intl.translate(__("account.i_dont_have_account"))}
+            </TextLink>
+          </React.Fragment>
+        )}
+      </Consumer>
     );
   }
 }
