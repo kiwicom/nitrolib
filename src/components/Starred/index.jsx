@@ -2,8 +2,8 @@
 import * as React from "react";
 import StarIcon from "@kiwicom/orbit-components/lib/icons/StarFull";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
+import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 
-import Button from "../NavBar/primitives/Button";
 import Text from "../Text";
 import Toggle from "../Toggle";
 import ClickOutside from "../ClickOutside";
@@ -37,13 +37,11 @@ const Starred = ({ children, positionMenuTablet, positionMenuDesktop }: Props) =
         )}
         <Desktop>
           <TextLink type="secondary" onClick={onToggle}>
-            Starred
+            <Text t={__("starred.starred")} />
           </TextLink>
         </Desktop>
         <Mobile>
-          <Button onClick={onToggle}>
-            <StarIcon color="primary" />
-          </Button>
+          <ButtonLink onClick={onToggle} icon={<StarIcon color="primary" />} />
         </Mobile>
       </>
     )}

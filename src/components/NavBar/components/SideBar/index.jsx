@@ -22,7 +22,6 @@ const Container = styled.section`
   position: fixed;
   top: 0;
   bottom: 0;
-  z-index: 10;
   ${rtl.right}: 0;
   ${rtl.left}: 0;
   background-color: ${({ entered }) => (entered ? `rgba(0, 0, 0, .5)` : `transparent`)};
