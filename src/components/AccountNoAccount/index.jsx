@@ -46,10 +46,10 @@ const Rectangle = styled.div`
 `;
 
 type Props = {|
-  +onBack: () => void,
-  +onRegister: () => void,
-  +onFacebookLogin: () => void,
-  +onGoogleLogin: () => void,
+  +onBack: (ev: SyntheticEvent<>) => void,
+  +onRegister: (ev: SyntheticEvent<>) => void,
+  +onFacebookLogin: (ev: SyntheticEvent<>) => void,
+  +onGoogleLogin: (ev: SyntheticEvent<>) => void,
 |};
 
 class AccountNoAccount extends React.PureComponent<Props> {

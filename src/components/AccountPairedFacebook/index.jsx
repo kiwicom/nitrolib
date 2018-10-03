@@ -35,8 +35,8 @@ const Ruler = styled.div`
 
 type Props = {|
   +email: string,
-  +onAskSignInLink: () => void,
-  +onFacebookLogin: () => void,
+  +onAskSignInLink: (ev: SyntheticEvent<>) => void,
+  +onFacebookLogin: (ev: SyntheticEvent<>) => void,
 |};
 
 class AccountPairedFacebook extends React.PureComponent<Props> {

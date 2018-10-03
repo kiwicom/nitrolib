@@ -26,12 +26,12 @@ type Props = {|
   +email: string,
   +password: string,
   +passwordConfirm: string,
-  +onEmailChange: () => void,
-  +onPasswordChange: () => void,
-  +onPasswordConfirmChange: () => void,
-  +onContinue: () => void,
-  +onTermsOfUse: () => void,
-  +onPrivacyPolicy: () => void,
+  +onEmailChange: (ev: SyntheticEvent<>) => void,
+  +onPasswordChange: (ev: SyntheticEvent<>) => void,
+  +onPasswordConfirmChange: (ev: SyntheticEvent<>) => void,
+  +onContinue: (ev: SyntheticEvent<>) => void,
+  +onTermsOfUse: (ev: SyntheticEvent<>) => void,
+  +onPrivacyPolicy: (ev: SyntheticEvent<>) => void,
 |};
 
 class AccountCreate extends React.PureComponent<Props> {
