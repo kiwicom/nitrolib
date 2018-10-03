@@ -794,20 +794,7 @@ exports[`#Starred render open 1`] = `
   <ClickOutside
     onClickOutside={[MockFunction]}
   >
-    <TripContainer
-      header={
-        <Text
-          html={false}
-          t="starred.starred_flights"
-          values={Object {}}
-        />
-      }
-      padding={true}
-      positionMenuDesktop={0}
-      positionMenuTablet={0}
-    >
-      starred
-    </TripContainer>
+    starred
   </ClickOutside>
   <Desktop
     display="block"
