@@ -12,7 +12,6 @@ storiesOf("AccountCreate", module)
       email=""
       password=""
       passwordConfirm=""
-      onNoAccount={() => {}}
       onEmailChange={() => {}}
       onPasswordChange={() => {}}
       onPasswordConfirmChange={() => {}}
