@@ -95,9 +95,7 @@ const NavBar = ({
             </Desktop>
             {starred && (
               <MenuSpacings>
-                <Starred positionMenuDesktop={-100} positionMenuTablet={-183}>
-                  {starred}
-                </Starred>
+                <Starred>{starred}</Starred>
               </MenuSpacings>
             )}
             <Menu
