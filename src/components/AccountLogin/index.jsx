@@ -59,7 +59,7 @@ type Props = {|
   +onContinue: () => void,
 |};
 
-class InputDate extends React.PureComponent<Props> {
+class AccountLogin extends React.PureComponent<Props> {
   render() {
     const {
       email,
@@ -131,4 +131,4 @@ class InputDate extends React.PureComponent<Props> {
   }
 }
 
-export default InputDate;
+export default AccountLogin;

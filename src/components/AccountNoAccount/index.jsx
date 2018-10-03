@@ -52,7 +52,7 @@ type Props = {|
   +onGoogleLogin: () => void,
 |};
 
-class InputDate extends React.PureComponent<Props> {
+class AccountNoAccount extends React.PureComponent<Props> {
   render() {
     const { onBack, onRegister, onFacebookLogin, onGoogleLogin } = this.props;
     return (
@@ -108,4 +108,4 @@ class InputDate extends React.PureComponent<Props> {
   }
 }
 
-export default InputDate;
+export default AccountNoAccount;

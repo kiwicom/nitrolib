@@ -34,7 +34,7 @@ type Props = {|
   +onPrivacyPolicy: () => void,
 |};
 
-class InputDate extends React.PureComponent<Props> {
+class AccountCreate extends React.PureComponent<Props> {
   render() {
     const {
       email,
@@ -104,4 +104,4 @@ class InputDate extends React.PureComponent<Props> {
   }
 }
 
-export default InputDate;
+export default AccountCreate;

@@ -44,7 +44,7 @@ type Props = {|
   +onSignIn: () => void,
 |};
 
-class InputDate extends React.PureComponent<Props> {
+class AccountPassword extends React.PureComponent<Props> {
   render() {
     const {
       email,
@@ -100,4 +100,4 @@ class InputDate extends React.PureComponent<Props> {
   }
 }
 
-export default InputDate;
+export default AccountPassword;

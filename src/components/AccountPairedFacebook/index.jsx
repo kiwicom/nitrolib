@@ -39,7 +39,7 @@ type Props = {|
   +onFacebookLogin: () => void,
 |};
 
-class InputDate extends React.PureComponent<Props> {
+class AccountPairedFacebook extends React.PureComponent<Props> {
   render() {
     const { onAskSignInLink, onFacebookLogin, email } = this.props;
 
@@ -71,4 +71,4 @@ class InputDate extends React.PureComponent<Props> {
   }
 }
 
-export default InputDate;
+export default AccountPairedFacebook;
