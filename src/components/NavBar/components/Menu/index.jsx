@@ -81,12 +81,12 @@ export default class Menu extends React.PureComponent<Props, State> {
             auth === null ? (
               <MenuSpacings>
                 <Desktop display="flex">
-                  <Button onClick={this.handleOpenMyBooking}>
+                  <Button direction="x" onClick={this.handleOpenMyBooking}>
                     <Text t={__("account.my_bookings_action")} />
                   </Button>
                 </Desktop>
                 <Mobile display="flex">
-                  <Button onClick={this.handleOpenMyBooking} padding="13px 9px">
+                  <Button direction="x" onClick={this.handleOpenMyBooking} padding="13px 9px">
                     <AccountCircle />
                   </Button>
                 </Mobile>

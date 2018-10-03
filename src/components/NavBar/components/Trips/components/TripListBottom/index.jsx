@@ -16,7 +16,7 @@ const TripListBottom = ({ children }: Props) => (
       <>
         <ItemWrapper>
           {children}
-          <Button href={`/${intl.language.id}/account#future`}>
+          <Button marginLeft={25} bold href={`/${intl.language.id}/account#future`}>
             <Text t={__("account.all_trips")} />
           </Button>
         </ItemWrapper>

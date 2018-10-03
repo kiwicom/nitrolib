@@ -7,6 +7,10 @@ import type { ThemeProps } from "../../../records/Theme";
 import { themeDefault } from "../../../records/Theme";
 import buttonMixin from "../../../styles/mixins/button";
 
+type Bold = ThemeProps & {|
+  bold: boolean,
+|};
+
 const Button = styled.button`
   ${buttonMixin};
   display: flex;
@@ -16,7 +20,8 @@ const Button = styled.button`
       : `color: ${theme.orbit.paletteInkNormal}`};
   cursor: pointer;
   line-height: 50px;
-  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
+  font-weight: ${({ theme, bold }: Bold) =>
+    bold ? theme.orbit.fontWeightBold : theme.orbit.fontWeightMedium};
   line-height: 50px;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   font-family: ${({ theme }: ThemeProps) => theme.orbit.fontFamily};
@@ -35,19 +40,22 @@ const Button = styled.button`
   }
 `;
 
+const ButtonLink = Button.withComponent("a");
+
 // $FlowFixMe
-Button.propTypes = {
+ButtonLink.propTypes = {
   padding: PropTypes.string,
   marginLeft: PropTypes.number,
   marginRight: PropTypes.number,
   fontSize: PropTypes.string,
+  bold: PropTypes.bool,
   x: PropTypes.string,
   y: PropTypes.string,
   direction: PropTypes.string,
 };
 
-Button.defaultProps = {
+ButtonLink.defaultProps = {
   theme: themeDefault,
 };
 
-export default Button;
+export default ButtonLink;

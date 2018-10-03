@@ -21,6 +21,7 @@ import MenuSpacings from "./primitives/MenuSpacings";
 
 const Container = styled(Flex)`
   width: 100%;
+  position: relative;
   height: ${navbar.height}px;
   background-color: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};

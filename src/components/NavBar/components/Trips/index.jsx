@@ -15,6 +15,7 @@ import Toggle from "../../../Toggle";
 import TripDataList from "./components/TripDataList";
 import MenuSpacings from "../../primitives/MenuSpacings";
 import Flex from "../../../../primitives/Flex";
+import mq from "../../../../styles/mq";
 
 type Props = {|
   auth: Auth,
@@ -31,6 +32,16 @@ const UserStyle = styled.div`
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
   padding-left: 5px;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
+  ${mq.smallMobile} {
+    display: none;
+  }
+`;
+
+const HideOnLower900 = styled.div`
+  display: block;
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 
 const Trips = ({ auth, env, onSelect }: Props) => (
@@ -52,9 +63,11 @@ const Trips = ({ auth, env, onSelect }: Props) => (
             <Flex y="center">
               <Passenger size="small" />
               <Button onClick={onToggle}>
-                <Text t={__("account.my_bookings_action")} />
+                <HideOnLower900>
+                  <Text t={__("account.my_bookings_action")} />
+                </HideOnLower900>
+                <UserStyle>({`${auth.user.firstname}...`})</UserStyle>
               </Button>
-              <UserStyle>({`${auth.user.firstname}...`})</UserStyle>
             </Flex>
           </Desktop>
           <Mobile display="flex">
