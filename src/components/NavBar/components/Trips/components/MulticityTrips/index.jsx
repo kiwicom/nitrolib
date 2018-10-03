@@ -8,17 +8,16 @@ import TripItem from "../TripItem";
 
 type Props = {|
   item: MulticityTrips_item,
-  lang?: string,
+  onSelect: (bid: string) => void,
 |};
 
-const MulticityTrips = ({ item, lang }: Props) => {
+const MulticityTrips = ({ item, onSelect }: Props) => {
   const { trips } = item;
   const multicityFirst = trips && trips.slice(1, 2)[0];
   const countOtherCities = trips && trips.slice(1);
   return (
     <TripItem
-      id={item.id}
-      lang={lang || ""}
+      bid={String(item.databaseId)}
       img={idx(item, _ => _.destinationImageUrl) || ""}
       departureTime={idx(item, _ => _.start.localTime) || new Date()}
       arrivalTime={idx(item, _ => _.end.localTime) || new Date()}
@@ -27,6 +26,7 @@ const MulticityTrips = ({ item, lang }: Props) => {
       arrivalCity={idx(item, _ => _.end.airport.city.name) || ""}
       multicityFirst={idx(multicityFirst, _ => _.departure.airport.city.name) || ""}
       countOtherCities={Array.isArray(countOtherCities) ? countOtherCities.length : 0}
+      onSelect={onSelect}
     />
   );
 };
@@ -37,7 +37,7 @@ export default createFragmentContainer(
   MulticityTrips,
   graphql`
     fragment MulticityTrips_item on BookingMulticity {
-      id
+      databaseId
       destinationImageUrl
       passengerCount
       __typename

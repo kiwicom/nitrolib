@@ -58,6 +58,7 @@ type Props = {|
   debug?: React.Node,
   onOpenFaq: () => void,
   onSaveLanguage: (lang: string) => void,
+  onSelectTrip: (bid: string) => void,
 |};
 
 const NavBar = ({
@@ -68,6 +69,7 @@ const NavBar = ({
   debug,
   onOpenFaq,
   onSaveLanguage,
+  onSelectTrip,
 }: Props) => (
   <LogConsumer>
     {({ log }) => (
@@ -103,6 +105,7 @@ const NavBar = ({
               subscription={subscription}
               debug={debug}
               onSaveLanguage={onSaveLanguage}
+              onSelectTrip={onSelectTrip}
               onLog={log}
             />
           </Wrapper>

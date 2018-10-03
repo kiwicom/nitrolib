@@ -8,19 +8,19 @@ import TripItem from "../TripItem";
 
 type Props = {|
   item: ReturnTrips_item,
-  lang?: string,
+  onSelect: (bid: string) => void,
 |};
 
-const ReturnTrips = ({ item, lang }: Props) => (
+const ReturnTrips = ({ item, onSelect }: Props) => (
   <TripItem
-    id={item.id}
-    lang={lang || ""}
+    bid={String(item.databaseId)}
     img={idx(item, _ => _.destinationImageUrl) || ""}
     passengerCount={idx(item, _ => _.passengerCount) || 0}
     departureCity={idx(item, _ => _.outbound.departure.airport.city.name) || ""}
     departureTime={idx(item, _ => _.outbound.departure.localTime) || new Date()}
     arrivalTime={idx(item, _ => _.inbound.arrival.localTime) || new Date()}
     arrivalCity={idx(item, _ => _.outbound.arrival.airport.city.name) || ""}
+    onSelect={onSelect}
   />
 );
 
@@ -30,7 +30,7 @@ export default createFragmentContainer(
   ReturnTrips,
   graphql`
     fragment ReturnTrips_item on BookingReturn {
-      id
+      databaseId
       destinationImageUrl
       passengerCount
       __typename

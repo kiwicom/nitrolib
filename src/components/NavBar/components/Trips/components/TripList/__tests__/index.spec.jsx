@@ -16,11 +16,9 @@ const list: any = {
   ],
 };
 
-const lang = "en";
-
 describe("#TripList", () => {
   test("render", () => {
-    const wrapper = shallow(<TripList list={list} lang={lang} />);
+    const wrapper = shallow(<TripList list={list} onSelect={jest.fn()} />);
 
     expect(wrapper).toMatchSnapshot();
   });

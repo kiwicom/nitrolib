@@ -25,5 +25,6 @@ storiesOf("NavBar", module)
       starred={<h1>Starred</h1>}
       onOpenFaq={action("Open FAQ")}
       onSaveLanguage={action("Save language")}
+      onSelectTrip={action("Select trip")}
     />
   ));

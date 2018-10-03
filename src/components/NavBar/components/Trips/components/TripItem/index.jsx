@@ -10,21 +10,17 @@ import TripInfoLine from "../../primitives/TripInfoLine";
 import Text from "../../../../../Text";
 import Day from "../../../../../Day";
 
-const handleSelect = (id: string, language: string) => {
-  window.location.href = `/${language}/account/bookings/${id}`;
-};
-
 type Props = {|
-  id: string,
+  bid: string,
   img?: string,
   arrivalTime: Date,
   departureTime: Date,
   departureCity: ?string,
   arrivalCity: ?string,
-  lang: string,
   passengerCount: number,
   countOtherCities: number,
   multicityFirst?: string,
+  onSelect: (bid: string) => void,
 |};
 
 const styleImg = {
@@ -33,9 +29,8 @@ const styleImg = {
   overlfow: "hidden",
 };
 
-// TODO: Conver date to proper format
 const TripItem = ({
-  id,
+  bid,
   img,
   departureTime,
   arrivalTime,
@@ -43,10 +38,10 @@ const TripItem = ({
   multicityFirst,
   countOtherCities,
   arrivalCity,
-  lang,
   passengerCount,
+  onSelect,
 }: Props) => (
-  <ItemWrapper onClick={() => handleSelect(id, lang)}>
+  <ItemWrapper onClick={() => onSelect(bid)}>
     <img src={img} alt="img" height="180" style={styleImg} />
     <TripInfo>
       <Column>

@@ -7,7 +7,7 @@ import { OneWayTripsUnwrapped as OneWayTrips } from "..";
 const item: any = {
   __typename: "BookingOneWay",
   destinationImageUrl: "url",
-  id: "Qm9va2luZ09uZVdheTozNzA1ODU5",
+  databaseId: "Qm9va2luZ09uZVdheTozNzA1ODU5",
   passengerCount: 2,
   trip: {
     arrival: {
@@ -29,11 +29,9 @@ const item: any = {
   },
 };
 
-const lang = "en";
-
 describe("#OneWayTrips", () => {
   test("render", () => {
-    const wrapper = shallow(<OneWayTrips item={item} lang={lang} />);
+    const wrapper = shallow(<OneWayTrips item={item} onSelect={jest.fn()} />);
 
     expect(wrapper).toMatchSnapshot();
   });

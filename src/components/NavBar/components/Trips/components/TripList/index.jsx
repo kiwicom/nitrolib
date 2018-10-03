@@ -4,6 +4,7 @@ import { createFragmentContainer, graphql } from "react-relay";
 
 import Text from "../../../../../Text";
 import type { TripList_list } from "./__generated__/TripList_list.graphql";
+import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
 import OneWayTrips from "../OneWayTrips";
 import MulticityTrips from "../MulticityTrips";
 import TripListBottom from "../TripListBottom";
@@ -12,15 +13,18 @@ import ReturnTrips from "../ReturnTrips";
 
 type Props = {|
   list: TripList_list,
-  lang: string,
+  onSelect: (bid: string) => void,
 |};
 
-const TripList = ({ list, lang }: Props) => {
+const TripList = ({ list, onSelect }: Props) => {
   const trips = list.edges && list.edges.map(edge => edge && edge.node).filter(Boolean);
   const upcoming = trips && trips.filter(trip => trip && !trip.isPastBooking && trip);
   const firstTwo = upcoming && upcoming.slice(0, 2);
   const futureTrips = upcoming && upcoming.slice(2, 6);
-  if (upcoming && upcoming.length === 0) return <Text t={__("account.no_trips")} />;
+
+  if (upcoming && upcoming.length === 0) {
+    return <Text t={__("account.no_trips")} />;
+  }
 
   return (
     <>
@@ -29,32 +33,35 @@ const TripList = ({ list, lang }: Props) => {
           /* eslint-disable no-underscore-dangle */
           if (item.__typename === "BookingOneWay") {
             /* $FlowIssue */
-            return <OneWayTrips key={item.id} item={item} lang={lang} />;
+            return <OneWayTrips key={item.id} item={item} onSelect={onSelect} />;
           }
           if (item.__typename === "BookingReturn") {
             /* $FlowIssue */
-            return <ReturnTrips key={item.id} item={item} lang={lang} />;
+            return <ReturnTrips key={item.id} item={item} onSelect={onSelect} />;
           }
           if (item.__typename === "BookingMulticity") {
             /* $FlowIssue */
-            return <MulticityTrips key={item.id} item={item} lang={lang} />;
+            return <MulticityTrips key={item.id} item={item} onSelect={onSelect} />;
           }
           /* eslint-enable no-underscore-danble */
 
           return null;
         })}
       <TripListBottom>
-        {futureTrips &&
-          futureTrips.length > 0 &&
-          /* $FlowIssue */
-          futureTrips.map(item => (
-            <BottomTripItem
-              key={item.id}
-              id={item.id}
-              imageUrl={item.destinationImageUrl || ""}
-              lang={lang}
-            />
-          ))}
+        <IntlConsumer>
+          {({ language }) =>
+            futureTrips &&
+            futureTrips.length > 0 &&
+            futureTrips.map(item => (
+              <BottomTripItem
+                key={item.id}
+                id={item.id}
+                imageUrl={item.destinationImageUrl || ""}
+                lang={language.id}
+              />
+            ))
+          }
+        </IntlConsumer>
       </TripListBottom>
     </>
   );

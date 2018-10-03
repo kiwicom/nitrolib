@@ -7,7 +7,7 @@ import { ReturnTripsUnwrapped as ReturnTrips } from "..";
 const item: any = {
   __typename: "BookingReturn",
   destinationImageUrl: "url",
-  id: "Qm9va2luZ1JldHVybjo1NTk2Mjk0",
+  databaseId: "Qm9va2luZ1JldHVybjo1NTk2Mjk0",
   passengerCount: 1,
   inbound: {
     arrival: {
@@ -47,11 +47,9 @@ const item: any = {
   },
 };
 
-const lang = "en";
-
 describe("#ReturnTrips", () => {
   test("render", () => {
-    const wrapper = shallow(<ReturnTrips item={item} lang={lang} />);
+    const wrapper = shallow(<ReturnTrips item={item} onSelect={jest.fn()} />);
 
     expect(wrapper).toMatchSnapshot();
   });

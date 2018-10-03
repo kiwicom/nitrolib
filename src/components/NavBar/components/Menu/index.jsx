@@ -25,6 +25,7 @@ type Props = {|
   subscription: React.Node,
   debug?: React.Node,
   onSaveLanguage: (lang: string) => void,
+  onSelectTrip: (bid: string) => void,
   onLog: (event: Event<"OPEN_MODAL", { modal: AuthModal }>) => void,
 |};
 
@@ -70,7 +71,7 @@ export default class Menu extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { chat, subscription, debug, onSaveLanguage } = this.props;
+    const { chat, subscription, debug, onSaveLanguage, onSelectTrip } = this.props;
     const { modalOpen } = this.state;
 
     return (
@@ -91,7 +92,7 @@ export default class Menu extends React.PureComponent<Props, State> {
                 </Mobile>
               </MenuSpacings>
             ) : (
-              <Trips auth={auth} env={environment} />
+              <Trips auth={auth} env={environment} onSelect={onSelectTrip} />
             )
           }
         </authContext.Consumer>

@@ -12,6 +12,7 @@ describe("#Menu", () => {
         subscription={<div>subscription</div>}
         debug={<div>debug</div>}
         onSaveLanguage={jest.fn()}
+        onSelectTrip={jest.fn()}
         onLog={jest.fn()}
       />,
     );
@@ -25,6 +26,7 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         onSaveLanguage={jest.fn()}
+        onSelectTrip={jest.fn()}
         onLog={jest.fn()}
       />,
     );
@@ -40,6 +42,7 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         onSaveLanguage={jest.fn()}
+        onSelectTrip={jest.fn()}
         onLog={jest.fn()}
       />,
     );
@@ -55,6 +58,7 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         onSaveLanguage={jest.fn()}
+        onSelectTrip={jest.fn()}
         onLog={jest.fn()}
       />,
     );
@@ -71,6 +75,7 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         onSaveLanguage={jest.fn()}
+        onSelectTrip={jest.fn()}
         onLog={jest.fn()}
       />,
     );
@@ -86,6 +91,7 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         onSaveLanguage={jest.fn()}
+        onSelectTrip={jest.fn()}
         onLog={jest.fn()}
       />,
     );
@@ -101,6 +107,7 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         onSaveLanguage={jest.fn()}
+        onSelectTrip={jest.fn()}
         onLog={jest.fn()}
       />,
     );
@@ -116,6 +123,7 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         onSaveLanguage={jest.fn()}
+        onSelectTrip={jest.fn()}
         onLog={jest.fn()}
       />,
     );

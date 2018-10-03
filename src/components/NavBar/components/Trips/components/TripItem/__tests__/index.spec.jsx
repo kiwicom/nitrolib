@@ -9,13 +9,13 @@ describe("#TripItem", () => {
     const wrapper = shallow(
       <TripItem
         arrivalCity="Prague"
-        id="1"
-        lang="en"
+        bid="1"
         passengerCount={2}
         departureTime={new Date("2017-08-03T21:10:00.000Z")}
         departureCity="New York"
         countOtherCities={0}
         arrivalTime={new Date("2017-08-03T23:45:00.000Z")}
+        onSelect={jest.fn()}
       />,
     );
     expect(wrapper).toMatchSnapshot();

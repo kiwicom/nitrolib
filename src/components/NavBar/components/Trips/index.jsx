@@ -19,6 +19,7 @@ import Flex from "../../../../primitives/Flex";
 type Props = {|
   auth: Auth,
   env: Environment,
+  onSelect: (bid: string) => void,
 |};
 
 const UserStyle = styled.div`
@@ -32,7 +33,7 @@ const UserStyle = styled.div`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
 `;
 
-const Trips = ({ auth, env }: Props) => (
+const Trips = ({ auth, env, onSelect }: Props) => (
   <Toggle>
     {({ open, onToggle }) => (
       <>
@@ -43,7 +44,7 @@ const Trips = ({ auth, env }: Props) => (
               onToggle();
             }}
           >
-            <TripDataList env={env} />
+            <TripDataList env={env} onSelect={onSelect} />
           </ClickOutside>
         )}
         <MenuSpacings>

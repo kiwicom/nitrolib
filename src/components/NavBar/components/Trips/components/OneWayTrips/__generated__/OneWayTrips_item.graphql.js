@@ -11,7 +11,7 @@ import type { ConcreteFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type OneWayTrips_item$ref: FragmentReference;
 export type OneWayTrips_item = {|
-  +id: string,
+  +databaseId: ?number,
   +destinationImageUrl: ?string,
   +passengerCount: ?number,
   +trip: ?{|
@@ -87,7 +87,7 @@ return {
     {
       "kind": "ScalarField",
       "alias": null,
-      "name": "id",
+      "name": "databaseId",
       "args": null,
       "storageKey": null
     },
@@ -147,5 +147,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '1782abd8e8ba5a309e85222403622e90';
+(node/*: any*/).hash = '9815b8aec8eb2f7144f9310a42074c29';
 module.exports = node;

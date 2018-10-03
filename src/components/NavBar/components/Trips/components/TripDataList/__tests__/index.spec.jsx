@@ -15,6 +15,7 @@ const res = {
             destinationImageUrl:
               "https://images.kiwi.com/photos/600x600/barcelona_es.grayscale.jpg",
             id: "Qm9va2luZ09uZVdheTozNzA1ODU5",
+            databaseId: "Qm9va2luZ09uZVdheTozNzA1ODU5",
             isPastBooking: true,
             passengerCount: 2,
             __typename: "BookingOneWay",
@@ -50,7 +51,7 @@ describe("#TripDataList", () => {
     const promise = Promise.resolve(res);
     const environment = makeEnvironment(() => promise);
 
-    const wrapper = shallow(<TripDataList env={environment} />);
+    const wrapper = shallow(<TripDataList env={environment} onSelect={jest.fn()} />);
 
     await promise;
 

@@ -7,7 +7,7 @@ import { MulticityTripsUnwrapped as MulticityTrips } from "..";
 const item: any = {
   __typename: "BookingMulticity",
   destinationImageUrl: "url",
-  id: "Qm9va2luZ011bHRpY2l0eTo1MzI1MjQ4",
+  databaseId: "Qm9va2luZ011bHRpY2l0eTo1MzI1MjQ4",
   passengerCount: 1,
   start: {
     airport: {
@@ -93,11 +93,9 @@ const item: any = {
   ],
 };
 
-const lang = "en";
-
 describe("#MulticityTrips", () => {
   test("render", () => {
-    const wrapper = shallow(<MulticityTrips item={item} lang={lang} />);
+    const wrapper = shallow(<MulticityTrips item={item} onSelect={jest.fn()} />);
 
     expect(wrapper).toMatchSnapshot();
   });

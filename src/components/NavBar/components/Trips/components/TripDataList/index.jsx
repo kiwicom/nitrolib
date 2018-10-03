@@ -5,13 +5,13 @@ import type { Environment } from "react-relay";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import styled from "styled-components";
 
-import * as intlContext from "../../../../../../services/intl/context";
 import Text from "../../../../../Text";
 import TripHeader from "../TripHeader";
 import TripList from "../TripList";
 import TripContainer from "../../../../../TripsContainer";
 
 type Props = {|
+  onSelect: (bid: string) => void,
   // DI
   env: Environment,
 |};
@@ -20,7 +20,7 @@ const StateContainer = styled.div`
   padding: 10px;
 `;
 
-const TripDataList = ({ env }: Props) => (
+const TripDataList = ({ env, onSelect }: Props) => (
   <QueryRenderer
     environment={env}
     query={graphql`
@@ -72,9 +72,7 @@ const TripDataList = ({ env }: Props) => (
           positionMenuTablet={0}
           positionMenuDesktop={50}
         >
-          <intlContext.Consumer>
-            {intl => <TripList list={customerBookings} lang={intl.language.id} />}
-          </intlContext.Consumer>
+          <TripList list={customerBookings} onSelect={onSelect} />
         </TripContainer>
       );
     }}

@@ -2,6 +2,10 @@
 
 exports[`#TripList render 1`] = `
 <Fragment>
-  <TripListBottom />
+  <TripListBottom>
+    <ContextConsumer>
+      <Component />
+    </ContextConsumer>
+  </TripListBottom>
 </Fragment>
 `;
