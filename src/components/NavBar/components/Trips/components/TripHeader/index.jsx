@@ -2,7 +2,7 @@
 import * as React from "react";
 import { graphql, createFragmentContainer } from "react-relay";
 
-import Button from "../../../../primitives/Button";
+import ButtonLink from "../../../../primitives/ButtonLink";
 import Text from "../../../../../Text";
 import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
 import type { TripHeader_trips } from "./__generated__/TripHeader_trips.graphql";
@@ -23,12 +23,12 @@ const TripHeader = ({ trips }: Props) => {
     <IntlConsumer>
       {intl => (
         <>
-          <Button bold href={`/${intl.language.id}/account#future`}>
+          <ButtonLink bold href={`/${intl.language.id}/account#future`}>
             <Text t={__("account.upcoming_trips")} values={{ trips: countTrips }} />
-          </Button>
-          <Button bold href={`/${intl.language.id}/account#past`}>
+          </ButtonLink>
+          <ButtonLink bold href={`/${intl.language.id}/account#past`}>
             <Text t={__("account.past_trips")} />
-          </Button>
+          </ButtonLink>
         </>
       )}
     </IntlConsumer>

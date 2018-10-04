@@ -1,28 +1,39 @@
 // @flow
 import styled from "styled-components";
-import PropTypes from "prop-types";
+import type { ReactComponentFunctional } from "styled-components";
 
 import * as rtl from "../../../styles/rtl";
 import type { ThemeProps } from "../../../records/Theme";
 import { themeDefault } from "../../../records/Theme";
 import buttonMixin from "../../../styles/mixins/button";
 
-type Bold = ThemeProps & {|
-  bold: boolean,
+type Props = {|
+  onClick: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  children: React.Node | React.Node[],
+  bold?: boolean,
+  primary?: boolean,
+  padding?: string,
+  marginLeft?: number,
+  marginRight?: number,
+  fontSize?: string,
+  x?: string,
+  y?: string,
+  direction?: string,
 |};
 
-const Button = styled.button`
+type PropsAll = {| ...ThemeProps, ...Props |};
+
+const Button: ReactComponentFunctional<Props, ThemeProps> = styled.button`
   ${buttonMixin};
   display: flex;
-  ${({ theme, primary }) =>
+  ${({ theme, primary }: PropsAll) =>
     primary
       ? `color: ${theme.orbit.paletteProductNormal}`
       : `color: ${theme.orbit.paletteInkNormal}`};
   cursor: pointer;
   line-height: 50px;
-  font-weight: ${({ theme, bold }: Bold) =>
+  font-weight: ${({ theme, bold }: PropsAll) =>
     bold ? theme.orbit.fontWeightBold : theme.orbit.fontWeightMedium};
-  line-height: 50px;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   font-family: ${({ theme }: ThemeProps) => theme.orbit.fontFamily};
   text-decoration: none;
@@ -40,22 +51,8 @@ const Button = styled.button`
   }
 `;
 
-const ButtonLink = Button.withComponent("a");
-
-// $FlowFixMe
-ButtonLink.propTypes = {
-  padding: PropTypes.string,
-  marginLeft: PropTypes.number,
-  marginRight: PropTypes.number,
-  fontSize: PropTypes.string,
-  bold: PropTypes.bool,
-  x: PropTypes.string,
-  y: PropTypes.string,
-  direction: PropTypes.string,
-};
-
-ButtonLink.defaultProps = {
+Button.defaultProps = {
   theme: themeDefault,
 };
 
-export default ButtonLink;
+export default Button;

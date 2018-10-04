@@ -4,7 +4,7 @@ import * as React from "react";
 import ItemWrapper from "../../primitives/ItemWrapper";
 import Text from "../../../../../Text";
 import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
-import Button from "../../../../primitives/Button";
+import ButtonLink from "../../../../primitives/ButtonLink";
 
 type Props = {|
   children: React.Node,
@@ -16,9 +16,9 @@ const TripListBottom = ({ children }: Props) => (
       <>
         <ItemWrapper>
           {children}
-          <Button marginLeft={25} bold href={`/${intl.language.id}/account#future`}>
+          <ButtonLink marginLeft={25} bold href={`/${intl.language.id}/account#future`}>
             <Text t={__("account.all_trips")} />
-          </Button>
+          </ButtonLink>
         </ItemWrapper>
       </>
     )}
