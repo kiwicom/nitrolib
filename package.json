@@ -51,7 +51,7 @@
     "validator": "^10.7.1"
   },
   "peerDependencies": {
-    "@kiwicom/orbit-components": "^0.11.0",
+    "@kiwicom/orbit-components": "^0.11.3",
     "ramda": "^0.25.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
@@ -69,7 +69,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "@kiwicom/orbit-components": "^0.11.0",
+    "@kiwicom/orbit-components": "^0.11.3",
     "@storybook/addon-actions": "^4.0.0-alpha.14",
     "@storybook/addon-info": "^4.0.0-alpha.14",
     "@storybook/addon-knobs": "^4.0.0-alpha.14",
