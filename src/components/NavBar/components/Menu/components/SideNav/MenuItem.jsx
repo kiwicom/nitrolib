@@ -11,6 +11,11 @@ const Link = styled.a`
   align-items: center;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   text-decoration: none;
+
+  &:link,
+  &:visited {
+    color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
+  }
 `;
 
 Link.defaultProps = {

@@ -22,6 +22,7 @@ const StyledLink = styled.a`
   margin-${rtl.left}: 20px;
   height: 50px;
   line-height: 50px;
+
   &:link, &:visited {
     color: ${({ active, theme }: LinkProps) =>
       active ? theme.orbit.paletteProductNormal : theme.orbit.paletteInkNormal};
