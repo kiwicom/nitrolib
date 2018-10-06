@@ -13,8 +13,8 @@ const Container = styled.div`
 
   .icon {
     padding-${rtl.right}: 10px;
-    height: 26px;
-    width: 26px;
+    height: 24px;
+    width: 24px;
   }
 `;
 
