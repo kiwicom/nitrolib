@@ -58,7 +58,7 @@ type Props = {|
 const MenuItem = ({ onClick, Icon, text, link }: Props) => (
   <Container onClick={onClick}>
     {link !== "" ? (
-      <Link link={link} itemProp="url">
+      <Link href={link} itemProp="url">
         <Icon className="menuIcon" />
         <Item itemProp="name">{text}</Item>
       </Link>

@@ -387,8 +387,8 @@ exports[`#SideNav MenuItem render 1`] = `
   }
 >
   <MenuItem__Link
+    href="kek"
     itemProp="url"
-    link="kek"
     theme={
       Object {
         "orbit": Object {
