@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#AccountCreate render 1`] = `
+<React.Fragment>
+  <Illustration
+    name="EnjoyApp"
+    size="small"
+  />
+  <AccountCreate__SpacingXSmall>
+    <Heading
+      element="h2"
+    >
+      <Text
+        html={false}
+        t="account.create_account"
+        values={Object {}}
+      />
+    </Heading>
+  </AccountCreate__SpacingXSmall>
+  <AccountCreate__SpacingXSmall>
+    <Text
+      html={false}
+      t="account.create_account_description"
+      values={Object {}}
+    />
+  </AccountCreate__SpacingXSmall>
+  <AccountCreate__SpacingMedium>
+    <InputField
+      label="account.email"
+      onChange={[Function]}
+      placeholder="account.email_placeholder"
+      type="email"
+      value=""
+    />
+  </AccountCreate__SpacingMedium>
+  <AccountCreate__SpacingMedium>
+    <InputField
+      label="account.password"
+      onChange={[Function]}
+      type="password"
+      value=""
+    />
+  </AccountCreate__SpacingMedium>
+  <AccountCreate__SpacingMedium>
+    <InputField
+      label="account.password_confirmaiton"
+      onChange={[Function]}
+      type="password"
+      value=""
+    />
+  </AccountCreate__SpacingMedium>
+  <AccountCreate__SpacingMedium>
+    <Button
+      onClick={[Function]}
+    >
+      <Text
+        html={false}
+        t="account.create"
+        values={Object {}}
+      />
+    </Button>
+  </AccountCreate__SpacingMedium>
+  <Text
+    size="small"
+  >
+    The registration and subsequent use of your account is governed by these
+     
+    <TextLink
+      onClick={[Function]}
+      type="secondary"
+    >
+      Terms of Use
+    </TextLink>
+    . Your personal data will be processed according to our
+     
+    <TextLink
+      onClick={[Function]}
+      type="secondary"
+    >
+      Privacy Policy
+    </TextLink>
+    .
+  </Text>
+</React.Fragment>
+`;
