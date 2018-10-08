@@ -9,20 +9,7 @@ import Text from "../../../../../Text";
 import type { ThemeProps } from "../../../../../../records/Theme";
 import { themeDefault } from "../../../../../../records/Theme";
 import Flex from "../../../../../../primitives/Flex";
-import * as rtl from "../../../../../../styles/rtl";
 import type { SocialProvider } from "../../../../../../records/Auth";
-
-const ButtonWrap = styled.div`
-  flex: 1;
-
-  &:nth-child(2) {
-    margin-${rtl.left}: 10px;
-  }
-`;
-
-ButtonWrap.defaultProps = {
-  theme: themeDefault,
-};
 
 const Or = styled.div`
   position: relative;
@@ -62,32 +49,21 @@ type Props = {|
 
 const SocialLogin = ({ facebook, google, onSocialAuth }: Props) => (
   <>
-    <Flex>
+    <Flex x="space-between">
       {google && (
-        <ButtonWrap>
-          <Button
-            type="google"
-            block
-            bordered
-            icon={<GoogleIcon />}
-            onClick={() => onSocialAuth("google")}
-          >
-            <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
-          </Button>
-        </ButtonWrap>
+        <Button type="google" bordered icon={<GoogleIcon />} onClick={() => onSocialAuth("google")}>
+          <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
+        </Button>
       )}
       {facebook && (
-        <ButtonWrap>
-          <Button
-            type="facebook"
-            block
-            bordered
-            icon={<FacebookIcon />}
-            onClick={() => onSocialAuth("facebook")}
-          >
-            <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
-          </Button>
-        </ButtonWrap>
+        <Button
+          type="facebook"
+          bordered
+          icon={<FacebookIcon />}
+          onClick={() => onSocialAuth("facebook")}
+        >
+          <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
+        </Button>
       )}
     </Flex>
     <Or>

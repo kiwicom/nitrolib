@@ -10,17 +10,17 @@ const Container = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-
-  .icon {
-    padding-${rtl.right}: 10px;
-    height: 24px;
-    width: 24px;
-  }
 `;
 
 Container.defaultProps = {
   theme: themeDefault,
 };
+
+const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding-${rtl.right}: 10px;
+`;
 
 const Text = styled.span`
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
@@ -34,13 +34,13 @@ Text.defaultProps = {
 };
 
 type Props = {|
-  Icon: React.ComponentType<{ className: string }>,
+  icon: React.Node,
   children: React.Node,
 |};
 
-const IconText = ({ Icon, children }: Props) => (
+const IconText = ({ icon, children }: Props) => (
   <Container>
-    <Icon className="icon" />
+    <IconWrapper>{icon}</IconWrapper>
     <Text>{children}</Text>
   </Container>
 );

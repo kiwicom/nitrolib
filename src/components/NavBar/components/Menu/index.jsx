@@ -106,7 +106,7 @@ export default class Menu extends React.PureComponent<Props, State> {
         />
 
         {modalOpen !== "" && (
-          <Modal onClose={this.handleClose} size="small">
+          <Modal onClose={this.handleClose} size="normal">
             <ModalSection>
               {modalOpen === "forgotPassword" ? (
                 <BrandConsumer>

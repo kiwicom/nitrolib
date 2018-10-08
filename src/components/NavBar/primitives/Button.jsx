@@ -26,10 +26,8 @@ type PropsAll = {| ...ThemeProps, ...Props |};
 const Button: ReactComponentFunctional<Props, ThemeProps> = styled.button`
   ${buttonMixin};
   display: flex;
-  ${({ theme, primary }: PropsAll) =>
-    primary
-      ? `color: ${theme.orbit.paletteProductNormal}`
-      : `color: ${theme.orbit.paletteInkNormal}`};
+  color: ${({ theme, primary }: PropsAll) =>
+    primary ? `${theme.orbit.paletteProductNormal}` : `${theme.orbit.paletteInkNormal}`};
   cursor: pointer;
   line-height: 50px;
   font-weight: ${({ theme, bold }: PropsAll) =>
@@ -45,6 +43,12 @@ const Button: ReactComponentFunctional<Props, ThemeProps> = styled.button`
   ${({ x, y, direction }) => x && `justify-content: ${direction === "column" ? y : x}`};
   ${({ x, y, direction }) => y && `align-items: ${direction === "column" ? x : y}`};
   ${({ direction }) => direction && `flex-direction: ${direction}`};
+  &:visited,
+  &:link {
+    color: ${({ theme, primary }: PropsAll) =>
+      primary ? `${theme.orbit.paletteProductNormal}` : `${theme.orbit.paletteInkNormal}`};
+    }
+  }
 
   &:hover {
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};

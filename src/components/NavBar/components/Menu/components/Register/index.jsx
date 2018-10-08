@@ -2,12 +2,12 @@
 import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
-import FaUser from "react-icons/lib/fa/user";
-import FaEnvelope from "react-icons/lib/fa/envelope";
-import MdLock from "react-icons/lib/md/lock";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import TextOrbit from "@kiwicom/orbit-components/lib/Text";
+import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
+import Security from "@kiwicom/orbit-components/lib/icons/Security";
+import User from "@kiwicom/orbit-components/lib/icons/Passenger";
 
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
@@ -140,7 +140,7 @@ export default class Register extends React.PureComponent<Props, State> {
           </FieldWrap>
         )}
         <FieldWrap>
-          <IconText Icon={FaUser}>
+          <IconText icon={<User color="primary" size="small" />}>
             <Text t={__("common.firstname.colon")} />
           </IconText>
           <InputText
@@ -154,7 +154,7 @@ export default class Register extends React.PureComponent<Props, State> {
           />
         </FieldWrap>
         <FieldWrap>
-          <IconText Icon={FaUser}>
+          <IconText icon={<User color="primary" size="small" />}>
             <Text t={__("common.lastname.colon")} />
           </IconText>
           <InputText
@@ -168,7 +168,7 @@ export default class Register extends React.PureComponent<Props, State> {
           />
         </FieldWrap>
         <FieldWrap>
-          <IconText Icon={FaEnvelope}>
+          <IconText icon={<Envelope color="primary" size="small" />}>
             <Text t={__("common.email.colon")} />
           </IconText>
           <InputText
@@ -184,7 +184,7 @@ export default class Register extends React.PureComponent<Props, State> {
           />
         </FieldWrap>
         <FieldWrap>
-          <IconText Icon={MdLock}>
+          <IconText icon={<Security color="primary" size="small" />}>
             <Text t={__("account.password.colon")} />
           </IconText>
           <InputText

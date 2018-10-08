@@ -51,7 +51,7 @@ exports[`#Menu render with forgot password modal 1`] = `
   />
   <Modal
     onClose={[Function]}
-    size="small"
+    size="normal"
   >
     <ModalSection>
       <ContextConsumer>
@@ -85,7 +85,7 @@ exports[`#Menu render with modal 1`] = `
   />
   <Modal
     onClose={[Function]}
-    size="small"
+    size="normal"
   >
     <ModalSection>
       <Login

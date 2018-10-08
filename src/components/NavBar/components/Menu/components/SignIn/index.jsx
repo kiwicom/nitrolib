@@ -2,22 +2,22 @@
 import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
-import FaEnvelope from "react-icons/lib/fa/envelope";
 import FaLongArrowRight from "react-icons/lib/fa/long-arrow-right";
-import MdLock from "react-icons/lib/md/lock";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
+import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
+import Security from "@kiwicom/orbit-components/lib/icons/Security";
 
 import * as rtl from "../../../../../../styles/rtl";
 import { themeDefault } from "../../../../../../records/Theme";
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
-import IconText from "../../../../../IconText";
 import Text from "../../../../../Text";
 import * as validators from "../../../../../../services/input/validators";
 import * as normalizers from "../../../../../../services/input/normalizers";
 import isEmptish from "../../../../../../services/utils/isEmptish";
+import IconText from "../../../../../IconText";
 
 const FieldWrap = styled.div`
   position: relative;
@@ -109,7 +109,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
           </FieldWrap>
         )}
         <FieldWrap>
-          <IconText Icon={FaEnvelope}>
+          <IconText icon={<Envelope color="primary" size="small" />}>
             <Text t={__("common.email.colon")} />
           </IconText>
           <InputText
@@ -124,7 +124,8 @@ export default class SignIn extends React.PureComponent<Props, State> {
           />
         </FieldWrap>
         <FieldWrap>
-          <IconText Icon={MdLock}>
+          {/* TODO: replace with Icon password after it will be added to Orbit */}
+          <IconText icon={<Security color="primary" size="small" />}>
             <Text t={__("account.password.colon")} />
           </IconText>
           <InputText

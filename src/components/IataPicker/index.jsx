@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import FaPlane from "react-icons/lib/fa/plane";
+import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
 
 import InputText from "../InputText";
 import type { Change } from "../InputText";
@@ -91,7 +91,7 @@ export default class IataPicker extends React.PureComponent<Props, State> {
         {intl => (
           <ClickOutside onClickOutside={this.handleClickOutside}>
             <Container>
-              <IconText Icon={FaPlane}>
+              <IconText icon={<Airplane color="primary" size="small" />}>
                 <Text t={__("common.iata_code")} />
               </IconText>
               <InputText

@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import FaEnvelope from "react-icons/lib/fa/envelope";
+import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import TextOrbit from "@kiwicom/orbit-components/lib/Text";
@@ -138,7 +138,7 @@ export default class ForgotPassword extends React.PureComponent<Props, State> {
           <Text t={__("account.enter_your_email")} />
         </TextOrbit>
         <FieldWrap>
-          <IconText Icon={FaEnvelope}>
+          <IconText icon={<Envelope color="primary" size="small" />}>
             <Text t={__("common.email.colon")} />
           </IconText>
           <InputText

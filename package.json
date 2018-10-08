@@ -17,7 +17,8 @@
     "fixtures": "node ./bin/nitro.js keys 'src/**/*.{js,jsx}' && node ./bin/nitro.js fetch && node ./etc/fetchFixtures.js",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -o dist-storybook",
-    "prepare": "rimraf lib && run-p test lint typecheck && yarn build"
+    "prepare": "rimraf lib && run-p test lint typecheck && yarn build",
+    "localsync": "rimraf lib && yarn build && yalc push"
   },
   "keywords": [
     "react",

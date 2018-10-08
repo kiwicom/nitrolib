@@ -2,12 +2,12 @@
 import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
-import FaBarcode from "react-icons/lib/fa/barcode";
-import FaCalendar from "react-icons/lib/fa/calendar";
-import MdEmail from "react-icons/lib/md/email";
 import addYears from "date-fns/addYears";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Button from "@kiwicom/orbit-components/lib/Button";
+import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
+import Ticket from "@kiwicom/orbit-components/lib/icons/Ticket";
+import Calendar from "@kiwicom/orbit-components/lib/icons/Calendar";
 
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
@@ -166,7 +166,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
               </FieldWrap>
             )}
             <FieldWrap>
-              <IconText Icon={FaBarcode}>
+              <IconText icon={<Ticket color="primary" size="small" />}>
                 <Text t={__("common.booking_number_colon")} />
               </IconText>
               <InputText
@@ -181,7 +181,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
               />
             </FieldWrap>
             <FieldWrap>
-              <IconText Icon={MdEmail}>
+              <IconText icon={<Envelope color="primary" size="small" />}>
                 <Text t={__("common.email_colon")} />
               </IconText>
               <InputText
@@ -205,7 +205,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
               />
             </FieldWrap>
             <FieldWrap>
-              <IconText Icon={FaCalendar}>
+              <IconText icon={<Calendar color="primary" size="small" />}>
                 <Text t={__("common.departure_date_colon")} />
               </IconText>
               <InputDate

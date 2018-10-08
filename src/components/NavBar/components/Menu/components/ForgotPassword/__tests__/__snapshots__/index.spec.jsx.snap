@@ -394,7 +394,12 @@ exports[`#SideBar/ForgotPassword render 1`] = `
   </Text>
   <ForgotPassword__FieldWrap>
     <IconText
-      Icon={[Function]}
+      icon={
+        <Email
+          color="primary"
+          size="small"
+        />
+      }
     >
       <Text
         html={false}
@@ -836,7 +841,12 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
   </Text>
   <ForgotPassword__FieldWrap>
     <IconText
-      Icon={[Function]}
+      icon={
+        <Email
+          color="primary"
+          size="small"
+        />
+      }
     >
       <Text
         html={false}
@@ -1288,7 +1298,12 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
   </Text>
   <ForgotPassword__FieldWrap>
     <IconText
-      Icon={[Function]}
+      icon={
+        <Email
+          color="primary"
+          size="small"
+        />
+      }
     >
       <Text
         html={false}

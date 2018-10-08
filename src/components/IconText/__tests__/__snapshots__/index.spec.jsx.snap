@@ -385,9 +385,9 @@ exports[`#IconText render 1`] = `
     }
   }
 >
-  <MdClose
-    className="icon"
-  />
+  <IconText__IconWrapper>
+    <Airplane />
+  </IconText__IconWrapper>
   <IconText__Text
     theme={
       Object {

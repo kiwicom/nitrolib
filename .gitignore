@@ -9,4 +9,5 @@ lib
 .env
 npm-debug.log
 yarn-error.log
+yalc.lock
 tkeys.json
