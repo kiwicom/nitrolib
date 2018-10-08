@@ -92,11 +92,11 @@ export default function getLink(
   language: LangInfo,
   currencyObj: Currency,
   form: SearchFormData | null,
-) {
+): string {
   const urlGetter = PROVIDERS[provider];
 
   if (!urlGetter) {
-    return null;
+    return "";
   }
 
   const searchParams =

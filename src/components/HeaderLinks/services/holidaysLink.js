@@ -56,7 +56,7 @@ export default function getLink(
   lastminuteSupported: boolean,
   language: LangInfo,
   currency: Currency,
-) {
+): string {
   const packageProviderSet = provider !== "none";
 
   // Intersection of Logitravel & Lastminute
@@ -75,5 +75,5 @@ export default function getLink(
   if (packagesLastMinute) {
     return PACKAGES.lastminute.getLink(language.id);
   }
-  return null;
+  return "";
 }

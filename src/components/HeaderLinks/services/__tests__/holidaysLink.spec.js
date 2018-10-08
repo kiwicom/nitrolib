@@ -28,23 +28,23 @@ const currencySE = {
 
 describe("#HeaderLinks/service/holidaysLink", () => {
   test("getLink holidays", () => {
-    expect(getLink("holidays", false, language, currency)).toEqual(
+    expect(getLink("holidays", false, language, currency)).toBe(
       "//holidays.kiwi.com/gb/?utm_id=24897",
     );
   });
 
   test("getLink lastminute", () => {
-    expect(getLink("lastminute", false, language, currency)).toEqual(
+    expect(getLink("lastminute", false, language, currency)).toBe(
       "https://kiwicom.lastminute.com/flight-hotel/?utm_source=kiwicom_header_link",
     );
   });
 
   test("getLink none", () => {
-    expect(getLink("none", false, language, currencySE)).toBeNull();
+    expect(getLink("none", false, language, currencySE)).toBe("");
   });
 
   test("getLink lastminute fallback", () => {
-    expect(getLink("none", true, language, currencySE)).toEqual(
+    expect(getLink("none", true, language, currencySE)).toBe(
       "https://kiwicom.lastminute.com/flight-hotel/?utm_source=kiwicom_header_link",
     );
   });
