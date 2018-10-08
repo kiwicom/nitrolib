@@ -17,34 +17,29 @@ type Props = {|
   reason: "magicLink" | "signUpConfirmation",
 |};
 
-class AccountCheckEmail extends React.PureComponent<Props> {
-  render() {
-    const { email, reason } = this.props;
-    return (
-      <React.Fragment>
-        <SpacingXSmall>
-          <Heading element="h2">
-            <Text t={__("account.check_email")} />
-          </Heading>
-        </SpacingXSmall>
-        <Flex x="space-around">
-          <Illustration name="Mailbox" size="medium" />
-        </Flex>
-        <SpacingXSmall>
-          {reason === "magicLink" && (
-            <OrbitText>
-              <Text t={__("account.check_email_magic_link")} values={{ email }} />
-            </OrbitText>
-          )}
-          {reason === "signUpConfirmation" && (
-            <OrbitText>
-              <Text t={__("account.check_email_sign_up")} values={{ email }} />
-            </OrbitText>
-          )}
-        </SpacingXSmall>
-      </React.Fragment>
-    );
-  }
-}
+const AccountCheckEmail = ({ email, reason }: Props) => (
+  <React.Fragment>
+    <SpacingXSmall>
+      <Heading element="h2">
+        <Text t={__("account.check_email")} />
+      </Heading>
+    </SpacingXSmall>
+    <Flex x="space-around">
+      <Illustration name="Mailbox" size="medium" />
+    </Flex>
+    <SpacingXSmall>
+      {reason === "magicLink" && (
+        <OrbitText>
+          <Text t={__("account.check_email_magic_link")} values={{ email }} />
+        </OrbitText>
+      )}
+      {reason === "signUpConfirmation" && (
+        <OrbitText>
+          <Text t={__("account.check_email_sign_up")} values={{ email }} />
+        </OrbitText>
+      )}
+    </SpacingXSmall>
+  </React.Fragment>
+);
 
 export default AccountCheckEmail;

@@ -12,7 +12,6 @@ import ChevronLeft from "@kiwicom/orbit-components/lib/icons/ChevronLeft";
 
 import Flex from "../../primitives/Flex";
 import Text from "../Text";
-import { Consumer } from "../../services/intl/context";
 
 const SpacingXSmall = styled.div`
   margin-bottom: 8px;
@@ -44,58 +43,47 @@ type Props = {|
   onGoogleLogin: (ev: SyntheticEvent<>) => void,
 |};
 
-class AccountNoAccount extends React.PureComponent<Props> {
-  render() {
-    const { onBack, onRegister, onFacebookLogin, onGoogleLogin } = this.props;
-    return (
-      <React.Fragment>
-        <Illustration name="NoBookings" size="small" />
-        <SpacingXSmall>
-          <Heading element="h2">
-            <Text t={__("account.no_bookings_or_account")} />
-          </Heading>
-        </SpacingXSmall>
-        <SpacingBig>
-          <OrbitText>
-            <Text t={__("account.no_bookings_or_account_description")} />
-          </OrbitText>
-        </SpacingBig>
-        <SpacingMedium>
-          <Button onClick={onRegister}>
-            <Text t={__("account.register")} />
+const AccountNoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }: Props) => (
+  <React.Fragment>
+    <Illustration name="NoBookings" size="small" />
+    <SpacingXSmall>
+      <Heading element="h2">
+        <Text t={__("account.no_bookings_or_account")} />
+      </Heading>
+    </SpacingXSmall>
+    <SpacingBig>
+      <OrbitText>
+        <Text t={__("account.no_bookings_or_account_description")} />
+      </OrbitText>
+    </SpacingBig>
+    <SpacingMedium>
+      <Button onClick={onRegister}>
+        <Text t={__("account.register")} />
+      </Button>
+    </SpacingMedium>
+    <SpacingMedium>
+      <ButtonLink type="secondary" iconLeft={<ChevronLeft />} onClick={onBack}>
+        <Text t={__("account.back")} />
+      </ButtonLink>
+    </SpacingMedium>
+    <Rectangle>
+      <OrbitText weight="bold">
+        <Text t={__("account.or_social_account")} />
+      </OrbitText>
+      <Flex>
+        <span style={{ flexGrow: 1, marginRight: "4px" }}>
+          <Button type="facebook" block bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
+            <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
           </Button>
-        </SpacingMedium>
-        <SpacingMedium>
-          <ButtonLink type="secondary" iconLeft={<ChevronLeft />} onClick={onBack}>
-            <Text t={__("account.back")} />
-          </ButtonLink>
-        </SpacingMedium>
-        <Rectangle>
-          <OrbitText weight="bold">
-            <Text t={__("account.or_social_account")} />
-          </OrbitText>
-          <Flex>
-            <span style={{ flexGrow: 1, marginRight: "4px" }}>
-              <Button
-                type="facebook"
-                block
-                bordered
-                icon={<FacebookIcon />}
-                onClick={onFacebookLogin}
-              >
-                <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
-              </Button>
-            </span>
-            <span style={{ flexGrow: 1, marginLeft: "4px" }}>
-              <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
-                <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
-              </Button>
-            </span>
-          </Flex>
-        </Rectangle>
-      </React.Fragment>
-    );
-  }
-}
+        </span>
+        <span style={{ flexGrow: 1, marginLeft: "4px" }}>
+          <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
+            <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
+          </Button>
+        </span>
+      </Flex>
+    </Rectangle>
+  </React.Fragment>
+);
 
 export default AccountNoAccount;

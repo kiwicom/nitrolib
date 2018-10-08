@@ -51,86 +51,75 @@ type Props = {|
   onContinue: (ev: SyntheticEvent<>) => void,
 |};
 
-class AccountLogin extends React.PureComponent<Props> {
-  render() {
-    const {
-      email,
-      onNoAccount,
-      onGoogleLogin,
-      onFacebookLogin,
-      onEmailChange,
-      onContinue,
-    } = this.props;
-    return (
-      <Consumer>
-        {intl => (
-          <React.Fragment>
-            <Illustration name="Login" size="small" />
-            <SpacingXSmall>
-              <Heading element="h2">
-                <Text t={__("account.manage_your_bookings")} />
-              </Heading>
-            </SpacingXSmall>
-            <OrbitText>
-              <Text t={__("account.sign_in_description")} />
-            </OrbitText>
-            <Ruler />
-            <SpacingMedium>
-              <OrbitText weight="bold">
-                <Text t={__("account.sign_in_description")} />
-              </OrbitText>
-            </SpacingMedium>
-            <Flex y="flex-end">
-              <span style={{ flexGrow: 1, marginRight: "8px" }}>
-                <InputField
-                  label={intl.translate(__("account.email"))}
-                  placeholder={intl.translate(__("account.email_placeholder"))}
-                  type="email"
-                  value={email}
-                  onChange={onEmailChange}
-                />
-              </span>
-              <Button onClick={onContinue}>
-                <Text t={__("account.continue")} />
+const AccountLogin = ({
+  email,
+  onNoAccount,
+  onGoogleLogin,
+  onFacebookLogin,
+  onEmailChange,
+  onContinue,
+}: Props) => (
+  <Consumer>
+    {intl => (
+      <React.Fragment>
+        <Illustration name="Login" size="small" />
+        <SpacingXSmall>
+          <Heading element="h2">
+            <Text t={__("account.manage_your_bookings")} />
+          </Heading>
+        </SpacingXSmall>
+        <OrbitText>
+          <Text t={__("account.sign_in_description")} />
+        </OrbitText>
+        <Ruler />
+        <SpacingMedium>
+          <OrbitText weight="bold">
+            <Text t={__("account.sign_in_description")} />
+          </OrbitText>
+        </SpacingMedium>
+        <Flex y="flex-end">
+          <span style={{ flexGrow: 1, marginRight: "8px" }}>
+            <InputField
+              label={intl.translate(__("account.email"))}
+              placeholder={intl.translate(__("account.email_placeholder"))}
+              type="email"
+              value={email}
+              onChange={onEmailChange}
+            />
+          </span>
+          <Button onClick={onContinue}>
+            <Text t={__("account.continue")} />
+          </Button>
+        </Flex>
+        <Rectangle>
+          <OrbitText weight="bold">
+            <Text t={__("account.or_social_account")} />
+          </OrbitText>
+          <Flex>
+            <span style={{ flexGrow: 1, marginRight: "4px" }}>
+              <Button
+                type="facebook"
+                block
+                bordered
+                icon={<FacebookIcon />}
+                onClick={onFacebookLogin}
+              >
+                <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
               </Button>
-            </Flex>
-            <Rectangle>
-              <OrbitText weight="bold">
-                <Text t={__("account.or_social_account")} />
-              </OrbitText>
-              <Flex>
-                <span style={{ flexGrow: 1, marginRight: "4px" }}>
-                  <Button
-                    type="facebook"
-                    block
-                    bordered
-                    icon={<FacebookIcon />}
-                    onClick={onFacebookLogin}
-                  >
-                    <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
-                  </Button>
-                </span>
-                <span style={{ flexGrow: 1, marginLeft: "4px" }}>
-                  <Button
-                    type="google"
-                    block
-                    bordered
-                    icon={<GoogleIcon />}
-                    onClick={onGoogleLogin}
-                  >
-                    <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
-                  </Button>
-                </span>
-              </Flex>
-            </Rectangle>
-            <TextLink type="secondary" onClick={onNoAccount}>
-              <Text t={__("account.i_dont_have_account")} />
-            </TextLink>
-          </React.Fragment>
-        )}
-      </Consumer>
-    );
-  }
-}
+            </span>
+            <span style={{ flexGrow: 1, marginLeft: "4px" }}>
+              <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
+                <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
+              </Button>
+            </span>
+          </Flex>
+        </Rectangle>
+        <TextLink type="secondary" onClick={onNoAccount}>
+          <Text t={__("account.i_dont_have_account")} />
+        </TextLink>
+      </React.Fragment>
+    )}
+  </Consumer>
+);
 
 export default AccountLogin;

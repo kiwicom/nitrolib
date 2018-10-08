@@ -32,38 +32,32 @@ type Props = {|
   onFacebookLogin: (ev: SyntheticEvent<>) => void,
 |};
 
-class AccountPairedFacebook extends React.PureComponent<Props> {
-  render() {
-    const { onAskSignInLink, onFacebookLogin, email } = this.props;
-
-    return (
-      <React.Fragment>
-        <Illustration name="Login" size="small" />
-        <SpacingXSmall>
-          <Heading element="h2">
-            <Text t={__("account.manage_your_bookings")} />
-          </Heading>
-        </SpacingXSmall>
-        <SpacingBig>
-          <OrbitText weight="bold">
-            <Text t={__("account.sign_in_description")} />
-          </OrbitText>
-        </SpacingBig>
-        <Button type="facebook" bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
-          <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
-        </Button>
-        <Ruler />
-        <SpacingXSmall>
-          <OrbitText>
-            <Text t={__("account.send_link_to")} values={{ email }} />
-          </OrbitText>
-        </SpacingXSmall>
-        <Button type="secondary" onClick={onAskSignInLink}>
-          <Text t={__("account.ask_sign_in_link")} />
-        </Button>
-      </React.Fragment>
-    );
-  }
-}
+const AccountPairedFacebook = ({ onAskSignInLink, onFacebookLogin, email }: Props) => (
+  <React.Fragment>
+    <Illustration name="Login" size="small" />
+    <SpacingXSmall>
+      <Heading element="h2">
+        <Text t={__("account.manage_your_bookings")} />
+      </Heading>
+    </SpacingXSmall>
+    <SpacingBig>
+      <OrbitText weight="bold">
+        <Text t={__("account.sign_in_description")} />
+      </OrbitText>
+    </SpacingBig>
+    <Button type="facebook" bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
+      <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
+    </Button>
+    <Ruler />
+    <SpacingXSmall>
+      <OrbitText>
+        <Text t={__("account.send_link_to")} values={{ email }} />
+      </OrbitText>
+    </SpacingXSmall>
+    <Button type="secondary" onClick={onAskSignInLink}>
+      <Text t={__("account.ask_sign_in_link")} />
+    </Button>
+  </React.Fragment>
+);
 
 export default AccountPairedFacebook;

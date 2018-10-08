@@ -39,70 +39,64 @@ type Props = {|
   onSignIn: (ev: SyntheticEvent<>) => void,
 |};
 
-class AccountPassword extends React.PureComponent<Props> {
-  render() {
-    const {
-      email,
-      password,
-      onChangeEmail,
-      onAskSignInLink,
-      onPasswordChange,
-      onSignIn,
-    } = this.props;
+const AccountPassword = ({
+  email,
+  password,
+  onChangeEmail,
+  onAskSignInLink,
+  onPasswordChange,
+  onSignIn,
+}: Props) => (
+  <Consumer>
+    {intl => (
+      <React.Fragment>
+        <Illustration name="Login" size="small" />
+        <SpacingXSmall>
+          <Heading element="h2">
+            <Text t={__("account.manage_your_bookings")} />
+          </Heading>
+        </SpacingXSmall>
+        <OrbitText weight="bold">
+          <Text t={__("account.sign_in_description")} />
+        </OrbitText>
+        <Ruler />
+        <SpacingMedium>
+          <OrbitText>
+            <Text t={__("account.email")} />
+          </OrbitText>
+          <OrbitText weight="bold">
+            {email}
+            <TextLink type="primary" onClick={onChangeEmail}>
+              <Edit size="small" />
+            </TextLink>
+          </OrbitText>
+        </SpacingMedium>
+        <Flex y="flex-end">
+          <span style={{ flexGrow: 1, marginRight: "8px" }}>
+            <InputField
+              label={intl.translate(__("account.password"))}
+              type="password"
+              onChange={onPasswordChange}
+              value={password}
+            />
+          </span>
+          <Button onClick={onSignIn}>
+            <Text t={__("account.sign_in")} />
+          </Button>
+        </Flex>
 
-    return (
-      <Consumer>
-        {intl => (
-          <React.Fragment>
-            <Illustration name="Login" size="small" />
-            <SpacingXSmall>
-              <Heading element="h2">
-                <Text t={__("account.manage_your_bookings")} />
-              </Heading>
-            </SpacingXSmall>
-            <OrbitText weight="bold">
-              <Text t={__("account.sign_in_description")} />
-            </OrbitText>
-            <Ruler />
-            <SpacingMedium>
-              <OrbitText>
-                <Text t={__("account.email")} />
-              </OrbitText>
-              <OrbitText weight="bold">
-                {email}
-                <TextLink type="primary" onClick={onChangeEmail}>
-                  <Edit size="small" />
-                </TextLink>
-              </OrbitText>
-            </SpacingMedium>
-            <Flex y="flex-end">
-              <span style={{ flexGrow: 1, marginRight: "8px" }}>
-                <InputField
-                  label={intl.translate(__("account.password"))}
-                  type="password"
-                  onChange={onPasswordChange}
-                  value={password}
-                />
-              </span>
-              <Button onClick={onSignIn}>
-                <Text t={__("account.sign_in")} />
-              </Button>
-            </Flex>
-
-            <Ruler />
-            <SpacingXSmall>
-              <OrbitText>
-                <Text t={__("account.send_link_to")} values={{ email }} />
-              </OrbitText>
-            </SpacingXSmall>
-            <Button type="secondary" onClick={onAskSignInLink}>
-              <Text t={__("account.ask_sign_in_link")} />
-            </Button>
-          </React.Fragment>
-        )}
-      </Consumer>
-    );
-  }
-}
+        <Ruler />
+        <SpacingXSmall>
+          <OrbitText>
+            <Text t={__("account.send_link_to")} values={{ email }} />
+          </OrbitText>
+        </SpacingXSmall>
+        <Button type="secondary" onClick={onAskSignInLink}>
+          <Text t={__("account.ask_sign_in_link")} />
+        </Button>
+      </React.Fragment>
+    )}
+  </Consumer>
+);
 
 export default AccountPassword;
