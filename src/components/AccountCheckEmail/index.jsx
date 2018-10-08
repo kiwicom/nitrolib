@@ -1,12 +1,12 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import Text from "@kiwicom/orbit-components/lib/Text";
+import OrbitText from "@kiwicom/orbit-components/lib/Text";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 
 import Flex from "../../primitives/Flex";
-import { Consumer } from "../../services/intl/context";
+import Text from "../Text";
 
 const SpacingXSmall = styled.div`
   margin-bottom: 8px;
@@ -21,26 +21,28 @@ class AccountCheckEmail extends React.PureComponent<Props> {
   render() {
     const { email, reason } = this.props;
     return (
-      <Consumer>
-        {intl => (
-          <React.Fragment>
-            <SpacingXSmall>
-              <Heading element="h2">{intl.translate(__("account.check_email"))}</Heading>
-            </SpacingXSmall>
-            <Flex x="space-around">
-              <Illustration name="Mailbox" size="medium" />
-            </Flex>
-            <SpacingXSmall>
-              {reason === "magicLink" && (
-                <Text>{intl.translate(__("account.check_email_magic_link"), { email })}</Text>
-              )}
-              {reason === "signUpConfirmation" && (
-                <Text>{intl.translate(__("account.check_email_sign_up"), { email })}</Text>
-              )}
-            </SpacingXSmall>
-          </React.Fragment>
-        )}
-      </Consumer>
+      <React.Fragment>
+        <SpacingXSmall>
+          <Heading element="h2">
+            <Text t={__("account.check_email")} />
+          </Heading>
+        </SpacingXSmall>
+        <Flex x="space-around">
+          <Illustration name="Mailbox" size="medium" />
+        </Flex>
+        <SpacingXSmall>
+          {reason === "magicLink" && (
+            <OrbitText>
+              <Text t={__("account.check_email_magic_link")} values={{ email }} />
+            </OrbitText>
+          )}
+          {reason === "signUpConfirmation" && (
+            <OrbitText>
+              <Text t={__("account.check_email_sign_up")} values={{ email }} />
+            </OrbitText>
+          )}
+        </SpacingXSmall>
+      </React.Fragment>
     );
   }
 }

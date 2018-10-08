@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import Text from "@kiwicom/orbit-components/lib/Text";
+import OrbitText from "@kiwicom/orbit-components/lib/Text";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
@@ -11,7 +11,7 @@ import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
 
 import Flex from "../../primitives/Flex";
-import Trans from "../Text";
+import Text from "../Text";
 import { Consumer } from "../../services/intl/context";
 
 const SpacingXSmall = styled.div`
@@ -67,12 +67,18 @@ class AccountLogin extends React.PureComponent<Props> {
           <React.Fragment>
             <Illustration name="Login" size="small" />
             <SpacingXSmall>
-              <Heading element="h2">{intl.translate(__("account.manage_your_bookings"))}</Heading>
+              <Heading element="h2">
+                <Text t={__("account.manage_your_bookings")} />
+              </Heading>
             </SpacingXSmall>
-            <Text>{intl.translate(__("account.sign_in_description"))}</Text>
+            <OrbitText>
+              <Text t={__("account.sign_in_description")} />
+            </OrbitText>
             <Ruler />
             <SpacingMedium>
-              <Text weight="bold">{intl.translate(__("account.sign_in_description"))}</Text>
+              <OrbitText weight="bold">
+                <Text t={__("account.sign_in_description")} />
+              </OrbitText>
             </SpacingMedium>
             <Flex y="flex-end">
               <span style={{ flexGrow: 1, marginRight: "8px" }}>
@@ -84,10 +90,14 @@ class AccountLogin extends React.PureComponent<Props> {
                   onChange={onEmailChange}
                 />
               </span>
-              <Button onClick={onContinue}>{intl.translate(__("account.continue"))}</Button>
+              <Button onClick={onContinue}>
+                <Text t={__("account.continue")} />
+              </Button>
             </Flex>
             <Rectangle>
-              <Text weight="bold">{intl.translate(__("account.or_social_account"))}</Text>
+              <OrbitText weight="bold">
+                <Text t={__("account.or_social_account")} />
+              </OrbitText>
               <Flex>
                 <span style={{ flexGrow: 1, marginRight: "4px" }}>
                   <Button
@@ -97,7 +107,7 @@ class AccountLogin extends React.PureComponent<Props> {
                     icon={<FacebookIcon />}
                     onClick={onFacebookLogin}
                   >
-                    <Trans t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
+                    <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
                   </Button>
                 </span>
                 <span style={{ flexGrow: 1, marginLeft: "4px" }}>
@@ -108,13 +118,13 @@ class AccountLogin extends React.PureComponent<Props> {
                     icon={<GoogleIcon />}
                     onClick={onGoogleLogin}
                   >
-                    <Trans t={__("account.log_in_with")} values={{ provider: "Google" }} />
+                    <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
                   </Button>
                 </span>
               </Flex>
             </Rectangle>
             <TextLink type="secondary" onClick={onNoAccount}>
-              {intl.translate(__("account.i_dont_have_account"))}
+              <Text t={__("account.i_dont_have_account")} />
             </TextLink>
           </React.Fragment>
         )}

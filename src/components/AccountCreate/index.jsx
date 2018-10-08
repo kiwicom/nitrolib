@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import Text from "@kiwicom/orbit-components/lib/Text";
+import OrbitText from "@kiwicom/orbit-components/lib/Text";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
@@ -9,6 +9,7 @@ import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 
 import { Consumer } from "../../services/intl/context";
+import Text from "../Text";
 
 const SpacingXSmall = styled.div`
   margin-bottom: 8px;
@@ -49,10 +50,12 @@ class AccountCreate extends React.PureComponent<Props> {
           <React.Fragment>
             <Illustration name="EnjoyApp" size="small" />
             <SpacingXSmall>
-              <Heading element="h2">{intl.translate(__("account.create_account"))}</Heading>
+              <Heading element="h2">
+                <Text t={__("account.create_account")} />
+              </Heading>
             </SpacingXSmall>
             <SpacingXSmall>
-              <Text>{intl.translate(__("account.create_account_description"))}</Text>
+              <Text t={__("account.create_account_description")} />
             </SpacingXSmall>
             <SpacingMedium>
               <InputField
@@ -80,9 +83,11 @@ class AccountCreate extends React.PureComponent<Props> {
               />
             </SpacingMedium>
             <SpacingMedium>
-              <Button onClick={onContinue}>{intl.translate(__("account.create"))}</Button>
+              <Button onClick={onContinue}>
+                <Text t={__("account.create")} />
+              </Button>
             </SpacingMedium>
-            <Text size="small">
+            <OrbitText size="small">
               The registration and subsequent use of your account is governed by these{" "}
               <TextLink type="secondary" onClick={onTermsOfUse}>
                 Terms of Use
@@ -92,7 +97,7 @@ class AccountCreate extends React.PureComponent<Props> {
                 Privacy Policy
               </TextLink>
               .
-            </Text>
+            </OrbitText>
           </React.Fragment>
         )}
       </Consumer>

@@ -1,14 +1,13 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import Text from "@kiwicom/orbit-components/lib/Text";
+import OrbitText from "@kiwicom/orbit-components/lib/Text";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 
-import Trans from "../Text";
-import { Consumer } from "../../services/intl/context";
+import Text from "../Text";
 
 const SpacingXSmall = styled.div`
   margin-bottom: 8px;
@@ -38,29 +37,31 @@ class AccountPairedFacebook extends React.PureComponent<Props> {
     const { onAskSignInLink, onFacebookLogin, email } = this.props;
 
     return (
-      <Consumer>
-        {intl => (
-          <React.Fragment>
-            <Illustration name="Login" size="small" />
-            <SpacingXSmall>
-              <Heading element="h2">{intl.translate(__("account.manage_your_bookings"))}</Heading>
-            </SpacingXSmall>
-            <SpacingBig>
-              <Text weight="bold">{intl.translate(__("account.sign_in_description"))}</Text>
-            </SpacingBig>
-            <Button type="facebook" bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
-              <Trans t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
-            </Button>
-            <Ruler />
-            <SpacingXSmall>
-              <Text>{intl.translate(__("account.send_link_to"), { email })}</Text>
-            </SpacingXSmall>
-            <Button type="secondary" onClick={onAskSignInLink}>
-              {intl.translate(__("account.ask_sign_in_link"))}
-            </Button>
-          </React.Fragment>
-        )}
-      </Consumer>
+      <React.Fragment>
+        <Illustration name="Login" size="small" />
+        <SpacingXSmall>
+          <Heading element="h2">
+            <Text t={__("account.manage_your_bookings")} />
+          </Heading>
+        </SpacingXSmall>
+        <SpacingBig>
+          <OrbitText weight="bold">
+            <Text t={__("account.sign_in_description")} />
+          </OrbitText>
+        </SpacingBig>
+        <Button type="facebook" bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
+          <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
+        </Button>
+        <Ruler />
+        <SpacingXSmall>
+          <OrbitText>
+            <Text t={__("account.send_link_to")} values={{ email }} />
+          </OrbitText>
+        </SpacingXSmall>
+        <Button type="secondary" onClick={onAskSignInLink}>
+          <Text t={__("account.ask_sign_in_link")} />
+        </Button>
+      </React.Fragment>
     );
   }
 }

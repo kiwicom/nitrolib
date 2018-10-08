@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import Text from "@kiwicom/orbit-components/lib/Text";
+import OrbitText from "@kiwicom/orbit-components/lib/Text";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 import Button from "@kiwicom/orbit-components/lib/Button";
@@ -11,7 +11,7 @@ import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
 import ChevronLeft from "@kiwicom/orbit-components/lib/icons/ChevronLeft";
 
 import Flex from "../../primitives/Flex";
-import Trans from "../Text";
+import Text from "../Text";
 import { Consumer } from "../../services/intl/context";
 
 const SpacingXSmall = styled.div`
@@ -48,54 +48,52 @@ class AccountNoAccount extends React.PureComponent<Props> {
   render() {
     const { onBack, onRegister, onFacebookLogin, onGoogleLogin } = this.props;
     return (
-      <Consumer>
-        {intl => (
-          <React.Fragment>
-            <Illustration name="NoBookings" size="small" />
-            <SpacingXSmall>
-              <Heading element="h2">{intl.translate(__("account.no_bookings_or_account"))}</Heading>
-            </SpacingXSmall>
-            <SpacingBig>
-              <Text>{intl.translate(__("account.no_bookings_or_account_description"))}</Text>
-            </SpacingBig>
-            <SpacingMedium>
-              <Button onClick={onRegister}>{intl.translate(__("account.register"))}</Button>
-            </SpacingMedium>
-            <SpacingMedium>
-              <ButtonLink type="secondary" iconLeft={<ChevronLeft />} onClick={onBack}>
-                {intl.translate(__("account.back"))}
-              </ButtonLink>
-            </SpacingMedium>
-            <Rectangle>
-              <Text weight="bold">{intl.translate(__("account.or_social_account"))}</Text>
-              <Flex>
-                <span style={{ flexGrow: 1, marginRight: "4px" }}>
-                  <Button
-                    type="facebook"
-                    block
-                    bordered
-                    icon={<FacebookIcon />}
-                    onClick={onFacebookLogin}
-                  >
-                    <Trans t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
-                  </Button>
-                </span>
-                <span style={{ flexGrow: 1, marginLeft: "4px" }}>
-                  <Button
-                    type="google"
-                    block
-                    bordered
-                    icon={<GoogleIcon />}
-                    onClick={onGoogleLogin}
-                  >
-                    <Trans t={__("account.log_in_with")} values={{ provider: "Google" }} />
-                  </Button>
-                </span>
-              </Flex>
-            </Rectangle>
-          </React.Fragment>
-        )}
-      </Consumer>
+      <React.Fragment>
+        <Illustration name="NoBookings" size="small" />
+        <SpacingXSmall>
+          <Heading element="h2">
+            <Text t={__("account.no_bookings_or_account")} />
+          </Heading>
+        </SpacingXSmall>
+        <SpacingBig>
+          <OrbitText>
+            <Text t={__("account.no_bookings_or_account_description")} />
+          </OrbitText>
+        </SpacingBig>
+        <SpacingMedium>
+          <Button onClick={onRegister}>
+            <Text t={__("account.register")} />
+          </Button>
+        </SpacingMedium>
+        <SpacingMedium>
+          <ButtonLink type="secondary" iconLeft={<ChevronLeft />} onClick={onBack}>
+            <Text t={__("account.back")} />
+          </ButtonLink>
+        </SpacingMedium>
+        <Rectangle>
+          <OrbitText weight="bold">
+            <Text t={__("account.or_social_account")} />
+          </OrbitText>
+          <Flex>
+            <span style={{ flexGrow: 1, marginRight: "4px" }}>
+              <Button
+                type="facebook"
+                block
+                bordered
+                icon={<FacebookIcon />}
+                onClick={onFacebookLogin}
+              >
+                <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
+              </Button>
+            </span>
+            <span style={{ flexGrow: 1, marginLeft: "4px" }}>
+              <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
+                <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
+              </Button>
+            </span>
+          </Flex>
+        </Rectangle>
+      </React.Fragment>
     );
   }
 }
