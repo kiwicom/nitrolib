@@ -9,9 +9,7 @@ import Flex from "../../primitives/Flex";
 import { Consumer } from "../../services/intl/context";
 
 const SpacingXSmall = styled.div`
-  & {
-    margin-bottom: 8px;
-  }
+  margin-bottom: 8px;
 `;
 
 type Props = {|

@@ -11,15 +11,11 @@ import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import { Consumer } from "../../services/intl/context";
 
 const SpacingXSmall = styled.div`
-  & {
-    margin-bottom: 8px;
-  }
+  margin-bottom: 8px;
 `;
 
 const SpacingMedium = styled.div`
-  & {
-    margin-bottom: 16px;
-  }
+  margin-bottom: 16px;
 `;
 
 type Props = {|

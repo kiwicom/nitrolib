@@ -15,34 +15,26 @@ import Trans from "../Text";
 import { Consumer } from "../../services/intl/context";
 
 const SpacingXSmall = styled.div`
-  & {
-    margin-bottom: 8px;
-  }
+  margin-bottom: 8px;
 `;
 
 const SpacingMedium = styled.div`
-  & {
-    margin-bottom: 16px;
-  }
+  margin-bottom: 16px;
 `;
 
 const SpacingBig = styled.div`
-  & {
-    margin-bottom: 32px;
-  }
+  margin-bottom: 32px;
 `;
 
 const Rectangle = styled.div`
-  & {
-    border-top: 1px solid #e8edf1;
-    width: 100%;
-    height: 128px;
-    background-color: #f5f7f9;
-    padding-top: 24px;
-    padding-bottom: 24px;
-    margin-top: 50px;
-    margin-bottom: 16px;
-  }
+  border-top: 1px solid #e8edf1;
+  width: 100%;
+  height: 128px;
+  background-color: #f5f7f9;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  margin-top: 50px;
+  margin-bottom: 16px;
 `;
 
 type Props = {|

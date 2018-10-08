@@ -11,26 +11,20 @@ import Trans from "../Text";
 import { Consumer } from "../../services/intl/context";
 
 const SpacingXSmall = styled.div`
-  & {
-    margin-bottom: 8px;
-  }
+  margin-bottom: 8px;
 `;
 
 const SpacingBig = styled.div`
-  & {
-    margin-bottom: 32px;
-  }
+  margin-bottom: 32px;
 `;
 
 const Ruler = styled.div`
-  & {
-    width: 100%;
-    height: 1px;
-    background: red;
-    margin-top: 24px;
-    margin-bottom: 24px;
-    background-color: #e8edf1;
-  }
+  width: 100%;
+  height: 1px;
+  background: red;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  background-color: #e8edf1;
 `;
 
 type Props = {|
