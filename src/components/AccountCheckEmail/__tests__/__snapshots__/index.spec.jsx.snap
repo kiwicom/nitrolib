@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#AccountCheckEmail render - magicLink 1`] = `
+<Fragment>
+  <AccountCheckEmail__SpacingXSmall>
+    <Heading
+      element="h2"
+    >
+      <Text
+        html={false}
+        t="account.check_email"
+        values={Object {}}
+      />
+    </Heading>
+  </AccountCheckEmail__SpacingXSmall>
+  <Flex
+    direction="row"
+    wrap="nowrap"
+    x="space-around"
+    y="flex-start"
+  >
+    <Illustration
+      name="Mailbox"
+      size="medium"
+    />
+  </Flex>
+  <AccountCheckEmail__SpacingXSmall>
+    <Text>
+      <Text
+        html={false}
+        t="account.check_email_magic_link"
+        values={
+          Object {
+            "email": "foo@bar.com",
+          }
+        }
+      />
+    </Text>
+  </AccountCheckEmail__SpacingXSmall>
+</Fragment>
+`;
+
+exports[`#AccountCheckEmail render - signUpConfirmation 1`] = `
+<Fragment>
+  <AccountCheckEmail__SpacingXSmall>
+    <Heading
+      element="h2"
+    >
+      <Text
+        html={false}
+        t="account.check_email"
+        values={Object {}}
+      />
+    </Heading>
+  </AccountCheckEmail__SpacingXSmall>
+  <Flex
+    direction="row"
+    wrap="nowrap"
+    x="space-around"
+    y="flex-start"
+  >
+    <Illustration
+      name="Mailbox"
+      size="medium"
+    />
+  </Flex>
+  <AccountCheckEmail__SpacingXSmall>
+    <Text>
+      <Text
+        html={false}
+        t="account.check_email_sign_up"
+        values={
+          Object {
+            "email": "bar@foo.com",
+          }
+        }
+      />
+    </Text>
+  </AccountCheckEmail__SpacingXSmall>
+</Fragment>
+`;
