@@ -102,6 +102,7 @@ Separator.defaultProps = {
 const Link = styled.a`
   padding: 10px 0;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
+  cursor: pointer;
 
   &:hover {
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
@@ -313,7 +314,7 @@ export default class SideNav extends React.Component<Props, State> {
                             {socialMedia.map(({ link, Icon }) => (
                               <Link
                                 key={link}
-                                link={link}
+                                href={link}
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
