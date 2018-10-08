@@ -3,7 +3,6 @@ import * as React from "react";
 import { shallow } from "enzyme";
 
 import AccountPairedFacebook from "..";
-import { intlDefault } from "../../../records/Intl";
 
 describe("#AccountPairedFacebook", () => {
   test("render", () => {
