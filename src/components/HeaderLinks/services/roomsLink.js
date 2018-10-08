@@ -7,22 +7,10 @@ import type { Currency } from "../../../records/Currency";
 
 export type Provider = "booking" | "roomsKiwi" | "roomsKiwiCode";
 
-export type PlaceType =
-  | "airport"
-  | "country"
-  | "city"
-  | "train_station"
-  | "autonomous_territory"
-  | "region"
-  | "continent"
-  | "bus_station"
-  | "special"
-  | "vitrual";
-
 type Params = {|
   lang: string,
   currency: string,
-  destination?: {| type: PlaceType, name: string |},
+  destination?: {| type: string, name: string |},
   checkIn?: Date,
   checkOut?: Date,
   adults?: number,
@@ -91,12 +79,12 @@ const ENABLED_SEARCH_MODES = ["oneWay", "return"];
 export type FormMode = "oneWay" | "return" | "multicity" | "salesman";
 
 export type SearchFormData = {|
-  mode?: FormMode,
-  destination?: {| type: PlaceType, name: string |},
-  checkIn?: Date,
-  checkOut?: Date,
-  adults?: number,
-  children?: number,
+  mode: FormMode,
+  destination: {| type: string, name: string |} | null,
+  checkIn: Date | null,
+  checkOut: Date | null,
+  adults: number,
+  children: number,
 |};
 
 export default function getLink(

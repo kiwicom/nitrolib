@@ -52,7 +52,7 @@ Wrapper.defaultProps = {
 };
 
 type Props = {|
-  headerLinks: React.Node,
+  headerLinks?: React.Node,
   starred: React.Node,
   chat: React.Node,
   subscription: React.Node,
@@ -77,7 +77,9 @@ const NavBar = ({
       <Container x="space-between" y="center">
         <Flex y="center" x="flex-start">
           <Logo />
-          <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
+          {headerLinks && (
+            <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
+          )}
         </Flex>
         <Flex y="center">
           <Wrapper>

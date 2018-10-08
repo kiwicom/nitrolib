@@ -51,7 +51,12 @@ const PACKAGES = {
 
 export type Provider = "none" | "lastminute" | "holidays";
 
-export default function getLink(provider: Provider, language: LangInfo, currency: Currency) {
+export default function getLink(
+  provider: Provider,
+  lastminuteSupported: boolean,
+  language: LangInfo,
+  currency: Currency,
+) {
   const packageProviderSet = provider !== "none";
 
   // Intersection of Logitravel & Lastminute
@@ -61,7 +66,7 @@ export default function getLink(provider: Provider, language: LangInfo, currency
 
   // Lastminute extra
   const packagesLastMinute =
-    !showPackagesIntersection && provider === "lastminute" && PACKAGES.lastminute;
+    !showPackagesIntersection && lastminuteSupported && PACKAGES.lastminute;
 
   if (packages) {
     const lang = provider === "holidays" ? language.iso.substring(0, 2) : language.id;

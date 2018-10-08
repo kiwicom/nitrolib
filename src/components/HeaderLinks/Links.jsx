@@ -10,9 +10,9 @@ import Link from "./Link";
 
 type Props = {|
   linkFlights: string,
-  linkRooms: string,
   linkCars: string,
-  linkHolidays: string,
+  linkRooms: string | null,
+  linkHolidays: string | null,
   forceNewWindow: boolean,
 |};
 
@@ -25,13 +25,15 @@ const Links = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewWindow 
       icon={<Airplane />}
       text={<Text t={__("search.service.travel_anywhere")} />}
     />
-    <Link
-      logTab="rooms"
-      link={linkRooms}
-      newWindow
-      icon={<Accommodation />}
-      text={<Text t={__("search.service.rooms")} />}
-    />
+    {linkRooms && (
+      <Link
+        logTab="rooms"
+        link={linkRooms}
+        newWindow
+        icon={<Accommodation />}
+        text={<Text t={__("search.service.rooms")} />}
+      />
+    )}
     <Link
       logTab="cars"
       link={linkCars}
@@ -39,7 +41,7 @@ const Links = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewWindow 
       icon={<CarRental />}
       text={<Text t={__("search.service.cars")} />}
     />
-    {linkHolidays !== "" && (
+    {linkHolidays && (
       <Link
         link={linkHolidays}
         newWindow
