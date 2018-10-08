@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#AccountLogin render 1`] = `
+<React.Fragment>
+  <Illustration
+    name="Login"
+    size="small"
+  />
+  <AccountLogin__SpacingXSmall>
+    <Heading
+      element="h2"
+    >
+      <Text
+        html={false}
+        t="account.manage_your_bookings"
+        values={Object {}}
+      />
+    </Heading>
+  </AccountLogin__SpacingXSmall>
+  <Text>
+    <Text
+      html={false}
+      t="account.sign_in_description"
+      values={Object {}}
+    />
+  </Text>
+  <AccountLogin__Ruler />
+  <AccountLogin__SpacingMedium>
+    <Text
+      weight="bold"
+    >
+      <Text
+        html={false}
+        t="account.sign_in_description"
+        values={Object {}}
+      />
+    </Text>
+  </AccountLogin__SpacingMedium>
+  <Flex
+    direction="row"
+    wrap="nowrap"
+    x="flex-start"
+    y="flex-end"
+  >
+    <span
+      style={
+        Object {
+          "flexGrow": 1,
+          "marginRight": "8px",
+        }
+      }
+    >
+      <InputField
+        label="account.email"
+        onChange={[Function]}
+        placeholder="account.email_placeholder"
+        type="email"
+        value=""
+      />
+    </span>
+    <Button
+      onClick={[Function]}
+    >
+      <Text
+        html={false}
+        t="account.continue"
+        values={Object {}}
+      />
+    </Button>
+  </Flex>
+  <AccountLogin__Rectangle>
+    <Text
+      weight="bold"
+    >
+      <Text
+        html={false}
+        t="account.or_social_account"
+        values={Object {}}
+      />
+    </Text>
+    <Flex
+      direction="row"
+      wrap="nowrap"
+      x="flex-start"
+      y="flex-start"
+    >
+      <span
+        style={
+          Object {
+            "flexGrow": 1,
+            "marginRight": "4px",
+          }
+        }
+      >
+        <Button
+          block={true}
+          bordered={true}
+          icon={<Facebook />}
+          onClick={[Function]}
+          type="facebook"
+        >
+          <Text
+            html={false}
+            t="account.log_in_with"
+            values={
+              Object {
+                "provider": "Facebook",
+              }
+            }
+          />
+        </Button>
+      </span>
+      <span
+        style={
+          Object {
+            "flexGrow": 1,
+            "marginLeft": "4px",
+          }
+        }
+      >
+        <Button
+          block={true}
+          bordered={true}
+          icon={<Google />}
+          onClick={[Function]}
+          type="google"
+        >
+          <Text
+            html={false}
+            t="account.log_in_with"
+            values={
+              Object {
+                "provider": "Google",
+              }
+            }
+          />
+        </Button>
+      </span>
+    </Flex>
+  </AccountLogin__Rectangle>
+  <TextLink
+    onClick={[Function]}
+    type="secondary"
+  >
+    <Text
+      html={false}
+      t="account.i_dont_have_account"
+      values={Object {}}
+    />
+  </TextLink>
+</React.Fragment>
+`;
