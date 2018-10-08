@@ -23,8 +23,8 @@ const Margin = styled.div`
 type Props = {|
   linkFlights: string,
   linkCars: string,
-  linkRooms: string | null,
-  linkHolidays: string | null,
+  linkRooms: string,
+  linkHolidays: string,
   forceNewWindow: boolean,
 |};
 
