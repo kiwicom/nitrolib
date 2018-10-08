@@ -15,8 +15,8 @@ const SpacingXSmall = styled.div`
 `;
 
 type Props = {|
-  +email: string,
-  +reason: "magicLink" | "signUpConfirmation",
+  email: string,
+  reason: "magicLink" | "signUpConfirmation",
 |};
 
 class AccountCheckEmail extends React.PureComponent<Props> {

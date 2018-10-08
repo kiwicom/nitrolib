@@ -36,12 +36,12 @@ const Ruler = styled.div`
 `;
 
 type Props = {|
-  +email: string,
-  +password: string,
-  +onChangeEmail: (ev: SyntheticEvent<>) => void,
-  +onAskSignInLink: (ev: SyntheticEvent<>) => void,
-  +onPasswordChange: (ev: SyntheticEvent<>) => void,
-  +onSignIn: (ev: SyntheticEvent<>) => void,
+  email: string,
+  password: string,
+  onChangeEmail: (ev: SyntheticEvent<>) => void,
+  onAskSignInLink: (ev: SyntheticEvent<>) => void,
+  onPasswordChange: (ev: SyntheticEvent<>) => void,
+  onSignIn: (ev: SyntheticEvent<>) => void,
 |};
 
 class AccountPassword extends React.PureComponent<Props> {

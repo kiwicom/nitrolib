@@ -51,12 +51,12 @@ const Rectangle = styled.div`
 `;
 
 type Props = {|
-  +email: string,
-  +onNoAccount: (ev: SyntheticEvent<>) => void,
-  +onGoogleLogin: (ev: SyntheticEvent<>) => void,
-  +onFacebookLogin: (ev: SyntheticEvent<>) => void,
-  +onEmailChange: (ev: SyntheticEvent<>) => void,
-  +onContinue: (ev: SyntheticEvent<>) => void,
+  email: string,
+  onNoAccount: (ev: SyntheticEvent<>) => void,
+  onGoogleLogin: (ev: SyntheticEvent<>) => void,
+  onFacebookLogin: (ev: SyntheticEvent<>) => void,
+  onEmailChange: (ev: SyntheticEvent<>) => void,
+  onContinue: (ev: SyntheticEvent<>) => void,
 |};
 
 class AccountLogin extends React.PureComponent<Props> {
