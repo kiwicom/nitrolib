@@ -28,8 +28,8 @@ const Ruler = styled.div`
 
 type Props = {|
   email: string,
-  onAskSignInLink: (ev: SyntheticEvent<>) => void,
-  onFacebookLogin: (ev: SyntheticEvent<>) => void,
+  onAskSignInLink: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
 const AccountPairedFacebook = ({ onAskSignInLink, onFacebookLogin, email }: Props) => (

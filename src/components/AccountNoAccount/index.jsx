@@ -37,10 +37,10 @@ const Rectangle = styled.div`
 `;
 
 type Props = {|
-  onBack: (ev: SyntheticEvent<>) => void,
-  onRegister: (ev: SyntheticEvent<>) => void,
-  onFacebookLogin: (ev: SyntheticEvent<>) => void,
-  onGoogleLogin: (ev: SyntheticEvent<>) => void,
+  onBack: (ev: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLButtonElement>) => void,
+  onRegister: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
 const AccountNoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }: Props) => (

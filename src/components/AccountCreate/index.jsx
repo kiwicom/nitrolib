@@ -23,12 +23,12 @@ type Props = {|
   email: string,
   password: string,
   passwordConfirm: string,
-  onEmailChange: (ev: SyntheticEvent<>) => void,
-  onPasswordChange: (ev: SyntheticEvent<>) => void,
-  onPasswordConfirmChange: (ev: SyntheticEvent<>) => void,
-  onContinue: (ev: SyntheticEvent<>) => void,
-  onTermsOfUse: (ev: SyntheticEvent<>) => void,
-  onPrivacyPolicy: (ev: SyntheticEvent<>) => void,
+  onEmailChange: (ev: SyntheticEvent<HTMLInputElement>) => void,
+  onPasswordChange: (ev: SyntheticEvent<HTMLInputElement>) => void,
+  onPasswordConfirmChange: (ev: SyntheticEvent<HTMLInputElement>) => void,
+  onContinue: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onTermsOfUse: (ev: SyntheticEvent<HTMLLinkElement>) => void,
+  onPrivacyPolicy: (ev: SyntheticEvent<HTMLLinkElement>) => void,
 |};
 
 const AccountCreate = ({
