@@ -13,6 +13,7 @@ import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
 import Flex from "../../primitives/Flex";
 import Text from "../Text";
 import { Consumer } from "../../services/intl/context";
+import type { ThemeProps } from "../../records/Theme";
 
 const SpacingXSmall = styled.div`
   margin-bottom: 8px;
@@ -28,14 +29,14 @@ const Ruler = styled.div`
   background: red;
   margin-top: 24px;
   margin-bottom: 24px;
-  background-color: #e8edf1;
+  background-color: ${({ theme }: ThemeProps) => theme.orbit.backgroundSeparator};
 `;
 
 const Rectangle = styled.div`
-  border-top: 1px solid #e8edf1;
+  border-top: 1px solid ${({ theme }: ThemeProps) => theme.orbit.backgroundSeparator};
   width: 100%;
   height: 128px;
-  background-color: #f5f7f9;
+  background-color: ${({ theme }: ThemeProps) => theme.orbit.backgroundBody};
   padding-top: 24px;
   padding-bottom: 24px;
   margin-top: 50px;

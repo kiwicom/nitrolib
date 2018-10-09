@@ -12,6 +12,7 @@ import Edit from "@kiwicom/orbit-components/lib/icons/Edit";
 import Flex from "../../primitives/Flex";
 import { Consumer } from "../../services/intl/context";
 import Text from "../Text";
+import type { ThemeProps } from "../../records/Theme";
 
 const SpacingXSmall = styled.div`
   margin-bottom: 8px;
@@ -27,7 +28,7 @@ const Ruler = styled.div`
   background: red;
   margin-top: 24px;
   margin-bottom: 24px;
-  background-color: #e8edf1;
+  background-color: ${({ theme }: ThemeProps) => theme.orbit.backgroundSeparator};
 `;
 
 type Props = {|
