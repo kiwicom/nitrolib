@@ -16,7 +16,5 @@ storiesOf("AccountCreate", module)
       onPasswordChange={() => {}}
       onPasswordConfirmChange={() => {}}
       onContinue={() => {}}
-      onTermsOfUse={() => {}}
-      onPrivacyPolicy={() => {}}
     />
   ));

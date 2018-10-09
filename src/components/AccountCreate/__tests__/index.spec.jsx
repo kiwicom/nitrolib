@@ -17,8 +17,6 @@ describe("#AccountCreate", () => {
         onPasswordChange={() => {}}
         onPasswordConfirmChange={() => {}}
         onContinue={() => {}}
-        onTermsOfUse={() => {}}
-        onPrivacyPolicy={() => {}}
       />,
     );
 

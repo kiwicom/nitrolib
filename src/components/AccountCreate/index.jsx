@@ -4,7 +4,6 @@ import styled from "styled-components";
 import OrbitText from "@kiwicom/orbit-components/lib/Text";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
-import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 
@@ -27,8 +26,6 @@ type Props = {|
   onPasswordChange: (ev: SyntheticEvent<HTMLInputElement>) => void,
   onPasswordConfirmChange: (ev: SyntheticEvent<HTMLInputElement>) => void,
   onContinue: (ev: SyntheticEvent<HTMLButtonElement>) => void,
-  onTermsOfUse: (ev: SyntheticEvent<HTMLLinkElement>) => void,
-  onPrivacyPolicy: (ev: SyntheticEvent<HTMLLinkElement>) => void,
 |};
 
 const AccountCreate = ({
@@ -39,8 +36,6 @@ const AccountCreate = ({
   passwordConfirm,
   onPasswordChange,
   onPasswordConfirmChange,
-  onTermsOfUse,
-  onPrivacyPolicy,
 }: Props) => (
   <Consumer>
     {intl => (
@@ -85,15 +80,7 @@ const AccountCreate = ({
           </Button>
         </SpacingMedium>
         <OrbitText size="small">
-          The registration and subsequent use of your account is governed by these{" "}
-          <TextLink type="secondary" onClick={onTermsOfUse}>
-            Terms of Use
-          </TextLink>
-          . Your personal data will be processed according to our{" "}
-          <TextLink type="secondary" onClick={onPrivacyPolicy}>
-            Privacy Policy
-          </TextLink>
-          .
+          <Text t={__("account.terms_and_privacy_policy")} html />
         </OrbitText>
       </React.Fragment>
     )}

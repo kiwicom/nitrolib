@@ -63,23 +63,11 @@ exports[`#AccountCreate render 1`] = `
   <Text
     size="small"
   >
-    The registration and subsequent use of your account is governed by these
-     
-    <TextLink
-      onClick={[Function]}
-      type="secondary"
-    >
-      Terms of Use
-    </TextLink>
-    . Your personal data will be processed according to our
-     
-    <TextLink
-      onClick={[Function]}
-      type="secondary"
-    >
-      Privacy Policy
-    </TextLink>
-    .
+    <Text
+      html={true}
+      t="account.terms_and_privacy_policy"
+      values={Object {}}
+    />
   </Text>
 </React.Fragment>
 `;
