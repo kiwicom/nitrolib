@@ -19,6 +19,7 @@ import Currency from "../Currency";
 // import Starred from "../Starred"; FIXME add as a full feature
 import MenuSpacings from "./primitives/MenuSpacings";
 
+// TODO: replace z-index with Orbit token after refactoring all front-end indexes
 const Container = styled(Flex)`
   width: 100%;
   position: relative;
@@ -27,7 +28,7 @@ const Container = styled(Flex)`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   padding: 0 10px;
   box-sizing: border-box;
-  z-index: ${({ theme }: ThemeProps) => theme.orbit.zIndexSticky};
+  z-index: 824;
 
   ${mq.gtTablet(css`
     position: fixed;

@@ -1,6 +1,7 @@
 // @flow
 import styled from "styled-components";
 import type { ReactComponentFunctional } from "styled-components";
+import * as React from "react";
 
 import * as rtl from "../../../styles/rtl";
 import type { ThemeProps } from "../../../records/Theme";
@@ -11,10 +12,13 @@ type Props = {|
   onClick: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   children: React.Node | React.Node[],
   bold?: boolean,
+  onClick?: () => void,
   primary?: boolean,
   padding?: string,
   marginLeft?: number,
   marginRight?: number,
+  children: React.Node,
+  className?: string,
   fontSize?: string,
   x?: string,
   y?: string,
@@ -23,7 +27,13 @@ type Props = {|
 
 type PropsAll = {| ...ThemeProps, ...Props |};
 
-const Button: ReactComponentFunctional<Props, ThemeProps> = styled.button`
+const Button: ReactComponentFunctional<Props, ThemeProps> = styled(
+  ({ children, className, onClick }) => (
+    <button className={className} onClick={onClick} type="button">
+      {children}
+    </button>
+  ),
+)`
   ${buttonMixin};
   display: flex;
   color: ${({ theme, primary }: PropsAll) =>

@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import type { Environment } from "react-relay";
 import Passenger from "@kiwicom/orbit-components/lib/icons/Passenger";
 
@@ -32,14 +32,14 @@ const UserStyle = styled.div`
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
   padding-left: 5px;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
-  ${mq.smallMobile} {
+  ${mq.smallMobile(css`
     display: none;
-  }
+  `)};
 `;
 
-const HideOnLower900 = styled.div`
+const HideOnLower = styled.div`
   display: block;
-  @media (max-width: 900px) {
+  @media (max-width: 975px) {
     display: none;
   }
 `;
@@ -63,15 +63,15 @@ const Trips = ({ auth, env, onSelect }: Props) => (
             <Flex y="center">
               <Passenger size="small" />
               <Button onClick={onToggle}>
-                <HideOnLower900>
+                <HideOnLower>
                   <Text t={__("account.my_bookings_action")} />
-                </HideOnLower900>
+                </HideOnLower>
                 <UserStyle>({`${auth.user.firstname}...`})</UserStyle>
               </Button>
             </Flex>
           </Desktop>
           <Mobile display="flex">
-            <Button onClick={onToggle}>
+            <Button onClick={onToggle} y="center">
               <Passenger size="small" />
               <UserStyle>{`${auth.user.firstname} ${auth.user.lastname}`}</UserStyle>
             </Button>
