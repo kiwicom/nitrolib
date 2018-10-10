@@ -104,6 +104,11 @@ const Link = styled.a`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   cursor: pointer;
 
+  &:link,
+  &:visited {
+    color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
+  }
+
   &:hover {
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
   }
