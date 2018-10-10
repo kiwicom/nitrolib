@@ -26,6 +26,7 @@ const Container = styled(Flex)`
   height: ${navbar.height}px;
   background-color: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
+  ${({ shadow }) => shadow && `box-shadow: 0 0 3px rgba(0,0,0,.25);`};
   padding: 0 10px;
   box-sizing: border-box;
   z-index: 824;
@@ -58,6 +59,7 @@ type Props = {|
   chat: React.Node,
   subscription: React.Node,
   debug?: React.Node,
+  shadow?: boolean,
   onOpenFaq: () => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
@@ -69,13 +71,14 @@ const NavBar = ({
   chat,
   subscription,
   debug,
+  shadow,
   onOpenFaq,
   onSaveLanguage,
   onSelectTrip,
 }: Props) => (
   <LogConsumer>
     {({ log }) => (
-      <Container x="space-between" y="center">
+      <Container x="space-between" y="center" shadow={shadow}>
         <Flex y="center" x="flex-start">
           <Logo />
           {headerLinks && (
@@ -114,5 +117,9 @@ const NavBar = ({
     )}
   </LogConsumer>
 );
+
+NavBar.defaultProps = {
+  shadow: true,
+};
 
 export default NavBar;
