@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#AccountCreate render 1`] = `
+<React.Fragment>
+  <Illustration
+    name="EnjoyApp"
+    size="small"
+  />
+  <AccountCreate__SpacingXSmall>
+    <Heading
+      element="h2"
+    >
+      <Text
+        html={false}
+        t="account.create_account"
+        values={Object {}}
+      />
+    </Heading>
+  </AccountCreate__SpacingXSmall>
+  <AccountCreate__SpacingXSmall>
+    <Text
+      html={false}
+      t="account.create_account_description"
+      values={Object {}}
+    />
+  </AccountCreate__SpacingXSmall>
+  <AccountCreate__SpacingMedium>
+    <InputField
+      label="account.email"
+      onChange={[Function]}
+      placeholder="account.email_placeholder"
+      type="email"
+      value=""
+    />
+  </AccountCreate__SpacingMedium>
+  <AccountCreate__SpacingMedium>
+    <InputField
+      label="account.password"
+      onChange={[Function]}
+      type="password"
+      value=""
+    />
+  </AccountCreate__SpacingMedium>
+  <AccountCreate__SpacingMedium>
+    <InputField
+      label="account.password_confirmaiton"
+      onChange={[Function]}
+      type="password"
+      value=""
+    />
+  </AccountCreate__SpacingMedium>
+  <AccountCreate__SpacingMedium>
+    <Button
+      onClick={[Function]}
+    >
+      <Text
+        html={false}
+        t="account.create"
+        values={Object {}}
+      />
+    </Button>
+  </AccountCreate__SpacingMedium>
+  <Text
+    size="small"
+  >
+    <Text
+      html={true}
+      t="account.terms_and_privacy_policy"
+      values={Object {}}
+    />
+  </Text>
+</React.Fragment>
+`;

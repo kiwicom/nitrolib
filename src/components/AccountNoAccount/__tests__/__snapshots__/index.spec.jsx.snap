@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#AccountNoAccount render 1`] = `
+<Fragment>
+  <Illustration
+    name="NoBookings"
+    size="small"
+  />
+  <AccountNoAccount__SpacingXSmall>
+    <Heading
+      element="h2"
+    >
+      <Text
+        html={false}
+        t="account.no_bookings_or_account"
+        values={Object {}}
+      />
+    </Heading>
+  </AccountNoAccount__SpacingXSmall>
+  <AccountNoAccount__SpacingBig>
+    <Text>
+      <Text
+        html={false}
+        t="account.no_bookings_or_account_description"
+        values={Object {}}
+      />
+    </Text>
+  </AccountNoAccount__SpacingBig>
+  <AccountNoAccount__SpacingMedium>
+    <Button
+      onClick={[Function]}
+    >
+      <Text
+        html={false}
+        t="account.register"
+        values={Object {}}
+      />
+    </Button>
+  </AccountNoAccount__SpacingMedium>
+  <AccountNoAccount__SpacingMedium>
+    <ButtonLink
+      component="button"
+      external={false}
+      iconLeft={<ChevronLeft />}
+      onClick={[Function]}
+      size="normal"
+      transparent={false}
+      type="secondary"
+      width={0}
+    >
+      <Text
+        html={false}
+        t="account.back"
+        values={Object {}}
+      />
+    </ButtonLink>
+  </AccountNoAccount__SpacingMedium>
+  <AccountNoAccount__Rectangle>
+    <Text
+      weight="bold"
+    >
+      <Text
+        html={false}
+        t="account.or_social_account"
+        values={Object {}}
+      />
+    </Text>
+    <Flex
+      direction="row"
+      wrap="nowrap"
+      x="flex-start"
+      y="flex-start"
+    >
+      <span
+        style={
+          Object {
+            "flexGrow": 1,
+            "marginRight": "4px",
+          }
+        }
+      >
+        <Button
+          block={true}
+          bordered={true}
+          icon={<Facebook />}
+          onClick={[Function]}
+          type="facebook"
+        >
+          <Text
+            html={false}
+            t="account.log_in_with"
+            values={
+              Object {
+                "provider": "Facebook",
+              }
+            }
+          />
+        </Button>
+      </span>
+      <span
+        style={
+          Object {
+            "flexGrow": 1,
+            "marginLeft": "4px",
+          }
+        }
+      >
+        <Button
+          block={true}
+          bordered={true}
+          icon={<Google />}
+          onClick={[Function]}
+          type="google"
+        >
+          <Text
+            html={false}
+            t="account.log_in_with"
+            values={
+              Object {
+                "provider": "Google",
+              }
+            }
+          />
+        </Button>
+      </span>
+    </Flex>
+  </AccountNoAccount__Rectangle>
+</Fragment>
+`;

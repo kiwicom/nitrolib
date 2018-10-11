@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#AccountPairedFacebook render 1`] = `
+<Fragment>
+  <Illustration
+    name="Login"
+    size="small"
+  />
+  <AccountPairedFacebook__SpacingXSmall>
+    <Heading
+      element="h2"
+    >
+      <Text
+        html={false}
+        t="account.manage_your_bookings"
+        values={Object {}}
+      />
+    </Heading>
+  </AccountPairedFacebook__SpacingXSmall>
+  <AccountPairedFacebook__SpacingBig>
+    <Text
+      weight="bold"
+    >
+      <Text
+        html={false}
+        t="account.sign_in_description"
+        values={Object {}}
+      />
+    </Text>
+  </AccountPairedFacebook__SpacingBig>
+  <Button
+    bordered={true}
+    icon={<Facebook />}
+    onClick={[Function]}
+    type="facebook"
+  >
+    <Text
+      html={false}
+      t="account.log_in_with"
+      values={
+        Object {
+          "provider": "Facebook",
+        }
+      }
+    />
+  </Button>
+  <AccountPairedFacebook__Ruler />
+  <AccountPairedFacebook__SpacingXSmall>
+    <Text>
+      <Text
+        html={false}
+        t="account.send_link_to"
+        values={
+          Object {
+            "email": "email@example.com",
+          }
+        }
+      />
+    </Text>
+  </AccountPairedFacebook__SpacingXSmall>
+  <Button
+    onClick={[Function]}
+    type="secondary"
+  >
+    <Text
+      html={false}
+      t="account.ask_sign_in_link"
+      values={Object {}}
+    />
+  </Button>
+</Fragment>
+`;
