@@ -1029,6 +1029,11 @@
   resolved "https://registry.yarnpkg.com/@kiwicom/orbit-design-tokens/-/orbit-design-tokens-0.1.4.tgz#18eb47bd62a78a8109406f91b7d2f0eb000d63fa"
   integrity sha512-V9BHptx+VRLiPhIlR0KIAYk+8YYZogNneTfhsjwXTUuIy820MgdoGzVMO1Z91qZd8LogL3jIMUwjH1k3hDuB4g==
 
+"@kiwicom/translations@^1.46.0":
+  version "1.46.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.46.0.tgz#3498f845b687c2e13614b4320ec18ba6f767d9fe"
+  integrity sha512-WCce1jg+fuHQOC5gE47plL2acNMqQlhjxaqVROF987wCGE3SaN1K+sX8MVEKLwK1p/9XxPLzu3myuV/7BOAsKQ==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

@@ -67,8 +67,7 @@
     "forms.wrong_format_email": "Имейлът е в грешен формат",
     "common.error": "Съжаляваме, но възникна грешка, докато обработвахме заявката Ви. Опреснете страницата.",
     "account.password_too_short": "Паролата трябва да съдържа 8 или повече знака.",
-    "account.password_too_simple": "Паролата Ви трябва да бъде по-сложна.",
-    "starred.starred_flights": "Пътувания, отбелязани със звезда"
+    "account.password_too_simple": "Паролата Ви трябва да бъде по-сложна."
   },
   "es-ES": {
     "common.ok": "Ok",
@@ -138,8 +137,7 @@
     "forms.wrong_format_email": "El formato del correo electrónico no es correcto",
     "common.error": "Lo sentimos, se ha producido un error mientras procesábamos tu solicitud. Actualiza la página.",
     "account.password_too_short": "Tu contraseña debe contener al menos 8 caracteres.",
-    "account.password_too_simple": "Tu contraseña debe ser más compleja.",
-    "starred.starred_flights": "Viajes destacados"
+    "account.password_too_simple": "Tu contraseña debe ser más compleja."
   },
   "cs-CZ": {
     "common.ok": "OK",
@@ -209,8 +207,7 @@
     "forms.wrong_format_email": "Nesprávný formát emailu",
     "common.error": "Je nám líto, ale při zpracovávání vašeho požadavku došlo k chybě. Aktualizujte stránku.",
     "account.password_too_short": "Heslo by se mělo skládat alespoň z 8 znaků.",
-    "account.password_too_simple": "Heslo by mělo být složitější.",
-    "starred.starred_flights": "Oblíbené cesty"
+    "account.password_too_simple": "Heslo by mělo být složitější."
   },
   "da-DK": {
     "common.ok": "OK",
@@ -280,8 +277,7 @@
     "forms.wrong_format_email": "E-mail er i forkert format",
     "common.error": "Beklager, der opstod en fejl, da vi behandlede din anmodning. Genindlæs siden.",
     "account.password_too_short": "Din adgangskode skal have 8 eller flere tegn.",
-    "account.password_too_simple": "Din adgangskode skal være mere kompleks.",
-    "starred.starred_flights": "Stjernerejser "
+    "account.password_too_simple": "Din adgangskode skal være mere kompleks."
   },
   "de-DE": {
     "common.ok": "OK",
@@ -351,8 +347,7 @@
     "forms.wrong_format_email": "Die E-Mail-Adresse hat ein falsches Format",
     "common.error": "Leider hat es bei der Bearbeitung Ihrer Anfrage einen Fehler gegeben. Bitte laden Sie die Seite erneut.",
     "account.password_too_short": "Ihr Passwort sollte aus mindestens 8 Zeichen bestehen.",
-    "account.password_too_simple": "Ihr Passwort sollte komplexer sein.",
-    "starred.starred_flights": "Markierte Reisen"
+    "account.password_too_simple": "Ihr Passwort sollte komplexer sein."
   },
   "el-GR": {
     "common.ok": "Εντάξει",
@@ -422,8 +417,7 @@
     "forms.wrong_format_email": "Το email έχει λάθος μορφή",
     "common.error": "Σφάλμα",
     "account.password_too_short": "Your password should have 8 or more characters.",
-    "account.password_too_simple": "Your password should be more complex.",
-    "starred.starred_flights": "Starred trips"
+    "account.password_too_simple": "Your password should be more complex."
   },
   "en-GB": {
     "common.ok": "OK",
@@ -493,8 +487,7 @@
     "forms.wrong_format_email": "Incorrect email format",
     "common.error": "Sorry, there was an error while processing your request. Please refresh the page.",
     "account.password_too_short": "Your password should have 8 or more characters.",
-    "account.password_too_simple": "Your password should be more complex.",
-    "starred.starred_flights": "Starred trips"
+    "account.password_too_simple": "Your password should be more complex."
   },
   "es-MX": {
     "common.ok": "Aceptar",
@@ -564,8 +557,7 @@
     "forms.wrong_format_email": "El correo electrónico tiene un formato erróneo",
     "common.error": "Error",
     "account.password_too_short": "La contraseña es demasiado corta.",
-    "account.password_too_simple": "La contraseña es demasiado simple.",
-    "starred.starred_flights": "Viajes destacados"
+    "account.password_too_simple": "La contraseña es demasiado simple."
   },
   "fr-FR": {
     "common.ok": "OK",
@@ -635,8 +627,7 @@
     "forms.wrong_format_email": "L'e-mail présente un format erroné",
     "common.error": "Désolé, une erreur s'est produite lors du traitement de votre demande. Veuillez actualiser la page.",
     "account.password_too_short": "Votre mot de passe doit contenir 8 caractères ou plus.",
-    "account.password_too_simple": "Votre mot de passe doit être plus complexe.",
-    "starred.starred_flights": "Voyages favoris"
+    "account.password_too_simple": "Votre mot de passe doit être plus complexe."
   },
   "sr-RS-Latn": {
     "common.ok": "OK",
@@ -706,8 +697,7 @@
     "forms.wrong_format_email": "E-adresa je u pogrešnom formatu",
     "common.error": "Žao nam je, došlo je do greške pri obradi vašeg zahteva. Osvežite stranicu.",
     "account.password_too_short": "Lozinka treba da sadrži 8 ili više karaktera.",
-    "account.password_too_simple": "Lozinka treba da bude složenija.",
-    "starred.starred_flights": "Putovanja sa zvezdicom"
+    "account.password_too_simple": "Lozinka treba da bude složenija."
   },
   "id-ID": {
     "common.ok": "OK",
@@ -777,8 +767,7 @@
     "forms.wrong_format_email": "Format email salah",
     "common.error": "Kesalahan",
     "account.password_too_short": "Sandi terlalu singkat.",
-    "account.password_too_simple": "Sandi terlalu sederhana.",
-    "starred.starred_flights": "Starred trips"
+    "account.password_too_simple": "Sandi terlalu sederhana."
   },
   "it-IT": {
     "common.ok": "OK",
@@ -848,8 +837,7 @@
     "forms.wrong_format_email": "L'email è in un formato sbagliato",
     "common.error": "Spiacenti, si è verificato un errore durante l'elaborazione della tua richiesta. Aggiorna la pagina.",
     "account.password_too_short": "La password deve contenere almeno 8 caratteri.",
-    "account.password_too_simple": "Scegli una password più complessa.",
-    "starred.starred_flights": "Viaggi preferiti"
+    "account.password_too_simple": "Scegli una password più complessa."
   },
   "ja-JP": {
     "common.ok": "OK",
@@ -919,8 +907,7 @@
     "forms.wrong_format_email": "Eメールの形式が誤っています",
     "common.error": "恐れ入りますが、リクエストの処理中にエラーが発生しました。ページを再読込してください。",
     "account.password_too_short": "パスワードは8文字以上でなければなりません。",
-    "account.password_too_simple": "パスワードが簡単すぎます。",
-    "starred.starred_flights": "お気に入りの旅程"
+    "account.password_too_simple": "パスワードが簡単すぎます。"
   },
   "lt-LT": {
     "common.ok": "Gerai",
@@ -990,8 +977,7 @@
     "forms.wrong_format_email": "Incorrect email format",
     "common.error": "Sorry, there was an error while processing your request. Please refresh the page.",
     "account.password_too_short": "Your password should have 8 or more characters.",
-    "account.password_too_simple": "Your password should be more complex.",
-    "starred.starred_flights": "Starred trips"
+    "account.password_too_simple": "Your password should be more complex."
   },
   "he-IL": {
     "common.ok": "אישור",
@@ -1061,8 +1047,7 @@
     "forms.wrong_format_email": "האימייל בפורמט שגוי",
     "common.error": "משהו השתבש בזמן שטיפלנו בבקשה. צריך לרענן את הדף.",
     "account.password_too_short": "הסיסמה צריכה להכיל 8 תווים לפחות.",
-    "account.password_too_simple": "הסיסמה צריכה להיות מורכבת יותר.",
-    "starred.starred_flights": "נסיעות שסומנו בכוכב"
+    "account.password_too_simple": "הסיסמה צריכה להיות מורכבת יותר."
   },
   "hu-HU": {
     "common.ok": "OK",
@@ -1132,8 +1117,7 @@
     "forms.wrong_format_email": "Az e-mail nem megfelelő formátumú",
     "common.error": "Sajnos hiba történt a kérelem feldolgozásakor. Frissítse a lapot.",
     "account.password_too_short": "A jelszónak legalább 8 karakterből kell állnia.",
-    "account.password_too_simple": "Összetettebb jelszó szükséges.",
-    "starred.starred_flights": "Csillagozott utazások"
+    "account.password_too_simple": "Összetettebb jelszó szükséges."
   },
   "nl-NL": {
     "common.ok": "OK",
@@ -1203,8 +1187,7 @@
     "forms.wrong_format_email": "E-mail is in het verkeerde formaat",
     "common.error": "Sorry, er is een fout opgetreden bij het verwerken van je aanvraag. Vernieuw de pagina.",
     "account.password_too_short": "Je wachtwoord moet 8 of meer tekens bevatten.",
-    "account.password_too_simple": "Je wachtwoord is te eenvoudig.",
-    "starred.starred_flights": "Reizen met ster"
+    "account.password_too_simple": "Je wachtwoord is te eenvoudig."
   },
   "nb-NO": {
     "common.ok": "OK",
@@ -1274,8 +1257,7 @@
     "forms.wrong_format_email": "E-posten er i feil format",
     "common.error": "Beklager, det oppstod en feil mens vi behandlet forespørselen din. Oppdater siden.",
     "account.password_too_short": "Passordet må bestå av minst 8 tegn.",
-    "account.password_too_simple": "Passordet må være mer komplekst.",
-    "starred.starred_flights": "Favoritturer"
+    "account.password_too_simple": "Passordet må være mer komplekst."
   },
   "pl-PL": {
     "common.ok": "OK",
@@ -1345,8 +1327,7 @@
     "forms.wrong_format_email": "E-mail ma nieprawidłowy format",
     "common.error": "Przykro nam, wystąpił błąd podczas przetwarzania wniosku. Prosimy odświeżyć stronę.",
     "account.password_too_short": "Hasło musi składać się z co najmniej 8 znaków.",
-    "account.password_too_simple": "Hasło mus być bardziej skomplikowane.",
-    "starred.starred_flights": "Ulubione podróże"
+    "account.password_too_simple": "Hasło mus być bardziej skomplikowane."
   },
   "pt-PT": {
     "common.ok": "OK",
@@ -1416,8 +1397,7 @@
     "forms.wrong_format_email": "O e-mail está no formato errado",
     "common.error": "Lamentamos, houve um erro ao processar o seu pedido. Atualize a página.",
     "account.password_too_short": "A sua palavra-passe deve ter pelo menos 8 caracteres.",
-    "account.password_too_simple": "A sua palavra-passe deve ser mais complexa.",
-    "starred.starred_flights": "Viagens com estrela"
+    "account.password_too_simple": "A sua palavra-passe deve ser mais complexa."
   },
   "ro-RO": {
     "common.ok": "OK",
@@ -1487,8 +1467,7 @@
     "forms.wrong_format_email": "E-mailul este în format greșit",
     "common.error": "Ne pare rău, s-a produs o eroare în timpul prelucrării solicitării dvs. Vă rugăm să reîmprospătați pagina.",
     "account.password_too_short": "Parola dvs. trebuie să conțină cel puțin 8 caractere.",
-    "account.password_too_simple": "Parola dvs. trebuie să fie mai complexă.",
-    "starred.starred_flights": "Călătorii marcate cu stea"
+    "account.password_too_simple": "Parola dvs. trebuie să fie mai complexă."
   },
   "ru-RU": {
     "common.ok": "OK",
@@ -1558,13 +1537,12 @@
     "forms.wrong_format_email": "Неверный формат адреса эл. почты",
     "common.error": "Извините, при обработке вашего запроса произошла ошибка. Обновите страницу.",
     "account.password_too_short": "Ваш пароль должен состоять из 8 и более символов.",
-    "account.password_too_simple": "Придумайте более сложный пароль.",
-    "starred.starred_flights": "Избранные поездки"
+    "account.password_too_simple": "Придумайте более сложный пароль."
   },
   "sk-SK": {
     "common.ok": "OK",
     "content.cookies.banner.text": "Počas prehľadávania našej stránky zhromažďujeme a spracovávame vaše osobné údaje. Viac informácií o tom, prečo a ako spracovávame vaše osobné údaje, nájdete v našich <a href=\"/pages/content/privacy\">Pravidlách o ochrane osobných údajov</a>. Na zhromažďovanie vašich osobných údajov používame <a href=\"/pages/content/privacy#cookies\">súbory cookie</a>. Ak nechcete, aby sme vám odosielali súbory cookie, môžete ich kedykoľvek vypnúť zmenou svojich <a href=\"/pages/cookies_settings\">preferencií pre súbory cookie tu</a>.",
-    "search.service.travel_anywhere": "Cesta",
+    "search.service.travel_anywhere": "Cestovanie",
     "search.service.rooms": "Izby",
     "search.service.cars": "Autá",
     "search.service.holidays": "Dovolenky",
@@ -1629,8 +1607,7 @@
     "forms.wrong_format_email": "E-mailová adresa má nesprávny formát",
     "common.error": "Je nám to ľúto, ale pri spracovaní vašej žiadosti sa vyskytla chyba. Obnovte stránku.",
     "account.password_too_short": "Vaše heslo musí obsahovať 8 alebo viac znakov.",
-    "account.password_too_simple": "Vaše heslo by malo byť zložitejšie.",
-    "starred.starred_flights": "Cesty označené hviezdičkou"
+    "account.password_too_simple": "Vaše heslo by malo byť zložitejšie."
   },
   "fi-FI": {
     "common.ok": "OK",
@@ -1700,8 +1677,7 @@
     "forms.wrong_format_email": "Sähköposti on väärässä muodossa",
     "common.error": "Virhe käsiteltäessä pyyntöäsi. Päivitä tämä sivu.",
     "account.password_too_short": "Salasanassasi pitäisi olla vähintään 8 merkkiä.",
-    "account.password_too_simple": "Salasanasi pitäisi olla monimutkaisempi.",
-    "starred.starred_flights": "Suosikkimatkat"
+    "account.password_too_simple": "Salasanasi pitäisi olla monimutkaisempi."
   },
   "sv-SE": {
     "common.ok": "OK",
@@ -1771,8 +1747,7 @@
     "forms.wrong_format_email": "E-postmeddelandet är i fel format",
     "common.error": "Tyvärr inträffade ett fel när vi behandlade din förfrågan.  Uppdatera sidan.",
     "account.password_too_short": "Ditt lösenord måste bestå av minst 8 tecken.",
-    "account.password_too_simple": "Ditt lösenord bör vara mer komplext.",
-    "starred.starred_flights": "Stjärnmärkta resor"
+    "account.password_too_simple": "Ditt lösenord bör vara mer komplext."
   },
   "th-TH": {
     "common.ok": "OK",
@@ -1842,8 +1817,7 @@
     "forms.wrong_format_email": "อีเมลมีรูปแบบไม่ถูกต้อง",
     "common.error": "ขัดข้อง",
     "account.password_too_short": "รหัสผ่านสั้นเกินไป",
-    "account.password_too_simple": "รหัสผ่านง่ายเกินไป",
-    "starred.starred_flights": "Starred trips"
+    "account.password_too_simple": "รหัสผ่านง่ายเกินไป"
   },
   "tr-TR": {
     "common.ok": "Tamam",
@@ -1913,8 +1887,7 @@
     "forms.wrong_format_email": "Eposta formatı yanlış",
     "common.error": "Üzgünüz, talebiniz işlenirken bir hata oluştu. Lütfen sayfayı yenileyin.",
     "account.password_too_short": "Şifreniz 8 veya daha fazla karakterden oluşmalı.",
-    "account.password_too_simple": "Şifreniz daha karmaşık olmalı.",
-    "starred.starred_flights": "Yıldızlı yolculuklar"
+    "account.password_too_simple": "Şifreniz daha karmaşık olmalı."
   },
   "vi-VN": {
     "common.ok": "OK",
@@ -1984,8 +1957,7 @@
     "forms.wrong_format_email": "Định dạng email không đúng",
     "common.error": "Lỗi",
     "account.password_too_short": "Mật khẩu quá ngắn.",
-    "account.password_too_simple": "Mật khẩu quá đơn giản.",
-    "starred.starred_flights": "Starred trips"
+    "account.password_too_simple": "Mật khẩu quá đơn giản."
   },
   "uk-UA": {
     "common.ok": "OK",
@@ -2055,8 +2027,7 @@
     "forms.wrong_format_email": "Неправильний формат електронної пошти",
     "common.error": "На жаль, під час обробки вашого запиту виникла помилка. Будь ласка, оновіть сторінку.",
     "account.password_too_short": "Пароль повинен складатися не менш ніж з 8 символів.",
-    "account.password_too_simple": "Ваш пароль занадто простий.",
-    "starred.starred_flights": "Подорожі, позначені зірочкою"
+    "account.password_too_simple": "Ваш пароль занадто простий."
   },
   "ar-AE": {
     "common.ok": "موافق",
@@ -2126,8 +2097,7 @@
     "forms.wrong_format_email": "صيغة البريد الإلكتروني غير صحيحة",
     "common.error": "معذرةً، حدث خطأ أثناء معالجة طلبك. يرجى تحديث الصفحة.",
     "account.password_too_short": "يجب أن تحتوي كلمة المرور على 8 أحرف أو أكثر.",
-    "account.password_too_simple": "يجب أن تكون كلمة المرور الخاصة بك أكثر تعقيدًا.",
-    "starred.starred_flights": "الرحلات المميزة بنجمة"
+    "account.password_too_simple": "يجب أن تكون كلمة المرور الخاصة بك أكثر تعقيدًا."
   },
   "ko-KR": {
     "common.ok": "확인",
@@ -2197,8 +2167,7 @@
     "forms.wrong_format_email": "올바른 이메일 형식이 아닙니다.",
     "common.error": "이런, 요청을 처리하는 동안 오류가 발생했네요. 페이지를 새로 고침해 주세요.",
     "account.password_too_short": "비밀번호 길이가 8자 이상이어야 합니다.",
-    "account.password_too_simple": "비밀번호가 더 복잡해야 합니다.",
-    "starred.starred_flights": "즐겨찾기에 추가한 여행"
+    "account.password_too_simple": "비밀번호가 더 복잡해야 합니다."
   },
   "zh-CN-Hans": {
     "common.ok": "好",
@@ -2268,8 +2237,7 @@
     "forms.wrong_format_email": "电子邮件格式不正确",
     "common.error": "抱歉，系统在处理您的请求时出错。请刷新页面",
     "account.password_too_short": "密码应至少包含 8 位字符。",
-    "account.password_too_simple": "密码强度不够。",
-    "starred.starred_flights": "已收藏行程"
+    "account.password_too_simple": "密码强度不够。"
   },
   "zh-TW-Hant": {
     "common.ok": "OK",
@@ -2339,7 +2307,6 @@
     "forms.wrong_format_email": "電子郵件的格式錯誤",
     "common.error": "錯誤",
     "account.password_too_short": "密碼太短了。",
-    "account.password_too_simple": "密碼太簡單了。",
-    "starred.starred_flights": "Starred trips"
+    "account.password_too_simple": "密碼太簡單了。"
   }
 }
