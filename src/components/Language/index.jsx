@@ -6,7 +6,7 @@ import * as intlContext from "../../services/intl/context";
 import * as fetchedContext from "../../services/fetched/context";
 import NativePicker from "./NativePicker";
 import CustomPicker from "../CustomPicker";
-import LanguageName from "./components/LanguageName";
+import LanguageCurrent from "./components/LanguageCurrent";
 import Menu from "./components/Menu";
 import type { Language as LanguageType } from "../../records/Languages";
 
@@ -48,10 +48,7 @@ const Language = ({
               onChange={onChange}
             />
           ) : (
-            <CustomPicker
-              openButton={<LanguageName name={current.name} flag={current.flag} />}
-              onChange={onChange}
-            >
+            <CustomPicker openButton={<LanguageCurrent language={current} />} onChange={onChange}>
               {render => (
                 <Menu
                   onChange={render.onChange}

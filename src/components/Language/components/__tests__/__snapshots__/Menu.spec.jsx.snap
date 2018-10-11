@@ -782,9 +782,15 @@ exports[`#Language/CustomPicker/Menu render flat 1`] = `
         }
       >
         <LanguageName
-          flag="gb"
-          key="en"
-          name="English"
+          language={
+            Object {
+              "continent": "eu",
+              "defaultCountry": "uk",
+              "flag": "gb",
+              "id": "en",
+              "name": "English",
+            }
+          }
         />
       </Menu__LanguageItem>
     </Menu__LanguageListWrapper>
@@ -1564,7 +1570,7 @@ exports[`#Language/CustomPicker/Menu render full 1`] = `
       }
     }
   >
-    <Menu__ContinentItem
+    <Menu__ContinentButton
       onClick={[Function]}
       theme={
         Object {
@@ -1954,8 +1960,8 @@ exports[`#Language/CustomPicker/Menu render full 1`] = `
         t="common.languages_all"
         values={Object {}}
       />
-    </Menu__ContinentItem>
-    <Menu__ContinentItem
+    </Menu__ContinentButton>
+    <Menu__ContinentButton
       active={false}
       key="aas"
       onClick={[Function]}
@@ -2345,8 +2351,8 @@ exports[`#Language/CustomPicker/Menu render full 1`] = `
       <ContinentName
         id="aas"
       />
-    </Menu__ContinentItem>
-    <Menu__ContinentItem
+    </Menu__ContinentButton>
+    <Menu__ContinentButton
       active={false}
       key="ap"
       onClick={[Function]}
@@ -2736,8 +2742,8 @@ exports[`#Language/CustomPicker/Menu render full 1`] = `
       <ContinentName
         id="ap"
       />
-    </Menu__ContinentItem>
-    <Menu__ContinentItem
+    </Menu__ContinentButton>
+    <Menu__ContinentButton
       active={false}
       key="eu"
       onClick={[Function]}
@@ -3127,8 +3133,8 @@ exports[`#Language/CustomPicker/Menu render full 1`] = `
       <ContinentName
         id="eu"
       />
-    </Menu__ContinentItem>
-    <Menu__ContinentItem
+    </Menu__ContinentButton>
+    <Menu__ContinentButton
       active={false}
       key="mea"
       onClick={[Function]}
@@ -3518,7 +3524,7 @@ exports[`#Language/CustomPicker/Menu render full 1`] = `
       <ContinentName
         id="mea"
       />
-    </Menu__ContinentItem>
+    </Menu__ContinentButton>
   </Menu__ContinentList>
   <Menu__LanguageList
     flat={false}
@@ -3914,9 +3920,15 @@ exports[`#Language/CustomPicker/Menu render full 1`] = `
         }
       >
         <LanguageName
-          flag="gb"
-          key="en"
-          name="English"
+          language={
+            Object {
+              "continent": "eu",
+              "defaultCountry": "uk",
+              "flag": "gb",
+              "id": "en",
+              "name": "English",
+            }
+          }
         />
       </Menu__LanguageItem>
     </Menu__LanguageListWrapper>

@@ -19,3 +19,14 @@ export const getByContinent = (languages: Language[], continent: string): Langua
         ? continent === language.continent
         : language.continent.includes(continent),
   );
+
+export type LanguageNames = {|
+  primary: string,
+  secondary: string,
+|};
+
+export const getNames = (lang: Language): LanguageNames => {
+  const [primary = "", secondary = ""] = lang.name.split(" (");
+
+  return { primary, secondary: secondary.replace(/\)/g, "") };
+};

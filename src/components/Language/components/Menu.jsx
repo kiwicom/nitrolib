@@ -9,7 +9,6 @@ import type { Language } from "../../../records/Languages";
 import mq from "../../../styles/mq";
 import buttonMixin from "../../../styles/mixins/button";
 import * as rtl from "../../../styles/rtl";
-import Flex from "../../../primitives/Flex";
 import Text from "../../Text";
 import { getLanguageWrapperHeight, getLanguageWrapperWidth } from "../services/menu";
 import LanguageName from "./LanguageName";
@@ -208,7 +207,7 @@ export default class Menu extends React.Component<Props, State> {
           >
             {filteredLanguages.map(language => (
               <LanguageItem key={language.id} onClick={() => this.handleChange(language.id)}>
-                <LanguageName name={language.name} flag={language.flag} key={language.id} />
+                <LanguageName language={language} />
               </LanguageItem>
             ))}
           </LanguageListWrapper>
