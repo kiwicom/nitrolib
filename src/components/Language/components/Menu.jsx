@@ -7,6 +7,7 @@ import type { ThemeProps } from "../../../records/Theme";
 import { getByContinent } from "../../../records/Languages";
 import type { Language } from "../../../records/Languages";
 import mq from "../../../styles/mq";
+import buttonMixin from "../../../styles/mixins/button";
 import * as rtl from "../../../styles/rtl";
 import Flex from "../../../primitives/Flex";
 import Text from "../../Text";
@@ -67,19 +68,23 @@ type ActiveProps = ThemeProps & {|
   active: boolean,
 |};
 
-const ContinentItem = styled(Flex)`
+const ContinentButton = styled.button`
+  ${buttonMixin};
+  display: flex;
+  width: 100%;
   background-color: ${({ theme, active }: ActiveProps) => active && theme.orbit.paletteCloudNormal};
   color: ${({ theme, active }: ActiveProps) => active && theme.orbit.paletteProductNormal};
   padding: 14px 16px;
   line-height: 16px;
   cursor: pointer;
+
   &:hover {
     background-color: ${({ theme }: ActiveProps) => theme.orbit.paletteCloudNormal};
     color: ${({ theme }: ActiveProps) => theme.orbit.paletteProductNormal};
   }
 `;
 
-ContinentItem.defaultProps = {
+ContinentButton.defaultProps = {
   theme: themeDefault,
 };
 
@@ -182,17 +187,17 @@ export default class Menu extends React.Component<Props, State> {
       >
         {!flat && (
           <ContinentList>
-            <ContinentItem onClick={() => this.handleContinent("")}>
+            <ContinentButton onClick={() => this.handleContinent("")}>
               <Text t={__("common.languages_all")} />
-            </ContinentItem>
+            </ContinentButton>
             {continents.map(item => (
-              <ContinentItem
-                onClick={() => this.handleContinent(item)}
+              <ContinentButton
                 key={item}
                 active={item === continent}
+                onClick={() => this.handleContinent(item)}
               >
                 <ContinentName id={item} />
-              </ContinentItem>
+              </ContinentButton>
             ))}
           </ContinentList>
         )}
