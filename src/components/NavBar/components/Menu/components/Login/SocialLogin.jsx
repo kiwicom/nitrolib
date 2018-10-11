@@ -4,11 +4,11 @@ import styled from "styled-components";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import Text from "../../../../../Text";
 import type { ThemeProps } from "../../../../../../records/Theme";
 import { themeDefault } from "../../../../../../records/Theme";
-import Flex from "../../../../../../primitives/Flex";
 import type { SocialProvider } from "../../../../../../records/Auth";
 
 const Or = styled.div`
@@ -49,9 +49,15 @@ type Props = {|
 
 const SocialLogin = ({ facebook, google, onSocialAuth }: Props) => (
   <>
-    <Flex x="space-between">
+    <Stack desktop={{ direction: "row", wrap: false, spacing: "extraLoose", align: "even" }}>
       {google && (
-        <Button type="google" bordered icon={<GoogleIcon />} onClick={() => onSocialAuth("google")}>
+        <Button
+          block
+          type="google"
+          bordered
+          icon={<GoogleIcon />}
+          onClick={() => onSocialAuth("google")}
+        >
           <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
         </Button>
       )}
@@ -59,13 +65,14 @@ const SocialLogin = ({ facebook, google, onSocialAuth }: Props) => (
         <Button
           type="facebook"
           bordered
+          block
           icon={<FacebookIcon />}
           onClick={() => onSocialAuth("facebook")}
         >
           <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
         </Button>
       )}
-    </Flex>
+    </Stack>
     <Or>
       <OrLine />
       <OrText>

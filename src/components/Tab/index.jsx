@@ -25,14 +25,13 @@ type ContainerProps = ThemeProps & {
 
 const Container = styled.button`
   flex: 1;
-  margin: 0;
   padding: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   height: 34px;
   line-height: 34px;
-  border-width: ${rtl.box(border.size, border.size, border.size, 0)};
+  border-width: ${border.size}
   border-color: ${({ theme }: ContainerProps) => theme.orbit.paletteInkLighter};
   border-radius: 0;
   background: ${({ theme, active }: ContainerProps) =>

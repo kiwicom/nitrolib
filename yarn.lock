@@ -1016,12 +1016,18 @@
     request-promise "^4.1.1"
     yargs "^8.0.2"
 
+<<<<<<< HEAD
 "@kiwicom/orbit-components@^0.11.3":
   version "0.11.4"
   resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.11.4.tgz#ad84f3464d8b1830201f905a9ddd1b735b08b59a"
   integrity sha512-OHr+6Bqg9H7N70+tJZwmrF1qjarBhAWHwdTEHge9YethZOmtcfWHEa0TlIV8PSa+Pybtj6VqhOwO6co1KR/3Iw==
+=======
+"@kiwicom/orbit-components@^0.14.0":
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.14.0.tgz#f21e1f16cb3ad43e78d526a9f5a0a111bf378d4f"
+>>>>>>> 31f1e60... NavBar: Login Modal
   dependencies:
-    "@kiwicom/orbit-design-tokens" "^0.1.4"
+    "@kiwicom/orbit-design-tokens" "^0.2.1"
     react-icon-base "^2.1.2"
 
 "@kiwicom/orbit-design-tokens@^0.1.4":
@@ -1033,6 +1039,10 @@
   version "1.46.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.46.0.tgz#3498f845b687c2e13614b4320ec18ba6f767d9fe"
   integrity sha512-WCce1jg+fuHQOC5gE47plL2acNMqQlhjxaqVROF987wCGE3SaN1K+sX8MVEKLwK1p/9XxPLzu3myuV/7BOAsKQ==
+
+"@kiwicom/orbit-design-tokens@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-design-tokens/-/orbit-design-tokens-0.2.1.tgz#dd9020a2ab0321ac75c62f3ba061f2628268e2d0"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"

@@ -1,10 +1,10 @@
 // @flow strict
 import * as React from "react";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import Tab from "../../../../../Tab";
 import Text from "../../../../../Text";
 import { Consumer as BrandConsumer } from "../../../../../../services/brand/context";
-import Flex from "../../../../../../primitives/Flex";
 
 type Props = {|
   open: "myBooking" | "register" | "signIn",
@@ -14,7 +14,7 @@ type Props = {|
 |};
 
 const Switch = ({ open, onOpenMyBooking, onOpenRegister, onOpenSignIn }: Props) => (
-  <Flex>
+  <Stack spacing="tight" desktop={{ direction: "row", wrap: false, spacing: "extraTight" }}>
     <Tab id="myBooking" active={open === "myBooking"} onClick={onOpenMyBooking}>
       <Text t={__("account.oneBookingLogin")} />
     </Tab>
@@ -32,7 +32,7 @@ const Switch = ({ open, onOpenMyBooking, onOpenRegister, onOpenSignIn }: Props) 
         )
       }
     </BrandConsumer>
-  </Flex>
+  </Stack>
 );
 
 export default Switch;
