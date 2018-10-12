@@ -6,6 +6,7 @@ import { navbar } from "../../styles";
 import mq from "../../styles/mq";
 import * as rtl from "../../styles/rtl";
 import Desktop from "../Desktop";
+import Mobile from "../Mobile";
 import type { ThemeProps } from "../../records/Theme";
 import { themeDefault } from "../../records/Theme";
 import Flex from "../../primitives/Flex";
@@ -103,6 +104,9 @@ const NavBar = ({
               </MenuSpacings>
             </Desktop>
             {starred && <MenuSpacings>{starred}</MenuSpacings>}
+            <Mobile>
+              <Help onOpen={onOpenFaq} />
+            </Mobile>
             <Menu
               chat={chat}
               subscription={subscription}

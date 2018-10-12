@@ -71,6 +71,7 @@ const ContinentButton = styled.button`
   ${buttonMixin};
   display: flex;
   width: 100%;
+  text-align: left;
   background-color: ${({ theme, active }: ActiveProps) => active && theme.orbit.paletteCloudNormal};
   color: ${({ theme, active }: ActiveProps) => active && theme.orbit.paletteProductNormal};
   padding: 14px 16px;

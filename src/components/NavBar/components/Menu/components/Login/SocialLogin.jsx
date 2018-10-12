@@ -49,7 +49,7 @@ type Props = {|
 
 const SocialLogin = ({ facebook, google, onSocialAuth }: Props) => (
   <>
-    <Stack desktop={{ direction: "row", wrap: false, spacing: "extraLoose", align: "even" }}>
+    <Stack desktop={{ direction: "row" }}>
       {google && (
         <Button
           block

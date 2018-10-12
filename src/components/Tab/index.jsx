@@ -6,6 +6,7 @@ import { border } from "../../styles";
 import * as rtl from "../../styles/rtl";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
+import mq from "../../styles/mq";
 
 const shadowMixin = css`
   box-shadow: 0 0 3px 0 ${({ theme }: ThemeProps) => theme.orbit.paletteInkLighter} inset;
@@ -31,7 +32,7 @@ const Container = styled.button`
   text-overflow: ellipsis;
   height: 34px;
   line-height: 34px;
-  border-width: ${border.size}
+  border-width: ${rtl.box(border.size, border.size, border.size, 0)};
   border-color: ${({ theme }: ContainerProps) => theme.orbit.paletteInkLighter};
   border-radius: 0;
   background: ${({ theme, active }: ContainerProps) =>
@@ -41,9 +42,11 @@ const Container = styled.button`
   ${({ active }: ContainerProps) => active && shadowMixin};
   ${({ active }: ContainerProps) => !active && hoverMixin};
   transition: background ${({ theme }: ContainerProps) => theme.orbit.durationNormal};
-
+  ${mq.gtTablet(css`
+    margin: 0;
+  `)};
   &:first-child {
-    border-width: ${border.size}px;
+    border-width: ${border.size};
     border-radius: ${rtl.box(3, 0, 0, 3)};
   }
 
