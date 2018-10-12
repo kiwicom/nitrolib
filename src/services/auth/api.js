@@ -54,7 +54,7 @@ export function getMyBookingToken({ bid, email, iata, departure }: MyBookingInpu
   const query = {
     email,
     src: iata,
-    dtime: format(departure, config.apiDateFormat),
+    dtime: format(departure, config.apiDateFormat, { awareOfUnicodeTokens: true }),
   };
 
   return fetch(

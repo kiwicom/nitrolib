@@ -46,7 +46,7 @@ const Container = styled.button`
     margin: 0;
   `)};
   &:first-child {
-    border-width: ${border.size};
+    border-width: ${border.size}px;
     border-radius: ${rtl.box(3, 0, 0, 3)};
   }
 

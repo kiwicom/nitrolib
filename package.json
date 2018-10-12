@@ -40,6 +40,7 @@
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "@kiwicom/orbit-design-tokens": "^0.1.4",
+    "babel-loader": "^8.0.4",
     "chalk": "^2.4.1",
     "date-fns": "^2.0.0-alpha.20",
     "fs-extra": "^7.0.0",
