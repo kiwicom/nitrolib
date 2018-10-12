@@ -23,13 +23,14 @@ type Props = {|
   x?: string,
   y?: string,
   direction?: string,
+  dataTest?: string,
 |};
 
 type PropsAll = {| ...ThemeProps, ...Props |};
 
 const Button: ReactComponentFunctional<Props, ThemeProps> = styled(
-  ({ children, className, onClick }) => (
-    <button className={className} onClick={onClick} type="button">
+  ({ children, className, onClick, dataTest }) => (
+    <button className={className} onClick={onClick} type="button" data-test={dataTest}>
       {children}
     </button>
   ),

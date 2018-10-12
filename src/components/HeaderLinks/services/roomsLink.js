@@ -38,13 +38,9 @@ const buildLink = (baseUrl: string, params: Params) => {
         }
       },
       checkIn: (input: Date) =>
-        `checkin_monthday=${getDate(input)}&checkin_year_month=${format(input, "YYYY-MM", {
-          awareOfUnicodeTokens: true,
-        })}`,
+        `checkin_monthday=${getDate(input)}&checkin_year_month=${format(input, "yyyy-MM")}`,
       checkOut: (input: Date) =>
-        `checkout_monthday=${getDate(input)}&checkout_year_month=${format(input, "YYYY-MM", {
-          awareOfUnicodeTokens: true,
-        })}`,
+        `checkout_monthday=${getDate(input)}&checkout_year_month=${format(input, "yyyy-MM")}`,
       adults: (input: number) => `group_adults=${input}`,
       children: (input: number) => `group_children=${input}`,
     },

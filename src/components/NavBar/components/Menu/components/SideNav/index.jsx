@@ -24,6 +24,8 @@ import MenuItem from "./MenuItem";
 import BrandedMenuItem from "./BrandedMenuItem";
 import { icons, getPagesItems, getSocialMediaItems } from "./services/menu";
 
+const SIDENAV_OPENED_CLASS = "sidenav-opened";
+
 const MediaIcons = styled.div`
   margin-top: 20px;
 `;
@@ -130,6 +132,7 @@ type Props = {|
   onOpenSignIn: () => void,
   onOpenRegister: () => void,
   onSaveLanguage: (lang: string) => void,
+  onSideNavChange?: (shown: boolean) => void,
 |};
 
 export default class SideNav extends React.Component<Props, State> {
@@ -141,6 +144,27 @@ export default class SideNav extends React.Component<Props, State> {
     shown: false,
     modalOpen: "",
   };
+
+  componentDidUpdate(prevProps: Props, prevState: State) {
+    const { shown } = this.state;
+    const { onSideNavChange } = this.props;
+
+    if (shown !== prevState.shown) {
+      const body = document.querySelector("body");
+
+      if (body) {
+        if (shown) {
+          body.classList.add(SIDENAV_OPENED_CLASS);
+        } else {
+          body.classList.remove(SIDENAV_OPENED_CLASS);
+        }
+      }
+
+      if (onSideNavChange) {
+        onSideNavChange(shown);
+      }
+    }
+  }
 
   handleToggle = () => {
     this.setState(state => ({
@@ -193,14 +217,14 @@ export default class SideNav extends React.Component<Props, State> {
 
     return (
       <>
-        <MenuOpen onClick={this.handleToggle}>
+        <MenuOpen onClick={this.handleToggle} data-test="NavbarMenu">
           <MenuHamburger />
         </MenuOpen>
 
         <ClientOnly>
           {modalOpen === "" && (
             <SideBar onClick={this.handleToggle} shown={shown}>
-              <Close onClick={this.handleToggle}>
+              <Close onClick={this.handleToggle} data-test="NavbarMenuClose">
                 <Text t={__("common.hide")} /> <CloseIcon />
               </Close>
 

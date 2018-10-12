@@ -34,7 +34,11 @@ const Currency = ({ native, loading, positionMenuDesktop, positionMenuTablet }: 
           onChange={onChange}
         />
       ) : (
-        <CustomPicker onChange={onChange} openButton={<Current current={currency} />}>
+        <CustomPicker
+          onChange={onChange}
+          openButton={<Current current={currency} />}
+          dataTest="CurrencySwitcher"
+        >
           {render => (
             <>
               <LogMount event={{ event: OPEN_CURRENCY, data: null }} />

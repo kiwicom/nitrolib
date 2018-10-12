@@ -1,6 +1,6 @@
 // @flow strict
 const config = {
-  apiDateFormat: "DD/MM/YYYY",
+  apiDateFormat: "dd/MM/yyyy",
   apiUrl: "https://api.skypicker.com",
   apiBookingUrl: "https://booking-api.skypicker.com",
   bookingApiUrl: "https://booking-api.skypicker.com",

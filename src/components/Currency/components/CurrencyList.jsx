@@ -99,7 +99,7 @@ const CurrencyList = ({ active, list, onSetCurrency }: Props) => (
       // eslint-disable-next-line react/no-array-index-key
       <Column key={i}>
         {items.map(item => (
-          <Item key={item.id}>
+          <Item key={item.id} data-test={`CurrencySwitcher-Item-${item.id}`}>
             <Tooltip position={i > 1 ? "left" : "right"} tip={<Tip>{item.name}</Tip>}>
               <ItemText active={item.id === active.id} onClick={() => onSetCurrency(item.id)}>
                 <CurrencyItem item={item} />

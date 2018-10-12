@@ -11,6 +11,7 @@ exports[`#Currency/CustomPicker/CurrencyList render 1`] = `
     key="0"
   >
     <CurrencyList__Item
+      data-test="CurrencySwitcher-Item-gbp"
       key="gbp"
       theme={
         Object {
@@ -813,6 +814,7 @@ exports[`#Currency/CustomPicker/CurrencyList render 1`] = `
     key="1"
   >
     <CurrencyList__Item
+      data-test="CurrencySwitcher-Item-eur"
       key="eur"
       theme={
         Object {
@@ -1615,6 +1617,7 @@ exports[`#Currency/CustomPicker/CurrencyList render 1`] = `
     key="2"
   >
     <CurrencyList__Item
+      data-test="CurrencySwitcher-Item-czk"
       key="czk"
       theme={
         Object {
@@ -2417,6 +2420,7 @@ exports[`#Currency/CustomPicker/CurrencyList render 1`] = `
     key="3"
   >
     <CurrencyList__Item
+      data-test="CurrencySwitcher-Item-usd"
       key="usd"
       theme={
         Object {

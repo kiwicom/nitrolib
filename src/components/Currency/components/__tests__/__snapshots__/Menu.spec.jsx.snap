@@ -2,6 +2,7 @@
 
 exports[`#Currency/Menu render - no recommended 1`] = `
 <Menu__Container
+  data-test="CurrencySwitcher-List"
   theme={
     Object {
       "orbit": Object {
@@ -449,6 +450,7 @@ exports[`#Currency/Menu render - no recommended 1`] = `
 
 exports[`#Currency/Menu render 1`] = `
 <Menu__Container
+  data-test="CurrencySwitcher-List"
   theme={
     Object {
       "orbit": Object {

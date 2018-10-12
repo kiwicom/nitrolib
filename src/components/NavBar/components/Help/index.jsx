@@ -13,7 +13,7 @@ type Props = {|
 |};
 
 const Help = ({ onOpen }: Props) => (
-  <Button onClick={onOpen}>
+  <Button onClick={onOpen} dataTest="NavbarSupport">
     <Desktop>
       <Text t={__("common.help")} />
     </Desktop>

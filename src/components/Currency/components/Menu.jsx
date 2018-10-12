@@ -87,7 +87,11 @@ const Menu = ({
   positionMenuDesktop,
   positionMenuTablet,
 }: Props) => (
-  <Container positionMenuDesktop={positionMenuDesktop} positionMenuTablet={positionMenuTablet}>
+  <Container
+    positionMenuDesktop={positionMenuDesktop}
+    positionMenuTablet={positionMenuTablet}
+    data-test="CurrencySwitcher-List"
+  >
     {!R.isEmpty(recommended) && (
       <Recommended>
         <CurrencyList list={recommended} active={current} onSetCurrency={onChange} />

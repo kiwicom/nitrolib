@@ -85,7 +85,7 @@ const Logo = () => (
         </Link>
       ) : (
         <>
-          <LogoLinkStyled href={home_redirect_url}>
+          <LogoLinkStyled href={home_redirect_url} data-test="NavbarLogoLink">
             <LogoStyled
               title={name}
               alt={name}
