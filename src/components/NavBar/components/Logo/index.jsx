@@ -73,10 +73,15 @@ const logoBaseUrl = "https://images.kiwi.com/whitelabels";
 
 const Logo = () => (
   <BrandConsumer>
-    {({ id, home_redirect_url, name, powered_by_kiwi }) =>
+    {({ id, home_redirect_url, name, powered_by_kiwi, theme }) =>
       id === "kiwicom" ? (
         <Link href={home_redirect_url}>
-          <SvgLogo height={logo.height} width={logo.width} title={name} />
+          <SvgLogo
+            height={logo.height}
+            width={logo.width}
+            title={name}
+            color={theme.palette.productNormal}
+          />
         </Link>
       ) : (
         <>
