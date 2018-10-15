@@ -3,12 +3,14 @@ import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
 import addYears from "date-fns/addYears";
+import parse from "date-fns/parse";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
 import Ticket from "@kiwicom/orbit-components/lib/icons/Ticket";
 import Calendar from "@kiwicom/orbit-components/lib/icons/Calendar";
 
+import Query from "../../../../../Query";
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
 import IconText from "../../../../../IconText";
@@ -90,6 +92,33 @@ export default class MyBooking extends React.PureComponent<Props, State> {
     },
   };
 
+  handleMount = (query: { [key: string]: string }) => {
+    const { now } = this.props;
+
+    // ?bid=123&email=joe@doe.com&src=BRQ&dtime=18/10/2010
+    if (query.bid) {
+      this.setState(state => R.assocPath(["fields", "bid", "value"], query.bid, state));
+      this.setState(state => R.assocPath(["fields", "bid", "error"], "", state));
+    }
+
+    if (query.email) {
+      this.setState(state => R.assocPath(["fields", "email", "value"], query.email, state));
+      this.setState(state => R.assocPath(["fields", "email", "error"], "", state));
+    }
+
+    if (query.src) {
+      this.setState(state => R.assocPath(["fields", "iata", "value"], query.src, state));
+      this.setState(state => R.assocPath(["fields", "iata", "error"], "", state));
+    }
+
+    if (query.dtime) {
+      this.setState(state =>
+        R.assocPath(["fields", "departure", "value"], parse(query.dtime, "dd/MM/yyyy", now), state),
+      );
+      this.setState(state => R.assocPath(["fields", "departure", "error"], "", state));
+    }
+  };
+
   handleChange = ({ id, value, error }: Change) => {
     this.setState(state => ({
       fields: R.assoc(id, { value, error }, state.fields),
@@ -160,6 +189,8 @@ export default class MyBooking extends React.PureComponent<Props, State> {
       <IntlConsumer>
         {intl => (
           <>
+            <Query onMount={this.handleMount} />
+
             {error && (
               <FieldWrap>
                 <Alert type="critical">{error}</Alert>

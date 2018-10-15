@@ -9,6 +9,7 @@ import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
 import Security from "@kiwicom/orbit-components/lib/icons/Security";
 import User from "@kiwicom/orbit-components/lib/icons/Passenger";
 
+import Query from "../../../../../Query";
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
 import IconText from "../../../../../IconText";
@@ -101,6 +102,26 @@ export default class Register extends React.PureComponent<Props, State> {
     }
   }
 
+  handleMount = (query: { [key: string]: string }) => {
+    // ?first_name=Joe&last_name=Doe&email=joe@doe.com
+    if (query.first_name) {
+      this.setState(state =>
+        R.assocPath(["fields", "firstName", "value"], query.first_name, state),
+      );
+      this.setState(state => R.assocPath(["fields", "firstName", "error"], "", state));
+    }
+
+    if (query.last_name) {
+      this.setState(state => R.assocPath(["fields", "lastName", "value"], query.last_name, state));
+      this.setState(state => R.assocPath(["fields", "lastName", "error"], "", state));
+    }
+
+    if (query.email) {
+      this.setState(state => R.assocPath(["fields", "email", "value"], query.email, state));
+      this.setState(state => R.assocPath(["fields", "email", "error"], "", state));
+    }
+  };
+
   handleChange = ({ value, error, id }: Change) => {
     this.setState(state => ({
       fields: R.assoc(id, { value, error }, state.fields),
@@ -134,6 +155,8 @@ export default class Register extends React.PureComponent<Props, State> {
 
     return (
       <>
+        <Query onMount={this.handleMount} />
+
         {error && (
           <FieldWrap>
             <Alert type="critical">{error}</Alert>

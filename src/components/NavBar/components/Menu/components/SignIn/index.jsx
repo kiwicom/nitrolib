@@ -18,6 +18,7 @@ import * as validators from "../../../../../../services/input/validators";
 import * as normalizers from "../../../../../../services/input/normalizers";
 import isEmptish from "../../../../../../services/utils/isEmptish";
 import IconText from "../../../../../IconText";
+import Query from "../../../../../Query";
 
 const FieldWrap = styled.div`
   position: relative;
@@ -75,6 +76,14 @@ export default class SignIn extends React.PureComponent<Props, State> {
     submitted: false,
   };
 
+  handleMount = (query: { [key: string]: string }) => {
+    // ?email=joe@doe.com
+    if (query.email) {
+      this.setState(state => R.assocPath(["fields", "email", "value"], query.email, state));
+      this.setState(state => R.assocPath(["fields", "email", "error"], "", state));
+    }
+  };
+
   handleChange = ({ value, error, id }: Change) => {
     this.setState(state => ({
       fields: R.assoc(id, { value, error }, state.fields),
@@ -103,6 +112,8 @@ export default class SignIn extends React.PureComponent<Props, State> {
 
     return (
       <>
+        <Query onMount={this.handleMount} />
+
         {error && (
           <FieldWrap>
             <Alert type="critical">{error}</Alert>
