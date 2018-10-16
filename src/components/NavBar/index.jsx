@@ -79,7 +79,7 @@ const NavBar = ({
 }: Props) => (
   <LogConsumer>
     {({ log }) => (
-      <Container x="space-between" y="center" shadow={shadow} dataTest="Navbar">
+      <Container x="space-between" y="center" shadow={shadow} data-test="Navbar">
         <Flex y="center" x="flex-start">
           <Logo />
           {headerLinks && (

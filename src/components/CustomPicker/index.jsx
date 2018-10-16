@@ -42,7 +42,7 @@ const CustomPicker = ({ openButton, children, onChange, dataTest }: Props) => (
   <Toggle>
     {({ open, onToggle }) => (
       <>
-        <OpenButton onClick={onToggle} dataTest={dataTest}>
+        <OpenButton onClick={onToggle} data-test={dataTest}>
           {openButton}
         </OpenButton>
         {open && (

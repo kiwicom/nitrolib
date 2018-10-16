@@ -347,7 +347,7 @@ export default class SideNav extends React.Component<Props, State> {
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
-                                <Icon className="socialIcon" />
+                                {Icon && <Icon className="socialIcon" />}
                               </Link>
                             ))}
                           </MediaIcons>

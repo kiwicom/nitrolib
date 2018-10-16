@@ -75,7 +75,7 @@ const Logo = () => (
   <BrandConsumer>
     {({ id, home_redirect_url, name, powered_by_kiwi, theme }) =>
       id === "kiwicom" ? (
-        <Link href={home_redirect_url}>
+        <Link href={home_redirect_url} data-test="NavbarLogoLink">
           <SvgLogo
             height={logo.height}
             width={logo.width}
