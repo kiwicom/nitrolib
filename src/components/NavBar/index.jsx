@@ -82,6 +82,7 @@ type Props = {|
   onOpenFaq: () => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
+  portal?: string,
 |};
 
 const NavBar = ({
@@ -90,6 +91,7 @@ const NavBar = ({
   chat,
   subscription,
   debug,
+  portal,
   shadow,
   onOpenFaq,
   onSaveLanguage,
@@ -124,15 +126,13 @@ const NavBar = ({
             <AuthConsumer>
               {({ resetError }) => (
                 <Menu
-                  chat={chat}
-                  subscription={subscription}
-                  debug={debug}
-                  onResetError={resetError}
-                  onSaveLanguage={onSaveLanguage}
-                  onSelectTrip={onSelectTrip}
-                  onLog={log}
-                />
-              )}
+              chat={chat}
+              subscription={subscription}
+              debug={debug}
+              onResetError={resetError}onSaveLanguage={onSaveLanguage}
+              onSelectTrip={onSelectTrip}
+              onLog={log}
+            portal={portal}/>)}
             </AuthConsumer>
           </Wrapper>
         </Flex>

@@ -23,7 +23,7 @@ type FlatProps = {|
 const MenuWrapper = styled.div`
   background-color: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   position: absolute;
-  top: 50px;
+  top: 55x;
   display: flex;
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};

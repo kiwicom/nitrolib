@@ -13,7 +13,7 @@ import CurrencyList from "./CurrencyList";
 const Container = styled.div`
   position: absolute;
   ${rtl.right}: 0;
-  top: 50px;
+  top: 55px;
   width: calc(100% - 40px);
   max-height: calc(100vh - 200px);
   margin: 0 20px;
