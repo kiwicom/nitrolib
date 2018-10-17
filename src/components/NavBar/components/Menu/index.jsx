@@ -5,6 +5,7 @@ import Modal from "@kiwicom/orbit-components/lib/Modal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import ReactDOM from "react-dom";
 
+import CloseByKey from "../../../CloseByKey";
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
 import Text from "../../../Text";
@@ -117,24 +118,26 @@ export default class Menu extends React.Component<Props, State> {
 
         {modalOpen !== "" &&
           this.changedPortal(
-            <Modal onClose={this.handleClose} size="normal">
-              <ModalSection>
-                {modalOpen === "forgotPassword" ? (
-                  <BrandConsumer>
-                    {brand => <ForgotPassword brandId={brand.id} onClose={this.handleClose} />}
-                  </BrandConsumer>
-                ) : (
-                  <Login
-                    open={modalOpen}
-                    onCloseSuccess={this.handleClose}
-                    onOpenMyBooking={this.handleOpenMyBooking}
-                    onOpenRegister={this.handleOpenRegister}
-                    onOpenSignIn={this.handleOpenSignIn}
-                    onOpenForgotPassword={this.handleOpenForgotPassword}
-                  />
-                )}
-              </ModalSection>
-            </Modal>,
+            <CloseByKey onClose={this.handleClose}>
+              <Modal onClose={this.handleClose} size="normal">
+                <ModalSection>
+                  {modalOpen === "forgotPassword" ? (
+                    <BrandConsumer>
+                      {brand => <ForgotPassword brandId={brand.id} onClose={this.handleClose} />}
+                    </BrandConsumer>
+                  ) : (
+                    <Login
+                      open={modalOpen}
+                      onCloseSuccess={this.handleClose}
+                      onOpenMyBooking={this.handleOpenMyBooking}
+                      onOpenRegister={this.handleOpenRegister}
+                      onOpenSignIn={this.handleOpenSignIn}
+                      onOpenForgotPassword={this.handleOpenForgotPassword}
+                    />
+                  )}
+                </ModalSection>
+              </Modal>
+            </CloseByKey>,
             document.getElementById("modals") || document.createElement("div"),
           )}
       </>
