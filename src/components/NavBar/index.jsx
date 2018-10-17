@@ -81,6 +81,7 @@ type Props = {|
   onOpenFaq: () => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
+  portal?: string,
 |};
 
 const NavBar = ({
@@ -89,6 +90,7 @@ const NavBar = ({
   chat,
   subscription,
   debug,
+  portal,
   shadow,
   onOpenFaq,
   onSaveLanguage,
@@ -127,6 +129,7 @@ const NavBar = ({
               onSaveLanguage={onSaveLanguage}
               onSelectTrip={onSelectTrip}
               onLog={log}
+              portal={portal}
             />
           </Wrapper>
         </Flex>

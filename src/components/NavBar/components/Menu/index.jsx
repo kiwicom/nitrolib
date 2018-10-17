@@ -3,7 +3,7 @@ import * as React from "react";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
 import Modal from "@kiwicom/orbit-components/lib/Modal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
-import ReactDOM from "react-dom";
+import Portal from "@kiwicom/orbit-components/lib/Portal";
 
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
@@ -22,6 +22,7 @@ type AuthModal = "myBooking" | "register" | "signIn" | "forgotPassword";
 
 type Props = {|
   chat: React.Node,
+  portal?: string,
   subscription: React.Node,
   debug?: React.Node,
   onSaveLanguage: (lang: string) => void,
@@ -69,19 +70,8 @@ export default class Menu extends React.Component<Props, State> {
     onLog({ event: OPEN_MODAL, data: { modal: "forgotPassword" } });
   };
 
-  useDom = () =>
-    !!(typeof window !== "undefined" && window.document && window.document.createElement);
-
-  changedPortal(children: React.Node, selector: HTMLElement) {
-    if (!this.useDom()) {
-      return null;
-    }
-
-    return ReactDOM.createPortal(children, selector);
-  }
-
   render() {
-    const { chat, subscription, debug, onSaveLanguage, onSelectTrip } = this.props;
+    const { chat, subscription, debug, onSaveLanguage, onSelectTrip, portal } = this.props;
     const { modalOpen } = this.state;
 
     return (
@@ -116,7 +106,28 @@ export default class Menu extends React.Component<Props, State> {
         />
 
         {modalOpen !== "" &&
-          this.changedPortal(
+          (portal ? (
+            <Portal element={portal}>
+              <Modal onClose={this.handleClose} size="normal">
+                <ModalSection>
+                  {modalOpen === "forgotPassword" ? (
+                    <BrandConsumer>
+                      {brand => <ForgotPassword brandId={brand.id} onClose={this.handleClose} />}
+                    </BrandConsumer>
+                  ) : (
+                    <Login
+                      open={modalOpen}
+                      onCloseSuccess={this.handleClose}
+                      onOpenMyBooking={this.handleOpenMyBooking}
+                      onOpenRegister={this.handleOpenRegister}
+                      onOpenSignIn={this.handleOpenSignIn}
+                      onOpenForgotPassword={this.handleOpenForgotPassword}
+                    />
+                  )}
+                </ModalSection>
+              </Modal>
+            </Portal>
+          ) : (
             <Modal onClose={this.handleClose} size="normal">
               <ModalSection>
                 {modalOpen === "forgotPassword" ? (
@@ -134,9 +145,8 @@ export default class Menu extends React.Component<Props, State> {
                   />
                 )}
               </ModalSection>
-            </Modal>,
-            document.getElementById("modals") || document.createElement("div"),
-          )}
+            </Modal>
+          ))}
       </>
     );
   }
