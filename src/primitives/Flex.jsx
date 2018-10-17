@@ -3,7 +3,11 @@ import styled from "styled-components";
 import * as React from "react";
 import PropTypes from "prop-types";
 
-const Flex = styled(({ children, className }) => <div className={className}>{children}</div>)`
+const Flex = styled(({ children, className, dataTest }) => (
+  <div className={className} data-test={dataTest}>
+    {children}
+  </div>
+))`
   display: flex;
   ${({ x, y, direction }) => x && `justify-content: ${direction === "column" ? y : x}`};
   ${({ x, y, direction }) => y && `align-items: ${direction === "column" ? x : y}`};
