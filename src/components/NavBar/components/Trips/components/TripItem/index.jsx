@@ -2,6 +2,7 @@
 import * as React from "react";
 import RouteOneStop from "@kiwicom/orbit-components/lib/icons/RouteOneStop";
 import RouteTwoStops from "@kiwicom/orbit-components/lib/icons/RouteTwoStops";
+import styled, { css } from "styled-components";
 
 import ItemWrapper from "../../primitives/ItemWrapper";
 import TripInfo from "../../primitives/TripInfo";
@@ -9,6 +10,7 @@ import Column from "../../primitives/Column";
 import TripInfoLine from "../../primitives/TripInfoLine";
 import Text from "../../../../../Text";
 import Day from "../../../../../Day";
+import mq from "../../../../../../styles/mq";
 
 type Props = {|
   bid: string,
@@ -23,11 +25,15 @@ type Props = {|
   onSelect: (bid: string) => void,
 |};
 
-const styleImg = {
-  display: "flex",
-  justifyContent: "center",
-  overlfow: "hidden",
-};
+const Img = styled.img`
+  display: "flex";
+  justify-content: "center";
+  overlfow: "hidden";
+  height: 180px;
+  ${mq.ltMiddleMobile(css`
+    height: 120px;
+  `)};
+`;
 
 const TripItem = ({
   bid,
@@ -42,7 +48,7 @@ const TripItem = ({
   onSelect,
 }: Props) => (
   <ItemWrapper onClick={() => onSelect(bid)}>
-    <img src={img} alt="img" height="180" style={styleImg} />
+    <Img src={img} alt="img" />
     <TripInfo>
       <Column>
         <TripInfoLine darker>

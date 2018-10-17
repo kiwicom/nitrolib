@@ -31,64 +31,82 @@ type Props = {|
   onOpenForgotPassword: () => void,
 |};
 
-const Login = ({
-  open,
-  onOpenMyBooking,
-  onCloseSuccess,
-  onOpenRegister,
-  onOpenSignIn,
-  onOpenForgotPassword,
-}: Props) => (
-  <Container>
-    <AuthConsumer>
-      {auth => (
-        <>
-          <BrandConsumer>
-            {brand =>
-              (brand.auth.social_facebook.enabled || brand.auth.social_google.enabled) && (
-                <SocialLogin
-                  facebook={brand.auth.social_facebook.enabled}
-                  google={brand.auth.social_google.enabled}
-                  onSocialAuth={auth.onSocialAuth}
+class Login extends React.Component<Props> {
+  componentDidMount() {
+    this.handleCSS();
+  }
+
+  componentWillUnmount() {
+    this.handleCSS();
+  }
+
+  handleCSS = () => {
+    const mainview = document.getElementsByClassName("MainView")[0];
+    mainview.classList.toggle("MainView_nitro-modal");
+  };
+
+  render() {
+    const {
+      open,
+      onOpenMyBooking,
+      onCloseSuccess,
+      onOpenRegister,
+      onOpenSignIn,
+      onOpenForgotPassword,
+    } = this.props;
+    return (
+      <Container>
+        <AuthConsumer>
+          {auth => (
+            <>
+              <BrandConsumer>
+                {brand =>
+                  (brand.auth.social_facebook.enabled || brand.auth.social_google.enabled) && (
+                    <SocialLogin
+                      facebook={brand.auth.social_facebook.enabled}
+                      google={brand.auth.social_google.enabled}
+                      onSocialAuth={auth.onSocialAuth}
+                    />
+                  )
+                }
+              </BrandConsumer>
+              <Switch
+                open={open}
+                onOpenMyBooking={onOpenMyBooking}
+                onOpenRegister={onOpenRegister}
+                onOpenSignIn={onOpenSignIn}
+              />
+              {open === "myBooking" && (
+                <MyBooking
+                  loading={auth.loading}
+                  error={auth.error}
+                  onMyBooking={auth.onMyBooking}
+                  onCloseSuccess={onCloseSuccess}
                 />
-              )
-            }
-          </BrandConsumer>
-          <Switch
-            open={open}
-            onOpenMyBooking={onOpenMyBooking}
-            onOpenRegister={onOpenRegister}
-            onOpenSignIn={onOpenSignIn}
-          />
-          {open === "myBooking" && (
-            <MyBooking
-              loading={auth.loading}
-              error={auth.error}
-              onMyBooking={auth.onMyBooking}
-              onCloseSuccess={onCloseSuccess}
-            />
+              )}
+              {open === "register" && (
+                <Register
+                  loading={auth.loading}
+                  error={auth.error}
+                  onRegister={auth.onRegister}
+                  onCloseSuccess={onCloseSuccess}
+                />
+              )}
+              {open === "signIn" && (
+                <SignIn
+                  loading={auth.loading}
+                  error={auth.error}
+                  onSignIn={auth.onSignIn}
+                  onCloseSuccess={onCloseSuccess}
+                  onOpenForgotPassword={onOpenForgotPassword}
+                />
+              )}
+            </>
           )}
-          {open === "register" && (
-            <Register
-              loading={auth.loading}
-              error={auth.error}
-              onRegister={auth.onRegister}
-              onCloseSuccess={onCloseSuccess}
-            />
-          )}
-          {open === "signIn" && (
-            <SignIn
-              loading={auth.loading}
-              error={auth.error}
-              onSignIn={auth.onSignIn}
-              onCloseSuccess={onCloseSuccess}
-              onOpenForgotPassword={onOpenForgotPassword}
-            />
-          )}
-        </>
-      )}
-    </AuthConsumer>
-  </Container>
-);
+        </AuthConsumer>
+      </Container>
+    );
+  }
+}
 
 export default Login;

@@ -386,16 +386,8 @@ exports[`#TripItem render 1`] = `
     }
   }
 >
-  <img
+  <TripItem__Img
     alt="img"
-    height="180"
-    style={
-      Object {
-        "display": "flex",
-        "justifyContent": "center",
-        "overlfow": "hidden",
-      }
-    }
   />
   <TripInfo>
     <Column

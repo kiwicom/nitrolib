@@ -1,11 +1,12 @@
 // @flow strict
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import ItemWrapper from "../../primitives/ItemWrapper";
 import Text from "../../../../../Text";
 import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
 import ButtonLink from "../../../../primitives/ButtonLink";
+import mq from "../../../../../../styles/mq";
 
 type Props = {|
   children: React.Node,
@@ -14,6 +15,9 @@ type Props = {|
 const TripsBottomWrapper = styled.div`
   display: flex;
   width: 180px;
+  ${mq.ltMiddleMobile(css`
+    width: 120px;
+  `)};
 `;
 
 const TripListBottom = ({ children }: Props) => (
@@ -22,7 +26,13 @@ const TripListBottom = ({ children }: Props) => (
       <>
         <ItemWrapper>
           <TripsBottomWrapper>{children}</TripsBottomWrapper>
-          <ButtonLink primary marginLeft={25} bold href={`/${intl.language.id}/account#future`}>
+          <ButtonLink
+            primary
+            marginLeft={25}
+            y="center"
+            bold
+            href={`/${intl.language.id}/account#future`}
+          >
             <Text t={__("account.all_trips")} />
           </ButtonLink>
         </ItemWrapper>
