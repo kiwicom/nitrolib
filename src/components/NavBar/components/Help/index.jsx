@@ -6,7 +6,6 @@ import Text from "../../../Text";
 import Button from "../../primitives/Button";
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
-import MenuSpacings from "../../primitives/MenuSpacings";
 
 type Props = {|
   onOpen: () => void,
@@ -18,9 +17,7 @@ const Help = ({ onOpen }: Props) => (
       <Text t={__("common.help")} />
     </Desktop>
     <Mobile>
-      <MenuSpacings>
-        <Faq />
-      </MenuSpacings>
+      <Faq />
     </Mobile>
   </Button>
 );

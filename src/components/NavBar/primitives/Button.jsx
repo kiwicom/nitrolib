@@ -40,7 +40,6 @@ const Button: ReactComponentFunctional<Props, ThemeProps> = styled(
   color: ${({ theme, primary }: PropsAll) =>
     primary ? `${theme.orbit.paletteProductNormal}` : `${theme.orbit.paletteInkNormal}`};
   cursor: pointer;
-  line-height: 50px;
   font-weight: ${({ theme, bold }: PropsAll) =>
     bold ? theme.orbit.fontWeightBold : theme.orbit.fontWeightMedium};
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};

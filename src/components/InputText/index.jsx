@@ -17,7 +17,6 @@ const Label = styled.label`
   border-radius: 1px;
   align-items: center;
   ${borderMixin};
-  margin-bottom: 20px;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
 `;
 
@@ -53,7 +52,10 @@ const stateMixin = css`
   font-size: 10px;
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
   ${rtl.right}: 0;
-  bottom: -14px;
+`;
+
+const States = styled.div`
+  display: flex;
 `;
 
 const Error = styled.div`
@@ -186,29 +188,32 @@ export default class InputText extends React.PureComponent<Props, State> {
     });
 
     return (
-      <Label state={borderState}>
-        <Input
-          {...omitProps(this.props)}
-          innerRef={inputRef}
-          value={value}
-          onChange={this.handleChange}
-          onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
-          placeholder={placeholder}
-        />
+      <>
+        <Label state={borderState}>
+          <Input
+            {...omitProps(this.props)}
+            innerRef={inputRef}
+            value={value}
+            onChange={this.handleChange}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
+            placeholder={placeholder}
+          />
+        </Label>
+        <States>
+          {borderState === "error" && (
+            <Error active={active}>
+              <Text t={error} />
+            </Error>
+          )}
 
-        {borderState === "error" && (
-          <Error active={active}>
-            <Text t={error} />
-          </Error>
-        )}
-
-        {borderState === "hint" && (
-          <Hint onClick={this.handleHint}>
-            <TextNode t={__("common.did_you_mean")} values={{ x: <HintText>{hint}</HintText> }} />
-          </Hint>
-        )}
-      </Label>
+          {borderState === "hint" && (
+            <Hint onClick={this.handleHint}>
+              <TextNode t={__("common.did_you_mean")} values={{ x: <HintText>{hint}</HintText> }} />
+            </Hint>
+          )}
+        </States>
+      </>
     );
   }
 }

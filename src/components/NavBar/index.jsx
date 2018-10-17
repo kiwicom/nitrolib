@@ -18,7 +18,6 @@ import Menu from "./components/Menu";
 import Logo from "./components/Logo";
 import Currency from "../Currency";
 // import Starred from "../Starred"; FIXME add as a full feature
-import MenuSpacings from "./primitives/MenuSpacings";
 
 // TODO: replace z-index with Orbit token after refactoring all front-end indexes
 const Container = styled(Flex)`
@@ -43,11 +42,29 @@ Container.defaultProps = {
   theme: themeDefault,
 };
 
+const marginMixin = css`
+  margin-${rtl.left}: 20px;
+  ${mq.ltTablet(css`
+    margin-${rtl.left}: 5px;
+  `)};
+`;
+
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
+  & > div {
+    ${marginMixin};
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  & > button {
+    ${marginMixin};
+  }
 `;
 
 Wrapper.defaultProps = {
@@ -89,21 +106,17 @@ const NavBar = ({
         <Flex y="center">
           <Wrapper>
             <Desktop display="flex">
-              <MenuSpacings>
+              <ButtonWrapper>
                 <Language
-                  positionMenuDesktop={-270}
-                  positionMenuTablet={0}
+                  positionMenuDesktop={270}
+                  positionMenuTablet={5}
                   onChange={onSaveLanguage}
                 />
-              </MenuSpacings>
-              <MenuSpacings>
-                <Currency positionMenuDesktop={-270} positionMenuTablet={-200} />
-              </MenuSpacings>
-              <MenuSpacings>
+                <Currency positionMenuDesktop={270} positionMenuTablet={5} />
                 <Help onOpen={onOpenFaq} />
-              </MenuSpacings>
+              </ButtonWrapper>
             </Desktop>
-            {starred && <MenuSpacings>{starred}</MenuSpacings>}
+            {starred && starred}
             <Mobile>
               <Help onOpen={onOpenFaq} />
             </Mobile>

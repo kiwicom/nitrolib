@@ -1,7 +1,8 @@
 // @flow
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
+import mq from "../../../../../../styles/mq";
 import ItemWrapper from "../../primitives/ItemWrapper";
 
 const handleSelect = (id: string, language: string) => {
@@ -20,6 +21,9 @@ const Img = styled.img`
   overflow: hidden;
   height: 50px;
   width: 45px;
+  ${mq.ltMiddleMobile(css`
+    height: 30px;
+  `)};
 `;
 
 const BottomTripItem = ({ id, imageUrl, lang }: Props) => (

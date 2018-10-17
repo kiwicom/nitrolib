@@ -29,18 +29,18 @@ const MenuWrapper = styled.div`
   box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
   ${({ flat }: FlatProps) =>
     !flat &&
-    mq.gtTablet(css`
-      ${({ positionMenuDesktop }: FlatProps) =>
+    mq.tablet(css`
+      ${({ positionMenuTablet }: FlatProps) =>
         css`
-          ${rtl.right}: ${positionMenuDesktop}px;
+          ${rtl.right}: ${positionMenuTablet}px;
         `};
     `)};
   ${({ flat }: FlatProps) =>
     !flat &&
     mq.gtDesktop(css`
-      ${({ positionMenuTablet }: FlatProps) =>
+      ${({ positionMenuDesktop }: FlatProps) =>
         css`
-          ${rtl.right}: ${positionMenuTablet}px;
+          ${rtl.right}: ${positionMenuDesktop}px;
         `};
     `)};
 `;

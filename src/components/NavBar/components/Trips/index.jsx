@@ -13,7 +13,6 @@ import type { Auth } from "../../../../records/Auth";
 import type { ThemeProps } from "../../../../records/Theme";
 import Toggle from "../../../Toggle";
 import TripDataList from "./components/TripDataList";
-import MenuSpacings from "../../primitives/MenuSpacings";
 import Flex from "../../../../primitives/Flex";
 import mq from "../../../../styles/mq";
 
@@ -32,7 +31,7 @@ const UserStyle = styled.div`
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
   padding-left: 5px;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
-  ${mq.smallMobile(css`
+  ${mq.ltMiddleMobile(css`
     display: none;
   `)};
 `;
@@ -58,25 +57,23 @@ const Trips = ({ auth, env, onSelect }: Props) => (
             <TripDataList env={env} onSelect={onSelect} />
           </ClickOutside>
         )}
-        <MenuSpacings>
-          <Desktop display="flex">
-            <Flex y="center">
-              <Passenger size="small" />
-              <Button onClick={onToggle}>
-                <HideOnLower>
-                  <Text t={__("account.my_bookings_action")} />
-                </HideOnLower>
-                <UserStyle>({`${auth.user.firstname}...`})</UserStyle>
-              </Button>
-            </Flex>
-          </Desktop>
-          <Mobile display="flex">
-            <Button onClick={onToggle} y="center">
-              <Passenger size="small" />
-              <UserStyle>{`${auth.user.firstname} ${auth.user.lastname}`}</UserStyle>
+        <Desktop display="flex">
+          <Flex y="center">
+            <Passenger size="small" />
+            <Button onClick={onToggle}>
+              <HideOnLower>
+                <Text t={__("account.my_bookings_action")} />
+              </HideOnLower>
+              <UserStyle>({`${auth.user.firstname}...`})</UserStyle>
             </Button>
-          </Mobile>
-        </MenuSpacings>
+          </Flex>
+        </Desktop>
+        <Mobile display="flex">
+          <Button onClick={onToggle} y="center">
+            <Passenger size="small" />
+            <UserStyle>{`${auth.user.firstname} ${auth.user.lastname}`}</UserStyle>
+          </Button>
+        </Mobile>
       </>
     )}
   </Toggle>
