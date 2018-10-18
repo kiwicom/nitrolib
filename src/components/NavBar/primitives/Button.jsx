@@ -8,6 +8,8 @@ import type { ThemeProps } from "../../../records/Theme";
 import { themeDefault } from "../../../records/Theme";
 import buttonMixin from "../../../styles/mixins/button";
 
+export type Bg = "white" | "primary" | "secondary";
+
 type Props = {|
   onClick: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   children: React.Node | React.Node[],
@@ -19,6 +21,7 @@ type Props = {|
   marginRight?: number,
   children: React.Node,
   className?: string,
+  background?: Bg,
   fontSize?: string,
   x?: string,
   y?: string,
@@ -45,7 +48,13 @@ const Button: ReactComponentFunctional<Props, ThemeProps> = styled(
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   font-family: ${({ theme }: ThemeProps) => theme.orbit.fontFamily};
   text-decoration: none;
-  background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
+  background: ${({ theme, background }: PropsAll) =>
+    background
+      ? (background === "white" && theme.orbit.paletteWhite) ||
+        (background === "primary" && theme.orbit.backgroundButtonPrimary) ||
+        (background === "secondary" && theme.orbit.backgroundButtonSecondary)
+      : `inherit`};
+
   white-space: nowrap;
   ${({ transition }) => transition && `transition: color 0.2s ease-in-out`};
   ${({ padding }) => padding && `padding: ${padding}`};

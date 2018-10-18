@@ -4,6 +4,7 @@ import type { ReactComponentFunctional } from "styled-components";
 import { themeDefault } from "../../../records/Theme";
 import Button from "./Button";
 import type { ThemeProps } from "../../../records/Theme";
+import type { Bg } from "./Button";
 
 type Props = {|
   href: string,
@@ -11,6 +12,7 @@ type Props = {|
   bold?: boolean,
   primary?: boolean,
   padding?: string,
+  background?: Bg,
   marginLeft?: number,
   marginRight?: number,
   fontSize?: string,

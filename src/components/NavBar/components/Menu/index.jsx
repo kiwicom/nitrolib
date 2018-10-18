@@ -85,7 +85,7 @@ export default class Menu extends React.Component<Props, State> {
             auth === null ? (
               <>
                 <Desktop display="flex">
-                  <Button direction="x" onClick={this.handleOpenMyBooking}>
+                  <Button direction="x" onClick={this.handleOpenMyBooking} background="white">
                     <Text t={__("account.my_bookings_action")} />
                   </Button>
                 </Desktop>
