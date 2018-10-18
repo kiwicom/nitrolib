@@ -13,11 +13,18 @@ import { themeDefault } from "../../../../../../records/Theme";
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
 import Text from "../../../../../Text";
+import compose from "../../../../../../services/input/composeValidator";
 import * as validators from "../../../../../../services/input/validators";
 import * as normalizers from "../../../../../../services/input/normalizers";
+import emailCorrector from "../../../../../../services/input/emailCorrector";
 import isEmptish from "../../../../../../services/utils/isEmptish";
 import IconText from "../../../../../IconText";
 import Query from "../../../../../Query";
+
+const emailValidator = compose(
+  validators.email,
+  validators.required,
+);
 
 const FieldWrap = styled.div`
   position: relative;
@@ -122,7 +129,8 @@ export default class SignIn extends React.PureComponent<Props, State> {
             error={fields.email.error}
             onChange={this.handleChange}
             normalize={normalizers.email}
-            validate={validators.required}
+            validate={emailValidator}
+            corrector={emailCorrector}
             autocomplete="email"
             showState={submitted}
           />

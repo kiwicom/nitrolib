@@ -23,6 +23,10 @@ Container.defaultProps = {
   theme: themeDefault,
 };
 
+const FieldWrap = styled.div`
+  margin: 15px 0;
+`;
+
 type Props = {|
   open: "myBooking" | "register" | "signIn",
   onOpenMyBooking: () => void,
@@ -77,7 +81,11 @@ class Login extends React.Component<Props> {
                 onOpenRegister={onOpenRegister}
                 onOpenSignIn={onOpenSignIn}
               />
-              {auth.error && <Alert type="critical">{auth.error}</Alert>}
+              {auth.error && (
+                <FieldWrap>
+                  <Alert type="critical">{auth.error}</Alert>
+                </FieldWrap>
+              )}
               {open === "myBooking" && (
                 <MyBooking
                   loading={auth.loading}
