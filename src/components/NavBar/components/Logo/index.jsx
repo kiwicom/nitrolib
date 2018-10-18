@@ -5,6 +5,7 @@ import styled, { css } from "styled-components";
 import { logo } from "../../../../styles";
 import type { ThemeProps } from "../../../../records/Theme";
 import { themeDefault } from "../../../../records/Theme";
+import { Consumer as IntlConsumer } from "../../../../services/intl/context";
 import { Consumer as BrandConsumer } from "../../../../services/brand/context";
 import SvgLogo from "./SvgLogo";
 import * as rtl from "../../../../styles/rtl";
@@ -72,42 +73,49 @@ const Link = styled.a`
 const logoBaseUrl = "https://images.kiwi.com/whitelabels";
 
 const Logo = () => (
-  <BrandConsumer>
-    {({ id, home_redirect_url, name, powered_by_kiwi, theme }) =>
-      id === "kiwicom" ? (
-        <Link href={home_redirect_url} data-test="NavbarLogoLink">
-          <SvgLogo
-            height={logo.height}
-            width={logo.width}
-            title={name}
-            color={theme.palette.productNormal}
-          />
-        </Link>
-      ) : (
-        <>
-          <LogoLinkStyled href={home_redirect_url} data-test="NavbarLogoLink">
-            <LogoStyled
-              title={name}
-              alt={name}
-              srcSet={`${logoBaseUrl}/0x80/${id}.png?v=1 2x`}
-              src={`${logoBaseUrl}/0x40/${id}.png?v=1`}
-            />
-            <LogoStyledMobile
-              title={name}
-              alt={name}
-              srcSet={`${logoBaseUrl}/0x80/${id}-mobile.png?v=1 2x`}
-              src={`${logoBaseUrl}/0x40/${id}-mobile.png?v=1`}
-            />
-          </LogoLinkStyled>
-          {powered_by_kiwi && (
-            <PoweredByKiwi>
-              Powered by <br /> Kiwi.com
-            </PoweredByKiwi>
-          )}
-        </>
-      )
-    }
-  </BrandConsumer>
+  <IntlConsumer>
+    {({ language }) => (
+      <BrandConsumer>
+        {({ id, home_redirect_url, name, powered_by_kiwi, theme }) =>
+          id === "kiwicom" ? (
+            <Link href={`${home_redirect_url}${language.id}/`} data-test="NavbarLogoLink">
+              <SvgLogo
+                height={logo.height}
+                width={logo.width}
+                title={name}
+                color={theme.palette.productNormal}
+              />
+            </Link>
+          ) : (
+            <>
+              <LogoLinkStyled
+                href={`${home_redirect_url}${language.id}/`}
+                data-test="NavbarLogoLink"
+              >
+                <LogoStyled
+                  title={name}
+                  alt={name}
+                  srcSet={`${logoBaseUrl}/0x80/${id}.png?v=1 2x`}
+                  src={`${logoBaseUrl}/0x40/${id}.png?v=1`}
+                />
+                <LogoStyledMobile
+                  title={name}
+                  alt={name}
+                  srcSet={`${logoBaseUrl}/0x80/${id}-mobile.png?v=1 2x`}
+                  src={`${logoBaseUrl}/0x40/${id}-mobile.png?v=1`}
+                />
+              </LogoLinkStyled>
+              {powered_by_kiwi && (
+                <PoweredByKiwi>
+                  Powered by <br /> Kiwi.com
+                </PoweredByKiwi>
+              )}
+            </>
+          )
+        }
+      </BrandConsumer>
+    )}
+  </IntlConsumer>
 );
 
 export default Logo;

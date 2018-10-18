@@ -9,9 +9,9 @@ exports[`#index render 1`] = `
   visibility: visible;
   position: fixed;
   top: 0;
-  bottom: 0;
-  right: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0,0,0,.5);
   -webkit-transition: background-color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
@@ -57,9 +57,9 @@ exports[`#index render 1`] = `
   visibility: visible;
   position: fixed;
   top: 0;
-  bottom: 0;
-  right: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0,0,0,.5);
   -webkit-transition: background-color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
@@ -944,9 +944,9 @@ exports[`#index render 2`] = `
   visibility: visible;
   position: fixed;
   top: 0;
-  bottom: 0;
-  right: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0,0,0,.5);
   -webkit-transition: background-color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;

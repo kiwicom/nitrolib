@@ -42,7 +42,7 @@ export default class Menu extends React.Component<Props, State> {
 
   handleClose = () => {
     const { onResetError } = this.props;
-    onResetError();
+    console.log(onResetError());
     this.setState({ modalOpen: "" });
   };
 

@@ -21,9 +21,9 @@ const Container = styled.section`
   visibility: ${({ shown }: ShownProps) => (shown ? "visible" : "hidden")};
   position: fixed;
   top: 0;
-  bottom: 0;
-  ${rtl.right}: 0;
-  ${rtl.left}: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: ${({ entered }) => (entered ? `rgba(0, 0, 0, .5)` : `transparent`)};
   transition: background-color ${({ theme }: ThemeProps) => theme.orbit.durationNormal} ease-in-out;
   z-index: ${({ theme }: ThemeProps) => theme.orbit.zIndexModal};
