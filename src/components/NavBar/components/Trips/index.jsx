@@ -46,7 +46,7 @@ const HideOnLower = styled.div`
 const Trips = ({ auth, env, onSelect }: Props) => (
   <Toggle>
     {({ open, onToggle }) => (
-      <>
+      <div>
         {open && (
           <ClickOutside
             onClickOutside={ev => {
@@ -74,7 +74,7 @@ const Trips = ({ auth, env, onSelect }: Props) => (
             <UserStyle>{`${auth.user.firstname} ${auth.user.lastname}`}</UserStyle>
           </Button>
         </Mobile>
-      </>
+      </div>
     )}
   </Toggle>
 );
