@@ -13,6 +13,7 @@ const OpenButton = styled.button`
   display: flex;
   align-items: center;
   line-height: 50px;
+  background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   font-family: ${({ theme }: ThemeProps) => theme.orbit.fontFamily};

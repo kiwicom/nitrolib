@@ -25,6 +25,11 @@ const StyledSelect = styled.select`
   :focus {
     outline: none;
   }
+
+  &::-ms-expand {
+    border: 0;
+    background: none;
+  }
 `;
 
 StyledSelect.defaultProps = {
