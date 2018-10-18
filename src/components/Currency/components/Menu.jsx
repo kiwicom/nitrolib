@@ -13,7 +13,7 @@ import CurrencyList from "./CurrencyList";
 const Container = styled.div`
   position: absolute;
   ${rtl.right}: 0;
-  top: 55px;
+  top: 50px;
   width: calc(100% - 40px);
   max-height: calc(100vh - 200px);
   margin: 0 20px;
@@ -79,26 +79,44 @@ type Props = {|
   positionMenuDesktop?: number,
 |};
 
-const Menu = ({
-  current,
-  available,
-  recommended,
-  onChange,
-  positionMenuDesktop,
-  positionMenuTablet,
-}: Props) => (
-  <Container
-    positionMenuDesktop={positionMenuDesktop}
-    positionMenuTablet={positionMenuTablet}
-    data-test="CurrencySwitcher-List"
-  >
-    {!R.isEmpty(recommended) && (
-      <Recommended>
-        <CurrencyList list={recommended} active={current} onSetCurrency={onChange} />
-      </Recommended>
-    )}
-    <CurrencyList list={available} active={current} onSetCurrency={onChange} />
-  </Container>
-);
+class Menu extends React.Component<Props> {
+  componentDidMount() {
+    this.handleCSS();
+  }
+
+  componentWillUnmount() {
+    this.handleCSS();
+  }
+
+  handleCSS = () => {
+    const mainView = document.querySelector(".MainView");
+    return mainView && mainView.classList.toggle("_fixed");
+  };
+
+  render() {
+    const {
+      current,
+      available,
+      recommended,
+      onChange,
+      positionMenuDesktop,
+      positionMenuTablet,
+    } = this.props;
+    return (
+      <Container
+        positionMenuDesktop={positionMenuDesktop}
+        positionMenuTablet={positionMenuTablet}
+        data-test="CurrencySwitcher-List"
+      >
+        {!R.isEmpty(recommended) && (
+          <Recommended>
+            <CurrencyList list={recommended} active={current} onSetCurrency={onChange} />
+          </Recommended>
+        )}
+        <CurrencyList list={available} active={current} onSetCurrency={onChange} />
+      </Container>
+    );
+  }
+}
 
 export default Menu;

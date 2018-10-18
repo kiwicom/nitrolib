@@ -23,8 +23,9 @@ type FlatProps = {|
 const MenuWrapper = styled.div`
   background-color: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   position: absolute;
-  top: 55x;
+  top: 50px;
   display: flex;
+  max-height: 620px;
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
   ${({ flat }: FlatProps) =>
@@ -164,13 +165,26 @@ export default class Menu extends React.Component<Props, State> {
     continent: "",
   };
 
-  handleContinent = (continent: string) => {
-    this.setState({ continent });
+  componentDidMount() {
+    this.handleCSS();
+  }
+
+  componentWillUnmount() {
+    this.handleCSS();
+  }
+
+  handleCSS = () => {
+    const mainView = document.querySelector(".MainView");
+    return mainView && mainView.classList.toggle("_fixed");
   };
 
   handleChange = (lang: string) => {
     const { onChange } = this.props;
     return onChange ? onChange(lang) : "eur";
+  };
+
+  handleContinent = (continent: string) => {
+    this.setState({ continent });
   };
 
   render() {

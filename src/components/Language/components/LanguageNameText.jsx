@@ -10,6 +10,7 @@ const LanguageNameText = styled.span`
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   letter-spacing: 0.02em;
+  white-space: nowrap;
 `;
 
 LanguageNameText.defaultProps = {
