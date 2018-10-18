@@ -42,6 +42,7 @@ Container.defaultProps = {
 
 const Name = styled.span`
   direction: ltr;
+  margin: 0 6px;
 `;
 
 type Props = {|
