@@ -11,6 +11,7 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         debug={<div>debug</div>}
+        onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onLog={jest.fn()}
@@ -25,6 +26,7 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onLog={jest.fn()}
@@ -41,6 +43,7 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onLog={jest.fn()}
@@ -53,10 +56,12 @@ describe("#Menu", () => {
   });
 
   test("handle close", () => {
+    const resetError = jest.fn();
     const wrapper = shallow(
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        onResetError={resetError}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onLog={jest.fn()}
@@ -67,6 +72,7 @@ describe("#Menu", () => {
     wrapper.instance().handleClose();
 
     expect(wrapper.state("modalOpen")).toBe("");
+    expect(resetError).toBeCalled();
   });
 
   test("handle open my booking", () => {
@@ -74,6 +80,7 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onLog={jest.fn()}
@@ -90,6 +97,7 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onLog={jest.fn()}
@@ -106,6 +114,7 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onLog={jest.fn()}
@@ -122,6 +131,7 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onLog={jest.fn()}

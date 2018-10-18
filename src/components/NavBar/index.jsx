@@ -11,6 +11,7 @@ import type { ThemeProps } from "../../records/Theme";
 import { themeDefault } from "../../records/Theme";
 import Flex from "../../primitives/Flex";
 import Language from "../Language";
+import { Consumer as AuthConsumer } from "../../services/auth/context";
 import { Consumer as BrandConsumer } from "../../services/brand/context";
 import { Consumer as LogConsumer } from "../../services/log/context";
 import Help from "./components/Help";
@@ -120,14 +121,19 @@ const NavBar = ({
             <Mobile>
               <Help onOpen={onOpenFaq} />
             </Mobile>
-            <Menu
-              chat={chat}
-              subscription={subscription}
-              debug={debug}
-              onSaveLanguage={onSaveLanguage}
-              onSelectTrip={onSelectTrip}
-              onLog={log}
-            />
+            <AuthConsumer>
+              {({ resetError }) => (
+                <Menu
+                  chat={chat}
+                  subscription={subscription}
+                  debug={debug}
+                  onResetError={resetError}
+                  onSaveLanguage={onSaveLanguage}
+                  onSelectTrip={onSelectTrip}
+                  onLog={log}
+                />
+              )}
+            </AuthConsumer>
           </Wrapper>
         </Flex>
       </Container>

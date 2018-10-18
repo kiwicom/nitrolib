@@ -25,6 +25,7 @@ type Props = {|
   chat: React.Node,
   subscription: React.Node,
   debug?: React.Node,
+  onResetError: () => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
   onLog: (event: Event<"OPEN_MODAL", { modal: AuthModal }>) => void,
@@ -40,6 +41,8 @@ export default class Menu extends React.Component<Props, State> {
   };
 
   handleClose = () => {
+    const { onResetError } = this.props;
+    onResetError();
     this.setState({ modalOpen: "" });
   };
 
