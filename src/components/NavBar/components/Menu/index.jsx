@@ -109,10 +109,30 @@ export default class Menu extends React.Component<Props, State> {
           onSaveLanguage={onSaveLanguage}
         />
 
-        {modalOpen !== "" &&
-        <CloseByKey onClose={this.handleClose}>
-          (portal ? (
-            <Portal element={portal}>
+        {modalOpen !== "" && (
+          <CloseByKey onClose={this.handleClose}>
+            {portal ? (
+              <Portal element={portal}>
+                <Modal onClose={this.handleClose} size="normal">
+                  <ModalSection>
+                    {modalOpen === "forgotPassword" ? (
+                      <BrandConsumer>
+                        {brand => <ForgotPassword brandId={brand.id} onClose={this.handleClose} />}
+                      </BrandConsumer>
+                    ) : (
+                      <Login
+                        open={modalOpen}
+                        onCloseSuccess={this.handleClose}
+                        onOpenMyBooking={this.handleOpenMyBooking}
+                        onOpenRegister={this.handleOpenRegister}
+                        onOpenSignIn={this.handleOpenSignIn}
+                        onOpenForgotPassword={this.handleOpenForgotPassword}
+                      />
+                    )}
+                  </ModalSection>
+                </Modal>
+              </Portal>
+            ) : (
               <Modal onClose={this.handleClose} size="normal">
                 <ModalSection>
                   {modalOpen === "forgotPassword" ? (
@@ -131,29 +151,9 @@ export default class Menu extends React.Component<Props, State> {
                   )}
                 </ModalSection>
               </Modal>
-            </Portal>
-          ) : (
-            <Modal onClose={this.handleClose} size="normal">
-              <ModalSection>
-                {modalOpen === "forgotPassword" ? (
-                  <BrandConsumer>
-                    {brand => <ForgotPassword brandId={brand.id} onClose={this.handleClose} />}
-                  </BrandConsumer>
-                ) : (
-                  <Login
-                    open={modalOpen}
-                    onCloseSuccess={this.handleClose}
-                    onOpenMyBooking={this.handleOpenMyBooking}
-                    onOpenRegister={this.handleOpenRegister}
-                    onOpenSignIn={this.handleOpenSignIn}
-                    onOpenForgotPassword={this.handleOpenForgotPassword}
-                  />
-                )}
-              </ModalSection>
-            </Modal>
-          ))
-
-        </CloseByKey>}
+            )}
+          </CloseByKey>
+        )}
       </>
     );
   }

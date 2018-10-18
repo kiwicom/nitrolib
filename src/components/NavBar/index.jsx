@@ -129,13 +129,16 @@ const NavBar = ({
             <AuthConsumer>
               {({ resetError }) => (
                 <Menu
-              chat={chat}
-              subscription={subscription}
-              debug={debug}
-              onResetError={resetError}onSaveLanguage={onSaveLanguage}
-              onSelectTrip={onSelectTrip}
-              onLog={log}
-            portal={portal}/>)}
+                  chat={chat}
+                  subscription={subscription}
+                  debug={debug}
+                  onResetError={resetError}
+                  onSaveLanguage={onSaveLanguage}
+                  onSelectTrip={onSelectTrip}
+                  onLog={log}
+                  portal={portal}
+                />
+              )}
             </AuthConsumer>
           </Wrapper>
         </Flex>

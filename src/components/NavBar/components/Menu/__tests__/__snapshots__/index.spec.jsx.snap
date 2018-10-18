@@ -49,16 +49,21 @@ exports[`#Menu render with forgot password modal 1`] = `
       </div>
     }
   />
-  <Modal
+  <CloseByKey
+    closeKey="Escape"
     onClose={[Function]}
-    size="normal"
   >
-    <ModalSection>
-      <ContextConsumer>
-        <Component />
-      </ContextConsumer>
-    </ModalSection>
-  </Modal>
+    <Modal
+      onClose={[Function]}
+      size="normal"
+    >
+      <ModalSection>
+        <ContextConsumer>
+          <Component />
+        </ContextConsumer>
+      </ModalSection>
+    </Modal>
+  </CloseByKey>
 </Fragment>
 `;
 
@@ -83,20 +88,25 @@ exports[`#Menu render with modal 1`] = `
       </div>
     }
   />
-  <Modal
+  <CloseByKey
+    closeKey="Escape"
     onClose={[Function]}
-    size="normal"
   >
-    <ModalSection>
-      <Login
-        onCloseSuccess={[Function]}
-        onOpenForgotPassword={[Function]}
-        onOpenMyBooking={[Function]}
-        onOpenRegister={[Function]}
-        onOpenSignIn={[Function]}
-        open="myBooking"
-      />
-    </ModalSection>
-  </Modal>
+    <Modal
+      onClose={[Function]}
+      size="normal"
+    >
+      <ModalSection>
+        <Login
+          onCloseSuccess={[Function]}
+          onOpenForgotPassword={[Function]}
+          onOpenMyBooking={[Function]}
+          onOpenRegister={[Function]}
+          onOpenSignIn={[Function]}
+          open="myBooking"
+        />
+      </ModalSection>
+    </Modal>
+  </CloseByKey>
 </Fragment>
 `;
