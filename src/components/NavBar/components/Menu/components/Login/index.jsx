@@ -1,6 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
 
 import { padding } from "../../../../../../styles";
 import { themeDefault } from "../../../../../../records/Theme";
@@ -76,10 +77,10 @@ class Login extends React.Component<Props> {
                 onOpenRegister={onOpenRegister}
                 onOpenSignIn={onOpenSignIn}
               />
+              {auth.error && <Alert type="critical">{auth.error}</Alert>}
               {open === "myBooking" && (
                 <MyBooking
                   loading={auth.loading}
-                  error={auth.error}
                   onMyBooking={auth.onMyBooking}
                   onCloseSuccess={onCloseSuccess}
                 />
@@ -87,7 +88,6 @@ class Login extends React.Component<Props> {
               {open === "register" && (
                 <Register
                   loading={auth.loading}
-                  error={auth.error}
                   onRegister={auth.onRegister}
                   onCloseSuccess={onCloseSuccess}
                 />
@@ -95,7 +95,6 @@ class Login extends React.Component<Props> {
               {open === "signIn" && (
                 <SignIn
                   loading={auth.loading}
-                  error={auth.error}
                   onSignIn={auth.onSignIn}
                   onCloseSuccess={onCloseSuccess}
                   onOpenForgotPassword={onOpenForgotPassword}

@@ -1,7 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`#MyBooking handle submit action error 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
 exports[`#MyBooking not handle non-existent field 1`] = `
 Object {
+  "error": null,
   "fields": Object {
     "asdf": Object {
       "error": undefined,

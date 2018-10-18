@@ -4,11 +4,11 @@ import * as R from "ramda";
 import styled from "styled-components";
 import addYears from "date-fns/addYears";
 import parse from "date-fns/parse";
-import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
 import Ticket from "@kiwicom/orbit-components/lib/icons/Ticket";
 import Calendar from "@kiwicom/orbit-components/lib/icons/Calendar";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
 
 import Query from "../../../../../Query";
 import InputText from "../../../../../InputText";
@@ -30,8 +30,7 @@ const FieldWrap = styled.div`
 
 type Props = {|
   loading: boolean,
-  error: string,
-  onMyBooking: (input: MyBookingInput) => Promise<boolean>,
+  onMyBooking: (input: MyBookingInput) => Promise<string | null>,
   onCloseSuccess: () => void,
   // DI
   now: Date,
@@ -46,6 +45,7 @@ type Field<T> = {|
 
 type State = {|
   submitted: boolean,
+  error: string | null,
   fields: {|
     bid: Field<string>,
     email: Field<string>,
@@ -64,6 +64,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
 
   state = {
     submitted: false,
+    error: null,
     fields: {
       bid: {
         value: "",
@@ -174,16 +175,18 @@ export default class MyBooking extends React.PureComponent<Props, State> {
       email: fields.email.value,
       iata: fields.iata.value,
       departure: fields.departure.value,
-    }).then(ok => {
-      if (ok) {
+    }).then(error => {
+      if (error) {
+        this.setState({ error });
+      } else {
         onCloseSuccess();
       }
     });
   };
 
   render() {
-    const { loading, error } = this.props;
-    const { fields, submitted } = this.state;
+    const { loading } = this.props;
+    const { fields, submitted, error } = this.state;
 
     return (
       <IntlConsumer>
@@ -191,11 +194,6 @@ export default class MyBooking extends React.PureComponent<Props, State> {
           <>
             <Query onMount={this.handleMount} />
 
-            {error && (
-              <FieldWrap>
-                <Alert type="critical">{error}</Alert>
-              </FieldWrap>
-            )}
             <FieldWrap>
               <IconText icon={<Ticket color="primary" size="small" />}>
                 <Text t={__("common.booking_number_colon")} />
@@ -247,6 +245,13 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                 max={MAX}
               />
             </FieldWrap>
+            {error && (
+              <FieldWrap>
+                <Alert type="critical">
+                  <Text t={error} />
+                </Alert>
+              </FieldWrap>
+            )}
             <Button block onClick={this.handleSubmit} disabled={loading}>
               <Text t={__("submit")} />
             </Button>

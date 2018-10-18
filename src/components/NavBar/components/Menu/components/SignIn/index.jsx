@@ -3,7 +3,6 @@ import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
 import FaLongArrowRight from "react-icons/lib/fa/long-arrow-right";
-import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
@@ -40,7 +39,6 @@ ForgotPasswordArrow.defaultProps = {
 
 type Props = {|
   loading: boolean,
-  error: string,
   onSignIn: (email: string, password: string) => Promise<boolean>,
   onCloseSuccess: () => void,
   onOpenForgotPassword: () => void,
@@ -108,17 +106,12 @@ export default class SignIn extends React.PureComponent<Props, State> {
 
   render() {
     const { fields, submitted } = this.state;
-    const { loading, error, onOpenForgotPassword } = this.props;
+    const { loading, onOpenForgotPassword } = this.props;
 
     return (
       <>
         <Query onMount={this.handleMount} />
 
-        {error && (
-          <FieldWrap>
-            <Alert type="critical">{error}</Alert>
-          </FieldWrap>
-        )}
         <FieldWrap>
           <IconText icon={<Envelope color="primary" size="small" />}>
             <Text t={__("common.email.colon")} />

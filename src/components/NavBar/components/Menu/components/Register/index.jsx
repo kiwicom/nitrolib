@@ -2,7 +2,6 @@
 import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
-import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import TextOrbit from "@kiwicom/orbit-components/lib/Text";
 import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
@@ -51,7 +50,6 @@ FieldPolicy.defaultProps = {
 
 type Props = {|
   loading: boolean,
-  error: string,
   onRegister: (input: RegisterInput) => Promise<boolean>,
   onCloseSuccess: () => void,
 |};
@@ -150,18 +148,13 @@ export default class Register extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { loading, error } = this.props;
+    const { loading } = this.props;
     const { fields, submitted } = this.state;
 
     return (
       <>
         <Query onMount={this.handleMount} />
 
-        {error && (
-          <FieldWrap>
-            <Alert type="critical">{error}</Alert>
-          </FieldWrap>
-        )}
         <FieldWrap>
           <IconText icon={<User color="primary" size="small" />}>
             <Text t={__("common.firstname.colon")} />
