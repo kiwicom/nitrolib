@@ -45,6 +45,7 @@ const Button: ReactComponentFunctional<Props, ThemeProps> = styled(
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   font-family: ${({ theme }: ThemeProps) => theme.orbit.fontFamily};
   text-decoration: none;
+  white-space: nowrap;
   ${({ transition }) => transition && `transition: color 0.2s ease-in-out`};
   ${({ padding }) => padding && `padding: ${padding}`};
   ${({ marginLeft, theme }) => marginLeft && `margin-${rtl.left({ theme })}: ${marginLeft}px`};

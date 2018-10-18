@@ -52,7 +52,6 @@ export default class Menu extends React.Component<Props, State> {
 
   handleOpenRegister = () => {
     const { onLog } = this.props;
-
     this.setState({ modalOpen: "register" });
     onLog({ event: OPEN_MODAL, data: { modal: "register" } });
   };

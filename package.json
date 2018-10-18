@@ -52,7 +52,7 @@
     "validator": "^10.7.1"
   },
   "peerDependencies": {
-    "@kiwicom/orbit-components": "^0.14.0",
+    "@kiwicom/orbit-components": "^0.15.1",
     "ramda": "^0.25.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",

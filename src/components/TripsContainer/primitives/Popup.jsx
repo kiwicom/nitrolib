@@ -14,7 +14,7 @@ type Width = {|
 
 const Popup = styled.div`
   position: absolute;
-  top: 55px;
+  top: 50px;
   min-width: ${({ width }: Width) => width || `550px`};
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteCloudLight};
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
