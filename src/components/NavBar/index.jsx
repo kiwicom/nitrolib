@@ -127,12 +127,12 @@ const NavBar = ({
               <Help onOpen={onOpenFaq} />
             </Mobile>
             <AuthConsumer>
-              {({ resetError }) => (
+              {({ onResetError }) => (
                 <Menu
                   chat={chat}
                   subscription={subscription}
                   debug={debug}
-                  onResetError={resetError}
+                  onResetError={onResetError}
                   onSaveLanguage={onSaveLanguage}
                   onSelectTrip={onSelectTrip}
                   onLog={log}
