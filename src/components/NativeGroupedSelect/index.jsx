@@ -33,7 +33,7 @@ const Select = styled.select`
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   color: ${({ theme }: SelectProps) => theme.orbit.paletteInkNormal};
   font-family: ${({ theme }: ThemeProps) => theme.orbit.fontFamily};
-
+  ${({ length }) => length && `width: ${7.5 * length}px`};
   &:hover {
     color: ${({ theme }: SelectProps) => theme.orbit.paletteProductNormal};
   }
@@ -53,6 +53,10 @@ type Group = {|
   items: Item[],
 |};
 
+type State = {|
+  valueLength: number,
+|};
+
 type Props = {|
   icon: React.Node,
   value: string,
@@ -61,29 +65,55 @@ type Props = {|
   onChange: (value: string) => void,
 |};
 
-const NativeGroupedSelect = ({ icon, value, groups, divider, onChange }: Props) => (
-  <Container>
-    <IconContainer>{icon}</IconContainer>
-    <Select
-      value={value}
-      onChange={(ev: SyntheticInputEvent<HTMLSelectElement>) => onChange(ev.target.value)}
-    >
-      {groups.filter(group => group.items.length > 0).map((group, index) => (
-        <optgroup key={group.key} label={index > 0 ? divider : null}>
-          {group.items.map(item => (
-            <option key={item.value} value={item.value}>
-              {item.text}
-            </option>
-          ))}
-        </optgroup>
-      ))}
-    </Select>
-  </Container>
-);
+class NativeGroupedSelect extends React.Component<Props, State> {
+  static defaultProps = {
+    icon: null,
+    divider: "-----------------",
+  };
 
-NativeGroupedSelect.defaultProps = {
-  icon: null,
-  divider: "-----------------",
-};
+  state = {
+    valueLength: 0,
+  };
+
+  node = React.createRef();
+
+  componentDidMount() {
+    const { valueLength } = this.state;
+    this.setState({
+      valueLength: this.selectLength(this.node) || valueLength,
+    });
+  }
+
+  selectLength = (node: ?React$ElementRef<any>) =>
+    node && node.options && node.options.item(0).text.length;
+
+  render() {
+    const { icon, value, groups, divider, onChange } = this.props;
+    const { valueLength } = this.state;
+    return (
+      <Container>
+        <IconContainer>{icon}</IconContainer>
+        <Select
+          value={value}
+          length={valueLength}
+          innerRef={el => {
+            this.node = el;
+          }}
+          onChange={(ev: SyntheticInputEvent<HTMLSelectElement>) => onChange(ev.target.value)}
+        >
+          {groups.filter(group => group.items.length > 0).map((group, index) => (
+            <optgroup key={group.key} label={index > 0 ? divider : null}>
+              {group.items.map(item => (
+                <option key={item.value} value={item.value}>
+                  {item.text}
+                </option>
+              ))}
+            </optgroup>
+          ))}
+        </Select>
+      </Container>
+    );
+  }
+}
 
 export default NativeGroupedSelect;

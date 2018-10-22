@@ -4,6 +4,8 @@ exports[`#NativeGroupedSelect render - multiple groups 1`] = `
 <NativeGroupedSelect__Container>
   <NativeGroupedSelect__IconContainer />
   <NativeGroupedSelect__Select
+    innerRef={[Function]}
+    length={0}
     onChange={[Function]}
     theme={
       Object {
@@ -484,6 +486,8 @@ exports[`#NativeGroupedSelect render - skip empty groups 1`] = `
 <NativeGroupedSelect__Container>
   <NativeGroupedSelect__IconContainer />
   <NativeGroupedSelect__Select
+    innerRef={[Function]}
+    length={0}
     onChange={[Function]}
     theme={
       Object {
@@ -935,6 +939,8 @@ exports[`#NativeGroupedSelect render - with custom divider 1`] = `
 <NativeGroupedSelect__Container>
   <NativeGroupedSelect__IconContainer />
   <NativeGroupedSelect__Select
+    innerRef={[Function]}
+    length={0}
     onChange={[Function]}
     theme={
       Object {
@@ -1419,6 +1425,8 @@ exports[`#NativeGroupedSelect render - with icon 1`] = `
     </i>
   </NativeGroupedSelect__IconContainer>
   <NativeGroupedSelect__Select
+    innerRef={[Function]}
+    length={0}
     onChange={[Function]}
     theme={
       Object {
@@ -1841,6 +1849,8 @@ exports[`#NativeGroupedSelect render 1`] = `
 <NativeGroupedSelect__Container>
   <NativeGroupedSelect__IconContainer />
   <NativeGroupedSelect__Select
+    innerRef={[Function]}
+    length={0}
     onChange={[Function]}
     theme={
       Object {
