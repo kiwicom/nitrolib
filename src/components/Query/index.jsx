@@ -3,14 +3,16 @@ import * as React from "react";
 import querystring from "querystring";
 
 type Props = {|
+  query?: string,
   onMount: (query: { [key: string]: string }) => void,
 |};
 
 export default class Query extends React.Component<Props> {
   componentDidMount() {
-    const { onMount } = this.props;
+    const { query, onMount } = this.props;
 
-    onMount(querystring.parse(window.location.search));
+    const search = query || window.location.search;
+    onMount(querystring.parse(search.replace(/^\?/, "")));
   }
 
   render() {
