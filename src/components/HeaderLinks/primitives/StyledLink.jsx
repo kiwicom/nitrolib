@@ -9,6 +9,7 @@ import * as rtl from "../../../styles/rtl";
 type LinkProps = {|
   ...ThemeProps,
   active: boolean,
+  inverted: boolean,
 |};
 
 const StyledLink = styled.a`
@@ -24,12 +25,17 @@ const StyledLink = styled.a`
   line-height: 50px;
 
   &:link, &:visited {
-    color: ${({ active, theme }: LinkProps) =>
-      active ? theme.orbit.paletteProductNormal : theme.orbit.paletteInkNormal};
+    color: ${({ active, theme, inverted }: LinkProps) =>
+      inverted
+        ? (active && theme.orbit.paletteWhiteActive) || theme.orbit.paletteWhite
+        : (active && theme.orbit.paletteProductNormal) || theme.orbit.paletteInkNormal};
   }
 
   &:hover {
-    color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
+    &:link, &:visited {
+      color: ${({ theme, inverted }: LinkProps) =>
+        inverted ? theme.orbit.paletteWhiteHover : theme.orbit.paletteProductNormal};
+    }
   }
 
   ${mq.mobile(css`
@@ -37,6 +43,18 @@ const StyledLink = styled.a`
     padding-${rtl.left}: 10px;
     font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextLarge};
     font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
+    &:link, &:visited {
+      color: ${({ theme }: LinkProps) => theme.orbit.paletteInkNormal};
+    }
+
+    &:hover {
+      &:link, &:visited {
+        color: ${({ theme }: LinkProps) => theme.orbit.paletteProductNormal};
+      }
+      i {
+        color: ${({ theme }) => theme.orbit.paletteInkNormal};
+      }
+    }
     i {
       padding-${rtl.right}: 10px;
     }

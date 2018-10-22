@@ -73,26 +73,22 @@ const Link = styled.a`
 const logoBaseUrl = "https://images.kiwi.com/whitelabels";
 
 type Props = {|
+  inverted?: boolean,
   onClick: (ev: SyntheticMouseEvent<HTMLAnchorElement>) => void,
 |};
 
-const Logo = ({ onClick }: Props) => (
+const Logo = ({ inverted, onClick }: Props) => (
   <IntlConsumer>
     {({ language }) => (
       <BrandConsumer>
-        {({ id, home_redirect_url, name, powered_by_kiwi, theme }) =>
+        {({ id, home_redirect_url, name, powered_by_kiwi }) =>
           id === "kiwicom" ? (
             <Link
               href={`${home_redirect_url}${language.id}/`}
               onClick={onClick}
               data-test="NavbarLogoLink"
             >
-              <SvgLogo
-                height={logo.height}
-                width={logo.width}
-                title={name}
-                color={theme.palette.productNormal}
-              />
+              <SvgLogo height={logo.height} width={logo.width} title={name} inverted={inverted} />
             </Link>
           ) : (
             <>

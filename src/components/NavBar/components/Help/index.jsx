@@ -8,11 +8,17 @@ import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
 
 type Props = {|
-  onOpen: () => void,
+  onOpen?: () => void,
+  inverted?: boolean,
 |};
 
-const Help = ({ onOpen }: Props) => (
-  <Button onClick={onOpen} dataTest="NavbarSupport" background="white">
+const Help = ({ onOpen, inverted }: Props) => (
+  <Button
+    onClick={onOpen}
+    disabled={!onOpen}
+    color={!inverted && "secondary"}
+    dataTest="NavbarSupport"
+  >
     <Desktop>
       <Text t={__("common.help")} />
     </Desktop>

@@ -13,6 +13,7 @@ import IconWrapper from "./primitives/IconWrapper";
 import Links from "./Links";
 import Desktop from "../Desktop";
 import Mobile from "../Mobile";
+import { Consumer as InvertedConsumer } from "../../services/inverted/context";
 
 const Margin = styled.div`
   ${mq.mobile(css`
@@ -29,44 +30,50 @@ type Props = {|
 |};
 
 const HeaderLinks = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewWindow }: Props) => (
-  <>
-    <Mobile display="flex">
-      <Margin>
-        <Toggle>
-          {({ open, onToggle }) => (
-            <>
-              {open && (
-                <ClickOutside onClickOutside={onToggle}>
-                  <Popup>
-                    <Links
-                      linkFlights={linkFlights}
-                      linkRooms={linkRooms}
-                      linkCars={linkCars}
-                      linkHolidays={linkHolidays}
-                      forceNewWindow={forceNewWindow}
-                    />
-                  </Popup>
-                </ClickOutside>
+  <InvertedConsumer>
+    {({ inverted }) => (
+      <>
+        <Mobile display="flex">
+          <Margin>
+            <Toggle>
+              {({ open, onToggle }) => (
+                <>
+                  {open && (
+                    <ClickOutside onClickOutside={onToggle}>
+                      <Popup>
+                        <Links
+                          linkFlights={linkFlights}
+                          linkRooms={linkRooms}
+                          linkCars={linkCars}
+                          inverted={inverted}
+                          linkHolidays={linkHolidays}
+                          forceNewWindow={forceNewWindow}
+                        />
+                      </Popup>
+                    </ClickOutside>
+                  )}
+                  <IconWrapper act={open} onClick={onToggle} inverted={inverted}>
+                    <Airplane />
+                    <ChevronDown size="small" />
+                  </IconWrapper>
+                </>
               )}
-              <IconWrapper hover onClick={onToggle}>
-                <Airplane />
-                <ChevronDown size="small" />
-              </IconWrapper>
-            </>
-          )}
-        </Toggle>
-      </Margin>
-    </Mobile>
-    <Desktop display="flex">
-      <Links
-        linkFlights={linkFlights}
-        linkRooms={linkRooms}
-        linkCars={linkCars}
-        linkHolidays={linkHolidays}
-        forceNewWindow={forceNewWindow}
-      />
-    </Desktop>
-  </>
+            </Toggle>
+          </Margin>
+        </Mobile>
+        <Desktop display="flex">
+          <Links
+            linkFlights={linkFlights}
+            linkRooms={linkRooms}
+            linkCars={linkCars}
+            inverted={inverted}
+            linkHolidays={linkHolidays}
+            forceNewWindow={forceNewWindow}
+          />
+        </Desktop>
+      </>
+    )}
+  </InvertedConsumer>
 );
 
 HeaderLinks.defaultProps = {

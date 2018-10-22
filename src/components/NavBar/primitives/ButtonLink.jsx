@@ -4,18 +4,19 @@ import type { ReactComponentFunctional } from "styled-components";
 import { themeDefault } from "../../../records/Theme";
 import Button from "./Button";
 import type { ThemeProps } from "../../../records/Theme";
-import type { Bg } from "./Button";
+import type { Bg, Color } from "./Button";
 
 type Props = {|
   href: string,
   children: React.Node | React.Node[],
   bold?: boolean,
-  primary?: boolean,
+  color?: Color,
   padding?: string,
   background?: Bg,
   marginLeft?: number,
   marginRight?: number,
   fontSize?: string,
+  disabled?: boolean,
   x?: string,
   y?: string,
   direction?: string,

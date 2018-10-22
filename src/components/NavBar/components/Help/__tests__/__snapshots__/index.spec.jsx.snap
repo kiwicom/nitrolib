@@ -2,8 +2,9 @@
 
 exports[`#Help render 1`] = `
 <Button
-  background="white"
+  color="secondary"
   dataTest="NavbarSupport"
+  disabled={false}
   onClick={[MockFunction]}
   theme={
     Object {

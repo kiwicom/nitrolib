@@ -12,15 +12,24 @@ type Props = {|
   linkFlights: string,
   linkCars: string,
   linkRooms: string,
+  inverted?: boolean,
   linkHolidays: string,
   forceNewWindow: boolean,
 |};
 
-const Links = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewWindow }: Props) => (
+const Links = ({
+  linkFlights,
+  linkRooms,
+  linkCars,
+  linkHolidays,
+  forceNewWindow,
+  inverted,
+}: Props) => (
   <>
     <Link
       logTab="flights"
       link={linkFlights}
+      inverted={inverted}
       newWindow={forceNewWindow}
       icon={<Airplane />}
       text={<Text t={__("search.service.travel_anywhere")} />}
@@ -29,6 +38,7 @@ const Links = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewWindow 
       <Link
         logTab="rooms"
         link={linkRooms}
+        inverted={inverted}
         newWindow
         icon={<Accommodation />}
         text={<Text t={__("search.service.rooms")} />}
@@ -37,6 +47,7 @@ const Links = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewWindow 
     <Link
       logTab="cars"
       link={linkCars}
+      inverted={inverted}
       newWindow
       icon={<CarRental />}
       text={<Text t={__("search.service.cars")} />}
@@ -45,6 +56,7 @@ const Links = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewWindow 
       <Link
         link={linkHolidays}
         newWindow
+        inverted={inverted}
         icon={<Suitcase />}
         text={<Text t={__("search.service.holidays")} />}
       />

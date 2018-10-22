@@ -27,7 +27,7 @@ const TripListBottom = ({ children }: Props) => (
         <ItemWrapper>
           <TripsBottomWrapper>{children}</TripsBottomWrapper>
           <ButtonLink
-            primary
+            color="primary"
             marginLeft={25}
             y="center"
             bold

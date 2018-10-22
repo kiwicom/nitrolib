@@ -25,6 +25,10 @@ import BrandedMenuItem from "./BrandedMenuItem";
 import { icons, getPagesItems, getSocialMediaItems } from "./services/menu";
 import * as MODALS from "../../../../../../consts/modals";
 
+type InvertedProps = ThemeProps & {|
+  inverted: boolean,
+|};
+
 const MediaIcons = styled.div`
   margin-top: 20px;
 `;
@@ -74,11 +78,15 @@ const MenuOpen = styled.div`
   cursor: pointer;
   display: flex;
   padding: 0 2px;
+  svg {
+    fill: ${({ inverted, theme }: InvertedProps) => inverted && theme.orbit.paletteWhite};
+  }
   &:hover {
     background: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
     border-radius: 3px;
     svg {
-      fill: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
+      fill: ${({ theme, inverted }: InvertedProps) =>
+        inverted ? theme.orbit.paletteWhiteHover : theme.orbit.paletteWhite};
     }
   }
   svg {
@@ -132,6 +140,7 @@ type Props = {|
   chat: React.Node,
   subscription: React.Node,
   debug?: React.Node,
+  inverted?: boolean,
   onOpenSignIn: () => void,
   onOpenRegister: () => void,
   onSaveLanguage: (lang: string) => void,
@@ -221,12 +230,12 @@ export default class SideNav extends React.Component<Props, State> {
   };
 
   render = () => {
-    const { chat, subscription, debug, onSaveLanguage } = this.props;
+    const { chat, subscription, debug, onSaveLanguage, inverted } = this.props;
     const { shown, modalOpen } = this.state;
 
     return (
       <>
-        <MenuOpen onClick={this.handleToggle} data-test="NavbarMenu">
+        <MenuOpen onClick={this.handleToggle} data-test="NavbarMenu" inverted={inverted}>
           <MenuHamburger />
         </MenuOpen>
 

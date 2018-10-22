@@ -38,4 +38,24 @@ storiesOf("NavBar", module)
         logoClickAction(e);
       }}
     />
+  ))
+  .add("Inverted colors", () => (
+    <NavBar
+      headerLinks={
+        <HeaderLinks
+          linkFlights="https://www.kiwi.com/en/?headerLink=linkFlights"
+          linkRooms="https://www.kiwi.com/en/?headerLink=linkRooms"
+          linkCars="https://www.kiwi.com/en/?headerLink=linkCars"
+          linkHolidays="https://www.kiwi.com/en/?headerLink=linkHolidays"
+        />
+      }
+      chat={<h1>Chat</h1>}
+      subscription={<h1>Subscription</h1>}
+      debug={<h1>Debug</h1>}
+      shadow={boolean("Shadow", true, GROUP_ID)}
+      starred={<h1>Starred</h1>}
+      inverted
+      onSaveLanguage={action("Save language")}
+      onSelectTrip={action("Select trip")}
+    />
   ));

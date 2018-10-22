@@ -31,6 +31,7 @@ type Props = {|
   portal?: string,
   subscription: React.Node,
   debug?: React.Node,
+  inverted?: boolean,
   onResetError: () => void,
   onSetModal: (modal: MODALS.ModalType) => void,
   onSaveLanguage: (lang: string) => void,
@@ -96,10 +97,11 @@ export default class Menu extends React.Component<Props, State> {
       chat,
       subscription,
       debug,
+      portal,
+      inverted,
       onSaveLanguage,
       onSelectTrip,
       onSetModal,
-      portal,
     } = this.props;
     const { modalOpen } = this.state;
 
@@ -110,12 +112,21 @@ export default class Menu extends React.Component<Props, State> {
             auth === null ? (
               <>
                 <Desktop display="flex">
-                  <Button direction="x" onClick={this.handleOpenMyBooking} background="white">
+                  <Button
+                    direction="x"
+                    onClick={this.handleOpenMyBooking}
+                    color={!inverted && "secondary"}
+                  >
                     <Text t={__("account.my_bookings_action")} />
                   </Button>
                 </Desktop>
                 <Mobile display="flex">
-                  <Button direction="x" onClick={this.handleOpenMyBooking} padding="13px 9px">
+                  <Button
+                    direction="x"
+                    color={!inverted && "secondary"}
+                    onClick={this.handleOpenMyBooking}
+                    padding="13px 9px"
+                  >
                     <AccountCircle />
                   </Button>
                 </Mobile>
@@ -129,6 +140,7 @@ export default class Menu extends React.Component<Props, State> {
           chat={chat}
           subscription={subscription}
           debug={debug}
+          inverted={inverted}
           onOpenRegister={this.handleOpenRegister}
           onOpenSignIn={this.handleOpenSignIn}
           onSaveLanguage={onSaveLanguage}

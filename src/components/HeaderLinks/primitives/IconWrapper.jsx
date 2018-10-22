@@ -8,28 +8,25 @@ import mq from "../../../styles/mq";
 type ActiveProps = {|
   ...ThemeProps,
   active: boolean,
+  inverted?: boolean,
+  act: boolean,
 |};
 
 const IconWrapper = styled.i`
-  color: ${({ active, theme }: ActiveProps) =>
-    active ? theme.orbit.paletteProductNormal : theme.orbit.paletteInkNormal};
+  color: ${({ theme, inverted, act }: ActiveProps) =>
+    inverted && (!act ? theme.orbit.paletteWhite : theme.orbit.paletteInkNormal)};
   display: none;
   cursor: pointer;
   ${({ act }) =>
     act &&
     css`
-      color: ${({ theme }) => theme.orbit.paletteProductNormal};
+      color: ${({ theme, inverted }: ActiveProps) =>
+        inverted ? theme.orbit.paletteWhite : theme.orbit.paletteProductNormal};
       svg:nth-child(2) {
         transform: rotate(180deg);
       }
     `};
-  ${({ hover }) =>
-    hover &&
-    css`
-      &:hover {
-        color: ${({ theme }) => theme.orbit.paletteProductNormal};
-      }
-    `} ${mq.mobile(css`
+  ${mq.mobile(css`
     display: block;
   `)};
 `;

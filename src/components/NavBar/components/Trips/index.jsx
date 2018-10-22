@@ -60,7 +60,7 @@ const Trips = ({ auth, env, onSelect }: Props) => (
         <Desktop display="flex">
           <Flex y="center">
             <Passenger size="small" />
-            <Button onClick={onToggle} background="white">
+            <Button onClick={onToggle} color="secondary">
               <HideOnLower>
                 <Text t={__("account.my_bookings_action")} />
               </HideOnLower>
@@ -69,7 +69,7 @@ const Trips = ({ auth, env, onSelect }: Props) => (
           </Flex>
         </Desktop>
         <Mobile display="flex">
-          <Button onClick={onToggle} y="center" background="white">
+          <Button onClick={onToggle} y="center" color="secondary">
             <Passenger size="small" />
             <UserStyle>{`${auth.user.firstname} ${auth.user.lastname}`}</UserStyle>
           </Button>

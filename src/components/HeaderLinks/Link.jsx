@@ -8,14 +8,16 @@ type Props = {
   link: string,
   icon: React.Node,
   text: React.Node,
+  inverted?: boolean,
   active: boolean,
   newWindow: boolean,
 };
 
-const Link = ({ active, link, newWindow, icon, text }: Props) => (
+const Link = ({ active, link, newWindow, icon, text, inverted }: Props) => (
   <StyledLink
     active={active}
     href={link}
+    inverted={inverted}
     target={newWindow ? "_blank" : null}
     rel={newWindow ? "noopener noreferrer" : null}
   >
