@@ -35,7 +35,7 @@ describe("#HeaderLinks/service/holidaysLink", () => {
 
   test("getLink lastminute", () => {
     expect(getLink("lastminute", false, language, currency)).toBe(
-      "https://kiwicom.lastminute.com/flight-hotel/?utm_source=kiwicom_header_link",
+      "https://kiwicom.lastminute.com/flight-hotel/?acntb=DP&bf_subsource=-----TL0S10RR01&utm_medium=whitelabel&utm_source=kiwi",
     );
   });
 
@@ -45,7 +45,7 @@ describe("#HeaderLinks/service/holidaysLink", () => {
 
   test("getLink lastminute fallback", () => {
     expect(getLink("none", true, language, currencySE)).toBe(
-      "https://kiwicom.lastminute.com/flight-hotel/?utm_source=kiwicom_header_link",
+      "https://kiwicom.lastminute.com/flight-hotel/?acntb=DP&bf_subsource=-----TL0S10RR01&utm_medium=whitelabel&utm_source=kiwi",
     );
   });
 });

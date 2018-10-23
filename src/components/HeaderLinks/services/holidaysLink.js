@@ -16,7 +16,7 @@ const getLogitravelDeeplink = (isoShort: string) => {
 
 // formatting of the
 const getLastminuteDeeplink = (lang: string) => {
-  const utmSource = "?utm_source=kiwicom_header_link";
+  const utmSource = "?acntb=DP&bf_subsource=-----TL0S10RR01&utm_medium=whitelabel&utm_source=kiwi";
 
   switch (lang) {
     case "ie":
