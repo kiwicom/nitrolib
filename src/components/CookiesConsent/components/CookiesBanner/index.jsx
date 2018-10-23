@@ -17,6 +17,7 @@ const Container = styled.div`
   align-items: center;
   box-sizing: border-box;
   width: 100%;
+  z-index: 600;
   padding: ${rtl.box(10, 50, 10, 20)};
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   line-height: 20px;

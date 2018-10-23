@@ -25,7 +25,7 @@ const MenuWrapper = styled.div`
   position: absolute;
   top: 50px;
   display: flex;
-  max-height: 620px;
+  overflow-x: hidden;
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
   ${({ flat }: FlatProps) =>
