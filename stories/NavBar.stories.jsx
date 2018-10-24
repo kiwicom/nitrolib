@@ -10,6 +10,8 @@ import withData from "./decorators/withData";
 
 const GROUP_ID = "Component";
 
+const logoClickAction = action("Click on logo");
+
 storiesOf("NavBar", module)
   .addDecorator(withData)
   .add("default", () => (
@@ -28,7 +30,12 @@ storiesOf("NavBar", module)
       shadow={boolean("Shadow", true, GROUP_ID)}
       starred={<h1>Starred</h1>}
       onOpenFaq={action("Open FAQ")}
+      onSetModal={action("Set modal")}
       onSaveLanguage={action("Save language")}
       onSelectTrip={action("Select trip")}
+      onLogoClick={e => {
+        e.preventDefault();
+        logoClickAction(e);
+      }}
     />
   ));

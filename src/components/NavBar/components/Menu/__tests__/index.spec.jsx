@@ -14,6 +14,7 @@ describe("#Menu", () => {
         onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
+        onSetModal={jest.fn()}
         onLog={jest.fn()}
       />,
     );
@@ -29,6 +30,7 @@ describe("#Menu", () => {
         onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
+        onSetModal={jest.fn()}
         onLog={jest.fn()}
       />,
     );
@@ -46,6 +48,7 @@ describe("#Menu", () => {
         onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
+        onSetModal={jest.fn()}
         onLog={jest.fn()}
       />,
     );
@@ -57,6 +60,7 @@ describe("#Menu", () => {
 
   test("handle close", () => {
     const resetError = jest.fn();
+    const setModal = jest.fn();
     const wrapper = shallow(
       <Menu
         chat={<div>chat</div>}
@@ -64,6 +68,7 @@ describe("#Menu", () => {
         onResetError={resetError}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
+        onSetModal={setModal}
         onLog={jest.fn()}
       />,
     );
@@ -73,9 +78,11 @@ describe("#Menu", () => {
 
     expect(wrapper.state("modalOpen")).toBe("");
     expect(resetError).toBeCalled();
+    expect(setModal).toBeCalledWith("");
   });
 
   test("handle open my booking", () => {
+    const setModal = jest.fn();
     const wrapper = shallow(
       <Menu
         chat={<div>chat</div>}
@@ -83,6 +90,7 @@ describe("#Menu", () => {
         onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
+        onSetModal={setModal}
         onLog={jest.fn()}
       />,
     );
@@ -90,9 +98,11 @@ describe("#Menu", () => {
     wrapper.instance().handleOpenMyBooking();
 
     expect(wrapper.state("modalOpen")).toBe("myBooking");
+    expect(setModal).toBeCalledWith("myBooking");
   });
 
   test("handle open register", () => {
+    const setModal = jest.fn();
     const wrapper = shallow(
       <Menu
         chat={<div>chat</div>}
@@ -100,6 +110,7 @@ describe("#Menu", () => {
         onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
+        onSetModal={setModal}
         onLog={jest.fn()}
       />,
     );
@@ -107,9 +118,11 @@ describe("#Menu", () => {
     wrapper.instance().handleOpenRegister();
 
     expect(wrapper.state("modalOpen")).toBe("register");
+    expect(setModal).toBeCalledWith("register");
   });
 
   test("handle open sign in", () => {
+    const setModal = jest.fn();
     const wrapper = shallow(
       <Menu
         chat={<div>chat</div>}
@@ -117,6 +130,7 @@ describe("#Menu", () => {
         onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
+        onSetModal={setModal}
         onLog={jest.fn()}
       />,
     );
@@ -124,9 +138,11 @@ describe("#Menu", () => {
     wrapper.instance().handleOpenSignIn();
 
     expect(wrapper.state("modalOpen")).toBe("signIn");
+    expect(setModal).toBeCalledWith("signIn");
   });
 
   test("handle open forgot password", () => {
+    const setModal = jest.fn();
     const wrapper = shallow(
       <Menu
         chat={<div>chat</div>}
@@ -134,6 +150,7 @@ describe("#Menu", () => {
         onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
+        onSetModal={setModal}
         onLog={jest.fn()}
       />,
     );
@@ -141,5 +158,6 @@ describe("#Menu", () => {
     wrapper.instance().handleOpenForgotPassword();
 
     expect(wrapper.state("modalOpen")).toBe("forgotPassword");
+    expect(setModal).toBeCalledWith("forgotPassword");
   });
 });

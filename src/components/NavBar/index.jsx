@@ -18,6 +18,7 @@ import Help from "./components/Help";
 import Menu from "./components/Menu";
 import Logo from "./components/Logo";
 import Currency from "../Currency";
+import type { ModalType } from "../../consts/modals";
 // import Starred from "../Starred"; FIXME add as a full feature
 
 // TODO: replace z-index with Orbit token after refactoring all front-end indexes
@@ -83,8 +84,10 @@ type Props = {|
   debug?: React.Node,
   shadow?: boolean,
   onOpenFaq: () => void,
+  onSetModal: (modal: ModalType) => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
+  onLogoClick: (ev: SyntheticMouseEvent<HTMLAnchorElement>) => void,
   portal?: string,
 |};
 
@@ -97,14 +100,16 @@ const NavBar = ({
   portal,
   shadow,
   onOpenFaq,
+  onSetModal,
   onSaveLanguage,
   onSelectTrip,
+  onLogoClick,
 }: Props) => (
   <LogConsumer>
     {({ log }) => (
       <Container x="space-between" y="center" shadow={shadow} dataTest="Navbar">
         <Flex y="center" x="flex-start">
-          <Logo />
+          <Logo onClick={onLogoClick} />
           {headerLinks && (
             <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
           )}
@@ -133,6 +138,7 @@ const NavBar = ({
                   subscription={subscription}
                   debug={debug}
                   onResetError={onResetError}
+                  onSetModal={onSetModal}
                   onSaveLanguage={onSaveLanguage}
                   onSelectTrip={onSelectTrip}
                   onLog={log}
@@ -149,6 +155,7 @@ const NavBar = ({
 
 NavBar.defaultProps = {
   shadow: true,
+  onLogoClick: () => {},
 };
 
 export default NavBar;

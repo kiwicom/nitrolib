@@ -35,13 +35,13 @@ type Props = {|
   value: Date,
   min: Date,
   max: Date,
+  format: string[],
   onChange: Date => void,
-  mmddyyyy: boolean,
 |};
 
 class InputDate extends React.PureComponent<Props> {
   static defaultProps = {
-    mmddyyyy: false,
+    format: ["D", "M", "Y"],
   };
 
   handleChangeDate = (ev: SyntheticInputEvent<HTMLSelectElement>) => {
@@ -63,35 +63,28 @@ class InputDate extends React.PureComponent<Props> {
   };
 
   render() {
-    const { id, value, min, max, mmddyyyy } = this.props;
+    const { id, value, min, max, format } = this.props;
     const { dates, months, years } = calculateRanges(min, max, value);
 
-    return (
-      <Flex x="space-between">
-        {mmddyyyy ? (
-          <>
-            <SelectContainer>
-              <Months id={id} value={value} onChange={this.handleChangeMonth} months={months} />
-            </SelectContainer>
-            <SelectContainer>
-              <Dates id={id} value={value} onChange={this.handleChangeDate} dates={dates} />
-            </SelectContainer>
-          </>
-        ) : (
-          <>
-            <SelectContainer>
-              <Dates id={id} value={value} onChange={this.handleChangeDate} dates={dates} />
-            </SelectContainer>
-            <SelectContainer>
-              <Months id={id} value={value} onChange={this.handleChangeMonth} months={months} />
-            </SelectContainer>
-          </>
-        )}
-        <SelectContainer>
+    const parts = {
+      D: (
+        <SelectContainer key="D">
+          <Dates id={id} value={value} onChange={this.handleChangeDate} dates={dates} />
+        </SelectContainer>
+      ),
+      M: (
+        <SelectContainer key="M">
+          <Months id={id} value={value} onChange={this.handleChangeMonth} months={months} />
+        </SelectContainer>
+      ),
+      Y: (
+        <SelectContainer key="Y">
           <Years id={id} value={value} onChange={this.handleChangeYear} years={years} />
         </SelectContainer>
-      </Flex>
-    );
+      ),
+    };
+
+    return <Flex x="space-between">{format.map(item => parts[item])}</Flex>;
   }
 }
 

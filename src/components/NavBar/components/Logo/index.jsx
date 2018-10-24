@@ -72,13 +72,21 @@ const Link = styled.a`
 
 const logoBaseUrl = "https://images.kiwi.com/whitelabels";
 
-const Logo = () => (
+type Props = {|
+  onClick: (ev: SyntheticMouseEvent<HTMLAnchorElement>) => void,
+|};
+
+const Logo = ({ onClick }: Props) => (
   <IntlConsumer>
     {({ language }) => (
       <BrandConsumer>
         {({ id, home_redirect_url, name, powered_by_kiwi, theme }) =>
           id === "kiwicom" ? (
-            <Link href={`${home_redirect_url}${language.id}/`} data-test="NavbarLogoLink">
+            <Link
+              href={`${home_redirect_url}${language.id}/`}
+              onClick={onClick}
+              data-test="NavbarLogoLink"
+            >
               <SvgLogo
                 height={logo.height}
                 width={logo.width}
@@ -90,6 +98,7 @@ const Logo = () => (
             <>
               <LogoLinkStyled
                 href={`${home_redirect_url}${language.id}/`}
+                onClick={onClick}
                 data-test="NavbarLogoLink"
               >
                 <LogoStyled

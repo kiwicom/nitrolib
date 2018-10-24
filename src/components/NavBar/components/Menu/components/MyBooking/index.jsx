@@ -17,6 +17,7 @@ import IconText from "../../../../../IconText";
 import Text from "../../../../../Text";
 import IataPicker from "../../../../../IataPicker";
 import InputDate from "../../../../../InputDate";
+import parseDateFormat from "../../../../../InputDate/services/parseDateFormat";
 import firstFormError from "../../../services/firstFormError";
 import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
 import * as normalizers from "../../../../../../services/input/normalizers";
@@ -244,6 +245,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                 id="departure"
                 value={fields.departure.value}
                 onChange={this.handleChangeDeparture}
+                format={parseDateFormat(intl.language.dateFormatLong)}
                 min={MIN}
                 max={MAX}
               />

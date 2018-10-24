@@ -8,6 +8,7 @@ import { themeDefault } from "../../../../../../records/Theme";
 import type { ThemeProps } from "../../../../../../records/Theme";
 import { Consumer as BrandConsumer } from "../../../../../../services/brand/context";
 import { Consumer as AuthConsumer } from "../../../../../../services/auth/context";
+import * as MODALS from "../../../../../../consts/modals";
 import SocialLogin from "./SocialLogin";
 import Switch from "./Switch";
 import MyBooking from "../MyBooking";
@@ -28,7 +29,7 @@ const FieldWrap = styled.div`
 `;
 
 type Props = {|
-  open: "myBooking" | "register" | "signIn",
+  open: typeof MODALS.MY_BOOKING | typeof MODALS.REGISTER | typeof MODALS.SIGN_IN,
   onOpenMyBooking: () => void,
   onOpenRegister: () => void,
   onCloseSuccess: () => void,
@@ -86,21 +87,21 @@ class Login extends React.Component<Props> {
                   <Alert type="critical">{auth.error}</Alert>
                 </FieldWrap>
               )}
-              {open === "myBooking" && (
+              {open === MODALS.MY_BOOKING && (
                 <MyBooking
                   loading={auth.loading}
                   onMyBooking={auth.onMyBooking}
                   onCloseSuccess={onCloseSuccess}
                 />
               )}
-              {open === "register" && (
+              {open === MODALS.REGISTER && (
                 <Register
                   loading={auth.loading}
                   onRegister={auth.onRegister}
                   onCloseSuccess={onCloseSuccess}
                 />
               )}
-              {open === "signIn" && (
+              {open === MODALS.SIGN_IN && (
                 <SignIn
                   loading={auth.loading}
                   onSignIn={auth.onSignIn}

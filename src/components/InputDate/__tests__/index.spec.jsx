@@ -25,6 +25,21 @@ describe("#InputDate", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  test("render ddmmyyyy", () => {
+    const wrapper = shallow(
+      <InputDate
+        id="test"
+        value={NOW}
+        onChange={jest.fn()}
+        min={addYears(NOW, -1)}
+        max={addYears(NOW, 2)}
+        format={["D", "M", "Y"]}
+      />,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   test("render mmddyyyy", () => {
     const wrapper = shallow(
       <InputDate
@@ -33,7 +48,22 @@ describe("#InputDate", () => {
         onChange={jest.fn()}
         min={addYears(NOW, -1)}
         max={addYears(NOW, 2)}
-        mmddyyyy
+        format={["M", "D", "Y"]}
+      />,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  test("render yyyymmdd", () => {
+    const wrapper = shallow(
+      <InputDate
+        id="test"
+        value={NOW}
+        onChange={jest.fn()}
+        min={addYears(NOW, -1)}
+        max={addYears(NOW, 2)}
+        format={["Y", "M", "D"]}
       />,
     );
 
