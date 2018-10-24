@@ -47,7 +47,10 @@ class Login extends React.Component<Props> {
 
   handleCSS = () => {
     const mainview = document.querySelector(".MainView");
-    return mainview && mainview.classList.toggle("MainView_nitro-modal");
+    return (
+      mainview &&
+      (mainview.classList.toggle("MainView_nitro-modal"), mainview.classList.toggle("_fixed"))
+    );
   };
 
   render() {
