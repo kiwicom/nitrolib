@@ -2,11 +2,11 @@
 
 exports[`#AccountPassword render 1`] = `
 <React.Fragment>
-  <Illustration
-    name="Login"
-    size="small"
-  />
-  <AccountPassword__SpacingXSmall>
+  <ModalHeader>
+    <Illustration
+      name="Login"
+      size="small"
+    />
     <Heading
       element="h2"
     >
@@ -16,50 +16,50 @@ exports[`#AccountPassword render 1`] = `
         values={Object {}}
       />
     </Heading>
-  </AccountPassword__SpacingXSmall>
-  <Text
-    weight="bold"
-  >
-    <Text
-      html={false}
-      t="account.sign_in_description"
-      values={Object {}}
-    />
-  </Text>
-  <AccountPassword__Ruler />
-  <AccountPassword__SpacingMedium>
-    <Text>
-      <Text
-        html={false}
-        t="account.email"
-        values={Object {}}
-      />
-    </Text>
     <Text
       weight="bold"
     >
-      example@example.com
-      <TextLink
-        onClick={[Function]}
-        type="primary"
-      >
-        <Edit
-          size="small"
-        />
-      </TextLink>
+      <Text
+        html={false}
+        t="account.sign_in_description"
+        values={Object {}}
+      />
     </Text>
-  </AccountPassword__SpacingMedium>
-  <Flex
-    direction="row"
-    wrap="nowrap"
-    x="flex-start"
-    y="flex-end"
-  >
-    <span
-      style={
+  </ModalHeader>
+  <ModalSection>
+    <Text
+      spaceAfter="medium"
+      weight="bold"
+    >
+      <Stack
+        desktop={
+          Object {
+            "direction": "row",
+            "spacing": "tight",
+          }
+        }
+      >
+        <Text
+          weight="bold"
+        >
+          example@example.com
+        </Text>
+        <TextLink
+          onClick={[Function]}
+          type="primary"
+        >
+          <Edit
+            size="small"
+          />
+        </TextLink>
+      </Stack>
+    </Text>
+    <Stack
+      desktop={
         Object {
-          "flexGrow": 1,
-          "marginRight": "8px",
+          "align": "end",
+          "direction": "row",
+          "spacing": "condensed",
         }
       }
     >
@@ -69,20 +69,21 @@ exports[`#AccountPassword render 1`] = `
         type="password"
         value="asdfg"
       />
-    </span>
-    <Button
-      onClick={[Function]}
+      <Button
+        onClick={[Function]}
+      >
+        <Text
+          html={false}
+          t="account.sign_in"
+          values={Object {}}
+        />
+      </Button>
+    </Stack>
+  </ModalSection>
+  <ModalSection>
+    <Text
+      spaceAfter="normal"
     >
-      <Text
-        html={false}
-        t="account.sign_in"
-        values={Object {}}
-      />
-    </Button>
-  </Flex>
-  <AccountPassword__Ruler />
-  <AccountPassword__SpacingXSmall>
-    <Text>
       <Text
         html={false}
         t="account.send_link_to"
@@ -93,16 +94,16 @@ exports[`#AccountPassword render 1`] = `
         }
       />
     </Text>
-  </AccountPassword__SpacingXSmall>
-  <Button
-    onClick={[Function]}
-    type="secondary"
-  >
-    <Text
-      html={false}
-      t="account.ask_sign_in_link"
-      values={Object {}}
-    />
-  </Button>
+    <Button
+      onClick={[Function]}
+      type="secondary"
+    >
+      <Text
+        html={false}
+        t="account.ask_sign_in_link"
+        values={Object {}}
+      />
+    </Button>
+  </ModalSection>
 </React.Fragment>
 `;

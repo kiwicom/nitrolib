@@ -1,6 +1,7 @@
 .atom
 .idea
 .tmp
+./cache
 coverage
 data
 dist-storybook

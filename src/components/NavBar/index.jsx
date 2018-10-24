@@ -104,60 +104,63 @@ const NavBar = ({
   onSelectTrip,
   onLogoClick,
 }: Props) => (
-  <InvertedProvider value={{ inverted }}>
-    <Container x="space-between" y="center" shadow={shadow} dataTest="Navbar" inverted={inverted}>
-      <Flex y="center" x="flex-start">
-        <Logo inverted={inverted} onClick={onLogoClick} />
-        {headerLinks && (
-          <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
-        )}
-      </Flex>
-      <Flex y="center">
-        <Wrapper>
-          <Desktop display="flex">
-            <WrapperChild>
-              <ButtonWrapper>
-                <WrapperChild>
-                  <Language
-                    positionMenuDesktop={270}
-                    positionMenuTablet={5}
-                    onChange={onSaveLanguage}
-                  />
-                </WrapperChild>
-                <WrapperChild>
-                  <Currency positionMenuDesktop={270} positionMenuTablet={5} />
-                </WrapperChild>
-                <WrapperChild>
-                  <Help onOpen={onOpenFaq} inverted={inverted} />
-                </WrapperChild>
-              </ButtonWrapper>
-            </WrapperChild>
-          </Desktop>
-          <WrapperChild>{starred}</WrapperChild>
-          <Mobile>
-            <WrapperChild>
-              <Help onOpen={onOpenFaq} inverted={inverted} />
-            </WrapperChild>
-          </Mobile>
-          <AuthConsumer>
-            {({ onResetError }) => (
-              <Menu
-                chat={chat}
-                subscription={subscription}
-                debug={debug}
-                onResetError={onResetError}
-                onSetModal={onSetModal}
-                onSaveLanguage={onSaveLanguage}
-                onSelectTrip={onSelectTrip}
-                inverted={inverted}
-                portal={portal}
-              />
-            )}
-          </AuthConsumer>
-        </Wrapper>
-      </Flex>
-    </Container>
-  </InvertedProvider>
+  // $FlowFixMe
+  <React.StrictMode>
+    <InvertedProvider value={{ inverted }}>
+      <Container x="space-between" y="center" shadow={shadow} dataTest="Navbar" inverted={inverted}>
+        <Flex y="center" x="flex-start">
+          <Logo inverted={inverted} onClick={onLogoClick} />
+          {headerLinks && (
+            <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
+          )}
+        </Flex>
+        <Flex y="center">
+          <Wrapper>
+            <Desktop display="flex">
+              <WrapperChild>
+                <ButtonWrapper>
+                  <WrapperChild>
+                    <Language
+                      positionMenuDesktop={270}
+                      positionMenuTablet={5}
+                      onChange={onSaveLanguage}
+                    />
+                  </WrapperChild>
+                  <WrapperChild>
+                    <Currency positionMenuDesktop={270} positionMenuTablet={5} />
+                  </WrapperChild>
+                  <WrapperChild>
+                    <Help onOpen={onOpenFaq} inverted={inverted} />
+                  </WrapperChild>
+                </ButtonWrapper>
+              </WrapperChild>
+            </Desktop>
+            <WrapperChild>{starred}</WrapperChild>
+            <Mobile>
+              <WrapperChild>
+                <Help onOpen={onOpenFaq} inverted={inverted} />
+              </WrapperChild>
+            </Mobile>
+            <AuthConsumer>
+              {({ onResetError }) => (
+                <Menu
+                  chat={chat}
+                  subscription={subscription}
+                  debug={debug}
+                  onResetError={onResetError}
+                  onSetModal={onSetModal}
+                  onSaveLanguage={onSaveLanguage}
+                  onSelectTrip={onSelectTrip}
+                  inverted={inverted}
+                  portal={portal}
+                />
+              )}
+            </AuthConsumer>
+          </Wrapper>
+        </Flex>
+      </Container>
+    </InvertedProvider>
+  </React.StrictMode>
 );
 
 NavBar.defaultProps = {

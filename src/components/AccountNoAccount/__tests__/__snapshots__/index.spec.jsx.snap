@@ -6,7 +6,7 @@ exports[`#AccountNoAccount render 1`] = `
     name="NoBookings"
     size="small"
   />
-  <AccountNoAccount__SpacingXSmall>
+  <ModalHeader>
     <Heading
       element="h2"
     >
@@ -16,8 +16,6 @@ exports[`#AccountNoAccount render 1`] = `
         values={Object {}}
       />
     </Heading>
-  </AccountNoAccount__SpacingXSmall>
-  <AccountNoAccount__SpacingBig>
     <Text>
       <Text
         html={false}
@@ -25,38 +23,49 @@ exports[`#AccountNoAccount render 1`] = `
         values={Object {}}
       />
     </Text>
-  </AccountNoAccount__SpacingBig>
-  <AccountNoAccount__SpacingMedium>
-    <Button
-      onClick={[Function]}
+  </ModalHeader>
+  <ModalSection>
+    <Stack
+      desktop={
+        Object {
+          "spacing": "natural",
+        }
+      }
     >
-      <Text
-        html={false}
-        t="account.register"
-        values={Object {}}
-      />
-    </Button>
-  </AccountNoAccount__SpacingMedium>
-  <AccountNoAccount__SpacingMedium>
-    <ButtonLink
-      component="button"
-      external={false}
-      iconLeft={<ChevronLeft />}
-      onClick={[Function]}
-      size="normal"
-      transparent={false}
-      type="secondary"
-      width={0}
-    >
-      <Text
-        html={false}
-        t="account.back"
-        values={Object {}}
-      />
-    </ButtonLink>
-  </AccountNoAccount__SpacingMedium>
-  <AccountNoAccount__Rectangle>
+      <Button
+        onClick={[Function]}
+      >
+        <Text
+          html={false}
+          t="account.register"
+          values={Object {}}
+        />
+      </Button>
+      <AccountNoAccount__Align>
+        <ButtonLink
+          component="button"
+          external={false}
+          iconLeft={<ChevronLeft />}
+          onClick={[Function]}
+          size="normal"
+          transparent={false}
+          type="secondary"
+          width={0}
+        >
+          <Text
+            html={false}
+            t="account.back"
+            values={Object {}}
+          />
+        </ButtonLink>
+      </AccountNoAccount__Align>
+    </Stack>
+  </ModalSection>
+  <ModalSection
+    suppressed={true}
+  >
     <Text
+      spaceAfter="medium"
       weight="bold"
     >
       <Text
@@ -65,65 +74,49 @@ exports[`#AccountNoAccount render 1`] = `
         values={Object {}}
       />
     </Text>
-    <Flex
-      direction="row"
-      wrap="nowrap"
-      x="flex-start"
-      y="flex-start"
+    <Stack
+      desktop={
+        Object {
+          "direction": "row",
+          "spacing": "natural",
+        }
+      }
     >
-      <span
-        style={
-          Object {
-            "flexGrow": 1,
-            "marginRight": "4px",
-          }
-        }
+      <Button
+        block={true}
+        bordered={true}
+        icon={<Facebook />}
+        onClick={[Function]}
+        type="facebook"
       >
-        <Button
-          block={true}
-          bordered={true}
-          icon={<Facebook />}
-          onClick={[Function]}
-          type="facebook"
-        >
-          <Text
-            html={false}
-            t="account.log_in_with"
-            values={
-              Object {
-                "provider": "Facebook",
-              }
+        <Text
+          html={false}
+          t="account.log_in_with"
+          values={
+            Object {
+              "provider": "Facebook",
             }
-          />
-        </Button>
-      </span>
-      <span
-        style={
-          Object {
-            "flexGrow": 1,
-            "marginLeft": "4px",
           }
-        }
+        />
+      </Button>
+      <Button
+        block={true}
+        bordered={true}
+        icon={<Google />}
+        onClick={[Function]}
+        type="google"
       >
-        <Button
-          block={true}
-          bordered={true}
-          icon={<Google />}
-          onClick={[Function]}
-          type="google"
-        >
-          <Text
-            html={false}
-            t="account.log_in_with"
-            values={
-              Object {
-                "provider": "Google",
-              }
+        <Text
+          html={false}
+          t="account.log_in_with"
+          values={
+            Object {
+              "provider": "Google",
             }
-          />
-        </Button>
-      </span>
-    </Flex>
-  </AccountNoAccount__Rectangle>
+          }
+        />
+      </Button>
+    </Stack>
+  </ModalSection>
 </Fragment>
 `;
