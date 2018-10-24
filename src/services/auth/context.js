@@ -12,10 +12,10 @@ export type Context = {|
   error: string,
   environment: Environment,
   onResetError: () => void,
-  onMyBooking: (input: MyBookingInput) => Promise<string | null>,
-  onRegister: (input: RegisterInput) => Promise<boolean>,
-  onSocialAuth: (provider: SocialProvider) => Promise<boolean>,
-  onSignIn: (email: string, password: string) => Promise<boolean>,
+  onMyBooking: (input: MyBookingInput) => Promise<void>,
+  onRegister: (input: RegisterInput) => Promise<void>,
+  onSocialAuth: (provider: SocialProvider) => Promise<void>,
+  onSignIn: (email: string, password: string) => Promise<void>,
   onSignOut: () => void,
 |};
 
@@ -25,10 +25,10 @@ const contextDefault: Context = {
   error: "",
   environment,
   onResetError: () => {},
-  onMyBooking: () => Promise.resolve(null),
-  onRegister: () => Promise.resolve(true),
-  onSocialAuth: () => Promise.resolve(true),
-  onSignIn: () => Promise.resolve(true),
+  onMyBooking: () => Promise.resolve(),
+  onRegister: () => Promise.resolve(),
+  onSocialAuth: () => Promise.resolve(),
+  onSignIn: () => Promise.resolve(),
   onSignOut: () => {},
 };
 

@@ -14,10 +14,10 @@ type Arg = {|
   loading: boolean,
   error: string,
   environment: Environment,
-  onMyBooking: (input: MyBookingInput) => Promise<boolean>,
-  onRegister: (input: RegisterInput) => Promise<boolean>,
-  onSocialAuth: (provider: SocialProvider) => Promise<boolean>,
-  onSignIn: (email: string, password: string) => Promise<boolean>,
+  onMyBooking: (input: MyBookingInput) => Promise<void>,
+  onRegister: (input: RegisterInput) => Promise<void>,
+  onSocialAuth: (provider: SocialProvider) => Promise<void>,
+  onSignIn: (email: string, password: string) => Promise<void>,
   onSignOut: () => void,
 |};
 
@@ -64,7 +64,7 @@ export default class InitAuth extends React.PureComponent<Props, State> {
       });
   }
 
-  handleMyBooking = (input: MyBookingInput): Promise<boolean> => {
+  handleMyBooking = (input: MyBookingInput): Promise<void> => {
     const { onMyBooking } = this.props;
 
     this.setState({ loading: true });
@@ -73,15 +73,10 @@ export default class InitAuth extends React.PureComponent<Props, State> {
       .then(onMyBooking)
       .then(() => {
         this.setState({ error: "", loading: false });
-        return true;
-      })
-      .catch(err => {
-        this.setState({ error: String(err), loading: false });
-        return false;
       });
   };
 
-  handleRegister = (input: RegisterInput): Promise<boolean> => {
+  handleRegister = (input: RegisterInput): Promise<void> => {
     const { brand, onRegister } = this.props;
 
     this.setState({ loading: true });
@@ -90,15 +85,10 @@ export default class InitAuth extends React.PureComponent<Props, State> {
       .then(onRegister)
       .then(() => {
         this.setState({ error: "", loading: false });
-        return true;
-      })
-      .catch(err => {
-        this.setState({ error: String(err), loading: false });
-        return false;
       });
   };
 
-  handleSocialAuth = (provider: SocialProvider): Promise<boolean> => {
+  handleSocialAuth = (provider: SocialProvider): Promise<void> => {
     const { redirectURL, onSocialAuth } = this.props;
 
     this.setState({ loading: true });
@@ -107,29 +97,17 @@ export default class InitAuth extends React.PureComponent<Props, State> {
       .then(onSocialAuth)
       .then(() => {
         this.setState({ error: "", loading: false });
-        return true;
-      })
-      .catch(err => {
-        this.setState({ error: String(err), loading: false });
-        return false;
       });
   };
 
-  handleSignIn = (email: string, password: string): Promise<boolean> => {
+  handleSignIn = (email: string, password: string): Promise<void> => {
     const { brand, onSignIn } = this.props;
 
     this.setState({ loading: true });
-    return api
-      .signIn({ email, password, brand: brand.id })
-      .then(auth => {
-        onSignIn(auth.token);
-        this.setState({ auth, error: "", loading: false });
-        return true;
-      })
-      .catch(err => {
-        this.setState({ auth: null, error: String(err), loading: false });
-        return false;
-      });
+    return api.signIn({ email, password, brand: brand.id }).then(auth => {
+      onSignIn(auth.token);
+      this.setState({ auth, error: "", loading: false });
+    });
   };
 
   handleSignOut = () => {

@@ -47,7 +47,7 @@ type Field<T> = {|
 
 type State = {|
   submitted: boolean,
-  error: string | null,
+  error: string,
   fields: {|
     bid: Field<string>,
     email: Field<string>,
@@ -65,8 +65,6 @@ export default class MyBooking extends React.PureComponent<Props, State> {
   };
 
   state = {
-    submitted: false,
-    error: null,
     fields: {
       bid: {
         value: "",
@@ -93,6 +91,8 @@ export default class MyBooking extends React.PureComponent<Props, State> {
         normalize: R.identity,
       },
     },
+    submitted: false,
+    error: "",
   };
 
   handleMount = (query: { [key: string]: string }) => {
@@ -166,7 +166,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
     const { onMyBooking, onCloseSuccess } = this.props;
     const { fields } = this.state;
 
-    this.setState({ submitted: true });
+    this.setState({ submitted: true, error: "" });
     // $FlowFixMe - Date !== string
     if (!isEmptish(R.map(R.prop("error"), fields))) {
       return Promise.resolve(null);
@@ -177,18 +177,18 @@ export default class MyBooking extends React.PureComponent<Props, State> {
       email: fields.email.value,
       iata: fields.iata.value,
       departure: fields.departure.value,
-    }).then(error => {
-      if (error) {
-        this.setState({ error });
-      } else {
+    })
+      .then(() => {
         onCloseSuccess();
-      }
-    });
+      })
+      .catch(err => {
+        this.setState({ error: String(err) });
+      });
   };
 
   render() {
-    const { loading } = this.props;
     const { fields, submitted, error } = this.state;
+    const { loading } = this.props;
 
     const errorSync = firstFormError(fields);
 
@@ -252,9 +252,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
             </FieldWrap>
             {error && (
               <FieldWrap>
-                <Alert type="critical">
-                  <Text t={error} />
-                </Alert>
+                <Alert type="critical">{error}</Alert>
               </FieldWrap>
             )}
             {submitted &&

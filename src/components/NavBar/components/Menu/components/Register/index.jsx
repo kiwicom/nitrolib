@@ -71,6 +71,7 @@ type Fields = {|
 type State = {|
   fields: Fields,
   submitted: boolean,
+  error: string,
 |};
 
 export default class Register extends React.PureComponent<Props, State> {
@@ -94,6 +95,7 @@ export default class Register extends React.PureComponent<Props, State> {
       },
     },
     submitted: false,
+    error: "",
   };
 
   componentDidMount() {
@@ -142,18 +144,20 @@ export default class Register extends React.PureComponent<Props, State> {
       lastName: fields.lastName.value,
       email: fields.email.value,
       password: fields.password.value,
-    }).then(ok => {
-      if (ok) {
+    })
+      .then(() => {
         onCloseSuccess();
-      }
-    });
+      })
+      .catch(err => {
+        this.setState({ error: String(err) });
+      });
   };
 
   render() {
+    const { fields, submitted, error } = this.state;
     const { loading } = this.props;
-    const { fields, submitted } = this.state;
 
-    const error = firstFormError(fields);
+    const errorSync = firstFormError(fields);
 
     return (
       <>
@@ -222,11 +226,16 @@ export default class Register extends React.PureComponent<Props, State> {
             <Text t={__("account.registration_privacy_policy")} html />
           </TextOrbit>
         </FieldPolicy>
+        {error && (
+          <FieldWrap>
+            <Alert type="critical">{error}</Alert>
+          </FieldWrap>
+        )}
         {submitted &&
-          error && (
+          errorSync && (
             <FieldWrap>
               <Alert type="critical">
-                <Text t={error} />
+                <Text t={errorSync} />
               </Alert>
             </FieldWrap>
           )}

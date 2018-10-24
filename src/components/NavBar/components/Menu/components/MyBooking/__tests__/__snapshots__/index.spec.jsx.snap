@@ -8,7 +8,7 @@ exports[`#MyBooking handle submit action error 1`] = `
 
 exports[`#MyBooking not handle non-existent field 1`] = `
 Object {
-  "error": null,
+  "error": "",
   "fields": Object {
     "asdf": Object {
       "error": undefined,

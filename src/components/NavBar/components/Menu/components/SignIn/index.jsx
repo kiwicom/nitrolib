@@ -66,6 +66,7 @@ type Fields = {|
 type State = {|
   fields: Fields,
   submitted: boolean,
+  error: string,
 |};
 
 export default class SignIn extends React.PureComponent<Props, State> {
@@ -81,6 +82,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
       },
     },
     submitted: false,
+    error: "",
   };
 
   handleMount = (query: { [key: string]: string }) => {
@@ -101,23 +103,25 @@ export default class SignIn extends React.PureComponent<Props, State> {
     const { onSignIn, onCloseSuccess } = this.props;
     const { fields } = this.state;
 
-    this.setState({ submitted: true });
+    this.setState({ submitted: true, error: "" });
     if (!isEmptish(R.map(R.prop("error"), fields))) {
       return;
     }
 
-    onSignIn(fields.email.value, fields.password.value).then(ok => {
-      if (ok) {
+    onSignIn(fields.email.value, fields.password.value)
+      .then(() => {
         onCloseSuccess();
-      }
-    });
+      })
+      .catch(err => {
+        this.setState({ error: String(err) });
+      });
   };
 
   render() {
-    const { fields, submitted } = this.state;
+    const { fields, submitted, error } = this.state;
     const { loading, onOpenForgotPassword } = this.props;
 
-    const error = firstFormError(fields);
+    const errorSync = firstFormError(fields);
 
     return (
       <>
@@ -154,11 +158,16 @@ export default class SignIn extends React.PureComponent<Props, State> {
             showState={submitted}
           />
         </FieldWrap>
+        {error && (
+          <FieldWrap>
+            <Alert type="critical">{error}</Alert>
+          </FieldWrap>
+        )}
         {submitted &&
-          error && (
+          errorSync && (
             <FieldWrap>
               <Alert type="critical">
-                <Text t={error} />
+                <Text t={errorSync} />
               </Alert>
             </FieldWrap>
           )}

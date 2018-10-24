@@ -109,7 +109,7 @@ describe("#MyBooking", () => {
       iata: "VIE",
       departure: date,
     });
-    expect(wrapper.state("error")).toBe(null);
+    expect(wrapper.state("error")).toBe("");
   });
 
   test("handle submit form error", async () => {
@@ -123,11 +123,11 @@ describe("#MyBooking", () => {
 
     expect(onMyBooking).not.toBeCalled();
     expect(wrapper.state("submitted")).toBe(true);
-    expect(wrapper.state("error")).toBe(null);
+    expect(wrapper.state("error")).toBe("");
   });
 
   test("handle submit action error", async () => {
-    const onMyBooking = jest.fn().mockImplementation(() => Promise.resolve("api.error"));
+    const onMyBooking = jest.fn().mockImplementation(() => Promise.reject(new Error("API error")));
     const wrapper = shallow(
       <MyBooking loading={false} onMyBooking={onMyBooking} onCloseSuccess={jest.fn()} />,
     );
@@ -142,7 +142,7 @@ describe("#MyBooking", () => {
 
     await wrapper.instance().handleSubmit();
 
-    expect(wrapper.state("error")).toBe("api.error");
+    expect(wrapper.state("error")).toBe("Error: API error");
     expect(wrapper).toMatchSnapshot();
   });
 });
