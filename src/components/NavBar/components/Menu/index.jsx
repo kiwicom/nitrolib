@@ -65,21 +65,25 @@ export default class Menu extends React.Component<Props, State> {
   };
 
   handleOpenMyBooking = () => {
-    const { onLog } = this.props;
+    const { onLog, onResetError } = this.props;
+    onResetError();
 
     this.setState({ modalOpen: MODALS.MY_BOOKING });
     onLog({ event: OPEN_MODAL, data: { modal: MODALS.MY_BOOKING } });
   };
 
   handleOpenRegister = () => {
-    const { onLog } = this.props;
+    const { onLog, onResetError } = this.props;
+    onResetError();
+
 
     this.setState({ modalOpen: MODALS.REGISTER });
     onLog({ event: OPEN_MODAL, data: { modal: MODALS.REGISTER } });
   };
 
   handleOpenSignIn = () => {
-    const { onLog } = this.props;
+    const { onLog, onResetError } = this.props;
+    onResetError();
 
     this.setState({ modalOpen: MODALS.SIGN_IN });
     onLog({ event: OPEN_MODAL, data: { modal: MODALS.SIGN_IN } });
