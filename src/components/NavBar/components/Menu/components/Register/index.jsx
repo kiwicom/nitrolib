@@ -4,6 +4,7 @@ import * as R from "ramda";
 import styled from "styled-components";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import TextOrbit from "@kiwicom/orbit-components/lib/Text";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
 import Security from "@kiwicom/orbit-components/lib/icons/Security";
 import User from "@kiwicom/orbit-components/lib/icons/Passenger";
@@ -13,6 +14,7 @@ import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
 import IconText from "../../../../../IconText";
 import Text from "../../../../../Text";
+import firstFormError from "../../../services/firstFormError";
 import * as normalizers from "../../../../../../services/input/normalizers";
 import * as validators from "../../../../../../services/input/validators";
 import compose from "../../../../../../services/input/composeValidator";
@@ -151,6 +153,8 @@ export default class Register extends React.PureComponent<Props, State> {
     const { loading } = this.props;
     const { fields, submitted } = this.state;
 
+    const error = firstFormError(fields);
+
     return (
       <>
         <Query onMount={this.handleMount} />
@@ -218,6 +222,14 @@ export default class Register extends React.PureComponent<Props, State> {
             <Text t={__("account.registration_privacy_policy")} html />
           </TextOrbit>
         </FieldPolicy>
+        {submitted &&
+          error && (
+            <FieldWrap>
+              <Alert type="critical">
+                <Text t={error} />
+              </Alert>
+            </FieldWrap>
+          )}
         <Button block onClick={this.handleSubmit} disabled={loading}>
           <Text t={__("account.sign_up")} />
         </Button>

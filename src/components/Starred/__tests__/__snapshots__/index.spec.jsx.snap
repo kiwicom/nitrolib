@@ -792,6 +792,7 @@ exports[`#Starred render closed 1`] = `
 exports[`#Starred render open 1`] = `
 <React.Fragment>
   <ClickOutside
+    active={true}
     onClickOutside={[MockFunction]}
   >
     starred

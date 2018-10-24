@@ -3,10 +3,15 @@ import * as React from "react";
 
 type Props = {|
   onClickOutside: (ev: MouseEvent) => void,
+  active: boolean,
   children: React.Node | React.Node[],
 |};
 
 export default class ClickOutside extends React.PureComponent<Props> {
+  static defaultProps = {
+    active: true,
+  };
+
   componentDidMount() {
     document.addEventListener("click", this.handleClickOutside, true);
   }
@@ -16,10 +21,9 @@ export default class ClickOutside extends React.PureComponent<Props> {
   }
 
   handleClickOutside = (ev: MouseEvent) => {
-    const { onClickOutside } = this.props;
+    const { active, onClickOutside } = this.props;
 
-    if (this.node && ev.target instanceof Node && !this.node.contains(ev.target)) {
-      ev.stopPropagation();
+    if (active && this.node && ev.target instanceof Node && !this.node.contains(ev.target)) {
       onClickOutside(ev);
     }
   };

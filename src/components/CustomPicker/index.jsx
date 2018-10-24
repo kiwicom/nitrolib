@@ -42,21 +42,18 @@ type Props = {|
 const CustomPicker = ({ openButton, children, onChange, dataTest }: Props) => (
   <Toggle>
     {({ open, onToggle }) => (
-      <>
+      <ClickOutside active={open} onClickOutside={onToggle}>
         <OpenButton onClick={onToggle} data-test={dataTest}>
           {openButton}
         </OpenButton>
-        {open && (
-          <ClickOutside onClickOutside={onToggle}>
-            {children({
-              onChange: (input: string) => {
-                onChange(input);
-                onToggle();
-              },
-            })}
-          </ClickOutside>
-        )}
-      </>
+        {open &&
+          children({
+            onChange: (input: string) => {
+              onChange(input);
+              onToggle();
+            },
+          })}
+      </ClickOutside>
     )}
   </Toggle>
 );

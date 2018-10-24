@@ -35,11 +35,29 @@ describe("#ClickOutside", () => {
     instance.node = document.createElement("div");
     const node = document.createElement("div");
 
-    const ev = { target: node, stopPropagation: jest.fn() };
+    const ev = { target: node };
     instance.handleClickOutside(ev);
 
-    expect(ev.stopPropagation).toBeCalled();
     expect(onClickOutside).toBeCalledWith(ev);
+  });
+
+  test("handler - not active", () => {
+    const onClickOutside = jest.fn();
+    const wrapper = shallow(
+      <ClickOutside active={false} onClickOutside={onClickOutside}>
+        kek
+      </ClickOutside>,
+    );
+
+    const instance = wrapper.instance();
+
+    instance.node = document.createElement("div");
+    const node = document.createElement("div");
+
+    const ev = { target: node };
+    instance.handleClickOutside(ev);
+
+    expect(onClickOutside).not.toBeCalled();
   });
 
   test("handler - no node", () => {
@@ -49,10 +67,9 @@ describe("#ClickOutside", () => {
     const instance = wrapper.instance();
     const node = document.createElement("div");
 
-    const ev = { target: node, stopPropagation: jest.fn() };
+    const ev = { target: node };
     instance.handleClickOutside(ev);
 
-    expect(ev.stopPropagation).not.toBeCalled();
     expect(onClickOutside).not.toBeCalled();
   });
 
@@ -66,10 +83,9 @@ describe("#ClickOutside", () => {
     const node = document.createElement("div");
     instance.node.appendChild(node);
 
-    const ev = { target: node, stopPropagation: jest.fn() };
+    const ev = { target: node };
     instance.handleClickOutside(ev);
 
-    expect(ev.stopPropagation).not.toBeCalled();
     expect(onClickOutside).not.toBeCalled();
   });
 });

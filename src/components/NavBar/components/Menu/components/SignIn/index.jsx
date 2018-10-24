@@ -5,6 +5,7 @@ import styled from "styled-components";
 import FaLongArrowRight from "react-icons/lib/fa/long-arrow-right";
 import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
 import Button from "@kiwicom/orbit-components/lib/Button";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import Security from "@kiwicom/orbit-components/lib/icons/Security";
 
@@ -13,6 +14,7 @@ import { themeDefault } from "../../../../../../records/Theme";
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
 import Text from "../../../../../Text";
+import firstFormError from "../../../services/firstFormError";
 import compose from "../../../../../../services/input/composeValidator";
 import * as validators from "../../../../../../services/input/validators";
 import * as normalizers from "../../../../../../services/input/normalizers";
@@ -115,6 +117,8 @@ export default class SignIn extends React.PureComponent<Props, State> {
     const { fields, submitted } = this.state;
     const { loading, onOpenForgotPassword } = this.props;
 
+    const error = firstFormError(fields);
+
     return (
       <>
         <Query onMount={this.handleMount} />
@@ -150,6 +154,14 @@ export default class SignIn extends React.PureComponent<Props, State> {
             showState={submitted}
           />
         </FieldWrap>
+        {submitted &&
+          error && (
+            <FieldWrap>
+              <Alert type="critical">
+                <Text t={error} />
+              </Alert>
+            </FieldWrap>
+          )}
         <Button block onClick={this.handleSubmit} disabled={loading}>
           <Text t={__("account.sign_in")} />
         </Button>

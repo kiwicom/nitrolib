@@ -17,6 +17,7 @@ import IconText from "../../../../../IconText";
 import Text from "../../../../../Text";
 import IataPicker from "../../../../../IataPicker";
 import InputDate from "../../../../../InputDate";
+import firstFormError from "../../../services/firstFormError";
 import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
 import * as normalizers from "../../../../../../services/input/normalizers";
 import * as validators from "../../../../../../services/input/validators";
@@ -188,6 +189,8 @@ export default class MyBooking extends React.PureComponent<Props, State> {
     const { loading } = this.props;
     const { fields, submitted, error } = this.state;
 
+    const errorSync = firstFormError(fields);
+
     return (
       <IntlConsumer>
         {intl => (
@@ -252,6 +255,14 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                 </Alert>
               </FieldWrap>
             )}
+            {submitted &&
+              errorSync && (
+                <FieldWrap>
+                  <Alert type="critical">
+                    <Text t={errorSync} />
+                  </Alert>
+                </FieldWrap>
+              )}
             <Button block onClick={this.handleSubmit} disabled={loading}>
               <Text t={__("submit")} />
             </Button>
