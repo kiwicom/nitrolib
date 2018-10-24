@@ -103,7 +103,8 @@ const NavBar = ({
   onSelectTrip,
   onLogoClick,
 }: Props) => (
-  <InvertedProvider value={{ inverted }}>
+  // $FlowFixMe
+  <React.StrictMode><InvertedProvider value={{ inverted }}>
     <Container x="space-between" y="center" shadow={shadow} dataTest="Navbar" inverted={inverted}>
       <Flex y="center" x="flex-start">
         <Logo inverted={inverted} onClick={onLogoClick} />
@@ -139,19 +140,21 @@ const NavBar = ({
             </WrapperChild>
           </Mobile>
           <Menu
-            chat={chat}
-            subscription={subscription}
-            debug={debug}
-            onSetModal={onSetModal}
-            onSaveLanguage={onSaveLanguage}
-            onSelectTrip={onSelectTrip}
-            inverted={inverted}
-            portal={portal}
-          />
+                chat={chat}
+                subscription={subscription}
+                debug={debug}
+
+                onSetModal={onSetModal}
+                onSaveLanguage={onSaveLanguage}
+                onSelectTrip={onSelectTrip}
+                inverted={inverted}
+                portal={portal}
+              />
+
         </Wrapper>
       </Flex>
     </Container>
-  </InvertedProvider>
+  </InvertedProvider></React.StrictMode>
 );
 
 NavBar.defaultProps = {

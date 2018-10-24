@@ -2,11 +2,11 @@
 
 exports[`#AccountPairedFacebook render 1`] = `
 <Fragment>
-  <Illustration
-    name="Login"
-    size="small"
-  />
-  <AccountPairedFacebook__SpacingXSmall>
+  <ModalHeader>
+    <Illustration
+      name="Login"
+      size="small"
+    />
     <Heading
       element="h2"
     >
@@ -16,8 +16,6 @@ exports[`#AccountPairedFacebook render 1`] = `
         values={Object {}}
       />
     </Heading>
-  </AccountPairedFacebook__SpacingXSmall>
-  <AccountPairedFacebook__SpacingBig>
     <Text
       weight="bold"
     >
@@ -27,26 +25,29 @@ exports[`#AccountPairedFacebook render 1`] = `
         values={Object {}}
       />
     </Text>
-  </AccountPairedFacebook__SpacingBig>
-  <Button
-    bordered={true}
-    icon={<Facebook />}
-    onClick={[Function]}
-    type="facebook"
-  >
-    <Text
-      html={false}
-      t="account.log_in_with"
-      values={
-        Object {
-          "provider": "Facebook",
+  </ModalHeader>
+  <ModalSection>
+    <Button
+      bordered={true}
+      icon={<Facebook />}
+      onClick={[Function]}
+      type="facebook"
+    >
+      <Text
+        html={false}
+        t="account.log_in_with"
+        values={
+          Object {
+            "provider": "Facebook",
+          }
         }
-      }
-    />
-  </Button>
-  <AccountPairedFacebook__Ruler />
-  <AccountPairedFacebook__SpacingXSmall>
-    <Text>
+      />
+    </Button>
+  </ModalSection>
+  <ModalSection>
+    <Text
+      spaceAfter="normal"
+    >
       <Text
         html={false}
         t="account.send_link_to"
@@ -57,16 +58,16 @@ exports[`#AccountPairedFacebook render 1`] = `
         }
       />
     </Text>
-  </AccountPairedFacebook__SpacingXSmall>
-  <Button
-    onClick={[Function]}
-    type="secondary"
-  >
-    <Text
-      html={false}
-      t="account.ask_sign_in_link"
-      values={Object {}}
-    />
-  </Button>
+    <Button
+      onClick={[Function]}
+      type="secondary"
+    >
+      <Text
+        html={false}
+        t="account.ask_sign_in_link"
+        values={Object {}}
+      />
+    </Button>
+  </ModalSection>
 </Fragment>
 `;

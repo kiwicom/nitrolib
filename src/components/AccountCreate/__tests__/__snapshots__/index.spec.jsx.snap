@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#AccountCreate render 1`] = `
-<React.Fragment>
-  <Illustration
-    name="EnjoyApp"
-    size="small"
-  />
-  <AccountCreate__SpacingXSmall>
+<AccountCreate__Wrapper>
+  <ModalHeader>
+    <Illustration
+      name="EnjoyApp"
+      size="small"
+    />
     <Heading
       element="h2"
     >
@@ -16,58 +16,58 @@ exports[`#AccountCreate render 1`] = `
         values={Object {}}
       />
     </Heading>
-  </AccountCreate__SpacingXSmall>
-  <AccountCreate__SpacingXSmall>
     <Text
       html={false}
       t="account.create_account_description"
       values={Object {}}
     />
-  </AccountCreate__SpacingXSmall>
-  <AccountCreate__SpacingMedium>
-    <InputField
-      label="account.email"
-      onChange={[Function]}
-      placeholder="account.email_placeholder"
-      type="email"
-      value=""
-    />
-  </AccountCreate__SpacingMedium>
-  <AccountCreate__SpacingMedium>
-    <InputField
-      label="account.password"
-      onChange={[Function]}
-      type="password"
-      value=""
-    />
-  </AccountCreate__SpacingMedium>
-  <AccountCreate__SpacingMedium>
-    <InputField
-      label="account.password_confirmaiton"
-      onChange={[Function]}
-      type="password"
-      value=""
-    />
-  </AccountCreate__SpacingMedium>
-  <AccountCreate__SpacingMedium>
-    <Button
-      onClick={[Function]}
+  </ModalHeader>
+  <ModalSection>
+    <Stack
+      desktop={
+        Object {
+          "spacing": "comfy",
+        }
+      }
     >
-      <Text
-        html={false}
-        t="account.create"
-        values={Object {}}
+      <InputField
+        label="account.email"
+        onChange={[Function]}
+        placeholder="account.email_placeholder"
+        type="email"
+        value=""
       />
-    </Button>
-  </AccountCreate__SpacingMedium>
-  <Text
-    size="small"
-  >
-    <Text
-      html={true}
-      t="account.terms_and_privacy_policy"
-      values={Object {}}
-    />
-  </Text>
-</React.Fragment>
+      <InputField
+        label="account.password"
+        onChange={[Function]}
+        type="password"
+        value=""
+      />
+      <InputField
+        label="account.password_confirmaiton"
+        onChange={[Function]}
+        type="password"
+        value=""
+      />
+      <Button
+        onClick={[Function]}
+      >
+        <Text
+          html={false}
+          t="account.create"
+          values={Object {}}
+        />
+      </Button>
+      <Text
+        size="small"
+      >
+        <Text
+          html={true}
+          t="account.terms_and_privacy_policy"
+          values={Object {}}
+        />
+      </Text>
+    </Stack>
+  </ModalSection>
+</AccountCreate__Wrapper>
 `;

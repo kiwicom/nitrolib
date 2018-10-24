@@ -2,11 +2,11 @@
 
 exports[`#AccountPassword render 1`] = `
 <React.Fragment>
-  <Illustration
-    name="Login"
-    size="small"
-  />
-  <AccountPassword__SpacingXSmall>
+  <ModalHeader>
+    <Illustration
+      name="Login"
+      size="small"
+    />
     <Heading
       element="h2"
     >
@@ -16,61 +16,59 @@ exports[`#AccountPassword render 1`] = `
         values={Object {}}
       />
     </Heading>
-  </AccountPassword__SpacingXSmall>
-  <Text
-    weight="bold"
-  >
-    <Text
-      html={false}
-      t="account.sign_in_description"
-      values={Object {}}
-    />
-  </Text>
-  <AccountPassword__Ruler />
-  <AccountPassword__SpacingMedium>
-    <Text>
-      <Text
-        html={false}
-        t="account.email"
-        values={Object {}}
-      />
-    </Text>
     <Text
       weight="bold"
     >
-      example@example.com
-      <TextLink
-        onClick={[Function]}
-        type="primary"
-      >
-        <Edit
-          size="small"
-        />
-      </TextLink>
+      <Text
+        html={false}
+        t="account.sign_in_description"
+        values={Object {}}
+      />
     </Text>
-  </AccountPassword__SpacingMedium>
-  <AccountPassword__SpacingBig>
-    <Flex
-      direction="row"
-      wrap="nowrap"
-      x="flex-start"
-      y="flex-end"
+  </ModalHeader>
+  <ModalSection>
+    <Text
+      spaceAfter="medium"
+      weight="bold"
     >
-      <span
-        style={
+      <Stack
+        desktop={
           Object {
-            "flexGrow": 1,
-            "marginRight": "8px",
+            "direction": "row",
+            "spacing": "tight",
           }
         }
       >
-        <InputField
-          label="account.password"
-          onChange={[Function]}
-          type="password"
-          value="asdfg"
-        />
-      </span>
+        <Text
+          weight="bold"
+        >
+          example@example.com
+        </Text>
+        <TextLink
+          onClick={[Function]}
+          type="primary"
+        >
+          <Edit
+            size="small"
+          />
+        </TextLink>
+      </Stack>
+    </Text>
+    <Stack
+      desktop={
+        Object {
+          "align": "end",
+          "direction": "row",
+          "spacing": "condensed",
+        }
+      }
+    >
+      <InputField
+        label="account.password"
+        onChange={[Function]}
+        type="password"
+        value="asdfg"
+      />
       <Button
         onClick={[Function]}
       >
@@ -80,25 +78,12 @@ exports[`#AccountPassword render 1`] = `
           values={Object {}}
         />
       </Button>
-    </Flex>
-  </AccountPassword__SpacingBig>
-  <TextLink
-    onClick={[Function]}
-    type="secondary"
-  >
+    </Stack>
+  </ModalSection>
+  <ModalSection>
     <Text
-      size="small"
+      spaceAfter="normal"
     >
-      <Text
-        html={false}
-        t="account.forgot_password"
-        values={Object {}}
-      />
-    </Text>
-  </TextLink>
-  <AccountPassword__Ruler />
-  <AccountPassword__SpacingXSmall>
-    <Text>
       <Text
         html={false}
         t="account.send_link_to"
@@ -109,16 +94,16 @@ exports[`#AccountPassword render 1`] = `
         }
       />
     </Text>
-  </AccountPassword__SpacingXSmall>
-  <Button
-    onClick={[Function]}
-    type="secondary"
-  >
-    <Text
-      html={false}
-      t="account.ask_sign_in_link"
-      values={Object {}}
-    />
-  </Button>
+    <Button
+      onClick={[Function]}
+      type="secondary"
+    >
+      <Text
+        html={false}
+        t="account.ask_sign_in_link"
+        values={Object {}}
+      />
+    </Button>
+  </ModalSection>
 </React.Fragment>
 `;

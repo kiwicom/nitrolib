@@ -1,16 +1,11 @@
 // @flow strict
 import * as React from "react";
-import styled from "styled-components";
 import OrbitText from "@kiwicom/orbit-components/lib/Text";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
+import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
-import Flex from "../../primitives/Flex";
 import Text from "../Text";
-
-const SpacingXSmall = styled.div`
-  margin-bottom: 8px;
-`;
 
 type Props = {|
   email: string,
@@ -18,28 +13,22 @@ type Props = {|
 |};
 
 const AccountCheckEmail = ({ email, reason }: Props) => (
-  <React.Fragment>
-    <SpacingXSmall>
-      <Heading element="h2">
-        <Text t={__("account.check_email")} />
-      </Heading>
-    </SpacingXSmall>
-    <Flex x="space-around">
-      <Illustration name="Mailbox" size="medium" />
-    </Flex>
-    <SpacingXSmall>
-      {reason === "magicLink" && (
-        <OrbitText>
-          <Text t={__("account.check_email_magic_link")} values={{ email }} />
-        </OrbitText>
-      )}
-      {reason === "signUpConfirmation" && (
-        <OrbitText>
-          <Text t={__("account.check_email_sign_up")} values={{ email }} />
-        </OrbitText>
-      )}
-    </SpacingXSmall>
-  </React.Fragment>
+  <Section>
+    <Heading element="h2" spaceAfter="small">
+      <Text t={__("account.check_email")} />
+    </Heading>
+    <Illustration name="Mailbox" size="medium" spaceAfter="large" />
+    {reason === "magicLink" && (
+      <OrbitText>
+        <Text t={__("account.check_email_magic_link")} values={{ email }} />
+      </OrbitText>
+    )}
+    {reason === "signUpConfirmation" && (
+      <OrbitText>
+        <Text t={__("account.check_email_sign_up")} values={{ email }} />
+      </OrbitText>
+    )}
+  </Section>
 );
 
 export default AccountCheckEmail;

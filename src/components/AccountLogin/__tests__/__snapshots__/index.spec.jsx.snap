@@ -1,14 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#AccountLogin render 1`] = `
-<React.Fragment>
-  <Illustration
-    name="Login"
-    size="small"
-  />
-  <AccountLogin__SpacingXSmall>
+<AccountLogin__Wrapper>
+  <ModalSection>
+    <Illustration
+      name="Login"
+      size="small"
+      spaceAfter="small"
+    />
     <Heading
       element="h2"
+      spaceAfter="small"
     >
       <Text
         html={false}
@@ -16,17 +18,19 @@ exports[`#AccountLogin render 1`] = `
         values={Object {}}
       />
     </Heading>
-  </AccountLogin__SpacingXSmall>
-  <Text>
     <Text
-      html={false}
-      t="account.sign_in_description"
-      values={Object {}}
-    />
-  </Text>
-  <AccountLogin__Ruler />
-  <AccountLogin__SpacingMedium>
+      spaceAfter="large"
+    >
+      <Text
+        html={false}
+        t="account.sign_in_description"
+        values={Object {}}
+      />
+    </Text>
+  </ModalSection>
+  <ModalSection>
     <Text
+      spaceAfter="medium"
       weight="bold"
     >
       <Text
@@ -35,20 +39,15 @@ exports[`#AccountLogin render 1`] = `
         values={Object {}}
       />
     </Text>
-  </AccountLogin__SpacingMedium>
-  <Flex
-    direction="row"
-    wrap="nowrap"
-    x="flex-start"
-    y="flex-end"
-  >
-    <span
-      style={
+    <Stack
+      desktop={
         Object {
-          "flexGrow": 1,
-          "marginRight": "8px",
+          "align": "end",
+          "direction": "row",
+          "spacing": "condensed",
         }
       }
+      spaceAfter="small"
     >
       <InputField
         label="account.email"
@@ -57,19 +56,36 @@ exports[`#AccountLogin render 1`] = `
         type="email"
         value=""
       />
-    </span>
-    <Button
-      onClick={[Function]}
-    >
-      <Text
-        html={false}
-        t="account.continue"
-        values={Object {}}
-      />
-    </Button>
-  </Flex>
-  <AccountLogin__Rectangle>
+      <Button
+        onClick={[Function]}
+      >
+        <Text
+          html={false}
+          t="account.continue"
+          values={Object {}}
+        />
+      </Button>
+    </Stack>
     <Text
+      size="small"
+    >
+      <TextLink
+        onClick={[Function]}
+        type="secondary"
+      >
+        <Text
+          html={false}
+          t="account.i_dont_have_account"
+          values={Object {}}
+        />
+      </TextLink>
+    </Text>
+  </ModalSection>
+  <ModalSection
+    suppressed={true}
+  >
+    <Text
+      spaceAfter="medium"
       weight="bold"
     >
       <Text
@@ -78,75 +94,50 @@ exports[`#AccountLogin render 1`] = `
         values={Object {}}
       />
     </Text>
-    <Flex
-      direction="row"
-      wrap="nowrap"
-      x="flex-start"
-      y="flex-start"
+    <Stack
+      desktop={
+        Object {
+          "align": "end",
+          "direction": "row",
+          "spacing": "natural",
+        }
+      }
     >
-      <span
-        style={
-          Object {
-            "flexGrow": 1,
-            "marginRight": "4px",
-          }
-        }
+      <Button
+        block={true}
+        bordered={true}
+        icon={<Facebook />}
+        onClick={[Function]}
+        type="facebook"
       >
-        <Button
-          block={true}
-          bordered={true}
-          icon={<Facebook />}
-          onClick={[Function]}
-          type="facebook"
-        >
-          <Text
-            html={false}
-            t="account.log_in_with"
-            values={
-              Object {
-                "provider": "Facebook",
-              }
+        <Text
+          html={false}
+          t="account.log_in_with"
+          values={
+            Object {
+              "provider": "Facebook",
             }
-          />
-        </Button>
-      </span>
-      <span
-        style={
-          Object {
-            "flexGrow": 1,
-            "marginLeft": "4px",
           }
-        }
+        />
+      </Button>
+      <Button
+        block={true}
+        bordered={true}
+        icon={<Google />}
+        onClick={[Function]}
+        type="google"
       >
-        <Button
-          block={true}
-          bordered={true}
-          icon={<Google />}
-          onClick={[Function]}
-          type="google"
-        >
-          <Text
-            html={false}
-            t="account.log_in_with"
-            values={
-              Object {
-                "provider": "Google",
-              }
+        <Text
+          html={false}
+          t="account.log_in_with"
+          values={
+            Object {
+              "provider": "Google",
             }
-          />
-        </Button>
-      </span>
-    </Flex>
-  </AccountLogin__Rectangle>
-  <TextLink
-    onClick={[Function]}
-    type="secondary"
-  >
-    <Text
-      html={false}
-      t="account.i_dont_have_account"
-      values={Object {}}
-    />
-  </TextLink>
-</React.Fragment>
+          }
+        />
+      </Button>
+    </Stack>
+  </ModalSection>
+</AccountLogin__Wrapper>
 `;

@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from "react";
-import styled from "styled-components";
 import OrbitText from "@kiwicom/orbit-components/lib/Text";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
@@ -9,41 +8,26 @@ import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Section, { StyledModalSection } from "@kiwicom/orbit-components/lib/Modal/ModalSection";
+import styled from "styled-components";
 
-import Flex from "../../primitives/Flex";
 import Text from "../Text";
 import { Consumer } from "../../services/intl/context";
-import type { ThemeProps } from "../../records/Theme";
 
-const SpacingXSmall = styled.div`
-  margin-bottom: 8px;
+// temporary fix for InputField width, will be fixed in orbit-components ASAP
+// TODO: replace with fragment
+const Wrapper = styled.div`
+  ${StyledModalSection} label {
+    width: 100%;
+  }
 `;
 
-const SpacingMedium = styled.div`
-  margin-bottom: 16px;
-`;
-
-const Ruler = styled.div`
-  width: 100%;
-  height: 1px;
-  background: red;
-  margin-top: 24px;
-  margin-bottom: 24px;
-  background-color: ${({ theme }: ThemeProps) => theme.orbit.backgroundSeparator};
-`;
-
-const Rectangle = styled.div`
-  border-top: 1px solid ${({ theme }: ThemeProps) => theme.orbit.backgroundSeparator};
-  width: 100%;
-  height: 128px;
-  background-color: ${({ theme }: ThemeProps) => theme.orbit.backgroundBody};
-  padding-top: 24px;
-  padding-bottom: 24px;
-  margin-top: 50px;
-  margin-bottom: 16px;
-`;
+type IllustrationType = "Login" | "Help" | "InviteAFriend" | "AirHelp";
 
 type Props = {|
+  illustration?: IllustrationType,
+  text?: string,
   email: string,
   onNoAccount: (ev?: SyntheticEvent<HTMLLinkElement>) => void,
   onGoogleLogin: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
@@ -54,6 +38,8 @@ type Props = {|
 
 const AccountLogin = ({
   email,
+  text,
+  illustration,
   onNoAccount,
   onGoogleLogin,
   onFacebookLogin,
@@ -62,24 +48,28 @@ const AccountLogin = ({
 }: Props) => (
   <Consumer>
     {intl => (
-      <React.Fragment>
-        <Illustration name="Login" size="small" />
-        <SpacingXSmall>
-          <Heading element="h2">
-            <Text t={__("account.manage_your_bookings")} />
+      <Wrapper>
+        <Section>
+          <Illustration name={illustration || "Login"} size="small" spaceAfter="small" />
+          <Heading element="h2" spaceAfter="small">
+            {text || <Text t={__("account.manage_your_bookings")} />}
           </Heading>
-        </SpacingXSmall>
-        <OrbitText>
-          <Text t={__("account.sign_in_description")} />
-        </OrbitText>
-        <Ruler />
-        <SpacingMedium>
-          <OrbitText weight="bold">
+          <OrbitText spaceAfter="large">
             <Text t={__("account.sign_in_description")} />
           </OrbitText>
-        </SpacingMedium>
-        <Flex y="flex-end">
-          <span style={{ flexGrow: 1, marginRight: "8px" }}>
+        </Section>
+        <Section>
+          <OrbitText weight="bold" spaceAfter="medium">
+            <Text t={__("account.sign_in_description")} />
+          </OrbitText>
+          <Stack
+            spaceAfter="small"
+            desktop={{
+              spacing: "condensed",
+              direction: "row",
+              align: "end",
+            }}
+          >
             <InputField
               label={intl.translate(__("account.email"))}
               placeholder={intl.translate(__("account.email_placeholder"))}
@@ -87,38 +77,36 @@ const AccountLogin = ({
               value={email}
               onChange={onEmailChange}
             />
-          </span>
-          <Button onClick={onContinue}>
-            <Text t={__("account.continue")} />
-          </Button>
-        </Flex>
-        <Rectangle>
-          <OrbitText weight="bold">
+            <Button onClick={onContinue}>
+              <Text t={__("account.continue")} />
+            </Button>
+          </Stack>
+          <OrbitText size="small">
+            <TextLink type="secondary" onClick={onNoAccount}>
+              <Text t={__("account.i_dont_have_account")} />
+            </TextLink>
+          </OrbitText>
+        </Section>
+        <Section suppressed>
+          <OrbitText weight="bold" spaceAfter="medium">
             <Text t={__("account.or_social_account")} />
           </OrbitText>
-          <Flex>
-            <span style={{ flexGrow: 1, marginRight: "4px" }}>
-              <Button
-                type="facebook"
-                block
-                bordered
-                icon={<FacebookIcon />}
-                onClick={onFacebookLogin}
-              >
-                <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
-              </Button>
-            </span>
-            <span style={{ flexGrow: 1, marginLeft: "4px" }}>
-              <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
-                <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
-              </Button>
-            </span>
-          </Flex>
-        </Rectangle>
-        <TextLink type="secondary" onClick={onNoAccount}>
-          <Text t={__("account.i_dont_have_account")} />
-        </TextLink>
-      </React.Fragment>
+          <Stack desktop={{ spacing: "natural", direction: "row", align: "end" }}>
+            <Button
+              type="facebook"
+              block
+              bordered
+              icon={<FacebookIcon />}
+              onClick={onFacebookLogin}
+            >
+              <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
+            </Button>
+            <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
+              <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
+            </Button>
+          </Stack>
+        </Section>
+      </Wrapper>
     )}
   </Consumer>
 );
