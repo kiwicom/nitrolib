@@ -14,11 +14,7 @@ type Props = {|
 |};
 
 const Switch = ({ open, onOpenMyBooking, onOpenRegister, onOpenSignIn }: Props) => (
-  <Stack
-    spacing="tight"
-    align="even"
-    desktop={{ direction: "row", wrap: false, spacing: "extraTight" }}
-  >
+  <Stack align="even" desktop={{ direction: "row", wrap: false, spacing: "extraTight" }}>
     <Tab id="myBooking" active={open === "myBooking"} onClick={onOpenMyBooking}>
       <Text t={__("account.oneBookingLogin")} />
     </Tab>

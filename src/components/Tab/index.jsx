@@ -32,8 +32,7 @@ const Container = styled.button`
   text-overflow: ellipsis;
   height: 34px;
   line-height: 34px;
-  border-width: ${border.size}px;
-  border-color: ${({ theme }: ContainerProps) => theme.orbit.paletteInkLighter};
+  border: ${border.size}px solid ${({ theme }: ContainerProps) => theme.orbit.paletteInkLighter};
   border-radius: 0;
   background: ${({ theme, active }: ContainerProps) =>
     theme.orbit[active ? "paletteCloudNormal" : "paletteWhite"]};
@@ -42,6 +41,7 @@ const Container = styled.button`
   ${({ active }: ContainerProps) => active && shadowMixin};
   ${({ active }: ContainerProps) => !active && hoverMixin};
   transition: background ${({ theme }: ContainerProps) => theme.orbit.durationNormal};
+  margin-bottom: ${({ theme }) => theme.orbit.spaceXXSmall};
   ${mq.gtBigMobile(css`
     margin: 0;
     border-width: ${rtl.box(border.size, border.size, border.size, 0)};

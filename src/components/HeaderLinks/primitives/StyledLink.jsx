@@ -24,6 +24,13 @@ const StyledLink = styled.a`
   height: 50px;
   line-height: 50px;
 
+  &:first-child {
+    &:link, &:visited {
+      color: ${({ theme, inverted }: LinkProps) =>
+        inverted ? theme.orbit.paletteWhite : theme.orbit.paletteProductNormal};
+    }
+  }
+
   &:link, &:visited {
     color: ${({ active, theme, inverted }: LinkProps) =>
       inverted
@@ -43,6 +50,12 @@ const StyledLink = styled.a`
     padding-${rtl.left}: 10px;
     font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextLarge};
     font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
+    &:first-child {
+      &:link, &:visited {
+        color: ${({ theme }: LinkProps) => theme.orbit.paletteInkNormal};
+      }
+    }
+
     &:link, &:visited {
       color: ${({ theme }: LinkProps) => theme.orbit.paletteInkNormal};
     }
