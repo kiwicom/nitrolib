@@ -19,6 +19,7 @@ export default class ClickOutside extends React.PureComponent<Props> {
     const { onClickOutside } = this.props;
 
     if (this.node && ev.target instanceof Node && !this.node.contains(ev.target)) {
+      ev.stopPropagation();
       onClickOutside(ev);
     }
   };

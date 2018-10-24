@@ -35,9 +35,10 @@ describe("#ClickOutside", () => {
     instance.node = document.createElement("div");
     const node = document.createElement("div");
 
-    const ev = { target: node };
+    const ev = { target: node, stopPropagation: jest.fn() };
     instance.handleClickOutside(ev);
 
+    expect(ev.stopPropagation).toBeCalled();
     expect(onClickOutside).toBeCalledWith(ev);
   });
 
@@ -48,9 +49,10 @@ describe("#ClickOutside", () => {
     const instance = wrapper.instance();
     const node = document.createElement("div");
 
-    const ev = { target: node };
+    const ev = { target: node, stopPropagation: jest.fn() };
     instance.handleClickOutside(ev);
 
+    expect(ev.stopPropagation).not.toBeCalled();
     expect(onClickOutside).not.toBeCalled();
   });
 
@@ -64,9 +66,10 @@ describe("#ClickOutside", () => {
     const node = document.createElement("div");
     instance.node.appendChild(node);
 
-    const ev = { target: node };
+    const ev = { target: node, stopPropagation: jest.fn() };
     instance.handleClickOutside(ev);
 
+    expect(ev.stopPropagation).not.toBeCalled();
     expect(onClickOutside).not.toBeCalled();
   });
 });
