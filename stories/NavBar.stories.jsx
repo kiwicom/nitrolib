@@ -74,8 +74,10 @@ storiesOf("NavBar", module)
       shadow={boolean("Shadow", true, GROUP_ID)}
       starred={<span>Starred</span>}
       inverted
+      portal=""
+      onLogoClick={action("Click logo")}
+      onSetModal={action("Set modal")}
       onSaveLanguage={action("Save language")}
       onSelectTrip={action("Select trip")}
-      onSetModal={action("Set modal")}
     />
   ));

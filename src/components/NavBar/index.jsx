@@ -24,7 +24,8 @@ import marginMixin from "./styles/marginMixin";
 // TODO: replace z-index with Orbit token after refactoring all front-end indexes
 
 type Inverted = ThemeProps & {|
-  inverted?: boolean,
+  ...ThemeProps,
+  inverted: boolean,
 |};
 
 const Container = styled(Flex)`

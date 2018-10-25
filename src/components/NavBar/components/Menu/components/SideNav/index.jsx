@@ -31,10 +31,6 @@ type InvertedProps = {|
   inverted: boolean,
 |};
 
-type InvertedProps = ThemeProps & {|
-  inverted: boolean,
-|};
-
 const MediaIcons = styled.div`
   margin-top: 20px;
 `;
