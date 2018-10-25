@@ -1,5 +1,4 @@
 // @flow strict
-// flowlint untyped-import:off
 
 import * as React from "react";
 import { parsePhoneNumber, formatInternational } from "libphonenumber-js";
