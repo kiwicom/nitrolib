@@ -20,6 +20,7 @@ import Menu from "./components/Menu";
 import Logo from "./components/Logo";
 import Currency from "../Currency";
 import type { ModalType } from "../../consts/modals";
+import marginMixin from "./styles/marginMixin";
 // import Starred from "../Starred"; FIXME add as a full feature
 // TODO: replace z-index with Orbit token after refactoring all front-end indexes
 
@@ -50,14 +51,10 @@ Container.defaultProps = {
   theme: themeDefault,
 };
 
-const marginMixin = css`
-  margin-${rtl.left}: 20px;
-  &:first-child {
-    margin-${rtl.left}: 0;
-  }
-  ${mq.ltTablet(css`
-    margin-${rtl.left}: 5px;
-  `)};
+const WrapperChild = styled.div`
+  display: flex;
+  align-items: center;
+  ${marginMixin};
 `;
 
 const Wrapper = styled.div`
@@ -65,17 +62,11 @@ const Wrapper = styled.div`
   align-items: center;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
-  & > div {
-    ${marginMixin};
-  }
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
-  & > button {
-    ${marginMixin};
-  }
 `;
 
 Wrapper.defaultProps = {
@@ -132,19 +123,29 @@ const NavBar = ({
           <Flex y="center">
             <Wrapper>
               <Desktop display="flex">
-                <ButtonWrapper>
-                  <Language
-                    positionMenuDesktop={270}
-                    positionMenuTablet={5}
-                    onChange={onSaveLanguage}
-                  />
-                  <Currency positionMenuDesktop={270} positionMenuTablet={5} />
-                  <Help onOpen={onOpenFaq} inverted={inverted} />
-                </ButtonWrapper>
+                <WrapperChild>
+                  <ButtonWrapper>
+                    <WrapperChild>
+                      <Language
+                        positionMenuDesktop={270}
+                        positionMenuTablet={5}
+                        onChange={onSaveLanguage}
+                      />
+                    </WrapperChild>
+                    <WrapperChild>
+                      <Currency positionMenuDesktop={270} positionMenuTablet={5} />
+                    </WrapperChild>
+                    <WrapperChild>
+                      <Help onOpen={onOpenFaq} inverted={inverted} />
+                    </WrapperChild>
+                  </ButtonWrapper>
+                </WrapperChild>
               </Desktop>
-              {starred}
+              <WrapperChild>{starred}</WrapperChild>
               <Mobile>
-                <Help onOpen={onOpenFaq} inverted={inverted} />
+                <WrapperChild>
+                  <Help onOpen={onOpenFaq} inverted={inverted} />
+                </WrapperChild>
               </Mobile>
               <AuthConsumer>
                 {({ onResetError }) => (

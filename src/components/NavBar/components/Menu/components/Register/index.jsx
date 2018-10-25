@@ -52,7 +52,7 @@ FieldPolicy.defaultProps = {
 
 type Props = {|
   loading: boolean,
-  onRegister: (input: RegisterInput) => Promise<boolean>,
+  onRegister: (input: RegisterInput) => Promise<void>,
   onCloseSuccess: () => void,
 |};
 

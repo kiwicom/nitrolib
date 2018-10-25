@@ -2,69 +2,77 @@
 
 exports[`#Menu render 1`] = `
 <Fragment>
-  <ContextConsumer>
-    <Component />
-  </ContextConsumer>
-  <SideNav
-    chat={
-      <div>
-        chat
-      </div>
-    }
-    debug={
-      <div>
-        debug
-      </div>
-    }
-    onOpenRegister={[Function]}
-    onOpenSignIn={[Function]}
-    onSaveLanguage={[MockFunction]}
-    onSetModal={[MockFunction]}
-    subscription={
-      <div>
-        subscription
-      </div>
-    }
-  />
+  <Menu__Wrapper>
+    <ContextConsumer>
+      <Component />
+    </ContextConsumer>
+  </Menu__Wrapper>
+  <Menu__Wrapper>
+    <SideNav
+      chat={
+        <div>
+          chat
+        </div>
+      }
+      debug={
+        <div>
+          debug
+        </div>
+      }
+      onOpenRegister={[Function]}
+      onOpenSignIn={[Function]}
+      onSaveLanguage={[MockFunction]}
+      onSetModal={[MockFunction]}
+      subscription={
+        <div>
+          subscription
+        </div>
+      }
+    />
+  </Menu__Wrapper>
 </Fragment>
 `;
 
 exports[`#Menu render with forgot password modal 1`] = `
 <Fragment>
-  <ContextConsumer>
-    <Component />
-  </ContextConsumer>
-  <SideNav
-    chat={
-      <div>
-        chat
-      </div>
-    }
-    debug={false}
-    onOpenRegister={[Function]}
-    onOpenSignIn={[Function]}
-    onSaveLanguage={[MockFunction]}
-    onSetModal={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            "forgotPassword",
-          ],
-        ],
-        "results": Array [
-          Object {
-            "isThrow": false,
-            "value": undefined,
-          },
-        ],
+  <Menu__Wrapper>
+    <ContextConsumer>
+      <Component />
+    </ContextConsumer>
+  </Menu__Wrapper>
+  <Menu__Wrapper>
+    <SideNav
+      chat={
+        <div>
+          chat
+        </div>
       }
-    }
-    subscription={
-      <div>
-        subscription
-      </div>
-    }
-  />
+      debug={false}
+      onOpenRegister={[Function]}
+      onOpenSignIn={[Function]}
+      onSaveLanguage={[MockFunction]}
+      onSetModal={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              "forgotPassword",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      subscription={
+        <div>
+          subscription
+        </div>
+      }
+    />
+  </Menu__Wrapper>
   <CloseByKey
     closeKey="Escape"
     onClose={[Function]}
@@ -85,40 +93,44 @@ exports[`#Menu render with forgot password modal 1`] = `
 
 exports[`#Menu render with modal 1`] = `
 <Fragment>
-  <ContextConsumer>
-    <Component />
-  </ContextConsumer>
-  <SideNav
-    chat={
-      <div>
-        chat
-      </div>
-    }
-    debug={false}
-    onOpenRegister={[Function]}
-    onOpenSignIn={[Function]}
-    onSaveLanguage={[MockFunction]}
-    onSetModal={
-      [MockFunction] {
-        "calls": Array [
-          Array [
-            "myBooking",
-          ],
-        ],
-        "results": Array [
-          Object {
-            "isThrow": false,
-            "value": undefined,
-          },
-        ],
+  <Menu__Wrapper>
+    <ContextConsumer>
+      <Component />
+    </ContextConsumer>
+  </Menu__Wrapper>
+  <Menu__Wrapper>
+    <SideNav
+      chat={
+        <div>
+          chat
+        </div>
       }
-    }
-    subscription={
-      <div>
-        subscription
-      </div>
-    }
-  />
+      debug={false}
+      onOpenRegister={[Function]}
+      onOpenSignIn={[Function]}
+      onSaveLanguage={[MockFunction]}
+      onSetModal={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              "myBooking",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      subscription={
+        <div>
+          subscription
+        </div>
+      }
+    />
+  </Menu__Wrapper>
   <CloseByKey
     closeKey="Escape"
     onClose={[Function]}

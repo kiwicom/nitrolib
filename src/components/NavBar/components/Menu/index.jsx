@@ -1,5 +1,6 @@
 // @flow strict
 import * as React from "react";
+import styled from "styled-components";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
 import Modal from "@kiwicom/orbit-components/lib/Modal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
@@ -19,6 +20,11 @@ import SideNav from "./components/SideNav";
 import type { Event } from "../../../../records/Event";
 import { OPEN_MODAL } from "../../../../consts/events";
 import * as MODALS from "../../../../consts/modals";
+import marginMixin from "../../styles/marginMixin";
+
+const Wrapper = styled.div`
+  ${marginMixin};
+`;
 
 type AuthModal =
   | typeof MODALS.MY_BOOKING
@@ -76,7 +82,6 @@ export default class Menu extends React.Component<Props, State> {
     const { onLog, onResetError } = this.props;
     onResetError();
 
-
     this.setState({ modalOpen: MODALS.REGISTER });
     onLog({ event: OPEN_MODAL, data: { modal: MODALS.REGISTER } });
   };
@@ -111,45 +116,50 @@ export default class Menu extends React.Component<Props, State> {
 
     return (
       <>
-        <authContext.Consumer>
-          {({ auth, environment }) =>
-            auth === null ? (
-              <>
-                <Desktop display="flex">
-                  <Button
-                    direction="x"
-                    onClick={this.handleOpenMyBooking}
-                    color={!inverted && "secondary"}
-                  >
-                    <Text t={__("account.my_bookings_action")} />
-                  </Button>
-                </Desktop>
-                <Mobile display="flex">
-                  <Button
-                    direction="x"
-                    color={!inverted && "secondary"}
-                    onClick={this.handleOpenMyBooking}
-                    padding="13px 9px"
-                  >
-                    <AccountCircle />
-                  </Button>
-                </Mobile>
-              </>
-            ) : (
-              <Trips auth={auth} env={environment} onSelect={onSelectTrip} />
-            )
-          }
-        </authContext.Consumer>
-        <SideNav
-          chat={chat}
-          subscription={subscription}
-          debug={debug}
-          inverted={inverted}
-          onOpenRegister={this.handleOpenRegister}
-          onOpenSignIn={this.handleOpenSignIn}
-          onSaveLanguage={onSaveLanguage}
-          onSetModal={onSetModal}
-        />
+        <Wrapper>
+          <authContext.Consumer>
+            {({ auth, environment }) =>
+              auth === null ? (
+                <>
+                  <Desktop display="flex">
+                    <Button
+                      direction="x"
+                      onClick={this.handleOpenMyBooking}
+                      color={!inverted && "secondary"}
+                    >
+                      <Text t={__("account.my_bookings_action")} />
+                    </Button>
+                  </Desktop>
+                  <Mobile display="flex">
+                    <Button
+                      direction="x"
+                      color={!inverted && "secondary"}
+                      onClick={this.handleOpenMyBooking}
+                      padding="13px 9px"
+                    >
+                      <AccountCircle />
+                    </Button>
+                  </Mobile>
+                </>
+              ) : (
+                <Trips auth={auth} env={environment} onSelect={onSelectTrip} />
+              )
+            }
+          </authContext.Consumer>
+        </Wrapper>
+
+        <Wrapper>
+          <SideNav
+            chat={chat}
+            subscription={subscription}
+            debug={debug}
+            inverted={inverted}
+            onOpenRegister={this.handleOpenRegister}
+            onOpenSignIn={this.handleOpenSignIn}
+            onSaveLanguage={onSaveLanguage}
+            onSetModal={onSetModal}
+          />
+        </Wrapper>
 
         {modalOpen !== MODALS.NONE && (
           <CloseByKey onClose={this.handleClose}>

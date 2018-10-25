@@ -48,7 +48,7 @@ ForgotPasswordArrow.defaultProps = {
 
 type Props = {|
   loading: boolean,
-  onSignIn: (email: string, password: string) => Promise<boolean>,
+  onSignIn: (email: string, password: string) => Promise<void>,
   onCloseSuccess: () => void,
   onOpenForgotPassword: () => void,
 |};

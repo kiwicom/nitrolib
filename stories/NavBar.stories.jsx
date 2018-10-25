@@ -39,7 +39,7 @@ storiesOf("NavBar", module)
       }}
     />
   ))
-  .add("Inverted colors", () => (
+  .add("inverted", () => (
     <NavBar
       headerLinks={
         <HeaderLinks
@@ -53,9 +53,10 @@ storiesOf("NavBar", module)
       subscription={<h1>Subscription</h1>}
       debug={<h1>Debug</h1>}
       shadow={boolean("Shadow", true, GROUP_ID)}
-      starred={<h1>Starred</h1>}
+      starred={<span>Starred</span>}
       inverted
       onSaveLanguage={action("Save language")}
       onSelectTrip={action("Select trip")}
+      onSetModal={action("Set modal")}
     />
   ));

@@ -32,7 +32,7 @@ const FieldWrap = styled.div`
 
 type Props = {|
   loading: boolean,
-  onMyBooking: (input: MyBookingInput) => Promise<string | null>,
+  onMyBooking: (input: MyBookingInput) => Promise<void>,
   onCloseSuccess: () => void,
   // DI
   now: Date,

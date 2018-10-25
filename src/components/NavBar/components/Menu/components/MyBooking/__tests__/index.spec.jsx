@@ -87,7 +87,7 @@ describe("#MyBooking", () => {
   });
 
   test("handle submit", async () => {
-    const onMyBooking = jest.fn().mockImplementation(() => Promise.resolve(null));
+    const onMyBooking = jest.fn().mockImplementation(() => Promise.resolve());
     const wrapper = shallow(
       <MyBooking loading={false} onMyBooking={onMyBooking} onCloseSuccess={jest.fn()} />,
     );
@@ -113,7 +113,7 @@ describe("#MyBooking", () => {
   });
 
   test("handle submit form error", async () => {
-    const onMyBooking = jest.fn().mockImplementation(() => Promise.resolve(null));
+    const onMyBooking = jest.fn().mockImplementation(() => Promise.resolve());
     const wrapper = shallow(
       <MyBooking loading={false} onMyBooking={onMyBooking} onCloseSuccess={jest.fn()} />,
     );
