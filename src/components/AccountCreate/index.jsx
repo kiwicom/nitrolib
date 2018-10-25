@@ -22,10 +22,10 @@ type Props = {|
   email: string,
   password: string,
   passwordConfirm: string,
-  onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onEmailChange: (ev?: SyntheticInputEvent<HTMLInputElement>) => void,
   onPasswordChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onPasswordConfirmChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
-  onContinue: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onContinue: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
 const AccountCreate = ({
