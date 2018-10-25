@@ -1,62 +1,95 @@
 // @flow strict
 
 // Methods
-import { parseLanguage, trackingUrl, parseUrl, parseParameters } from "../helpers/parseUrl";
-
-// Original url - fetched from server
-const ORIGINAL_URL =
-  "https://www.booking.com/index.html?lang={lang}&selected_currency={currency}&group_adults={adults}&group_children={children}&aid={aid}";
-
-// Original url - fetched from server - parsed
-const ORIGINAL_URL_PARSED =
-  "https://www.booking.com/index.html?lang=cro&selected_currency=eur&group_adults=1&group_children=0&aid=false";
-
-// Expected end result - url
-const RESULT_URL = `https://red-tracking.com?url=${ORIGINAL_URL_PARSED}&payload={"category":"Search","subCategory":"NavBar","action":"NavBar link clicked","destinations":{"logmole":true,"exponea":true,"ga":false}}`;
+import {
+  getSupportedLanguage,
+  parseLanguage,
+  trackingUrl,
+  parseUrl,
+  generateSearchQuery,
+} from "../helpers/parseUrl";
 
 // Default props
 const PROPS = {
-  link: ORIGINAL_URL,
-  currency: "eur",
-  language: "cro",
-  adultsCount: 1,
-  childrenCount: 0,
-  aid: false,
+  urlParam: "search",
 };
 
-// Default props - stringified (for trackingUrl method)
-const PREPARED_PROPS = {
-  link: ORIGINAL_URL,
-  preparedLang: "cro",
-  preparedCurrency: "eur",
-  preparedAdultsCount: "1",
-  preparedChildrenCount: "0",
-  preparedAid: "false",
+const SEARCH_PARAMS = {
+  adultsCount: 1,
+  aid: true,
+  childrenCount: 3,
+  currency: "eur",
+  language: "hr",
 };
+
+const ITEM = {
+  id: "rooms",
+  params: [
+    { key: "lang", prop: "language" },
+    { key: "selected_currency", prop: "currency" },
+    { key: "group_adults", prop: "adultsCount" },
+    { key: "group_children", prop: "childrenCount" },
+    { key: "aid", prop: "aid" },
+  ],
+  provider: "booking.com",
+  translation: "search.service.rooms",
+  url: { default: "ROOMS" },
+};
+
+const QUERY_PARSED = "lang=hr&selected_currency=eur&group_adults=1&group_children=3&aid=true";
+
+// Expected end result - url
+const RESULT_URL = `https://red-cougar.kiwi.com/nav-bar-link?u=${
+  ITEM.url.default
+}&r=search&lang=hr&payload=eyJjYXRlZ29yeSI6Ik5hdkJhciIsInN1YkNhdGVnb3J5IjoiTGluayIsImFjdGlvbiI6IkNsaWNrIiwiZGV0YWlsIjoiYm9va2luZy5jb20gLSByb29tcyJ9&query=bGFuZz1ociZzZWxlY3RlZF9jdXJyZW5jeT1ldXImZ3JvdXBfYWR1bHRzPTEmZ3JvdXBfY2hpbGRyZW49MyZhaWQ9dHJ1ZQ==`;
+
+const RESULT_URL_NO_QUERY = `https://red-cougar.kiwi.com/nav-bar-link?u=${
+  ITEM.url.default
+}&r=search&lang=hr&payload=eyJjYXRlZ29yeSI6Ik5hdkJhciIsInN1YkNhdGVnb3J5IjoiTGluayIsImFjdGlvbiI6IkNsaWNrIiwiZGV0YWlsIjoiYm9va2luZy5jb20gLSByb29tcyJ9`;
 
 describe("parseUrl", () => {
-  test("parseLanguage should return correct case1 format", () => {
-    const parsedLanguage = parseLanguage("Cro", "case1");
-    expect(parsedLanguage).toBe("cro");
+  test("getSupportedLanguage should return supported language", () => {
+    const parsedLanguage = getSupportedLanguage("it", ["it", "en"]);
+    expect(parsedLanguage).toBe("it");
   });
 
-  test("parseLanguage should return correct case2 format", () => {
-    const parsedLanguage = parseLanguage("Cro", "case2");
-    expect(parsedLanguage).toBe("CRO");
+  test("getSupportedLanguage should handle unsupported language", () => {
+    const parsedLanguage = getSupportedLanguage("it", ["nn", "en"]);
+    expect(parsedLanguage).toBe("gb");
   });
 
-  test("trackingUrl should wrap original inside tracking url", () => {
-    const parsedUrl = trackingUrl(ORIGINAL_URL_PARSED);
+  test("parseLanguage should return correct language", () => {
+    const parsedLanguage = parseLanguage("it", true, false, ["it", "en"]);
+    expect(parsedLanguage).toBe("it");
+  });
+
+  test("generateSearchQuery should generate search query", () => {
+    const parsedQuery = generateSearchQuery(ITEM.params, SEARCH_PARAMS);
+    expect(parsedQuery).toBe(QUERY_PARSED);
+  });
+
+  test("trackingUrl should correctly fill params", () => {
+    const parsedUrl = trackingUrl(
+      ITEM,
+      ITEM.url.default,
+      PROPS.urlParam,
+      SEARCH_PARAMS.language,
+      QUERY_PARSED,
+    );
     expect(parsedUrl).toBe(RESULT_URL);
   });
 
-  test("parseParameters should return url with replaced variables", () => {
-    const parsedUrl = parseParameters({ ...PREPARED_PROPS });
-    expect(parsedUrl).toBe(ORIGINAL_URL_PARSED);
+  test("trackingUrl should correctly fill params - no query", () => {
+    const parsedUrl = trackingUrl(ITEM, ITEM.url.default, PROPS.urlParam, SEARCH_PARAMS.language);
+    expect(parsedUrl).toBe(RESULT_URL_NO_QUERY);
   });
 
   test("trackingUrl should return correct url", () => {
-    const parsedUrl = parseUrl({ ...PROPS });
+    const parsedUrl = parseUrl({
+      item: ITEM,
+      searchParams: SEARCH_PARAMS,
+      urlParam: PROPS.urlParam,
+    });
     expect(parsedUrl).toBe(RESULT_URL);
   });
 });

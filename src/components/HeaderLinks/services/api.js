@@ -3,7 +3,7 @@
 const fetch = require("node-fetch");
 
 export const getNavBarLinks = () =>
-  fetch("https://ancillaries-integration.skypicker.com/navbar", {
+  fetch("https://brxh1qilc2.execute-api.eu-central-1.amazonaws.com/staging/navbar", {
     method: "GET",
   }).then(res => res.json());
 

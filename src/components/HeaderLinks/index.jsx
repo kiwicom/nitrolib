@@ -30,11 +30,15 @@ type State = {|
 |};
 
 type Props = {|
-  currency: string,
-  language: string,
-  adultsCount: number,
-  childrenCount: number,
-  aid: boolean,
+  searchParams: {
+    currency: string,
+    language: string,
+    adultsCount: number,
+    childrenCount: number,
+    aid: boolean,
+    packageProvider: string,
+  },
+  urlParam: string,
 |};
 
 class HeaderLinks extends React.Component<Props, State> {
@@ -43,11 +47,14 @@ class HeaderLinks extends React.Component<Props, State> {
   };
 
   static defaultProps = {
-    currency: "EUR",
-    language: "HR",
-    adultsCount: 1,
-    childrenCount: 0,
-    aid: true,
+    searchParams: {
+      currency: "eur",
+      language: "en",
+      adultsCount: 1,
+      childrenCount: 0,
+      aid: true,
+    },
+    urlParam: "search",
   };
 
   componentDidMount() {
@@ -67,11 +74,13 @@ class HeaderLinks extends React.Component<Props, State> {
   };
 
   render() {
-    const { currency, language, adultsCount, childrenCount, aid } = this.props;
+    const { searchParams, urlParam } = this.props;
     const { services } = this.state;
 
     // Hide until response
     if (!services) return null;
+
+    console.log("services", services);
 
     return (
       <>
@@ -84,12 +93,9 @@ class HeaderLinks extends React.Component<Props, State> {
                     <ClickOutside onClickOutside={onToggle}>
                       <Popup>
                         <Links
+                          urlParam={urlParam}
+                          searchParams={searchParams}
                           services={services}
-                          currency={currency}
-                          language={language}
-                          childrenCount={childrenCount}
-                          adultsCount={adultsCount}
-                          aid={aid}
                         />
                       </Popup>
                     </ClickOutside>
@@ -104,14 +110,7 @@ class HeaderLinks extends React.Component<Props, State> {
           </Margin>
         </Mobile>
         <Desktop display="flex">
-          <Links
-            services={services}
-            currency={currency}
-            language={language}
-            childrenCount={childrenCount}
-            adultsCount={adultsCount}
-            aid={aid}
-          />
+          <Links urlParam={urlParam} searchParams={searchParams} services={services} />
         </Desktop>
       </>
     );

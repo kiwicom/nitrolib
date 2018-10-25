@@ -1,38 +1,53 @@
 // @flow strict
+// import some from "lodash/some";
+
+// Types
+import type { Item } from "../Links";
 
 // Types
 export type ParseUrl = {|
-  link: string,
-  language: string,
-  currency: string,
-  adultsCount: number,
-  childrenCount: number,
-  aid: boolean,
+  searchParams: {
+    url: {
+      default: string,
+    },
+    language: string,
+    currency: string,
+    adultsCount: number,
+    childrenCount: number,
+    aid: boolean,
+  },
+  item: Item,
+  urlParam: string,
 |};
 
 export type ParseParameters = {|
-  link: string,
+  url: string,
   preparedLang: string,
-  preparedCurrency: string,
-  preparedAdultsCount: string,
-  preparedChildrenCount: string,
-  preparedAid: string,
 |};
+
+/*
+  Check if user language is supported,
+  if not - return default ("gb")
+*/
+export const getSupportedLanguage = (language: string, supportedLanguages: string[]) =>
+  supportedLanguages && supportedLanguages.includes(language) ? language : "gb";
 
 /*
   Some companies require different ISO format for language
   - format correct ISO format for given company
 */
-export const parseLanguage = (language: string, isoFormat: string) => {
-  // Get correct language ISO format
-  switch (isoFormat) {
-    case "case1":
-      return language.toLowerCase();
-    case "case2":
-      return language.toUpperCase();
-    default:
-      return language;
-  }
+export const parseLanguage = (language: string, isoShort: boolean, isoCars: boolean) => {
+  const languageShort = language.substring(0, 2);
+
+  // Handle cars link exception for greek language
+  const isCarsGreekExpection = isoCars && languageShort === "el";
+
+  // Check if cars greek expection (only exception atm)
+  const isoShortWithExcpetion = isCarsGreekExpection ? "gr" : languageShort;
+
+  // If isoShort requred return isoShort with exceptions handled
+  // If isoShort is not required return original language format
+  return isoShort ? isoShortWithExcpetion : language;
 };
 
 /*
@@ -40,61 +55,85 @@ export const parseLanguage = (language: string, isoFormat: string) => {
   - Wrap actual url & json encoded (tracking) object
     inside tracking template link
 */
-export const trackingUrl = (url: string) => {
-  // Tracking URL template
-  const template = "https://red-tracking.com?url={url}&payload={json}";
+export const trackingUrl = (
+  item: Item,
+  url: string,
+  urlParam: string,
+  language: string,
+  query: string,
+) => {
+  const queryParam = query ? "&query={query}" : "";
+  // Tracking URL template (TODO: update when proxy is ready)
+  const template = `https://red-cougar.kiwi.com/nav-bar-link?u={url}&r={urlParam}&lang={lang}&payload={json}${queryParam}`;
 
   // Tracking parameters - encoded
-  const jsonEncoded = JSON.stringify({
-    category: "Search",
-    subCategory: "NavBar",
-    action: "NavBar link clicked",
-    destinations: { logmole: true, exponea: true, ga: false },
-  });
+  const json = btoa(
+    JSON.stringify({
+      category: "NavBar",
+      subCategory: "Link",
+      action: "Click",
+      detail: `${item.provider} - ${item.id}`,
+    }),
+  );
+
+  // Encode query
+  // const urlEncoded = btoa(url);
+  const queryEncoded = query ? btoa(query) : null;
 
   // Generate tracking url - insert actual URL & JSON
-  return template.replace(/{url}/, url).replace(/{json}/, jsonEncoded);
+  return template
+    .replace(/{url}/, url)
+    .replace(/{urlParam}/, urlParam)
+    .replace(/{lang}/, language)
+    .replace(/{query}/, queryEncoded)
+    .replace(/{json}/, json);
 };
 
-// Repace insert url parameters {lang} to "cro"
-export const parseParameters = ({
-  link,
-  preparedLang,
-  preparedCurrency,
-  preparedAdultsCount,
-  preparedChildrenCount,
-  preparedAid,
-}: ParseParameters) =>
-  link
-    .replace(/{lang}/g, preparedLang)
-    .replace(/{currency}/g, preparedCurrency)
-    .replace(/{adults}/g, preparedAdultsCount)
-    .replace(/{children}/g, preparedChildrenCount)
-    .replace(/{aid}/g, preparedAid);
+/*
+  Generate search query parameters
+*/
+export const generateSearchQuery = (params: Object[], searchParams: Object[]) => {
+  const queryItems = params.map(param => {
+    // Prepare query search param
+    const value = param.prop ? searchParams[param.prop] : param.value;
 
-// Parse url
-export const parseUrl = ({
-  link,
-  language,
-  currency,
-  adultsCount,
-  childrenCount,
-  aid,
-}: ParseUrl) => {
-  // Replace variables with values
-  const url = parseParameters({
-    link,
-    preparedLang: parseLanguage(language, "case1"),
-    preparedCurrency: currency.toLowerCase(),
-    preparedAdultsCount: JSON.stringify(adultsCount),
-    preparedChildrenCount: JSON.stringify(childrenCount),
-    preparedAid: JSON.stringify(aid),
+    // Join key with value
+    return `${param.key}=${value}`;
   });
 
-  // Generate tracking URL
-  return trackingUrl(url);
+  // Join items
+  return queryItems.join("&");
+};
+
+// Parse url
+export const parseUrl = ({ item, searchParams, urlParam }: ParseUrl) => {
+  const { url, isoShort, isoCars, supportedLanguages, params } = item;
+  const { language } = searchParams;
+
+  // Filter supported languages
+  const supportedLanguage = supportedLanguages
+    ? getSupportedLanguage(language, supportedLanguages)
+    : language;
+
+  // Try fetching link by user language
+  const base = url[language] || url.default;
+
+  // Prepare search params (cars language has an exception regarding greek langauge)
+  const preparedSearchParams = {
+    ...searchParams,
+    language: parseLanguage(supportedLanguage, isoShort, isoCars),
+  };
+
+  // Check if url requires query params pasing
+  const hasSearchParams = item.params && item.params.length > 0;
+  const query = hasSearchParams && generateSearchQuery(params, preparedSearchParams);
+
+  // Wrap inside tracking url
+  return trackingUrl(item, base, urlParam, supportedLanguage, query);
 };
 
 export default {
   parseUrl,
+  trackingUrl,
+  parseLanguage,
 };
