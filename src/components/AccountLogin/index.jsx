@@ -48,7 +48,7 @@ type Props = {|
   onNoAccount: (ev: SyntheticEvent<HTMLLinkElement>) => void,
   onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
-  onEmailChange: (ev: SyntheticEvent<HTMLInputElement>) => void,
+  onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onContinue: (ev: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
