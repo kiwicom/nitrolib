@@ -34,10 +34,10 @@ const Ruler = styled.div`
 type Props = {|
   email: string,
   password: string,
-  onChangeEmail: (ev: SyntheticEvent<HTMLLinkElement>) => void,
-  onAskSignInLink: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onChangeEmail: (ev?: SyntheticEvent<HTMLLinkElement>) => void,
+  onAskSignInLink: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
   onPasswordChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
-  onSignIn: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onSignIn: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
 const AccountPassword = ({

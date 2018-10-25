@@ -45,11 +45,11 @@ const Rectangle = styled.div`
 
 type Props = {|
   email: string,
-  onNoAccount: (ev: SyntheticEvent<HTMLLinkElement>) => void,
-  onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
-  onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onNoAccount: (ev?: SyntheticEvent<HTMLLinkElement>) => void,
+  onGoogleLogin: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
+  onFacebookLogin: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
   onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
-  onContinue: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onContinue: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
 const AccountLogin = ({

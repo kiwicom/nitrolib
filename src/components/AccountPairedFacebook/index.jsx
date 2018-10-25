@@ -29,8 +29,8 @@ const Ruler = styled.div`
 
 type Props = {|
   email: string,
-  onAskSignInLink: (ev: SyntheticEvent<HTMLButtonElement>) => void,
-  onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onAskSignInLink: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
+  onFacebookLogin: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
 const AccountPairedFacebook = ({ onAskSignInLink, onFacebookLogin, email }: Props) => (
