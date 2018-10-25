@@ -7,9 +7,6 @@ import type { Item } from "../Links";
 // Types
 export type ParseUrl = {|
   searchParams: {
-    url: {
-      default: string,
-    },
     language: string,
     currency: string,
     adultsCount: number,
@@ -25,18 +22,37 @@ export type ParseParameters = {|
   preparedLang: string,
 |};
 
+export type TrackingUrl = {|
+  item: Item,
+  url: string,
+  urlParam: string,
+  language: string,
+  query: ?string,
+|};
+
+export type GetSupportedLanguage = {|
+  language: string,
+  supportedLanguages: string[],
+|};
+
+export type ParseLanguage = {|
+  language: string,
+  isoShort?: boolean,
+  isoCars?: boolean,
+|};
+
 /*
   Check if user language is supported,
   if not - return default ("gb")
 */
-export const getSupportedLanguage = (language: string, supportedLanguages: string[]) =>
+export const getSupportedLanguage = ({ language, supportedLanguages }: GetSupportedLanguage) =>
   supportedLanguages && supportedLanguages.includes(language) ? language : "gb";
 
 /*
   Some companies require different ISO format for language
   - format correct ISO format for given company
 */
-export const parseLanguage = (language: string, isoShort: boolean, isoCars: boolean) => {
+export const parseLanguage = ({ language, isoShort, isoCars }: ParseLanguage) => {
   const languageShort = language.substring(0, 2);
 
   // Handle cars link exception for greek language
@@ -55,13 +71,7 @@ export const parseLanguage = (language: string, isoShort: boolean, isoCars: bool
   - Wrap actual url & json encoded (tracking) object
     inside tracking template link
 */
-export const trackingUrl = (
-  item: Item,
-  url: string,
-  urlParam: string,
-  language: string,
-  query: string,
-) => {
+export const trackingUrl = ({ item, url, urlParam, language, query }: TrackingUrl) => {
   const queryParam = query ? "&query={query}" : "";
   // Tracking URL template (TODO: update when proxy is ready)
   const template = `https://red-cougar.kiwi.com/nav-bar-link?u={url}&r={urlParam}&lang={lang}&payload={json}${queryParam}`;
@@ -78,7 +88,7 @@ export const trackingUrl = (
 
   // Encode query
   // const urlEncoded = btoa(url);
-  const queryEncoded = query ? btoa(query) : null;
+  const queryEncoded = query ? btoa(query) : "";
 
   // Generate tracking url - insert actual URL & JSON
   return template
@@ -92,7 +102,7 @@ export const trackingUrl = (
 /*
   Generate search query parameters
 */
-export const generateSearchQuery = (params: Object[], searchParams: Object[]) => {
+export const generateSearchQuery = (params: Object[], searchParams: Object) => {
   const queryItems = params.map(param => {
     // Prepare query search param
     const value = param.prop ? searchParams[param.prop] : param.value;
@@ -112,7 +122,7 @@ export const parseUrl = ({ item, searchParams, urlParam }: ParseUrl) => {
 
   // Filter supported languages
   const supportedLanguage = supportedLanguages
-    ? getSupportedLanguage(language, supportedLanguages)
+    ? getSupportedLanguage({ language, supportedLanguages })
     : language;
 
   // Try fetching link by user language
@@ -121,15 +131,15 @@ export const parseUrl = ({ item, searchParams, urlParam }: ParseUrl) => {
   // Prepare search params (cars language has an exception regarding greek langauge)
   const preparedSearchParams = {
     ...searchParams,
-    language: parseLanguage(supportedLanguage, isoShort, isoCars),
+    language: parseLanguage({ language: supportedLanguage, isoShort, isoCars }),
   };
 
   // Check if url requires query params pasing
   const hasSearchParams = item.params && item.params.length > 0;
-  const query = hasSearchParams && generateSearchQuery(params, preparedSearchParams);
+  const query = hasSearchParams ? generateSearchQuery(params, preparedSearchParams) : null;
 
   // Wrap inside tracking url
-  return trackingUrl(item, base, urlParam, supportedLanguage, query);
+  return trackingUrl({ item, url: base, urlParam, language: supportedLanguage, query });
 };
 
 export default {
