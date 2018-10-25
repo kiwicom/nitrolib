@@ -24,6 +24,9 @@ const SEARCH_PARAMS = {
 
 const ITEM = {
   id: "rooms",
+  image: "rooms-img",
+  isoShort: false,
+  isoCars: false,
   params: [
     { key: "lang", prop: "language" },
     { key: "selected_currency", prop: "currency" },
@@ -49,17 +52,23 @@ const RESULT_URL_NO_QUERY = `https://red-cougar.kiwi.com/nav-bar-link?u=${
 
 describe("parseUrl", () => {
   test("getSupportedLanguage should return supported language", () => {
-    const parsedLanguage = getSupportedLanguage("it", ["it", "en"]);
+    const parsedLanguage = getSupportedLanguage({
+      language: "it",
+      supportedLanguages: ["it", "en"],
+    });
     expect(parsedLanguage).toBe("it");
   });
 
   test("getSupportedLanguage should handle unsupported language", () => {
-    const parsedLanguage = getSupportedLanguage("it", ["nn", "en"]);
+    const parsedLanguage = getSupportedLanguage({
+      language: "it",
+      supportedLanguages: ["nn", "en"],
+    });
     expect(parsedLanguage).toBe("gb");
   });
 
   test("parseLanguage should return correct language", () => {
-    const parsedLanguage = parseLanguage("it", true, false, ["it", "en"]);
+    const parsedLanguage = parseLanguage({ language: "ita", isoShort: true, isoCars: false });
     expect(parsedLanguage).toBe("it");
   });
 
@@ -69,18 +78,24 @@ describe("parseUrl", () => {
   });
 
   test("trackingUrl should correctly fill params", () => {
-    const parsedUrl = trackingUrl(
-      ITEM,
-      ITEM.url.default,
-      PROPS.urlParam,
-      SEARCH_PARAMS.language,
-      QUERY_PARSED,
-    );
+    const parsedUrl = trackingUrl({
+      item: ITEM,
+      url: ITEM.url.default,
+      urlParam: PROPS.urlParam,
+      language: SEARCH_PARAMS.language,
+      query: QUERY_PARSED,
+    });
     expect(parsedUrl).toBe(RESULT_URL);
   });
 
   test("trackingUrl should correctly fill params - no query", () => {
-    const parsedUrl = trackingUrl(ITEM, ITEM.url.default, PROPS.urlParam, SEARCH_PARAMS.language);
+    const parsedUrl = trackingUrl({
+      item: ITEM,
+      url: ITEM.url.default,
+      urlParam: PROPS.urlParam,
+      language: SEARCH_PARAMS.language,
+      query: null,
+    });
     expect(parsedUrl).toBe(RESULT_URL_NO_QUERY);
   });
 

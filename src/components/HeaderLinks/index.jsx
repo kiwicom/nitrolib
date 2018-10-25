@@ -53,7 +53,6 @@ type Props = {|
     adultsCount: number,
     childrenCount: number,
     aid: boolean,
-    packageProvider: string,
   },
   urlParam: string,
 |};
@@ -96,8 +95,6 @@ class HeaderLinks extends React.Component<Props, State> {
 
     // Hide until response
     if (!services) return null;
-
-    console.log("services", services);
 
     return (
       <>
