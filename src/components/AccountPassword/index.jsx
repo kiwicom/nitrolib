@@ -41,7 +41,7 @@ type Props = {|
   onChangeEmail: (ev: SyntheticEvent<HTMLLinkElement>) => void,
   onForgotPassword: (ev: SyntheticEvent<HTMLLinkElement>) => void,
   onAskSignInLink: (ev: SyntheticEvent<HTMLButtonElement>) => void,
-  onPasswordChange: (ev: SyntheticEvent<HTMLInputElement>) => void,
+  onPasswordChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onSignIn: (ev: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
