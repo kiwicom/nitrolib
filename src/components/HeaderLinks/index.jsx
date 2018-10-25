@@ -108,6 +108,8 @@ class HeaderLinks extends React.Component<Props, State> {
     // Hide until response
     if (!services) return null;
 
+    console.log("services", services);
+
     return (
       <>
         <Mobile display="flex">

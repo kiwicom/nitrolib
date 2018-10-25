@@ -50,6 +50,13 @@ export const getSupportedLanguage = ({ language, supportedLanguages }: GetSuppor
   supportedLanguages && supportedLanguages.includes(language) ? language : "gb";
 
 /*
+  Check if user language is supported,
+  if not - return default ("gb")
+*/
+export const getSupportedLanguage = (language: string, supportedLanguages: string[]) =>
+  supportedLanguages && supportedLanguages.includes(language) ? language : "gb";
+
+/*
   Some companies require different ISO format for language
   - format correct ISO format for given company
 */
@@ -111,21 +118,13 @@ export const generateSearchQuery = (params: Param[], searchParams: {}) => {
   return queryItems.join("&");
 };
 
-// Repace insert url parameters {lang} to "cro"
-export const parseParameters = ({
-  link,
-  preparedLang,
-  preparedCurrency,
-  preparedAdultsCount,
-  preparedChildrenCount,
-  preparedAid,
-}: ParseParameters) =>
-  link
-    .replace(/{lang}/g, preparedLang)
-    .replace(/{currency}/g, preparedCurrency)
-    .replace(/{adults}/g, preparedAdultsCount)
-    .replace(/{children}/g, preparedChildrenCount)
-    .replace(/{aid}/g, preparedAid);
+/*
+  Generate search query parameters
+*/
+export const generateSearchQuery = (params: Object[], searchParams: Object[]) => {
+  const queryItems = params.map(param => {
+    // Prepare query search param
+    const value = param.prop ? searchParams[param.prop] : param.value;
 
 // Parse url
 export const parseUrl = ({ item, searchParams, urlParam, readyUrls, hiddenUrls }: ParseUrl) => {
