@@ -45,6 +45,8 @@ const Rectangle = styled.div`
 
 type Props = {|
   email: string,
+  illustration?: "Login" | "Help" | "InviteAFriend" | "AirHelp",
+  text?: string | React.Node,
   onNoAccount: (ev: SyntheticEvent<HTMLLinkElement>) => void,
   onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
@@ -59,15 +61,15 @@ const AccountLogin = ({
   onFacebookLogin,
   onEmailChange,
   onContinue,
+  illustration,
+  text,
 }: Props) => (
   <Consumer>
     {intl => (
       <React.Fragment>
-        <Illustration name="Login" size="small" />
+        <Illustration name={illustration || "Login"} size="small" />
         <SpacingXSmall>
-          <Heading element="h2">
-            <Text t={__("account.manage_your_bookings")} />
-          </Heading>
+          <Heading element="h2">{text || <Text t={__("account.manage_your_bookings")} />}</Heading>
         </SpacingXSmall>
         <OrbitText>
           <Text t={__("account.sign_in_description")} />
