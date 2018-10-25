@@ -6,36 +6,43 @@ import Link from "./Link";
 import { parseUrl } from "./helpers/parseUrl";
 import type { ParseUrl } from "./helpers/parseUrl";
 
-type Item = {|
+export type Item = {|
   id: string,
   image: string,
   translation: string,
-  url: string,
+  provider: string,
+  isoShort: boolean,
+  isoCars: boolean,
+  supportedLanguages?: string[],
+  params: Object[],
+  url: {
+    default: string,
+  },
 |};
 
 type Props = {|
   services: {
     items: Item[],
   },
-  currency: string,
-  language: string,
-  adultsCount: number,
-  childrenCount: number,
-  aid: boolean,
+  searchParams: {
+    currency: string,
+    language: string,
+    adultsCount: number,
+    childrenCount: number,
+    aid: boolean,
+  },
+  urlParam: string,
 |};
 
-const Links = ({ services, currency, language, adultsCount, childrenCount, aid }: Props) =>
+const Links = ({ services, searchParams, urlParam }: Props) =>
   services.items.map(item => (
     <Link
       logTab={item.id}
       link={parseUrl(
         ({
-          link: item.url,
-          currency,
-          language,
-          adultsCount,
-          childrenCount,
-          aid,
+          item,
+          searchParams,
+          urlParam,
         }: ParseUrl),
       )}
       icon={<img src={item.image} alt="" />}
