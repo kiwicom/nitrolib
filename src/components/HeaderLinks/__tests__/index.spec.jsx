@@ -5,11 +5,14 @@ import { shallow } from "enzyme";
 import HeaderLinks from "..";
 
 const props = {
-  currency: "EUR",
-  language: "CRO",
-  adultsCount: 1,
-  childrenCount: 0,
-  aid: false,
+  searchParams: {
+    currency: "eur",
+    language: "en",
+    adultsCount: 1,
+    childrenCount: 0,
+    aid: true,
+  },
+  urlParam: "search",
 };
 
 describe("#Currency", () => {

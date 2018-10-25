@@ -8,11 +8,11 @@ import type { ParseUrl } from "./helpers/parseUrl";
 
 export type Item = {|
   id: string,
-  image: string,
+  image?: string,
   translation: string,
   provider: string,
-  isoShort: boolean,
-  isoCars: boolean,
+  isoShort?: boolean,
+  isoCars?: boolean,
   supportedLanguages?: string[],
   params: Object[],
   url: {
