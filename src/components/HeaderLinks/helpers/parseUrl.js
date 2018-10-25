@@ -53,7 +53,7 @@ export const getSupportedLanguage = ({ language, supportedLanguages }: GetSuppor
   Check if user language is supported,
   if not - return default ("gb")
 */
-export const getSupportedLanguage = (language: string, supportedLanguages: string[]) =>
+export const getSupportedLanguage = ({ language, supportedLanguages }: GetSupportedLanguage) =>
   supportedLanguages && supportedLanguages.includes(language) ? language : "gb";
 
 /*
