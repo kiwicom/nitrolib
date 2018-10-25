@@ -1,7 +1,7 @@
 // @flow strict
 
-import * as React from "react";
-import { parsePhoneNumber, formatInternational } from "libphonenumber-js";
+import React from "react"; // eslint-disable-line no-unused-vars
+import { parsePhoneNumber } from "libphonenumber-js";
 
 type Props = {|
   tel: string,
