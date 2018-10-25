@@ -77,16 +77,20 @@ exports[`#Menu render with forgot password modal 1`] = `
     closeKey="Escape"
     onClose={[Function]}
   >
-    <Modal
-      onClose={[Function]}
-      size="normal"
+    <Portal
+      element=""
     >
-      <ModalSection>
-        <ContextConsumer>
-          <Component />
-        </ContextConsumer>
-      </ModalSection>
-    </Modal>
+      <Modal
+        onClose={[Function]}
+        size="normal"
+      >
+        <ModalSection>
+          <ContextConsumer>
+            <Component />
+          </ContextConsumer>
+        </ModalSection>
+      </Modal>
+    </Portal>
   </CloseByKey>
 </Fragment>
 `;
@@ -135,21 +139,25 @@ exports[`#Menu render with modal 1`] = `
     closeKey="Escape"
     onClose={[Function]}
   >
-    <Modal
-      onClose={[Function]}
-      size="normal"
+    <Portal
+      element=""
     >
-      <ModalSection>
-        <Login
-          onCloseSuccess={[Function]}
-          onOpenForgotPassword={[Function]}
-          onOpenMyBooking={[Function]}
-          onOpenRegister={[Function]}
-          onOpenSignIn={[Function]}
-          open="myBooking"
-        />
-      </ModalSection>
-    </Modal>
+      <Modal
+        onClose={[Function]}
+        size="normal"
+      >
+        <ModalSection>
+          <Login
+            onCloseSuccess={[Function]}
+            onOpenForgotPassword={[Function]}
+            onOpenMyBooking={[Function]}
+            onOpenRegister={[Function]}
+            onOpenSignIn={[Function]}
+            open="myBooking"
+          />
+        </ModalSection>
+      </Modal>
+    </Portal>
   </CloseByKey>
 </Fragment>
 `;

@@ -907,12 +907,12 @@
     request-promise "^4.1.1"
     yargs "^8.0.2"
 
-"@kiwicom/orbit-components@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.14.0.tgz#f21e1f16cb3ad43e78d526a9f5a0a111bf378d4f"
-  integrity sha512-lyfo4xMYARX+lnoglcMfaIiZVdH+F/ZdoPBhPxfI+jk+lwOlsmvP0Tl83PFa3XYt4JAyKSIaQuaoEHl4WdsHJw==
+"@kiwicom/orbit-components@^0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.16.0.tgz#938659f026916abca7b65bb51dd07b4608ab421d"
+  integrity sha512-RvCINNcblTV9JFDI2T1Xv1puHcHq1/QVBgwRUSnto8lgtMHnjnsN2FPt9bxXhIr7KUQB7ocEmKgFX9wG1Nb++g==
   dependencies:
-    "@kiwicom/orbit-design-tokens" "^0.2.1"
+    "@kiwicom/orbit-design-tokens" "^0.2.2"
     react-icon-base "^2.1.2"
 
 "@kiwicom/orbit-design-tokens@^0.1.4":
@@ -920,7 +920,7 @@
   resolved "https://registry.yarnpkg.com/@kiwicom/orbit-design-tokens/-/orbit-design-tokens-0.1.4.tgz#18eb47bd62a78a8109406f91b7d2f0eb000d63fa"
   integrity sha512-V9BHptx+VRLiPhIlR0KIAYk+8YYZogNneTfhsjwXTUuIy820MgdoGzVMO1Z91qZd8LogL3jIMUwjH1k3hDuB4g==
 
-"@kiwicom/orbit-design-tokens@^0.2.1":
+"@kiwicom/orbit-design-tokens@^0.2.2":
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/@kiwicom/orbit-design-tokens/-/orbit-design-tokens-0.2.2.tgz#22771ed15dc3be3e53b21437e3c921e24426287a"
   integrity sha512-S8jBgAk8n9XR63PnjknfCthy6jF6v0Z6SXfHXtIPhT5Z+uLK6ueMKvsEjoEgb8+WbLX3eYzysi2rbKc67lfTpg==

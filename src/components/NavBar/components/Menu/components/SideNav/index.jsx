@@ -24,6 +24,12 @@ import MenuItem from "./MenuItem";
 import BrandedMenuItem from "./BrandedMenuItem";
 import { icons, getPagesItems, getSocialMediaItems } from "./services/menu";
 import * as MODALS from "../../../../../../consts/modals";
+import type { Modal as ModalType } from "../../../../../../consts/modals";
+
+type InvertedProps = {|
+  ...ThemeProps,
+  inverted: boolean,
+|};
 
 type InvertedProps = ThemeProps & {|
   inverted: boolean,
@@ -129,11 +135,7 @@ Link.defaultProps = {
 
 type State = {|
   shown: boolean,
-  modalOpen:
-    | typeof MODALS.NONE
-    | typeof MODALS.CHAT
-    | typeof MODALS.SUBSCRIPTION
-    | typeof MODALS.DEBUG,
+  modalOpen: "" | "chat" | "subscription" | "debug",
 |};
 
 type Props = {|
@@ -144,7 +146,7 @@ type Props = {|
   onOpenSignIn: () => void,
   onOpenRegister: () => void,
   onSaveLanguage: (lang: string) => void,
-  onSetModal: (modal: MODALS.ModalType) => void,
+  onSetModal: (modal: ModalType) => void,
   onSideNavChange?: (shown: boolean) => void,
 |};
 
@@ -158,8 +160,10 @@ export default class SideNav extends React.Component<Props, State> {
     modalOpen: MODALS.NONE,
   };
 
+  // FIXME remove this!
   preventChangeEvent = false;
 
+  // FIXME remove this!
   componentDidUpdate(prevProps: Props, prevState: State) {
     const { shown, modalOpen } = this.state;
     const { onSideNavChange, onSetModal } = this.props;

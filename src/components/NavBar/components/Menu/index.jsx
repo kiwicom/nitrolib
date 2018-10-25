@@ -17,36 +17,28 @@ import Trips from "../Trips";
 import Login from "./components/Login";
 import ForgotPassword from "./components/ForgotPassword";
 import SideNav from "./components/SideNav";
-import type { Event } from "../../../../records/Event";
-import { OPEN_MODAL } from "../../../../consts/events";
 import * as MODALS from "../../../../consts/modals";
+import type { AuthModal, Modal as ModalType } from "../../../../consts/modals";
 import marginMixin from "../../styles/marginMixin";
 
 const Wrapper = styled.div`
   ${marginMixin};
 `;
 
-type AuthModal =
-  | typeof MODALS.MY_BOOKING
-  | typeof MODALS.REGISTER
-  | typeof MODALS.SIGN_IN
-  | typeof MODALS.FORGOT_PASSWORD;
-
 type Props = {|
   chat: React.Node,
-  portal?: string,
+  portal: string,
   subscription: React.Node,
   debug?: React.Node,
   inverted?: boolean,
   onResetError: () => void,
-  onSetModal: (modal: MODALS.ModalType) => void,
+  onSetModal: (modal: ModalType) => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
-  onLog: (event: Event<"OPEN_MODAL", { modal: AuthModal }>) => void,
 |};
 
 type State = {|
-  modalOpen: typeof MODALS.NONE | AuthModal,
+  modalOpen: "" | AuthModal,
 |};
 
 export default class Menu extends React.Component<Props, State> {
@@ -67,38 +59,32 @@ export default class Menu extends React.Component<Props, State> {
     const { onResetError } = this.props;
 
     onResetError();
-    this.setState({ modalOpen: MODALS.NONE });
+    this.setState({ modalOpen: "" });
   };
 
   handleOpenMyBooking = () => {
-    const { onLog, onResetError } = this.props;
+    const { onResetError } = this.props;
     onResetError();
 
     this.setState({ modalOpen: MODALS.MY_BOOKING });
-    onLog({ event: OPEN_MODAL, data: { modal: MODALS.MY_BOOKING } });
   };
 
   handleOpenRegister = () => {
-    const { onLog, onResetError } = this.props;
+    const { onResetError } = this.props;
     onResetError();
 
     this.setState({ modalOpen: MODALS.REGISTER });
-    onLog({ event: OPEN_MODAL, data: { modal: MODALS.REGISTER } });
   };
 
   handleOpenSignIn = () => {
-    const { onLog, onResetError } = this.props;
+    const { onResetError } = this.props;
     onResetError();
 
     this.setState({ modalOpen: MODALS.SIGN_IN });
-    onLog({ event: OPEN_MODAL, data: { modal: MODALS.SIGN_IN } });
   };
 
   handleOpenForgotPassword = () => {
-    const { onLog } = this.props;
-
     this.setState({ modalOpen: MODALS.FORGOT_PASSWORD });
-    onLog({ event: OPEN_MODAL, data: { modal: MODALS.FORGOT_PASSWORD } });
   };
 
   render() {
@@ -161,51 +147,39 @@ export default class Menu extends React.Component<Props, State> {
           />
         </Wrapper>
 
-        {modalOpen !== MODALS.NONE && (
+        {modalOpen === MODALS.FORGOT_PASSWORD && (
           <CloseByKey onClose={this.handleClose}>
-            {portal ? (
-              <Portal element={portal}>
-                <Modal onClose={this.handleClose} size="normal">
-                  <ModalSection>
-                    {modalOpen === MODALS.FORGOT_PASSWORD ? (
-                      <BrandConsumer>
-                        {brand => <ForgotPassword brandId={brand.id} onClose={this.handleClose} />}
-                      </BrandConsumer>
-                    ) : (
-                      <Login
-                        // $FlowIssue
-                        open={modalOpen}
-                        onCloseSuccess={this.handleClose}
-                        onOpenMyBooking={this.handleOpenMyBooking}
-                        onOpenRegister={this.handleOpenRegister}
-                        onOpenSignIn={this.handleOpenSignIn}
-                        onOpenForgotPassword={this.handleOpenForgotPassword}
-                      />
-                    )}
-                  </ModalSection>
-                </Modal>
-              </Portal>
-            ) : (
+            <Portal element={portal}>
               <Modal onClose={this.handleClose} size="normal">
                 <ModalSection>
-                  {modalOpen === MODALS.FORGOT_PASSWORD ? (
-                    <BrandConsumer>
-                      {brand => <ForgotPassword brandId={brand.id} onClose={this.handleClose} />}
-                    </BrandConsumer>
-                  ) : (
-                    <Login
-                      // $FlowIssue
-                      open={modalOpen}
-                      onCloseSuccess={this.handleClose}
-                      onOpenMyBooking={this.handleOpenMyBooking}
-                      onOpenRegister={this.handleOpenRegister}
-                      onOpenSignIn={this.handleOpenSignIn}
-                      onOpenForgotPassword={this.handleOpenForgotPassword}
-                    />
-                  )}
+                  <BrandConsumer>
+                    {brand => <ForgotPassword brandId={brand.id} onClose={this.handleClose} />}
+                  </BrandConsumer>
                 </ModalSection>
               </Modal>
-            )}
+            </Portal>
+          </CloseByKey>
+        )}
+
+        {(modalOpen === MODALS.MY_BOOKING ||
+          modalOpen === MODALS.SIGN_IN ||
+          modalOpen === MODALS.REGISTER) && (
+          <CloseByKey onClose={this.handleClose}>
+            <Portal element={portal}>
+              <Modal onClose={this.handleClose} size="normal">
+                <ModalSection>
+                  <Login
+                    // $FlowIssue 'modalOpen' can only be one of these things
+                    open={modalOpen}
+                    onCloseSuccess={this.handleClose}
+                    onOpenMyBooking={this.handleOpenMyBooking}
+                    onOpenRegister={this.handleOpenRegister}
+                    onOpenSignIn={this.handleOpenSignIn}
+                    onOpenForgotPassword={this.handleOpenForgotPassword}
+                  />
+                </ModalSection>
+              </Modal>
+            </Portal>
           </CloseByKey>
         )}
       </>

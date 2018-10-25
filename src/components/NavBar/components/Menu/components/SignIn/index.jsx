@@ -12,6 +12,7 @@ import Security from "@kiwicom/orbit-components/lib/icons/Security";
 import * as rtl from "../../../../../../styles/rtl";
 import { themeDefault } from "../../../../../../records/Theme";
 import InputText from "../../../../../InputText";
+import LogMount from "../../../../../LogMount";
 import type { Change } from "../../../../../InputText";
 import Text from "../../../../../Text";
 import firstFormError from "../../../services/firstFormError";
@@ -22,6 +23,7 @@ import emailCorrector from "../../../../../../services/input/emailCorrector";
 import isEmptish from "../../../../../../services/utils/isEmptish";
 import IconText from "../../../../../IconText";
 import Query from "../../../../../Query";
+import { OPEN_MODAL } from "../../../../../../consts/events";
 
 const emailValidator = compose(
   validators.email,
@@ -126,6 +128,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
     return (
       <>
         <Query onMount={this.handleMount} />
+        <LogMount event={{ event: OPEN_MODAL, data: { modal: "signIn" } }} />
 
         <FieldWrap>
           <IconText icon={<Envelope color="primary" size="small" />}>

@@ -29,7 +29,7 @@ const FieldWrap = styled.div`
 `;
 
 type Props = {|
-  open: typeof MODALS.MY_BOOKING | typeof MODALS.REGISTER | typeof MODALS.SIGN_IN,
+  open: "myBooking" | "signIn" | "register",
   onOpenMyBooking: () => void,
   onOpenRegister: () => void,
   onCloseSuccess: () => void,
@@ -47,6 +47,7 @@ class Login extends React.Component<Props> {
   }
 
   handleCSS = () => {
+    // FIXME delete this
     const mainview = document.querySelector(".MainView");
     return (
       mainview &&

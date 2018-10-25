@@ -11,11 +11,11 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         debug={<div>debug</div>}
+        portal=""
         onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={jest.fn()}
-        onLog={jest.fn()}
       />,
     );
 
@@ -27,11 +27,11 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        portal=""
         onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={jest.fn()}
-        onLog={jest.fn()}
       />,
     );
 
@@ -45,11 +45,11 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        portal=""
         onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={jest.fn()}
-        onLog={jest.fn()}
       />,
     );
 
@@ -65,11 +65,11 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        portal=""
         onResetError={resetError}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={setModal}
-        onLog={jest.fn()}
       />,
     );
 
@@ -87,11 +87,11 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        portal=""
         onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={setModal}
-        onLog={jest.fn()}
       />,
     );
 
@@ -107,11 +107,11 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        portal=""
         onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={setModal}
-        onLog={jest.fn()}
       />,
     );
 
@@ -127,11 +127,11 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        portal=""
         onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={setModal}
-        onLog={jest.fn()}
       />,
     );
 
@@ -147,11 +147,11 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        portal=""
         onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={setModal}
-        onLog={jest.fn()}
       />,
     );
 

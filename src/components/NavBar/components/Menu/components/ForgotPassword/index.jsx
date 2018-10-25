@@ -9,6 +9,7 @@ import TextOrbit from "@kiwicom/orbit-components/lib/Text";
 import { padding } from "../../../../../../styles";
 import { themeDefault } from "../../../../../../records/Theme";
 import type { ThemeProps } from "../../../../../../records/Theme";
+import LogMount from "../../../../../LogMount";
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
 import IconText from "../../../../../IconText";
@@ -19,6 +20,7 @@ import compose from "../../../../../../services/input/composeValidator";
 import * as normalizers from "../../../../../../services/input/normalizers";
 import emailCorrector from "../../../../../../services/input/emailCorrector";
 import * as api from "../../../../../../services/auth/api";
+import { OPEN_MODAL } from "../../../../../../consts/events";
 
 const emailValidator = compose(
   validators.email,
@@ -126,6 +128,8 @@ export default class ForgotPassword extends React.PureComponent<Props, State> {
 
     return (
       <Container>
+        <LogMount event={{ event: OPEN_MODAL, data: { modal: "forgotPassword" } }} />
+
         {error && (
           <FieldWrap>
             <Alert type="critical">

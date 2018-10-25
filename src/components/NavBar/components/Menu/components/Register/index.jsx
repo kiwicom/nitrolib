@@ -10,6 +10,7 @@ import Security from "@kiwicom/orbit-components/lib/icons/Security";
 import User from "@kiwicom/orbit-components/lib/icons/Passenger";
 
 import Query from "../../../../../Query";
+import LogMount from "../../../../../LogMount";
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
 import IconText from "../../../../../IconText";
@@ -24,6 +25,7 @@ import isEmptish from "../../../../../../services/utils/isEmptish";
 import linkMixin from "../../../../../../styles/mixins/link";
 import { themeDefault } from "../../../../../../records/Theme";
 import type { RegisterInput } from "../../../../../../services/auth/api";
+import { OPEN_MODAL } from "../../../../../../consts/events";
 
 const ZXCVBN_URL = "https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js";
 
@@ -162,6 +164,7 @@ export default class Register extends React.PureComponent<Props, State> {
     return (
       <>
         <Query onMount={this.handleMount} />
+        <LogMount event={{ event: OPEN_MODAL, data: { modal: "register" } }} />
 
         <FieldWrap>
           <IconText icon={<User color="primary" size="small" />}>

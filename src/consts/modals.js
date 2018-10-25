@@ -9,13 +9,6 @@ export const CHAT: "chat" = "chat";
 export const SUBSCRIPTION: "subscription" = "subscription";
 export const DEBUG: "debug" = "debug";
 
-export type ModalType =
-  | ""
-  | "myBooking"
-  | "register"
-  | "signIn"
-  | "forgotPassword"
-  | "sideNav"
-  | "chat"
-  | "subscription"
-  | "debug";
+export type AuthModal = "myBooking" | "register" | "signIn" | "forgotPassword";
+
+export type Modal = AuthModal | "" | "sideNav" | "chat" | "subscription" | "debug";

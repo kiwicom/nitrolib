@@ -13,13 +13,12 @@ import Flex from "../../primitives/Flex";
 import Language from "../Language";
 import { Consumer as AuthConsumer } from "../../services/auth/context";
 import { Consumer as BrandConsumer } from "../../services/brand/context";
-import { Consumer as LogConsumer } from "../../services/log/context";
 import { Provider as InvertedProvider } from "../../services/inverted/context";
 import Help from "./components/Help";
 import Menu from "./components/Menu";
 import Logo from "./components/Logo";
 import Currency from "../Currency";
-import type { ModalType } from "../../consts/modals";
+import type { Modal } from "../../consts/modals";
 import marginMixin from "./styles/marginMixin";
 // import Starred from "../Starred"; FIXME add as a full feature
 // TODO: replace z-index with Orbit token after refactoring all front-end indexes
@@ -79,14 +78,14 @@ type Props = {|
   chat: React.Node,
   subscription: React.Node,
   debug?: React.Node,
-  shadow?: boolean,
-  inverted?: boolean,
+  shadow: boolean,
+  inverted: boolean,
+  portal: string,
   onOpenFaq?: () => void,
-  onSetModal: (modal: ModalType) => void,
+  onSetModal: (modal: Modal) => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
   onLogoClick: (ev: SyntheticMouseEvent<HTMLAnchorElement>) => void,
-  portal?: string,
 |};
 
 const NavBar = ({
@@ -105,75 +104,64 @@ const NavBar = ({
   onLogoClick,
 }: Props) => (
   <InvertedProvider value={{ inverted }}>
-    <LogConsumer>
-      {({ log }) => (
-        <Container
-          x="space-between"
-          y="center"
-          shadow={shadow}
-          dataTest="Navbar"
-          inverted={inverted}
-        >
-          <Flex y="center" x="flex-start">
-            <Logo inverted={inverted} onClick={onLogoClick} />
-            {headerLinks && (
-              <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
-            )}
-          </Flex>
-          <Flex y="center">
-            <Wrapper>
-              <Desktop display="flex">
+    <Container x="space-between" y="center" shadow={shadow} dataTest="Navbar" inverted={inverted}>
+      <Flex y="center" x="flex-start">
+        <Logo inverted={inverted} onClick={onLogoClick} />
+        {headerLinks && (
+          <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
+        )}
+      </Flex>
+      <Flex y="center">
+        <Wrapper>
+          <Desktop display="flex">
+            <WrapperChild>
+              <ButtonWrapper>
                 <WrapperChild>
-                  <ButtonWrapper>
-                    <WrapperChild>
-                      <Language
-                        positionMenuDesktop={270}
-                        positionMenuTablet={5}
-                        onChange={onSaveLanguage}
-                      />
-                    </WrapperChild>
-                    <WrapperChild>
-                      <Currency positionMenuDesktop={270} positionMenuTablet={5} />
-                    </WrapperChild>
-                    <WrapperChild>
-                      <Help onOpen={onOpenFaq} inverted={inverted} />
-                    </WrapperChild>
-                  </ButtonWrapper>
+                  <Language
+                    positionMenuDesktop={270}
+                    positionMenuTablet={5}
+                    onChange={onSaveLanguage}
+                  />
                 </WrapperChild>
-              </Desktop>
-              <WrapperChild>{starred}</WrapperChild>
-              <Mobile>
+                <WrapperChild>
+                  <Currency positionMenuDesktop={270} positionMenuTablet={5} />
+                </WrapperChild>
                 <WrapperChild>
                   <Help onOpen={onOpenFaq} inverted={inverted} />
                 </WrapperChild>
-              </Mobile>
-              <AuthConsumer>
-                {({ onResetError }) => (
-                  <Menu
-                    chat={chat}
-                    subscription={subscription}
-                    debug={debug}
-                    onResetError={onResetError}
-                    onSetModal={onSetModal}
-                    onSaveLanguage={onSaveLanguage}
-                    onSelectTrip={onSelectTrip}
-                    onLog={log}
-                    inverted={inverted}
-                    portal={portal}
-                  />
-                )}
-              </AuthConsumer>
-            </Wrapper>
-          </Flex>
-        </Container>
-      )}
-    </LogConsumer>
+              </ButtonWrapper>
+            </WrapperChild>
+          </Desktop>
+          <WrapperChild>{starred}</WrapperChild>
+          <Mobile>
+            <WrapperChild>
+              <Help onOpen={onOpenFaq} inverted={inverted} />
+            </WrapperChild>
+          </Mobile>
+          <AuthConsumer>
+            {({ onResetError }) => (
+              <Menu
+                chat={chat}
+                subscription={subscription}
+                debug={debug}
+                onResetError={onResetError}
+                onSetModal={onSetModal}
+                onSaveLanguage={onSaveLanguage}
+                onSelectTrip={onSelectTrip}
+                inverted={inverted}
+                portal={portal}
+              />
+            )}
+          </AuthConsumer>
+        </Wrapper>
+      </Flex>
+    </Container>
   </InvertedProvider>
 );
 
 NavBar.defaultProps = {
   shadow: true,
-  onLogoClick: () => {},
+  inverted: false,
 };
 
 export default NavBar;

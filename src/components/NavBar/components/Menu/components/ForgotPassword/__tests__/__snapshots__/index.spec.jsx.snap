@@ -385,6 +385,16 @@ exports[`#SideBar/ForgotPassword render 1`] = `
     }
   }
 >
+  <LogMount
+    event={
+      Object {
+        "data": Object {
+          "modal": "forgotPassword",
+        },
+        "event": "OPEN_MODAL",
+      }
+    }
+  />
   <Text>
     <Text
       html={false}
@@ -821,6 +831,16 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
     }
   }
 >
+  <LogMount
+    event={
+      Object {
+        "data": Object {
+          "modal": "forgotPassword",
+        },
+        "event": "OPEN_MODAL",
+      }
+    }
+  />
   <ForgotPassword__FieldWrap>
     <Alert
       type="critical"
@@ -1289,6 +1309,16 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
     }
   }
 >
+  <LogMount
+    event={
+      Object {
+        "data": Object {
+          "modal": "forgotPassword",
+        },
+        "event": "OPEN_MODAL",
+      }
+    }
+  />
   <Text>
     <Text
       html={false}
