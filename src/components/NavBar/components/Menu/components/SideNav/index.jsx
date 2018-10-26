@@ -329,15 +329,6 @@ export default class SideNav extends React.Component<Props, State> {
                           />
                         )}
 
-                        {/* Top routes */}
-                        {brand.content.pages.top_routes.enabled && (
-                          <MenuItem
-                            Icon={icons.StarFull}
-                            link="/flights"
-                            text={<Text t={__("navbar.top-routes")} />}
-                          />
-                        )}
-
                         {company.stories && (
                           <BrandedMenuItem
                             title={company.stories.title}
