@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#AccountPassword render 1`] = `
-<React.Fragment>
+<AccountPassword__Wrapper>
   <ModalHeader>
     <Illustration
       name="Login"
@@ -32,12 +32,8 @@ exports[`#AccountPassword render 1`] = `
       weight="bold"
     >
       <Stack
-        desktop={
-          Object {
-            "direction": "row",
-            "spacing": "tight",
-          }
-        }
+        direction="row"
+        spacing="tight"
       >
         <Text
           weight="bold"
@@ -105,5 +101,5 @@ exports[`#AccountPassword render 1`] = `
       />
     </Button>
   </ModalSection>
-</React.Fragment>
+</AccountPassword__Wrapper>
 `;

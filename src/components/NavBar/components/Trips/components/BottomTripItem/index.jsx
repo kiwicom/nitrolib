@@ -23,6 +23,7 @@ const Img = styled.img`
   width: 45px;
   ${mq.ltMiddleMobile(css`
     height: 30px;
+    width: auto;
   `)};
 `;
 
