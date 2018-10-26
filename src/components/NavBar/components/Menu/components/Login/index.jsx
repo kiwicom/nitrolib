@@ -37,88 +37,66 @@ type Props = {|
   onOpenForgotPassword: () => void,
 |};
 
-class Login extends React.Component<Props> {
-  componentDidMount() {
-    this.handleCSS();
-  }
-
-  componentWillUnmount() {
-    this.handleCSS();
-  }
-
-  handleCSS = () => {
-    // FIXME delete this
-    const mainview = document.querySelector(".MainView");
-    return (
-      mainview &&
-      (mainview.classList.toggle("MainView_nitro-modal"), mainview.classList.toggle("_fixed"))
-    );
-  };
-
-  render() {
-    const {
-      open,
-      onOpenMyBooking,
-      onCloseSuccess,
-      onOpenRegister,
-      onOpenSignIn,
-      onOpenForgotPassword,
-    } = this.props;
-    return (
-      <Container>
-        <AuthConsumer>
-          {auth => (
-            <>
-              <BrandConsumer>
-                {brand =>
-                  (brand.auth.social_facebook.enabled || brand.auth.social_google.enabled) && (
-                    <SocialLogin
-                      facebook={brand.auth.social_facebook.enabled}
-                      google={brand.auth.social_google.enabled}
-                      onSocialAuth={auth.onSocialAuth}
-                    />
-                  )
-                }
-              </BrandConsumer>
-              <Switch
-                open={open}
-                onOpenMyBooking={onOpenMyBooking}
-                onOpenRegister={onOpenRegister}
-                onOpenSignIn={onOpenSignIn}
-              />
-              {auth.error && (
-                <FieldWrap>
-                  <Alert type="critical">{auth.error}</Alert>
-                </FieldWrap>
-              )}
-              {open === MODALS.MY_BOOKING && (
-                <MyBooking
-                  loading={auth.loading}
-                  onMyBooking={auth.onMyBooking}
-                  onCloseSuccess={onCloseSuccess}
+const Login = ({
+  open,
+  onOpenMyBooking,
+  onCloseSuccess,
+  onOpenRegister,
+  onOpenSignIn,
+  onOpenForgotPassword,
+}: Props) => (
+  <Container>
+    <AuthConsumer>
+      {auth => (
+        <>
+          <BrandConsumer>
+            {brand =>
+              (brand.auth.social_facebook.enabled || brand.auth.social_google.enabled) && (
+                <SocialLogin
+                  facebook={brand.auth.social_facebook.enabled}
+                  google={brand.auth.social_google.enabled}
+                  onSocialAuth={auth.onSocialAuth}
                 />
-              )}
-              {open === MODALS.REGISTER && (
-                <Register
-                  loading={auth.loading}
-                  onRegister={auth.onRegister}
-                  onCloseSuccess={onCloseSuccess}
-                />
-              )}
-              {open === MODALS.SIGN_IN && (
-                <SignIn
-                  loading={auth.loading}
-                  onSignIn={auth.onSignIn}
-                  onCloseSuccess={onCloseSuccess}
-                  onOpenForgotPassword={onOpenForgotPassword}
-                />
-              )}
-            </>
+              )
+            }
+          </BrandConsumer>
+          <Switch
+            open={open}
+            onOpenMyBooking={onOpenMyBooking}
+            onOpenRegister={onOpenRegister}
+            onOpenSignIn={onOpenSignIn}
+          />
+          {auth.error && (
+            <FieldWrap>
+              <Alert type="critical">{auth.error}</Alert>
+            </FieldWrap>
           )}
-        </AuthConsumer>
-      </Container>
-    );
-  }
-}
+          {open === MODALS.MY_BOOKING && (
+            <MyBooking
+              loading={auth.loading}
+              onMyBooking={auth.onMyBooking}
+              onCloseSuccess={onCloseSuccess}
+            />
+          )}
+          {open === MODALS.REGISTER && (
+            <Register
+              loading={auth.loading}
+              onRegister={auth.onRegister}
+              onCloseSuccess={onCloseSuccess}
+            />
+          )}
+          {open === MODALS.SIGN_IN && (
+            <SignIn
+              loading={auth.loading}
+              onSignIn={auth.onSignIn}
+              onCloseSuccess={onCloseSuccess}
+              onOpenForgotPassword={onOpenForgotPassword}
+            />
+          )}
+        </>
+      )}
+    </AuthConsumer>
+  </Container>
+);
 
 export default Login;
