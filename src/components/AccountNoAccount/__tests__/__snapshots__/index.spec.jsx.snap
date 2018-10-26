@@ -2,11 +2,11 @@
 
 exports[`#AccountNoAccount render 1`] = `
 <Fragment>
-  <Illustration
-    name="NoBookings"
-    size="small"
-  />
   <ModalHeader>
+    <Illustration
+      name="NoBookings"
+      size="small"
+    />
     <Heading
       element="h2"
     >

@@ -29,8 +29,8 @@ type Props = {|
 
 const AccountNoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }: Props) => (
   <>
-    <Illustration name="NoBookings" size="small" />
     <Header>
+      <Illustration name="NoBookings" size="small" />
       <Heading element="h2">
         <Text t={__("account.no_bookings_or_account")} />
       </Heading>

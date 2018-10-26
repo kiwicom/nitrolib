@@ -2,7 +2,7 @@
 .cache
 .idea
 .tmp
-./cache
+.cache
 coverage
 data
 dist-storybook

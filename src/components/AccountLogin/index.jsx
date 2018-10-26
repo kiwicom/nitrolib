@@ -27,7 +27,7 @@ type IllustrationType = "Login" | "Help" | "InviteAFriend" | "AirHelp";
 
 type Props = {|
   illustration?: IllustrationType,
-  text?: string,
+  text?: string | React.Node,
   email: string,
   onNoAccount: (ev?: SyntheticEvent<HTMLLinkElement>) => void,
   onGoogleLogin: (ev?: SyntheticEvent<HTMLButtonElement>) => void,

@@ -23,7 +23,12 @@ const TripHeader = ({ trips }: Props) => {
     <IntlConsumer>
       {intl => (
         <>
-          <ButtonLink marginLeft={20} bold href={`/${intl.language.id}/account#future`}>
+          <ButtonLink
+            marginLeft={20}
+            bold
+            href={`/${intl.language.id}/account#future`}
+            color="secondary"
+          >
             <Text t={__("account.upcoming_trips")} values={{ trips: countTrips }} />
           </ButtonLink>
           <ButtonLink

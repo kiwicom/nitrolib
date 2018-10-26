@@ -3,6 +3,7 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import type { Environment } from "react-relay";
 import Passenger from "@kiwicom/orbit-components/lib/icons/Passenger";
+import defaultTokens from "@kiwicom/orbit-components/lib/defaultTokens";
 
 import Button from "../../primitives/Button";
 import ClickOutside from "../../../ClickOutside";
@@ -36,12 +37,21 @@ const UserStyle = styled.div`
   `)};
 `;
 
+UserStyle.defaultProps = {
+  theme: defaultTokens,
+};
+
 const HideOnLower = styled.div`
   display: block;
+  margin-left: ${({ theme }) => theme.orbit.spaceXXSmall};
   @media (max-width: 975px) {
     display: none;
   }
 `;
+
+HideOnLower.defaultProps = {
+  theme: defaultTokens,
+};
 
 const Trips = ({ auth, env, onSelect }: Props) => (
   <Toggle>
