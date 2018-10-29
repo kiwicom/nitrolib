@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#PhoneNumber should format the phone number correctly 1`] = `"+34 642 42 42 42"`;
