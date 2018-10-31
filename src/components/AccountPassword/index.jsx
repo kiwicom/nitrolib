@@ -22,6 +22,10 @@ const SpacingMedium = styled.div`
   margin-bottom: 16px;
 `;
 
+const SpacingBig = styled.div`
+  margin-bottom: 22px;
+`;
+
 const Ruler = styled.div`
   width: 100%;
   height: 1px;
@@ -35,6 +39,7 @@ type Props = {|
   email: string,
   password: string,
   onChangeEmail: (ev: SyntheticEvent<HTMLLinkElement>) => void,
+  onForgotPassword: (ev: SyntheticEvent<HTMLLinkElement>) => void,
   onAskSignInLink: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onPasswordChange: (ev: SyntheticEvent<HTMLInputElement>) => void,
   onSignIn: (ev: SyntheticEvent<HTMLButtonElement>) => void,
@@ -44,6 +49,7 @@ const AccountPassword = ({
   email,
   password,
   onChangeEmail,
+  onForgotPassword,
   onAskSignInLink,
   onPasswordChange,
   onSignIn,
@@ -72,20 +78,26 @@ const AccountPassword = ({
             </TextLink>
           </OrbitText>
         </SpacingMedium>
-        <Flex y="flex-end">
-          <span style={{ flexGrow: 1, marginRight: "8px" }}>
-            <InputField
-              label={intl.translate(__("account.password"))}
-              type="password"
-              onChange={onPasswordChange}
-              value={password}
-            />
-          </span>
-          <Button onClick={onSignIn}>
-            <Text t={__("account.sign_in")} />
-          </Button>
-        </Flex>
-
+        <SpacingBig>
+          <Flex y="flex-end">
+            <span style={{ flexGrow: 1, marginRight: "8px" }}>
+              <InputField
+                label={intl.translate(__("account.password"))}
+                type="password"
+                onChange={onPasswordChange}
+                value={password}
+              />
+            </span>
+            <Button onClick={onSignIn}>
+              <Text t={__("account.sign_in")} />
+            </Button>
+          </Flex>
+        </SpacingBig>
+        <TextLink type="secondary" onClick={onForgotPassword}>
+          <OrbitText size="small">
+            <Text t={__("account.forgot_password")} />
+          </OrbitText>
+        </TextLink>
         <Ruler />
         <SpacingXSmall>
           <OrbitText>

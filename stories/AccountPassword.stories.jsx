@@ -11,6 +11,7 @@ storiesOf("AccountPassword", module)
     <AccountPassword
       onAskSignInLink={() => {}}
       onChangeEmail={() => {}}
+      onForgotPassword={() => {}}
       onPasswordChange={() => {}}
       onSignIn={() => {}}
       password="asdfg"

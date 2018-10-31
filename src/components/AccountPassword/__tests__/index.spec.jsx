@@ -12,6 +12,7 @@ describe("#AccountPassword", () => {
       <AccountPassword
         onAskSignInLink={() => {}}
         onChangeEmail={() => {}}
+        onForgotPassword={() => {}}
         onPasswordChange={() => {}}
         onSignIn={() => {}}
         password="asdfg"

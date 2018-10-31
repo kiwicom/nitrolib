@@ -49,37 +49,53 @@ exports[`#AccountPassword render 1`] = `
       </TextLink>
     </Text>
   </AccountPassword__SpacingMedium>
-  <Flex
-    direction="row"
-    wrap="nowrap"
-    x="flex-start"
-    y="flex-end"
-  >
-    <span
-      style={
-        Object {
-          "flexGrow": 1,
-          "marginRight": "8px",
-        }
-      }
+  <AccountPassword__SpacingBig>
+    <Flex
+      direction="row"
+      wrap="nowrap"
+      x="flex-start"
+      y="flex-end"
     >
-      <InputField
-        label="account.password"
-        onChange={[Function]}
-        type="password"
-        value="asdfg"
-      />
-    </span>
-    <Button
-      onClick={[Function]}
+      <span
+        style={
+          Object {
+            "flexGrow": 1,
+            "marginRight": "8px",
+          }
+        }
+      >
+        <InputField
+          label="account.password"
+          onChange={[Function]}
+          type="password"
+          value="asdfg"
+        />
+      </span>
+      <Button
+        onClick={[Function]}
+      >
+        <Text
+          html={false}
+          t="account.sign_in"
+          values={Object {}}
+        />
+      </Button>
+    </Flex>
+  </AccountPassword__SpacingBig>
+  <TextLink
+    onClick={[Function]}
+    type="secondary"
+  >
+    <Text
+      size="small"
     >
       <Text
         html={false}
-        t="account.sign_in"
+        t="account.forgot_password"
         values={Object {}}
       />
-    </Button>
-  </Flex>
+    </Text>
+  </TextLink>
   <AccountPassword__Ruler />
   <AccountPassword__SpacingXSmall>
     <Text>
