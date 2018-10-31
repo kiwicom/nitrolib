@@ -1,6 +1,6 @@
 // @flow strict
 import React from "react";
-import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
+import AirplaneUp from "@kiwicom/orbit-components/lib/icons/AirplaneUp";
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
 
@@ -53,7 +53,7 @@ const HeaderLinks = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewW
                     </ClickOutside>
                   )}
                   <IconWrapper act={open} onClick={onToggle} inverted={inverted}>
-                    <Airplane />
+                    <AirplaneUp />
                     <ChevronDown size="small" />
                   </IconWrapper>
                 </>

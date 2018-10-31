@@ -1,7 +1,7 @@
 // @flow strict
 import React from "react";
 import Accommodation from "@kiwicom/orbit-components/lib/icons/Accommodation";
-import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
+import AirplaneUp from "@kiwicom/orbit-components/lib/icons/AirplaneUp";
 import CarRental from "@kiwicom/orbit-components/lib/icons/CarRental";
 import Suitcase from "@kiwicom/orbit-components/lib/icons/Suitcase";
 
@@ -31,7 +31,7 @@ const Links = ({
       link={linkFlights}
       inverted={inverted}
       newWindow={forceNewWindow}
-      icon={<Airplane />}
+      icon={<AirplaneUp />}
       text={<Text t={__("search.service.travel_anywhere")} />}
     />
     {linkRooms && (
