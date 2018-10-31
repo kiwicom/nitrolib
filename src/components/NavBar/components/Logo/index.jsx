@@ -77,47 +77,69 @@ type Props = {|
   onClick: (ev: SyntheticMouseEvent<HTMLAnchorElement>) => void,
 |};
 
+type RawProps = {
+  id: string,
+  home_redirect_url: string,
+  title: string,
+  powered_by_kiwi: boolean,
+  languageId: string,
+  ...Props,
+};
+
+export const RawLogo = ({
+  id,
+  home_redirect_url,
+  title,
+  powered_by_kiwi,
+  languageId,
+  inverted,
+  onClick,
+}: RawProps) =>
+  id === "kiwicom" ? (
+    <Link href={`${home_redirect_url}${languageId}/`} onClick={onClick} data-test="NavbarLogoLink">
+      <SvgLogo height={logo.height} width={logo.width} title={title} inverted={inverted} />
+    </Link>
+  ) : (
+    <>
+      <LogoLinkStyled
+        href={`${home_redirect_url}${languageId}/`}
+        onClick={onClick}
+        data-test="NavbarLogoLink"
+      >
+        <LogoStyled
+          title={title}
+          alt={title}
+          srcSet={`${logoBaseUrl}/0x80/${id}.png?v=1 2x`}
+          src={`${logoBaseUrl}/0x40/${id}.png?v=1`}
+        />
+        <LogoStyledMobile
+          title={title}
+          alt={title}
+          srcSet={`${logoBaseUrl}/0x80/${id}-mobile.png?v=1 2x`}
+          src={`${logoBaseUrl}/0x40/${id}-mobile.png?v=1`}
+        />
+      </LogoLinkStyled>
+      {powered_by_kiwi && (
+        <PoweredByKiwi>
+          Powered by <br /> Kiwi.com
+        </PoweredByKiwi>
+      )}
+    </>
+  );
+
 const Logo = ({ inverted, onClick }: Props) => (
   <IntlConsumer>
     {({ language }) => (
       <BrandConsumer>
-        {({ id, home_redirect_url, name, powered_by_kiwi }) =>
-          id === "kiwicom" ? (
-            <Link
-              href={`${home_redirect_url}${language.id}/`}
-              onClick={onClick}
-              data-test="NavbarLogoLink"
-            >
-              <SvgLogo height={logo.height} width={logo.width} title={name} inverted={inverted} />
-            </Link>
-          ) : (
-            <>
-              <LogoLinkStyled
-                href={`${home_redirect_url}${language.id}/`}
-                onClick={onClick}
-                data-test="NavbarLogoLink"
-              >
-                <LogoStyled
-                  title={name}
-                  alt={name}
-                  srcSet={`${logoBaseUrl}/0x80/${id}.png?v=1 2x`}
-                  src={`${logoBaseUrl}/0x40/${id}.png?v=1`}
-                />
-                <LogoStyledMobile
-                  title={name}
-                  alt={name}
-                  srcSet={`${logoBaseUrl}/0x80/${id}-mobile.png?v=1 2x`}
-                  src={`${logoBaseUrl}/0x40/${id}-mobile.png?v=1`}
-                />
-              </LogoLinkStyled>
-              {powered_by_kiwi && (
-                <PoweredByKiwi>
-                  Powered by <br /> Kiwi.com
-                </PoweredByKiwi>
-              )}
-            </>
-          )
-        }
+        {brandProps => (
+          <RawLogo
+            {...brandProps}
+            title={brandProps.name}
+            languageId={language.id}
+            onClick={onClick}
+            inverted={inverted}
+          />
+        )}
       </BrandConsumer>
     )}
   </IntlConsumer>
