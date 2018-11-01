@@ -4,8 +4,8 @@ import { langInfoDefault } from "../../../../records/LangInfo";
 
 const language = langInfoDefault;
 
-describe("#HeaderLinks/service/holidaysLink", () => {
+describe("#HeaderLinks/service/travelLink", () => {
   test("getLink", () => {
-    expect(getLink(language)).toEqual("https://www.kiwi.com/en/searchDeep?pageName=search");
+    expect(getLink(language)).toEqual("/en/searchDeep?pageName=search");
   });
 });
