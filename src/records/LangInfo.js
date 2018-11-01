@@ -99,3 +99,9 @@ export const langInfoDefault: LangInfo = {
   thousandsSeparator: ",",
   separateFourDigits: "1",
 };
+
+export const fixDateFormat = (date: string) => {
+  const re = /\b(D|DD|YYYY)\b/g;
+  const rep = /\b(ddd)\b/g;
+  return date.replace(re, match => match.toLowerCase()).replace(rep, "eee");
+};

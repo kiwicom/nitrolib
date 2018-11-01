@@ -8,6 +8,7 @@ import type { ThemeProps } from "../../../../../records/Theme";
 const TripInfoLine = styled.div`
   display: flex;
   line-height: normal;
+  text-transform: capitalize;
   ${({ darker, theme }) =>
     darker ? `color: ${theme.orbit.paletteInkNormal}` : `color: ${theme.orbit["neutral-700"]}`};
   ${({ fontSize }) =>
