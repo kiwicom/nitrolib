@@ -1,8 +1,8 @@
 // @flow strict
 import React from "react";
 
-import { themeDefault } from "../../../../records/Theme";
-import type { ThemeProps } from "../../../../records/Theme";
+import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 
 type Props = {|
   width: number,
