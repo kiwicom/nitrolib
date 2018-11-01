@@ -31,7 +31,6 @@ type Props = {|
   subscription: React.Node,
   debug?: React.Node,
   inverted?: boolean,
-  onResetError: () => void,
   onSetModal: (modal: ModalType) => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
@@ -56,30 +55,18 @@ export default class Menu extends React.Component<Props, State> {
   }
 
   handleClose = () => {
-    const { onResetError } = this.props;
-
-    onResetError();
     this.setState({ modalOpen: "" });
   };
 
   handleOpenMyBooking = () => {
-    const { onResetError } = this.props;
-    onResetError();
-
     this.setState({ modalOpen: MODALS.MY_BOOKING });
   };
 
   handleOpenRegister = () => {
-    const { onResetError } = this.props;
-    onResetError();
-
     this.setState({ modalOpen: MODALS.REGISTER });
   };
 
   handleOpenSignIn = () => {
-    const { onResetError } = this.props;
-    onResetError();
-
     this.setState({ modalOpen: MODALS.SIGN_IN });
   };
 

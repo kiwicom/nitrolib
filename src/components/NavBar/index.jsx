@@ -11,7 +11,6 @@ import type { ThemeProps } from "../../records/Theme";
 import { themeDefault } from "../../records/Theme";
 import Flex from "../../primitives/Flex";
 import Language from "../Language";
-import { Consumer as AuthConsumer } from "../../services/auth/context";
 import { Consumer as BrandConsumer } from "../../services/brand/context";
 import { Provider as InvertedProvider } from "../../services/inverted/context";
 import Help from "./components/Help";
@@ -139,21 +138,16 @@ const NavBar = ({
               <Help onOpen={onOpenFaq} inverted={inverted} />
             </WrapperChild>
           </Mobile>
-          <AuthConsumer>
-            {({ onResetError }) => (
-              <Menu
-                chat={chat}
-                subscription={subscription}
-                debug={debug}
-                onResetError={onResetError}
-                onSetModal={onSetModal}
-                onSaveLanguage={onSaveLanguage}
-                onSelectTrip={onSelectTrip}
-                inverted={inverted}
-                portal={portal}
-              />
-            )}
-          </AuthConsumer>
+          <Menu
+            chat={chat}
+            subscription={subscription}
+            debug={debug}
+            onSetModal={onSetModal}
+            onSaveLanguage={onSaveLanguage}
+            onSelectTrip={onSelectTrip}
+            inverted={inverted}
+            portal={portal}
+          />
         </Wrapper>
       </Flex>
     </Container>

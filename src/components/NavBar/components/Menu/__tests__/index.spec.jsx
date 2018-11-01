@@ -12,7 +12,6 @@ describe("#Menu", () => {
         subscription={<div>subscription</div>}
         debug={<div>debug</div>}
         portal=""
-        onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={jest.fn()}
@@ -28,7 +27,6 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         portal=""
-        onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={jest.fn()}
@@ -46,7 +44,6 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         portal=""
-        onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={jest.fn()}
@@ -59,14 +56,12 @@ describe("#Menu", () => {
   });
 
   test("handle close", () => {
-    const resetError = jest.fn();
     const setModal = jest.fn();
     const wrapper = shallow(
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         portal=""
-        onResetError={resetError}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={setModal}
@@ -77,7 +72,6 @@ describe("#Menu", () => {
     wrapper.instance().handleClose();
 
     expect(wrapper.state("modalOpen")).toBe("");
-    expect(resetError).toBeCalled();
     expect(setModal).toBeCalledWith("");
   });
 
@@ -88,7 +82,6 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         portal=""
-        onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={setModal}
@@ -108,7 +101,6 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         portal=""
-        onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={setModal}
@@ -128,7 +120,6 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         portal=""
-        onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={setModal}
@@ -148,7 +139,6 @@ describe("#Menu", () => {
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         portal=""
-        onResetError={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
         onSetModal={setModal}
