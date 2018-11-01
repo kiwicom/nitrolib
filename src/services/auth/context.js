@@ -9,7 +9,6 @@ import type { MyBookingInput, RegisterInput } from "./api";
 export type Context = {|
   auth: Auth | null,
   loading: boolean,
-  error: string,
   environment: Environment,
   onResetError: () => void,
   onMyBooking: (input: MyBookingInput) => Promise<void>,
@@ -22,7 +21,6 @@ export type Context = {|
 const contextDefault: Context = {
   auth: null,
   loading: false,
-  error: "",
   environment,
   onResetError: () => {},
   onMyBooking: () => Promise.resolve(),

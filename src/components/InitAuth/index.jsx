@@ -12,7 +12,6 @@ import { makeCall, makeEnvironment } from "../../services/utils/relay";
 type Arg = {|
   auth: Auth | null,
   loading: boolean,
-  error: string,
   environment: Environment,
   onMyBooking: (input: MyBookingInput) => Promise<void>,
   onRegister: (input: RegisterInput) => Promise<void>,
@@ -36,14 +35,12 @@ type Props = {|
 type State = {|
   auth: Auth | null,
   loading: boolean,
-  error: string,
 |};
 
 export default class InitAuth extends React.PureComponent<Props, State> {
   state = {
     auth: authDefault,
     loading: false,
-    error: "",
   };
 
   componentDidMount() {
@@ -72,7 +69,7 @@ export default class InitAuth extends React.PureComponent<Props, State> {
       .getMyBookingToken(input)
       .then(onMyBooking)
       .then(() => {
-        this.setState({ error: "", loading: false });
+        this.setState({ loading: false });
       });
   };
 
@@ -84,7 +81,7 @@ export default class InitAuth extends React.PureComponent<Props, State> {
       .register(brand.id, input)
       .then(onRegister)
       .then(() => {
-        this.setState({ error: "", loading: false });
+        this.setState({ loading: false });
       });
   };
 
@@ -96,7 +93,7 @@ export default class InitAuth extends React.PureComponent<Props, State> {
       .socialAuth(provider, redirectURL)
       .then(onSocialAuth)
       .then(() => {
-        this.setState({ error: "", loading: false });
+        this.setState({ loading: false });
       });
   };
 
@@ -106,7 +103,7 @@ export default class InitAuth extends React.PureComponent<Props, State> {
     this.setState({ loading: true });
     return api.signIn({ email, password, brand: brand.id }).then(auth => {
       onSignIn(auth.token);
-      this.setState({ auth, error: "", loading: false });
+      this.setState({ auth, loading: false });
     });
   };
 
@@ -118,13 +115,12 @@ export default class InitAuth extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { auth, loading, error } = this.state;
+    const { auth, loading } = this.state;
     const { children } = this.props;
 
     return children({
       auth,
       loading,
-      error,
       environment: makeEnvironment(makeCall(auth !== null ? auth.token : "")),
       onMyBooking: this.handleMyBooking,
       onRegister: this.handleRegister,

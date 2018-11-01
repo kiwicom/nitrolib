@@ -1,7 +1,6 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import Alert from "@kiwicom/orbit-components/lib/Alert";
 
 import { padding } from "../../../../../../styles";
 import { themeDefault } from "../../../../../../records/Theme";
@@ -23,10 +22,6 @@ const Container = styled.div`
 Container.defaultProps = {
   theme: themeDefault,
 };
-
-const FieldWrap = styled.div`
-  margin: 15px 0;
-`;
 
 type Props = {|
   open: "myBooking" | "signIn" | "register",
@@ -66,11 +61,6 @@ const Login = ({
             onOpenRegister={onOpenRegister}
             onOpenSignIn={onOpenSignIn}
           />
-          {auth.error && (
-            <FieldWrap>
-              <Alert type="critical">{auth.error}</Alert>
-            </FieldWrap>
-          )}
           {open === MODALS.MY_BOOKING && (
             <MyBooking
               loading={auth.loading}
