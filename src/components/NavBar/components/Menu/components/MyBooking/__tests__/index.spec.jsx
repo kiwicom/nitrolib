@@ -127,7 +127,9 @@ describe("#MyBooking", () => {
   });
 
   test("handle submit action error", async () => {
-    const onMyBooking = jest.fn().mockImplementation(() => Promise.reject(new Error("common.api_error")));
+    const onMyBooking = jest
+      .fn()
+      .mockImplementation(() => Promise.reject(new Error("common.api_error")));
     const wrapper = shallow(
       <MyBooking loading={false} onMyBooking={onMyBooking} onCloseSuccess={jest.fn()} />,
     );
