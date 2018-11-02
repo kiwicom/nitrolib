@@ -180,11 +180,16 @@ export default class MyBooking extends React.PureComponent<Props, State> {
       iata: fields.iata.value,
       departure: fields.departure.value,
     })
-      .then(() => {
-        onCloseSuccess();
-      })
+      .then(onCloseSuccess)
       .catch(err => {
-        this.setState({ error: String(err) });
+        const msg = String(err);
+
+        if (msg === "Booking not found") {
+          this.setState({ error: __("account.my_booking_login_incorrect") });
+          return;
+        }
+
+        this.setState({ error: __("common.api_error") });
       });
   };
 
@@ -255,7 +260,9 @@ export default class MyBooking extends React.PureComponent<Props, State> {
             </FieldWrap>
             {error && (
               <FieldWrap>
-                <Alert type="critical">{error}</Alert>
+                <Alert type="critical">
+                  <Text t={error} />
+                </Alert>
               </FieldWrap>
             )}
             {submitted &&
