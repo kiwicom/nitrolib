@@ -25,6 +25,14 @@ import IconText from "../../../../../IconText";
 import Query from "../../../../../Query";
 import { OPEN_MODAL } from "../../../../../../consts/events";
 
+const ERRORS = {
+  "Login failed.": __("account.login_failed"),
+  "User is not verified.": __("account.user_is_not_verified"),
+  "You are temporarily blocked from other login attempts.": __(
+    "account.user_temporarily_blocked_from_login",
+  ),
+};
+
 const emailValidator = compose(
   validators.email,
   validators.required,
@@ -115,7 +123,9 @@ export default class SignIn extends React.PureComponent<Props, State> {
         onCloseSuccess();
       })
       .catch(err => {
-        this.setState({ error: String(err) });
+        const msg = String(err);
+
+        this.setState({ error: ERRORS[msg] || __("common.api_error") });
       });
   };
 
@@ -163,7 +173,9 @@ export default class SignIn extends React.PureComponent<Props, State> {
         </FieldWrap>
         {error && (
           <FieldWrap>
-            <Alert type="critical">{error}</Alert>
+            <Alert type="critical">
+              <Text t={error} />
+            </Alert>
           </FieldWrap>
         )}
         {submitted &&

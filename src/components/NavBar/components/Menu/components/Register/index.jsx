@@ -29,6 +29,13 @@ import { OPEN_MODAL } from "../../../../../../consts/events";
 
 const ZXCVBN_URL = "https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js";
 
+const ERRORS = {
+  "Password is too short.": __("account.password_too_short"),
+  "Password has a pattern.": __("account.password_has_pattern"),
+  "Password is too common.": __("account.password_too_common"),
+  "Password is too simple.": __("account.password_too_simple"),
+};
+
 const emailValidator = compose(
   validators.email,
   validators.required,
@@ -151,7 +158,9 @@ export default class Register extends React.PureComponent<Props, State> {
         onCloseSuccess();
       })
       .catch(err => {
-        this.setState({ error: String(err) });
+        const msg = String(err);
+
+        this.setState({ error: ERRORS[msg] || __("common.api_error") });
       });
   };
 
@@ -231,7 +240,9 @@ export default class Register extends React.PureComponent<Props, State> {
         </FieldPolicy>
         {error && (
           <FieldWrap>
-            <Alert type="critical">{error}</Alert>
+            <Alert type="critical">
+              <Text t={error} />
+            </Alert>
           </FieldWrap>
         )}
         {submitted &&
