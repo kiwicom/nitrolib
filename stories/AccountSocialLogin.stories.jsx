@@ -2,13 +2,13 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 
-import AccountPairedFacebook from "../src/components/AccountPairedFacebook";
+import AccountSocialLogin from "../src/components/AccountSocialLogin";
 import withData from "./decorators/withData";
 
-storiesOf("AccountPairedFacebook", module)
+storiesOf("AccountSocialLogin", module)
   .addDecorator(withData)
   .add("default", () => (
-    <AccountPairedFacebook
+    <AccountSocialLogin
       onAskSignInLink={() => {}}
       onFacebookLogin={() => {}}
       email="email@example.com"

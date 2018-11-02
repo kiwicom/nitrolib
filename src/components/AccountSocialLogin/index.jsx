@@ -16,7 +16,7 @@ type Props = {|
   onFacebookLogin: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
-const AccountPairedFacebook = ({ onAskSignInLink, onFacebookLogin, email }: Props) => (
+const AccountSocialLogin = ({ onAskSignInLink, onFacebookLogin, email }: Props) => (
   <>
     <Header>
       <Illustration name="Login" size="small" />
@@ -43,4 +43,4 @@ const AccountPairedFacebook = ({ onAskSignInLink, onFacebookLogin, email }: Prop
   </>
 );
 
-export default AccountPairedFacebook;
+export default AccountSocialLogin;
