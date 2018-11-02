@@ -104,57 +104,57 @@ const NavBar = ({
   onLogoClick,
 }: Props) => (
   // $FlowFixMe
-  <React.StrictMode><InvertedProvider value={{ inverted }}>
-    <Container x="space-between" y="center" shadow={shadow} dataTest="Navbar" inverted={inverted}>
-      <Flex y="center" x="flex-start">
-        <Logo inverted={inverted} onClick={onLogoClick} />
-        {headerLinks && (
-          <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
-        )}
-      </Flex>
-      <Flex y="center">
-        <Wrapper>
-          <Desktop display="flex">
-            <WrapperChild>
-              <ButtonWrapper>
-                <WrapperChild>
-                  <Language
-                    positionMenuDesktop={270}
-                    positionMenuTablet={5}
-                    onChange={onSaveLanguage}
-                  />
-                </WrapperChild>
-                <WrapperChild>
-                  <Currency positionMenuDesktop={270} positionMenuTablet={5} />
-                </WrapperChild>
-                <WrapperChild>
-                  <Help onOpen={onOpenFaq} inverted={inverted} />
-                </WrapperChild>
-              </ButtonWrapper>
-            </WrapperChild>
-          </Desktop>
-          <WrapperChild>{starred}</WrapperChild>
-          <Mobile>
-            <WrapperChild>
-              <Help onOpen={onOpenFaq} inverted={inverted} />
-            </WrapperChild>
-          </Mobile>
-          <Menu
-                chat={chat}
-                subscription={subscription}
-                debug={debug}
-
-                onSetModal={onSetModal}
-                onSaveLanguage={onSaveLanguage}
-                onSelectTrip={onSelectTrip}
-                inverted={inverted}
-                portal={portal}
-              />
-
-        </Wrapper>
-      </Flex>
-    </Container>
-  </InvertedProvider></React.StrictMode>
+  <React.StrictMode>
+    <InvertedProvider value={{ inverted }}>
+      <Container x="space-between" y="center" shadow={shadow} dataTest="Navbar" inverted={inverted}>
+        <Flex y="center" x="flex-start">
+          <Logo inverted={inverted} onClick={onLogoClick} />
+          {headerLinks && (
+            <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
+          )}
+        </Flex>
+        <Flex y="center">
+          <Wrapper>
+            <Desktop display="flex">
+              <WrapperChild>
+                <ButtonWrapper>
+                  <WrapperChild>
+                    <Language
+                      positionMenuDesktop={270}
+                      positionMenuTablet={5}
+                      onChange={onSaveLanguage}
+                    />
+                  </WrapperChild>
+                  <WrapperChild>
+                    <Currency positionMenuDesktop={270} positionMenuTablet={5} />
+                  </WrapperChild>
+                  <WrapperChild>
+                    <Help onOpen={onOpenFaq} inverted={inverted} />
+                  </WrapperChild>
+                </ButtonWrapper>
+              </WrapperChild>
+            </Desktop>
+            <WrapperChild>{starred}</WrapperChild>
+            <Mobile>
+              <WrapperChild>
+                <Help onOpen={onOpenFaq} inverted={inverted} />
+              </WrapperChild>
+            </Mobile>
+            <Menu
+              chat={chat}
+              subscription={subscription}
+              debug={debug}
+              onSetModal={onSetModal}
+              onSaveLanguage={onSaveLanguage}
+              onSelectTrip={onSelectTrip}
+              inverted={inverted}
+              portal={portal}
+            />
+          </Wrapper>
+        </Flex>
+      </Container>
+    </InvertedProvider>
+  </React.StrictMode>
 );
 
 NavBar.defaultProps = {
