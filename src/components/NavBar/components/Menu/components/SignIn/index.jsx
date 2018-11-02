@@ -15,7 +15,7 @@ import InputText from "../../../../../InputText";
 import LogMount from "../../../../../LogMount";
 import type { Change } from "../../../../../InputText";
 import Text from "../../../../../Text";
-import firstFormError from "../../../services/firstFormError";
+import firstFormError from "../../../../services/firstFormError";
 import compose from "../../../../../../services/input/composeValidator";
 import * as validators from "../../../../../../services/input/validators";
 import * as normalizers from "../../../../../../services/input/normalizers";

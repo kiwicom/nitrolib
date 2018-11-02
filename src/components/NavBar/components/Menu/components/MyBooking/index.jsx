@@ -19,7 +19,7 @@ import Text from "../../../../../Text";
 import IataPicker from "../../../../../IataPicker";
 import InputDate from "../../../../../InputDate";
 import parseDateFormat from "../../../../../InputDate/services/parseDateFormat";
-import firstFormError from "../../../services/firstFormError";
+import firstFormError from "../../../../services/firstFormError";
 import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
 import * as normalizers from "../../../../../../services/input/normalizers";
 import * as validators from "../../../../../../services/input/validators";

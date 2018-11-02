@@ -15,7 +15,7 @@ import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
 import IconText from "../../../../../IconText";
 import Text from "../../../../../Text";
-import firstFormError from "../../../services/firstFormError";
+import firstFormError from "../../../../services/firstFormError";
 import * as normalizers from "../../../../../../services/input/normalizers";
 import * as validators from "../../../../../../services/input/validators";
 import compose from "../../../../../../services/input/composeValidator";
