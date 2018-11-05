@@ -12,43 +12,38 @@ import {
 // Default props
 const PROPS = {
   urlParam: "search",
+  hiddenUrls: {
+    holidays: false,
+    logitravel: true,
+  },
+  readyUrls: {
+    rooms: {
+      base: "BOOKING",
+      query: "?param1=123&param2=345",
+    },
+  },
 };
 
 const SEARCH_PARAMS = {
-  adultsCount: 1,
-  aid: true,
-  childrenCount: 3,
-  currency: "eur",
   language: "hr",
 };
 
 const ITEM = {
-  id: "rooms",
-  image: "rooms-img",
+  id: "cars",
+  image: "cars-img",
   isoShort: false,
   isoCars: false,
-  params: [
-    { key: "lang", prop: "language" },
-    { key: "selected_currency", prop: "currency" },
-    { key: "group_adults", prop: "adultsCount" },
-    { key: "group_children", prop: "childrenCount" },
-    { key: "aid", prop: "aid" },
-  ],
-  provider: "booking.com",
-  translation: "search.service.rooms",
-  url: { default: "ROOMS" },
+  newWindow: true,
+  params: [{ key: "preflang", prop: "language" }, { key: "adplat", value: "headerlinks" }],
+  provider: "kiwi.com",
+  translation: "search.service.cars",
+  url: { default: "CARS" },
 };
 
-const QUERY_PARSED = "lang=hr&selected_currency=eur&group_adults=1&group_children=3&aid=true";
+const QUERY_PARSED = "preflang=hr&adplat=headerlinks";
 
 // Expected end result - url
-const RESULT_URL = `https://red-cougar.kiwi.com/nav-bar-link?u=${
-  ITEM.url.default
-}&r=search&lang=hr&payload=eyJjYXRlZ29yeSI6Ik5hdkJhciIsInN1YkNhdGVnb3J5IjoiTGluayIsImFjdGlvbiI6IkNsaWNrIiwiZGV0YWlsIjoiYm9va2luZy5jb20gLSByb29tcyJ9&query=bGFuZz1ociZzZWxlY3RlZF9jdXJyZW5jeT1ldXImZ3JvdXBfYWR1bHRzPTEmZ3JvdXBfY2hpbGRyZW49MyZhaWQ9dHJ1ZQ==`;
-
-const RESULT_URL_NO_QUERY = `https://red-cougar.kiwi.com/nav-bar-link?u=${
-  ITEM.url.default
-}&r=search&lang=hr&payload=eyJjYXRlZ29yeSI6Ik5hdkJhciIsInN1YkNhdGVnb3J5IjoiTGluayIsImFjdGlvbiI6IkNsaWNrIiwiZGV0YWlsIjoiYm9va2luZy5jb20gLSByb29tcyJ9`;
+const RESULT_URL = `https://red-cougar.kiwi.com/nav-bar-link?u=CARS&query=cHJlZmxhbmc9aHImYWRwbGF0PWhlYWRlcmxpbmtz&r=search&lang=hr&payload=eyJjYXRlZ29yeSI6Ik5hdkJhciIsInN1YkNhdGVnb3J5IjoiTGluayIsImFjdGlvbiI6IkNsaWNrIiwiZGV0YWlsIjoia2l3aS5jb20gLSBjYXJzIn0=`;
 
 describe("parseUrl", () => {
   test("getSupportedLanguage should return supported language", () => {
@@ -88,22 +83,13 @@ describe("parseUrl", () => {
     expect(parsedUrl).toBe(RESULT_URL);
   });
 
-  test("trackingUrl should correctly fill params - no query", () => {
-    const parsedUrl = trackingUrl({
-      item: ITEM,
-      url: ITEM.url.default,
-      urlParam: PROPS.urlParam,
-      language: SEARCH_PARAMS.language,
-      query: null,
-    });
-    expect(parsedUrl).toBe(RESULT_URL_NO_QUERY);
-  });
-
   test("trackingUrl should return correct url", () => {
     const parsedUrl = parseUrl({
       item: ITEM,
       searchParams: SEARCH_PARAMS,
       urlParam: PROPS.urlParam,
+      readyUrls: PROPS.readyUrls,
+      hiddenUrls: PROPS.hiddenUrls,
     });
     expect(parsedUrl).toBe(RESULT_URL);
   });

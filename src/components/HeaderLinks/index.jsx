@@ -46,15 +46,20 @@ type State = {|
   services: ?Services,
 |};
 
+export type ReadyUrl = any;
+
+export type HiddenUrls = {|
+  holidays: boolean,
+  logitravel: boolean,
+|};
+
 type Props = {|
   searchParams: {
-    currency: string,
     language: string,
-    adultsCount: number,
-    childrenCount: number,
-    aid: boolean,
   },
   urlParam: string,
+  readyUrls: ReadyUrl,
+  hiddenUrls: HiddenUrls,
 |};
 
 class HeaderLinks extends React.Component<Props, State> {
@@ -64,13 +69,16 @@ class HeaderLinks extends React.Component<Props, State> {
 
   static defaultProps = {
     searchParams: {
-      currency: "eur",
       language: "en",
-      adultsCount: 1,
-      childrenCount: 0,
-      aid: true,
     },
     urlParam: "search",
+    hiddenUrls: {
+      holidays: true,
+      logitravel: false,
+    },
+    readyUrls: {
+      rooms: null,
+    },
   };
 
   componentDidMount() {
@@ -90,7 +98,7 @@ class HeaderLinks extends React.Component<Props, State> {
   };
 
   render() {
-    const { searchParams, urlParam } = this.props;
+    const { searchParams, urlParam, readyUrls, hiddenUrls } = this.props;
     const { services } = this.state;
 
     // Hide until response
@@ -110,6 +118,8 @@ class HeaderLinks extends React.Component<Props, State> {
                           urlParam={urlParam}
                           searchParams={searchParams}
                           services={services}
+                          readyUrls={readyUrls}
+                          hiddenUrls={hiddenUrls}
                         />
                       </Popup>
                     </ClickOutside>
@@ -124,7 +134,13 @@ class HeaderLinks extends React.Component<Props, State> {
           </Margin>
         </Mobile>
         <Desktop display="flex">
-          <Links urlParam={urlParam} searchParams={searchParams} services={services} />
+          <Links
+            urlParam={urlParam}
+            searchParams={searchParams}
+            services={services}
+            readyUrls={readyUrls}
+            hiddenUrls={hiddenUrls}
+          />
         </Desktop>
       </>
     );
