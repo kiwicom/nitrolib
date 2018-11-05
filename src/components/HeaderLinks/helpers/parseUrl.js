@@ -1,20 +1,20 @@
-// @flow strict
-// import some from "lodash/some";
+// @flow
+
+import { compact } from "lodash";
 
 // Types
 import type { Item } from "../Links";
+import type { ReadyUrl, HiddenUrls } from "../index";
 
 // Types
 export type ParseUrl = {|
   searchParams: {
     language: string,
-    currency: string,
-    adultsCount: number,
-    childrenCount: number,
-    aid: boolean,
   },
   item: Item,
   urlParam: string,
+  readyUrls: ReadyUrl,
+  hiddenUrls: HiddenUrls,
 |};
 
 export type ParseParameters = {|
@@ -23,10 +23,13 @@ export type ParseParameters = {|
 |};
 
 export type TrackingUrl = {|
-  item: Item,
+  item: {
+    provider: string,
+    id: string,
+  },
   url: string,
-  urlParam: string,
-  language: string,
+  urlParam?: string,
+  language?: string,
   query: ?string,
 |};
 
@@ -72,31 +75,24 @@ export const parseLanguage = ({ language, isoShort, isoCars }: ParseLanguage) =>
     inside tracking template link
 */
 export const trackingUrl = ({ item, url, urlParam, language, query }: TrackingUrl) => {
-  const queryParam = query ? "&query={query}" : "";
-  // Tracking URL template (TODO: update when proxy is ready)
-  const template = `https://red-cougar.kiwi.com/nav-bar-link?u={url}&r={urlParam}&lang={lang}&payload={json}${queryParam}`;
+  const trackingBase = "https://red-cougar.kiwi.com/nav-bar-link";
+  const queryParamsReady = compact([
+    url && `u=${url}`,
+    query && `query=${btoa(query)}`,
+    urlParam && `r=${urlParam}`,
+    language && `lang=${language}`,
+    item &&
+      `payload=${btoa(
+        JSON.stringify({
+          category: "NavBar",
+          subCategory: "Link",
+          action: "Click",
+          detail: `${item.provider} - ${item.id}`,
+        }),
+      )}`,
+  ]).join("&");
 
-  // Tracking parameters - encoded
-  const json = btoa(
-    JSON.stringify({
-      category: "NavBar",
-      subCategory: "Link",
-      action: "Click",
-      detail: `${item.provider} - ${item.id}`,
-    }),
-  );
-
-  // Encode query
-  // const urlEncoded = btoa(url);
-  const queryEncoded = query ? btoa(query) : "";
-
-  // Generate tracking url - insert actual URL & JSON
-  return template
-    .replace(/{url}/, url)
-    .replace(/{urlParam}/, urlParam)
-    .replace(/{lang}/, language)
-    .replace(/{query}/, queryEncoded)
-    .replace(/{json}/, json);
+  return `${trackingBase}?${queryParamsReady}`;
 };
 
 /*
@@ -116,9 +112,29 @@ export const generateSearchQuery = (params: Object[], searchParams: Object) => {
 };
 
 // Parse url
-export const parseUrl = ({ item, searchParams, urlParam }: ParseUrl) => {
+export const parseUrl = ({ item, searchParams, urlParam, readyUrls, hiddenUrls }: ParseUrl) => {
   const { url, isoShort, isoCars, supportedLanguages, params } = item;
   const { language } = searchParams;
+
+  // Hide if FE a/b tests is disabled
+  if (hiddenUrls[item.id]) return null;
+
+  // Check if there's ready url sent by FE
+  if (item.feLink) {
+    const readyUrl = readyUrls[item.id];
+
+    // If object is not provided by FE return null (shouldn't be common)
+    if (!readyUrl) return null;
+
+    return trackingUrl({
+      url: readyUrl.base,
+      query: readyUrl.query,
+      item: {
+        provider: readyUrl.base,
+        id: item.id,
+      },
+    });
+  }
 
   // Filter supported languages
   const supportedLanguage = supportedLanguages

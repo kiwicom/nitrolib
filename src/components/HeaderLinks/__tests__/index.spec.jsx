@@ -6,11 +6,7 @@ import HeaderLinks from "..";
 
 const props = {
   searchParams: {
-    currency: "eur",
     language: "en",
-    adultsCount: 1,
-    childrenCount: 0,
-    aid: true,
   },
   urlParam: "search",
 };
