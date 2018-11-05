@@ -438,28 +438,32 @@ export default class SideNav extends React.Component<Props, State> {
         </ClientOnly>
 
         {/* MODALS */}
-        <Portal element={portal}>
-          {modalOpen === MODALS.CHAT && (
+        {modalOpen === MODALS.CHAT && (
+          <Portal element={portal}>
             <Modal onClose={this.handleCloseModal}>
               <ModalSection>
                 <LogMount event={{ event: OPEN_CHAT, data: null }} />
                 {chat}
               </ModalSection>
             </Modal>
-          )}
+          </Portal>
+        )}
 
-          {modalOpen === MODALS.SUBSCRIPTION && (
+        {modalOpen === MODALS.SUBSCRIPTION && (
+          <Portal element={portal}>
             <Modal onClose={this.handleCloseModal}>
               <ModalSection>{subscription}</ModalSection>
             </Modal>
-          )}
+          </Portal>
+        )}
 
-          {modalOpen === MODALS.DEBUG && (
+        {modalOpen === MODALS.DEBUG && (
+          <Portal element={portal}>
             <Modal onClose={this.handleCloseModal}>
               <ModalSection>{debug}</ModalSection>
             </Modal>
-          )}
-        </Portal>
+          </Portal>
+        )}
       </>
     );
   };

@@ -2364,8 +2364,5 @@ exports[`#SideNav render 1`] = `
       </SideNav__Content>
     </SideBar>
   </ClientOnly>
-  <Portal
-    element=""
-  />
 </Fragment>
 `;
