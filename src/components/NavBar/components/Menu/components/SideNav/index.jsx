@@ -130,8 +130,7 @@ Link.defaultProps = {
 };
 
 type State = {|
-  shown: boolean,
-  modalOpen: "" | "chat" | "subscription" | "debug",
+  modalOpen: "" | "chat" | "subscription" | "debug" | "sideNav",
 |};
 
 type Props = {|
@@ -143,7 +142,6 @@ type Props = {|
   onOpenRegister: () => void,
   onSaveLanguage: (lang: string) => void,
   onSetModal: (modal: ModalType) => void,
-  onSideNavChange?: (shown: boolean) => void,
 |};
 
 export default class SideNav extends React.Component<Props, State> {
@@ -152,86 +150,67 @@ export default class SideNav extends React.Component<Props, State> {
   };
 
   state = {
-    shown: false,
     modalOpen: MODALS.NONE,
   };
 
-  // FIXME remove this!
-  preventChangeEvent = false;
-
-  // FIXME remove this!
-  componentDidUpdate(prevProps: Props, prevState: State) {
-    const { shown, modalOpen } = this.state;
-    const { onSideNavChange, onSetModal } = this.props;
-
-    if (shown !== prevState.shown) {
-      if (!this.preventChangeEvent) {
-        onSetModal(shown ? MODALS.SIDE_NAV : MODALS.NONE);
-      }
-
-      if (onSideNavChange) {
-        onSideNavChange(shown);
-      }
-    } else if (modalOpen !== prevState.modalOpen) {
-      onSetModal(modalOpen);
-    }
-
-    this.preventChangeEvent = false;
-  }
-
   handleToggle = () => {
-    this.setState(state => ({
-      shown: !state.shown,
-    }));
+    const { onSetModal } = this.props;
+    const { modalOpen } = this.state;
+
+    if (modalOpen === MODALS.SIDE_NAV) {
+      onSetModal(MODALS.NONE);
+      this.setState({ modalOpen: MODALS.NONE });
+    } else {
+      onSetModal(MODALS.SIDE_NAV);
+      this.setState({ modalOpen: MODALS.SIDE_NAV });
+    }
   };
 
   handleOpenSignIn = () => {
     const { onOpenSignIn } = this.props;
     onOpenSignIn();
-    this.preventChangeEvent = true;
-    this.handleToggle();
+
+    this.setState({ modalOpen: MODALS.NONE });
   };
 
   handleOpenRegister = () => {
     const { onOpenRegister } = this.props;
     onOpenRegister();
-    this.preventChangeEvent = true;
-    this.handleToggle();
+
+    this.setState({ modalOpen: MODALS.NONE });
   };
 
   handleOpenChat = () => {
-    this.preventChangeEvent = true;
-    this.setState({
-      shown: false,
-      modalOpen: MODALS.CHAT,
-    });
+    const { onSetModal } = this.props;
+    onSetModal(MODALS.CHAT);
+
+    this.setState({ modalOpen: MODALS.CHAT });
   };
 
   handleOpenSubscription = () => {
-    this.preventChangeEvent = true;
-    this.setState({
-      shown: false,
-      modalOpen: MODALS.SUBSCRIPTION,
-    });
+    const { onSetModal } = this.props;
+    onSetModal(MODALS.SUBSCRIPTION);
+
+    this.setState({ modalOpen: MODALS.SUBSCRIPTION });
   };
 
   handleOpenDebug = () => {
-    this.preventChangeEvent = true;
-    this.setState({
-      shown: false,
-      modalOpen: MODALS.DEBUG,
-    });
+    const { onSetModal } = this.props;
+    onSetModal(MODALS.DEBUG);
+
+    this.setState({ modalOpen: MODALS.DEBUG });
   };
 
   handleCloseModal = () => {
-    this.setState({
-      modalOpen: "",
-    });
+    const { onSetModal } = this.props;
+    onSetModal(MODALS.NONE);
+
+    this.setState({ modalOpen: MODALS.NONE });
   };
 
   render = () => {
     const { chat, subscription, debug, onSaveLanguage, inverted } = this.props;
-    const { shown, modalOpen } = this.state;
+    const { modalOpen } = this.state;
 
     return (
       <>
@@ -240,7 +219,7 @@ export default class SideNav extends React.Component<Props, State> {
         </MenuOpen>
 
         <ClientOnly>
-          <SideBar onClick={this.handleToggle} shown={shown}>
+          <SideBar onClick={this.handleToggle} shown={modalOpen === MODALS.SIDE_NAV}>
             <Close onClick={this.handleToggle} data-test="NavbarMenuClose">
               <Text t={__("common.hide")} /> <CloseIcon />
             </Close>

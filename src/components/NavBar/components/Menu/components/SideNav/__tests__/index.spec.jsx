@@ -4,6 +4,8 @@ import { shallow } from "enzyme";
 
 import SideNav from "..";
 
+import * as MODALS from "../../../../../../../consts/modals";
+
 describe("#SideNav", () => {
   test("render", () => {
     const wrapper = shallow(
@@ -34,7 +36,7 @@ describe("#SideNav", () => {
     );
     wrapper.instance().handleToggle();
 
-    expect(wrapper.state().shown).toEqual(true);
+    expect(wrapper.state("modalOpen")).toEqual(MODALS.SIDE_NAV);
   });
 
   test("opens signin when clicked", () => {
@@ -142,8 +144,6 @@ describe("#SideNav", () => {
 
   test("calls handlers when toggles", () => {
     const setModal = jest.fn();
-    const sideNavChange = jest.fn();
-
     const wrapper = shallow(
       <SideNav
         chat={<div>chat</div>}
@@ -152,20 +152,16 @@ describe("#SideNav", () => {
         onOpenRegister={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSetModal={setModal}
-        onSideNavChange={sideNavChange}
       />,
     );
     wrapper.instance().handleToggle();
 
     expect(setModal).toBeCalledWith("sideNav");
-    expect(sideNavChange).toBeCalledWith(true);
 
     setModal.mockClear();
-    sideNavChange.mockClear();
 
     wrapper.instance().handleToggle();
 
     expect(setModal).toBeCalledWith("");
-    expect(sideNavChange).toBeCalledWith(false);
   });
 });

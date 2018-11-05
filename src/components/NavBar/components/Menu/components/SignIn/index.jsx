@@ -119,9 +119,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
     }
 
     onSignIn(fields.email.value, fields.password.value)
-      .then(() => {
-        onCloseSuccess();
-      })
+      .then(onCloseSuccess)
       .catch(err => {
         const msg = String(err);
 
