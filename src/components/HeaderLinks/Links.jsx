@@ -4,7 +4,7 @@ import * as React from "react";
 import Translate from "../Translate";
 import Link from "./Link";
 import { parseUrl } from "./helpers/parseUrl";
-import type { ParseUrl } from "./helpers/parseUrl";
+import type { ReadyUrl, HiddenUrls } from "./index";
 
 export type Item = {|
   id: string,
@@ -14,6 +14,8 @@ export type Item = {|
   isoShort?: boolean,
   isoCars?: boolean,
   supportedLanguages?: string[],
+  feLink?: boolean,
+  newWindow: boolean,
   params: Object[],
   url: {
     default: string,
@@ -25,29 +27,34 @@ type Props = {|
     items: Item[],
   },
   searchParams: {
-    currency: string,
     language: string,
-    adultsCount: number,
-    childrenCount: number,
-    aid: boolean,
   },
   urlParam: string,
+  readyUrls: ReadyUrl,
+  hiddenUrls: HiddenUrls,
 |};
 
-const Links = ({ services, searchParams, urlParam }: Props) =>
-  services.items.map(item => (
-    <Link
-      logTab={item.id}
-      link={parseUrl(
-        ({
-          item,
-          searchParams,
-          urlParam,
-        }: ParseUrl),
-      )}
-      icon={<img src={item.image} alt="" />}
-      text={<Text t={item.translation} />}
-    />
-  ));
+const Links = ({ services, searchParams, urlParam, readyUrls, hiddenUrls }: Props) =>
+  services.items.map(item => {
+    const link = parseUrl({
+      item,
+      searchParams,
+      urlParam,
+      readyUrls,
+      hiddenUrls,
+    });
+
+    if (!link) return null;
+
+    return (
+      <Link
+        logTab={item.id}
+        link={link}
+        icon={<img src={item.image} alt="" />}
+        text={<Text t={item.translation} />}
+        newWindow={item.newWindow}
+      />
+    );
+  });
 
 export default Links;
