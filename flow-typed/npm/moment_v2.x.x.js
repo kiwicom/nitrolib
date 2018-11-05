@@ -1,5 +1,5 @@
-// flow-typed signature: 313292c028e74464d0fdca2891b8a122
-// flow-typed version: 7f7aca1718/moment_v2.x.x/flow_>=v0.25.x
+// flow-typed signature: b8d2d85f70b82d72377cf60c3606a2d9
+// flow-typed version: 0cd8e983b3/moment_v2.x.x/flow_>=v0.25.x
 
 type moment$MomentOptions = {
   y?: number | string,
@@ -121,7 +121,7 @@ declare class moment$MomentDuration {
 }
 declare class moment$Moment {
   static ISO_8601: string;
-  static (): moment$Moment;
+  static (string?: ?string): moment$Moment;
   static (
     initDate:
       | moment$MomentOptions
@@ -132,20 +132,24 @@ declare class moment$Moment {
       | string
       | null
       | void
+      | []
+      | {}
   ): moment$Moment;
-  static (string: string, format: string | Array<string>): moment$Moment;
+  static (array: []): moment$Moment;
+  static (object: {}): moment$Moment;
+  static (string: ?string, format: string | Array<string>): moment$Moment;
   static (
-    string: string,
+    string: ?string,
     format: string | Array<string>,
     strict: boolean
   ): moment$Moment;
   static (
-    string: string,
+    string: ?string,
     format: string | Array<string>,
     locale: string
   ): moment$Moment;
   static (
-    string: string,
+    string: ?string,
     format: string | Array<string>,
     locale: string,
     strict: boolean

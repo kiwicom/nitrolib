@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#AccountPassword render 1`] = `
-<AccountPassword__Wrapper>
+<ForwardRef>
   <ModalHeader>
     <Illustration
       name="Login"
@@ -59,7 +59,7 @@ exports[`#AccountPassword render 1`] = `
         }
       }
     >
-      <InputField
+      <ForwardRef
         label="account.password"
         onChange={[Function]}
         type="password"
@@ -101,5 +101,5 @@ exports[`#AccountPassword render 1`] = `
       />
     </Button>
   </ModalSection>
-</AccountPassword__Wrapper>
+</ForwardRef>
 `;

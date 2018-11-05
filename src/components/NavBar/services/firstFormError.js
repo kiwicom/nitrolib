@@ -1,9 +1,11 @@
 // @flow strict
 import * as R from "ramda";
 
-export default R.compose(
+const firstFormError: ({ [key: string]: any }) => ?string = R.compose(
   R.head,
   R.filter(Boolean),
   R.map(R.prop("error")),
   R.values,
 );
+
+export default firstFormError;

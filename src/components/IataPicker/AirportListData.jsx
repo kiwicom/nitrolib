@@ -37,6 +37,7 @@ const AirportListData = ({ value, onSelect, environment }: Props) => (
         return null;
       }
 
+      // $FlowFixMe
       return <AirportList list={res.props.allLocations} onSelect={onSelect} />;
     }}
   />

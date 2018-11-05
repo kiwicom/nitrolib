@@ -2,5 +2,8 @@
 import * as React from "react";
 
 import { brandDefault } from "../../records/Brand";
+import type { Brand } from "../../records/Brand";
 
-export const { Consumer, Provider } = React.createContext(brandDefault);
+const context: React.Context<Brand> = React.createContext(brandDefault);
+
+export const { Consumer, Provider } = context;

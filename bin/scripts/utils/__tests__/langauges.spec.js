@@ -1,4 +1,4 @@
-// @flow
+// @noflow
 import * as fns from "../languages";
 
 const hotelexpress = {

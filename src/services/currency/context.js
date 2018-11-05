@@ -18,4 +18,6 @@ const contextDefault: Context = {
   onChange: () => {},
 };
 
-export const { Consumer, Provider } = React.createContext(contextDefault);
+const context: React.Context<Context> = React.createContext(contextDefault);
+
+export const { Consumer, Provider } = context;

@@ -12,4 +12,6 @@ const contextDefault: Context<any, any> = {
   log: ev => console.log("%cNITROLOG", "color: green", ev), // eslint-disable-line no-console
 };
 
-export const { Provider, Consumer } = React.createContext(contextDefault);
+const context: React.Context<Context<any, any>> = React.createContext(contextDefault);
+
+export const { Provider, Consumer } = context;

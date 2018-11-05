@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#AccountLogin render 1`] = `
-<AccountLogin__Wrapper>
+<ForwardRef>
   <ModalSection>
     <Illustration
       name="Login"
@@ -49,7 +49,7 @@ exports[`#AccountLogin render 1`] = `
       }
       spaceAfter="small"
     >
-      <InputField
+      <ForwardRef
         label="account.email"
         onChange={[Function]}
         placeholder="account.email_placeholder"
@@ -139,5 +139,5 @@ exports[`#AccountLogin render 1`] = `
       </Button>
     </Stack>
   </ModalSection>
-</AccountLogin__Wrapper>
+</ForwardRef>
 `;

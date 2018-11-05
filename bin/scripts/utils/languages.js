@@ -1,4 +1,4 @@
-// @flow strict
+// @noflow
 const R = require("ramda");
 
 const getEnabledLanguageIds = R.compose(
@@ -17,7 +17,6 @@ const sortObjectByName = R.compose(
   R.toPairs,
 );
 
-// $FlowFixMe
 const getBrandLanguages = (brands, languages, countries) =>
   R.map(brand => {
     const langs = brand.localization.languages;
@@ -44,7 +43,6 @@ const tKeys = {
   mea: "common.continents.mea",
 };
 
-// $FlowFixMe
 const translateAndSortContinents = (brandLanguage, translations) =>
   R.over(
     R.lensProp("continents"),

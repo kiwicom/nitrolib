@@ -1,7 +1,7 @@
 // @flow strict
 import * as R from "ramda";
 
-const isEmptish = R.compose(
+const isEmptish: ({ [key: string]: any }) => boolean = R.compose(
   R.isEmpty,
   R.filter(Boolean),
 );

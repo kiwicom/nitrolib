@@ -33,13 +33,7 @@ type Props = {|
 
 type PropsAll = {| ...ThemeProps, ...Props |};
 
-const Button: ReactComponentFunctional<Props, ThemeProps> = styled(
-  ({ children, className, onClick, dataTest }) => (
-    <button className={className} onClick={onClick} type="button" data-test={dataTest}>
-      {children}
-    </button>
-  ),
-)`
+const Button: ReactComponentFunctional<Props, ThemeProps> = styled.button`
   ${buttonMixin};
   display: flex;
   color: ${({ theme, color }: PropsAll) =>

@@ -1,20 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#Desktop render 1`] = `
-.c0 {
-  display: none;
-}
-
-@media (min-width:769px) {
-  .c0 {
-    display: block;
-  }
-}
-
-<div
-  className="c0"
+<StyledComponent
   display="block"
+  forwardedClass={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "Desktop__Wrapper-z83utc-0",
+        "isStatic": false,
+        "rules": Array [
+          "display:none;",
+          "@media ",
+          "(min-width: 769px)",
+          "{",
+          "display:",
+          [Function],
+          ";",
+          "}",
+          ";",
+        ],
+      },
+      "displayName": "Desktop__Wrapper",
+      "render": [Function],
+      "styledComponentId": "Desktop__Wrapper-z83utc-0",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
 >
   asd
-</div>
+</StyledComponent>
 `;

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// @flow strict
+// @noflow
 /* eslint-disable flowtype/require-valid-file-annotation */
 /* eslint-disable no-console */
 const fs = require("fs-extra");

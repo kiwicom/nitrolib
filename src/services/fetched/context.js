@@ -2,5 +2,8 @@
 import * as React from "react";
 
 import { fetchedDefault } from "../../records/Fetched";
+import type { Fetched } from "../../records/Fetched";
 
-export const { Consumer, Provider } = React.createContext(fetchedDefault);
+const context: React.Context<Fetched> = React.createContext(fetchedDefault);
+
+export const { Consumer, Provider } = context;

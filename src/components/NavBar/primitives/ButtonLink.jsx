@@ -1,4 +1,5 @@
 // @flow
+import styled from "styled-components";
 import type { ReactComponentFunctional } from "styled-components";
 
 import { themeDefault } from "../../../records/Theme";
@@ -22,10 +23,11 @@ type Props = {|
   direction?: string,
 |};
 
-// FIXME this is utterly disgusting, but 'styled-components' typings are still insufficient
-const ButtonLink: ReactComponentFunctional<Props, ThemeProps> = (Button: any).withComponent("a");
+// $FlowFixMe
+const ButtonLink: ReactComponentFunctional<Props, ThemeProps> = styled(Button);
 
 ButtonLink.defaultProps = {
+  as: "a",
   theme: themeDefault,
 };
 

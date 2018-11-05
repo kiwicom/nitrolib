@@ -460,7 +460,7 @@ export default class SideNav extends React.Component<Props, State> {
         {modalOpen === MODALS.DEBUG && (
           <Portal element={portal}>
             <Modal onClose={this.handleCloseModal}>
-              <ModalSection>{debug}</ModalSection>
+              <ModalSection>{debug || null}</ModalSection>
             </Modal>
           </Portal>
         )}
