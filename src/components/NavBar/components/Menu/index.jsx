@@ -27,10 +27,10 @@ const Wrapper = styled.div`
 
 type Props = {|
   chat: React.Node,
-  portal: string,
   subscription: React.Node,
   debug?: React.Node,
-  inverted?: boolean,
+  portal: string,
+  inverted: boolean,
   onSetModal: (modal: ModalType) => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
@@ -127,6 +127,7 @@ export default class Menu extends React.Component<Props, State> {
             subscription={subscription}
             debug={debug}
             inverted={inverted}
+            portal={portal}
             onOpenRegister={this.handleOpenRegister}
             onOpenSignIn={this.handleOpenSignIn}
             onSaveLanguage={onSaveLanguage}

@@ -19,10 +19,12 @@ exports[`#Menu render 1`] = `
           debug
         </div>
       }
+      inverted={false}
       onOpenRegister={[Function]}
       onOpenSignIn={[Function]}
       onSaveLanguage={[MockFunction]}
       onSetModal={[MockFunction]}
+      portal=""
       subscription={
         <div>
           subscription
@@ -48,6 +50,7 @@ exports[`#Menu render with forgot password modal 1`] = `
         </div>
       }
       debug={false}
+      inverted={false}
       onOpenRegister={[Function]}
       onOpenSignIn={[Function]}
       onSaveLanguage={[MockFunction]}
@@ -66,6 +69,7 @@ exports[`#Menu render with forgot password modal 1`] = `
           ],
         }
       }
+      portal=""
       subscription={
         <div>
           subscription
@@ -110,6 +114,7 @@ exports[`#Menu render with modal 1`] = `
         </div>
       }
       debug={false}
+      inverted={false}
       onOpenRegister={[Function]}
       onOpenSignIn={[Function]}
       onSaveLanguage={[MockFunction]}
@@ -128,6 +133,7 @@ exports[`#Menu render with modal 1`] = `
           ],
         }
       }
+      portal=""
       subscription={
         <div>
           subscription

@@ -12,6 +12,8 @@ describe("#SideNav", () => {
       <SideNav
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        portal=""
+        inverted={false}
         debug={<div>debug</div>}
         onOpenSignIn={jest.fn()}
         onOpenRegister={jest.fn()}
@@ -28,6 +30,8 @@ describe("#SideNav", () => {
       <SideNav
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        portal=""
+        inverted={false}
         onOpenSignIn={jest.fn()}
         onOpenRegister={jest.fn()}
         onSaveLanguage={jest.fn()}
@@ -46,6 +50,8 @@ describe("#SideNav", () => {
       <SideNav
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        portal=""
+        inverted={false}
         onOpenSignIn={signIn}
         onOpenRegister={jest.fn()}
         onSaveLanguage={jest.fn()}
@@ -67,6 +73,8 @@ describe("#SideNav", () => {
       <SideNav
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        portal=""
+        inverted={false}
         onOpenSignIn={jest.fn()}
         onOpenRegister={register}
         onSaveLanguage={jest.fn()}
@@ -87,6 +95,8 @@ describe("#SideNav", () => {
       <SideNav
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        portal=""
+        inverted={false}
         onOpenSignIn={jest.fn()}
         onOpenRegister={jest.fn()}
         onSaveLanguage={jest.fn()}
@@ -107,6 +117,8 @@ describe("#SideNav", () => {
       <SideNav
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        portal=""
+        inverted={false}
         onOpenSignIn={jest.fn()}
         onOpenRegister={jest.fn()}
         onSaveLanguage={jest.fn()}
@@ -127,6 +139,8 @@ describe("#SideNav", () => {
       <SideNav
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        portal=""
+        inverted={false}
         debug={<div>debug</div>}
         onOpenSignIn={jest.fn()}
         onOpenRegister={jest.fn()}
@@ -148,6 +162,8 @@ describe("#SideNav", () => {
       <SideNav
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        portal=""
+        inverted={false}
         onOpenSignIn={jest.fn()}
         onOpenRegister={jest.fn()}
         onSaveLanguage={jest.fn()}

@@ -4,6 +4,7 @@ exports[`#SideNav render 1`] = `
 <Fragment>
   <SideNav__MenuOpen
     data-test="NavbarMenu"
+    inverted={false}
     onClick={[Function]}
     theme={
       Object {
@@ -2363,5 +2364,8 @@ exports[`#SideNav render 1`] = `
       </SideNav__Content>
     </SideBar>
   </ClientOnly>
+  <Portal
+    element=""
+  />
 </Fragment>
 `;

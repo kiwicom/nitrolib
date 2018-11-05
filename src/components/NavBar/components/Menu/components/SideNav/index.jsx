@@ -4,6 +4,7 @@ import styled from "styled-components";
 import MenuHamburger from "@kiwicom/orbit-components/lib/icons/MenuHamburger";
 import FaAngleRight from "react-icons/lib/fa/angle-right";
 import Modal from "@kiwicom/orbit-components/lib/Modal";
+import Portal from "@kiwicom/orbit-components/lib/Portal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
 import ClientOnly from "../../../../../ClientOnly";
@@ -137,7 +138,8 @@ type Props = {|
   chat: React.Node,
   subscription: React.Node,
   debug?: React.Node,
-  inverted?: boolean,
+  portal: string,
+  inverted: boolean,
   onOpenSignIn: () => void,
   onOpenRegister: () => void,
   onSaveLanguage: (lang: string) => void,
@@ -209,7 +211,7 @@ export default class SideNav extends React.Component<Props, State> {
   };
 
   render = () => {
-    const { chat, subscription, debug, onSaveLanguage, inverted } = this.props;
+    const { chat, subscription, debug, onSaveLanguage, portal, inverted } = this.props;
     const { modalOpen } = this.state;
 
     return (
@@ -436,26 +438,28 @@ export default class SideNav extends React.Component<Props, State> {
         </ClientOnly>
 
         {/* MODALS */}
-        {modalOpen === MODALS.CHAT && (
-          <Modal onClose={this.handleCloseModal}>
-            <ModalSection>
-              <LogMount event={{ event: OPEN_CHAT, data: null }} />
-              {chat}
-            </ModalSection>
-          </Modal>
-        )}
+        <Portal element={portal}>
+          {modalOpen === MODALS.CHAT && (
+            <Modal onClose={this.handleCloseModal}>
+              <ModalSection>
+                <LogMount event={{ event: OPEN_CHAT, data: null }} />
+                {chat}
+              </ModalSection>
+            </Modal>
+          )}
 
-        {modalOpen === MODALS.SUBSCRIPTION && (
-          <Modal onClose={this.handleCloseModal}>
-            <ModalSection>{subscription}</ModalSection>
-          </Modal>
-        )}
+          {modalOpen === MODALS.SUBSCRIPTION && (
+            <Modal onClose={this.handleCloseModal}>
+              <ModalSection>{subscription}</ModalSection>
+            </Modal>
+          )}
 
-        {modalOpen === MODALS.DEBUG && (
-          <Modal onClose={this.handleCloseModal}>
-            <ModalSection>{debug}</ModalSection>
-          </Modal>
-        )}
+          {modalOpen === MODALS.DEBUG && (
+            <Modal onClose={this.handleCloseModal}>
+              <ModalSection>{debug}</ModalSection>
+            </Modal>
+          )}
+        </Portal>
       </>
     );
   };
