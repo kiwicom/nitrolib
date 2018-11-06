@@ -2,10 +2,9 @@
 
 exports[`#InputText removing unwanted props 1`] = `
 Object {
-  "autocomplete": true,
+  "autoComplete": "email",
   "error": "",
   "id": "kek",
-  "innerRef": [Function],
   "label": <div>
     Kekistan
   </div>,

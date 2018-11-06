@@ -87,7 +87,7 @@ HintText.defaultProps = {
   theme: themeDefault,
 };
 
-const omitProps = R.omit(["showState", "inputRef", "validate", "normalize", "corrector"]);
+const omitProps = R.omit(["showState", "forwardedRef", "validate", "normalize", "corrector"]);
 
 export type Change = {|
   value: string,
@@ -108,7 +108,7 @@ type Props = {
   validate: (value: string) => string,
   corrector: (value: string) => string,
   showState: boolean,
-  inputRef?: (node: HTMLInputElement) => void,
+  forwardedRef?: (node: HTMLInputElement) => void,
 };
 
 type State = {|
@@ -117,7 +117,7 @@ type State = {|
   visited: boolean,
 |};
 
-export default class InputText extends React.PureComponent<Props, State> {
+class InputText extends React.PureComponent<Props, State> {
   static defaultProps = {
     type: "text",
     placeholder: null,
@@ -177,7 +177,7 @@ export default class InputText extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { value, error, placeholder, showState, inputRef } = this.props;
+    const { value, error, placeholder, showState, forwardedRef } = this.props;
     const { hint, active, visited } = this.state;
 
     const borderState = getBorderState({
@@ -192,7 +192,7 @@ export default class InputText extends React.PureComponent<Props, State> {
         <Label state={borderState}>
           <Input
             {...omitProps(this.props)}
-            innerRef={inputRef}
+            ref={forwardedRef}
             value={value}
             onChange={this.handleChange}
             onFocus={this.handleFocus}
@@ -217,3 +217,17 @@ export default class InputText extends React.PureComponent<Props, State> {
     );
   }
 }
+
+type RefProps = {
+  ...Props,
+  ref: (node: HTMLInputElement) => void,
+};
+
+// $FlowIssue - forwardRef is legit
+const InputTextRef: React.ComponentType<RefProps> = React.forwardRef((props, ref) => (
+  <InputText {...props} forwardedRef={ref} />
+));
+
+export { InputText };
+
+export default InputTextRef;

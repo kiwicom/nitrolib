@@ -90,7 +90,7 @@ export default class SideBar extends React.Component<Props> {
           <Container
             shown={status !== "exited"}
             entered={status === "entered"}
-            innerRef={this.ref}
+            ref={this.ref}
             onClick={(ev: SyntheticEvent<HTMLDivElement>) => {
               if (this.ref.current === ev.target) {
                 onClick();

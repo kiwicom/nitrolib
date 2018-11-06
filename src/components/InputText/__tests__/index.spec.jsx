@@ -3,7 +3,7 @@ import * as React from "react";
 import { shallow } from "enzyme";
 import "jest-styled-components";
 
-import InputText from "..";
+import { InputText } from "..";
 
 // import { themeDefault } from "../../../records/Theme";
 
@@ -19,8 +19,8 @@ describe("#InputText", () => {
         corrector={jest.fn()}
         placeholder="Placeholder"
         label={<div>Kekistan</div>}
-        autocomplete
-        inputRef={() => {}}
+        autoComplete="email"
+        forwardedRef={() => {}}
       />,
     );
 

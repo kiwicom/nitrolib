@@ -125,11 +125,6 @@ exports[`#index render 1`] = `
     >
       <SideBar__Container
         entered={true}
-        innerRef={
-          Object {
-            "current": null,
-          }
-        }
         onClick={[Function]}
         role="button"
         shown={true}
@@ -934,10 +929,21 @@ exports[`#index render 1`] = `
               "withComponent": [Function],
             }
           }
-          forwardedRef={null}
-          innerRef={
+          forwardedRef={
             Object {
-              "current": null,
+              "current": <section
+                class="c0"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="c1"
+                >
+                  <p>
+                    Content
+                  </p>
+                </div>
+              </section>,
             }
           }
           onClick={[Function]}

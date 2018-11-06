@@ -419,16 +419,14 @@ exports[`#SideBar/ForgotPassword render 1`] = `
         values={Object {}}
       />
     </IconText>
-    <InputText
+    <ForwardRef
       autocomplete="email"
       corrector={[Function]}
       error="forms.this_field_must_be_filled"
       id="email"
       normalize={[Function]}
       onChange={[Function]}
-      placeholder={null}
       showState={false}
-      type="text"
       validate={[Function]}
       value=""
     />
@@ -878,16 +876,14 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
         values={Object {}}
       />
     </IconText>
-    <InputText
+    <ForwardRef
       autocomplete="email"
       corrector={[Function]}
       error="forms.this_field_must_be_filled"
       id="email"
       normalize={[Function]}
       onChange={[Function]}
-      placeholder={null}
       showState={false}
-      type="text"
       validate={[Function]}
       value=""
     />
@@ -1347,16 +1343,14 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
         values={Object {}}
       />
     </IconText>
-    <InputText
+    <ForwardRef
       autocomplete="email"
       corrector={[Function]}
       error="forms.this_field_must_be_filled"
       id="email"
       normalize={[Function]}
       onChange={[Function]}
-      placeholder={null}
       showState={false}
-      type="text"
       validate={[Function]}
       value=""
     />
