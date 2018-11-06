@@ -75,7 +75,7 @@ class HeaderLinks extends React.Component<Props, State> {
       const services: any = await getNavBarLinks();
 
       // Update state
-      this.setState({ services });
+      this.setState({ services: services.items });
     } catch (e) {
       // TODO: Track error
     }

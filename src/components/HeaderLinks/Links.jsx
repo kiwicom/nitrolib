@@ -23,9 +23,7 @@ export type Item = {|
 |};
 
 type Props = {|
-  services: {
-    items: Item[],
-  },
+  services: ?(Item[]),
   searchParams: {
     language: string,
   },
@@ -34,8 +32,9 @@ type Props = {|
   hiddenUrls: HiddenUrls,
 |};
 
-const Links = ({ services, searchParams, urlParam, readyUrls, hiddenUrls }: Props) =>
-  services.items.map(item => {
+const Links: any = ({ services, searchParams, urlParam, readyUrls, hiddenUrls }: Props) =>
+  services &&
+  services.map(item => {
     const link = parseUrl({
       item,
       searchParams,
@@ -50,7 +49,7 @@ const Links = ({ services, searchParams, urlParam, readyUrls, hiddenUrls }: Prop
       <Link
         logTab={item.id}
         link={link}
-        icon={<img src={item.image} alt="" />}
+        // icon={<img src={item.image} alt="" />}
         text={<Text t={item.translation} />}
         newWindow={item.newWindow}
       />
