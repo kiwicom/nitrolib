@@ -16,8 +16,8 @@ export type Item = {|
   supportedLanguages?: string[],
   feLink?: boolean,
   newWindow: boolean,
-  params: Object[],
-  url: {
+  params?: Object[],
+  url?: {
     default: string,
   },
 |};
