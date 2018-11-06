@@ -6,7 +6,7 @@ import StyledLink from "./primitives/StyledLink";
 
 type Props = {
   link: string,
-  icon: React.Node,
+  icon?: React.Node,
   text: React.Node,
   inverted?: boolean,
   active: boolean,
