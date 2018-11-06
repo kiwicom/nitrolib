@@ -27,7 +27,7 @@ export type TrackingUrl = {|
     provider: string,
     id: string,
   },
-  url: string,
+  url?: string,
   urlParam?: string,
   language?: string,
   query: ?string,
@@ -142,7 +142,7 @@ export const parseUrl = ({ item, searchParams, urlParam, readyUrls, hiddenUrls }
     : language;
 
   // Try fetching link by user language
-  const base = url[language] || url.default;
+  const base = url && (url[language] || url.default);
 
   // Prepare search params (cars language has an exception regarding greek langauge)
   const preparedSearchParams = {
@@ -151,8 +151,8 @@ export const parseUrl = ({ item, searchParams, urlParam, readyUrls, hiddenUrls }
   };
 
   // Check if url requires query params pasing
-  const hasSearchParams = item.params && item.params.length > 0;
-  const query = hasSearchParams ? generateSearchQuery(params, preparedSearchParams) : null;
+  const query =
+    params && params.length > 0 ? generateSearchQuery(params, preparedSearchParams) : null;
 
   // Wrap inside tracking url
   return trackingUrl({ item, url: base, urlParam, language: supportedLanguage, query });
