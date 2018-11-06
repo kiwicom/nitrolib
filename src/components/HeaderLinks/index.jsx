@@ -46,7 +46,10 @@ type State = {|
 |};
 
 export type ReadyUrl = {|
-  rooms: ?string,
+  rooms: {
+    query: string,
+    base: string,
+  },
 |};
 
 export type HiddenUrls = {|
