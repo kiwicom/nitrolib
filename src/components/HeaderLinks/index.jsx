@@ -22,7 +22,6 @@ const Margin = styled.div`
   `)};
 `;
 
-// TODO: edit this
 type Services = any;
 
 type State = {|
