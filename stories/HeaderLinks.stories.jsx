@@ -8,6 +8,20 @@ import withData from "./decorators/withData";
 
 // const GROUP_ID = "custom";
 
+const headerLinksProps = {
+  searchParams: {
+    language: "en",
+  },
+  urlParam: "search",
+  readyUrls: {
+    rooms: null,
+  },
+  hiddenUrls: {
+    holidays: false,
+    logitravel: true,
+  },
+};
+
 storiesOf("HeaderLinks", module)
   .addDecorator(withData)
-  .add("default", () => <HeaderLinks />);
+  .add("default", () => <HeaderLinks {...headerLinksProps} />);
