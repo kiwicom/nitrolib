@@ -1,6 +1,5 @@
 // @flow
 import styled, { css } from "styled-components";
-import PropTypes from "prop-types";
 
 import { themeDefault } from "../../../../../records/Theme";
 import type { ThemeProps } from "../../../../../records/Theme";
@@ -29,13 +28,6 @@ const TripInfoLine = styled.div`
 
 TripInfoLine.defaultProps = {
   theme: themeDefault,
-};
-
-// $FlowFixMe
-TripInfoLine.propTypes = {
-  margin: PropTypes.string,
-  darker: PropTypes.bool,
-  fontSize: PropTypes.string,
 };
 
 export default TripInfoLine;

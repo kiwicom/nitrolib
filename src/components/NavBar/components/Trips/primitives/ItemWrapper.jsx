@@ -1,6 +1,5 @@
 // @flow strict
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
 import type { ThemeProps } from "../../../../../records/Theme";
 import { themeDefault } from "../../../../../records/Theme";
@@ -21,13 +20,6 @@ const ItemWrapper = styled.div`
 
 ItemWrapper.defaultProps = {
   theme: themeDefault,
-};
-
-// $FlowFixMe
-ItemWrapper.propTypes = {
-  direction: PropTypes.string,
-  x: PropTypes.string,
-  y: PropTypes.string,
 };
 
 export default ItemWrapper;

@@ -1,7 +1,6 @@
 // @flow strict
 /* eslint-disable react/no-unused-prop-types, react/no-unused-state */
 import * as React from "react";
-import idx from "idx";
 
 import type { Brand } from "../../records/Brand";
 import type { Currency, Currencies } from "../../records/Currency";
@@ -82,7 +81,7 @@ export default class CurrencyProvider extends React.PureComponent<Props, State> 
       return null;
     }
 
-    const countryCurrency = idx(props.countries, _ => _[state.country].currency) || "";
+    const countryCurrency = props.countries[state.country].currency || "";
     const languageCurrency = props.langCurrency;
 
     const candidate = getCandidate({

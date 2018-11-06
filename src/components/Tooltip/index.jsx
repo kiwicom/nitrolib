@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from "react";
-import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
 import mq from "../../styles/mq";
@@ -20,11 +19,6 @@ const Container = styled.span`
       width: 100%;
     `};
 `;
-
-// $FlowIssue
-Container.propTypes = {
-  inline: PropTypes.bool.isRequired,
-};
 
 const Tip = styled.span`
   position: absolute;
@@ -124,13 +118,6 @@ const Tip = styled.span`
         `};
   }
 `;
-
-// $FlowIssue
-Tip.propTypes = {
-  position: PropTypes.oneOf(["left", "right", "top", "bottom"]).isRequired,
-  shown: PropTypes.bool.isRequired,
-  mobile: PropTypes.bool.isRequired,
-};
 
 Tip.defaultProps = {
   theme: themeDefault,

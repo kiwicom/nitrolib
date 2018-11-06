@@ -21,3 +21,4 @@ emoji=true
 suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpected
+esproposal.optional_chaining=enable

@@ -8,9 +8,9 @@
     "@babel/transform-runtime",
     "@babel/transform-react-constant-elements",
     "@babel/proposal-class-properties",
+    "@babel/proposal-optional-chaining",
     "id",
     "relay",
-    "idx",
     ["styled-components", { "ssr": true }],
     "ramda"
   ],

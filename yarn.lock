@@ -320,6 +320,14 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-optional-catch-binding" "^7.0.0"
 
+"@babel/plugin-proposal-optional-chaining@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-optional-chaining/-/plugin-proposal-optional-chaining-7.0.0.tgz#3d344d4152253379b8758e7d041148e8787c4a9d"
+  integrity sha512-7x8HLa71OzNiofbQUVakS0Kmg++6a+cXNfS7QKHbbv03SuSaumJyaWsfNgw+T7aqrJlqurYpZqrkPgXu0iZK0w==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+    "@babel/plugin-syntax-optional-chaining" "^7.0.0"
+
 "@babel/plugin-proposal-unicode-property-regex@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-unicode-property-regex/-/plugin-proposal-unicode-property-regex-7.0.0.tgz#498b39cd72536cd7c4b26177d030226eba08cd33"
@@ -375,6 +383,13 @@
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-optional-catch-binding/-/plugin-syntax-optional-catch-binding-7.0.0.tgz#886f72008b3a8b185977f7cb70713b45e51ee475"
   integrity sha512-Wc+HVvwjcq5qBg1w5RG9o9RVzmCaAg/Vp0erHCKpAYV8La6I94o4GQAmFYNmkzoMO6gzoOSulpKeSSz6mPEoZw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+
+"@babel/plugin-syntax-optional-chaining@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-optional-chaining/-/plugin-syntax-optional-chaining-7.0.0.tgz#1e6ecba124310b5d3a8fc1e00d50b1c4c2e05e68"
+  integrity sha512-QXedQsZf8yua1nNrXSePT0TsGSQH9A1iK08m9dhCMdZeJaaxYcQfXdgHWVV6Cp7WE/afPVvSKIsAHK5wP+yxDA==
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
@@ -6359,11 +6374,6 @@ icss-utils@^2.1.0:
   integrity sha1-g/Cg7DeL8yRheLbCrZE28TWxyWI=
   dependencies:
     postcss "^6.0.1"
-
-idx@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/idx/-/idx-2.4.0.tgz#e89e6650c889a44bf889f79d47f40fe09b4eeaa3"
-  integrity sha512-FnV6fXF1/cXvam/OXAz98v3GbhQVws+ecMEVLxyQ1aXgK2nooTkTDqex5Lks84wiCsS1So6QtwwCYT6H+vIKkw==
 
 ieee754@^1.1.4:
   version "1.1.12"
