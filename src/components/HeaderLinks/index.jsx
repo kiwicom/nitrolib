@@ -46,7 +46,9 @@ type State = {|
   services: ?Services,
 |};
 
-export type ReadyUrl = any;
+export type ReadyUrl = {|
+  rooms: string,
+|};
 
 export type HiddenUrls = {|
   holidays: boolean,
