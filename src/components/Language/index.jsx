@@ -9,6 +9,7 @@ import CustomPicker from "../CustomPicker";
 import LanguageCurrent from "./components/LanguageCurrent";
 import Menu from "./components/Menu";
 import type { Language as LanguageType } from "../../records/Languages";
+import type { Modal as ModalType } from "../../consts/modals";
 
 type Props = {|
   native: boolean,
@@ -18,6 +19,7 @@ type Props = {|
   favorite?: LanguageType[],
   hideNativeText?: boolean,
   onChange: (lang: string) => void,
+  onSetModal?: (modal: ModalType) => void,
 |};
 
 const Language = ({
@@ -28,6 +30,7 @@ const Language = ({
   positionMenuDesktop,
   positionMenuTablet,
   favorite,
+  onSetModal,
 }: Props) => (
   <fetchedContext.Consumer>
     {fetched => (
@@ -63,6 +66,7 @@ const Language = ({
                   positionMenuDesktop={positionMenuDesktop || 0}
                   positionMenuTablet={positionMenuTablet || 0}
                   flat={flat}
+                  onSetModal={onSetModal}
                 />
               )}
             </CustomPicker>

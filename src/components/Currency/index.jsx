@@ -9,15 +9,23 @@ import Current from "./components/Current";
 import Menu from "./components/Menu";
 import LogMount from "../LogMount";
 import { OPEN_CURRENCY } from "../../consts/events";
+import type { Modal as ModalType } from "../../consts/modals";
 
 type Props = {|
   native: boolean,
   loading: React.Node,
   positionMenuTablet?: number,
   positionMenuDesktop?: number,
+  onSetModal?: (modal: ModalType) => void,
 |};
 
-const Currency = ({ native, loading, positionMenuDesktop, positionMenuTablet }: Props) => (
+const Currency = ({
+  native,
+  loading,
+  positionMenuDesktop,
+  positionMenuTablet,
+  onSetModal,
+}: Props) => (
   <CurrencyConsumer>
     {({ currency, available, recommended, onChange }) => {
       if (currency === currencyDefault) {
@@ -49,6 +57,7 @@ const Currency = ({ native, loading, positionMenuDesktop, positionMenuTablet }: 
                 recommended={recommended}
                 positionMenuDesktop={positionMenuDesktop}
                 positionMenuTablet={positionMenuTablet}
+                onSetModal={onSetModal}
               />
             </>
           )}

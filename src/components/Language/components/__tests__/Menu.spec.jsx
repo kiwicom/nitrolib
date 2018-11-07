@@ -77,4 +77,30 @@ describe("#Language/CustomPicker/Menu", () => {
 
     expect(onChange).toBeCalledWith("cz");
   });
+
+  test("notifies about visibility change", () => {
+    const onSetModal = jest.fn();
+
+    const wrapper = shallow(
+      <Menu
+        currentId="en"
+        languages={languages}
+        positionMenuDesktop={0}
+        positionMenuTablet={0}
+        continents={continents}
+        onChange={jest.fn()}
+        onSetModal={onSetModal}
+        flat={false}
+      />,
+    );
+
+    expect(onSetModal).toBeCalledTimes(1);
+    expect(onSetModal).toBeCalledWith("languageMenu");
+
+    onSetModal.mockReset();
+    wrapper.unmount();
+
+    expect(onSetModal).toBeCalledTimes(1);
+    expect(onSetModal).toBeCalledWith("");
+  });
 });

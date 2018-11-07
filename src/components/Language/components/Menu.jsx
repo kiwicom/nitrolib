@@ -10,6 +10,8 @@ import mq from "../../../styles/mq";
 import buttonMixin from "../../../styles/mixins/button";
 import * as rtl from "../../../styles/rtl";
 import Translate from "../../Translate";
+import * as MODALS from "../../../consts/modals";
+import type { Modal as ModalType } from "../../../consts/modals";
 import { getLanguageWrapperHeight, getLanguageWrapperWidth } from "../services/menu";
 import LanguageName from "./LanguageName";
 import ContinentName from "./ContinentName";
@@ -163,6 +165,7 @@ type Props = {|
   onChange: (input: string) => void,
   positionMenuDesktop: number,
   positionMenuTablet: number,
+  onSetModal?: (modal: ModalType) => void,
 |};
 
 type State = {|
@@ -175,18 +178,18 @@ export default class Menu extends React.Component<Props, State> {
   };
 
   componentDidMount() {
-    this.handleCSS();
+    const { onSetModal } = this.props;
+    if (onSetModal) {
+      onSetModal(MODALS.LANGUAGE_MENU);
+    }
   }
 
   componentWillUnmount() {
-    this.handleCSS();
+    const { onSetModal } = this.props;
+    if (onSetModal) {
+      onSetModal(MODALS.NONE);
+    }
   }
-
-  // TODO remove this this, it is fucking disgusting
-  handleCSS = () => {
-    const mainView = document.querySelector(".MainView");
-    return mainView && mainView.classList.toggle("_fixed");
-  };
 
   handleChange = (lang: string) => {
     const { onChange } = this.props;

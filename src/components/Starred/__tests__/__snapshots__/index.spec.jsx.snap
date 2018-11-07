@@ -392,7 +392,9 @@ exports[`#Starred render closed 1`] = `
         }
       }
     >
-      Starred
+      <Text
+        t="starred.starred"
+      />
     </ForwardRef>
   </Desktop>
   <Mobile
@@ -1191,7 +1193,9 @@ exports[`#Starred render open 1`] = `
         }
       }
     >
-      Starred
+      <Text
+        t="starred.starred"
+      />
     </ForwardRef>
   </Desktop>
   <Mobile

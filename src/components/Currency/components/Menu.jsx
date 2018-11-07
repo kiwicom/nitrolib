@@ -8,6 +8,8 @@ import mq from "../../../styles/mq";
 import * as rtl from "../../../styles/rtl";
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
+import * as MODALS from "../../../consts/modals";
+import type { Modal as ModalType } from "../../../consts/modals";
 import CurrencyList from "./CurrencyList";
 
 const Container = styled.div`
@@ -77,21 +79,23 @@ type Props = {|
   onChange: (code: string) => void,
   positionMenuTablet?: number,
   positionMenuDesktop?: number,
+  onSetModal?: (modal: ModalType) => void,
 |};
 
 class Menu extends React.Component<Props> {
   componentDidMount() {
-    this.handleCSS();
+    const { onSetModal } = this.props;
+    if (onSetModal) {
+      onSetModal(MODALS.CURRENCY_MENU);
+    }
   }
 
   componentWillUnmount() {
-    this.handleCSS();
+    const { onSetModal } = this.props;
+    if (onSetModal) {
+      onSetModal(MODALS.NONE);
+    }
   }
-
-  handleCSS = () => {
-    const mainView = document.querySelector(".MainView");
-    return mainView && mainView.classList.toggle("_fixed");
-  };
 
   render() {
     const {

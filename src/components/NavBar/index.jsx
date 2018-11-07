@@ -121,10 +121,15 @@ const NavBar = ({
                       positionMenuDesktop={270}
                       positionMenuTablet={5}
                       onChange={onSaveLanguage}
+                      onSetModal={onSetModal}
                     />
                   </WrapperChild>
                   <WrapperChild>
-                    <Currency positionMenuDesktop={270} positionMenuTablet={5} />
+                    <Currency
+                      positionMenuDesktop={270}
+                      positionMenuTablet={5}
+                      onSetModal={onSetModal}
+                    />
                   </WrapperChild>
                   <WrapperChild>
                     <Help onOpen={onOpenFaq} inverted={inverted} />

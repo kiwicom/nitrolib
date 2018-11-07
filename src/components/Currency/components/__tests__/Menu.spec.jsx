@@ -74,4 +74,27 @@ describe("#Currency/Menu", () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  test("notifies about visibility change", () => {
+    const onSetModal = jest.fn();
+
+    const wrapper = shallow(
+      <Menu
+        current={current}
+        available={available}
+        recommended={recommended}
+        onChange={jest.fn()}
+        onSetModal={onSetModal}
+      />,
+    );
+
+    expect(onSetModal).toBeCalledTimes(1);
+    expect(onSetModal).toBeCalledWith("currencyMenu");
+
+    onSetModal.mockReset();
+    wrapper.unmount();
+
+    expect(onSetModal).toBeCalledTimes(1);
+    expect(onSetModal).toBeCalledWith("");
+  });
 });

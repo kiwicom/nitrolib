@@ -8,7 +8,17 @@ export const SIDE_NAV: "sideNav" = "sideNav";
 export const CHAT: "chat" = "chat";
 export const SUBSCRIPTION: "subscription" = "subscription";
 export const DEBUG: "debug" = "debug";
+export const CURRENCY_MENU: "currencyMenu" = "currencyMenu";
+export const LANGUAGE_MENU: "languageMenu" = "languageMenu";
 
 export type AuthModal = "myBooking" | "register" | "signIn" | "forgotPassword";
 
-export type Modal = AuthModal | "" | "sideNav" | "chat" | "subscription" | "debug";
+export type Modal =
+  | AuthModal
+  | ""
+  | "sideNav"
+  | "chat"
+  | "subscription"
+  | "debug"
+  | "currencyMenu"
+  | "languageMenu";
