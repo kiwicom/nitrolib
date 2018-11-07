@@ -34,7 +34,7 @@ const Container = styled(Flex)`
   background-color: ${({ theme, inverted }: Inverted) =>
     inverted ? theme.orbit.paletteProductNormal : theme.orbit.paletteWhite};
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
-  ${({ shadow }) => shadow && `box-shadow: 0 0 3px rgba(0,0,0,.25);`};
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   padding: 0 10px;
   box-sizing: border-box;
   z-index: 824;
@@ -78,7 +78,6 @@ type Props = {|
   chat: React.Node,
   subscription: React.Node,
   debug?: React.Node,
-  shadow: boolean,
   inverted: boolean,
   portal: string,
   onOpenFaq?: () => void,
@@ -95,7 +94,6 @@ const NavBar = ({
   subscription,
   debug,
   portal,
-  shadow,
   inverted,
   onOpenFaq,
   onSetModal,
@@ -106,7 +104,7 @@ const NavBar = ({
   // $FlowFixMe
   <React.StrictMode>
     <InvertedProvider value={{ inverted }}>
-      <Container x="space-between" y="center" shadow={shadow} dataTest="Navbar" inverted={inverted}>
+      <Container x="space-between" y="center" dataTest="Navbar" inverted={inverted}>
         <Flex y="center" x="flex-start">
           <Logo inverted={inverted} onClick={onLogoClick} />
           {headerLinks && (
@@ -158,7 +156,6 @@ const NavBar = ({
 );
 
 NavBar.defaultProps = {
-  shadow: true,
   inverted: false,
 };
 
