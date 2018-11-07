@@ -128,7 +128,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
   };
 
   handleSubmitForm = (ev: SyntheticEvent<HTMLFormElement>) => {
-    {ev.preventDefault();}
+    ev.preventDefault();
 
     this.handleSubmit();
   };
