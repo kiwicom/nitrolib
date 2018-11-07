@@ -38,7 +38,9 @@ const Language = ({
             return null;
           }
 
-          const languages = R.values(languageMap);
+          // TODO no sorting in components! add to 'fetched' or whatever
+          // eslint-disable-next-line fp/no-mutating-methods
+          const languages = R.sort((a, b) => a.name.localeCompare(b.name), R.values(languageMap));
 
           return native ? (
             <NativePicker

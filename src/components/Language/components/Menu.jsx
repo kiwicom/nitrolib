@@ -182,6 +182,7 @@ export default class Menu extends React.Component<Props, State> {
     this.handleCSS();
   }
 
+  // TODO remove this this, it is fucking disgusting
   handleCSS = () => {
     const mainView = document.querySelector(".MainView");
     return mainView && mainView.classList.toggle("_fixed");
