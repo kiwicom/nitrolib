@@ -6,7 +6,7 @@ import Help from "../index";
 
 describe("#Help", () => {
   test("render", () => {
-    const wrapper = shallow(<Help onOpen={jest.fn()} />);
+    const wrapper = shallow(<Help inverted={false} onOpen={jest.fn()} />);
 
     expect(wrapper).toMatchSnapshot();
   });

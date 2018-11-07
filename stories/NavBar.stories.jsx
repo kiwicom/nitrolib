@@ -47,6 +47,7 @@ storiesOf("NavBar", module)
       starred={<span>Starred</span>}
       inverted
       portal=""
+      onOpenFaq={action("Open FAQ")}
       onLogoClick={action("Click logo")}
       onSetModal={action("Set modal")}
       onSaveLanguage={action("Save language")}
@@ -69,6 +70,7 @@ storiesOf("NavBar", module)
       starred={<span>Starred</span>}
       inverted
       portal=""
+      onOpenFaq={action("Open FAQ")}
       onLogoClick={action("Click logo")}
       onSetModal={action("Set modal")}
       onSaveLanguage={action("Save language")}

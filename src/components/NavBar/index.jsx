@@ -73,14 +73,14 @@ Wrapper.defaultProps = {
 };
 
 type Props = {|
-  headerLinks?: React.Node,
+  headerLinks: React.Node,
   starred: React.Node,
   chat: React.Node,
   subscription: React.Node,
-  debug?: React.Node,
+  debug: React.Node,
   inverted: boolean,
   portal: string,
-  onOpenFaq?: () => void,
+  onOpenFaq: ?() => void,
   onSetModal: (modal: Modal) => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
@@ -156,6 +156,8 @@ const NavBar = ({
 );
 
 NavBar.defaultProps = {
+  headerLinks: null,
+  debug: null,
   inverted: false,
 };
 
