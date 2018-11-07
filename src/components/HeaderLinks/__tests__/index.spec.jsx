@@ -9,6 +9,16 @@ const props = {
     language: "en",
   },
   urlParam: "search",
+  readyUrls: {
+    rooms: {
+      query: "query",
+      base: "base",
+    },
+  },
+  hiddenUrls: {
+    holidays: false,
+    logitravel: true,
+  },
 };
 
 describe("#Currency", () => {
