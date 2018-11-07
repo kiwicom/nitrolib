@@ -2,13 +2,10 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import { boolean } from "@storybook/addon-knobs";
 
 import NavBar from "../src/components/NavBar";
 import HeaderLinks from "../src/components/HeaderLinks";
 import withData from "./decorators/withData";
-
-const GROUP_ID = "Component";
 
 storiesOf("NavBar", module)
   .addDecorator(withData)
@@ -25,7 +22,6 @@ storiesOf("NavBar", module)
       chat={<h1>Chat</h1>}
       subscription={<h1>Subscription</h1>}
       debug={<h1>Debug</h1>}
-      shadow={boolean("Shadow", true, GROUP_ID)}
       portal=""
       starred={<span>Starred</span>}
       onOpenFaq={action("Open FAQ")}
@@ -49,7 +45,6 @@ storiesOf("NavBar", module)
       subscription={<h1>Subscription</h1>}
       debug={<h1>Debug</h1>}
       starred={<span>Starred</span>}
-      shadow={boolean("Shadow", true, GROUP_ID)}
       inverted
       portal=""
       onLogoClick={action("Click logo")}
@@ -71,7 +66,6 @@ storiesOf("NavBar", module)
       chat={<h1>Chat</h1>}
       subscription={<h1>Subscription</h1>}
       debug={<h1>Debug</h1>}
-      shadow={boolean("Shadow", true, GROUP_ID)}
       starred={<span>Starred</span>}
       inverted
       portal=""
