@@ -5,6 +5,7 @@ import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
+import type { Item } from "./Links";
 import mq from "../../styles/mq";
 import ClickOutside from "../ClickOutside";
 import Toggle from "../Toggle";
@@ -39,7 +40,7 @@ const GtDesktop = styled.div`
   `)}
 `;
 
-type Services = any;
+type Services = ?(Item[]);
 
 type State = {|
   services: ?Services,
