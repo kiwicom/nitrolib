@@ -25,20 +25,6 @@ const Margin = styled.div`
   `)}
 `;
 
-const LtDesktop = styled.div`
-  display: none;
-  ${mq.ltDesktop(css`
-    display: flex;
-  `)}
-`;
-
-const GtDesktop = styled.div`
-  display: none;
-  ${mq.gtDesktop(css`
-    display: flex;
-  `)}
-`;
-
 type Services = ?(Item[]);
 
 type State = {|
