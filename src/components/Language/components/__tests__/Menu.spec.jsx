@@ -13,6 +13,7 @@ describe("#Language/CustomPicker/Menu", () => {
   test("render full", () => {
     const wrapper = shallow(
       <Menu
+        currentId="en"
         languages={languages}
         positionMenuDesktop={0}
         positionMenuTablet={0}
@@ -28,6 +29,7 @@ describe("#Language/CustomPicker/Menu", () => {
   test("render flat", () => {
     const wrapper = shallow(
       <Menu
+        currentId="en"
         languages={languages}
         positionMenuDesktop={0}
         positionMenuTablet={0}
@@ -43,6 +45,7 @@ describe("#Language/CustomPicker/Menu", () => {
   test("changes continent filter", () => {
     const wrapper = shallow(
       <Menu
+        currentId="en"
         languages={languages}
         positionMenuDesktop={0}
         positionMenuTablet={0}
@@ -60,6 +63,7 @@ describe("#Language/CustomPicker/Menu", () => {
     const onChange = jest.fn();
     const wrapper = shallow(
       <Menu
+        currentId="en"
         languages={languages}
         positionMenuDesktop={0}
         positionMenuTablet={0}
