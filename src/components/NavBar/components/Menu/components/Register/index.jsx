@@ -160,7 +160,7 @@ export default class Register extends React.PureComponent<Props, State> {
       .catch(err => {
         const msg = String(err);
 
-        this.setState({ error: ERRORS[msg] || __("common.api_error") });
+        this.setState({ error: ERRORS[msg] || msg });
       });
   };
 
