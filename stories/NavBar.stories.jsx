@@ -15,7 +15,10 @@ const headerLinksProps = {
   },
   urlParam: "search",
   readyUrls: {
-    rooms: null,
+    rooms: {
+      query: "query",
+      base: "base",
+    },
   },
   hiddenUrls: {
     holidays: false,
