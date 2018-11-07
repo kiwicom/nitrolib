@@ -127,6 +127,12 @@ export default class SignIn extends React.PureComponent<Props, State> {
       });
   };
 
+  handleSubmitForm = (ev: SyntheticEvent<HTMLFormElement>) => {
+    {ev.preventDefault();}
+
+    this.handleSubmit();
+  };
+
   render() {
     const { fields, submitted, error } = this.state;
     const { loading, onOpenForgotPassword } = this.props;
@@ -134,7 +140,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
     const errorSync = firstFormError(fields);
 
     return (
-      <>
+      <form onSubmit={this.handleSubmitForm}>
         <Query onMount={this.handleMount} />
         <LogMount event={{ event: OPEN_MODAL, data: { modal: "signIn" } }} />
 
@@ -184,7 +190,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
               </Alert>
             </FieldWrap>
           )}
-        <Button block onClick={this.handleSubmit} disabled={loading}>
+        <Button block submit onClick={this.handleSubmit} disabled={loading}>
           <Text t={__("account.sign_in")} />
         </Button>
         <FieldWrap>
@@ -197,7 +203,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
             </TextLink>
           </FieldCentered>
         </FieldWrap>
-      </>
+      </form>
     );
   }
 }

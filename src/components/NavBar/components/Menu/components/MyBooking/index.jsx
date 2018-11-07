@@ -193,6 +193,12 @@ export default class MyBooking extends React.PureComponent<Props, State> {
       });
   };
 
+  handleSubmitForm = (ev: SyntheticEvent<HTMLFormElement>) => {
+    ev.preventDefault();
+
+    this.handleSubmit();
+  };
+
   render() {
     const { fields, submitted, error } = this.state;
     const { loading } = this.props;
@@ -200,85 +206,87 @@ export default class MyBooking extends React.PureComponent<Props, State> {
     const errorSync = firstFormError(fields);
 
     return (
-      <IntlConsumer>
-        {intl => (
-          <>
-            <Query onMount={this.handleMount} />
-            <LogMount event={{ event: OPEN_MODAL, data: { modal: "myBooking" } }} />
+      <form onSubmit={this.handleSubmitForm}>
+        <IntlConsumer>
+          {intl => (
+            <>
+              <Query onMount={this.handleMount} />
+              <LogMount event={{ event: OPEN_MODAL, data: { modal: "myBooking" } }} />
 
-            <FieldWrap>
-              <IconText icon={<Ticket color="primary" size="small" />}>
-                <Text t={__("common.booking_number_colon")} />
-              </IconText>
-              <InputText
-                id="bid"
-                value={fields.bid.value}
-                onChange={this.handleChange}
-                placeholder={intl.translate(__("common.booking_number_placeholder"))}
-                error={fields.bid.error}
-                normalize={normalizers.numbers}
-                validate={validators.required}
-                showState={submitted}
-              />
-            </FieldWrap>
-            <FieldWrap>
-              <IconText icon={<Envelope color="primary" size="small" />}>
-                <Text t={__("common.email_colon")} />
-              </IconText>
-              <InputText
-                id="email"
-                value={fields.email.value}
-                onChange={this.handleChange}
-                placeholder={intl.translate(__("price_alert.web.email_placeholder"))}
-                error={intl.translate(fields.email.error)}
-                validate={validators.email}
-                showState={submitted}
-                autoComplete="email"
-              />
-            </FieldWrap>
-            <FieldWrap>
-              <IataPicker
-                id="iata"
-                value={fields.iata.value}
-                onSelect={this.handleSelectIata}
-                error={intl.translate(fields.iata.error)}
-                showState={submitted}
-              />
-            </FieldWrap>
-            <FieldWrap>
-              <IconText icon={<Calendar color="primary" size="small" />}>
-                <Text t={__("common.departure_date_colon")} />
-              </IconText>
-              <InputDate
-                id="departure"
-                value={fields.departure.value}
-                onChange={this.handleChangeDeparture}
-                format={parseDateFormat(intl.language.dateFormatLong)}
-                min={MIN}
-                max={MAX}
-              />
-            </FieldWrap>
-            {error && (
               <FieldWrap>
-                <Alert type="critical">
-                  <Text t={error} />
-                </Alert>
+                <IconText icon={<Ticket color="primary" size="small" />}>
+                  <Text t={__("common.booking_number_colon")} />
+                </IconText>
+                <InputText
+                  id="bid"
+                  value={fields.bid.value}
+                  onChange={this.handleChange}
+                  placeholder={intl.translate(__("common.booking_number_placeholder"))}
+                  error={fields.bid.error}
+                  normalize={normalizers.numbers}
+                  validate={validators.required}
+                  showState={submitted}
+                />
               </FieldWrap>
-            )}
-            {submitted &&
-              errorSync && (
+              <FieldWrap>
+                <IconText icon={<Envelope color="primary" size="small" />}>
+                  <Text t={__("common.email_colon")} />
+                </IconText>
+                <InputText
+                  id="email"
+                  value={fields.email.value}
+                  onChange={this.handleChange}
+                  placeholder={intl.translate(__("price_alert.web.email_placeholder"))}
+                  error={intl.translate(fields.email.error)}
+                  validate={validators.email}
+                  showState={submitted}
+                  autoComplete="email"
+                />
+              </FieldWrap>
+              <FieldWrap>
+                <IataPicker
+                  id="iata"
+                  value={fields.iata.value}
+                  onSelect={this.handleSelectIata}
+                  error={intl.translate(fields.iata.error)}
+                  showState={submitted}
+                />
+              </FieldWrap>
+              <FieldWrap>
+                <IconText icon={<Calendar color="primary" size="small" />}>
+                  <Text t={__("common.departure_date_colon")} />
+                </IconText>
+                <InputDate
+                  id="departure"
+                  value={fields.departure.value}
+                  onChange={this.handleChangeDeparture}
+                  format={parseDateFormat(intl.language.dateFormatLong)}
+                  min={MIN}
+                  max={MAX}
+                />
+              </FieldWrap>
+              {error && (
                 <FieldWrap>
                   <Alert type="critical">
-                    <Text t={errorSync} />
+                    <Text t={error} />
                   </Alert>
                 </FieldWrap>
               )}
-            <Button block onClick={this.handleSubmit} disabled={loading}>
-              <Text t={__("submit")} />
-            </Button>
-          </>
-        )}
-      </IntlConsumer>
+              {submitted &&
+                errorSync && (
+                  <FieldWrap>
+                    <Alert type="critical">
+                      <Text t={errorSync} />
+                    </Alert>
+                  </FieldWrap>
+                )}
+              <Button block submit onClick={this.handleSubmit} disabled={loading}>
+                <Text t={__("submit")} />
+              </Button>
+            </>
+          )}
+        </IntlConsumer>
+      </form>
     );
   }
 }

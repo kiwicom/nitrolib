@@ -1,9 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#MyBooking handle submit action error 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<form
+  onSubmit={[Function]}
+>
+  <ContextConsumer>
+    <Component />
+  </ContextConsumer>
+</form>
 `;
 
 exports[`#MyBooking not handle non-existent field 1`] = `
@@ -44,13 +48,21 @@ Object {
 `;
 
 exports[`#MyBooking render 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<form
+  onSubmit={[Function]}
+>
+  <ContextConsumer>
+    <Component />
+  </ContextConsumer>
+</form>
 `;
 
 exports[`#MyBooking render error 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<form
+  onSubmit={[Function]}
+>
+  <ContextConsumer>
+    <Component />
+  </ContextConsumer>
+</form>
 `;
