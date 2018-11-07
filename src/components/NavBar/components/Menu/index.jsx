@@ -108,7 +108,6 @@ export default class Menu extends React.Component<Props, State> {
                       direction="x"
                       color={!inverted && "secondary"}
                       onClick={this.handleOpenMyBooking}
-                      padding="13px 9px"
                     >
                       <AccountCircle />
                     </Button>

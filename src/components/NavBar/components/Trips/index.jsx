@@ -23,21 +23,25 @@ type Props = {|
   onSelect: (bid: string) => void,
 |};
 
-const UserStyle = styled.div`
-  direction: ltr;
+const UserName = styled.div`
   max-width: 65px;
-  display: flex;
+  display: inline;
   overflow: hidden;
+  direction: ltr;
   text-overflow: ellipsis;
-  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
+`;
+
+const UserWrapper = styled.div`
+  display: flex;
   padding-left: 5px;
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
   ${mq.ltMiddleMobile(css`
     display: none;
   `)};
 `;
 
-UserStyle.defaultProps = {
+UserWrapper.defaultProps = {
   theme: defaultTokens,
 };
 
@@ -74,14 +78,20 @@ const Trips = ({ auth, env, onSelect }: Props) => (
               <HideOnLower>
                 <Text t={__("account.my_bookings_action")} />
               </HideOnLower>
-              <UserStyle>({`${auth.user.firstname}...`})</UserStyle>
+              <UserWrapper>
+                <span>(</span>
+                <UserName>{`${auth.user.firstname}...`}</UserName>
+                <span>)</span>
+              </UserWrapper>
             </Button>
           </Flex>
         </Desktop>
         <Mobile display="flex">
           <Button onClick={onToggle} y="center" color="secondary">
             <Passenger size="small" />
-            <UserStyle>{`${auth.user.firstname} ${auth.user.lastname}`}</UserStyle>
+            <UserWrapper>
+              <UserName>{`${auth.user.firstname} ${auth.user.lastname}`}</UserName>
+            </UserWrapper>
           </Button>
         </Mobile>
       </div>

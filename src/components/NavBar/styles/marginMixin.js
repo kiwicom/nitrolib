@@ -13,6 +13,10 @@ const marginMixin = css`
 
   ${mq.ltTablet(css`
     margin-${rtl.left}: 5px;
+
+    &:first-child {
+      margin-${rtl.left}: 5px;
+    }
   `)};
 `;
 
