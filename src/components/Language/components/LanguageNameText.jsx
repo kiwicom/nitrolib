@@ -5,7 +5,9 @@ import * as rtl from "../../../styles/rtl";
 import type { ThemeProps } from "../../../records/Theme";
 import { themeDefault } from "../../../records/Theme";
 
-type InvertedColor = ThemeProps & {|
+type InvertedColor = {|
+  ...ThemeProps,
+  active: boolean,
   inverted: boolean,
 |};
 

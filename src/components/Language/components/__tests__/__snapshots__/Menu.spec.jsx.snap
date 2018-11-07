@@ -398,6 +398,7 @@ exports[`#Language/CustomPicker/Menu render flat 1`] = `
       width={180}
     >
       <Menu__LanguageItem
+        active={false}
         key="en"
         onClick={[Function]}
         theme={
@@ -1579,6 +1580,7 @@ exports[`#Language/CustomPicker/Menu render full 1`] = `
     }
   >
     <Menu__ContinentButton
+      active={true}
       onClick={[Function]}
       theme={
         Object {
@@ -3552,6 +3554,7 @@ exports[`#Language/CustomPicker/Menu render full 1`] = `
       width={360}
     >
       <Menu__LanguageItem
+        active={false}
         key="en"
         onClick={[Function]}
         theme={

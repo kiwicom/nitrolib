@@ -5,13 +5,25 @@ import CountryFlag from "@kiwicom/orbit-components/lib/CountryFlag";
 
 import { getNames } from "../../../records/Languages";
 import type { Language } from "../../../records/Languages";
-import LanguageNameText from "./LanguageNameText";
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
+import * as rtl from "../../../styles/rtl";
 
 type Props = {|
   language: Language,
 |};
+
+const LanguageNameText = styled.span`
+  margin-${rtl.left}: 10px;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+`;
+
+LanguageNameText.defaultProps = {
+  theme: themeDefault,
+};
 
 const Container = styled.div`
   display: flex;

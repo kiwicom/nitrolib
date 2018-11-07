@@ -51,6 +51,7 @@ const Language = ({
             <CustomPicker openButton={<LanguageCurrent language={current} />} onChange={onChange}>
               {render => (
                 <Menu
+                  currentId={intl.language.id}
                   onChange={render.onChange}
                   languages={languages}
                   continents={fetched.brandLanguage.continents}

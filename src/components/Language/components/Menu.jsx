@@ -136,9 +136,16 @@ const LanguageItem = styled.div`
   margin-bottom: 5px;
   box-sizing: border-box;
   cursor: pointer;
-  &:hover {
-    background-color: ${({ theme }: ActiveProps) => theme.orbit.paletteCloudNormalHover};
-  }
+
+  ${({ active }) =>
+    !active &&
+    css`
+      &:hover {
+        background-color: ${({ theme }: ThemeProps) => theme.orbit.paletteCloudNormalHover};
+        color: ${({ theme }: ActiveProps) => theme.orbit.paletteInkNormalHover};
+      }
+    `}
+
   ${mq.ltTablet(css`
     width: 100%;
   `)};
@@ -149,6 +156,7 @@ LanguageItem.defaultProps = {
 };
 
 type Props = {|
+  currentId: string,
   languages: Language[],
   continents: string[],
   flat: boolean,
@@ -190,7 +198,14 @@ export default class Menu extends React.Component<Props, State> {
 
   render() {
     const { continent } = this.state;
-    const { flat, languages, continents, positionMenuDesktop, positionMenuTablet } = this.props;
+    const {
+      currentId,
+      flat,
+      languages,
+      continents,
+      positionMenuDesktop,
+      positionMenuTablet,
+    } = this.props;
 
     const filteredLanguages = continent === "" ? languages : getByContinent(languages, continent);
 
@@ -202,7 +217,7 @@ export default class Menu extends React.Component<Props, State> {
       >
         {!flat && (
           <ContinentList>
-            <ContinentButton onClick={() => this.handleContinent("")}>
+            <ContinentButton active={continent === ""} onClick={() => this.handleContinent("")}>
               <Text t={__("common.languages_all")} />
             </ContinentButton>
             {continents.map(item => (
@@ -222,7 +237,11 @@ export default class Menu extends React.Component<Props, State> {
             width={getLanguageWrapperWidth(filteredLanguages, flat)}
           >
             {filteredLanguages.map(language => (
-              <LanguageItem key={language.id} onClick={() => this.handleChange(language.id)}>
+              <LanguageItem
+                key={language.id}
+                active={language.id === currentId}
+                onClick={() => this.handleChange(language.id)}
+              >
                 <LanguageName language={language} />
               </LanguageItem>
             ))}
