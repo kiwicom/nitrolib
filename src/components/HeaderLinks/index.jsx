@@ -37,26 +37,24 @@ const HeaderLinks = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewW
           <Margin>
             <Toggle>
               {({ open, onToggle }) => (
-                <>
+                <ClickOutside active={open} onClickOutside={onToggle}>
                   {open && (
-                    <ClickOutside onClickOutside={onToggle}>
-                      <Popup>
-                        <Links
-                          linkFlights={linkFlights}
-                          linkRooms={linkRooms}
-                          linkCars={linkCars}
-                          inverted={inverted}
-                          linkHolidays={linkHolidays}
-                          forceNewWindow={forceNewWindow}
-                        />
-                      </Popup>
-                    </ClickOutside>
+                    <Popup>
+                      <Links
+                        linkFlights={linkFlights}
+                        linkRooms={linkRooms}
+                        linkCars={linkCars}
+                        inverted={inverted}
+                        linkHolidays={linkHolidays}
+                        forceNewWindow={forceNewWindow}
+                      />
+                    </Popup>
                   )}
                   <IconWrapper act={open} onClick={onToggle} inverted={inverted}>
                     <AirplaneUp />
                     <ChevronDown size="small" />
                   </IconWrapper>
-                </>
+                </ClickOutside>
               )}
             </Toggle>
           </Margin>
