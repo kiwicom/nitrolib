@@ -58,7 +58,7 @@ const TripItem = ({
           {+countOtherCities > 1 && (
             <>
               <RouteTwoStops size="medium" />
-              <Text t={__("account.trips_others")} values={{ countOtherCities }} />
+              <Text t={__("account.trips_others")} values={{ others: countOtherCities }} />
             </>
           )}
         </TripInfoLine>
