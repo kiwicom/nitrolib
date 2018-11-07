@@ -4,6 +4,7 @@ import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
 
+import type { Item } from "./Links";
 import mq from "../../styles/mq";
 import * as rtl from "../../styles/rtl";
 import ClickOutside from "../ClickOutside";
@@ -22,7 +23,7 @@ const Margin = styled.div`
   `)};
 `;
 
-type Services = any;
+type Services = ?(Item[]);
 
 type State = {|
   services: ?Services,
