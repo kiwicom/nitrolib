@@ -272,14 +272,13 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                   </Alert>
                 </FieldWrap>
               )}
-              {submitted &&
-                errorSync && (
-                  <FieldWrap>
-                    <Alert type="critical">
-                      <Text t={errorSync} />
-                    </Alert>
-                  </FieldWrap>
-                )}
+              {submitted && errorSync && (
+                <FieldWrap>
+                  <Alert type="critical">
+                    <Text t={errorSync} />
+                  </Alert>
+                </FieldWrap>
+              )}
               <Button block submit onClick={this.handleSubmit} disabled={loading}>
                 <Text t={__("submit")} />
               </Button>
