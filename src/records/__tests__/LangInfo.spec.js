@@ -75,3 +75,10 @@ describe("#LangInfo", () => {
     });
   });
 });
+
+describe("#fixTimeFormat", () => {
+  test("Should change LT to p", () => {
+    const date = "LT";
+    expect(fixTimeFormat(date)).toEqual("p");
+  });
+});

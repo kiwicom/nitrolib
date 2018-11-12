@@ -17,18 +17,8 @@ const trips: any = {
 const wrapper = mount(<TripHeader trips={trips} />);
 
 describe("#TripHeader", () => {
-  it("should render with trips prop", () => {
-    expect(wrapper.prop("trips")).toBe(trips);
-  });
-
-  it("should return Translate for upcoming trip", () => {
-    expect(
-      wrapper
-        .find("Translate")
-        .first()
-        .prop("values"),
-    ).toEqual({ trips: 1 });
-  });
+  test("render", () => {
+    const wrapper = shallow(<TripHeader list={trips} />);
 
   it("should has Translate for past trips", () => {
     expect(

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Duration format custom 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`#Duration format default 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

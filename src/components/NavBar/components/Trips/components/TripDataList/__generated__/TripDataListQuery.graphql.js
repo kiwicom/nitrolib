@@ -1,6 +1,10 @@
 /**
  * @flow
+<<<<<<< HEAD
  * @relayHash 8efa50ba030bc3ae6935b687bdc2f659
+=======
+ * @relayHash c3d467667ce8707302cef5fbaa1b423c
+>>>>>>> 493a77f0... Starred: Duration Component
  */
 
 /* eslint-disable */
@@ -9,12 +13,13 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-type TripHeader_trips$ref = any;
+type TripHeader_list$ref = any;
+type TripListBottom_list$ref = any;
 type TripList_list$ref = any;
 export type TripDataListQueryVariables = {||};
 export type TripDataListQueryResponse = {|
   +customerBookings: ?{|
-    +$fragmentRefs: TripList_list$ref & TripHeader_trips$ref
+    +$fragmentRefs: TripHeader_list$ref & TripList_list$ref & TripListBottom_list$ref
   |}
 |};
 export type TripDataListQuery = {|
@@ -27,8 +32,19 @@ export type TripDataListQuery = {|
 /*
 query TripDataListQuery {
   customerBookings {
+    ...TripHeader_list
     ...TripList_list
-    ...TripHeader_trips
+    ...TripListBottom_list
+  }
+}
+
+fragment TripHeader_list on BookingInterfaceConnection {
+  edges {
+    node {
+      __typename
+      isPastBooking
+      id
+    }
   }
 }
 
@@ -46,12 +62,13 @@ fragment TripList_list on BookingInterfaceConnection {
   }
 }
 
-fragment TripHeader_trips on BookingInterfaceConnection {
+fragment TripListBottom_list on BookingInterfaceConnection {
   edges {
     node {
       __typename
       isPastBooking
       id
+      destinationImageUrl
     }
   }
 }
@@ -265,6 +282,14 @@ v8 = [
 ];
 return {
   "kind": "Request",
+<<<<<<< HEAD
+=======
+  "operationKind": "query",
+  "name": "TripDataListQuery",
+  "id": null,
+  "text": "query TripDataListQuery {\n  customerBookings {\n    ...TripHeader_list\n    ...TripList_list\n    ...TripListBottom_list\n  }\n}\n\nfragment TripHeader_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      isPastBooking\n      id\n    }\n  }\n}\n\nfragment TripList_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      id\n      isPastBooking\n      destinationImageUrl\n      ...OneWayTrips_item\n      ...MulticityTrips_item\n      ...ReturnTrips_item\n    }\n  }\n}\n\nfragment TripListBottom_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      isPastBooking\n      id\n      destinationImageUrl\n    }\n  }\n}\n\nfragment OneWayTrips_item on BookingOneWay {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  trip {\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n\nfragment MulticityTrips_item on BookingMulticity {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  start {\n    localTime\n    airport {\n      city {\n        name\n      }\n      id\n    }\n  }\n  end {\n    localTime\n    airport {\n      city {\n        name\n      }\n      id\n    }\n  }\n  trips {\n    departure {\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n\nfragment ReturnTrips_item on BookingReturn {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  outbound {\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n  inbound {\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n",
+  "metadata": {},
+>>>>>>> 493a77f0... Starred: Duration Component
   "fragment": {
     "kind": "Fragment",
     "name": "TripDataListQuery",
@@ -283,12 +308,17 @@ return {
         "selections": [
           {
             "kind": "FragmentSpread",
+            "name": "TripHeader_list",
+            "args": null
+          },
+          {
+            "kind": "FragmentSpread",
             "name": "TripList_list",
             "args": null
           },
           {
             "kind": "FragmentSpread",
-            "name": "TripHeader_trips",
+            "name": "TripListBottom_list",
             "args": null
           }
         ]
@@ -330,7 +360,7 @@ return {
                   {
                     "kind": "ScalarField",
                     "alias": null,
-                    "name": "__typename",
+                    "name": "isPastBooking",
                     "args": null,
                     "storageKey": null
                   },
@@ -338,7 +368,7 @@ return {
                   {
                     "kind": "ScalarField",
                     "alias": null,
-                    "name": "isPastBooking",
+                    "name": "__typename",
                     "args": null,
                     "storageKey": null
                   },
@@ -475,5 +505,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '65b258ef9cb945a973d4e4892f88f656';
+(node/*: any*/).hash = 'c48f438a3bafcca9d0157cdcbf6bebcf';
 module.exports = node;

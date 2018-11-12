@@ -1206,7 +1206,11 @@ export type LangInfos = { [id: string]: LangInfo };
 declare export var langInfoDefault: LangInfo;
 
 declare export var fixDateFormat: (date: string) => string;
+<<<<<<< HEAD
 declare export var fixTimeFormat: (time: string) => string;
+=======
+declare export var fixTimeFormat: (date: string) => string;
+>>>>>>> 493a77f0... Starred: Duration Component
 ```
 
 _TODO_

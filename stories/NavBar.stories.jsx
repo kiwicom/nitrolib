@@ -38,7 +38,6 @@ storiesOf("NavBar", module)
         subscription={<h1>Subscription</h1>}
         debug={<h1>Debug</h1>}
         portal=""
-        starred={<span>Starred</span>}
         onOpenFaq={action("Open FAQ")}
         onSetModal={action("Set modal")}
         onLogoClick={action("Click logo")}
@@ -54,7 +53,6 @@ storiesOf("NavBar", module)
         headerLinks={<HeaderLinks {...props} inverted />}
         subscription={<h1>Subscription</h1>}
         debug={<h1>Debug</h1>}
-        starred={<span>Starred</span>}
         inverted
         portal=""
         onOpenFaq={action("Open FAQ")}

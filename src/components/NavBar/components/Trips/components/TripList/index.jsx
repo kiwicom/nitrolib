@@ -5,14 +5,11 @@ import styled from "styled-components";
 
 import Translate from "../../../../../Translate";
 import type { TripList_list } from "./__generated__/TripList_list.graphql";
-import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
 import OneWayTrips from "../OneWayTrips";
 import MulticityTrips from "../MulticityTrips";
-import TripListBottom from "../TripListBottom";
-import BottomTripItem from "../BottomTripItem";
+import ReturnTrips from "../ReturnTrips";
 import { themeDefault } from "../../../../../../records/Theme";
 import type { ThemeProps } from "../../../../../../records/Theme";
-import ReturnTrips from "../ReturnTrips";
 
 const Paddings = styled.div`
   padding: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
@@ -31,7 +28,6 @@ const TripList = ({ list, onSelect }: Props) => {
   const trips = list.edges && list.edges.map(edge => edge && edge.node).filter(Boolean);
   const upcoming = trips && trips.filter(trip => trip && !trip.isPastBooking && trip);
   const firstTwo = upcoming && upcoming.slice(0, 2);
-  const futureTrips = upcoming && upcoming.slice(2, 6);
 
   if (upcoming && upcoming.length === 0) {
     return (
@@ -62,24 +58,6 @@ const TripList = ({ list, onSelect }: Props) => {
 
           return null;
         })}
-
-      {futureTrips && futureTrips.length > 0 && (
-        <TripListBottom>
-          <IntlConsumer>
-            {({ language }) =>
-              futureTrips &&
-              futureTrips.map(item => (
-                <BottomTripItem
-                  key={item.id}
-                  id={item.id}
-                  imageUrl={item.destinationImageUrl || ""}
-                  lang={language.id}
-                />
-              ))
-            }
-          </IntlConsumer>
-        </TripListBottom>
-      )}
     </>
   );
 };

@@ -13,6 +13,7 @@ Located in `@kiwicom/nitro/lib/services/<service>`.
 * [Log](#log)
 * [Modal](#modal)
 * [Session](#session)
+* [Starred](#starred)
 * [Utils](#utils)
 
 ## Auth
@@ -668,6 +669,13 @@ See types:
 * [storage](./consts#storage)
 
 Centralized medium for manipulating `localStorage`.
+
+## Starred
+
+
+
+See [InitStarred](./components#initstarred) for initializing the service.
+
 
 ## Utils
 

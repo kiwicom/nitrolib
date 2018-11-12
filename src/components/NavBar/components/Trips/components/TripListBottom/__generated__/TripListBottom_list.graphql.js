@@ -7,23 +7,26 @@
 'use strict';
 
 /*::
-import type { ReaderFragment } from 'relay-runtime';
+import type { ConcreteFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type TripHeader_trips$ref: FragmentReference;
-export type TripHeader_trips = {|
+declare export opaque type TripListBottom_list$ref: FragmentReference;
+export type TripListBottom_list = {|
   +edges: ?$ReadOnlyArray<?{|
     +node: ?{|
-      +isPastBooking: ?boolean
+      +__typename: string,
+      +isPastBooking: ?boolean,
+      +id: string,
+      +destinationImageUrl: ?string,
     |}
   |}>,
-  +$refType: TripHeader_trips$ref,
+  +$refType: TripListBottom_list$ref,
 |};
 */
 
 
-const node/*: ReaderFragment*/ = {
+const node/*: ConcreteFragment*/ = {
   "kind": "Fragment",
-  "name": "TripHeader_trips",
+  "name": "TripListBottom_list",
   "type": "BookingInterfaceConnection",
   "metadata": null,
   "argumentDefinitions": [],
@@ -49,7 +52,28 @@ const node/*: ReaderFragment*/ = {
             {
               "kind": "ScalarField",
               "alias": null,
+              "name": "__typename",
+              "args": null,
+              "storageKey": null
+            },
+            {
+              "kind": "ScalarField",
+              "alias": null,
               "name": "isPastBooking",
+              "args": null,
+              "storageKey": null
+            },
+            {
+              "kind": "ScalarField",
+              "alias": null,
+              "name": "id",
+              "args": null,
+              "storageKey": null
+            },
+            {
+              "kind": "ScalarField",
+              "alias": null,
+              "name": "destinationImageUrl",
               "args": null,
               "storageKey": null
             }
@@ -60,5 +84,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '0b7096095f7d347cdda90dbb8f1f0624';
+(node/*: any*/).hash = 'e42acb3cf0de77bb6ce78fea30678a61';
 module.exports = node;

@@ -8,14 +8,14 @@ import Starred from "..";
 
 describe("#Starred", () => {
   test("render open", () => {
-    const wrapper = shallow(<Starred>starred</Starred>);
+    const wrapper = shallow(<Starred positionMenuDesktop={0} positionMenuTablet={0} />);
 
     expect(wrapper.prop("children")({ open: true, onToggle: jest.fn() })).toMatchSnapshot();
   });
 
   test("render closed", () => {
-    const wrapper = shallow(<Starred>starred</Starred>);
+    const wrapper = shallow(<Starred positionMenuDesktop={0} positionMenuTablet={0} />);
 
-    expect(wrapper.prop("children")({ open: false, onToggle: jest.fn() })).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 });
