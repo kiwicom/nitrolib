@@ -11,6 +11,7 @@ storiesOf("AccountSocialLogin", module)
     <AccountSocialLogin
       onAskSignInLink={() => {}}
       onFacebookLogin={() => {}}
+      onGoogleLogin={() => {}}
       email="email@example.com"
     />
   ));

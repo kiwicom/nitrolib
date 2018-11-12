@@ -27,22 +27,46 @@ exports[`#AccountPairedFacebook render 1`] = `
     </Text>
   </ModalHeader>
   <ModalSection>
-    <Button
-      bordered={true}
-      icon={<Facebook />}
-      onClick={[Function]}
-      type="facebook"
-    >
-      <Text
-        html={false}
-        t="account.log_in_with"
-        values={
-          Object {
-            "provider": "Facebook",
-          }
+    <Stack
+      desktop={
+        Object {
+          "direction": "row",
         }
-      />
-    </Button>
+      }
+    >
+      <Button
+        bordered={true}
+        icon={<Facebook />}
+        onClick={[Function]}
+        type="facebook"
+      >
+        <Text
+          html={false}
+          t="account.log_in_with"
+          values={
+            Object {
+              "provider": "Facebook",
+            }
+          }
+        />
+      </Button>
+      <Button
+        bordered={true}
+        icon={<Google />}
+        onClick={[Function]}
+        type="google"
+      >
+        <Text
+          html={false}
+          t="account.log_in_with"
+          values={
+            Object {
+              "provider": "Google",
+            }
+          }
+        />
+      </Button>
+    </Stack>
   </ModalSection>
   <ModalSection>
     <Text

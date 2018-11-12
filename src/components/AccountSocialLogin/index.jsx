@@ -5,8 +5,10 @@ import Heading from "@kiwicom/orbit-components/lib/Heading";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
+import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
 import Header from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
 import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import Text from "../Text";
 
@@ -14,9 +16,10 @@ type Props = {|
   email: string,
   onAskSignInLink: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
   onFacebookLogin: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
+  onGoogleLogin: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
-const AccountSocialLogin = ({ onAskSignInLink, onFacebookLogin, email }: Props) => (
+const AccountSocialLogin = ({ onAskSignInLink, onFacebookLogin, onGoogleLogin, email }: Props) => (
   <>
     <Header>
       <Illustration name="Login" size="small" />
@@ -28,9 +31,14 @@ const AccountSocialLogin = ({ onAskSignInLink, onFacebookLogin, email }: Props) 
       </OrbitText>
     </Header>
     <Section>
-      <Button type="facebook" bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
-        <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
-      </Button>
+      <Stack desktop={{ direction: "row" }}>
+        <Button type="facebook" bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
+          <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
+        </Button>
+        <Button type="google" bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
+          <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
+        </Button>
+      </Stack>
     </Section>
     <Section>
       <OrbitText spaceAfter="normal">
