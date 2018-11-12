@@ -16,11 +16,13 @@ type Props = {|
   positionMenuTablet?: number,
   flat: boolean,
   favorite?: LanguageType[],
+  hideNativeText?: boolean,
   onChange: (lang: string) => void,
 |};
 
 const Language = ({
   onChange,
+  hideNativeText,
   native,
   flat,
   positionMenuDesktop,
@@ -47,6 +49,7 @@ const Language = ({
               current={current}
               languages={languages}
               favorite={favorite}
+              hideNativeText={hideNativeText}
               onChange={onChange}
             />
           ) : (

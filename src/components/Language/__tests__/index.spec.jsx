@@ -17,6 +17,12 @@ describe("#Language", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  test("render - native (hidden text)", () => {
+    const wrapper = shallow(<Language onChange={jest.fn()} native hideNativeText />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   test("render - flat", () => {
     const wrapper = shallow(<Language onChange={jest.fn()} flat />);
 

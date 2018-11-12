@@ -70,6 +70,20 @@ describe("#NativeGroupedSelect", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  test("render - with hidden text", () => {
+    const wrapper = shallow(
+      <NativeGroupedSelect
+        value="a"
+        groups={[{ key: "groupA", items }]}
+        onChange={jest.fn()}
+        icon={<i>Icon</i>}
+        hideNativeText
+      />,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   test("handle change", () => {
     const onChange = jest.fn();
     const wrapper = shallow(

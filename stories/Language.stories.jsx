@@ -26,4 +26,12 @@ storiesOf("Language", module)
       favorite={infoToLang(R.values(R.pick(["en", "cz", "sk"], languages)))}
       native
     />
+  ))
+  .add("native - hidden text", () => (
+    <Language
+      onChange={action("Change")}
+      favorite={infoToLang(R.values(R.pick(["en", "cz", "sk"], languages)))}
+      hideNativeText
+      native
+    />
   ));

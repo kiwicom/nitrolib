@@ -6,6 +6,12 @@ exports[`#Language render - flat 1`] = `
 </ContextConsumer>
 `;
 
+exports[`#Language render - native (hidden text) 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
 exports[`#Language render - native 1`] = `
 <ContextConsumer>
   <Component />

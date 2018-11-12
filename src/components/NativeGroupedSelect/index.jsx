@@ -13,10 +13,11 @@ const Container = styled.div`
 type SelectProps = {|
   ...ThemeProps,
   hasIcon: boolean,
+  hideNativeText: boolean,
 |};
 
 const IconContainer = styled.div`
-  width: 35px;
+  width: 24px;
   height: 21px;
   display: flex;
   align-items: center;
@@ -26,6 +27,7 @@ const Select = styled.select`
   appearance: none;
   cursor: pointer;
   background-color: transparent;
+  margin-left: 11px;
   border: 0;
   outline: 0;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
@@ -37,10 +39,27 @@ const Select = styled.select`
   &:hover {
     color: ${({ theme }: SelectProps) => theme.orbit.paletteProductNormal};
   }
+
+  ${({ hideNativeText }) =>
+    hideNativeText &&
+    `
+    width: 24px;
+    margin-left: -24px;
+    color: transparent;
+
+    &:hover {
+      color: transparent;
+    }
+
+    & > optgroup {
+      color: initial;
+    }
+  `};
 `;
 
 Select.defaultProps = {
   theme: themeDefault,
+  hideNativeText: false,
 };
 
 type Item = {|
@@ -58,14 +77,16 @@ type Props = {|
   value: string,
   groups: Group[],
   divider: ?string,
+  hideNativeText?: boolean,
   onChange: (value: string) => void,
 |};
 
-const NativeGroupedSelect = ({ icon, value, groups, divider, onChange }: Props) => (
+const NativeGroupedSelect = ({ icon, value, groups, divider, hideNativeText, onChange }: Props) => (
   <Container>
     <IconContainer>{icon}</IconContainer>
     <Select
       value={value}
+      hideNativeText={hideNativeText}
       onChange={(ev: SyntheticInputEvent<HTMLSelectElement>) => onChange(ev.target.value)}
     >
       {groups
