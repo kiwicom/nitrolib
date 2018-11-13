@@ -3,7 +3,6 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import type { Environment } from "react-relay";
 import Passenger from "@kiwicom/orbit-components/lib/icons/Passenger";
-import defaultTokens from "@kiwicom/orbit-components/lib/defaultTokens";
 
 import Button from "../../primitives/Button";
 import ClickOutside from "../../../ClickOutside";
@@ -11,6 +10,7 @@ import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
 import Text from "../../../Text";
 import type { Auth } from "../../../../records/Auth";
+import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import Toggle from "../../../Toggle";
 import TripDataList from "./components/TripDataList";
@@ -42,7 +42,7 @@ const UserWrapper = styled.div`
 `;
 
 UserWrapper.defaultProps = {
-  theme: defaultTokens,
+  theme: themeDefault,
 };
 
 const HideOnLower = styled.div`
@@ -54,7 +54,7 @@ const HideOnLower = styled.div`
 `;
 
 HideOnLower.defaultProps = {
-  theme: defaultTokens,
+  theme: themeDefault,
 };
 
 const Trips = ({ auth, env, onSelect }: Props) => (
