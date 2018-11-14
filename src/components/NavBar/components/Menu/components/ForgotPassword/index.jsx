@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Button from "@kiwicom/orbit-components/lib/Button";
-import TextOrbit from "@kiwicom/orbit-components/lib/Text";
+import Text from "@kiwicom/orbit-components/lib/Text";
 
 import { padding } from "../../../../../../styles";
 import { themeDefault } from "../../../../../../records/Theme";
@@ -13,7 +13,7 @@ import LogMount from "../../../../../LogMount";
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
 import IconText from "../../../../../IconText";
-import Text from "../../../../../Text";
+import Translate from "../../../../../Translate";
 import AcceptAlert from "../../../../../AcceptAlert";
 import * as validators from "../../../../../../services/input/validators";
 import compose from "../../../../../../services/input/composeValidator";
@@ -109,9 +109,9 @@ export default class ForgotPassword extends React.PureComponent<Props, State> {
     if (error && error.name === "INVALID_ARGUMENT_LOGIN") {
       return (
         <AcceptAlert onClose={onClose}>
-          <TextOrbit>
-            <Text t={__("account.user_with_email_does_not_exist")} />
-          </TextOrbit>
+          <Text>
+            <Translate t={__("account.user_with_email_does_not_exist")} />
+          </Text>
         </AcceptAlert>
       );
     }
@@ -119,9 +119,9 @@ export default class ForgotPassword extends React.PureComponent<Props, State> {
     if (submitted) {
       return (
         <AcceptAlert onClose={onClose}>
-          <TextOrbit>
-            <Text t={__("account.you_will_recieve_password")} />
-          </TextOrbit>
+          <Text>
+            <Translate t={__("account.you_will_recieve_password")} />
+          </Text>
         </AcceptAlert>
       );
     }
@@ -133,16 +133,16 @@ export default class ForgotPassword extends React.PureComponent<Props, State> {
         {error && (
           <FieldWrap>
             <Alert type="critical">
-              <Text t={__("common.api_error")} />
+              <Translate t={__("common.api_error")} />
             </Alert>
           </FieldWrap>
         )}
-        <TextOrbit>
-          <Text t={__("account.enter_your_email")} />
-        </TextOrbit>
+        <Text>
+          <Translate t={__("account.enter_your_email")} />
+        </Text>
         <FieldWrap>
           <IconText icon={<Envelope color="primary" size="small" />}>
-            <Text t={__("common.email.colon")} />
+            <Translate t={__("common.email.colon")} />
           </IconText>
           <InputText
             id="email"
@@ -162,7 +162,11 @@ export default class ForgotPassword extends React.PureComponent<Props, State> {
           onClick={this.handleSubmit}
           disabled={loading || Boolean(email.error)}
         >
-          {loading ? <Text t={__("common.loading")} /> : <Text t={__("account.reset_password")} />}
+          {loading ? (
+            <Translate t={__("common.loading")} />
+          ) : (
+            <Translate t={__("account.reset_password")} />
+          )}
         </Button>
       </Container>
     );

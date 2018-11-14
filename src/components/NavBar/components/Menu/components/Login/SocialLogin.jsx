@@ -6,7 +6,7 @@ import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import Text from "../../../../../Text";
+import Translate from "../../../../../Translate";
 import type { ThemeProps } from "../../../../../../records/Theme";
 import { themeDefault } from "../../../../../../records/Theme";
 import type { SocialProvider } from "../../../../../../records/Auth";
@@ -58,7 +58,7 @@ const SocialLogin = ({ facebook, google, onSocialAuth }: Props) => (
           icon={<GoogleIcon />}
           onClick={() => onSocialAuth("google")}
         >
-          <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
+          <Translate t={__("account.log_in_with")} values={{ provider: "Google" }} />
         </Button>
       )}
       {facebook && (
@@ -69,14 +69,14 @@ const SocialLogin = ({ facebook, google, onSocialAuth }: Props) => (
           icon={<FacebookIcon />}
           onClick={() => onSocialAuth("facebook")}
         >
-          <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
+          <Translate t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
         </Button>
       )}
     </Stack>
     <Or>
       <OrLine />
       <OrText>
-        <Text t={__("common.or")} />
+        <Translate t={__("common.or")} />
       </OrText>
     </Or>
   </>

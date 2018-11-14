@@ -3,7 +3,7 @@ import * as React from "react";
 import * as R from "ramda";
 import Faq from "@kiwicom/orbit-components/lib/icons/QuestionCircle";
 
-import Text from "../../../Text";
+import Translate from "../../../Translate";
 import Button from "../../primitives/Button";
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
@@ -21,7 +21,7 @@ const Help = ({ onOpen, inverted }: Props) => (
     dataTest="NavbarSupport"
   >
     <Desktop>
-      <Text t={__("common.help")} />
+      <Translate t={__("common.help")} />
     </Desktop>
     <Mobile>
       <Faq />

@@ -8,7 +8,7 @@ import Button from "../../primitives/Button";
 import ClickOutside from "../../../ClickOutside";
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
-import Text from "../../../Text";
+import Translate from "../../../Translate";
 import type { Auth } from "../../../../records/Auth";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
@@ -76,7 +76,7 @@ const Trips = ({ auth, env, onSelect }: Props) => (
             <Passenger size="small" />
             <Button onClick={onToggle} color="secondary">
               <HideOnLower>
-                <Text t={__("account.my_bookings_action")} />
+                <Translate t={__("account.my_bookings_action")} />
               </HideOnLower>
               <UserWrapper>
                 <span>(</span>

@@ -398,7 +398,7 @@ exports[`#SideBar/ForgotPassword render 1`] = `
     }
   />
   <Text>
-    <Text
+    <Translate
       html={false}
       t="account.enter_your_email"
       values={Object {}}
@@ -413,7 +413,7 @@ exports[`#SideBar/ForgotPassword render 1`] = `
         />
       }
     >
-      <Text
+      <Translate
         html={false}
         t="common.email.colon"
         values={Object {}}
@@ -437,7 +437,7 @@ exports[`#SideBar/ForgotPassword render 1`] = `
     onClick={[Function]}
     size="large"
   >
-    <Text
+    <Translate
       html={false}
       t="account.reset_password"
       values={Object {}}
@@ -847,7 +847,7 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
     <Alert
       type="critical"
     >
-      <Text
+      <Translate
         html={false}
         t="common.api_error"
         values={Object {}}
@@ -855,7 +855,7 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
     </Alert>
   </ForgotPassword__FieldWrap>
   <Text>
-    <Text
+    <Translate
       html={false}
       t="account.enter_your_email"
       values={Object {}}
@@ -870,7 +870,7 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
         />
       }
     >
-      <Text
+      <Translate
         html={false}
         t="common.email.colon"
         values={Object {}}
@@ -894,7 +894,7 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
     onClick={[Function]}
     size="large"
   >
-    <Text
+    <Translate
       html={false}
       t="account.reset_password"
       values={Object {}}
@@ -906,7 +906,7 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
 exports[`#SideBar/ForgotPassword render error INVALID_ARGUMENT_LOGIN 1`] = `
 <AcceptAlert
   button={
-    <Text
+    <Translate
       html={false}
       t="common.ok"
       values={Object {}}
@@ -915,7 +915,7 @@ exports[`#SideBar/ForgotPassword render error INVALID_ARGUMENT_LOGIN 1`] = `
   onClose={[MockFunction]}
 >
   <Text>
-    <Text
+    <Translate
       html={false}
       t="account.user_with_email_does_not_exist"
       values={Object {}}
@@ -1322,7 +1322,7 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
     }
   />
   <Text>
-    <Text
+    <Translate
       html={false}
       t="account.enter_your_email"
       values={Object {}}
@@ -1337,7 +1337,7 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
         />
       }
     >
-      <Text
+      <Translate
         html={false}
         t="common.email.colon"
         values={Object {}}
@@ -1361,7 +1361,7 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
     onClick={[Function]}
     size="large"
   >
-    <Text
+    <Translate
       html={false}
       t="common.loading"
       values={Object {}}
@@ -1373,7 +1373,7 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
 exports[`#SideBar/ForgotPassword render submitted 1`] = `
 <AcceptAlert
   button={
-    <Text
+    <Translate
       html={false}
       t="common.ok"
       values={Object {}}
@@ -1382,7 +1382,7 @@ exports[`#SideBar/ForgotPassword render submitted 1`] = `
   onClose={[MockFunction]}
 >
   <Text>
-    <Text
+    <Translate
       html={false}
       t="account.you_will_recieve_password"
       values={Object {}}

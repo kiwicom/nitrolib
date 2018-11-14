@@ -1571,7 +1571,7 @@ exports[`#InputText render active error 1`] = `
         }
       }
     >
-      <Text
+      <Translate
         html={false}
         t="An error"
         values={Object {}}
@@ -5906,7 +5906,7 @@ exports[`#InputText render regular error 1`] = `
         }
       }
     >
-      <Text
+      <Translate
         html={false}
         t="An error"
         values={Object {}}
@@ -7876,7 +7876,7 @@ exports[`#InputText render show state error 1`] = `
         }
       }
     >
-      <Text
+      <Translate
         html={false}
         t="An error"
         values={Object {}}

@@ -799,7 +799,7 @@ exports[`#AcceptAlert render 1`] = `
     block={true}
     onClick={[MockFunction]}
   >
-    <Text
+    <Translate
       html={false}
       t="common.ok"
       values={Object {}}

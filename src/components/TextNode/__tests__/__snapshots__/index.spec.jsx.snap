@@ -1,7 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#TextNode string 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<Text>
+  <TranslateNode
+    t="lol __x__ kek bur"
+    values={
+      Object {
+        "x": <span>
+          lmao
+        </span>,
+      }
+    }
+  />
+</Text>
 `;

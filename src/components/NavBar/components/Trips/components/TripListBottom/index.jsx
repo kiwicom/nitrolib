@@ -3,7 +3,7 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 
 import ItemWrapper from "../../primitives/ItemWrapper";
-import Text from "../../../../../Text";
+import Translate from "../../../../../Translate";
 import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
 import ButtonLink from "../../../../primitives/ButtonLink";
 import mq from "../../../../../../styles/mq";
@@ -33,7 +33,7 @@ const TripListBottom = ({ children }: Props) => (
             bold
             href={`/${intl.language.id}/account#future`}
           >
-            <Text t={__("account.all_trips")} />
+            <Translate t={__("account.all_trips")} />
           </ButtonLink>
         </ItemWrapper>
       </>

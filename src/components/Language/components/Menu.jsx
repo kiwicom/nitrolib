@@ -9,7 +9,7 @@ import type { Language } from "../../../records/Languages";
 import mq from "../../../styles/mq";
 import buttonMixin from "../../../styles/mixins/button";
 import * as rtl from "../../../styles/rtl";
-import Text from "../../Text";
+import Translate from "../../Translate";
 import { getLanguageWrapperHeight, getLanguageWrapperWidth } from "../services/menu";
 import LanguageName from "./LanguageName";
 import ContinentName from "./ContinentName";
@@ -219,7 +219,7 @@ export default class Menu extends React.Component<Props, State> {
         {!flat && (
           <ContinentList>
             <ContinentButton active={continent === ""} onClick={() => this.handleContinent("")}>
-              <Text t={__("common.languages_all")} />
+              <Translate t={__("common.languages_all")} />
             </ContinentButton>
             {continents.map(item => (
               <ContinentButton

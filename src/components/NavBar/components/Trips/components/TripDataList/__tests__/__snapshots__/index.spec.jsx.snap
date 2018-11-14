@@ -6,7 +6,7 @@ exports[`#TripDataList render 1`] = `
   positionMenuTablet={0}
 >
   <TripDataList__StateContainer>
-    <Text
+    <Translate
       html={false}
       t="common.loading"
       values={Object {}}

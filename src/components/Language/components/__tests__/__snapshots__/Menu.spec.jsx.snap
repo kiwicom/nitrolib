@@ -1967,7 +1967,7 @@ exports[`#Language/CustomPicker/Menu render full 1`] = `
         }
       }
     >
-      <Text
+      <Translate
         html={false}
         t="common.languages_all"
         values={Object {}}

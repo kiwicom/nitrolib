@@ -1,25 +1,21 @@
 // @flow strict
+/* eslint-disable react/no-danger */
 import * as React from "react";
+import Text from "@kiwicom/orbit-components/lib/Text";
+import type { Props as PropsOrbit } from "@kiwicom/orbit-components/lib/Text";
 
-import { Consumer } from "../../services/intl/context";
+import TranslateNode from "../TranslateNode";
 
-type Props = {
+type Props = {|
+  ...$Diff<PropsOrbit, { children: React.Node }>,
   t: string,
   values: { [key: string]: React.Node },
-};
+|};
 
-const TextNode = ({ t, values }: Props) => (
-  <Consumer>
-    {intl => (
-      <>
-        {Object.keys(values).reduce(
-          // $FlowExpected: we're transforming string[] to React.Node[]
-          (words, key) => words.map(word => (word === key ? values[key] : word)),
-          intl.translate(t).split("__"),
-        )}
-      </>
-    )}
-  </Consumer>
+const TextNode = ({ t, values, ...orbit }: Props) => (
+  <Text {...orbit}>
+    <TranslateNode t={t} values={values} />
+  </Text>
 );
 
 export default TextNode;

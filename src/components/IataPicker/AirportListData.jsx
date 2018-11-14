@@ -5,7 +5,7 @@ import Alert from "@kiwicom/orbit-components/lib/Alert";
 
 import environmentReal from "../../services/environment";
 import AirportList from "./AirportList";
-import Text from "../Text";
+import Translate from "../Translate";
 
 type Props = {|
   value: string,
@@ -28,7 +28,7 @@ const AirportListData = ({ value, onSelect, environment }: Props) => (
       if (res.error) {
         return (
           <Alert type="critical">
-            <Text t={__("common.api_error")} />
+            <Translate t={__("common.api_error")} />
           </Alert>
         );
       }

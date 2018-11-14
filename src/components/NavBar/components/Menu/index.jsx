@@ -9,7 +9,7 @@ import Portal from "@kiwicom/orbit-components/lib/Portal";
 import CloseByKey from "../../../CloseByKey";
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
-import Text from "../../../Text";
+import Translate from "../../../Translate";
 import * as authContext from "../../../../services/auth/context";
 import { Consumer as BrandConsumer } from "../../../../services/brand/context";
 import Button from "../../primitives/Button";
@@ -100,7 +100,7 @@ export default class Menu extends React.Component<Props, State> {
                       onClick={this.handleOpenMyBooking}
                       color={!inverted && "secondary"}
                     >
-                      <Text t={__("account.my_bookings_action")} />
+                      <Translate t={__("account.my_bookings_action")} />
                     </Button>
                   </Desktop>
                   <Mobile display="flex">

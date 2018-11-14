@@ -5,7 +5,7 @@ exports[`#SideNav MenuItem render 1`] = `
   Icon={[Function]}
   link="lol"
   text={
-    <Text
+    <Translate
       html={false}
       t="kek"
       values={

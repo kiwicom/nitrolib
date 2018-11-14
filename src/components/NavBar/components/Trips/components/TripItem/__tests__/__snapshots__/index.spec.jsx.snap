@@ -2726,7 +2726,7 @@ exports[`#TripItem render 1`] = `
           }
         }
       >
-        <Text
+        <Translate
           html={false}
           t="account.trips_passengers"
           values={

@@ -8,7 +8,7 @@ import ItemWrapper from "../../primitives/ItemWrapper";
 import TripInfo from "../../primitives/TripInfo";
 import Column from "../../primitives/Column";
 import TripInfoLine from "../../primitives/TripInfoLine";
-import Text from "../../../../../Text";
+import Translate from "../../../../../Translate";
 import Day from "../../../../../Day";
 import mq from "../../../../../../styles/mq";
 
@@ -58,7 +58,7 @@ const TripItem = ({
           {+countOtherCities > 1 && (
             <>
               <RouteTwoStops size="medium" />
-              <Text t={__("account.trips_others")} values={{ others: countOtherCities }} />
+              <Translate t={__("account.trips_others")} values={{ others: countOtherCities }} />
             </>
           )}
         </TripInfoLine>
@@ -71,7 +71,7 @@ const TripItem = ({
           <Day date={departureTime} /> - <Day date={arrivalTime} />
         </TripInfoLine>
         <TripInfoLine>
-          <Text t={__("account.trips_passengers")} values={{ passengers: passengerCount }} />
+          <Translate t={__("account.trips_passengers")} values={{ passengers: passengerCount }} />
         </TripInfoLine>
       </Column>
     </TripInfo>

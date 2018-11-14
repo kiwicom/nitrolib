@@ -774,7 +774,7 @@ exports[`#CookiesBanner render 1`] = `
       }
     }
   >
-    <Text
+    <Translate
       html={true}
       t="content.cookies.banner.text"
       values={Object {}}

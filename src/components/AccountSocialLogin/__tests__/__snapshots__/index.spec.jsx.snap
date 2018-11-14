@@ -10,7 +10,7 @@ exports[`#AccountPairedFacebook render 1`] = `
     <Heading
       element="h2"
     >
-      <Text
+      <Translate
         html={false}
         t="account.manage_your_bookings"
         values={Object {}}
@@ -19,7 +19,7 @@ exports[`#AccountPairedFacebook render 1`] = `
     <Text
       weight="bold"
     >
-      <Text
+      <Translate
         html={false}
         t="account.sign_in_description"
         values={Object {}}
@@ -40,7 +40,7 @@ exports[`#AccountPairedFacebook render 1`] = `
         onClick={[Function]}
         type="facebook"
       >
-        <Text
+        <Translate
           html={false}
           t="account.log_in_with"
           values={
@@ -56,7 +56,7 @@ exports[`#AccountPairedFacebook render 1`] = `
         onClick={[Function]}
         type="google"
       >
-        <Text
+        <Translate
           html={false}
           t="account.log_in_with"
           values={
@@ -72,7 +72,7 @@ exports[`#AccountPairedFacebook render 1`] = `
     <Text
       spaceAfter="normal"
     >
-      <Text
+      <Translate
         html={false}
         t="account.send_link_to"
         values={
@@ -86,7 +86,7 @@ exports[`#AccountPairedFacebook render 1`] = `
       onClick={[Function]}
       type="secondary"
     >
-      <Text
+      <Translate
         html={false}
         t="account.ask_sign_in_link"
         values={Object {}}

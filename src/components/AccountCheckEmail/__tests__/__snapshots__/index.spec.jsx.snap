@@ -6,7 +6,7 @@ exports[`#AccountCheckEmail render - magicLink 1`] = `
     element="h2"
     spaceAfter="small"
   >
-    <Text
+    <Translate
       html={false}
       t="account.check_email"
       values={Object {}}
@@ -18,7 +18,7 @@ exports[`#AccountCheckEmail render - magicLink 1`] = `
     spaceAfter="large"
   />
   <Text>
-    <Text
+    <Translate
       html={false}
       t="account.check_email_magic_link"
       values={
@@ -37,7 +37,7 @@ exports[`#AccountCheckEmail render - signUpConfirmation 1`] = `
     element="h2"
     spaceAfter="small"
   >
-    <Text
+    <Translate
       html={false}
       t="account.check_email"
       values={Object {}}
@@ -49,7 +49,7 @@ exports[`#AccountCheckEmail render - signUpConfirmation 1`] = `
     spaceAfter="large"
   />
   <Text>
-    <Text
+    <Translate
       html={false}
       t="account.check_email_sign_up"
       values={

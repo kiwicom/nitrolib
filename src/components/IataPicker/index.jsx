@@ -7,7 +7,7 @@ import InputText from "../InputText";
 import type { Change } from "../InputText";
 import IconText from "../IconText";
 import ClickOutside from "../ClickOutside";
-import Text from "../Text";
+import Translate from "../Translate";
 import { Consumer as IntlConsumer } from "../../services/intl/context";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
@@ -92,7 +92,7 @@ export default class IataPicker extends React.PureComponent<Props, State> {
           <ClickOutside active={open} onClickOutside={this.handleClickOutside}>
             <Container>
               <IconText icon={<Airplane color="primary" size="small" />}>
-                <Text t={__("common.iata_code")} />
+                <Translate t={__("common.iata_code")} />
               </IconText>
               <InputText
                 id={id}

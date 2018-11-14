@@ -394,7 +394,7 @@ exports[`#Help render 1`] = `
   <Desktop
     display="block"
   >
-    <Text
+    <Translate
       html={false}
       t="common.help"
       values={Object {}}

@@ -6,7 +6,7 @@ import Button from "@kiwicom/orbit-components/lib/Button";
 import { padding } from "../../styles";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
-import Text from "../Text";
+import Translate from "../Translate";
 
 const Container = styled.div`
   width: 560px;
@@ -38,7 +38,7 @@ const AcceptAlert = ({ children, button, onClose }: Props) => (
 );
 
 AcceptAlert.defaultProps = {
-  button: <Text t={__("common.ok")} />,
+  button: <Translate t={__("common.ok")} />,
 };
 
 export default AcceptAlert;

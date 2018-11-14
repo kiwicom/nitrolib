@@ -11,7 +11,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import styled from "styled-components";
 
 import { Consumer } from "../../services/intl/context";
-import Text from "../Text";
+import Translate from "../Translate";
 
 type Props = {|
   email: string,
@@ -46,9 +46,9 @@ const AccountCreate = ({
         <Header>
           <Illustration name="EnjoyApp" size="small" />
           <Heading element="h2">
-            <Text t={__("account.create_account")} />
+            <Translate t={__("account.create_account")} />
           </Heading>
-          <Text t={__("account.create_account_description")} />
+          <Translate t={__("account.create_account_description")} />
         </Header>
         <Section>
           <Stack desktop={{ spacing: "comfy" }}>
@@ -72,10 +72,10 @@ const AccountCreate = ({
               onChange={onPasswordConfirmChange}
             />
             <Button onClick={onContinue}>
-              <Text t={__("account.create")} />
+              <Translate t={__("account.create")} />
             </Button>
             <OrbitText size="small">
-              <Text t={__("account.terms_and_privacy_policy")} html />
+              <Translate t={__("account.terms_and_privacy_policy")} html />
             </OrbitText>
           </Stack>
         </Section>

@@ -3,7 +3,7 @@ import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
 import Button from "@kiwicom/orbit-components/lib/Button";
-import TextOrbit from "@kiwicom/orbit-components/lib/Text";
+import Text from "@kiwicom/orbit-components/lib/Text";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
 import Security from "@kiwicom/orbit-components/lib/icons/Security";
@@ -14,7 +14,7 @@ import LogMount from "../../../../../LogMount";
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
 import IconText from "../../../../../IconText";
-import Text from "../../../../../Text";
+import Translate from "../../../../../Translate";
 import firstFormError from "../../../../services/firstFormError";
 import * as normalizers from "../../../../../../services/input/normalizers";
 import * as validators from "../../../../../../services/input/validators";
@@ -183,7 +183,7 @@ export default class Register extends React.PureComponent<Props, State> {
 
         <FieldWrap>
           <IconText icon={<User color="primary" size="small" />}>
-            <Text t={__("common.firstname.colon")} />
+            <Translate t={__("common.firstname.colon")} />
           </IconText>
           <InputText
             id="firstName"
@@ -197,7 +197,7 @@ export default class Register extends React.PureComponent<Props, State> {
         </FieldWrap>
         <FieldWrap>
           <IconText icon={<User color="primary" size="small" />}>
-            <Text t={__("common.lastname.colon")} />
+            <Translate t={__("common.lastname.colon")} />
           </IconText>
           <InputText
             id="lastName"
@@ -211,7 +211,7 @@ export default class Register extends React.PureComponent<Props, State> {
         </FieldWrap>
         <FieldWrap>
           <IconText icon={<Envelope color="primary" size="small" />}>
-            <Text t={__("common.email.colon")} />
+            <Translate t={__("common.email.colon")} />
           </IconText>
           <InputText
             id="email"
@@ -227,7 +227,7 @@ export default class Register extends React.PureComponent<Props, State> {
         </FieldWrap>
         <FieldWrap>
           <IconText icon={<Security color="primary" size="small" />}>
-            <Text t={__("account.password.colon")} />
+            <Translate t={__("account.password.colon")} />
           </IconText>
           <InputText
             id="password"
@@ -240,26 +240,26 @@ export default class Register extends React.PureComponent<Props, State> {
           />
         </FieldWrap>
         <FieldPolicy>
-          <TextOrbit>
-            <Text t={__("account.registration_privacy_policy")} html />
-          </TextOrbit>
+          <Text>
+            <Translate t={__("account.registration_privacy_policy")} html />
+          </Text>
         </FieldPolicy>
         {error && (
           <FieldWrap>
             <Alert type="critical">
-              <Text t={error} />
+              <Translate t={error} />
             </Alert>
           </FieldWrap>
         )}
         {submitted && errorSync && (
           <FieldWrap>
             <Alert type="critical">
-              <Text t={errorSync} />
+              <Translate t={errorSync} />
             </Alert>
           </FieldWrap>
         )}
         <Button block submit onClick={this.handleSubmit} disabled={loading}>
-          <Text t={__("account.sign_up")} />
+          <Translate t={__("account.sign_up")} />
         </Button>
       </form>
     );

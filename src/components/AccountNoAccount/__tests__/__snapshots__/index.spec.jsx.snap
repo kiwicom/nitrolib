@@ -10,14 +10,14 @@ exports[`#AccountNoAccount render 1`] = `
     <Heading
       element="h2"
     >
-      <Text
+      <Translate
         html={false}
         t="account.no_bookings_or_account"
         values={Object {}}
       />
     </Heading>
     <Text>
-      <Text
+      <Translate
         html={false}
         t="account.no_bookings_or_account_description"
         values={Object {}}
@@ -35,7 +35,7 @@ exports[`#AccountNoAccount render 1`] = `
       <Button
         onClick={[Function]}
       >
-        <Text
+        <Translate
           html={false}
           t="account.register"
           values={Object {}}
@@ -52,7 +52,7 @@ exports[`#AccountNoAccount render 1`] = `
           type="secondary"
           width={0}
         >
-          <Text
+          <Translate
             html={false}
             t="account.back"
             values={Object {}}
@@ -68,7 +68,7 @@ exports[`#AccountNoAccount render 1`] = `
       spaceAfter="medium"
       weight="bold"
     >
-      <Text
+      <Translate
         html={false}
         t="account.or_social_account"
         values={Object {}}
@@ -89,7 +89,7 @@ exports[`#AccountNoAccount render 1`] = `
         onClick={[Function]}
         type="facebook"
       >
-        <Text
+        <Translate
           html={false}
           t="account.log_in_with"
           values={
@@ -106,7 +106,7 @@ exports[`#AccountNoAccount render 1`] = `
         onClick={[Function]}
         type="google"
       >
-        <Text
+        <Translate
           html={false}
           t="account.log_in_with"
           values={

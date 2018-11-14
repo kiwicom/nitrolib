@@ -9,7 +9,7 @@ import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
 import ClientOnly from "../../../../../ClientOnly";
 import Mobile from "../../../../../Mobile";
-import Text from "../../../../../Text";
+import Translate from "../../../../../Translate";
 import Language from "../../../../../Language";
 import { Consumer as BrandConsumer } from "../../../../../../services/brand/context";
 import { Consumer as AuthConsumer } from "../../../../../../services/auth/context";
@@ -223,7 +223,7 @@ export default class SideNav extends React.Component<Props, State> {
         <ClientOnly>
           <SideBar onClick={this.handleToggle} shown={modalOpen === MODALS.SIDE_NAV}>
             <Close onClick={this.handleToggle} data-test="NavbarMenuClose">
-              <Text t={__("common.hide")} /> <CloseIcon />
+              <Translate t={__("common.hide")} /> <CloseIcon />
             </Close>
 
             <Content>
@@ -262,19 +262,19 @@ export default class SideNav extends React.Component<Props, State> {
                           onSignOut();
                           this.handleToggle();
                         }}
-                        text={<Text t={__("account.log_out")} />}
+                        text={<Translate t={__("account.log_out")} />}
                       />
                     ) : (
                       <>
                         <MenuItem
                           Icon={icons.AccountCircle}
                           onClick={this.handleOpenSignIn}
-                          text={<Text t={__("account.sign_in")} />}
+                          text={<Translate t={__("account.sign_in")} />}
                         />
                         <MenuItem
                           Icon={icons.AccountCircle}
                           onClick={this.handleOpenRegister}
-                          text={<Text t={__("account.sign_up")} />}
+                          text={<Translate t={__("account.sign_up")} />}
                         />
                       </>
                     )}
@@ -292,7 +292,7 @@ export default class SideNav extends React.Component<Props, State> {
                   return (
                     <>
                       {/* EXPLORE */}
-                      <MenuGroup text={<Text t={__("sidenav.connect")} />}>
+                      <MenuGroup text={<Translate t={__("sidenav.connect")} />}>
                         {company.invite && (
                           <BrandedMenuItem
                             title={company.invite.title}
@@ -306,7 +306,7 @@ export default class SideNav extends React.Component<Props, State> {
                           <MenuItem
                             Icon={icons.ContactEmail}
                             onClick={this.handleOpenSubscription}
-                            text={<Text t={__("common.subscribe")} />}
+                            text={<Translate t={__("common.subscribe")} />}
                           />
                         )}
 
@@ -323,7 +323,7 @@ export default class SideNav extends React.Component<Props, State> {
                           <MenuItem
                             Icon={icons.Chat}
                             onClick={this.handleOpenChat}
-                            text={<Text t={__("booking.abandonment.help.chat_action")} />}
+                            text={<Translate t={__("booking.abandonment.help.chat_action")} />}
                           />
                         )}
 
@@ -340,7 +340,7 @@ export default class SideNav extends React.Component<Props, State> {
                       <Separator />
 
                       {/* COMPANY */}
-                      <MenuGroup text={<Text t={__("sidenav.company")} />}>
+                      <MenuGroup text={<Translate t={__("sidenav.company")} />}>
                         {company.about && (
                           <BrandedMenuItem
                             title={company.about.title}
@@ -394,7 +394,7 @@ export default class SideNav extends React.Component<Props, State> {
 
                       <Separator />
 
-                      <MenuGroup text={<Text t={__("content.pages.legal.title")} />}>
+                      <MenuGroup text={<Translate t={__("content.pages.legal.title")} />}>
                         {company.terms && (
                           <BrandedMenuItem
                             title={company.terms.title}

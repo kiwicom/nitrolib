@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Translate html 1`] = `
+<span
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "lol",
+    }
+  }
+/>
+`;
+
+exports[`#Translate string 1`] = `"lol"`;

@@ -2,7 +2,7 @@
 import React from "react";
 import { createFragmentContainer, graphql } from "react-relay";
 
-import Text from "../../../../../Text";
+import Translate from "../../../../../Translate";
 import type { TripList_list } from "./__generated__/TripList_list.graphql";
 import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
 import OneWayTrips from "../OneWayTrips";
@@ -23,7 +23,7 @@ const TripList = ({ list, onSelect }: Props) => {
   const futureTrips = upcoming && upcoming.slice(2, 6);
 
   if (upcoming && upcoming.length === 0) {
-    return <Text t={__("account.no_trips")} />;
+    return <Translate t={__("account.no_trips")} />;
   }
 
   return (

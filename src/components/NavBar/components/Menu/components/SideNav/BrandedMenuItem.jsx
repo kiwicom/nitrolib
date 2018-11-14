@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import Text from "../../../../../Text";
+import Translate from "../../../../../Translate";
 import MenuItem from "./MenuItem";
 
 type Props = {|
@@ -15,7 +15,7 @@ const BrandedMenuItem = ({ title, Icon, link }: Props) => (
     link={link}
     Icon={Icon}
     text={
-      <Text
+      <Translate
         t={title}
         values={{
           companyName: "Kiwi.com",

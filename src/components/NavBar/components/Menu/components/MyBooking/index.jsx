@@ -15,7 +15,7 @@ import LogMount from "../../../../../LogMount";
 import InputText from "../../../../../InputText";
 import type { Change } from "../../../../../InputText";
 import IconText from "../../../../../IconText";
-import Text from "../../../../../Text";
+import Translate from "../../../../../Translate";
 import IataPicker from "../../../../../IataPicker";
 import InputDate from "../../../../../InputDate";
 import parseDateFormat from "../../../../../InputDate/services/parseDateFormat";
@@ -215,7 +215,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
 
               <FieldWrap>
                 <IconText icon={<Ticket color="primary" size="small" />}>
-                  <Text t={__("common.booking_number_colon")} />
+                  <Translate t={__("common.booking_number_colon")} />
                 </IconText>
                 <InputText
                   id="bid"
@@ -230,7 +230,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
               </FieldWrap>
               <FieldWrap>
                 <IconText icon={<Envelope color="primary" size="small" />}>
-                  <Text t={__("common.email_colon")} />
+                  <Translate t={__("common.email_colon")} />
                 </IconText>
                 <InputText
                   id="email"
@@ -254,7 +254,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
               </FieldWrap>
               <FieldWrap>
                 <IconText icon={<Calendar color="primary" size="small" />}>
-                  <Text t={__("common.departure_date_colon")} />
+                  <Translate t={__("common.departure_date_colon")} />
                 </IconText>
                 <InputDate
                   id="departure"
@@ -268,19 +268,19 @@ export default class MyBooking extends React.PureComponent<Props, State> {
               {error && (
                 <FieldWrap>
                   <Alert type="critical">
-                    <Text t={error} />
+                    <Translate t={error} />
                   </Alert>
                 </FieldWrap>
               )}
               {submitted && errorSync && (
                 <FieldWrap>
                   <Alert type="critical">
-                    <Text t={errorSync} />
+                    <Translate t={errorSync} />
                   </Alert>
                 </FieldWrap>
               )}
               <Button block submit onClick={this.handleSubmit} disabled={loading}>
-                <Text t={__("submit")} />
+                <Translate t={__("submit")} />
               </Button>
             </>
           )}

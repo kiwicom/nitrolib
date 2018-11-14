@@ -5,7 +5,7 @@ import AirplaneUp from "@kiwicom/orbit-components/lib/icons/AirplaneUp";
 import CarRental from "@kiwicom/orbit-components/lib/icons/CarRental";
 import Suitcase from "@kiwicom/orbit-components/lib/icons/Suitcase";
 
-import Text from "../Text";
+import Translate from "../Translate";
 import Link from "./Link";
 
 type Props = {|
@@ -32,7 +32,7 @@ const Links = ({
       inverted={inverted}
       newWindow={forceNewWindow}
       icon={<AirplaneUp />}
-      text={<Text t={__("search.service.travel_anywhere")} />}
+      text={<Translate t={__("search.service.travel_anywhere")} />}
     />
     {linkRooms && (
       <Link
@@ -41,7 +41,7 @@ const Links = ({
         inverted={inverted}
         newWindow
         icon={<Accommodation />}
-        text={<Text t={__("search.service.rooms")} />}
+        text={<Translate t={__("search.service.rooms")} />}
       />
     )}
     <Link
@@ -50,7 +50,7 @@ const Links = ({
       inverted={inverted}
       newWindow
       icon={<CarRental />}
-      text={<Text t={__("search.service.cars")} />}
+      text={<Translate t={__("search.service.cars")} />}
     />
     {linkHolidays && (
       <Link
@@ -58,7 +58,7 @@ const Links = ({
         newWindow
         inverted={inverted}
         icon={<Suitcase />}
-        text={<Text t={__("search.service.holidays")} />}
+        text={<Translate t={__("search.service.holidays")} />}
       />
     )}
   </>

@@ -12,7 +12,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Section, { StyledModalSection } from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import styled from "styled-components";
 
-import Text from "../Text";
+import Translate from "../Translate";
 import { Consumer } from "../../services/intl/context";
 
 // temporary fix for InputField width, will be fixed in orbit-components ASAP
@@ -52,15 +52,15 @@ const AccountLogin = ({
         <Section>
           <Illustration name={illustration || "Login"} size="small" spaceAfter="small" />
           <Heading element="h2" spaceAfter="small">
-            {text || <Text t={__("account.manage_your_bookings")} />}
+            {text || <Translate t={__("account.manage_your_bookings")} />}
           </Heading>
           <OrbitText spaceAfter="large">
-            <Text t={__("account.sign_in_description")} />
+            <Translate t={__("account.sign_in_description")} />
           </OrbitText>
         </Section>
         <Section>
           <OrbitText weight="bold" spaceAfter="medium">
-            <Text t={__("account.sign_in_description")} />
+            <Translate t={__("account.sign_in_description")} />
           </OrbitText>
           <Stack
             spaceAfter="small"
@@ -78,18 +78,18 @@ const AccountLogin = ({
               onChange={onEmailChange}
             />
             <Button onClick={onContinue}>
-              <Text t={__("account.continue")} />
+              <Translate t={__("account.continue")} />
             </Button>
           </Stack>
           <OrbitText size="small">
             <TextLink type="secondary" onClick={onNoAccount}>
-              <Text t={__("account.i_dont_have_account")} />
+              <Translate t={__("account.i_dont_have_account")} />
             </TextLink>
           </OrbitText>
         </Section>
         <Section suppressed>
           <OrbitText weight="bold" spaceAfter="medium">
-            <Text t={__("account.or_social_account")} />
+            <Translate t={__("account.or_social_account")} />
           </OrbitText>
           <Stack desktop={{ spacing: "natural", direction: "row", align: "end" }}>
             <Button
@@ -99,10 +99,10 @@ const AccountLogin = ({
               icon={<FacebookIcon />}
               onClick={onFacebookLogin}
             >
-              <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
+              <Translate t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
             </Button>
             <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
-              <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
+              <Translate t={__("account.log_in_with")} values={{ provider: "Google" }} />
             </Button>
           </Stack>
         </Section>

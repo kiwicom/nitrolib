@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 
 import * as rtl from "../../styles/rtl";
 import borderMixin, { getBorderState } from "../../styles/mixins/border";
-import Text from "../Text";
+import Translate from "../Translate";
 import TextNode from "../TextNode";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
@@ -203,7 +203,7 @@ class InputText extends React.PureComponent<Props, State> {
         <States>
           {borderState === "error" && (
             <Error active={active}>
-              <Text t={error} />
+              <Translate t={error} />
             </Error>
           )}
 

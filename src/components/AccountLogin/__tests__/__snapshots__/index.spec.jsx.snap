@@ -12,7 +12,7 @@ exports[`#AccountLogin render 1`] = `
       element="h2"
       spaceAfter="small"
     >
-      <Text
+      <Translate
         html={false}
         t="account.manage_your_bookings"
         values={Object {}}
@@ -21,7 +21,7 @@ exports[`#AccountLogin render 1`] = `
     <Text
       spaceAfter="large"
     >
-      <Text
+      <Translate
         html={false}
         t="account.sign_in_description"
         values={Object {}}
@@ -33,7 +33,7 @@ exports[`#AccountLogin render 1`] = `
       spaceAfter="medium"
       weight="bold"
     >
-      <Text
+      <Translate
         html={false}
         t="account.sign_in_description"
         values={Object {}}
@@ -59,7 +59,7 @@ exports[`#AccountLogin render 1`] = `
       <Button
         onClick={[Function]}
       >
-        <Text
+        <Translate
           html={false}
           t="account.continue"
           values={Object {}}
@@ -73,7 +73,7 @@ exports[`#AccountLogin render 1`] = `
         onClick={[Function]}
         type="secondary"
       >
-        <Text
+        <Translate
           html={false}
           t="account.i_dont_have_account"
           values={Object {}}
@@ -88,7 +88,7 @@ exports[`#AccountLogin render 1`] = `
       spaceAfter="medium"
       weight="bold"
     >
-      <Text
+      <Translate
         html={false}
         t="account.or_social_account"
         values={Object {}}
@@ -110,7 +110,7 @@ exports[`#AccountLogin render 1`] = `
         onClick={[Function]}
         type="facebook"
       >
-        <Text
+        <Translate
           html={false}
           t="account.log_in_with"
           values={
@@ -127,7 +127,7 @@ exports[`#AccountLogin render 1`] = `
         onClick={[Function]}
         type="google"
       >
-        <Text
+        <Translate
           html={false}
           t="account.log_in_with"
           values={

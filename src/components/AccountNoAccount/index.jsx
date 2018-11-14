@@ -13,7 +13,7 @@ import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import styled from "styled-components";
 
-import Text from "../Text";
+import Translate from "../Translate";
 
 // TODO: remove it after nitro update
 const Align = styled.div`
@@ -32,34 +32,34 @@ const AccountNoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }
     <Header>
       <Illustration name="NoBookings" size="small" />
       <Heading element="h2">
-        <Text t={__("account.no_bookings_or_account")} />
+        <Translate t={__("account.no_bookings_or_account")} />
       </Heading>
       <OrbitText>
-        <Text t={__("account.no_bookings_or_account_description")} />
+        <Translate t={__("account.no_bookings_or_account_description")} />
       </OrbitText>
     </Header>
     <Section>
       <Stack desktop={{ spacing: "natural" }}>
         <Button onClick={onRegister}>
-          <Text t={__("account.register")} />
+          <Translate t={__("account.register")} />
         </Button>
         <Align>
           <ButtonLink type="secondary" iconLeft={<ChevronLeft />} onClick={onBack}>
-            <Text t={__("account.back")} />
+            <Translate t={__("account.back")} />
           </ButtonLink>
         </Align>
       </Stack>
     </Section>
     <Section suppressed>
       <OrbitText weight="bold" spaceAfter="medium">
-        <Text t={__("account.or_social_account")} />
+        <Translate t={__("account.or_social_account")} />
       </OrbitText>
       <Stack desktop={{ spacing: "natural", direction: "row" }}>
         <Button type="facebook" block bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
-          <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
+          <Translate t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
         </Button>
         <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
-          <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
+          <Translate t={__("account.log_in_with")} values={{ provider: "Google" }} />
         </Button>
       </Stack>
     </Section>

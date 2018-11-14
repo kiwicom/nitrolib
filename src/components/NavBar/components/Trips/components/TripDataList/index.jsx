@@ -5,7 +5,7 @@ import type { Environment } from "react-relay";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import styled from "styled-components";
 
-import Text from "../../../../../Text";
+import Translate from "../../../../../Translate";
 import TripHeader from "../TripHeader";
 import TripList from "../TripList";
 import TripContainer from "../../../../../TripsContainer";
@@ -47,7 +47,7 @@ const TripDataList = ({ env, onSelect }: Props) => (
         return (
           <TripContainer positionMenuTablet={0} positionMenuDesktop={50}>
             <StateContainer>
-              <Text t={__("common.loading")} />
+              <Translate t={__("common.loading")} />
             </StateContainer>
           </TripContainer>
         );
@@ -59,7 +59,7 @@ const TripDataList = ({ env, onSelect }: Props) => (
           <TripContainer positionMenuTablet={0} positionMenuDesktop={50}>
             <StateContainer>
               <Alert>
-                <Text t={__("account.no_trips")} />
+                <Translate t={__("account.no_trips")} />
               </Alert>
             </StateContainer>
           </TripContainer>

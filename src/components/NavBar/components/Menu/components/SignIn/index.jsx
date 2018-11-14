@@ -14,7 +14,7 @@ import { themeDefault } from "../../../../../../records/Theme";
 import InputText from "../../../../../InputText";
 import LogMount from "../../../../../LogMount";
 import type { Change } from "../../../../../InputText";
-import Text from "../../../../../Text";
+import Translate from "../../../../../Translate";
 import firstFormError from "../../../../services/firstFormError";
 import compose from "../../../../../../services/input/composeValidator";
 import * as validators from "../../../../../../services/input/validators";
@@ -146,7 +146,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
 
         <FieldWrap>
           <IconText icon={<Envelope color="primary" size="small" />}>
-            <Text t={__("common.email.colon")} />
+            <Translate t={__("common.email.colon")} />
           </IconText>
           <InputText
             id="email"
@@ -163,7 +163,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
         <FieldWrap>
           {/* TODO: replace with Icon password after it will be added to Orbit */}
           <IconText icon={<Security color="primary" size="small" />}>
-            <Text t={__("account.password.colon")} />
+            <Translate t={__("account.password.colon")} />
           </IconText>
           <InputText
             id="password"
@@ -178,24 +178,24 @@ export default class SignIn extends React.PureComponent<Props, State> {
         {error && (
           <FieldWrap>
             <Alert type="critical">
-              <Text t={error} />
+              <Translate t={error} />
             </Alert>
           </FieldWrap>
         )}
         {submitted && errorSync && (
           <FieldWrap>
             <Alert type="critical">
-              <Text t={errorSync} />
+              <Translate t={errorSync} />
             </Alert>
           </FieldWrap>
         )}
         <Button block submit onClick={this.handleSubmit} disabled={loading}>
-          <Text t={__("account.sign_in")} />
+          <Translate t={__("account.sign_in")} />
         </Button>
         <FieldWrap>
           <FieldCentered>
             <TextLink onClick={onOpenForgotPassword}>
-              <Text t={__("account.forgot_password")} />
+              <Translate t={__("account.forgot_password")} />
               <ForgotPasswordArrow>
                 <FaLongArrowRight />
               </ForgotPasswordArrow>

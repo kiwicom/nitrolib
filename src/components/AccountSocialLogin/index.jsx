@@ -10,7 +10,7 @@ import Header from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
 import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import Text from "../Text";
+import Translate from "../Translate";
 
 type Props = {|
   email: string,
@@ -24,28 +24,28 @@ const AccountSocialLogin = ({ onAskSignInLink, onFacebookLogin, onGoogleLogin, e
     <Header>
       <Illustration name="Login" size="small" />
       <Heading element="h2">
-        <Text t={__("account.manage_your_bookings")} />
+        <Translate t={__("account.manage_your_bookings")} />
       </Heading>
       <OrbitText weight="bold">
-        <Text t={__("account.sign_in_description")} />
+        <Translate t={__("account.sign_in_description")} />
       </OrbitText>
     </Header>
     <Section>
       <Stack desktop={{ direction: "row" }}>
         <Button type="facebook" bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
-          <Text t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
+          <Translate t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
         </Button>
         <Button type="google" bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
-          <Text t={__("account.log_in_with")} values={{ provider: "Google" }} />
+          <Translate t={__("account.log_in_with")} values={{ provider: "Google" }} />
         </Button>
       </Stack>
     </Section>
     <Section>
       <OrbitText spaceAfter="normal">
-        <Text t={__("account.send_link_to")} values={{ email }} />
+        <Translate t={__("account.send_link_to")} values={{ email }} />
       </OrbitText>
       <Button type="secondary" onClick={onAskSignInLink}>
-        <Text t={__("account.ask_sign_in_link")} />
+        <Translate t={__("account.ask_sign_in_link")} />
       </Button>
     </Section>
   </>

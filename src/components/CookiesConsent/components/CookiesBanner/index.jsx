@@ -6,7 +6,7 @@ import MdClose from "react-icons/lib/md/close";
 import mq from "../../../../styles/mq";
 import * as rtl from "../../../../styles/rtl";
 import linkMixin from "../../../../styles/mixins/link";
-import Text from "../../../Text";
+import Translate from "../../../Translate";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 
@@ -74,7 +74,7 @@ type Props = {|
 const CookiesBanner = ({ onAccept }: Props) => (
   <Container data-test="cookie">
     <Message>
-      <Text t={__("content.cookies.banner.text")} html />
+      <Translate t={__("content.cookies.banner.text")} html />
     </Message>
     <AcceptButton data-test="close" onClick={onAccept}>
       <Close />

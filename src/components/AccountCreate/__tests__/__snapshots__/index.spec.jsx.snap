@@ -10,13 +10,13 @@ exports[`#AccountCreate render 1`] = `
     <Heading
       element="h2"
     >
-      <Text
+      <Translate
         html={false}
         t="account.create_account"
         values={Object {}}
       />
     </Heading>
-    <Text
+    <Translate
       html={false}
       t="account.create_account_description"
       values={Object {}}
@@ -52,7 +52,7 @@ exports[`#AccountCreate render 1`] = `
       <Button
         onClick={[Function]}
       >
-        <Text
+        <Translate
           html={false}
           t="account.create"
           values={Object {}}
@@ -61,7 +61,7 @@ exports[`#AccountCreate render 1`] = `
       <Text
         size="small"
       >
-        <Text
+        <Translate
           html={true}
           t="account.terms_and_privacy_policy"
           values={Object {}}
