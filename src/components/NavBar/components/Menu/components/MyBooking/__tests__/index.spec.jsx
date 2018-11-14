@@ -100,8 +100,10 @@ describe("#MyBooking", () => {
     wrapper.instance().handleSelectIata("VIE");
     wrapper.instance().handleChangeDeparture(date);
 
-    await wrapper.instance().handleSubmit();
+    const ev = { preventDefault: jest.fn() };
+    await wrapper.instance().handleSubmit(ev);
 
+    expect(ev.preventDefault).toBeCalled();
     expect(wrapper.state("submitted")).toBe(true);
     expect(onMyBooking).toBeCalledWith({
       bid: "1234",
@@ -112,13 +114,27 @@ describe("#MyBooking", () => {
     expect(wrapper.state("error")).toBe("");
   });
 
+  test("handle submit loading", async () => {
+    const onMyBooking = jest.fn().mockImplementation(() => Promise.resolve());
+    const wrapper = shallow(
+      <MyBooking loading onMyBooking={onMyBooking} onCloseSuccess={jest.fn()} />,
+    );
+
+    await wrapper.instance().handleSubmit({ preventDefault: jest.fn() });
+    wrapper.update();
+
+    expect(onMyBooking).not.toBeCalled();
+    expect(wrapper.state("submitted")).toBe(false);
+    expect(wrapper.state("error")).toBe("");
+  });
+
   test("handle submit form error", async () => {
     const onMyBooking = jest.fn().mockImplementation(() => Promise.resolve());
     const wrapper = shallow(
       <MyBooking loading={false} onMyBooking={onMyBooking} onCloseSuccess={jest.fn()} />,
     );
 
-    await wrapper.instance().handleSubmit();
+    await wrapper.instance().handleSubmit({ preventDefault: jest.fn() });
     wrapper.update();
 
     expect(onMyBooking).not.toBeCalled();
@@ -142,7 +158,7 @@ describe("#MyBooking", () => {
     wrapper.instance().handleSelectIata("VIE");
     wrapper.instance().handleChangeDeparture(date);
 
-    await wrapper.instance().handleSubmit();
+    await wrapper.instance().handleSubmit({ preventDefault: jest.fn() });
 
     expect(wrapper.state("error")).toBe("common.api_error");
     expect(wrapper).toMatchSnapshot();

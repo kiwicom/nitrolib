@@ -81,11 +81,13 @@ export default class ForgotPassword extends React.PureComponent<Props, State> {
     });
   };
 
-  handleSubmit = () => {
-    const { brandId, resetPassword } = this.props;
-    const { email } = this.state;
+  handleSubmit = (ev: SyntheticEvent<HTMLFormElement>) => {
+    ev.preventDefault();
 
-    if (email.error) {
+    const { brandId, resetPassword } = this.props;
+    const { loading, email } = this.state;
+
+    if (loading || email.error) {
       return Promise.resolve();
     }
 
@@ -128,46 +130,42 @@ export default class ForgotPassword extends React.PureComponent<Props, State> {
 
     return (
       <Container>
-        <LogMount event={{ event: OPEN_MODAL, data: { modal: "forgotPassword" } }} />
-
-        {error && (
-          <FieldWrap>
-            <Alert type="critical">
-              <Translate t={__("common.api_error")} />
-            </Alert>
-          </FieldWrap>
-        )}
-        <Text>
-          <Translate t={__("account.enter_your_email")} />
-        </Text>
-        <FieldWrap>
-          <IconText icon={<Envelope color="primary" size="small" />}>
-            <Translate t={__("common.email.colon")} />
-          </IconText>
-          <InputText
-            id="email"
-            value={email.value}
-            error={email.error}
-            onChange={this.handleChange}
-            normalize={normalizers.email}
-            validate={emailValidator}
-            corrector={emailCorrector}
-            autocomplete="email"
-            showState={submitted}
-          />
-        </FieldWrap>
-        <Button
-          block
-          size="large"
-          onClick={this.handleSubmit}
-          disabled={loading || Boolean(email.error)}
-        >
-          {loading ? (
-            <Translate t={__("common.loading")} />
-          ) : (
-            <Translate t={__("account.reset_password")} />
+        <form onSubmit={this.handleSubmit}>
+          <LogMount event={{ event: OPEN_MODAL, data: { modal: "forgotPassword" } }} />
+          {error && (
+            <FieldWrap>
+              <Alert type="critical">
+                <Translate t={__("common.api_error")} />
+              </Alert>
+            </FieldWrap>
           )}
-        </Button>
+          <Text>
+            <Translate t={__("account.enter_your_email")} />
+          </Text>
+          <FieldWrap>
+            <IconText icon={<Envelope color="primary" size="small" />}>
+              <Translate t={__("common.email.colon")} />
+            </IconText>
+            <InputText
+              id="email"
+              value={email.value}
+              error={email.error}
+              onChange={this.handleChange}
+              normalize={normalizers.email}
+              validate={emailValidator}
+              corrector={emailCorrector}
+              autocomplete="email"
+              showState={submitted}
+            />
+          </FieldWrap>
+          <Button block size="large" disabled={loading || Boolean(email.error)}>
+            {loading ? (
+              <Translate t={__("common.loading")} />
+            ) : (
+              <Translate t={__("account.reset_password")} />
+            )}
+          </Button>
+        </form>
       </Container>
     );
   }

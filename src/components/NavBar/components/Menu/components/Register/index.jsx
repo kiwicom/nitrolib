@@ -139,9 +139,15 @@ export default class Register extends React.PureComponent<Props, State> {
     }));
   };
 
-  handleSubmit = () => {
-    const { onRegister, onCloseSuccess } = this.props;
+  handleSubmit = (ev: SyntheticEvent<HTMLFormElement>) => {
+    ev.preventDefault();
+
+    const { loading, onRegister, onCloseSuccess } = this.props;
     const { fields } = this.state;
+
+    if (loading) {
+      return Promise.resolve(null);
+    }
 
     this.setState({ submitted: true });
     if (!isEmptish(R.map(R.prop("error"), fields))) {
@@ -164,12 +170,6 @@ export default class Register extends React.PureComponent<Props, State> {
       });
   };
 
-  handleSubmitForm = (ev: SyntheticEvent<HTMLFormElement>) => {
-    ev.preventDefault();
-
-    this.handleSubmit();
-  };
-
   render() {
     const { fields, submitted, error } = this.state;
     const { loading } = this.props;
@@ -177,7 +177,7 @@ export default class Register extends React.PureComponent<Props, State> {
     const errorSync = firstFormError(fields);
 
     return (
-      <form onSubmit={this.handleSubmitForm}>
+      <form onSubmit={this.handleSubmit}>
         <Query onMount={this.handleMount} />
         <LogMount event={{ event: OPEN_MODAL, data: { modal: "register" } }} />
 
@@ -258,7 +258,7 @@ export default class Register extends React.PureComponent<Props, State> {
             </Alert>
           </FieldWrap>
         )}
-        <Button block submit onClick={this.handleSubmit} disabled={loading}>
+        <Button block submit disabled={loading}>
           <Translate t={__("account.sign_up")} />
         </Button>
       </form>

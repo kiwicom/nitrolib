@@ -164,9 +164,15 @@ export default class MyBooking extends React.PureComponent<Props, State> {
     }));
   };
 
-  handleSubmit = () => {
-    const { onMyBooking, onCloseSuccess } = this.props;
+  handleSubmit = (ev: SyntheticEvent<HTMLFormElement>) => {
+    ev.preventDefault();
+
+    const { loading, onMyBooking, onCloseSuccess } = this.props;
     const { fields } = this.state;
+
+    if (loading) {
+      return Promise.resolve(null);
+    }
 
     this.setState({ submitted: true, error: "" });
     // $FlowExpected: Date !== string
@@ -193,12 +199,6 @@ export default class MyBooking extends React.PureComponent<Props, State> {
       });
   };
 
-  handleSubmitForm = (ev: SyntheticEvent<HTMLFormElement>) => {
-    ev.preventDefault();
-
-    this.handleSubmit();
-  };
-
   render() {
     const { fields, submitted, error } = this.state;
     const { loading } = this.props;
@@ -206,7 +206,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
     const errorSync = firstFormError(fields);
 
     return (
-      <form onSubmit={this.handleSubmitForm}>
+      <form onSubmit={this.handleSubmit}>
         <IntlConsumer>
           {intl => (
             <>
@@ -279,7 +279,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                   </Alert>
                 </FieldWrap>
               )}
-              <Button block submit onClick={this.handleSubmit} disabled={loading}>
+              <Button block submit disabled={loading}>
                 <Translate t={__("submit")} />
               </Button>
             </>

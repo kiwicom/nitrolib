@@ -69,6 +69,27 @@ describe("#SideBar/ForgotPassword", () => {
     expect(wrapper.state("email").error).toBe("error");
   });
 
+  test("handle submit - loading", async () => {
+    const resetPassword = jest.fn(() => Promise.resolve());
+
+    const wrapper = shallow(
+      <ForgotPassword brandId="kiwicom" onClose={jest.fn()} resetPassword={resetPassword} />,
+    );
+
+    wrapper.instance().setState({ loading: true });
+    const ev = { preventDefault: jest.fn() };
+    const result = wrapper.instance().handleSubmit(ev);
+
+    expect(ev.preventDefault).toBeCalled();
+    expect(resetPassword).not.toBeCalled();
+
+    await result;
+
+    expect(wrapper.state("loading")).toBe(true);
+    expect(wrapper.state("submitted")).toBe(false);
+    expect(wrapper.state("error")).toBe(null);
+  });
+
   test("handle submit - invalid email", async () => {
     const resetPassword = jest.fn(() => Promise.resolve());
 
@@ -77,7 +98,7 @@ describe("#SideBar/ForgotPassword", () => {
     );
 
     wrapper.instance().setState({ email: { error: "invalid", value: "" } });
-    const result = wrapper.instance().handleSubmit();
+    const result = wrapper.instance().handleSubmit({ preventDefault: jest.fn() });
 
     expect(resetPassword).not.toBeCalled();
 
@@ -96,7 +117,7 @@ describe("#SideBar/ForgotPassword", () => {
     );
 
     wrapper.instance().setState({ email: { error: null, value: "test@kiwi.com" } });
-    const result = wrapper.instance().handleSubmit();
+    const result = wrapper.instance().handleSubmit({ preventDefault: jest.fn() });
 
     expect(wrapper.state("loading")).toBe(true);
     expect(resetPassword).toBeCalledWith("test@kiwi.com", "kiwicom");
@@ -116,7 +137,7 @@ describe("#SideBar/ForgotPassword", () => {
     );
 
     wrapper.instance().setState({ email: { error: null, value: "test@kiwi.com" } });
-    const result = wrapper.instance().handleSubmit();
+    const result = wrapper.instance().handleSubmit({ preventDefault: jest.fn() });
 
     expect(wrapper.state("loading")).toBe(true);
     expect(resetPassword).toBeCalledWith("test@kiwi.com", "kiwicom");

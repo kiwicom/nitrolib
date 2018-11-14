@@ -387,62 +387,65 @@ exports[`#SideBar/ForgotPassword render 1`] = `
     }
   }
 >
-  <LogMount
-    event={
-      Object {
-        "data": Object {
-          "modal": "forgotPassword",
-        },
-        "event": "OPEN_MODAL",
+  <form
+    onSubmit={[Function]}
+  >
+    <LogMount
+      event={
+        Object {
+          "data": Object {
+            "modal": "forgotPassword",
+          },
+          "event": "OPEN_MODAL",
+        }
       }
-    }
-  />
-  <Text>
-    <Translate
-      html={false}
-      t="account.enter_your_email"
-      values={Object {}}
     />
-  </Text>
-  <ForgotPassword__FieldWrap>
-    <IconText
-      icon={
-        <Email
-          color="primary"
-          size="small"
+    <Text>
+      <Translate
+        html={false}
+        t="account.enter_your_email"
+        values={Object {}}
+      />
+    </Text>
+    <ForgotPassword__FieldWrap>
+      <IconText
+        icon={
+          <Email
+            color="primary"
+            size="small"
+          />
+        }
+      >
+        <Translate
+          html={false}
+          t="common.email.colon"
+          values={Object {}}
         />
-      }
+      </IconText>
+      <ForwardRef
+        autocomplete="email"
+        corrector={[Function]}
+        error="forms.this_field_must_be_filled"
+        id="email"
+        normalize={[Function]}
+        onChange={[Function]}
+        showState={false}
+        validate={[Function]}
+        value=""
+      />
+    </ForgotPassword__FieldWrap>
+    <Button
+      block={true}
+      disabled={true}
+      size="large"
     >
       <Translate
         html={false}
-        t="common.email.colon"
+        t="account.reset_password"
         values={Object {}}
       />
-    </IconText>
-    <ForwardRef
-      autocomplete="email"
-      corrector={[Function]}
-      error="forms.this_field_must_be_filled"
-      id="email"
-      normalize={[Function]}
-      onChange={[Function]}
-      showState={false}
-      validate={[Function]}
-      value=""
-    />
-  </ForgotPassword__FieldWrap>
-  <Button
-    block={true}
-    disabled={true}
-    onClick={[Function]}
-    size="large"
-  >
-    <Translate
-      html={false}
-      t="account.reset_password"
-      values={Object {}}
-    />
-  </Button>
+    </Button>
+  </form>
 </ForgotPassword__Container>
 `;
 
@@ -833,73 +836,76 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
     }
   }
 >
-  <LogMount
-    event={
-      Object {
-        "data": Object {
-          "modal": "forgotPassword",
-        },
-        "event": "OPEN_MODAL",
-      }
-    }
-  />
-  <ForgotPassword__FieldWrap>
-    <Alert
-      type="critical"
-    >
-      <Translate
-        html={false}
-        t="common.api_error"
-        values={Object {}}
-      />
-    </Alert>
-  </ForgotPassword__FieldWrap>
-  <Text>
-    <Translate
-      html={false}
-      t="account.enter_your_email"
-      values={Object {}}
-    />
-  </Text>
-  <ForgotPassword__FieldWrap>
-    <IconText
-      icon={
-        <Email
-          color="primary"
-          size="small"
-        />
-      }
-    >
-      <Translate
-        html={false}
-        t="common.email.colon"
-        values={Object {}}
-      />
-    </IconText>
-    <ForwardRef
-      autocomplete="email"
-      corrector={[Function]}
-      error="forms.this_field_must_be_filled"
-      id="email"
-      normalize={[Function]}
-      onChange={[Function]}
-      showState={false}
-      validate={[Function]}
-      value=""
-    />
-  </ForgotPassword__FieldWrap>
-  <Button
-    block={true}
-    disabled={true}
-    onClick={[Function]}
-    size="large"
+  <form
+    onSubmit={[Function]}
   >
-    <Translate
-      html={false}
-      t="account.reset_password"
-      values={Object {}}
+    <LogMount
+      event={
+        Object {
+          "data": Object {
+            "modal": "forgotPassword",
+          },
+          "event": "OPEN_MODAL",
+        }
+      }
     />
-  </Button>
+    <ForgotPassword__FieldWrap>
+      <Alert
+        type="critical"
+      >
+        <Translate
+          html={false}
+          t="common.api_error"
+          values={Object {}}
+        />
+      </Alert>
+    </ForgotPassword__FieldWrap>
+    <Text>
+      <Translate
+        html={false}
+        t="account.enter_your_email"
+        values={Object {}}
+      />
+    </Text>
+    <ForgotPassword__FieldWrap>
+      <IconText
+        icon={
+          <Email
+            color="primary"
+            size="small"
+          />
+        }
+      >
+        <Translate
+          html={false}
+          t="common.email.colon"
+          values={Object {}}
+        />
+      </IconText>
+      <ForwardRef
+        autocomplete="email"
+        corrector={[Function]}
+        error="forms.this_field_must_be_filled"
+        id="email"
+        normalize={[Function]}
+        onChange={[Function]}
+        showState={false}
+        validate={[Function]}
+        value=""
+      />
+    </ForgotPassword__FieldWrap>
+    <Button
+      block={true}
+      disabled={true}
+      size="large"
+    >
+      <Translate
+        html={false}
+        t="account.reset_password"
+        values={Object {}}
+      />
+    </Button>
+  </form>
 </ForgotPassword__Container>
 `;
 
@@ -1311,62 +1317,65 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
     }
   }
 >
-  <LogMount
-    event={
-      Object {
-        "data": Object {
-          "modal": "forgotPassword",
-        },
-        "event": "OPEN_MODAL",
+  <form
+    onSubmit={[Function]}
+  >
+    <LogMount
+      event={
+        Object {
+          "data": Object {
+            "modal": "forgotPassword",
+          },
+          "event": "OPEN_MODAL",
+        }
       }
-    }
-  />
-  <Text>
-    <Translate
-      html={false}
-      t="account.enter_your_email"
-      values={Object {}}
     />
-  </Text>
-  <ForgotPassword__FieldWrap>
-    <IconText
-      icon={
-        <Email
-          color="primary"
-          size="small"
+    <Text>
+      <Translate
+        html={false}
+        t="account.enter_your_email"
+        values={Object {}}
+      />
+    </Text>
+    <ForgotPassword__FieldWrap>
+      <IconText
+        icon={
+          <Email
+            color="primary"
+            size="small"
+          />
+        }
+      >
+        <Translate
+          html={false}
+          t="common.email.colon"
+          values={Object {}}
         />
-      }
+      </IconText>
+      <ForwardRef
+        autocomplete="email"
+        corrector={[Function]}
+        error="forms.this_field_must_be_filled"
+        id="email"
+        normalize={[Function]}
+        onChange={[Function]}
+        showState={false}
+        validate={[Function]}
+        value=""
+      />
+    </ForgotPassword__FieldWrap>
+    <Button
+      block={true}
+      disabled={true}
+      size="large"
     >
       <Translate
         html={false}
-        t="common.email.colon"
+        t="common.loading"
         values={Object {}}
       />
-    </IconText>
-    <ForwardRef
-      autocomplete="email"
-      corrector={[Function]}
-      error="forms.this_field_must_be_filled"
-      id="email"
-      normalize={[Function]}
-      onChange={[Function]}
-      showState={false}
-      validate={[Function]}
-      value=""
-    />
-  </ForgotPassword__FieldWrap>
-  <Button
-    block={true}
-    disabled={true}
-    onClick={[Function]}
-    size="large"
-  >
-    <Translate
-      html={false}
-      t="common.loading"
-      values={Object {}}
-    />
-  </Button>
+    </Button>
+  </form>
 </ForgotPassword__Container>
 `;
 
