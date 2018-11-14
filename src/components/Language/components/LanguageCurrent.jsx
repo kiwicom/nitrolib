@@ -21,7 +21,7 @@ const LanguageCurrent = ({ language }: Props) => (
     {({ inverted }) => (
       <Container>
         {/* $FlowExpected - their props are too specific */}
-        <CountryFlag code={language.flag} />
+        <CountryFlag code={language.flag} name={language.displayName} />
         <LanguageNameText inverted={inverted}>{language.displayName}</LanguageNameText>
       </Container>
     )}
