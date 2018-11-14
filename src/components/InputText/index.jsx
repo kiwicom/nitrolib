@@ -220,10 +220,10 @@ class InputText extends React.PureComponent<Props, State> {
 
 type RefProps = {
   ...Props,
-  ref: (node: HTMLInputElement) => void,
+  ref?: (node: HTMLInputElement) => void,
 };
 
-// $FlowIssue - forwardRef is legit
+// $FlowExpected: forwardRef is legit
 const InputTextRef: React.ComponentType<RefProps> = React.forwardRef((props, ref) => (
   <InputText {...props} forwardedRef={ref} />
 ));

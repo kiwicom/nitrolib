@@ -17,7 +17,7 @@ describe("#CloseByKey", () => {
 
   test("close on specified key", () => {
     const map = {};
-    // $FlowIssue
+    // $FlowExpected: TODO describe
     document.body.addEventListener = jest.fn((event, cb) => {
       map[event] = cb;
     });
@@ -38,7 +38,7 @@ describe("#CloseByKey", () => {
 
   test("not close on other keys", () => {
     const map = {};
-    // $FlowIssue
+    // $FlowExpected: TODO describe
     document.body.addEventListener = jest.fn((event, cb) => {
       map[event] = cb;
     });
@@ -59,12 +59,12 @@ describe("#CloseByKey", () => {
 
   test("stop listening on unmount", () => {
     const map = {};
-    // $FlowIssue
+    // $FlowExpected: TODO describe
     document.body.addEventListener = jest.fn((event, cb) => {
       map[event] = cb;
     });
     const removeListener = jest.fn();
-    // $FlowIssue
+    // $FlowExpected: TODO describe
     document.body.removeEventListener = removeListener;
 
     const onClose = jest.fn();

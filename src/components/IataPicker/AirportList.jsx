@@ -17,7 +17,7 @@ const AirportList = ({ list, onSelect }: Props): React.Node[] | null =>
         .map(edge => edge && edge.node)
         .filter(Boolean)
         .map(item => (
-          // $FlowExpected - Relay type issue
+          // $FlowExpected: Relay type issue
           <AirportResult key={item.locationId} item={item} onClick={onSelect} />
         ));
 

@@ -13,7 +13,7 @@ const TextNode = ({ t, values }: Props) => (
     {intl => (
       <>
         {Object.keys(values).reduce(
-          // $FlowFixMe we're transforming string[] to React.Node[]
+          // $FlowExpected: we're transforming string[] to React.Node[]
           (words, key) => words.map(word => (word === key ? values[key] : word)),
           intl.translate(t).split("__"),
         )}

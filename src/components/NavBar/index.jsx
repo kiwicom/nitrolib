@@ -101,7 +101,7 @@ const NavBar = ({
   onSelectTrip,
   onLogoClick,
 }: Props) => (
-  // $FlowFixMe
+  // $FlowExpected: TODO describe
   <React.StrictMode>
     <InvertedProvider value={{ inverted }}>
       <Container x="space-between" y="center" dataTest="Navbar" inverted={inverted}>

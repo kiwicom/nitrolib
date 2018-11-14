@@ -51,7 +51,7 @@ const LanguageName = ({ language }: Props) => {
 
   return (
     <Container>
-      {/* $FlowExpected - their props are too specific */}
+      {/* $FlowExpected: their props are too specific */}
       <CountryFlag code={language.flag} name={`${primary} ${secondary}`} />
       <LanguageNameTextThicc>{primary}</LanguageNameTextThicc>
       <LanguageNameTextLean>{secondary}</LanguageNameTextLean>

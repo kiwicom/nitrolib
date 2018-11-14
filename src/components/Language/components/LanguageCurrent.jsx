@@ -20,7 +20,7 @@ const LanguageCurrent = ({ language }: Props) => (
   <InvertedConsumer>
     {({ inverted }) => (
       <Container>
-        {/* $FlowExpected - their props are too specific */}
+        {/* $FlowExpected: their props are too specific */}
         <CountryFlag code={language.flag} name={language.displayName} />
         <LanguageNameText inverted={inverted}>{language.displayName}</LanguageNameText>
       </Container>

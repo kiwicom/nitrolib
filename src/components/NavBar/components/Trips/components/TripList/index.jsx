@@ -32,15 +32,15 @@ const TripList = ({ list, onSelect }: Props) => {
         firstTwo.map(item => {
           /* eslint-disable no-underscore-dangle */
           if (item.__typename === "BookingOneWay") {
-            /* $FlowIssue */
+            /* $FlowExpected: TODO describe */
             return <OneWayTrips key={item.id} item={item} onSelect={onSelect} />;
           }
           if (item.__typename === "BookingReturn") {
-            /* $FlowIssue */
+            /* $FlowExpected: TODO describe */
             return <ReturnTrips key={item.id} item={item} onSelect={onSelect} />;
           }
           if (item.__typename === "BookingMulticity") {
-            /* $FlowIssue */
+            /* $FlowExpected: TODO describe */
             return <MulticityTrips key={item.id} item={item} onSelect={onSelect} />;
           }
           /* eslint-enable no-underscore-danble */

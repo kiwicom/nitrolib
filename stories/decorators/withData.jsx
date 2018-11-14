@@ -48,7 +48,7 @@ const withData = (storyFn: () => React.Node) => {
 
   return (
     <BrandProvider value={brand}>
-      {/* $FlowExpected - ThemeProvider has bad typedefs */}
+      {/* $FlowExpected: ThemeProvider has bad typedefs */}
       <ThemeProvider theme={getBrandTheme(brand, language.direction === "rtl")}>
         <InitIntl raw={intlRaw}>
           {intl => (

@@ -18,7 +18,11 @@ types/
 
 [options]
 emoji=true
-suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe
-suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
-suppress_comment=\\(.\\|\n\\)*\\$FlowExpected
+
+# This option lets you alias 'any' with a given string
+suppress_type=$FlowFixMe
+
+suppress_comment=\\(.\\|\n\\)*\\$FlowIssue: https://github.com/facebook/flow/issues/[0-9]+
+suppress_comment=\\(.\\|\n\\)*\\$FlowExpected: .+
+
 esproposal.optional_chaining=enable

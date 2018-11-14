@@ -35,7 +35,7 @@ const NativePicker = ({ current, languages, favorite, hideNativeText, onChange }
             { key: "all", items: mapLanguages(languages) },
           ]
     }
-    // $FlowExpected - type too specific
+    // $FlowExpected: type too specific
     icon={<CountryFlag code={current.flag} />}
     hideNativeText={hideNativeText}
     onChange={onChange}

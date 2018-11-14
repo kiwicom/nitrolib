@@ -37,7 +37,7 @@ const AirportListData = ({ value, onSelect, environment }: Props) => (
         return null;
       }
 
-      // $FlowFixMe
+      // $FlowExpected: TODO describe
       return <AirportList list={res.props.allLocations} onSelect={onSelect} />;
     }}
   />

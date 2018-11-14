@@ -156,7 +156,7 @@ export default class Menu extends React.Component<Props, State> {
               <Modal onClose={this.handleClose} size="normal">
                 <ModalSection>
                   <Login
-                    // $FlowIssue 'modalOpen' can only be one of these things
+                    // $FlowExpected: 'modalOpen' can only be one of these things
                     open={modalOpen}
                     onCloseSuccess={this.handleClose}
                     onOpenMyBooking={this.handleOpenMyBooking}

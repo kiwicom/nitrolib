@@ -6,5 +6,5 @@ type Inverted = {|
   inverted?: boolean,
 |};
 
-// $FlowFixMe
+// $FlowExpected: TODO describe
 export const { Consumer, Provider } = React.createContext(({ inverted: false }: Inverted));

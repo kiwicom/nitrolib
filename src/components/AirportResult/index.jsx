@@ -69,7 +69,7 @@ class AirportResult extends React.PureComponent<Props> {
     const country = item.country?.locationId || "anywhere";
     return (
       <Container onClick={this.handleClick} selected={selected}>
-        {/* $FlowExpected - CountryFlag's types are way too explicit */}
+        {/* $FlowExpected: CountryFlag's types are way too explicit */}
         <CountryFlag code={country.toLowerCase()} />
         <Name>{`${String(item.city?.name)} (${String(item.locationId)})`}</Name>
       </Container>

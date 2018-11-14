@@ -6,7 +6,7 @@ import ClickOutside from "..";
 
 describe("#ClickOutside", () => {
   test("mount", () => {
-    // $FlowExpected
+    // $FlowExpected: TODO describe
     document.addEventListener = jest.fn();
     const wrapper = mount(<ClickOutside onClickOutside={jest.fn()}>kek</ClickOutside>);
 
@@ -16,7 +16,7 @@ describe("#ClickOutside", () => {
   });
 
   test("unmount", () => {
-    // $FlowExpected
+    // $FlowExpected: TODO describe
     document.removeEventListener = jest.fn();
     const wrapper = shallow(<ClickOutside onClickOutside={jest.fn()}>kek</ClickOutside>);
 

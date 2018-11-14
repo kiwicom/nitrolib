@@ -23,7 +23,7 @@ type Props = {|
   direction?: string,
 |};
 
-// $FlowFixMe
+// $FlowExpected: TODO describe
 const ButtonLink: ReactComponentFunctional<Props, ThemeProps> = styled(Button);
 
 ButtonLink.defaultProps = {
