@@ -15,6 +15,10 @@ const mapLanguages = require("./scripts/mapLanguages");
 
 const command = process.argv[2];
 
+const OUT = path.join(process.cwd(), "data");
+const TRANSLATIONS = path.join(process.cwd(), "node_modules/@kiwicom/translations/lib");
+const TKEYS = path.join(OUT, "tkeys.json");
+
 function log(what) {
   console.log(`${chalk.bold.green(">")} ${what}`);
 }
@@ -59,9 +63,21 @@ function keys(globs) {
   );
 }
 
-function fetch(folder) {
+function fetch() {
+  if (!fs.existsSync(TRANSLATIONS)) {
+    error("'fetch' requires the '@kiwicom/translations' module to be installed.");
+    return;
+  }
+
+  if (!fs.existsSync(TKEYS)) {
+    error(
+      "'fetch' requires collecting translation keys to a 'data/tkeys.json' file! This can be done using the 'nitro keys <globs>' command.",
+    );
+    return;
+  }
+
   Promise.all([fetchSpreadsheet(), fetchBrandConfig()])
-    .then(() => getTranslations(folder && resolve(folder)))
+    .then(() => getTranslations(TKEYS, TRANSLATIONS))
     .then(mapLanguages)
     .then(() => {
       log("DONE!");
@@ -77,5 +93,5 @@ if (command === commands.keys) {
 }
 
 if (command === commands.fetch) {
-  fetch(process.argv[3]);
+  fetch();
 }

@@ -2,12 +2,10 @@
 const fs = require("fs-extra");
 const path = require("path");
 const crypto = require("crypto");
-const fetch = require("node-fetch");
 const R = require("ramda");
 
 const OUT = path.join(process.cwd(), "data");
 const LANGS = path.join(OUT, "languages.json");
-const TKEYS = path.join(OUT, "tkeys.json");
 
 const makeFilename = (locale, hash) => `translations/${locale}_${hash}.json`;
 
@@ -18,37 +16,19 @@ type Intl = {|
 |};
 */
 
-function getLocale(locale, folder) /* : Promise<Intl> */ {
-  if (folder) {
-    return Promise.resolve({
-      locale,
-      translations: fs.readJsonSync(path.join(folder, `${locale}.json`)),
-    });
-  }
-
-  return fetch(`https://nitro-word.skypicker.com/${locale}`).then(res => {
-    if (!res.ok) {
-      return Promise.reject(new Error(`Failed to load translations for '${locale}'`));
-    }
-
-    return res.json();
+const getLocale = (locale, folder) /* : Promise<Intl> */ =>
+  Promise.resolve({
+    locale,
+    translations: fs.readJsonSync(path.join(folder, `${locale}.json`)),
   });
-}
 
-function getTranslations(folder /* : ?string */) /* : Promise<void> */ {
+function getTranslations(keys, folder) /* : Promise<void> */ {
   if (!fs.existsSync(LANGS)) {
     return Promise.reject(new Error("Translations require fetching 'data/languages.json'!"));
   }
-  const langs = fs.readJsonSync(LANGS);
 
-  if (!fs.existsSync(TKEYS)) {
-    return Promise.reject(
-      new Error(
-        "Translations require collecting translation keys to a 'data/tkeys.json' file! This can be done using the 'nitro keys <globs>' command.",
-      ),
-    );
-  }
-  const tkeys = fs.readJsonSync(TKEYS);
+  const langs = fs.readJsonSync(LANGS);
+  const tkeys = fs.readJsonSync(keys);
 
   return Promise.all(
     R.map(

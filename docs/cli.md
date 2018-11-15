@@ -26,16 +26,16 @@ Collects translation keys wrapped in the `__` function.
 
 ## Fetch
 
-* `yarn nitro fetch [?translations]`
+* `yarn nitro fetch`
 
-Fetches production data. Requires the `data/tkeys.json` file to exist due to translation whitelisting, see the `keys` command.
+Fetches production data.
 
-**Args:**
-* `translations` (optional) - path to a folder with translation files, named `<locale>.json`
+**Requires:**
+* The `data/tkeys.json` file to exist due to translation whitelisting, see the `keys` command
+* The `@kiwicom/translations` package installed
 
 **Example:**
-* `yarn nitro fetch` - fetches data and translations from *Word*
-* `yarn nitro fetch ./node_modules/@kiwicom/translations/lib` - fetches data and translations from the `@kiwicom/translations` NPM package
+* `yarn nitro fetch` - fetches data and translations
 
 **Files:**
 * `translations/<locale>_<hash>.json` - translations for the given _locale_, cache-busted with the commit _hash_

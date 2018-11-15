@@ -2378,7 +2378,7 @@
     "direction": "ltr",
     "flag": "by",
     "fontSubsets": "greek,latin-ext",
-    "firstNamePlaceholder": "Ivan Sergeyevich",
+    "firstNamePlaceholder": "Ivan",
     "middleNamePlaceholder": "",
     "lastNamePlaceholder": "Petrov",
     "addressPlaceholder": "109 Wall Stt",

@@ -4643,7 +4643,7 @@
             "id": "nz"
           },
           "ja": {
-            "native_support": "Mon - Fri 2am-10am CEST; English 24/7",
+            "native_support": "Mon - Fri 1am-9am CEST; English 24/7",
             "number": "81 34 580 7554",
             "id": "ja"
           },
@@ -4793,7 +4793,7 @@
             "id": "sg"
           },
           "ko": {
-            "native_support": "Mon - Fri 2am-10am CEST; English 24/7",
+            "native_support": "Mon - Fri 1am-9am CEST; English 24/7",
             "number": "82 7047844329",
             "id": "ko"
           },
@@ -6781,7 +6781,7 @@
         "enabled": false
       }
     },
-    "base_url": "https://nizkocenovci.si",
+    "base_url": "https://www.nizkocenovci.si",
     "content": {
       "eticket": {
         "credit_cards": {
@@ -9964,7 +9964,15 @@
         "success-600": "#37c207",
         "accent-400": "#F8CA32"
       },
-      "palette": {},
+      "palette": {
+        "productNormal": "#3fb43e",
+        "productNormalHover": "#3aa739",
+        "productLight": "#e9f7e9",
+        "productDark": "#205c20",
+        "productLightHover": "#dcf3dc",
+        "productLightActive": "#d0efcf",
+        "productNormalActive": "#359934"
+      },
       "_is_endconfig": false
     },
     "company_name": "Kiwi.com",
@@ -10281,6 +10289,1485 @@
     "name": "Sembo",
     "_is_endconfig": false,
     "web_link": "https://www.sembo.com/",
+    "payments": {
+      "zooz_id": "skypicker_new",
+      "refund_methods": {
+        "origin": {
+          "enabled": true
+        },
+        "credits": {
+          "enabled": false
+        },
+        "pay_pal": {
+          "enabled": true
+        },
+        "voucher": {
+          "enabled": true
+        },
+        "bank_transfer": {
+          "enabled": true
+        }
+      },
+      "whitelisted_currencies": [
+        "aed",
+        "amd",
+        "ars",
+        "aud",
+        "bhd",
+        "byn",
+        "cad",
+        "chf",
+        "clp",
+        "cny",
+        "cop",
+        "czk",
+        "dkk",
+        "eur",
+        "gbp",
+        "hkd",
+        "huf",
+        "idr",
+        "ils",
+        "inr",
+        "isk",
+        "jod",
+        "jpy",
+        "kgs",
+        "krw",
+        "kwd",
+        "kzt",
+        "mxn",
+        "myr",
+        "nok",
+        "nzd",
+        "omr",
+        "pen",
+        "php",
+        "pln",
+        "qar",
+        "ron",
+        "rsd",
+        "rub",
+        "sar",
+        "sek",
+        "sgd",
+        "thb",
+        "try",
+        "twd",
+        "uah",
+        "usd",
+        "uzs",
+        "yer",
+        "zar",
+        "brl"
+      ],
+      "_is_endconfig": false,
+      "payment_methods": {
+        "sofort": {
+          "enabled": true
+        },
+        "cup": {
+          "enabled": true
+        },
+        "paypal": {
+          "enabled": false
+        },
+        "credits": {
+          "enabled": true
+        },
+        "yandex": {
+          "enabled": true
+        },
+        "trustly": {
+          "enabled": true
+        },
+        "card": {
+          "enabled": true
+        }
+      }
+    },
+    "powered_by_kiwi": true
+  },
+  "magnuson": {
+    "domain": "magnuson.kiwi.com",
+    "home_redirect_url": "/",
+    "communication": {
+      "push_notifications_sending": {
+        "filter_out": [],
+        "enabled": true
+      },
+      "newsletter": {
+        "enabled": true
+      },
+      "_is_endconfig": false,
+      "email_sending": {
+        "support_sender_address": "support@kiwi.com",
+        "info_sender_address": "info@kiwi.com",
+        "human_resources_address": "jobs@kiwi.com",
+        "at_the_airport_address": "at.the.airport@kiwi.com",
+        "guarantee_address": "guarantee@kiwi.com",
+        "sender_name": "AirAsia | Kiwi.com",
+        "filter_out": [
+          "guarantee_hotel_confirmed"
+        ],
+        "enabled": true,
+        "help_request_address": "help-request@kiwi.com",
+        "business_address": "b2b@kiwi.com",
+        "refund_reply_address": "refund@kiwi.com",
+        "archive_email_proxy_list": [
+          "archiveproxy1@kiwi.com",
+          "archiveproxy2@kiwi.com",
+          "archiveproxy3@kiwi.com",
+          "archiveproxy4@kiwi.com",
+          "archiveproxy5@kiwi.com",
+          "archiveproxy6@kiwi.com",
+          "archiveproxy7@kiwi.com",
+          "archiveproxy8@kiwi.com"
+        ],
+        "main_sender_address": "tickets@kiwi.com",
+        "marketing_address": "marketing@kiwi.com",
+        "signing_domain": "kiwi.com",
+        "legal_address": "legal@kiwi.com"
+      },
+      "sms_sending": {
+        "twilio_number": "+12027596303",
+        "sender_name": "KiwiCom",
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
+        "enabled": true,
+        "nexmo_number": "12242258702",
+        "company_name": "Kiwi.com"
+      }
+    },
+    "api": {
+      "helpcenter": "https://api.skypicker.com/knowledgebase/api/v1"
+    },
+    "booked_at": "magnuson",
+    "partner": "magnuson",
+    "id": "magnuson",
+    "support_247": true,
+    "contacts": {
+      "phones": {
+        "enabled": true,
+        "locales": {
+          "el": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "el"
+          },
+          "ch": {
+            "native_support": "Support Available in German Mon-Fr 8am-6PM CEST; French Mon-Fr 8am-8PM CEST; Italian Mon-Fr 8am-8PM CEST; English 24/7",
+            "number": "41 435080835",
+            "id": "ch"
+          },
+          "ae": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "ae"
+          },
+          "cn": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "cn"
+          },
+          "ag": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "54 1159843603",
+            "id": "ag"
+          },
+          "cl": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "56 442050453",
+            "id": "cl"
+          },
+          "ee": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "ee"
+          },
+          "qa": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "qa"
+          },
+          "ca": {
+            "native_support": "Support Available in English 24/7",
+            "number": "1 6136994479",
+            "id": "ca"
+          },
+          "it": {
+            "native_support": "Mon - Fri 8am-8pm CEST; English 24/7",
+            "number": "39 0694800452",
+            "id": "it"
+          },
+          "ec": {
+            "native_support": "Mon - Fri 9am-5pm CEST; English 24/7",
+            "number": "34 911985069",
+            "id": "ec"
+          },
+          "cz": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "420 228885100",
+            "id": "cz"
+          },
+          "ar": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "ar"
+          },
+          "au": {
+            "native_support": "Support Available in English 24/7",
+            "number": "61 261450125",
+            "id": "au"
+          },
+          "at": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "43 720880395",
+            "id": "at"
+          },
+          "in": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "in"
+          },
+          "co": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "57 15085987",
+            "id": "co"
+          },
+          "ie": {
+            "native_support": "Support Available in English 24/7",
+            "number": "353 768889611",
+            "id": "ie"
+          },
+          "id": {
+            "native_support": "Support Available in English 24/7",
+            "number": "65 31638950",
+            "id": "id"
+          },
+          "es": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "34 911985069",
+            "id": "es"
+          },
+          "ct": {
+            "native_support": "Mon - Fri 9am-5pm CEST; English 24/7",
+            "number": "34 911985069",
+            "id": "ct"
+          },
+          "ru": {
+            "native_support": "Mon - Fri 8am-4pm CEST; English 24/7",
+            "number": "74993488053",
+            "id": "ru"
+          },
+          "nl": {
+            "native_support": "Support Available in English 24/7",
+            "number": "31 208087315",
+            "id": "nl"
+          },
+          "pt": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "351 308808567",
+            "id": "pt"
+          },
+          "no": {
+            "native_support": "Support Available in English 24/7",
+            "number": "47 81503187",
+            "id": "no"
+          },
+          "il": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "il"
+          },
+          "tw": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "tw"
+          },
+          "tr": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "tr"
+          },
+          "nz": {
+            "native_support": "Support Available in English 24/7",
+            "number": "64 48318691",
+            "id": "nz"
+          },
+          "ja": {
+            "native_support": "Mon - Fri 2am-10am CEST; English 24/7",
+            "number": "81 34 580 7554",
+            "id": "ja"
+          },
+          "lt": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "lt"
+          },
+          "ua": {
+            "native_support": "Mon - Fri 8am-4pm CEST; English 24/7",
+            "number": "380 947113191",
+            "id": "ua"
+          },
+          "en": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "en"
+          },
+          "th": {
+            "native_support": "Support Available in English 24/7",
+            "number": "66 20184125",
+            "id": "th"
+          },
+          "pe": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "51 17050272",
+            "id": "pe"
+          },
+          "ph": {
+            "native_support": "Support Available in English 24/7",
+            "number": "63 26263202",
+            "id": "ph"
+          },
+          "ro": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "ro"
+          },
+          "is": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "is"
+          },
+          "pl": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "48 223077259",
+            "id": "pl"
+          },
+          "be": {
+            "native_support": "Mon - Fri 9am-5pm CEST; English 24/7",
+            "number": "33 182885114",
+            "id": "be"
+          },
+          "fr": {
+            "native_support": "Mon - Fri 8am-8pm CEST; English 24/7",
+            "number": "33 (0) 182885114",
+            "id": "fr"
+          },
+          "bg": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "bg"
+          },
+          "dk": {
+            "native_support": "Support Available in English 24/7",
+            "number": "45 89882821",
+            "id": "dk"
+          },
+          "hr": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "hr"
+          },
+          "jp": {
+            "native_support": "Mon - Fri 2am-10am CEST; English 24/7",
+            "number": "81 34 580 7554",
+            "id": "jp"
+          },
+          "de": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "49 322 21099872",
+            "id": "de"
+          },
+          "bh": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "bh"
+          },
+          "da": {
+            "native_support": "Support Available in English 24/7",
+            "number": "45 89882821",
+            "id": "da"
+          },
+          "za": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "za"
+          },
+          "hk": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "hk"
+          },
+          "jo": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "jo"
+          },
+          "vn": {
+            "native_support": "Support Available in English 24/7",
+            "number": "842 444583392",
+            "id": "vn"
+          },
+          "br": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "55 6135500836",
+            "id": "br"
+          },
+          "fi": {
+            "native_support": "Support Available in English 24/7",
+            "number": "35 8841541695",
+            "id": "fi"
+          },
+          "hu": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "hu"
+          },
+          "by": {
+            "native_support": "Mon - Fri 8am-4pm CEST; English 24/7",
+            "number": "7 (499)3482751",
+            "id": "by"
+          },
+          "om": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "om"
+          },
+          "default": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "gb"
+          },
+          "sg": {
+            "native_support": "Support Available in English 24/7",
+            "number": "65 31638950",
+            "id": "sg"
+          },
+          "ko": {
+            "native_support": "Mon - Fri 2am-10am CEST; English 24/7",
+            "number": "82 7047844329",
+            "id": "ko"
+          },
+          "sv": {
+            "native_support": "Support Available in English 24/7",
+            "number": "46 844680713",
+            "id": "sv"
+          },
+          "us": {
+            "native_support": "Support Available in English 24/7",
+            "number": "1 2028444159",
+            "id": "us"
+          },
+          "sk": {
+            "native_support": "Mon - Fri 9am-5pm CEST; English 24/7",
+            "number": "420 228885100",
+            "id": "sk"
+          },
+          "kr": {
+            "native_support": "Mon - Fri 2am-10am CEST; English 24/7",
+            "number": "82 7047844329",
+            "id": "kr"
+          },
+          "kw": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "kw"
+          },
+          "ca-fr": {
+            "native_support": "Mon - Fri 9am-5pm CEST; English 24/7",
+            "number": "1 6136864412",
+            "id": "ca-fr"
+          },
+          "uk": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "uk"
+          },
+          "sr": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "sr"
+          },
+          "kz": {
+            "native_support": "Mon - Fri 8am-4pm CEST; English 24/7",
+            "number": "7 (499)3482751",
+            "id": "kz"
+          },
+          "my": {
+            "native_support": "Support Available in English 24/7",
+            "number": "60 392126870",
+            "id": "my"
+          },
+          "mx": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "52 5541647694",
+            "id": "mx"
+          },
+          "se": {
+            "native_support": "Support Available in English 24/7",
+            "number": "46 840839673",
+            "id": "se"
+          },
+          "gb": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "gb"
+          }
+        }
+      },
+      "_is_endconfig": false,
+      "emails": {
+        "enabled": true,
+        "locales": {
+          "el": {
+            "webFormAlias": "grwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "el",
+            "email": "support.en@kiwi.com"
+          },
+          "ch": {
+            "webFormAlias": "chwebform@kiwi.com",
+            "webFormEmail": "support.deu@kiwi.mypurecloud.ie",
+            "id": "ch",
+            "email": "support.deu@kiwi.com"
+          },
+          "ae": {
+            "webFormAlias": "aewebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "ae",
+            "email": "support.ar@kiwi.com"
+          },
+          "cn": {
+            "webFormAlias": "cnwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "cn",
+            "email": "support.en@kiwi.com"
+          },
+          "ag": {
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "email": "support.esp@kiwi.com"
+          },
+          "cl": {
+            "webFormAlias": "clwebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "cl",
+            "email": "support.esp@kiwi.com"
+          },
+          "ee": {
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "email": "support.en@kiwi.com"
+          },
+          "qa": {
+            "webFormAlias": "qawebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "qa",
+            "email": "support.ar@kiwi.com"
+          },
+          "ca": {
+            "webFormAlias": "cawebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "ca",
+            "email": "support.en@kiwi.com"
+          },
+          "it": {
+            "webFormAlias": "itwebform@kiwi.com",
+            "webFormEmail": "support.it@kiwi.mypurecloud.ie",
+            "id": "it",
+            "email": "support.it@kiwi.com"
+          },
+          "ec": {
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "email": "support.esp@kiwi.com"
+          },
+          "cz": {
+            "webFormAlias": "czwebform@kiwi.com",
+            "webFormEmail": "support.cz@kiwi.mypurecloud.ie",
+            "id": "cz",
+            "email": "support.cz@kiwi.com"
+          },
+          "ar": {
+            "webFormAlias": "sawebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "ar",
+            "email": "support.ar@kiwi.com"
+          },
+          "au": {
+            "webFormAlias": "auwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "au",
+            "email": "support.en@kiwi.com"
+          },
+          "at": {
+            "webFormAlias": "atwebform@kiwi.com",
+            "webFormEmail": "support.deu@kiwi.mypurecloud.ie",
+            "id": "at",
+            "email": "support.deu@kiwi.com"
+          },
+          "in": {
+            "webFormAlias": "inwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "in",
+            "email": "support.en@kiwi.com"
+          },
+          "co": {
+            "webFormAlias": "cowebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "co",
+            "email": "support.esp@kiwi.com"
+          },
+          "ie": {
+            "webFormAlias": "iewebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "ie",
+            "email": "support.en@kiwi.com"
+          },
+          "id": {
+            "webFormAlias": "idwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "id",
+            "email": "support.en@kiwi.com"
+          },
+          "es": {
+            "webFormAlias": "eswebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "es",
+            "email": "support.esp@kiwi.com"
+          },
+          "ct": {
+            "webFormAlias": "eswebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "ct",
+            "email": "support.esp@kiwi.com"
+          },
+          "ru": {
+            "webFormAlias": "ruwebform@kiwi.com",
+            "webFormEmail": "support.ru@kiwi.mypurecloud.ie",
+            "id": "ru",
+            "email": "support.ru@kiwi.com"
+          },
+          "nl": {
+            "webFormAlias": "nlwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "nl",
+            "email": "support.en@kiwi.com"
+          },
+          "pt": {
+            "webFormAlias": "ptwebform@kiwi.com",
+            "webFormEmail": "support.por@kiwi.mypurecloud.ie",
+            "id": "pt",
+            "email": "support.por@kiwi.com"
+          },
+          "no": {
+            "webFormAlias": "nowebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "no",
+            "email": "support.en@kiwi.com"
+          },
+          "tw": {
+            "webFormAlias": "twwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "tw",
+            "email": "support.en@kiwi.com"
+          },
+          "tr": {
+            "webFormAlias": "trwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "tr",
+            "email": "support.en@kiwi.com"
+          },
+          "nz": {
+            "webFormAlias": "nzwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "nz",
+            "email": "support.en@kiwi.com"
+          },
+          "ja": {
+            "webFormAlias": "jpwebform@kiwi.com",
+            "webFormEmail": "support.jp@kiwi.mypurecloud.ie",
+            "id": "ja",
+            "email": "support.jp@kiwi.com"
+          },
+          "lt": {
+            "webFormAlias": "ltwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "lt",
+            "email": "support.en@kiwi.com"
+          },
+          "en": {
+            "webFormAlias": "ukwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "en",
+            "email": "support.en@kiwi.com"
+          },
+          "th": {
+            "webFormAlias": "thwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "th",
+            "email": "support.en@kiwi.com"
+          },
+          "pe": {
+            "webFormAlias": "pewebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "pe",
+            "email": "support.esp@kiwi.com"
+          },
+          "ph": {
+            "webFormAlias": "phwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "ph",
+            "email": "support.en@kiwi.com"
+          },
+          "ro": {
+            "webFormAlias": "rowebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "ro",
+            "email": "support.en@kiwi.com"
+          },
+          "is": {
+            "webFormAlias": "iswebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "is",
+            "email": "support.en@kiwi.com"
+          },
+          "pl": {
+            "webFormAlias": "plwebform@kiwi.com",
+            "webFormEmail": "support.pl@kiwi.mypurecloud.ie",
+            "id": "pl",
+            "email": "support.pl@kiwi.com"
+          },
+          "be": {
+            "webFormAlias": "bewebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "be",
+            "email": "support.en@kiwi.com"
+          },
+          "fr": {
+            "webFormAlias": "frwebform@kiwi.com",
+            "webFormEmail": "support.fra@kiwi.mypurecloud.ie",
+            "id": "fr",
+            "email": "support.fra@kiwi.com"
+          },
+          "bg": {
+            "webFormAlias": "bgwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "bg",
+            "email": "support.en@kiwi.com"
+          },
+          "hr": {
+            "webFormAlias": "hrwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "hr",
+            "email": "support.en@kiwi.com"
+          },
+          "de": {
+            "webFormAlias": "dewebform@kiwi.com",
+            "webFormEmail": "support.deu@kiwi.mypurecloud.ie",
+            "id": "de",
+            "email": "support.deu@kiwi.com"
+          },
+          "bh": {
+            "webFormAlias": "bhwebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "bh",
+            "email": "support.ar@kiwi.com"
+          },
+          "da": {
+            "webFormAlias": "dkwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "da",
+            "email": "support.en@kiwi.com"
+          },
+          "za": {
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "email": "support.en@kiwi.com"
+          },
+          "hk": {
+            "webFormAlias": "hkwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "hk",
+            "email": "support.en@kiwi.com"
+          },
+          "jo": {
+            "webFormAlias": "jowebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "jo",
+            "email": "support.ar@kiwi.com"
+          },
+          "vn": {
+            "webFormAlias": "vnwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "vn",
+            "email": "support.en@kiwi.com"
+          },
+          "br": {
+            "webFormAlias": "brwebform@kiwi.com",
+            "webFormEmail": "support.por@kiwi.mypurecloud.ie",
+            "id": "br",
+            "email": "support.por@kiwi.com"
+          },
+          "fi": {
+            "webFormAlias": "fiwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "fi",
+            "email": "support.en@kiwi.com"
+          },
+          "hu": {
+            "webFormAlias": "huwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "hu",
+            "email": "support.en@kiwi.com"
+          },
+          "by": {
+            "webFormEmail": "support.ru@kiwi.mypurecloud.ie",
+            "email": "support.ru@kiwi.com"
+          },
+          "sg": {
+            "webFormAlias": "sgwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "sg",
+            "email": "support.en@kiwi.com"
+          },
+          "om": {
+            "webFormAlias": "omwebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "om",
+            "email": "support.ar@kiwi.com"
+          },
+          "default": {
+            "webFormAlias": "uswebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "us",
+            "email": "support.en@kiwi.com"
+          },
+          "sr": {
+            "webFormAlias": "rswebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "sr",
+            "email": "support.en@kiwi.com"
+          },
+          "ko": {
+            "webFormAlias": "krwebform@kiwi.com",
+            "webFormEmail": "support.kr@kiwi.mypurecloud.ie",
+            "id": "ko",
+            "email": "support.kr@kiwi.com"
+          },
+          "sv": {
+            "webFormAlias": "sewebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "sv",
+            "email": "support.en@kiwi.com"
+          },
+          "us": {
+            "webFormAlias": "uswebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "us",
+            "email": "support.en@kiwi.com"
+          },
+          "sk": {
+            "webFormAlias": "skwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "sk",
+            "email": "support.en@kiwi.com"
+          },
+          "kw": {
+            "webFormAlias": "kwwebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "kw",
+            "email": "support.ar@kiwi.com"
+          },
+          "ca-fr": {
+            "webFormAlias": "cafrwebform@kiwi.com",
+            "webFormEmail": "support.fra@kiwi.mypurecloud.ie",
+            "id": "ca-fr",
+            "email": "support.fra@kiwi.com"
+          },
+          "uk": {
+            "webFormAlias": "uawebform@kiwi.com",
+            "webFormEmail": "support.ua@kiwi.mypurecloud.ie",
+            "id": "uk",
+            "email": "support.ua@kiwi.com"
+          },
+          "kz": {
+            "webFormEmail": "support.ru@kiwi.mypurecloud.ie",
+            "email": "support.ru@kiwi.com"
+          },
+          "my": {
+            "webFormAlias": "mywebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "my",
+            "email": "support.en@kiwi.com"
+          },
+          "mx": {
+            "webFormAlias": "mxwebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "mx",
+            "email": "support.esp@kiwi.com"
+          },
+          "il": {
+            "webFormAlias": "uswebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "il",
+            "email": "support.en@kiwi.com"
+          }
+        }
+      },
+      "chat": {
+        "enabled": false
+      }
+    },
+    "base_url": "https://magnuson.kiwi.com",
+    "content": {
+      "eticket": {
+        "credit_cards": {
+          "primary_string": "CEO, Oliver Dlouhý",
+          "secondary_string": "Kiwi.com",
+          "show_signature": true
+        }
+      },
+      "_is_endconfig": false,
+      "media": {
+        "instagram": {
+          "enabled": true,
+          "link": "https://www.instagram.com/airasia/"
+        },
+        "twitter": {
+          "enabled": true,
+          "link": "https://twitter.com/AirAsia"
+        },
+        "youtube": {},
+        "linkedin": {
+          "enabled": false
+        },
+        "blog": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": true,
+          "link": "https://www.facebook.com/AirAsia/"
+        }
+      },
+      "search": {
+        "sorting": {
+          "enabled": true
+        },
+        "modes": {
+          "salesman": {
+            "enabled": false
+          },
+          "multicity": {
+            "enabled": true
+          },
+          "return": {
+            "enabled": true
+          },
+          "oneway": {
+            "enabled": true
+          }
+        }
+      },
+      "legal": {
+        "booking_agreement": {
+          "t_key": "text_new2"
+        },
+        "cookies": {
+          "t_key": "kiwicom"
+        },
+        "terms": {
+          "t_key": "terms_kiwicom"
+        },
+        "privacy": {
+          "t_key": "kiwicom"
+        }
+      },
+      "general": {
+        "trustpilot": {
+          "enabled": true,
+          "link": "https://www.trustpilot.com/review/Kiwi.com"
+        }
+      },
+      "promotion": {
+        "uber": {
+          "enabled": false
+        },
+        "mobile_apps": {
+          "download": {
+            "enabled": false
+          },
+          "android": {
+            "enabled": false
+          },
+          "ios": {
+            "enabled": false
+          }
+        },
+        "car_rental": {
+          "enabled": false,
+          "external": false,
+          "email_enabled": false
+        },
+        "accommodation": {
+          "enabled": false,
+          "external": false,
+          "email_enabled": false
+        }
+      },
+      "pages": {
+        "about": {
+          "fully_qualified": false,
+          "enabled": false
+        },
+        "terms": {
+          "fully_qualified": false,
+          "enabled": true,
+          "link": "/pages/content/legal"
+        },
+        "privacy": {
+          "fully_qualified": false,
+          "enabled": true,
+          "link": "/content/privacy"
+        },
+        "top_routes": {
+          "fully_qualified": false,
+          "enabled": false
+        },
+        "media": {
+          "fully_qualified": false,
+          "enabled": false
+        },
+        "brand": {
+          "fully_qualified": false,
+          "enabled": false
+        },
+        "faq": {
+          "fully_qualified": false,
+          "enabled": true,
+          "link": "/helpcenter"
+        },
+        "gdpr_terms": {
+          "fully_qualified": false,
+          "enabled": true,
+          "link": "/pages/content/terms"
+        },
+        "careers": {
+          "fully_qualified": false,
+          "enabled": false
+        },
+        "guarantee": {
+          "fully_qualified": false,
+          "enabled": true,
+          "link": "/pages/guarantee"
+        }
+      }
+    },
+    "theme": {
+      "colors": {
+        "danger-900": "#AA0000",
+        "primary-800": "#821134",
+        "neutral-600": "#7c8b99",
+        "google-800": "#e84735",
+        "accent-500": "#ffcc00",
+        "grey-500": "#a2a8b3",
+        "danger-800": " #b91919",
+        "accent-200": "#F8CA32",
+        "success-300": "#8fec70",
+        "primary-900": "#a31642",
+        "facebook-500": "#4465ad",
+        "grey-400": "#abb2ba",
+        "neutral-200": "#d5dee7",
+        "neutral-500": "#232323",
+        "primary-300": "#a31642",
+        "success-200": "#b2f79c",
+        "warning-400": "#ffce67",
+        "mail-header-500": "#a31642",
+        "primary-500": "#a31642",
+        "primary-700": "#a31642",
+        "neutral-400": "#adb9c5",
+        "warning-500": "#FFA32A",
+        "trip-start": "#a31642",
+        "google-500": "#ff5542",
+        "neutral-700": "#57626c",
+        "accent-800": "#F8CA32",
+        "neutral-300": "#c6d0dc",
+        "accent-900": "#F8CA32",
+        "danger-300": " #ff7e7e",
+        "success-100": "#d3fac5",
+        "accent-300": "#F8CA32",
+        "danger-200": " #ffa8a8",
+        "danger-100": " #ffc7c7",
+        "grey-700": "#79818a",
+        "white": "#ffffff",
+        "grey-900": "#30363D",
+        "grey-600": "#8e9699",
+        "accent-100": "#F8CA32",
+        "grey-100": "#edeff2",
+        "success-400": "#6ee445",
+        "warning-600": "#f0b539",
+        "google-600": "#f34a38",
+        "warning-800": "#c9972e",
+        "facebook-600": "#3b5998",
+        "primary-600": "#92133b",
+        "warning-200": "#ffe7b2",
+        "success-700": "#289E69",
+        "warning-700": "#F5900C",
+        "trip-end": "#d50c6a",
+        "primary-100": "#a31642",
+        "neutral-100": "#e9eef2",
+        "text-secondary": "#2f2f2f",
+        "mail-footer-500": "#a31642",
+        "grey-200": "#c0c8d1",
+        "warning-100": "#fff1cf",
+        "mail-button-500": "#a31642",
+        "danger-500": "#FF2424",
+        "primary-400": "#a31642",
+        "success-900": "#178353",
+        "grey-800": "#30363d",
+        "danger-400": " #ff5858",
+        "facebook-800": "#344d85",
+        "primary-200": "#a31642",
+        "success-500": "#34C785",
+        "warning-300": "#ffdb8d",
+        "neutral-900": "#171b1e",
+        "accent-600": "#F8CA32",
+        "brand-info": "",
+        "danger-700": "#D90D0D",
+        "warning-900": "#EE7705",
+        "insurance-plus": "#F5922A",
+        "accent-700": "#F8CA32",
+        "neutral-800": "#2e353b",
+        "danger-600": " #e51f1f",
+        "success-800": "#29a000",
+        "text-primary": "#ffffff",
+        "success-600": "#37c207",
+        "accent-400": "#F8CA32"
+      },
+      "palette": {
+        "productNormal": "#a31642",
+        "productNormalHover": "#92133b",
+        "productLight": "#fbe5ec",
+        "productDark": "#490a1e",
+        "productLightHover": "#f7d0dc",
+        "productLightActive": "#f3b3c7",
+        "productNormalActive": "#821134"
+      },
+      "_is_endconfig": false
+    },
+    "company_name": "Kiwi.com",
+    "localization": {
+      "languages": {
+        "default": "en",
+        "locales": {
+          "el": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ch": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ae": {
+            "mailing": false,
+            "enabled": true
+          },
+          "cn": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ag": {
+            "mailing": false,
+            "enabled": true
+          },
+          "cl": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ee": {
+            "mailing": false,
+            "enabled": true
+          },
+          "qa": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ca": {
+            "mailing": false,
+            "enabled": true
+          },
+          "it": {
+            "mailing": true,
+            "enabled": true
+          },
+          "ec": {
+            "mailing": false,
+            "enabled": true
+          },
+          "cz": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ar": {
+            "mailing": false,
+            "enabled": true
+          },
+          "au": {
+            "mailing": false,
+            "enabled": true
+          },
+          "at": {
+            "mailing": false,
+            "enabled": true
+          },
+          "in": {
+            "mailing": false,
+            "enabled": true
+          },
+          "cs": {
+            "mailing": true,
+            "enabled": true
+          },
+          "co": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ie": {
+            "mailing": false,
+            "enabled": true
+          },
+          "id": {
+            "mailing": false,
+            "enabled": true
+          },
+          "es": {
+            "mailing": true,
+            "enabled": true
+          },
+          "ct": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ru": {
+            "mailing": true,
+            "enabled": true
+          },
+          "nl": {
+            "mailing": true,
+            "enabled": true
+          },
+          "pt": {
+            "mailing": true,
+            "enabled": true
+          },
+          "no": {
+            "mailing": false,
+            "enabled": true
+          },
+          "tw": {
+            "mailing": false,
+            "enabled": true
+          },
+          "tr": {
+            "mailing": true,
+            "enabled": true
+          },
+          "nz": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ja": {
+            "mailing": true,
+            "enabled": true
+          },
+          "lt": {
+            "mailing": false,
+            "enabled": true
+          },
+          "en": {
+            "mailing": true,
+            "enabled": true
+          },
+          "th": {
+            "mailing": false,
+            "enabled": true
+          },
+          "pe": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ph": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ro": {
+            "mailing": true,
+            "enabled": true
+          },
+          "is": {
+            "mailing": false,
+            "enabled": true
+          },
+          "pl": {
+            "mailing": true,
+            "enabled": true
+          },
+          "be": {
+            "mailing": false,
+            "enabled": true
+          },
+          "fr": {
+            "mailing": true,
+            "enabled": true
+          },
+          "bg": {
+            "mailing": true,
+            "enabled": true
+          },
+          "hr": {
+            "mailing": false,
+            "enabled": true
+          },
+          "de": {
+            "mailing": true,
+            "enabled": true
+          },
+          "bh": {
+            "mailing": false,
+            "enabled": true
+          },
+          "da": {
+            "mailing": true,
+            "enabled": true
+          },
+          "za": {
+            "mailing": false,
+            "enabled": true
+          },
+          "hk": {
+            "mailing": false,
+            "enabled": true
+          },
+          "jo": {
+            "mailing": false,
+            "enabled": true
+          },
+          "vn": {
+            "mailing": false,
+            "enabled": true
+          },
+          "br": {
+            "mailing": false,
+            "enabled": true
+          },
+          "fi": {
+            "mailing": true,
+            "enabled": true
+          },
+          "hu": {
+            "mailing": true,
+            "enabled": true
+          },
+          "by": {
+            "mailing": false,
+            "enabled": true
+          },
+          "sg": {
+            "mailing": false,
+            "enabled": true
+          },
+          "om": {
+            "mailing": false,
+            "enabled": true
+          },
+          "sr": {
+            "mailing": true,
+            "enabled": true
+          },
+          "ko": {
+            "mailing": true,
+            "enabled": true
+          },
+          "sv": {
+            "mailing": true,
+            "enabled": true
+          },
+          "us": {
+            "mailing": false,
+            "enabled": true
+          },
+          "sk": {
+            "mailing": true,
+            "enabled": true
+          },
+          "kw": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ca-fr": {
+            "mailing": false,
+            "enabled": true
+          },
+          "uk": {
+            "mailing": true,
+            "enabled": true
+          },
+          "kz": {
+            "mailing": false,
+            "enabled": true
+          },
+          "my": {
+            "mailing": false,
+            "enabled": true
+          },
+          "mx": {
+            "mailing": false,
+            "enabled": true
+          },
+          "il": {
+            "mailing": false,
+            "enabled": true
+          }
+        }
+      },
+      "_is_endconfig": false
+    },
+    "auth": {
+      "credentials": true,
+      "social_google": {
+        "enabled": false
+      },
+      "_is_endconfig": false,
+      "social_facebook": {
+        "enabled": false
+      }
+    },
+    "web_title": "Magnuson Hotels",
+    "affilid": "magnuson",
+    "services": {
+      "add_bags": {
+        "enabled": true
+      },
+      "_is_endconfig": false,
+      "refunds": {
+        "enabled": true
+      },
+      "change_flights": {
+        "enabled": true
+      },
+      "watchdog": {
+        "enabled": true
+      },
+      "insurance": {
+        "enabled": true
+      },
+      "guarantee": {
+        "enabled": true
+      }
+    },
+    "fallbackDomain": "www.magnuson.kiwi.com",
+    "name": "Magnuson Hotels",
+    "_is_endconfig": false,
+    "web_link": "https://www.airasia.com/",
     "payments": {
       "zooz_id": "skypicker_new",
       "refund_methods": {
@@ -23703,6 +25190,1485 @@
     },
     "powered_by_kiwi": true
   },
+  "goopti": {
+    "domain": "goopti.kiwi.com",
+    "home_redirect_url": "/",
+    "communication": {
+      "push_notifications_sending": {
+        "filter_out": [],
+        "enabled": true
+      },
+      "newsletter": {
+        "enabled": true
+      },
+      "_is_endconfig": false,
+      "email_sending": {
+        "support_sender_address": "support@kiwi.com",
+        "info_sender_address": "info@kiwi.com",
+        "human_resources_address": "jobs@kiwi.com",
+        "at_the_airport_address": "at.the.airport@kiwi.com",
+        "guarantee_address": "guarantee@kiwi.com",
+        "sender_name": "AirAsia | Kiwi.com",
+        "filter_out": [
+          "guarantee_hotel_confirmed"
+        ],
+        "enabled": true,
+        "help_request_address": "help-request@kiwi.com",
+        "business_address": "b2b@kiwi.com",
+        "refund_reply_address": "refund@kiwi.com",
+        "archive_email_proxy_list": [
+          "archiveproxy1@kiwi.com",
+          "archiveproxy2@kiwi.com",
+          "archiveproxy3@kiwi.com",
+          "archiveproxy4@kiwi.com",
+          "archiveproxy5@kiwi.com",
+          "archiveproxy6@kiwi.com",
+          "archiveproxy7@kiwi.com",
+          "archiveproxy8@kiwi.com"
+        ],
+        "main_sender_address": "tickets@kiwi.com",
+        "marketing_address": "marketing@kiwi.com",
+        "signing_domain": "kiwi.com",
+        "legal_address": "legal@kiwi.com"
+      },
+      "sms_sending": {
+        "twilio_number": "+12027596303",
+        "sender_name": "KiwiCom",
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
+        "enabled": true,
+        "nexmo_number": "12242258702",
+        "company_name": "Kiwi.com"
+      }
+    },
+    "api": {
+      "helpcenter": "https://api.skypicker.com/knowledgebase/api/v1"
+    },
+    "booked_at": "goopti",
+    "partner": "goopti",
+    "id": "goopti",
+    "support_247": true,
+    "contacts": {
+      "phones": {
+        "enabled": true,
+        "locales": {
+          "el": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "el"
+          },
+          "ch": {
+            "native_support": "Support Available in German Mon-Fr 8am-6PM CEST; French Mon-Fr 8am-8PM CEST; Italian Mon-Fr 8am-8PM CEST; English 24/7",
+            "number": "41 435080835",
+            "id": "ch"
+          },
+          "ae": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "ae"
+          },
+          "cn": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "cn"
+          },
+          "ag": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "54 1159843603",
+            "id": "ag"
+          },
+          "cl": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "56 442050453",
+            "id": "cl"
+          },
+          "ee": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "ee"
+          },
+          "qa": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "qa"
+          },
+          "ca": {
+            "native_support": "Support Available in English 24/7",
+            "number": "1 6136994479",
+            "id": "ca"
+          },
+          "it": {
+            "native_support": "Mon - Fri 8am-8pm CEST; English 24/7",
+            "number": "39 0694800452",
+            "id": "it"
+          },
+          "ec": {
+            "native_support": "Mon - Fri 9am-5pm CEST; English 24/7",
+            "number": "34 911985069",
+            "id": "ec"
+          },
+          "cz": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "420 228885100",
+            "id": "cz"
+          },
+          "ar": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "ar"
+          },
+          "au": {
+            "native_support": "Support Available in English 24/7",
+            "number": "61 261450125",
+            "id": "au"
+          },
+          "at": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "43 720880395",
+            "id": "at"
+          },
+          "in": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "in"
+          },
+          "co": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "57 15085987",
+            "id": "co"
+          },
+          "ie": {
+            "native_support": "Support Available in English 24/7",
+            "number": "353 768889611",
+            "id": "ie"
+          },
+          "id": {
+            "native_support": "Support Available in English 24/7",
+            "number": "65 31638950",
+            "id": "id"
+          },
+          "es": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "34 911985069",
+            "id": "es"
+          },
+          "ct": {
+            "native_support": "Mon - Fri 9am-5pm CEST; English 24/7",
+            "number": "34 911985069",
+            "id": "ct"
+          },
+          "ru": {
+            "native_support": "Mon - Fri 8am-4pm CEST; English 24/7",
+            "number": "74993488053",
+            "id": "ru"
+          },
+          "nl": {
+            "native_support": "Support Available in English 24/7",
+            "number": "31 208087315",
+            "id": "nl"
+          },
+          "pt": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "351 308808567",
+            "id": "pt"
+          },
+          "no": {
+            "native_support": "Support Available in English 24/7",
+            "number": "47 81503187",
+            "id": "no"
+          },
+          "il": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "il"
+          },
+          "tw": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "tw"
+          },
+          "tr": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "tr"
+          },
+          "nz": {
+            "native_support": "Support Available in English 24/7",
+            "number": "64 48318691",
+            "id": "nz"
+          },
+          "ja": {
+            "native_support": "Mon - Fri 2am-10am CEST; English 24/7",
+            "number": "81 34 580 7554",
+            "id": "ja"
+          },
+          "lt": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "lt"
+          },
+          "ua": {
+            "native_support": "Mon - Fri 8am-4pm CEST; English 24/7",
+            "number": "380 947113191",
+            "id": "ua"
+          },
+          "en": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "en"
+          },
+          "th": {
+            "native_support": "Support Available in English 24/7",
+            "number": "66 20184125",
+            "id": "th"
+          },
+          "pe": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "51 17050272",
+            "id": "pe"
+          },
+          "ph": {
+            "native_support": "Support Available in English 24/7",
+            "number": "63 26263202",
+            "id": "ph"
+          },
+          "ro": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "ro"
+          },
+          "is": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "is"
+          },
+          "pl": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "48 223077259",
+            "id": "pl"
+          },
+          "be": {
+            "native_support": "Mon - Fri 9am-5pm CEST; English 24/7",
+            "number": "33 182885114",
+            "id": "be"
+          },
+          "fr": {
+            "native_support": "Mon - Fri 8am-8pm CEST; English 24/7",
+            "number": "33 (0) 182885114",
+            "id": "fr"
+          },
+          "bg": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "bg"
+          },
+          "dk": {
+            "native_support": "Support Available in English 24/7",
+            "number": "45 89882821",
+            "id": "dk"
+          },
+          "hr": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "hr"
+          },
+          "jp": {
+            "native_support": "Mon - Fri 2am-10am CEST; English 24/7",
+            "number": "81 34 580 7554",
+            "id": "jp"
+          },
+          "de": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "49 322 21099872",
+            "id": "de"
+          },
+          "bh": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "bh"
+          },
+          "da": {
+            "native_support": "Support Available in English 24/7",
+            "number": "45 89882821",
+            "id": "da"
+          },
+          "za": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "za"
+          },
+          "hk": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "hk"
+          },
+          "jo": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "jo"
+          },
+          "vn": {
+            "native_support": "Support Available in English 24/7",
+            "number": "842 444583392",
+            "id": "vn"
+          },
+          "br": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "55 6135500836",
+            "id": "br"
+          },
+          "fi": {
+            "native_support": "Support Available in English 24/7",
+            "number": "35 8841541695",
+            "id": "fi"
+          },
+          "hu": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "hu"
+          },
+          "by": {
+            "native_support": "Mon - Fri 8am-4pm CEST; English 24/7",
+            "number": "7 (499)3482751",
+            "id": "by"
+          },
+          "om": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "om"
+          },
+          "default": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "gb"
+          },
+          "sg": {
+            "native_support": "Support Available in English 24/7",
+            "number": "65 31638950",
+            "id": "sg"
+          },
+          "ko": {
+            "native_support": "Mon - Fri 2am-10am CEST; English 24/7",
+            "number": "82 7047844329",
+            "id": "ko"
+          },
+          "sv": {
+            "native_support": "Support Available in English 24/7",
+            "number": "46 844680713",
+            "id": "sv"
+          },
+          "us": {
+            "native_support": "Support Available in English 24/7",
+            "number": "1 2028444159",
+            "id": "us"
+          },
+          "sk": {
+            "native_support": "Mon - Fri 9am-5pm CEST; English 24/7",
+            "number": "420 228885100",
+            "id": "sk"
+          },
+          "kr": {
+            "native_support": "Mon - Fri 2am-10am CEST; English 24/7",
+            "number": "82 7047844329",
+            "id": "kr"
+          },
+          "kw": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "kw"
+          },
+          "ca-fr": {
+            "native_support": "Mon - Fri 9am-5pm CEST; English 24/7",
+            "number": "1 6136864412",
+            "id": "ca-fr"
+          },
+          "uk": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "uk"
+          },
+          "sr": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "sr"
+          },
+          "kz": {
+            "native_support": "Mon - Fri 8am-4pm CEST; English 24/7",
+            "number": "7 (499)3482751",
+            "id": "kz"
+          },
+          "my": {
+            "native_support": "Support Available in English 24/7",
+            "number": "60 392126870",
+            "id": "my"
+          },
+          "mx": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "52 5541647694",
+            "id": "mx"
+          },
+          "se": {
+            "native_support": "Support Available in English 24/7",
+            "number": "46 840839673",
+            "id": "se"
+          },
+          "gb": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "gb"
+          }
+        }
+      },
+      "_is_endconfig": false,
+      "emails": {
+        "enabled": true,
+        "locales": {
+          "el": {
+            "webFormAlias": "grwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "el",
+            "email": "support.en@kiwi.com"
+          },
+          "ch": {
+            "webFormAlias": "chwebform@kiwi.com",
+            "webFormEmail": "support.deu@kiwi.mypurecloud.ie",
+            "id": "ch",
+            "email": "support.deu@kiwi.com"
+          },
+          "ae": {
+            "webFormAlias": "aewebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "ae",
+            "email": "support.ar@kiwi.com"
+          },
+          "cn": {
+            "webFormAlias": "cnwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "cn",
+            "email": "support.en@kiwi.com"
+          },
+          "ag": {
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "email": "support.esp@kiwi.com"
+          },
+          "cl": {
+            "webFormAlias": "clwebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "cl",
+            "email": "support.esp@kiwi.com"
+          },
+          "ee": {
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "email": "support.en@kiwi.com"
+          },
+          "qa": {
+            "webFormAlias": "qawebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "qa",
+            "email": "support.ar@kiwi.com"
+          },
+          "ca": {
+            "webFormAlias": "cawebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "ca",
+            "email": "support.en@kiwi.com"
+          },
+          "it": {
+            "webFormAlias": "itwebform@kiwi.com",
+            "webFormEmail": "support.it@kiwi.mypurecloud.ie",
+            "id": "it",
+            "email": "support.it@kiwi.com"
+          },
+          "ec": {
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "email": "support.esp@kiwi.com"
+          },
+          "cz": {
+            "webFormAlias": "czwebform@kiwi.com",
+            "webFormEmail": "support.cz@kiwi.mypurecloud.ie",
+            "id": "cz",
+            "email": "support.cz@kiwi.com"
+          },
+          "ar": {
+            "webFormAlias": "sawebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "ar",
+            "email": "support.ar@kiwi.com"
+          },
+          "au": {
+            "webFormAlias": "auwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "au",
+            "email": "support.en@kiwi.com"
+          },
+          "at": {
+            "webFormAlias": "atwebform@kiwi.com",
+            "webFormEmail": "support.deu@kiwi.mypurecloud.ie",
+            "id": "at",
+            "email": "support.deu@kiwi.com"
+          },
+          "in": {
+            "webFormAlias": "inwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "in",
+            "email": "support.en@kiwi.com"
+          },
+          "co": {
+            "webFormAlias": "cowebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "co",
+            "email": "support.esp@kiwi.com"
+          },
+          "ie": {
+            "webFormAlias": "iewebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "ie",
+            "email": "support.en@kiwi.com"
+          },
+          "id": {
+            "webFormAlias": "idwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "id",
+            "email": "support.en@kiwi.com"
+          },
+          "es": {
+            "webFormAlias": "eswebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "es",
+            "email": "support.esp@kiwi.com"
+          },
+          "ct": {
+            "webFormAlias": "eswebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "ct",
+            "email": "support.esp@kiwi.com"
+          },
+          "ru": {
+            "webFormAlias": "ruwebform@kiwi.com",
+            "webFormEmail": "support.ru@kiwi.mypurecloud.ie",
+            "id": "ru",
+            "email": "support.ru@kiwi.com"
+          },
+          "nl": {
+            "webFormAlias": "nlwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "nl",
+            "email": "support.en@kiwi.com"
+          },
+          "pt": {
+            "webFormAlias": "ptwebform@kiwi.com",
+            "webFormEmail": "support.por@kiwi.mypurecloud.ie",
+            "id": "pt",
+            "email": "support.por@kiwi.com"
+          },
+          "no": {
+            "webFormAlias": "nowebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "no",
+            "email": "support.en@kiwi.com"
+          },
+          "tw": {
+            "webFormAlias": "twwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "tw",
+            "email": "support.en@kiwi.com"
+          },
+          "tr": {
+            "webFormAlias": "trwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "tr",
+            "email": "support.en@kiwi.com"
+          },
+          "nz": {
+            "webFormAlias": "nzwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "nz",
+            "email": "support.en@kiwi.com"
+          },
+          "ja": {
+            "webFormAlias": "jpwebform@kiwi.com",
+            "webFormEmail": "support.jp@kiwi.mypurecloud.ie",
+            "id": "ja",
+            "email": "support.jp@kiwi.com"
+          },
+          "lt": {
+            "webFormAlias": "ltwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "lt",
+            "email": "support.en@kiwi.com"
+          },
+          "en": {
+            "webFormAlias": "ukwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "en",
+            "email": "support.en@kiwi.com"
+          },
+          "th": {
+            "webFormAlias": "thwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "th",
+            "email": "support.en@kiwi.com"
+          },
+          "pe": {
+            "webFormAlias": "pewebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "pe",
+            "email": "support.esp@kiwi.com"
+          },
+          "ph": {
+            "webFormAlias": "phwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "ph",
+            "email": "support.en@kiwi.com"
+          },
+          "ro": {
+            "webFormAlias": "rowebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "ro",
+            "email": "support.en@kiwi.com"
+          },
+          "is": {
+            "webFormAlias": "iswebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "is",
+            "email": "support.en@kiwi.com"
+          },
+          "pl": {
+            "webFormAlias": "plwebform@kiwi.com",
+            "webFormEmail": "support.pl@kiwi.mypurecloud.ie",
+            "id": "pl",
+            "email": "support.pl@kiwi.com"
+          },
+          "be": {
+            "webFormAlias": "bewebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "be",
+            "email": "support.en@kiwi.com"
+          },
+          "fr": {
+            "webFormAlias": "frwebform@kiwi.com",
+            "webFormEmail": "support.fra@kiwi.mypurecloud.ie",
+            "id": "fr",
+            "email": "support.fra@kiwi.com"
+          },
+          "bg": {
+            "webFormAlias": "bgwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "bg",
+            "email": "support.en@kiwi.com"
+          },
+          "hr": {
+            "webFormAlias": "hrwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "hr",
+            "email": "support.en@kiwi.com"
+          },
+          "de": {
+            "webFormAlias": "dewebform@kiwi.com",
+            "webFormEmail": "support.deu@kiwi.mypurecloud.ie",
+            "id": "de",
+            "email": "support.deu@kiwi.com"
+          },
+          "bh": {
+            "webFormAlias": "bhwebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "bh",
+            "email": "support.ar@kiwi.com"
+          },
+          "da": {
+            "webFormAlias": "dkwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "da",
+            "email": "support.en@kiwi.com"
+          },
+          "za": {
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "email": "support.en@kiwi.com"
+          },
+          "hk": {
+            "webFormAlias": "hkwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "hk",
+            "email": "support.en@kiwi.com"
+          },
+          "jo": {
+            "webFormAlias": "jowebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "jo",
+            "email": "support.ar@kiwi.com"
+          },
+          "vn": {
+            "webFormAlias": "vnwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "vn",
+            "email": "support.en@kiwi.com"
+          },
+          "br": {
+            "webFormAlias": "brwebform@kiwi.com",
+            "webFormEmail": "support.por@kiwi.mypurecloud.ie",
+            "id": "br",
+            "email": "support.por@kiwi.com"
+          },
+          "fi": {
+            "webFormAlias": "fiwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "fi",
+            "email": "support.en@kiwi.com"
+          },
+          "hu": {
+            "webFormAlias": "huwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "hu",
+            "email": "support.en@kiwi.com"
+          },
+          "by": {
+            "webFormEmail": "support.ru@kiwi.mypurecloud.ie",
+            "email": "support.ru@kiwi.com"
+          },
+          "sg": {
+            "webFormAlias": "sgwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "sg",
+            "email": "support.en@kiwi.com"
+          },
+          "om": {
+            "webFormAlias": "omwebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "om",
+            "email": "support.ar@kiwi.com"
+          },
+          "default": {
+            "webFormAlias": "uswebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "us",
+            "email": "support.en@kiwi.com"
+          },
+          "sr": {
+            "webFormAlias": "rswebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "sr",
+            "email": "support.en@kiwi.com"
+          },
+          "ko": {
+            "webFormAlias": "krwebform@kiwi.com",
+            "webFormEmail": "support.kr@kiwi.mypurecloud.ie",
+            "id": "ko",
+            "email": "support.kr@kiwi.com"
+          },
+          "sv": {
+            "webFormAlias": "sewebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "sv",
+            "email": "support.en@kiwi.com"
+          },
+          "us": {
+            "webFormAlias": "uswebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "us",
+            "email": "support.en@kiwi.com"
+          },
+          "sk": {
+            "webFormAlias": "skwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "sk",
+            "email": "support.en@kiwi.com"
+          },
+          "kw": {
+            "webFormAlias": "kwwebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "kw",
+            "email": "support.ar@kiwi.com"
+          },
+          "ca-fr": {
+            "webFormAlias": "cafrwebform@kiwi.com",
+            "webFormEmail": "support.fra@kiwi.mypurecloud.ie",
+            "id": "ca-fr",
+            "email": "support.fra@kiwi.com"
+          },
+          "uk": {
+            "webFormAlias": "uawebform@kiwi.com",
+            "webFormEmail": "support.ua@kiwi.mypurecloud.ie",
+            "id": "uk",
+            "email": "support.ua@kiwi.com"
+          },
+          "kz": {
+            "webFormEmail": "support.ru@kiwi.mypurecloud.ie",
+            "email": "support.ru@kiwi.com"
+          },
+          "my": {
+            "webFormAlias": "mywebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "my",
+            "email": "support.en@kiwi.com"
+          },
+          "mx": {
+            "webFormAlias": "mxwebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "mx",
+            "email": "support.esp@kiwi.com"
+          },
+          "il": {
+            "webFormAlias": "uswebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "il",
+            "email": "support.en@kiwi.com"
+          }
+        }
+      },
+      "chat": {
+        "enabled": false
+      }
+    },
+    "base_url": "https://www.goopti.kiwi.com",
+    "content": {
+      "eticket": {
+        "credit_cards": {
+          "primary_string": "CEO, Oliver Dlouhý",
+          "secondary_string": "Kiwi.com",
+          "show_signature": true
+        }
+      },
+      "_is_endconfig": false,
+      "media": {
+        "instagram": {
+          "enabled": true,
+          "link": "https://www.instagram.com/airasia/"
+        },
+        "twitter": {
+          "enabled": true,
+          "link": "https://twitter.com/AirAsia"
+        },
+        "youtube": {},
+        "linkedin": {
+          "enabled": false
+        },
+        "blog": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": true,
+          "link": "https://www.facebook.com/AirAsia/"
+        }
+      },
+      "search": {
+        "sorting": {
+          "enabled": true
+        },
+        "modes": {
+          "salesman": {
+            "enabled": false
+          },
+          "multicity": {
+            "enabled": true
+          },
+          "return": {
+            "enabled": true
+          },
+          "oneway": {
+            "enabled": true
+          }
+        }
+      },
+      "legal": {
+        "booking_agreement": {
+          "t_key": "text_new2"
+        },
+        "cookies": {
+          "t_key": "kiwicom"
+        },
+        "terms": {
+          "t_key": "terms_kiwicom"
+        },
+        "privacy": {
+          "t_key": "kiwicom"
+        }
+      },
+      "general": {
+        "trustpilot": {
+          "enabled": true,
+          "link": "https://www.trustpilot.com/review/Kiwi.com"
+        }
+      },
+      "promotion": {
+        "uber": {
+          "enabled": false
+        },
+        "mobile_apps": {
+          "download": {
+            "enabled": false
+          },
+          "android": {
+            "enabled": false
+          },
+          "ios": {
+            "enabled": false
+          }
+        },
+        "car_rental": {
+          "enabled": false,
+          "external": false,
+          "email_enabled": false
+        },
+        "accommodation": {
+          "enabled": false,
+          "external": false,
+          "email_enabled": false
+        }
+      },
+      "pages": {
+        "about": {
+          "fully_qualified": false,
+          "enabled": false
+        },
+        "terms": {
+          "fully_qualified": false,
+          "enabled": true,
+          "link": "/pages/content/legal"
+        },
+        "privacy": {
+          "fully_qualified": false,
+          "enabled": true,
+          "link": "/content/privacy"
+        },
+        "top_routes": {
+          "fully_qualified": false,
+          "enabled": false
+        },
+        "media": {
+          "fully_qualified": false,
+          "enabled": false
+        },
+        "brand": {
+          "fully_qualified": false,
+          "enabled": false
+        },
+        "faq": {
+          "fully_qualified": false,
+          "enabled": true,
+          "link": "/helpcenter"
+        },
+        "gdpr_terms": {
+          "fully_qualified": false,
+          "enabled": true,
+          "link": "/pages/content/terms"
+        },
+        "careers": {
+          "fully_qualified": false,
+          "enabled": false
+        },
+        "guarantee": {
+          "fully_qualified": false,
+          "enabled": true,
+          "link": "/pages/guarantee"
+        }
+      }
+    },
+    "theme": {
+      "colors": {
+        "danger-900": "#AA0000",
+        "primary-800": "#bc0e4e",
+        "neutral-600": "#7c8b99",
+        "google-800": "#e84735",
+        "accent-500": "#ffcc00",
+        "grey-500": "#a2a8b3",
+        "danger-800": " #b91919",
+        "accent-200": "#F8CA32",
+        "success-300": "#8fec70",
+        "primary-900": "#ee2d74",
+        "facebook-500": "#4465ad",
+        "grey-400": "#abb2ba",
+        "neutral-200": "#d5dee7",
+        "neutral-500": "#232323",
+        "primary-300": "#ee2d74",
+        "success-200": "#b2f79c",
+        "warning-400": "#ffce67",
+        "mail-header-500": "#ee2d74",
+        "primary-500": "#ee2d74",
+        "primary-700": "#ee2d74",
+        "neutral-400": "#adb9c5",
+        "warning-500": "#FFA32A",
+        "trip-start": "#ee2d74",
+        "google-500": "#ff5542",
+        "neutral-700": "#57626c",
+        "accent-800": "#F8CA32",
+        "neutral-300": "#c6d0dc",
+        "accent-900": "#F8CA32",
+        "danger-300": " #ff7e7e",
+        "success-100": "#d3fac5",
+        "accent-300": "#F8CA32",
+        "danger-200": " #ffa8a8",
+        "danger-100": " #ffc7c7",
+        "grey-700": "#79818a",
+        "white": "#ffffff",
+        "grey-900": "#30363D",
+        "grey-600": "#8e9699",
+        "accent-100": "#F8CA32",
+        "grey-100": "#edeff2",
+        "success-400": "#6ee445",
+        "warning-600": "#f0b539",
+        "google-600": "#f34a38",
+        "warning-800": "#c9972e",
+        "facebook-600": "#3b5998",
+        "primary-600": "#d11057",
+        "warning-200": "#ffe7b2",
+        "success-700": "#289E69",
+        "warning-700": "#F5900C",
+        "trip-end": "#d50c6a",
+        "primary-100": "#ee2d74",
+        "neutral-100": "#e9eef2",
+        "text-secondary": "#2f2f2f",
+        "mail-footer-500": "#ee2d74",
+        "grey-200": "#c0c8d1",
+        "warning-100": "#fff1cf",
+        "mail-button-500": "#ee2d74",
+        "danger-500": "#FF2424",
+        "primary-400": "#ee2d74",
+        "success-900": "#178353",
+        "grey-800": "#30363d",
+        "danger-400": " #ff5858",
+        "facebook-800": "#344d85",
+        "primary-200": "#ee2d74",
+        "success-500": "#34C785",
+        "warning-300": "#ffdb8d",
+        "neutral-900": "#171b1e",
+        "accent-600": "#F8CA32",
+        "brand-info": "",
+        "danger-700": "#D90D0D",
+        "warning-900": "#EE7705",
+        "insurance-plus": "#F5922A",
+        "accent-700": "#F8CA32",
+        "neutral-800": "#2e353b",
+        "danger-600": " #e51f1f",
+        "success-800": "#29a000",
+        "text-primary": "#ffffff",
+        "success-600": "#37c207",
+        "accent-400": "#F8CA32"
+      },
+      "palette": {
+        "productNormal": "#ee2d74",
+        "productNormalHover": "#d11057",
+        "productLight": "#fde4ed",
+        "productDark": "#7d0934",
+        "productLightHover": "#fbcdde",
+        "productLightActive": "#f9aec9",
+        "productNormalActive": "#bc0e4e"
+      },
+      "_is_endconfig": false
+    },
+    "company_name": "Kiwi.com",
+    "localization": {
+      "languages": {
+        "default": "en",
+        "locales": {
+          "el": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ch": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ae": {
+            "mailing": false,
+            "enabled": true
+          },
+          "cn": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ag": {
+            "mailing": false,
+            "enabled": true
+          },
+          "cl": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ee": {
+            "mailing": false,
+            "enabled": true
+          },
+          "qa": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ca": {
+            "mailing": false,
+            "enabled": true
+          },
+          "it": {
+            "mailing": true,
+            "enabled": true
+          },
+          "ec": {
+            "mailing": false,
+            "enabled": true
+          },
+          "cz": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ar": {
+            "mailing": false,
+            "enabled": true
+          },
+          "au": {
+            "mailing": false,
+            "enabled": true
+          },
+          "at": {
+            "mailing": false,
+            "enabled": true
+          },
+          "in": {
+            "mailing": false,
+            "enabled": true
+          },
+          "cs": {
+            "mailing": true,
+            "enabled": true
+          },
+          "co": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ie": {
+            "mailing": false,
+            "enabled": true
+          },
+          "id": {
+            "mailing": false,
+            "enabled": true
+          },
+          "es": {
+            "mailing": true,
+            "enabled": true
+          },
+          "ct": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ru": {
+            "mailing": true,
+            "enabled": true
+          },
+          "nl": {
+            "mailing": true,
+            "enabled": true
+          },
+          "pt": {
+            "mailing": true,
+            "enabled": true
+          },
+          "no": {
+            "mailing": false,
+            "enabled": true
+          },
+          "tw": {
+            "mailing": false,
+            "enabled": true
+          },
+          "tr": {
+            "mailing": true,
+            "enabled": true
+          },
+          "nz": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ja": {
+            "mailing": true,
+            "enabled": true
+          },
+          "lt": {
+            "mailing": false,
+            "enabled": true
+          },
+          "en": {
+            "mailing": true,
+            "enabled": true
+          },
+          "th": {
+            "mailing": false,
+            "enabled": true
+          },
+          "pe": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ph": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ro": {
+            "mailing": true,
+            "enabled": true
+          },
+          "is": {
+            "mailing": false,
+            "enabled": true
+          },
+          "pl": {
+            "mailing": true,
+            "enabled": true
+          },
+          "be": {
+            "mailing": false,
+            "enabled": true
+          },
+          "fr": {
+            "mailing": true,
+            "enabled": true
+          },
+          "bg": {
+            "mailing": true,
+            "enabled": true
+          },
+          "hr": {
+            "mailing": false,
+            "enabled": true
+          },
+          "de": {
+            "mailing": true,
+            "enabled": true
+          },
+          "bh": {
+            "mailing": false,
+            "enabled": true
+          },
+          "da": {
+            "mailing": true,
+            "enabled": true
+          },
+          "za": {
+            "mailing": false,
+            "enabled": true
+          },
+          "hk": {
+            "mailing": false,
+            "enabled": true
+          },
+          "jo": {
+            "mailing": false,
+            "enabled": true
+          },
+          "vn": {
+            "mailing": false,
+            "enabled": true
+          },
+          "br": {
+            "mailing": false,
+            "enabled": true
+          },
+          "fi": {
+            "mailing": true,
+            "enabled": true
+          },
+          "hu": {
+            "mailing": true,
+            "enabled": true
+          },
+          "by": {
+            "mailing": false,
+            "enabled": true
+          },
+          "sg": {
+            "mailing": false,
+            "enabled": true
+          },
+          "om": {
+            "mailing": false,
+            "enabled": true
+          },
+          "sr": {
+            "mailing": true,
+            "enabled": true
+          },
+          "ko": {
+            "mailing": true,
+            "enabled": true
+          },
+          "sv": {
+            "mailing": true,
+            "enabled": true
+          },
+          "us": {
+            "mailing": false,
+            "enabled": true
+          },
+          "sk": {
+            "mailing": true,
+            "enabled": true
+          },
+          "kw": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ca-fr": {
+            "mailing": false,
+            "enabled": true
+          },
+          "uk": {
+            "mailing": true,
+            "enabled": true
+          },
+          "kz": {
+            "mailing": false,
+            "enabled": true
+          },
+          "my": {
+            "mailing": false,
+            "enabled": true
+          },
+          "mx": {
+            "mailing": false,
+            "enabled": true
+          },
+          "il": {
+            "mailing": false,
+            "enabled": true
+          }
+        }
+      },
+      "_is_endconfig": false
+    },
+    "auth": {
+      "credentials": true,
+      "social_google": {
+        "enabled": false
+      },
+      "_is_endconfig": false,
+      "social_facebook": {
+        "enabled": false
+      }
+    },
+    "web_title": "GoOpti",
+    "affilid": "goopti",
+    "services": {
+      "add_bags": {
+        "enabled": true
+      },
+      "_is_endconfig": false,
+      "refunds": {
+        "enabled": true
+      },
+      "change_flights": {
+        "enabled": true
+      },
+      "watchdog": {
+        "enabled": true
+      },
+      "insurance": {
+        "enabled": true
+      },
+      "guarantee": {
+        "enabled": true
+      }
+    },
+    "fallbackDomain": "www.goopti.kiwi.com",
+    "name": "GoOpti",
+    "_is_endconfig": false,
+    "web_link": "https://www.goopti.com/",
+    "payments": {
+      "zooz_id": "skypicker_new",
+      "refund_methods": {
+        "origin": {
+          "enabled": true
+        },
+        "credits": {
+          "enabled": false
+        },
+        "pay_pal": {
+          "enabled": true
+        },
+        "voucher": {
+          "enabled": true
+        },
+        "bank_transfer": {
+          "enabled": true
+        }
+      },
+      "whitelisted_currencies": [
+        "aed",
+        "amd",
+        "ars",
+        "aud",
+        "bhd",
+        "byn",
+        "cad",
+        "chf",
+        "clp",
+        "cny",
+        "cop",
+        "czk",
+        "dkk",
+        "eur",
+        "gbp",
+        "hkd",
+        "huf",
+        "idr",
+        "ils",
+        "inr",
+        "isk",
+        "jod",
+        "jpy",
+        "kgs",
+        "krw",
+        "kwd",
+        "kzt",
+        "mxn",
+        "myr",
+        "nok",
+        "nzd",
+        "omr",
+        "pen",
+        "php",
+        "pln",
+        "qar",
+        "ron",
+        "rsd",
+        "rub",
+        "sar",
+        "sek",
+        "sgd",
+        "thb",
+        "try",
+        "twd",
+        "uah",
+        "usd",
+        "uzs",
+        "yer",
+        "zar",
+        "brl"
+      ],
+      "_is_endconfig": false,
+      "payment_methods": {
+        "sofort": {
+          "enabled": true
+        },
+        "cup": {
+          "enabled": true
+        },
+        "paypal": {
+          "enabled": false
+        },
+        "credits": {
+          "enabled": true
+        },
+        "yandex": {
+          "enabled": true
+        },
+        "trustly": {
+          "enabled": true
+        },
+        "card": {
+          "enabled": true
+        }
+      }
+    },
+    "powered_by_kiwi": true
+  },
   "volagratis": {
     "domain": "volagratis.kiwi.com",
     "home_redirect_url": "/",
@@ -26562,6 +29528,1485 @@
     "name": "lastminute.de",
     "_is_endconfig": false,
     "web_link": "https://www.lastminute.de/",
+    "payments": {
+      "zooz_id": "skypicker_new",
+      "refund_methods": {
+        "origin": {
+          "enabled": true
+        },
+        "credits": {
+          "enabled": false
+        },
+        "pay_pal": {
+          "enabled": true
+        },
+        "voucher": {
+          "enabled": true
+        },
+        "bank_transfer": {
+          "enabled": true
+        }
+      },
+      "whitelisted_currencies": [
+        "aed",
+        "amd",
+        "ars",
+        "aud",
+        "bhd",
+        "byn",
+        "cad",
+        "chf",
+        "clp",
+        "cny",
+        "cop",
+        "czk",
+        "dkk",
+        "eur",
+        "gbp",
+        "hkd",
+        "huf",
+        "idr",
+        "ils",
+        "inr",
+        "isk",
+        "jod",
+        "jpy",
+        "kgs",
+        "krw",
+        "kwd",
+        "kzt",
+        "mxn",
+        "myr",
+        "nok",
+        "nzd",
+        "omr",
+        "pen",
+        "php",
+        "pln",
+        "qar",
+        "ron",
+        "rsd",
+        "rub",
+        "sar",
+        "sek",
+        "sgd",
+        "thb",
+        "try",
+        "twd",
+        "uah",
+        "usd",
+        "uzs",
+        "yer",
+        "zar",
+        "brl"
+      ],
+      "_is_endconfig": false,
+      "payment_methods": {
+        "sofort": {
+          "enabled": true
+        },
+        "cup": {
+          "enabled": true
+        },
+        "paypal": {
+          "enabled": false
+        },
+        "credits": {
+          "enabled": true
+        },
+        "yandex": {
+          "enabled": true
+        },
+        "trustly": {
+          "enabled": true
+        },
+        "card": {
+          "enabled": true
+        }
+      }
+    },
+    "powered_by_kiwi": true
+  },
+  "airasia": {
+    "domain": "airasia.kiwi.com",
+    "home_redirect_url": "/",
+    "communication": {
+      "push_notifications_sending": {
+        "filter_out": [],
+        "enabled": true
+      },
+      "newsletter": {
+        "enabled": true
+      },
+      "_is_endconfig": false,
+      "email_sending": {
+        "support_sender_address": "support@kiwi.com",
+        "info_sender_address": "info@kiwi.com",
+        "human_resources_address": "jobs@kiwi.com",
+        "at_the_airport_address": "at.the.airport@kiwi.com",
+        "guarantee_address": "guarantee@kiwi.com",
+        "sender_name": "AirAsia | Kiwi.com",
+        "filter_out": [
+          "guarantee_hotel_confirmed"
+        ],
+        "enabled": true,
+        "help_request_address": "help-request@kiwi.com",
+        "business_address": "b2b@kiwi.com",
+        "refund_reply_address": "refund@kiwi.com",
+        "archive_email_proxy_list": [
+          "archiveproxy1@kiwi.com",
+          "archiveproxy2@kiwi.com",
+          "archiveproxy3@kiwi.com",
+          "archiveproxy4@kiwi.com",
+          "archiveproxy5@kiwi.com",
+          "archiveproxy6@kiwi.com",
+          "archiveproxy7@kiwi.com",
+          "archiveproxy8@kiwi.com"
+        ],
+        "main_sender_address": "tickets@kiwi.com",
+        "marketing_address": "marketing@kiwi.com",
+        "signing_domain": "kiwi.com",
+        "legal_address": "legal@kiwi.com"
+      },
+      "sms_sending": {
+        "twilio_number": "+12027596303",
+        "sender_name": "KiwiCom",
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
+        "enabled": true,
+        "nexmo_number": "12242258702",
+        "company_name": "Kiwi.com"
+      }
+    },
+    "api": {
+      "helpcenter": "https://api.skypicker.com/knowledgebase/api/v1"
+    },
+    "booked_at": "airasiawl",
+    "partner": "airasiawl",
+    "id": "airasia",
+    "support_247": true,
+    "contacts": {
+      "phones": {
+        "enabled": true,
+        "locales": {
+          "el": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "el"
+          },
+          "ch": {
+            "native_support": "Support Available in German Mon-Fr 8am-6PM CEST; French Mon-Fr 8am-8PM CEST; Italian Mon-Fr 8am-8PM CEST; English 24/7",
+            "number": "41 435080835",
+            "id": "ch"
+          },
+          "ae": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "ae"
+          },
+          "cn": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "cn"
+          },
+          "ag": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "54 1159843603",
+            "id": "ag"
+          },
+          "cl": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "56 442050453",
+            "id": "cl"
+          },
+          "ee": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "ee"
+          },
+          "qa": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "qa"
+          },
+          "ca": {
+            "native_support": "Support Available in English 24/7",
+            "number": "1 6136994479",
+            "id": "ca"
+          },
+          "it": {
+            "native_support": "Mon - Fri 8am-8pm CEST; English 24/7",
+            "number": "39 0694800452",
+            "id": "it"
+          },
+          "ec": {
+            "native_support": "Mon - Fri 9am-5pm CEST; English 24/7",
+            "number": "34 911985069",
+            "id": "ec"
+          },
+          "cz": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "420 228885100",
+            "id": "cz"
+          },
+          "ar": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "ar"
+          },
+          "au": {
+            "native_support": "Support Available in English 24/7",
+            "number": "61 261450125",
+            "id": "au"
+          },
+          "at": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "43 720880395",
+            "id": "at"
+          },
+          "in": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "in"
+          },
+          "co": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "57 15085987",
+            "id": "co"
+          },
+          "ie": {
+            "native_support": "Support Available in English 24/7",
+            "number": "353 768889611",
+            "id": "ie"
+          },
+          "id": {
+            "native_support": "Support Available in English 24/7",
+            "number": "65 31638950",
+            "id": "id"
+          },
+          "es": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "34 911985069",
+            "id": "es"
+          },
+          "ct": {
+            "native_support": "Mon - Fri 9am-5pm CEST; English 24/7",
+            "number": "34 911985069",
+            "id": "ct"
+          },
+          "ru": {
+            "native_support": "Mon - Fri 8am-4pm CEST; English 24/7",
+            "number": "74993488053",
+            "id": "ru"
+          },
+          "nl": {
+            "native_support": "Support Available in English 24/7",
+            "number": "31 208087315",
+            "id": "nl"
+          },
+          "pt": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "351 308808567",
+            "id": "pt"
+          },
+          "no": {
+            "native_support": "Support Available in English 24/7",
+            "number": "47 81503187",
+            "id": "no"
+          },
+          "il": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "il"
+          },
+          "tw": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "tw"
+          },
+          "tr": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "tr"
+          },
+          "nz": {
+            "native_support": "Support Available in English 24/7",
+            "number": "64 48318691",
+            "id": "nz"
+          },
+          "ja": {
+            "native_support": "Mon - Fri 2am-10am CEST; English 24/7",
+            "number": "81 34 580 7554",
+            "id": "ja"
+          },
+          "lt": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "lt"
+          },
+          "ua": {
+            "native_support": "Mon - Fri 8am-4pm CEST; English 24/7",
+            "number": "380 947113191",
+            "id": "ua"
+          },
+          "en": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "en"
+          },
+          "th": {
+            "native_support": "Support Available in English 24/7",
+            "number": "66 20184125",
+            "id": "th"
+          },
+          "pe": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "51 17050272",
+            "id": "pe"
+          },
+          "ph": {
+            "native_support": "Support Available in English 24/7",
+            "number": "63 26263202",
+            "id": "ph"
+          },
+          "ro": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "ro"
+          },
+          "is": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "is"
+          },
+          "pl": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "48 223077259",
+            "id": "pl"
+          },
+          "be": {
+            "native_support": "Mon - Fri 9am-5pm CEST; English 24/7",
+            "number": "33 182885114",
+            "id": "be"
+          },
+          "fr": {
+            "native_support": "Mon - Fri 8am-8pm CEST; English 24/7",
+            "number": "33 (0) 182885114",
+            "id": "fr"
+          },
+          "bg": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "bg"
+          },
+          "dk": {
+            "native_support": "Support Available in English 24/7",
+            "number": "45 89882821",
+            "id": "dk"
+          },
+          "hr": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "hr"
+          },
+          "jp": {
+            "native_support": "Mon - Fri 2am-10am CEST; English 24/7",
+            "number": "81 34 580 7554",
+            "id": "jp"
+          },
+          "de": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "49 322 21099872",
+            "id": "de"
+          },
+          "bh": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "bh"
+          },
+          "da": {
+            "native_support": "Support Available in English 24/7",
+            "number": "45 89882821",
+            "id": "da"
+          },
+          "za": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "za"
+          },
+          "hk": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "hk"
+          },
+          "jo": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "jo"
+          },
+          "vn": {
+            "native_support": "Support Available in English 24/7",
+            "number": "842 444583392",
+            "id": "vn"
+          },
+          "br": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "55 6135500836",
+            "id": "br"
+          },
+          "fi": {
+            "native_support": "Support Available in English 24/7",
+            "number": "35 8841541695",
+            "id": "fi"
+          },
+          "hu": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "hu"
+          },
+          "by": {
+            "native_support": "Mon - Fri 8am-4pm CEST; English 24/7",
+            "number": "7 (499)3482751",
+            "id": "by"
+          },
+          "om": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "om"
+          },
+          "default": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "gb"
+          },
+          "sg": {
+            "native_support": "Support Available in English 24/7",
+            "number": "65 31638950",
+            "id": "sg"
+          },
+          "ko": {
+            "native_support": "Mon - Fri 2am-10am CEST; English 24/7",
+            "number": "82 7047844329",
+            "id": "ko"
+          },
+          "sv": {
+            "native_support": "Support Available in English 24/7",
+            "number": "46 844680713",
+            "id": "sv"
+          },
+          "us": {
+            "native_support": "Support Available in English 24/7",
+            "number": "1 2028444159",
+            "id": "us"
+          },
+          "sk": {
+            "native_support": "Mon - Fri 9am-5pm CEST; English 24/7",
+            "number": "420 228885100",
+            "id": "sk"
+          },
+          "kr": {
+            "native_support": "Mon - Fri 2am-10am CEST; English 24/7",
+            "number": "82 7047844329",
+            "id": "kr"
+          },
+          "kw": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "kw"
+          },
+          "ca-fr": {
+            "native_support": "Mon - Fri 9am-5pm CEST; English 24/7",
+            "number": "1 6136864412",
+            "id": "ca-fr"
+          },
+          "uk": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "uk"
+          },
+          "sr": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "sr"
+          },
+          "kz": {
+            "native_support": "Mon - Fri 8am-4pm CEST; English 24/7",
+            "number": "7 (499)3482751",
+            "id": "kz"
+          },
+          "my": {
+            "native_support": "Support Available in English 24/7",
+            "number": "60 392126870",
+            "id": "my"
+          },
+          "mx": {
+            "native_support": "Mon - Fri 8am-6pm CEST; English 24/7",
+            "number": "52 5541647694",
+            "id": "mx"
+          },
+          "se": {
+            "native_support": "Support Available in English 24/7",
+            "number": "46 840839673",
+            "id": "se"
+          },
+          "gb": {
+            "native_support": "Support Available in English 24/7",
+            "number": "44 2038085910",
+            "id": "gb"
+          }
+        }
+      },
+      "_is_endconfig": false,
+      "emails": {
+        "enabled": true,
+        "locales": {
+          "el": {
+            "webFormAlias": "grwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "el",
+            "email": "support.en@kiwi.com"
+          },
+          "ch": {
+            "webFormAlias": "chwebform@kiwi.com",
+            "webFormEmail": "support.deu@kiwi.mypurecloud.ie",
+            "id": "ch",
+            "email": "support.deu@kiwi.com"
+          },
+          "ae": {
+            "webFormAlias": "aewebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "ae",
+            "email": "support.ar@kiwi.com"
+          },
+          "cn": {
+            "webFormAlias": "cnwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "cn",
+            "email": "support.en@kiwi.com"
+          },
+          "ag": {
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "email": "support.esp@kiwi.com"
+          },
+          "cl": {
+            "webFormAlias": "clwebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "cl",
+            "email": "support.esp@kiwi.com"
+          },
+          "ee": {
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "email": "support.en@kiwi.com"
+          },
+          "qa": {
+            "webFormAlias": "qawebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "qa",
+            "email": "support.ar@kiwi.com"
+          },
+          "ca": {
+            "webFormAlias": "cawebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "ca",
+            "email": "support.en@kiwi.com"
+          },
+          "it": {
+            "webFormAlias": "itwebform@kiwi.com",
+            "webFormEmail": "support.it@kiwi.mypurecloud.ie",
+            "id": "it",
+            "email": "support.it@kiwi.com"
+          },
+          "ec": {
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "email": "support.esp@kiwi.com"
+          },
+          "cz": {
+            "webFormAlias": "czwebform@kiwi.com",
+            "webFormEmail": "support.cz@kiwi.mypurecloud.ie",
+            "id": "cz",
+            "email": "support.cz@kiwi.com"
+          },
+          "ar": {
+            "webFormAlias": "sawebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "ar",
+            "email": "support.ar@kiwi.com"
+          },
+          "au": {
+            "webFormAlias": "auwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "au",
+            "email": "support.en@kiwi.com"
+          },
+          "at": {
+            "webFormAlias": "atwebform@kiwi.com",
+            "webFormEmail": "support.deu@kiwi.mypurecloud.ie",
+            "id": "at",
+            "email": "support.deu@kiwi.com"
+          },
+          "in": {
+            "webFormAlias": "inwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "in",
+            "email": "support.en@kiwi.com"
+          },
+          "co": {
+            "webFormAlias": "cowebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "co",
+            "email": "support.esp@kiwi.com"
+          },
+          "ie": {
+            "webFormAlias": "iewebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "ie",
+            "email": "support.en@kiwi.com"
+          },
+          "id": {
+            "webFormAlias": "idwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "id",
+            "email": "support.en@kiwi.com"
+          },
+          "es": {
+            "webFormAlias": "eswebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "es",
+            "email": "support.esp@kiwi.com"
+          },
+          "ct": {
+            "webFormAlias": "eswebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "ct",
+            "email": "support.esp@kiwi.com"
+          },
+          "ru": {
+            "webFormAlias": "ruwebform@kiwi.com",
+            "webFormEmail": "support.ru@kiwi.mypurecloud.ie",
+            "id": "ru",
+            "email": "support.ru@kiwi.com"
+          },
+          "nl": {
+            "webFormAlias": "nlwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "nl",
+            "email": "support.en@kiwi.com"
+          },
+          "pt": {
+            "webFormAlias": "ptwebform@kiwi.com",
+            "webFormEmail": "support.por@kiwi.mypurecloud.ie",
+            "id": "pt",
+            "email": "support.por@kiwi.com"
+          },
+          "no": {
+            "webFormAlias": "nowebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "no",
+            "email": "support.en@kiwi.com"
+          },
+          "tw": {
+            "webFormAlias": "twwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "tw",
+            "email": "support.en@kiwi.com"
+          },
+          "tr": {
+            "webFormAlias": "trwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "tr",
+            "email": "support.en@kiwi.com"
+          },
+          "nz": {
+            "webFormAlias": "nzwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "nz",
+            "email": "support.en@kiwi.com"
+          },
+          "ja": {
+            "webFormAlias": "jpwebform@kiwi.com",
+            "webFormEmail": "support.jp@kiwi.mypurecloud.ie",
+            "id": "ja",
+            "email": "support.jp@kiwi.com"
+          },
+          "lt": {
+            "webFormAlias": "ltwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "lt",
+            "email": "support.en@kiwi.com"
+          },
+          "en": {
+            "webFormAlias": "ukwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "en",
+            "email": "support.en@kiwi.com"
+          },
+          "th": {
+            "webFormAlias": "thwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "th",
+            "email": "support.en@kiwi.com"
+          },
+          "pe": {
+            "webFormAlias": "pewebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "pe",
+            "email": "support.esp@kiwi.com"
+          },
+          "ph": {
+            "webFormAlias": "phwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "ph",
+            "email": "support.en@kiwi.com"
+          },
+          "ro": {
+            "webFormAlias": "rowebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "ro",
+            "email": "support.en@kiwi.com"
+          },
+          "is": {
+            "webFormAlias": "iswebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "is",
+            "email": "support.en@kiwi.com"
+          },
+          "pl": {
+            "webFormAlias": "plwebform@kiwi.com",
+            "webFormEmail": "support.pl@kiwi.mypurecloud.ie",
+            "id": "pl",
+            "email": "support.pl@kiwi.com"
+          },
+          "be": {
+            "webFormAlias": "bewebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "be",
+            "email": "support.en@kiwi.com"
+          },
+          "fr": {
+            "webFormAlias": "frwebform@kiwi.com",
+            "webFormEmail": "support.fra@kiwi.mypurecloud.ie",
+            "id": "fr",
+            "email": "support.fra@kiwi.com"
+          },
+          "bg": {
+            "webFormAlias": "bgwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "bg",
+            "email": "support.en@kiwi.com"
+          },
+          "hr": {
+            "webFormAlias": "hrwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "hr",
+            "email": "support.en@kiwi.com"
+          },
+          "de": {
+            "webFormAlias": "dewebform@kiwi.com",
+            "webFormEmail": "support.deu@kiwi.mypurecloud.ie",
+            "id": "de",
+            "email": "support.deu@kiwi.com"
+          },
+          "bh": {
+            "webFormAlias": "bhwebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "bh",
+            "email": "support.ar@kiwi.com"
+          },
+          "da": {
+            "webFormAlias": "dkwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "da",
+            "email": "support.en@kiwi.com"
+          },
+          "za": {
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "email": "support.en@kiwi.com"
+          },
+          "hk": {
+            "webFormAlias": "hkwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "hk",
+            "email": "support.en@kiwi.com"
+          },
+          "jo": {
+            "webFormAlias": "jowebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "jo",
+            "email": "support.ar@kiwi.com"
+          },
+          "vn": {
+            "webFormAlias": "vnwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "vn",
+            "email": "support.en@kiwi.com"
+          },
+          "br": {
+            "webFormAlias": "brwebform@kiwi.com",
+            "webFormEmail": "support.por@kiwi.mypurecloud.ie",
+            "id": "br",
+            "email": "support.por@kiwi.com"
+          },
+          "fi": {
+            "webFormAlias": "fiwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "fi",
+            "email": "support.en@kiwi.com"
+          },
+          "hu": {
+            "webFormAlias": "huwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "hu",
+            "email": "support.en@kiwi.com"
+          },
+          "by": {
+            "webFormEmail": "support.ru@kiwi.mypurecloud.ie",
+            "email": "support.ru@kiwi.com"
+          },
+          "sg": {
+            "webFormAlias": "sgwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "sg",
+            "email": "support.en@kiwi.com"
+          },
+          "om": {
+            "webFormAlias": "omwebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "om",
+            "email": "support.ar@kiwi.com"
+          },
+          "default": {
+            "webFormAlias": "uswebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "us",
+            "email": "support.en@kiwi.com"
+          },
+          "sr": {
+            "webFormAlias": "rswebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "sr",
+            "email": "support.en@kiwi.com"
+          },
+          "ko": {
+            "webFormAlias": "krwebform@kiwi.com",
+            "webFormEmail": "support.kr@kiwi.mypurecloud.ie",
+            "id": "ko",
+            "email": "support.kr@kiwi.com"
+          },
+          "sv": {
+            "webFormAlias": "sewebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "sv",
+            "email": "support.en@kiwi.com"
+          },
+          "us": {
+            "webFormAlias": "uswebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "us",
+            "email": "support.en@kiwi.com"
+          },
+          "sk": {
+            "webFormAlias": "skwebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "sk",
+            "email": "support.en@kiwi.com"
+          },
+          "kw": {
+            "webFormAlias": "kwwebform@kiwi.com",
+            "webFormEmail": "support.ar@kiwi.mypurecloud.ie",
+            "id": "kw",
+            "email": "support.ar@kiwi.com"
+          },
+          "ca-fr": {
+            "webFormAlias": "cafrwebform@kiwi.com",
+            "webFormEmail": "support.fra@kiwi.mypurecloud.ie",
+            "id": "ca-fr",
+            "email": "support.fra@kiwi.com"
+          },
+          "uk": {
+            "webFormAlias": "uawebform@kiwi.com",
+            "webFormEmail": "support.ua@kiwi.mypurecloud.ie",
+            "id": "uk",
+            "email": "support.ua@kiwi.com"
+          },
+          "kz": {
+            "webFormEmail": "support.ru@kiwi.mypurecloud.ie",
+            "email": "support.ru@kiwi.com"
+          },
+          "my": {
+            "webFormAlias": "mywebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "my",
+            "email": "support.en@kiwi.com"
+          },
+          "mx": {
+            "webFormAlias": "mxwebform@kiwi.com",
+            "webFormEmail": "support.esp@kiwi.mypurecloud.ie",
+            "id": "mx",
+            "email": "support.esp@kiwi.com"
+          },
+          "il": {
+            "webFormAlias": "uswebform@kiwi.com",
+            "webFormEmail": "support.en@kiwi.mypurecloud.ie",
+            "id": "il",
+            "email": "support.en@kiwi.com"
+          }
+        }
+      },
+      "chat": {
+        "enabled": false
+      }
+    },
+    "base_url": "https://airasia.kiwi.com",
+    "content": {
+      "eticket": {
+        "credit_cards": {
+          "primary_string": "CEO, Oliver Dlouhý",
+          "secondary_string": "Kiwi.com",
+          "show_signature": true
+        }
+      },
+      "_is_endconfig": false,
+      "media": {
+        "instagram": {
+          "enabled": true,
+          "link": "https://www.instagram.com/airasia/"
+        },
+        "twitter": {
+          "enabled": true,
+          "link": "https://twitter.com/AirAsia"
+        },
+        "youtube": {},
+        "linkedin": {
+          "enabled": false
+        },
+        "blog": {
+          "enabled": false
+        },
+        "facebook": {
+          "enabled": true,
+          "link": "https://www.facebook.com/AirAsia/"
+        }
+      },
+      "search": {
+        "sorting": {
+          "enabled": true
+        },
+        "modes": {
+          "salesman": {
+            "enabled": false
+          },
+          "multicity": {
+            "enabled": true
+          },
+          "return": {
+            "enabled": true
+          },
+          "oneway": {
+            "enabled": true
+          }
+        }
+      },
+      "legal": {
+        "booking_agreement": {
+          "t_key": "text_new2"
+        },
+        "cookies": {
+          "t_key": "kiwicom"
+        },
+        "terms": {
+          "t_key": "terms_kiwicom"
+        },
+        "privacy": {
+          "t_key": "kiwicom"
+        }
+      },
+      "general": {
+        "trustpilot": {
+          "enabled": true,
+          "link": "https://www.trustpilot.com/review/Kiwi.com"
+        }
+      },
+      "promotion": {
+        "uber": {
+          "enabled": false
+        },
+        "mobile_apps": {
+          "download": {
+            "enabled": false
+          },
+          "android": {
+            "enabled": false
+          },
+          "ios": {
+            "enabled": false
+          }
+        },
+        "car_rental": {
+          "enabled": false,
+          "external": false,
+          "email_enabled": false
+        },
+        "accommodation": {
+          "enabled": false,
+          "external": false,
+          "email_enabled": false
+        }
+      },
+      "pages": {
+        "about": {
+          "fully_qualified": false,
+          "enabled": false
+        },
+        "terms": {
+          "fully_qualified": false,
+          "enabled": true,
+          "link": "/pages/content/legal"
+        },
+        "privacy": {
+          "fully_qualified": false,
+          "enabled": true,
+          "link": "/content/privacy"
+        },
+        "top_routes": {
+          "fully_qualified": false,
+          "enabled": false
+        },
+        "media": {
+          "fully_qualified": false,
+          "enabled": false
+        },
+        "brand": {
+          "fully_qualified": false,
+          "enabled": false
+        },
+        "faq": {
+          "fully_qualified": false,
+          "enabled": true,
+          "link": "/helpcenter"
+        },
+        "gdpr_terms": {
+          "fully_qualified": false,
+          "enabled": true,
+          "link": "/pages/content/terms"
+        },
+        "careers": {
+          "fully_qualified": false,
+          "enabled": false
+        },
+        "guarantee": {
+          "fully_qualified": false,
+          "enabled": true,
+          "link": "/pages/guarantee"
+        }
+      }
+    },
+    "theme": {
+      "colors": {
+        "danger-900": "#AA0000",
+        "primary-800": "#bb0000",
+        "neutral-600": "#7c8b99",
+        "google-800": "#e84735",
+        "accent-500": "#ffcc00",
+        "grey-500": "#a2a8b3",
+        "danger-800": " #b91919",
+        "accent-200": "#F8CA32",
+        "success-300": "#8fec70",
+        "primary-900": "#FF0000",
+        "facebook-500": "#4465ad",
+        "grey-400": "#abb2ba",
+        "neutral-200": "#d5dee7",
+        "neutral-500": "#232323",
+        "primary-300": "#FF0000",
+        "success-200": "#b2f79c",
+        "warning-400": "#ffce67",
+        "mail-header-500": "#FF0000",
+        "primary-500": "#FF0000",
+        "primary-700": "#FF0000",
+        "neutral-400": "#adb9c5",
+        "warning-500": "#FFA32A",
+        "trip-start": "#FF0000",
+        "google-500": "#ff5542",
+        "neutral-700": "#57626c",
+        "accent-800": "#F8CA32",
+        "neutral-300": "#c6d0dc",
+        "accent-900": "#F8CA32",
+        "danger-300": " #ff7e7e",
+        "success-100": "#d3fac5",
+        "accent-300": "#F8CA32",
+        "danger-200": " #ffa8a8",
+        "danger-100": " #ffc7c7",
+        "grey-700": "#79818a",
+        "white": "#ffffff",
+        "grey-900": "#30363D",
+        "grey-600": "#8e9699",
+        "accent-100": "#F8CA32",
+        "grey-100": "#edeff2",
+        "success-400": "#6ee445",
+        "warning-600": "#f0b539",
+        "google-600": "#f34a38",
+        "warning-800": "#c9972e",
+        "facebook-600": "#3b5998",
+        "primary-600": "#dd0000",
+        "warning-200": "#ffe7b2",
+        "success-700": "#289E69",
+        "warning-700": "#F5900C",
+        "trip-end": "#d50c6a",
+        "primary-100": "#FF0000",
+        "neutral-100": "#e9eef2",
+        "text-secondary": "#2f2f2f",
+        "mail-footer-500": "#FF0000",
+        "grey-200": "#c0c8d1",
+        "warning-100": "#fff1cf",
+        "mail-button-500": "#FF0000",
+        "danger-500": "#FF2424",
+        "primary-400": "#FF0000",
+        "success-900": "#178353",
+        "grey-800": "#30363d",
+        "danger-400": " #ff5858",
+        "facebook-800": "#344d85",
+        "primary-200": "#FF0000",
+        "success-500": "#34C785",
+        "warning-300": "#ffdb8d",
+        "neutral-900": "#171b1e",
+        "accent-600": "#F8CA32",
+        "brand-info": "",
+        "danger-700": "#D90D0D",
+        "warning-900": "#EE7705",
+        "insurance-plus": "#F5922A",
+        "accent-700": "#F8CA32",
+        "neutral-800": "#2e353b",
+        "danger-600": " #e51f1f",
+        "success-800": "#29a000",
+        "text-primary": "#ffffff",
+        "success-600": "#37c207",
+        "accent-400": "#F8CA32"
+      },
+      "palette": {
+        "productNormal": "#FF0000",
+        "productNormalHover": "#dd0000",
+        "productLight": "#ffe4e4",
+        "productDark": "#660000",
+        "productLightHover": "#ffcccc",
+        "productLightActive": "#ffaaaa",
+        "productNormalActive": "#bb0000"
+      },
+      "_is_endconfig": false
+    },
+    "company_name": "Kiwi.com",
+    "localization": {
+      "languages": {
+        "default": "en",
+        "locales": {
+          "el": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ch": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ae": {
+            "mailing": false,
+            "enabled": true
+          },
+          "cn": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ag": {
+            "mailing": false,
+            "enabled": true
+          },
+          "cl": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ee": {
+            "mailing": false,
+            "enabled": true
+          },
+          "qa": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ca": {
+            "mailing": false,
+            "enabled": true
+          },
+          "it": {
+            "mailing": true,
+            "enabled": true
+          },
+          "ec": {
+            "mailing": false,
+            "enabled": true
+          },
+          "cz": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ar": {
+            "mailing": false,
+            "enabled": true
+          },
+          "au": {
+            "mailing": false,
+            "enabled": true
+          },
+          "at": {
+            "mailing": false,
+            "enabled": true
+          },
+          "in": {
+            "mailing": false,
+            "enabled": true
+          },
+          "cs": {
+            "mailing": true,
+            "enabled": true
+          },
+          "co": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ie": {
+            "mailing": false,
+            "enabled": true
+          },
+          "id": {
+            "mailing": false,
+            "enabled": true
+          },
+          "es": {
+            "mailing": true,
+            "enabled": true
+          },
+          "ct": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ru": {
+            "mailing": true,
+            "enabled": true
+          },
+          "nl": {
+            "mailing": true,
+            "enabled": true
+          },
+          "pt": {
+            "mailing": true,
+            "enabled": true
+          },
+          "no": {
+            "mailing": false,
+            "enabled": true
+          },
+          "tw": {
+            "mailing": false,
+            "enabled": true
+          },
+          "tr": {
+            "mailing": true,
+            "enabled": true
+          },
+          "nz": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ja": {
+            "mailing": true,
+            "enabled": true
+          },
+          "lt": {
+            "mailing": false,
+            "enabled": true
+          },
+          "en": {
+            "mailing": true,
+            "enabled": true
+          },
+          "th": {
+            "mailing": false,
+            "enabled": true
+          },
+          "pe": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ph": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ro": {
+            "mailing": true,
+            "enabled": true
+          },
+          "is": {
+            "mailing": false,
+            "enabled": true
+          },
+          "pl": {
+            "mailing": true,
+            "enabled": true
+          },
+          "be": {
+            "mailing": false,
+            "enabled": true
+          },
+          "fr": {
+            "mailing": true,
+            "enabled": true
+          },
+          "bg": {
+            "mailing": true,
+            "enabled": true
+          },
+          "hr": {
+            "mailing": false,
+            "enabled": true
+          },
+          "de": {
+            "mailing": true,
+            "enabled": true
+          },
+          "bh": {
+            "mailing": false,
+            "enabled": true
+          },
+          "da": {
+            "mailing": true,
+            "enabled": true
+          },
+          "za": {
+            "mailing": false,
+            "enabled": true
+          },
+          "hk": {
+            "mailing": false,
+            "enabled": true
+          },
+          "jo": {
+            "mailing": false,
+            "enabled": true
+          },
+          "vn": {
+            "mailing": false,
+            "enabled": true
+          },
+          "br": {
+            "mailing": false,
+            "enabled": true
+          },
+          "fi": {
+            "mailing": true,
+            "enabled": true
+          },
+          "hu": {
+            "mailing": true,
+            "enabled": true
+          },
+          "by": {
+            "mailing": false,
+            "enabled": true
+          },
+          "sg": {
+            "mailing": false,
+            "enabled": true
+          },
+          "om": {
+            "mailing": false,
+            "enabled": true
+          },
+          "sr": {
+            "mailing": true,
+            "enabled": true
+          },
+          "ko": {
+            "mailing": true,
+            "enabled": true
+          },
+          "sv": {
+            "mailing": true,
+            "enabled": true
+          },
+          "us": {
+            "mailing": false,
+            "enabled": true
+          },
+          "sk": {
+            "mailing": true,
+            "enabled": true
+          },
+          "kw": {
+            "mailing": false,
+            "enabled": true
+          },
+          "ca-fr": {
+            "mailing": false,
+            "enabled": true
+          },
+          "uk": {
+            "mailing": true,
+            "enabled": true
+          },
+          "kz": {
+            "mailing": false,
+            "enabled": true
+          },
+          "my": {
+            "mailing": false,
+            "enabled": true
+          },
+          "mx": {
+            "mailing": false,
+            "enabled": true
+          },
+          "il": {
+            "mailing": false,
+            "enabled": true
+          }
+        }
+      },
+      "_is_endconfig": false
+    },
+    "auth": {
+      "credentials": true,
+      "social_google": {
+        "enabled": false
+      },
+      "_is_endconfig": false,
+      "social_facebook": {
+        "enabled": false
+      }
+    },
+    "web_title": "AirAsia",
+    "affilid": "airasiawl",
+    "services": {
+      "add_bags": {
+        "enabled": true
+      },
+      "_is_endconfig": false,
+      "refunds": {
+        "enabled": true
+      },
+      "change_flights": {
+        "enabled": true
+      },
+      "watchdog": {
+        "enabled": true
+      },
+      "insurance": {
+        "enabled": true
+      },
+      "guarantee": {
+        "enabled": true
+      }
+    },
+    "fallbackDomain": "www.airasia.kiwi.com",
+    "name": "AirAsia",
+    "_is_endconfig": false,
+    "web_link": "https://www.airasia.com/",
     "payments": {
       "zooz_id": "skypicker_new",
       "refund_methods": {
@@ -29668,7 +34113,9 @@
       "sms_sending": {
         "twilio_number": "+12027596303",
         "sender_name": "KiwiCom",
-        "filter_out": [],
+        "filter_out": [
+          "after_confirmation_promocode"
+        ],
         "enabled": true,
         "nexmo_number": "12242258702",
         "company_name": "Kiwi.com"
@@ -30464,25 +34911,25 @@
       "_is_endconfig": false,
       "media": {
         "instagram": {
-          "enabled": true,
+          "enabled": false,
           "link": "https://instagram.com/kiwicom247"
         },
         "twitter": {
-          "enabled": true,
+          "enabled": false,
           "link": "https://twitter.com/kiwicom247"
         },
         "youtube": {
           "enabled": false
         },
         "linkedin": {
-          "enabled": true,
+          "enabled": false,
           "link": "https://www.linkedin.com/company/Kiwi.com"
         },
         "blog": {
           "enabled": false
         },
         "facebook": {
-          "enabled": true,
+          "enabled": false,
           "link": "https://www.facebook.com/kiwicom247"
         }
       },
@@ -30492,7 +34939,7 @@
         },
         "modes": {
           "salesman": {
-            "enabled": true
+            "enabled": false
           },
           "multicity": {
             "enabled": true
@@ -30527,23 +34974,22 @@
       },
       "promotion": {
         "uber": {
-          "enabled": true,
+          "enabled": false,
           "code": "KIWICOM2017",
           "link": "https://Uber.com/app"
         },
-        "rentalcars": {},
         "mobile_apps": {
           "download": {
-            "enabled": true,
+            "enabled": false,
             "link": "https://kiwi.com/app"
           },
           "android": {
-            "enabled": true,
+            "enabled": false,
             "link": "https://kiwi.onelink.me/1697797775?pid=email&c=TEMPLATE_TYPE&af_dp=kiwi://&af_web_dp=https://play.google.com/store/apps/details?id=__ID__&utm_source=kiwi.com&utm_medium=email&utm_content=google_app&utm_campaign=TEMPLATE_TYPE",
             "id": "com.skypicker.main"
           },
           "ios": {
-            "enabled": true,
+            "enabled": false,
             "link": "https://kiwi.onelink.me/1697797775?pid=email&c=TEMPLATE_TYPE&af_dp=kiwi://&af_web_dp=https://itunes.apple.com/us/app/id__ID__?mt=8",
             "id": "657843853"
           }
@@ -30551,21 +34997,21 @@
         "car_rental": {
           "mail_link_base_url": "https://cars.kiwi.com/SearchLoaderRC.do?",
           "mail_link": "http://www.rentalcars.com/Home.do?affiliateCode=skypicker&preflang=en&adcamp=link&adplat=confemail",
-          "enabled": true,
+          "enabled": false,
           "external": false,
-          "email_enabled": true
+          "email_enabled": false
         },
         "accommodation": {
           "mail_link_base_url": "http://rooms.kiwi.com/searchresults.html?",
-          "enabled": true,
+          "enabled": false,
           "external": false,
-          "email_enabled": true
+          "email_enabled": false
         }
       },
       "pages": {
         "about": {
           "fully_qualified": false,
-          "enabled": true,
+          "enabled": false,
           "link": "/pages/content/about"
         },
         "terms": {
@@ -30574,7 +35020,7 @@
           "link": "/pages/content/legal"
         },
         "invite": {
-          "enabled": true,
+          "enabled": false,
           "link": "/pages/invite"
         },
         "privacy": {
@@ -30584,7 +35030,7 @@
         },
         "top_routes": {
           "fully_qualified": false,
-          "enabled": true,
+          "enabled": false,
           "link": "/cheap-flights"
         },
         "media": {
@@ -30593,7 +35039,7 @@
           "link": "/pages/content/media"
         },
         "brand": {
-          "fully_qualified": true,
+          "fully_qualified": false,
           "enabled": false,
           "link": "https://brand.kiwi.com/"
         },
@@ -30603,7 +35049,7 @@
           "link": "/helpcenter"
         },
         "stories": {
-          "enabled": true,
+          "enabled": false,
           "link": "https://www.kiwi.com/stories/?utm_source=kiwicom&utm_medium=website"
         },
         "branding": {
@@ -30616,12 +35062,12 @@
           "link": "/pages/content/terms"
         },
         "security": {
-          "enabled": true,
+          "enabled": false,
           "link": "/pages/security"
         },
         "careers": {
-          "fully_qualified": true,
-          "enabled": true,
+          "fully_qualified": false,
+          "enabled": false,
           "link": "https://www.kiwi.com/jobs"
         },
         "guarantee": {
@@ -30634,7 +35080,7 @@
     "theme": {
       "colors": {
         "danger-900": "#9e1616",
-        "primary-800": "#009b88",
+        "primary-800": "#00296f",
         "neutral-600": "#7c8b99",
         "google-800": "#e84735",
         "accent-500": "#ffcc00",
@@ -30642,20 +35088,20 @@
         "danger-800": " #b91919",
         "accent-200": "#F8CA32",
         "success-300": "#8fec70",
-        "primary-900": "#008676",
+        "primary-900": "#003894",
         "facebook-500": "#4465ad",
         "grey-400": "#adb9c5",
         "neutral-200": "#d5dee7",
-        "neutral-500": "#94a2b0",
-        "primary-300": "#4de3d0",
+        "neutral-500": "#232323",
+        "primary-300": "#003894",
         "success-200": "#b2f79c",
         "warning-400": "#ffce67",
-        "mail-header-500": "#0097A9",
-        "primary-500": "#00ccb4",
-        "primary-700": "#00ad98",
+        "mail-header-500": "#003894",
+        "primary-500": "#003894",
+        "primary-700": "#003894",
         "neutral-400": "#adb9c5",
         "warning-500": "#ffc345",
-        "trip-start": "#0097a9",
+        "trip-start": "#003894",
         "google-500": "#ff5542",
         "neutral-700": "#57626c",
         "accent-800": "#F8CA32",
@@ -30677,25 +35123,25 @@
         "google-600": "#f34a38",
         "warning-800": "#c9972e",
         "facebook-600": "#3b5998",
-        "primary-600": "#01bba5",
+        "primary-600": "#002f7d",
         "warning-200": "#ffe7b2",
         "success-700": "#2eb300",
         "warning-700": "#dda734",
         "trip-end": "#d50c6a",
-        "primary-100": "#b2f3eb",
+        "primary-100": "#003894",
         "neutral-100": "#e9eef2",
         "text-secondary": "#2f2f2f",
-        "mail-footer-500": "#0097A9",
+        "mail-footer-500": "#003894",
         "grey-200": "#d5dee7",
         "warning-100": "#fff1cf",
-        "mail-button-500": "#0097A9",
+        "mail-button-500": "#003894",
         "danger-500": "#ff2424",
-        "primary-400": "#00d7bd",
+        "primary-400": "#003894",
         "success-900": "#248e00",
         "grey-800": "#2e353b",
         "danger-400": " #ff5858",
         "facebook-800": "#344d85",
-        "primary-200": "#77ebdd",
+        "primary-200": "#003894",
         "success-500": "#52cf26",
         "warning-300": "#ffdb8d",
         "neutral-900": "#171b1e",
@@ -30713,13 +35159,13 @@
         "accent-400": "#F8CA32"
       },
       "palette": {
-        "productNormal": "#00a991",
-        "productNormalHover": "#009882",
-        "productLight": "#9ae5da",
-        "productDark": "#005448",
-        "productLightHover": "#7fded0",
-        "productLightActive": "#64d7c6",
-        "productNormalActive": "#008f7b"
+        "productNormal": "#003894",
+        "productNormalHover": "#002f7d",
+        "productLight": "#e9f1ff",
+        "productDark": "#00183f",
+        "productLightHover": "#c7dcff",
+        "productLightActive": "#003894",
+        "productNormalActive": "#00296f"
       },
       "_is_endconfig": false
     },
@@ -31003,11 +35449,11 @@
     "auth": {
       "credentials": true,
       "social_google": {
-        "enabled": true
+        "enabled": false
       },
       "_is_endconfig": false,
       "social_facebook": {
-        "enabled": true
+        "enabled": false
       }
     },
     "web_title": "F-Ness",
@@ -31044,7 +35490,7 @@
           "enabled": true
         },
         "credits": {
-          "enabled": true
+          "enabled": false
         },
         "pay_pal": {
           "enabled": true
@@ -31112,7 +35558,7 @@
       "_is_endconfig": false,
       "payment_methods": {
         "alipay": {
-          "enabled": true
+          "enabled": false
         },
         "sofort": {
           "enabled": true
@@ -31121,7 +35567,7 @@
           "enabled": true
         },
         "paypal": {
-          "enabled": true
+          "enabled": false
         },
         "credits": {
           "enabled": true
@@ -32622,7 +37068,7 @@
   },
   "hotelking": {
     "domain": "hotelking.kiwi.com",
-    "home_redirect_url": "/",
+    "home_redirect_url": "https://www.hotelking.com/",
     "communication": {
       "push_notifications_sending": {
         "filter_out": [],
@@ -32672,7 +37118,6 @@
         "company_name": "Kiwi.com"
       }
     },
-    "base_url": "https://hotelking.kiwi.com",
     "api": {
       "helpcenter": "https://api.skypicker.com/knowledgebase/api/v1"
     },
@@ -33451,7 +37896,7 @@
         "enabled": false
       }
     },
-    "gtm": "GTM-NT7JLBW",
+    "base_url": "https://www.hotelking.com",
     "content": {
       "eticket": {
         "credit_cards": {
@@ -39595,6 +44040,15 @@
         "success-600": "#37c207",
         "accent-400": "#F8CA32"
       },
+      "palette": {
+        "productNormal": "#7b2d4b",
+        "productNormalHover": "#68263f",
+        "productLight": "#f6e6eb",
+        "productDark": "#491b2d",
+        "productLightHover": "#f0d7e0",
+        "productLightActive": "#edccd7",
+        "productNormalActive": "#5c2138"
+      },
       "_is_endconfig": false
     },
     "company_name": "Kiwi.com",
@@ -43451,6 +47905,15 @@
         "azure-300": "#6caeff",
         "danger-100": " #ffc7c7",
         "accent-400": "#F8CA32"
+      },
+      "palette": {
+        "productNormal": "#00a991",
+        "productNormalHover": "#009882",
+        "productLight": "#9ae5da",
+        "productDark": "#005448",
+        "productLightHover": "#7fded0",
+        "productLightActive": "#64d7c6",
+        "productNormalActive": "#008f7b"
       },
       "_is_endconfig": false
     },

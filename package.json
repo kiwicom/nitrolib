@@ -14,7 +14,7 @@
     "test": "jest",
     "lint": "eslint './**/*.{js,jsx,js.flow}'",
     "typecheck": "flow check",
-    "fetch": "node ./bin/nitro.js fetch ./node_modules/@kiwicom/translations/lib",
+    "fetch": "node ./bin/nitro.js fetch",
     "fixtures": "node ./bin/nitro.js keys 'src/**/*.{js,jsx}' && yarn fetch && node ./etc/fetchFixtures.js",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -o dist-storybook",
