@@ -25,8 +25,8 @@ type Props = {|
   linkFlights: string,
   linkCars: string,
   linkRooms: string,
-  linkHolidays: string,
-  forceNewWindow: boolean,
+  linkHolidays: string, // empty string to omit
+  forceNewWindow: boolean, // force opening links in a new window
 |};
 
 const HeaderLinks = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewWindow }: Props) => (

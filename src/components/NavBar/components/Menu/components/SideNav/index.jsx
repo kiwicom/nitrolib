@@ -7,7 +7,7 @@ import Modal from "@kiwicom/orbit-components/lib/Modal";
 import Portal from "@kiwicom/orbit-components/lib/Portal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
-import ClientOnly from "../../../../../ClientOnly";
+import ClientOnly from "../../../../../ClientOnly/index";
 import Mobile from "../../../../../Mobile";
 import Translate from "../../../../../Translate";
 import Language from "../../../../../Language";

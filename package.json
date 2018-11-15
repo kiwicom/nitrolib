@@ -1,14 +1,15 @@
 {
   "name": "@kiwicom/nitro",
-  "version": "0.56.16",
+  "version": "0.57.0",
   "description": "Nitro's components.",
   "scripts": {
     "start": "yarn storybook",
-    "build": "run-p babel types keys",
+    "build": "run-p babel types keys docs",
     "babel": "babel src -d lib --ignore '**/__tests__/*'",
     "modules": "cross-env BABEL_ENV=modules babel src -d lib --ignore '**/__tests__/*' && renamer --find .js --replace .mjs 'lib/**'",
     "types": "flow-copy-source src lib --ignore '**/__tests__/*','**/__generated__/*' && renamer --find .jsx.flow --replace .js.flow 'lib/**'",
     "keys": "node etc/collectKeys.js",
+    "docs": "node etc/docs.js",
     "relay": "relay-compiler --src src/ --schema schema.graphql --extensions jsx js",
     "relay:schema": "graphql get-schema",
     "test": "jest",
