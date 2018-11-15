@@ -47,7 +47,7 @@ UserWrapper.defaultProps = {
 
 const HideOnLower = styled.div`
   display: block;
-  margin-left: ${({ theme }) => theme.orbit.spaceXXSmall};
+  margin-left: ${({ theme }: ThemeProps) => theme.orbit.spaceXXSmall};
   @media (max-width: 975px) {
     display: none;
   }

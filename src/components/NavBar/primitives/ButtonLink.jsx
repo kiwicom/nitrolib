@@ -25,7 +25,7 @@ type Props = {|
 |};
 
 // $FlowExpected: TODO describe
-const ButtonLink: ReactComponentFunctional<Props, ThemeProps> = styled(Button);
+const ButtonLink: ReactComponentFunctional<Props, ThemeProps> = styled(Button)``;
 
 ButtonLink.defaultProps = {
   as: "a",
