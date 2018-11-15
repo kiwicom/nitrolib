@@ -1,4 +1,5 @@
 // @flow strict
+import * as React from "react";
 import * as R from "ramda";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
 import Deals from "@kiwicom/orbit-components/lib/icons/Deals";
