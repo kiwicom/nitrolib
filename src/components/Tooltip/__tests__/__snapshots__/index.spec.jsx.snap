@@ -797,7 +797,7 @@ exports[`#Tooltip mouse over + out 2`] = `
   forwardedClass={
     Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": undefined,
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "Tooltip__Tip-sc-11si9k6-1",
         "isStatic": false,
@@ -2799,7 +2799,7 @@ exports[`#Tooltip mouse over + out 4`] = `
   forwardedClass={
     Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": undefined,
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "Tooltip__Tip-sc-11si9k6-1",
         "isStatic": false,
@@ -4801,7 +4801,7 @@ exports[`#Tooltip render - block 2`] = `
   forwardedClass={
     Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": undefined,
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "Tooltip__Container-sc-11si9k6-0",
         "isStatic": false,
@@ -6410,7 +6410,7 @@ exports[`#Tooltip render - bottom 2`] = `
   forwardedClass={
     Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": undefined,
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "Tooltip__Tip-sc-11si9k6-1",
         "isStatic": false,
@@ -8412,7 +8412,7 @@ exports[`#Tooltip render - inline 2`] = `
   forwardedClass={
     Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": undefined,
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "Tooltip__Container-sc-11si9k6-0",
         "isStatic": false,
@@ -10021,7 +10021,7 @@ exports[`#Tooltip render - left 2`] = `
   forwardedClass={
     Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": undefined,
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "Tooltip__Tip-sc-11si9k6-1",
         "isStatic": false,
@@ -12023,7 +12023,7 @@ exports[`#Tooltip render - right 2`] = `
   forwardedClass={
     Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": undefined,
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "Tooltip__Tip-sc-11si9k6-1",
         "isStatic": false,
@@ -13233,7 +13233,7 @@ exports[`#Tooltip render - right 3`] = `
   forwardedClass={
     Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": undefined,
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "Tooltip__TipContent-sc-11si9k6-2",
         "isStatic": false,
@@ -14827,7 +14827,7 @@ exports[`#Tooltip render - top 2`] = `
   forwardedClass={
     Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": undefined,
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "Tooltip__Tip-sc-11si9k6-1",
         "isStatic": false,

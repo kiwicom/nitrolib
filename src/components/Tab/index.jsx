@@ -42,8 +42,7 @@ const Container = styled.button`
   ${({ active }: ContainerProps) => !active && hoverMixin};
   transition: background ${({ theme }: ContainerProps) => theme.orbit.durationNormal};
   margin-bottom: ${({ theme }) => theme.orbit.spaceXXSmall};
-  ${mq.gtBigMobile(css`
-    margin: 0;
+  ${mq.gtTablet(css`
     border-width: ${rtl.box(border.size, border.size, border.size, 0)};
   `)};
   &:first-child {

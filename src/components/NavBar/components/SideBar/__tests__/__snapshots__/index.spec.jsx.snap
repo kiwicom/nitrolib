@@ -519,7 +519,7 @@ exports[`#index render 1`] = `
           forwardedClass={
             Object {
               "$$typeof": Symbol(react.forward_ref),
-              "attrs": undefined,
+              "attrs": Array [],
               "componentStyle": ComponentStyle {
                 "componentId": "SideBar__Container-sc-1emfp22-0",
                 "isStatic": false,
@@ -1732,7 +1732,7 @@ exports[`#index render 1`] = `
                 forwardedClass={
                   Object {
                     "$$typeof": Symbol(react.forward_ref),
-                    "attrs": undefined,
+                    "attrs": Array [],
                     "componentStyle": ComponentStyle {
                       "componentId": "SideBar__Wrapper-sc-1emfp22-1",
                       "isStatic": false,

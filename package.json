@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.1.2",
-    "@kiwicom/orbit-design-tokens": "^0.2.4",
+    "@kiwicom/orbit-design-tokens": "^0.2.5",
     "chalk": "^2.4.1",
     "date-fns": "^2.0.0-alpha.20",
     "fs-extra": "^7.0.0",
@@ -52,7 +52,7 @@
     "validator": "^10.8.0"
   },
   "peerDependencies": {
-    "@kiwicom/orbit-components": "^0.18.1",
+    "@kiwicom/orbit-components": "^0.20.0",
     "ramda": "^0.25.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
@@ -71,7 +71,7 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "@kiwicom/orbit-components": "^0.19.1",
+    "@kiwicom/orbit-components": "^0.20.0",
     "@kiwicom/translations": "^1.62.0",
     "@storybook/addon-actions": "^4.0.2",
     "@storybook/addon-info": "^4.0.2",
@@ -124,6 +124,6 @@
     "relay-runtime": "^1.7.0",
     "renamer": "^1.1.0",
     "rimraf": "^2.6.2",
-    "styled-components": "^4.0.3"
+    "styled-components": "^4.1.1"
   }
 }

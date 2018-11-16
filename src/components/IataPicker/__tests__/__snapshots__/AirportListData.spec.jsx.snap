@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#AirportListData render error 1`] = `"<div class=\\"Alert__StyledAlert-svgppc-0 IuVUE\\"><div class=\\"Alert__ContentWrapper-svgppc-2 gGclWN\\"><div class=\\"Alert__Content-svgppc-4 ldxfOm\\">common.api_error</div></div></div>"`;
+exports[`#AirportListData render error 1`] = `"<div class=\\"Alert__StyledAlert-svgppc-0 jCMjFD\\"><div class=\\"Alert__ContentWrapper-svgppc-2 gGclWN\\"><div class=\\"Alert__Content-svgppc-4 ldxfOm\\">common.api_error</div></div></div>"`;
 
 exports[`#AirportListData render loading 1`] = `null`;
 

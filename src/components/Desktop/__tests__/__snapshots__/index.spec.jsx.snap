@@ -6,7 +6,7 @@ exports[`#Desktop render 1`] = `
   forwardedClass={
     Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": undefined,
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "Desktop__Wrapper-z83utc-0",
         "isStatic": false,

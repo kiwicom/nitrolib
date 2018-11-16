@@ -3244,7 +3244,7 @@ exports[`#Currency/CustomPicker/CurrencyList render 2`] = `
   forwardedClass={
     Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": undefined,
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "CurrencyList__ItemText-sc-1fawcms-2",
         "isStatic": false,
@@ -4086,7 +4086,7 @@ exports[`#Currency/CustomPicker/CurrencyList render 3`] = `
   forwardedClass={
     Object {
       "$$typeof": Symbol(react.forward_ref),
-      "attrs": undefined,
+      "attrs": Array [],
       "componentStyle": ComponentStyle {
         "componentId": "CurrencyList__ItemText-sc-1fawcms-2",
         "isStatic": false,
