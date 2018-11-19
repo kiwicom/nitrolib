@@ -1,5 +1,6 @@
 // @flow strict
 import * as React from "react";
+import Text from "@kiwicom/orbit-components/lib/Text";
 
 import Link from "./Link";
 import Text from "../Text";
