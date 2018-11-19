@@ -1,5 +1,6 @@
 // @flow strict
 import * as React from "react";
+import Text from "@kiwicom/orbit-components/lib/Text";
 
 import Text from "../Text";
 import Link from "./Link";
@@ -49,8 +50,11 @@ const Links: any = ({ services, searchParams, urlParam, readyUrls, hiddenUrls }:
       <Link
         logTab={item.id}
         link={link}
-        // icon={<img src={item.image} alt="" />}
-        text={<Text t={item.translation} />}
+        text={
+          <Text>
+            <Translate t={item.translation} />
+          </Text>
+        }
         newWindow={item.newWindow}
       />
     );

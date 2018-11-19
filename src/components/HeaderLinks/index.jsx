@@ -14,7 +14,6 @@ import IconWrapper from "./primitives/IconWrapper";
 import Links from "./Links";
 import Desktop from "../Desktop";
 import Mobile from "../Mobile";
-import { Consumer as InvertedConsumer } from "../../services/inverted/context";
 import { getNavBarLinks } from "./services/api";
 
 const Margin = styled.div`
