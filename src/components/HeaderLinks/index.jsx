@@ -46,7 +46,7 @@ type State = {|
 |};
 
 export type ReadyUrl = {|
-  rooms: {
+  rooms: ?{
     query: string,
     base: string,
   },

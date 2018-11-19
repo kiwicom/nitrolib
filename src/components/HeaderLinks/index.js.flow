@@ -1,13 +1,29 @@
 // @flow strict
 import * as React from "react";
 
+import type { Item } from "./Links";
+
+export type Services = ?(Item[]);
+
+export type ReadyUrl = {|
+  rooms: ?{
+    query: string,
+    base: string,
+  },
+|};
+
+export type HiddenUrls = {|
+  holidays: boolean,
+  logitravel: boolean,
+|};
+
 type Props = {|
-  linkFlights: string,
-  linkCars: string,
-  linkRooms: string,
-  linkHolidays: string, // empty string to omit
-  forceNewWindow?: boolean, // force opening links in a new window
-  inverted?: boolean, // colors
+  searchParams: {
+    language: string,
+  },
+  urlParam: string,
+  readyUrls: ReadyUrl,
+  hiddenUrls: HiddenUrls,
 |};
 
 declare export default React.ComponentType<Props>;
