@@ -7,8 +7,6 @@ import NavBar from "../src/components/NavBar";
 import HeaderLinks from "../src/components/HeaderLinks";
 import withData from "./decorators/withData";
 
-const GROUP_ID = "Component";
-
 const headerLinksProps = {
   searchParams: {
     language: "en",
