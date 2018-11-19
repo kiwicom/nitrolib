@@ -12,6 +12,10 @@ Stuff common for our webs! :fire:
 * [Services](./docs/services.md) - i18n, branding, production data...
 * [Components](./docs/components.md) - well... components 🤷
 
+## Contributing
+
+Read the [CONTRIBUTING](./CONTRIBUTING.md) guide!
+
 ## License
 
 MIT
