@@ -1,0 +1,22 @@
+// @flow strict
+import * as React from "react";
+
+import type { Modal } from "../../consts/modals";
+
+type Props = {|
+  starred: React.Node,
+  chat: React.Node,
+  subscription: React.Node,
+  portal: string,
+  onOpenFaq: ?() => void,
+  onSetModal: (modal: Modal) => void,
+  onSaveLanguage: (lang: string) => void,
+  onSelectTrip: (bid: string) => void,
+  onLogoClick: (ev: SyntheticMouseEvent<HTMLAnchorElement>) => void,
+  // defaulted
+  headerLinks?: React.Node, // null
+  debug?: React.Node, // null
+  inverted?: boolean, // false
+|};
+
+declare export default React.ComponentType<Props>;

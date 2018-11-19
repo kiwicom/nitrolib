@@ -1,0 +1,12 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {|
+  linkFlights: string,
+  linkCars: string,
+  linkRooms: string,
+  linkHolidays: string, // empty string to omit
+  forceNewWindow?: boolean, // force opening links in a new window
+|};
+
+declare export default React.ComponentType<Props>;

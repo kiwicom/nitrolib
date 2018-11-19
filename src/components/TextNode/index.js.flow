@@ -1,0 +1,11 @@
+// @flow strict
+import * as React from "react";
+import type { Props as PropsOrbit } from "@kiwicom/orbit-components/lib/Text";
+
+type Props = {|
+  ...$Diff<PropsOrbit, { children: React.Node }>,
+  t: string,
+  values: { [key: string]: React.Node },
+|};
+
+declare export default React.ComponentType<Props>;

@@ -3,57 +3,11 @@
 const fsx = require("fs-extra");
 const path = require("path");
 
-const SRC = path.join(__dirname, "../src");
-const DOCS = path.join(__dirname, "../docs");
+const getProps = require("./props");
+
+const SRC = path.join(__dirname, "../../src");
+const DOCS = path.join(__dirname, "../../docs");
 const COMPONENTS = path.join(SRC, "components");
-
-// TODO split this into fns, reuse also in other doc generators
-
-// Captures anything between 'type Props =' or '/* PROPS */'.
-// Ends with '|};', to make it continue, add a comment after an early one
-// FIXME add support for 'defaultProps'
-function getComponentProps(component) {
-  const PATH = path.join(COMPONENTS, component, "index.jsx");
-  if (!fsx.existsSync(PATH)) {
-    return "";
-  }
-
-  const NL = "\n";
-  const { text } = String(fsx.readFileSync(PATH))
-    .split("\n")
-    .reduce(
-      (acc, line) => {
-        if (!acc.text && line.match(/^type Props =/)) {
-          // Natural beginning
-          return { text: line + NL, props: true };
-        }
-
-        if (!acc.text && line.match(/^\/\* PROPS \*\//)) {
-          // Alternative beginning
-          return { text: "", props: true };
-        }
-
-        if (!acc.props) {
-          // Not beginning or already ended
-          return acc;
-        }
-
-        if (line.match(/\|?\};$/)) {
-          // End
-          return { text: acc.text + line, props: false };
-        }
-
-        return { text: acc.text + line + NL, props: true };
-      },
-      { text: "", props: false },
-    );
-
-  if (!text) {
-    return "";
-  }
-
-  return ["**Props:**", "```js", text, "```"].join("\n");
-}
 
 function getComponentDoc(component) {
   const PATH = path.join(COMPONENTS, component, "README.md");
@@ -65,15 +19,14 @@ function getComponentDoc(component) {
   const doc = readme
     .split("\n")
     .filter(line => !line.match(/# \w+/)) // remove the heading
-    .slice(1, -1) // remove the leading and trailing newline
-    .join("\n");
+    .join("\n")
+    .trim(); // trim that shit
 
-  const props = getComponentProps(component);
+  const props = getProps(component);
   return [
     `### ${component}`,
     "",
     "**Import:**",
-    "",
     "```js",
     `import ${component} from "@kiwicom/nitro/lib/components/${component}";`,
     "```",
@@ -86,10 +39,11 @@ function getComponentDoc(component) {
 }
 
 const FEATURES = {
-  HeaderLinks: true,
-  NavBar: true,
-  Languages: true,
+  CookiesConsent: true,
   Currency: true,
+  HeaderLinks: true,
+  Languages: true,
+  NavBar: true,
 };
 
 const getComponentList = component => `* [${component}](#${component.toLowerCase()})`;

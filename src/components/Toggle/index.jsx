@@ -1,11 +1,10 @@
 // @flow
 import * as React from "react";
 
-/* PROPS */
 type Data = {|
   open: boolean,
   onToggle: () => void,
-|}; // ...docs
+|};
 
 type Props = {|
   children: (data: Data) => React.Node,

@@ -4,6 +4,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 
 **Features:**
 
+* [CookiesConsent](#cookiesconsent)
 * [HeaderLinks](#headerlinks)
 * [NavBar](#navbar)
 
@@ -11,10 +12,11 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 
 * [ClickOutside](#clickoutside)
 * [ClientOnly](#clientonly)
-* [CookiesConsent](#cookiesconsent)
 * [Desktop](#desktop)
 * [Mobile](#mobile)
 * [Price](#price)
+* [Text](#text)
+* [TextNode](#textnode)
 * [Toggle](#toggle)
 * [Translate](#translate)
 * [TranslateNode](#translatenode)
@@ -23,10 +25,27 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 
 Actual components that do stuff. See [storybook](https://nitro-storybook-master.fe.staging.kiwi.com) for a live example.
 
+### CookiesConsent
+
+**Import:**
+```js
+import CookiesConsent from "@kiwicom/nitro/lib/components/CookiesConsent";
+```
+
+**Props:**
+```js
+type Props = {|
+  onAccept: () => void,
+|};
+```
+
+Context needs:
+* **intl**
+* **brand**
+
 ### HeaderLinks
 
 **Import:**
-
 ```js
 import HeaderLinks from "@kiwicom/nitro/lib/components/HeaderLinks";
 ```
@@ -38,7 +57,7 @@ type Props = {|
   linkCars: string,
   linkRooms: string,
   linkHolidays: string, // empty string to omit
-  forceNewWindow: boolean, // force opening links in a new window
+  forceNewWindow?: boolean, // force opening links in a new window
 |};
 ```
 
@@ -48,7 +67,6 @@ Context needs:
 ### NavBar
 
 **Import:**
-
 ```js
 import NavBar from "@kiwicom/nitro/lib/components/NavBar";
 ```
@@ -56,18 +74,19 @@ import NavBar from "@kiwicom/nitro/lib/components/NavBar";
 **Props:**
 ```js
 type Props = {|
-  headerLinks: React.Node,
   starred: React.Node,
   chat: React.Node,
   subscription: React.Node,
-  debug: React.Node,
-  inverted: boolean,
   portal: string,
   onOpenFaq: ?() => void,
   onSetModal: (modal: Modal) => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
   onLogoClick: (ev: SyntheticMouseEvent<HTMLAnchorElement>) => void,
+  // defaulted
+  headerLinks?: React.Node, // null
+  debug?: React.Node, // null
+  inverted?: boolean, // false
 |};
 ```
 
@@ -85,7 +104,6 @@ Things that help in development.
 ### ClickOutside
 
 **Import:**
-
 ```js
 import ClickOutside from "@kiwicom/nitro/lib/components/ClickOutside";
 ```
@@ -113,7 +131,6 @@ const MyComponent = ({ open, onCloseModal }: Props) => (
 ### ClientOnly
 
 **Import:**
-
 ```js
 import ClientOnly from "@kiwicom/nitro/lib/components/ClientOnly";
 ```
@@ -140,29 +157,9 @@ const MyComponent = () => (
 );
 ```
 
-### CookiesConsent
-
-**Import:**
-
-```js
-import CookiesConsent from "@kiwicom/nitro/lib/components/CookiesConsent";
-```
-
-**Props:**
-```js
-type Props = {|
-  onAccept: () => void,
-|};
-```
-
-Context needs:
-* **intl**
-* **brand**
-
 ### Desktop
 
 **Import:**
-
 ```js
 import Desktop from "@kiwicom/nitro/lib/components/Desktop";
 ```
@@ -170,8 +167,9 @@ import Desktop from "@kiwicom/nitro/lib/components/Desktop";
 **Props:**
 ```js
 type Props = {|
-  display: "block" | "inline" | "inline-block" | "flex",
   children: React.Node | React.Node[],
+  // defaulted
+  display?: "block" | "inline" | "inline-block" | "flex", // block
 |};
 ```
 
@@ -192,7 +190,6 @@ const NavBar = () => (
 ### Mobile
 
 **Import:**
-
 ```js
 import Mobile from "@kiwicom/nitro/lib/components/Mobile";
 ```
@@ -200,8 +197,9 @@ import Mobile from "@kiwicom/nitro/lib/components/Mobile";
 **Props:**
 ```js
 type Props = {|
-  display: "block" | "inline" | "inline-block" | "flex",
   children: React.Node | React.Node[],
+  // defaulted
+  display?: "block" | "inline" | "inline-block" | "flex", // block
 |};
 ```
 
@@ -222,7 +220,6 @@ const NavBar = () => (
 ### Price
 
 **Import:**
-
 ```js
 import Price from "@kiwicom/nitro/lib/components/Price";
 ```
@@ -248,10 +245,60 @@ const Pay = ({ value }: Props) => (
 );
 ```
 
+### Text
+
+**Import:**
+```js
+import Text from "@kiwicom/nitro/lib/components/Text";
+```
+
+**Props:**
+```js
+type Props = {|
+  ...$Diff<PropsOrbit, { children: React.Node }>,
+  t: string,
+  values?: Values,
+  html?: boolean,
+|};
+```
+
+Our `Translate` wrapped in _Orbit_'s `Text`. Accepts both our and their props.
+
+Useful for both translating and making text nicer!
+
+> Make sure to wrap translation keys in the global `__` function!
+
+Context needs:
+* **intl**
+
+### TextNode
+
+**Import:**
+```js
+import TextNode from "@kiwicom/nitro/lib/components/TextNode";
+```
+
+**Props:**
+```js
+type Props = {|
+  ...$Diff<PropsOrbit, { children: React.Node }>,
+  t: string,
+  values: { [key: string]: React.Node },
+|};
+```
+
+Our `TranslateNode` wrapped in _Orbit_'s `Text`. Accepts both our and their props.
+
+Useful for both translating and making text nicer!
+
+> Make sure to wrap translation keys in the global `__` function!
+
+Context needs:
+* **intl**
+
 ### Toggle
 
 **Import:**
-
 ```js
 import Toggle from "@kiwicom/nitro/lib/components/Toggle";
 ```
@@ -261,7 +308,7 @@ import Toggle from "@kiwicom/nitro/lib/components/Toggle";
 type Data = {|
   open: boolean,
   onToggle: () => void,
-|}; // ...docs
+|};
 
 type Props = {|
   children: (data: Data) => React.Node,
@@ -287,18 +334,18 @@ const MyComponent = () => (
 ### Translate
 
 **Import:**
-
 ```js
 import Translate from "@kiwicom/nitro/lib/components/Translate";
 ```
 
 **Props:**
 ```js
-type Props = {
+type Props = {|
   t: string,
-  values: Values,
-  html: boolean,
-};
+  // defaulted
+  values?: Values, // {}, see 'services/intl/translate'
+  html?: boolean, // false
+|};
 ```
 
 Translates the supplied key.
@@ -320,17 +367,16 @@ const Submit = () => (
 ### TranslateNode
 
 **Import:**
-
 ```js
 import TranslateNode from "@kiwicom/nitro/lib/components/TranslateNode";
 ```
 
 **Props:**
 ```js
-type Props = {
+type Props = {|
   t: string,
   values: { [key: string]: React.Node },
-};
+|};
 ```
 
 The same as `Translate`, except values are `React.Node`. Useful when you need to inject elements with event handlers!

@@ -1,0 +1,13 @@
+// @flow strict
+import * as React from "react";
+
+type Data = {|
+  open: boolean,
+  onToggle: () => void,
+|};
+
+type Props = {|
+  children: (data: Data) => React.Node,
+|};
+
+declare export default React.ComponentType<Props>;

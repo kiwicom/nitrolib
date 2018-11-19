@@ -1,0 +1,11 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {|
+  onClickOutside: (ev: MouseEvent) => void,
+  children: React.Node | React.Node[],
+  // defaulted
+  active?: boolean, // true
+|};
+
+declare export default React.ComponentType<Props>;

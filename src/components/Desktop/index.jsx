@@ -5,8 +5,9 @@ import styled, { css } from "styled-components";
 import mq from "../../styles/mq";
 
 type Props = {|
-  display: "block" | "inline" | "inline-block" | "flex",
   children: React.Node | React.Node[],
+  // defaulted
+  display: "block" | "inline" | "inline-block" | "flex",
 |};
 
 const Wrapper = styled.div`
