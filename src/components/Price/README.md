@@ -9,7 +9,12 @@ Context needs:
 ```js
 const Pay = ({ value }: Props) => (
   <Button>
-    <TextNode t={__("Pay __x__")} values={{ x: <Price value={value} /> }} />
+    <TextNode
+      t={__("Pay __x__")}
+      values={
+        { x: <Price value={value} /> }
+      }
+    />
   </Button>
 );
 ```

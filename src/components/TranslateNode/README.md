@@ -12,7 +12,9 @@ Example:
 const MyComponent = () => (
   <TranslateNode
     t={__("Click this: __x__")}
-    values={{ x: <button onClick={() => alert("Clicked")}>Yo</button> }}
+    values={
+      { x: <button onClick={() => alert("Clicked")}>Yo</button> }
+    }
   />
 );
 ```
