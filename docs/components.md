@@ -112,8 +112,9 @@ import ClickOutside from "@kiwicom/nitro/lib/components/ClickOutside";
 ```js
 type Props = {|
   onClickOutside: (ev: MouseEvent) => void,
-  active: boolean,
   children: React.Node | React.Node[],
+  // defaulted
+  active?: boolean, // true
 |};
 ```
 
@@ -138,8 +139,9 @@ import ClientOnly from "@kiwicom/nitro/lib/components/ClientOnly";
 **Props:**
 ```js
 type Props = {|
-  loader: React.Node,
   children: React.Node,
+  // defaulted
+  loader?: React.Node, // null
 |};
 ```
 
@@ -240,7 +242,12 @@ Context needs:
 ```js
 const Pay = ({ value }: Props) => (
   <Button>
-    <TextNode t={__("Pay __x__")} values={{ x: <Price value={value} /> }} />
+    <TextNode
+      t={__("Pay __x__")}
+      values={
+        { x: <Price value={value} /> }
+      }
+    />
   </Button>
 );
 ```
@@ -391,7 +398,9 @@ Example:
 const MyComponent = () => (
   <TranslateNode
     t={__("Click this: __x__")}
-    values={{ x: <button onClick={() => alert("Clicked")}>Yo</button> }}
+    values={
+      { x: <button onClick={() => alert("Clicked")}>Yo</button> }
+    }
   />
 );
 ```
