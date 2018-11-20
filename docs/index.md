@@ -1,7 +1,3 @@
-# Nitrolib
-
-Docs!
-
 ## Setup
 
 * `yarn add @kiwicom/nitro`
