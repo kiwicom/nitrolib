@@ -32,7 +32,7 @@ Actual components that do stuff. See [storybook](https://nitro-storybook-master.
 import CookiesConsent from "@kiwicom/nitro/lib/components/CookiesConsent";
 ```
 
-**Props:**
+**Types:**
 ```js
 type Props = {|
   onAccept: () => void,
@@ -50,7 +50,7 @@ Context needs:
 import HeaderLinks from "@kiwicom/nitro/lib/components/HeaderLinks";
 ```
 
-**Props:**
+**Types:**
 ```js
 type Props = {|
   linkFlights: string,
@@ -71,7 +71,7 @@ Context needs:
 import NavBar from "@kiwicom/nitro/lib/components/NavBar";
 ```
 
-**Props:**
+**Types:**
 ```js
 type Props = {|
   starred: React.Node,
@@ -108,7 +108,7 @@ Things that help in development.
 import ClickOutside from "@kiwicom/nitro/lib/components/ClickOutside";
 ```
 
-**Props:**
+**Types:**
 ```js
 type Props = {|
   onClickOutside: (ev: MouseEvent) => void,
@@ -136,7 +136,7 @@ const MyComponent = ({ open, onCloseModal }: Props) => (
 import ClientOnly from "@kiwicom/nitro/lib/components/ClientOnly";
 ```
 
-**Props:**
+**Types:**
 ```js
 type Props = {|
   children: React.Node,
@@ -166,7 +166,7 @@ const MyComponent = () => (
 import Desktop from "@kiwicom/nitro/lib/components/Desktop";
 ```
 
-**Props:**
+**Types:**
 ```js
 type Props = {|
   children: React.Node | React.Node[],
@@ -196,7 +196,7 @@ const NavBar = () => (
 import Mobile from "@kiwicom/nitro/lib/components/Mobile";
 ```
 
-**Props:**
+**Types:**
 ```js
 type Props = {|
   children: React.Node | React.Node[],
@@ -226,7 +226,7 @@ const NavBar = () => (
 import Price from "@kiwicom/nitro/lib/components/Price";
 ```
 
-**Props:**
+**Types:**
 ```js
 type Props = {|
   value: number,
@@ -259,7 +259,7 @@ const Pay = ({ value }: Props) => (
 import Text from "@kiwicom/nitro/lib/components/Text";
 ```
 
-**Props:**
+**Types:**
 ```js
 type Props = {|
   ...$Diff<PropsOrbit, { children: React.Node }>,
@@ -285,7 +285,7 @@ Context needs:
 import TextNode from "@kiwicom/nitro/lib/components/TextNode";
 ```
 
-**Props:**
+**Types:**
 ```js
 type Props = {|
   ...$Diff<PropsOrbit, { children: React.Node }>,
@@ -310,7 +310,7 @@ Context needs:
 import Toggle from "@kiwicom/nitro/lib/components/Toggle";
 ```
 
-**Props:**
+**Types:**
 ```js
 type Data = {|
   open: boolean,
@@ -345,7 +345,7 @@ const MyComponent = () => (
 import Translate from "@kiwicom/nitro/lib/components/Translate";
 ```
 
-**Props:**
+**Types:**
 ```js
 type Props = {|
   t: string,
@@ -378,7 +378,7 @@ const Submit = () => (
 import TranslateNode from "@kiwicom/nitro/lib/components/TranslateNode";
 ```
 
-**Props:**
+**Types:**
 ```js
 type Props = {|
   t: string,

@@ -46,6 +46,11 @@ flow:
   script:
     - yarn flow check
 
+docs:
+  stage: build
+  script:
+    - yarn docs:check
+
 release:
   stage: release
   image: kiwicom/s3cmd-plus-docker

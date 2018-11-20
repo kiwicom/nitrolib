@@ -11,6 +11,8 @@ const DOCS = path.join(__dirname, "../../docs");
 const SERVICES = path.join(SRC, "services");
 const COMPONENTS = path.join(SRC, "components");
 
+const NL = "\n";
+
 const capitalize = R.compose(
   R.join(""),
   R.juxt([
@@ -25,7 +27,7 @@ const capitalize = R.compose(
 function getServiceInitDoc(service) {
   const name = `Init${capitalize(service)}`;
   const PATH = path.join(COMPONENTS, name);
-  if (!fsx.existsSync(path)) {
+  if (!fsx.existsSync(PATH)) {
     return "";
   }
 
@@ -49,30 +51,24 @@ function getContextDoc(service) {
     throw new Error(`Every service must have a 'context.js.flow'! Missing: ${service}`);
   }
 
-  const NL = "";
   const maybeInit = getServiceInitDoc(service);
   const readme = String(fsx.readFileSync(PATH));
 
   const types = utils.getFlowFile(TYPES);
-  const doc = readme
-    .split("\n")
-    .filter(line => !line.match(/# \w+/)) // remove the heading
-    .join("\n")
-    .trim(); // trim that shit
+  const doc = utils.getReadme(readme);
 
   return [
     `### ${capitalize(service)}`,
     "",
     "**Import:**",
     "```js",
-    `import ${service} from "@kiwicom/nitro/lib/services/${service}/context.js";`,
+    `import { Consumer, Provider } from "@kiwicom/nitro/lib/services/${service}/context";`,
     "```",
-    "",
-    doc,
     "",
     types,
     "",
-    maybeInit ? NL + maybeInit + NL : "",
+    doc,
+    maybeInit ? NL + maybeInit : "",
   ].join("\n");
 }
 

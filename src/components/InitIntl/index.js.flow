@@ -1,0 +1,11 @@
+// @flow strict
+import * as React from "react";
+
+import type { Intl, IntlRaw } from "../../records/Intl";
+
+type Props = {|
+  raw: IntlRaw,
+  children: (arg: Intl) => React.Node,
+|};
+
+declare export default React.ComponentType<Props>;

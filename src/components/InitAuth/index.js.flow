@@ -1,0 +1,32 @@
+// @flow strict
+import * as React from "react";
+import type { Environment } from "react-relay";
+
+import type { Auth, SocialProvider } from "../../records/Auth";
+import type { Brand } from "../../records/Brand";
+import type { MyBookingInput, RegisterInput } from "../../services/auth/api";
+
+type Arg = {|
+  auth: Auth | null,
+  loading: boolean,
+  environment: Environment,
+  onMyBooking: (input: MyBookingInput) => Promise<void>,
+  onRegister: (input: RegisterInput) => Promise<void>,
+  onSocialAuth: (provider: SocialProvider) => Promise<void>,
+  onSignIn: (email: string, password: string) => Promise<void>,
+  onSignOut: () => void,
+|};
+
+type Props = {|
+  token: string | null,
+  brand: Brand,
+  redirectURL: string,
+  onMyBooking: (token: string) => void,
+  onRegister: () => void,
+  onSocialAuth: (authURL: string) => void,
+  onSignIn: (token: string) => void,
+  onSignOut: () => void,
+  children: (arg: Arg) => React.Node,
+|};
+
+declare export default React.ComponentType<Props>;

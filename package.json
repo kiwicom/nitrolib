@@ -10,6 +10,7 @@
     "types": "copyfiles -u 1 src/**/*.js.flow lib",
     "keys": "node etc/collectKeys.js",
     "docs": "node etc/docs",
+    "docs:check": "node etc/docs/check.js",
     "relay": "relay-compiler --src src/ --schema schema.graphql --extensions jsx js",
     "relay:schema": "graphql get-schema",
     "test": "jest",

@@ -6,6 +6,13 @@ const path = require("path");
 const SRC = path.join(__dirname, "../../src");
 const COMPONENTS = path.join(SRC, "components");
 
+const getReadme = readme =>
+  readme
+    .split("\n")
+    .filter(line => !line.match(/# \w+/)) // remove the heading
+    .join("\n")
+    .trim(); // trim that shit
+
 function getFlowFile(file) {
   if (!fsx.existsSync(file)) {
     throw new Error(`Documented components need an 'index.js.flow' file! Missing: ${file}`);
@@ -19,15 +26,11 @@ function getFlowFile(file) {
     .join("\n")
     .trim(); // trim that shit
 
-  return ["**Props:**", "```js", text, "```"].join("\n");
+  return ["**Types:**", "```js", text, "```"].join("\n");
 }
 
 function getComponentDoc(name, readme) {
-  const doc = readme
-    .split("\n")
-    .filter(line => !line.match(/# \w+/)) // remove the heading
-    .join("\n")
-    .trim(); // trim that shit
+  const doc = getReadme(readme);
 
   const props = getFlowFile(path.join(COMPONENTS, name, "index.js.flow"));
   return [
@@ -46,6 +49,7 @@ function getComponentDoc(name, readme) {
 }
 
 module.exports = {
+  getReadme,
   getFlowFile,
   getComponentDoc,
 };

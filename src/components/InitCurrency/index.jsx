@@ -27,9 +27,10 @@ type Props = {|
   ip: string,
   initialCurrency: string,
   langCurrency: string,
-  mostUsed: string[],
   children: (arg: Arg) => React.Node,
   onChange: (currency: string) => void,
+  // defaulted
+  mostUsed: string[],
   // DI
   getCurrencies: typeof getCurrenciesCall,
   getGeoCountry: typeof getGeoCountryCall,

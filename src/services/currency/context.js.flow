@@ -1,0 +1,15 @@
+// @flow
+import * as React from "react";
+
+import type { Currencies, Currency } from "../../records/Currency";
+
+export type Context = {|
+  currency: Currency,
+  available: Currencies,
+  recommended: Currency[],
+  onChange: (code: string) => void,
+|};
+
+declare var context: React.Context<Context>;
+
+export const { Consumer, Provider } = context;

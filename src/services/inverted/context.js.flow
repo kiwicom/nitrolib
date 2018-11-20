@@ -1,0 +1,11 @@
+// @flow strict
+import * as React from "react";
+
+// TODO remove this file, make via props
+type Inverted = {|
+  inverted?: boolean,
+|};
+
+declare var context: React.Context<Inverted>;
+
+export const { Consumer, Provider } = context;

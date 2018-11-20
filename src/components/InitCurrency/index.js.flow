@@ -1,0 +1,33 @@
+// @flow strict
+import * as React from "react";
+
+import type { Brand } from "../../records/Brand";
+import type { Currencies, Currency } from "../../records/Currency";
+import type { Countries } from "../../records/Country";
+import getGeoCountryCall from "./services/getGeoCountry";
+import getCurrenciesCall from "./services/getCurrencies";
+
+type Arg = {|
+  currency: Currency,
+  available: Currencies,
+  recommended: Currency[],
+  onChange: (code: string) => void,
+|};
+
+type Props = {|
+  brand: Brand,
+  countries: Countries,
+  affiliate: string,
+  ip: string,
+  initialCurrency: string,
+  langCurrency: string,
+  children: (arg: Arg) => React.Node,
+  onChange: (currency: string) => void,
+  // defaulted
+  mostUsed?: string[],
+  // DI
+  getCurrencies?: typeof getCurrenciesCall,
+  getGeoCountry?: typeof getGeoCountryCall,
+|};
+
+declare export default React.ComponentType<Props>;
