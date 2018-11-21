@@ -1,9 +1,7 @@
 // @flow
 
-import { compact } from "lodash";
-
 // Types
-import type { Item } from "../Links";
+import type { Item, Param } from "../Links";
 import type { ReadyUrl, HiddenUrls } from "../index";
 
 // Types
@@ -76,7 +74,7 @@ export const parseLanguage = ({ language, isoShort, isoCars }: ParseLanguage) =>
 */
 export const trackingUrl = ({ item, url, urlParam, language, query }: TrackingUrl) => {
   const trackingBase = "https://red-cougar.kiwi.com/nav-bar-link";
-  const queryParamsReady = compact([
+  const queryParamsReady = [
     url && `u=${url}`,
     query && `query=${btoa(query)}`,
     urlParam && `r=${urlParam}`,
@@ -90,7 +88,9 @@ export const trackingUrl = ({ item, url, urlParam, language, query }: TrackingUr
           detail: `${item.provider} - ${item.id}`,
         }),
       )}`,
-  ]).join("&");
+  ]
+    .filter(Boolean)
+    .join("&");
 
   return `${trackingBase}?${queryParamsReady}`;
 };
@@ -98,10 +98,10 @@ export const trackingUrl = ({ item, url, urlParam, language, query }: TrackingUr
 /*
   Generate search query parameters
 */
-export const generateSearchQuery = (params: Object[], searchParams: Object) => {
+export const generateSearchQuery = (params: Param[], searchParams: {}) => {
   const queryItems = params.map(param => {
     // Prepare query search param
-    const value = param.prop ? searchParams[param.prop] : param.value;
+    const value = param.prop ? searchParams[param.prop] : param.value || "";
 
     // Join key with value
     return `${param.key}=${value}`;
