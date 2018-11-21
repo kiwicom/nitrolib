@@ -1,4 +1,4 @@
-# Services
+# Records
 
 Located in `@kiwicom/nitro/lib/records/<record>`.
 
