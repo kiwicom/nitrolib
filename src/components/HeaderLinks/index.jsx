@@ -14,7 +14,7 @@ import IconWrapper from "./primitives/IconWrapper";
 import Links from "./Links";
 import Desktop from "../Desktop";
 import Mobile from "../Mobile";
-import { getNavBarLinks } from "./services/api";
+import getNavBarLinks from "./services/api";
 
 const Margin = styled.div`
   ${mq.mobile(css`
