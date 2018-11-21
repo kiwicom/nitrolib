@@ -46,7 +46,7 @@ function getRecordsDocs() {
   const recordsDocs = records.map(getRecordDoc).join("\n");
 
   const doc = [
-    "# Services",
+    "# Records",
     "",
     "Located in `@kiwicom/nitro/lib/records/<record>`.",
     "",
