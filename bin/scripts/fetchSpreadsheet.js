@@ -11,6 +11,7 @@ const whitelist = [
   "countries",
   // "currencies",
   "languages",
+  "airlines",
   // "about",
   // "affiliates",
   // "airlinesAdultThreshold",
