@@ -8,9 +8,7 @@ Stuff common for our webs! :fire:
 
 ## Documentation
 
-* [CLI](./docs/cli.md) - Nitro's CLI
-* [Services](./docs/services.md) - i18n, branding, production data...
-* [Components](./docs/components.md) - well... components 🤷
+Here https://kiwicom.github.io/nitrolib/
 
 ## Contributing
 
