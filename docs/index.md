@@ -5,5 +5,6 @@
 ## Documentation
 
 * [CLI](./cli) - Nitro's CLI
-* [Services](./services) - i18n, branding, production data...
 * [Components](./components) - well... components 🤷
+* [Records](./records) - data structures
+* [Services](./services) - i18n, branding, production data...

@@ -15,7 +15,7 @@ const getReadme = readme =>
 
 function getFlowFile(file) {
   if (!fsx.existsSync(file)) {
-    throw new Error(`Documented components need an 'index.js.flow' file! Missing: ${file}`);
+    throw new Error(`Documented features need a '.js.flow' file! Missing: ${file}`);
   }
 
   const text = String(fsx.readFileSync(file))

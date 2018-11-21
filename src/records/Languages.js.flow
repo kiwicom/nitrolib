@@ -1,0 +1,19 @@
+// @flow strict
+export type Language = {|
+  id: string,
+  name: string,
+  flag: string,
+  defaultCountry: string,
+  continent: string | string[],
+|};
+
+export type Languages = { [key: string]: Language };
+
+declare export var getByContinent: (languages: Language[], continent: string) => Language[];
+
+export type LanguageNames = {|
+  primary: string,
+  secondary: string,
+|};
+
+declare export var getNames: (lang: Language) => LanguageNames;

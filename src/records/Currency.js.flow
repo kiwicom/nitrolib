@@ -1,0 +1,25 @@
+// @flow strict
+export type Currency = {|
+  id: string,
+  name: string,
+  format: string,
+  uncertainFormat: boolean,
+  round: string, // number string
+  enabledOnAffilId: string | string[],
+  fallback: string,
+  rate: number,
+|};
+
+export type Currencies = {
+  [key: string]: Currency,
+};
+
+declare export var getCode: (code: string) => string;
+declare export var getSymbol: (format: string) => string;
+declare export var format: (currency: Currency, price: number) => string;
+
+declare export var getAvailableList: Currencies => Currency[];
+
+declare export var currencyDefault: Currency;
+
+declare export var MOST_USED_CURRENCIES: string[];
