@@ -25,6 +25,7 @@ const rest = [
   "continents.json",
   "countries.json",
   "languages.json",
+  "airlines.json",
 ];
 
 rest.forEach(file => {

@@ -13,6 +13,7 @@ import InitIntl from "../../src/components/InitIntl";
 import InitCurrency from "../../src/components/InitCurrency";
 import brandLanguages from "../fixtures/brandLanguages";
 import brands from "../fixtures/brands";
+import airlines from "../fixtures/airlines";
 import continents from "../fixtures/continents";
 import countries from "../fixtures/countries";
 import languages from "../fixtures/languages";
@@ -41,6 +42,7 @@ const withData = (storyFn: () => React.Node) => {
   };
 
   const fetched = {
+    airlines,
     countries,
     continents,
     brandLanguage: brandLanguages[brandId][localeId],
