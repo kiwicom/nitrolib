@@ -75,7 +75,7 @@ class HeaderLinks extends React.Component<Props, State> {
   getNavBarLinks = async () => {
     try {
       // Fetch services
-      const services: any = await getNavBarLinks();
+      const services = await getNavBarLinks();
 
       // Update state
       this.setState({ services: services.items });
@@ -101,13 +101,16 @@ class HeaderLinks extends React.Component<Props, State> {
                   {open && (
                     <ClickOutside onClickOutside={onToggle}>
                       <Popup>
-                        <Links
-                          urlParam={urlParam}
-                          searchParams={searchParams}
-                          services={services}
-                          readyUrls={readyUrls}
-                          hiddenUrls={hiddenUrls}
-                        />
+                        {services &&
+                          services.length > 0 && (
+                            <Links
+                              urlParam={urlParam}
+                              searchParams={searchParams}
+                              services={services}
+                              readyUrls={readyUrls}
+                              hiddenUrls={hiddenUrls}
+                            />
+                          )}
                       </Popup>
                     </ClickOutside>
                   )}
@@ -121,13 +124,16 @@ class HeaderLinks extends React.Component<Props, State> {
           </Margin>
         </Mobile>
         <Desktop display="flex">
-          <Links
-            urlParam={urlParam}
-            searchParams={searchParams}
-            services={services}
-            readyUrls={readyUrls}
-            hiddenUrls={hiddenUrls}
-          />
+          {services &&
+            services.length > 0 && (
+              <Links
+                urlParam={urlParam}
+                searchParams={searchParams}
+                services={services}
+                readyUrls={readyUrls}
+                hiddenUrls={hiddenUrls}
+              />
+            )}
         </Desktop>
       </>
     );
