@@ -1,11 +1,16 @@
 // @flow strict
 import * as React from "react";
-import Text from "@kiwicom/orbit-components/lib/Text";
 
-import Text from "../Text";
 import Link from "./Link";
+import Text from "../Text";
 import { parseUrl } from "./helpers/parseUrl";
 import type { ReadyUrl, HiddenUrls } from "./index";
+
+export type Param = {|
+  key: string,
+  prop?: string,
+  value?: string,
+|};
 
 export type Item = {|
   id: string,
@@ -17,14 +22,14 @@ export type Item = {|
   supportedLanguages?: string[],
   feLink?: boolean,
   newWindow: boolean,
-  params?: Object[],
+  params: Param[],
   url?: {
     default: string,
   },
 |};
 
 type Props = {|
-  services: ?(Item[]),
+  services: Item[],
   searchParams: {
     language: string,
   },
@@ -33,8 +38,7 @@ type Props = {|
   hiddenUrls: HiddenUrls,
 |};
 
-const Links: any = ({ services, searchParams, urlParam, readyUrls, hiddenUrls }: Props) =>
-  services &&
+const Links: Props => React.Node = ({ services, searchParams, urlParam, readyUrls, hiddenUrls }) =>
   services.map(item => {
     const link = parseUrl({
       item,
@@ -50,11 +54,7 @@ const Links: any = ({ services, searchParams, urlParam, readyUrls, hiddenUrls }:
       <Link
         logTab={item.id}
         link={link}
-        text={
-          <Text>
-            <Translate t={item.translation} />
-          </Text>
-        }
+        text={<Text t={item.translation} />}
         newWindow={item.newWindow}
       />
     );
