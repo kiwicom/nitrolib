@@ -1,0 +1,10 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {|
+  dataTest?: string,
+  hrefLearnMore: string, // Link to learn more page
+  onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers modal with alternative trips
+|};
+
+declare export default React.ComponentType<Props>;

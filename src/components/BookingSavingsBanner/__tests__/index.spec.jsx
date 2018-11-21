@@ -7,7 +7,7 @@ import BookingSavingsBanner from "..";
 describe("#BookingSavingsBanner", () => {
   test("render", () => {
     const wrapper = shallow(
-      <BookingSavingsBanner onLearnMoreHref="kiwi.com" onMoreTripsClick={jest.fn()} />,
+      <BookingSavingsBanner hrefLearnMore="kiwi.com" onMoreTripsClick={jest.fn()} />,
     );
 
     expect(wrapper).toMatchSnapshot();
@@ -16,7 +16,7 @@ describe("#BookingSavingsBanner", () => {
   test("click", () => {
     const onClick = jest.fn();
     const wrapper = shallow(
-      <BookingSavingsBanner onLearnMoreHref="kiwi.com" onMoreTripsClick={onClick} />,
+      <BookingSavingsBanner hrefLearnMore="kiwi.com" onMoreTripsClick={onClick} />,
     );
 
     wrapper.find(`[dataTest="saving-banner-button-find-more-trips"]`).simulate("click");
