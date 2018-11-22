@@ -5,14 +5,37 @@ import Linkedin from "@kiwicom/orbit-components/lib/icons/Linkedin";
 import Twitter from "@kiwicom/orbit-components/lib/icons/Twitter";
 import Instagram from "@kiwicom/orbit-components/lib/icons/Instagram";
 import Facebook from "@kiwicom/orbit-components/lib/icons/Facebook";
-import OrbitText from "@kiwicom/orbit-components/lib/Text";
 
 import mq from "../../styles/mq";
 import Text from "../Text";
 import { Consumer as IntlConsumer } from "../../services/intl/context";
 import type { ThemeProps } from "../../records/Theme";
 import { themeDefault } from "../../records/Theme";
-import LogoSVG from "./LogoSvg";
+import LogoSVG from "./components/LogoSvg";
+import { getLinks } from "./services/menu";
+
+const ICONS = [
+  {
+    id: "ig",
+    component: <Instagram color="tertiary" />,
+    url: `https://www.instagram.com/kiwicom247/`,
+  },
+  {
+    id: "tw",
+    component: <Twitter color="tertiary" />,
+    url: `https://twitter.com/kiwicom247/`,
+  },
+  {
+    id: "li",
+    component: <Linkedin color="tertiary" />,
+    url: `https://www.linkedin.com/company/Kiwi.com/`,
+  },
+  {
+    id: "fb",
+    component: <Facebook color="tertiary" />,
+    url: `https://www.facebook.com/kiwicom247/`,
+  },
+];
 
 const Wrapper = styled.div`
   ${({ theme }: ThemeProps) => css`
@@ -111,93 +134,39 @@ const IconsLink = styled.a`
     margin-right: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
   }
 `;
+
 IconsLink.defaultProps = {
   theme: themeDefault,
 };
 
-const prepareLinks = (langId: ?string) => {
-  const lang = langId || "en";
-  return [
-    {
-      id: 1,
-      title: __("termsAndConditions"),
-      url: `https://www.kiwi.com/${lang}/pages/content/legal/`,
-    },
-    {
-      id: 2,
-      title: __("termsOfUse"),
-      url: `https://www.kiwi.com/${lang}/pages/content/terms/`,
-    },
-    {
-      id: 3,
-      title: __("privacyPolicy"),
-      url: `https://www.kiwi.com/${lang}/content/privacy/`,
-    },
-    {
-      id: 4,
-      title: __("security"),
-      url: `https://www.kiwi.com/${lang}/pages/security/`,
-    },
-  ];
-};
-
-const icons = [
-  {
-    id: 1,
-    component: <Instagram color="tertiary" />,
-    url: `https://www.instagram.com/kiwicom247/`,
-  },
-  {
-    id: 2,
-    component: <Twitter color="tertiary" />,
-    url: `https://twitter.com/kiwicom247/`,
-  },
-  {
-    id: 3,
-    component: <Linkedin color="tertiary" />,
-    url: `https://www.linkedin.com/company/Kiwi.com/`,
-  },
-  {
-    id: 4,
-    component: <Facebook color="tertiary" />,
-    url: `https://www.facebook.com/kiwicom247/`,
-  },
-];
-
-type Props = {
-  langId?: string,
-};
-
-const Footer = ({ langId }: Props) => (
-  <Wrapper>
-    <LogoWrapper>
-      <a href={`https://www.kiwi.com/${langId || "en"}/`}>
-        <Logo />
-      </a>
-    </LogoWrapper>
-    <LinksAndIconsWrapper>
-      <IntlConsumer>
-        {intl => (
+const Footer = () => (
+  <IntlConsumer>
+    {({ language }) => (
+      <Wrapper>
+        <LogoWrapper>
+          <a href={`/${language.id}/`}>
+            <Logo />
+          </a>
+        </LogoWrapper>
+        <LinksAndIconsWrapper>
           <LinksWrapper>
-            {prepareLinks(langId).map(link => (
+            {getLinks(language.id).map(link => (
               <Link href={link.url} key={link.id} target="_blank" rel="noopener noreferrer">
-                <OrbitText type="secondary">
-                  <Text t={intl.translate(link.title)} />
-                </OrbitText>
+                <Text t={link.title} type="secondary" />
               </Link>
             ))}
           </LinksWrapper>
-        )}
-      </IntlConsumer>
-      <Icons>
-        {icons.map(icon => (
-          <IconsLink href={icon.url} key={icon.id} target="_blank" rel="noopener noreferrer">
-            {icon.component}
-          </IconsLink>
-        ))}
-      </Icons>
-    </LinksAndIconsWrapper>
-  </Wrapper>
+          <Icons>
+            {ICONS.map(icon => (
+              <IconsLink href={icon.url} key={icon.id} target="_blank" rel="noopener noreferrer">
+                {icon.component}
+              </IconsLink>
+            ))}
+          </Icons>
+        </LinksAndIconsWrapper>
+      </Wrapper>
+    )}
+  </IntlConsumer>
 );
 
 export default Footer;
