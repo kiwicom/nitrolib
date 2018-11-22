@@ -58,14 +58,14 @@ const Tip = styled.span`
         margin-top: ${TIP_OFFSET}px;
       `)};
 
-  ${({ position }) =>
+  ${({ position, move }) =>
     position === "left" || position === "right"
       ? `
-        top: 50%;
+        top: ${50 - move}%;
         transform: translateY(-50%);
       `
       : `
-        left: 50%;
+        left: ${50 - move}%;
         transform: translateX(-50%);
       `};
 
@@ -80,30 +80,30 @@ const Tip = styled.span`
     border-color: transparent;
     border-style: ${({ theme }: ThemeProps) => theme.orbit.borderStyleCard};
     border-width: ${TIP_ARROW_SIZE + 1}px;
-    ${({ theme, position }) =>
+    ${({ theme, position, color }) =>
       (position === "left" &&
         `
           ${rtl.right({ theme })}: 0;
           border-${rtl.right({ theme })}-width: 0;
-          border-${rtl.left({ theme })}-color: ${theme.orbit.paletteInkDark};
+          border-${rtl.left({ theme })}-color: ${color || theme.orbit.paletteInkDark};
         `) ||
       (position === "right" &&
         `
           ${rtl.left({ theme })}: 0;
           border-${rtl.left({ theme })}-width: 0;
-          border-${rtl.right({ theme })}-color: ${theme.orbit.paletteInkDark};
+          border-${rtl.right({ theme })}-color: ${color || theme.orbit.paletteInkDark};
         `) ||
       (position === "top" &&
         `
           bottom: 0;
           border-bottom-width: 0;
-          border-top-color: ${theme.orbit.paletteInkDark};
+          border-top-color: ${color || theme.orbit.paletteInkDark};
         `) ||
       (position === "bottom" &&
         `
           top: 0;
           border-top-width: 0;
-          border-bottom-color: ${theme.orbit.paletteInkDark};
+          border-bottom-color: ${color || theme.orbit.paletteInkDark};
         `)};
 
     ${({ position }) =>
@@ -128,8 +128,16 @@ const TipContent = styled.span`
   line-height: 30px;
   padding: 0px 8px;
   color: ${({ theme }) => theme.orbit.paletteWhite};
-  background-color: ${({ theme }) => theme.orbit.paletteInkDark};
+  background-color: ${({ theme, color }) => color || theme.orbit.paletteInkDark};
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
+  ${({ position, move }) =>
+    move === 0
+      ? ""
+      : `
+        transform: translate${position === "left" || position === "right" ? "Y" : "X"}(
+          calc(${move}% - ${(move < 0 ? -1 : 1) * TIP_ARROW_SIZE}px)
+        )
+      `};
 `;
 
 TipContent.defaultProps = {
@@ -142,6 +150,12 @@ type Props = {|
   inline: boolean,
   mobile: boolean,
   children: React.Node,
+  disabled: boolean,
+  // eslint-disable-next-line react/no-unused-prop-types
+  alwaysOn: boolean,
+  color: ?string,
+  moveContent: number,
+  moveArrow: number,
 |};
 
 type State = {|
@@ -152,7 +166,27 @@ class Tooltip extends React.PureComponent<Props, State> {
   static defaultProps = {
     inline: false,
     mobile: false,
+    disabled: false,
+    alwaysOn: false,
+    color: null,
+    moveContent: 0,
+    moveArrow: 0,
   };
+
+  static getDerivedStateFromProps(props: Props, state: State) {
+    const { disabled, alwaysOn } = props;
+    const { shown } = state;
+
+    if (alwaysOn && !disabled && !shown) {
+      return { shown: true };
+    }
+
+    if (disabled && shown) {
+      return { shown: false };
+    }
+
+    return null;
+  }
 
   state = {
     shown: false,
@@ -167,22 +201,37 @@ class Tooltip extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { tip, position, inline, mobile, children } = this.props;
+    const {
+      tip,
+      position,
+      inline,
+      mobile,
+      disabled,
+      color,
+      moveContent,
+      moveArrow,
+      children,
+    } = this.props;
     const { shown } = this.state;
+
+    const handleIn = disabled ? undefined : this.handleIn;
+    const handleOut = disabled ? undefined : this.handleOut;
 
     return (
       <Container
-        onTouchStart={this.handleIn}
-        onTouchEnd={this.handleOut}
-        onMouseOver={this.handleIn}
-        onMouseOut={this.handleOut}
-        onFocus={this.handleIn}
-        onBlur={this.handleOut}
+        onTouchStart={handleIn}
+        onTouchEnd={handleOut}
+        onMouseOver={handleIn}
+        onMouseOut={handleOut}
+        onFocus={handleIn}
+        onBlur={handleOut}
         inline={inline}
       >
         {children}
-        <Tip shown={shown} position={position} mobile={mobile}>
-          <TipContent>{tip}</TipContent>
+        <Tip shown={shown} position={position} mobile={mobile} color={color} move={moveArrow}>
+          <TipContent position={position} color={color} move={moveContent}>
+            {tip}
+          </TipContent>
         </Tip>
       </Container>
     );

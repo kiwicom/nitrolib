@@ -399,8 +399,13 @@ exports[`#Currency/CustomPicker/CurrencyList render 1`] = `
       }
     >
       <Tooltip
+        alwaysOn={false}
+        color={null}
+        disabled={false}
         inline={false}
         mobile={false}
+        moveArrow={0}
+        moveContent={0}
         position="right"
         tip={
           <ForwardRef>
@@ -1206,8 +1211,13 @@ exports[`#Currency/CustomPicker/CurrencyList render 1`] = `
       }
     >
       <Tooltip
+        alwaysOn={false}
+        color={null}
+        disabled={false}
         inline={false}
         mobile={false}
+        moveArrow={0}
+        moveContent={0}
         position="right"
         tip={
           <ForwardRef>
@@ -2013,8 +2023,13 @@ exports[`#Currency/CustomPicker/CurrencyList render 1`] = `
       }
     >
       <Tooltip
+        alwaysOn={false}
+        color={null}
+        disabled={false}
         inline={false}
         mobile={false}
+        moveArrow={0}
+        moveContent={0}
         position="left"
         tip={
           <ForwardRef>
@@ -2820,8 +2835,13 @@ exports[`#Currency/CustomPicker/CurrencyList render 1`] = `
       }
     >
       <Tooltip
+        alwaysOn={false}
+        color={null}
+        disabled={false}
         inline={false}
         mobile={false}
+        moveArrow={0}
+        moveContent={0}
         position="left"
         tip={
           <ForwardRef>

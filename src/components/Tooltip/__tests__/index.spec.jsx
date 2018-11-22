@@ -7,7 +7,7 @@ import Tooltip from "..";
 describe("#Tooltip", () => {
   test("render - right", () => {
     const wrapper = shallow(
-      <Tooltip tip="Tip" position="right">
+      <Tooltip tip="Tip" position="right" color="#00FF00">
         Content
       </Tooltip>,
     );
@@ -50,6 +50,17 @@ describe("#Tooltip", () => {
     expect(wrapper.find("Tooltip__Tip").shallow()).toMatchSnapshot();
   });
 
+  test("render - moved", () => {
+    const wrapper = shallow(
+      <Tooltip tip="Tip" position="bottom" moveArrow={20} moveContent={-40}>
+        Content
+      </Tooltip>,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Tooltip__Tip").shallow()).toMatchSnapshot();
+  });
+
   test("render - inline", () => {
     const wrapper = shallow(
       <Tooltip tip="Tip" position="right" inline>
@@ -72,9 +83,49 @@ describe("#Tooltip", () => {
     expect(wrapper.find("Tooltip__Container").shallow()).toMatchSnapshot();
   });
 
+  test("disabled", () => {
+    const wrapper = shallow(
+      <Tooltip tip="Tip" position="right" disabled>
+        Content
+      </Tooltip>,
+    );
+
+    wrapper.find("Tooltip__Container").simulate("mouseover");
+    wrapper.update();
+
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Tooltip__Tip").shallow()).toMatchSnapshot();
+
+    wrapper.find("Tooltip__Container").simulate("mouseout");
+    wrapper.update();
+
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Tooltip__Tip").shallow()).toMatchSnapshot();
+  });
+
   test("mouse over + out", () => {
     const wrapper = shallow(
       <Tooltip tip="Tip" position="right">
+        Content
+      </Tooltip>,
+    );
+
+    wrapper.find("Tooltip__Container").simulate("mouseover");
+    wrapper.update();
+
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Tooltip__Tip").shallow()).toMatchSnapshot();
+
+    wrapper.find("Tooltip__Container").simulate("mouseout");
+    wrapper.update();
+
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Tooltip__Tip").shallow()).toMatchSnapshot();
+  });
+
+  test("alwaysOn", () => {
+    const wrapper = shallow(
+      <Tooltip tip="Tip" position="right" alwaysOn>
         Content
       </Tooltip>,
     );
