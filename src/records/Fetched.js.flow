@@ -1,9 +1,11 @@
 // @flow strict
+import type { Airlines } from "./Airline";
 import type { Countries } from "./Country";
 import type { Continents } from "./Continents";
 import type { BrandLanguage } from "./BrandLanguage";
 
 export type Fetched = {|
+  airlines: Airlines,
   countries: Countries,
   continents: Continents,
   brandLanguage: BrandLanguage,

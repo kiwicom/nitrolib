@@ -29,13 +29,41 @@ Cover **all** source files with `// @flow strict`! Only disable stuff that _real
 
 ## Docs
 
+Only documented features are meant to be used in apps. Docs are processed, be sure to run `yarn docs` for updating it after writing something! _Types_ and _imports_ gets generated automatically.
+
+### CLI
+
+The _CLI_ docs are written manually, edit the `docs/cli.md` file.
+
+### Components
+
 Every public _component_ has to have a:
 * `README.md` file
-* `.js.flow` file
+* `<component>.js.flow` file
 
-Document how to use the component, what context it uses and possible caveats. Imagine you're using it with zero knowledge! _Props_ and _import_ gets generated automatically.
+Document how to use the component, what **context** it uses and possible caveats. Imagine you're using it with zero knowledge!
 
-Document _services_ with `README.md`. Any existing `Init` components will get referenced automatically.
+### Records
+
+Every public _record_ has to have a:
+* `<record>.md` file
+* `<record>.js.flow` file
+
+Document any functions that work with the record and its main use case.
+
+### Services
+
+Every public _context service_ has to have a:
+* `README.md` file
+* `context.js.flow` file
+
+Any existing `Init<Service>` components will get referenced automatically.
+
+Other public services need a:
+* `README.md` file
+* `<file>.js.flow` file
+
+Document what problem does a service solve, how to use it.
 
 ## Merge requests
 
