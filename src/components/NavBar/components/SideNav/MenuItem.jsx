@@ -2,9 +2,9 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { themeDefault } from "../../../../../../records/Theme";
-import type { ThemeProps } from "../../../../../../records/Theme";
-import * as rtl from "../../../../../../styles/rtl";
+import { themeDefault } from "../../../../records/Theme";
+import type { ThemeProps } from "../../../../records/Theme";
+import * as rtl from "../../../../styles/rtl";
 
 const Link = styled.a`
   display: flex;

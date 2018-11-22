@@ -389,7 +389,7 @@ exports[`#Footer render 1`] = `
 >
   <ForwardRef>
     <a
-      href="/en/"
+      href="https://www.kiwi.com/en/"
     >
       <ForwardRef />
     </a>
@@ -397,7 +397,7 @@ exports[`#Footer render 1`] = `
   <ForwardRef>
     <ForwardRef>
       <ForwardRef
-        href="/en/pages/content/legal/"
+        href="https://www.kiwi.com/en/pages/content/legal/"
         rel="noopener noreferrer"
         target="_blank"
         theme={
@@ -791,7 +791,7 @@ exports[`#Footer render 1`] = `
         />
       </ForwardRef>
       <ForwardRef
-        href="/en/pages/content/terms/"
+        href="https://www.kiwi.com/en/pages/content/terms/"
         rel="noopener noreferrer"
         target="_blank"
         theme={
@@ -1185,7 +1185,7 @@ exports[`#Footer render 1`] = `
         />
       </ForwardRef>
       <ForwardRef
-        href="/en/content/privacy/"
+        href="https://www.kiwi.com/en/content/privacy/"
         rel="noopener noreferrer"
         target="_blank"
         theme={
@@ -1579,7 +1579,7 @@ exports[`#Footer render 1`] = `
         />
       </ForwardRef>
       <ForwardRef
-        href="/en/pages/security/"
+        href="https://www.kiwi.com/en/pages/security/"
         rel="noopener noreferrer"
         target="_blank"
         theme={

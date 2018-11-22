@@ -7,25 +7,25 @@ import Modal from "@kiwicom/orbit-components/lib/Modal";
 import Portal from "@kiwicom/orbit-components/lib/Portal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
-import ClientOnly from "../../../../../ClientOnly/index";
-import Mobile from "../../../../../Mobile";
-import Translate from "../../../../../Translate";
-import Language from "../../../../../Language";
-import { Consumer as BrandConsumer } from "../../../../../../services/brand/context";
-import { Consumer as AuthConsumer } from "../../../../../../services/auth/context";
-import type { ThemeProps } from "../../../../../../records/Theme";
-import { themeDefault } from "../../../../../../records/Theme";
-import * as rtl from "../../../../../../styles/rtl";
-import Currency from "../../../../../Currency";
-import LogMount from "../../../../../LogMount";
-import { OPEN_CHAT } from "../../../../../../consts/events";
-import SideBar from "../../../SideBar";
+import ClientOnly from "../../../ClientOnly/index";
+import Mobile from "../../../Mobile";
+import Translate from "../../../Translate";
+import Language from "../../../Language";
+import { Consumer as BrandConsumer } from "../../../../services/brand/context";
+import { Consumer as AuthConsumer } from "../../../../services/auth/context";
+import type { ThemeProps } from "../../../../records/Theme";
+import { themeDefault } from "../../../../records/Theme";
+import * as rtl from "../../../../styles/rtl";
+import Currency from "../../../Currency";
+import LogMount from "../../../LogMount";
+import { OPEN_CHAT } from "../../../../consts/events";
+import SideBar from "../SideBar";
 import MenuGroup from "./MenuGroup";
 import MenuItem from "./MenuItem";
 import BrandedMenuItem from "./BrandedMenuItem";
 import { icons, getPagesItems, getSocialMediaItems } from "./services/menu";
-import * as MODALS from "../../../../../../consts/modals";
-import type { Modal as ModalType } from "../../../../../../consts/modals";
+import * as MODALS from "../../../../consts/modals";
+import type { Modal as ModalType } from "../../../../consts/modals";
 
 type InvertedProps = {|
   ...ThemeProps,

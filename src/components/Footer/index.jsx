@@ -144,7 +144,7 @@ const Footer = () => (
     {({ language }) => (
       <Wrapper>
         <LogoWrapper>
-          <a href={`/${language.id}/`}>
+          <a href={`https://www.kiwi.com/${language.id}/`}>
             <Logo />
           </a>
         </LogoWrapper>

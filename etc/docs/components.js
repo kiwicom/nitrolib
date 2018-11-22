@@ -21,6 +21,7 @@ function getComponentDoc(component) {
 const FEATURES = {
   CookiesConsent: true,
   Currency: true,
+  Footer: true,
   HeaderLinks: true,
   Languages: true,
   NavBar: true,

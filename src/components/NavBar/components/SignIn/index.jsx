@@ -9,21 +9,21 @@ import Alert from "@kiwicom/orbit-components/lib/Alert";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import Security from "@kiwicom/orbit-components/lib/icons/Security";
 
-import * as rtl from "../../../../../../styles/rtl";
-import { themeDefault } from "../../../../../../records/Theme";
-import InputText from "../../../../../InputText";
-import LogMount from "../../../../../LogMount";
-import type { Change } from "../../../../../InputText";
-import Translate from "../../../../../Translate";
-import firstFormError from "../../../../services/firstFormError";
-import compose from "../../../../../../services/input/composeValidator";
-import * as validators from "../../../../../../services/input/validators";
-import * as normalizers from "../../../../../../services/input/normalizers";
-import emailCorrector from "../../../../../../services/input/emailCorrector";
-import isEmptish from "../../../../../../services/utils/isEmptish";
-import IconText from "../../../../../IconText";
-import Query from "../../../../../Query";
-import { OPEN_MODAL } from "../../../../../../consts/events";
+import * as rtl from "../../../../styles/rtl";
+import { themeDefault } from "../../../../records/Theme";
+import InputText from "../../../InputText";
+import LogMount from "../../../LogMount";
+import type { Change } from "../../../InputText";
+import Translate from "../../../Translate";
+import firstFormError from "../../services/firstFormError";
+import compose from "../../../../services/input/composeValidator";
+import * as validators from "../../../../services/input/validators";
+import * as normalizers from "../../../../services/input/normalizers";
+import emailCorrector from "../../../../services/input/emailCorrector";
+import isEmptish from "../../../../services/utils/isEmptish";
+import IconText from "../../../IconText";
+import Query from "../../../Query";
+import { OPEN_MODAL } from "../../../../consts/events";
 
 const ERRORS = {
   "Login failed.": __("account.login_failed"),

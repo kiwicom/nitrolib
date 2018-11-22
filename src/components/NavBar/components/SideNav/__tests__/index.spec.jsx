@@ -4,7 +4,7 @@ import { shallow } from "enzyme";
 
 import SideNav from "..";
 
-import * as MODALS from "../../../../../../../consts/modals";
+import * as MODALS from "../../../../../consts/modals";
 
 describe("#SideNav", () => {
   test("render", () => {

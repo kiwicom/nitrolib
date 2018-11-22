@@ -6,10 +6,10 @@ import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import Translate from "../../../../../Translate";
-import type { ThemeProps } from "../../../../../../records/Theme";
-import { themeDefault } from "../../../../../../records/Theme";
-import type { SocialProvider } from "../../../../../../records/Auth";
+import Translate from "../../../Translate";
+import type { ThemeProps } from "../../../../records/Theme";
+import { themeDefault } from "../../../../records/Theme";
+import type { SocialProvider } from "../../../../records/Auth";
 
 const Or = styled.div`
   position: relative;

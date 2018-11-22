@@ -1,5 +1,5 @@
 // @flow srict
-import { brandDefault } from "../../../../../../../../records/Brand";
+import { brandDefault } from "../../../../../../records/Brand";
 import { getPagesItems, getSocialMediaItems } from "../menu";
 
 describe("#Sidenav service menu", () => {

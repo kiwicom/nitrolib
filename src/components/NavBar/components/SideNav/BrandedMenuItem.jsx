@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import Translate from "../../../../../Translate";
+import Translate from "../../../Translate";
 import MenuItem from "./MenuItem";
 
 type Props = {|

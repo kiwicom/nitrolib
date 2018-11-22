@@ -2,12 +2,12 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { padding } from "../../../../../../styles";
-import { themeDefault } from "../../../../../../records/Theme";
-import type { ThemeProps } from "../../../../../../records/Theme";
-import { Consumer as BrandConsumer } from "../../../../../../services/brand/context";
-import { Consumer as AuthConsumer } from "../../../../../../services/auth/context";
-import * as MODALS from "../../../../../../consts/modals";
+import { padding } from "../../../../styles";
+import { themeDefault } from "../../../../records/Theme";
+import type { ThemeProps } from "../../../../records/Theme";
+import { Consumer as BrandConsumer } from "../../../../services/brand/context";
+import { Consumer as AuthConsumer } from "../../../../services/auth/context";
+import * as MODALS from "../../../../consts/modals";
 import SocialLogin from "./SocialLogin";
 import Switch from "./Switch";
 import MyBooking from "../MyBooking";

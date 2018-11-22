@@ -2,11 +2,11 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
-import Tab from "../../../../../Tab";
-import Flex from "../../../../../../primitives/Flex";
-import Translate from "../../../../../Translate";
-import { Consumer as BrandConsumer } from "../../../../../../services/brand/context";
-import mq from "../../../../../../styles/mq";
+import Tab from "../../../Tab";
+import Flex from "../../../../primitives/Flex";
+import Translate from "../../../Translate";
+import { Consumer as BrandConsumer } from "../../../../services/brand/context";
+import mq from "../../../../styles/mq";
 
 type Props = {|
   open: "myBooking" | "register" | "signIn",

@@ -13,6 +13,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [ClickOutside](#clickoutside)
 * [ClientOnly](#clientonly)
 * [Desktop](#desktop)
+* [Footer](#footer)
 * [Mobile](#mobile)
 * [Price](#price)
 * [Text](#text)
@@ -188,6 +189,21 @@ const NavBar = () => (
   </>
 );
 ```
+
+### Footer
+
+**Import:**
+```js
+import Footer from "@kiwicom/nitro/lib/components/Footer";
+```
+
+**Types:**
+```js
+type Props = {||};
+```
+
+Context needs:
+- **intl**
 
 ### Mobile
 

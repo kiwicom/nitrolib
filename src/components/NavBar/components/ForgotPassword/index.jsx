@@ -6,21 +6,21 @@ import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Text from "@kiwicom/orbit-components/lib/Text";
 
-import { padding } from "../../../../../../styles";
-import { themeDefault } from "../../../../../../records/Theme";
-import type { ThemeProps } from "../../../../../../records/Theme";
-import LogMount from "../../../../../LogMount";
-import InputText from "../../../../../InputText";
-import type { Change } from "../../../../../InputText";
-import IconText from "../../../../../IconText";
-import Translate from "../../../../../Translate";
-import AcceptAlert from "../../../../../AcceptAlert";
-import * as validators from "../../../../../../services/input/validators";
-import compose from "../../../../../../services/input/composeValidator";
-import * as normalizers from "../../../../../../services/input/normalizers";
-import emailCorrector from "../../../../../../services/input/emailCorrector";
-import * as api from "../../../../../../services/auth/api";
-import { OPEN_MODAL } from "../../../../../../consts/events";
+import { padding } from "../../../../styles";
+import { themeDefault } from "../../../../records/Theme";
+import type { ThemeProps } from "../../../../records/Theme";
+import LogMount from "../../../LogMount";
+import InputText from "../../../InputText";
+import type { Change } from "../../../InputText";
+import IconText from "../../../IconText";
+import Translate from "../../../Translate";
+import AcceptAlert from "../../../AcceptAlert";
+import * as validators from "../../../../services/input/validators";
+import compose from "../../../../services/input/composeValidator";
+import * as normalizers from "../../../../services/input/normalizers";
+import emailCorrector from "../../../../services/input/emailCorrector";
+import * as api from "../../../../services/auth/api";
+import { OPEN_MODAL } from "../../../../consts/events";
 
 const emailValidator = compose(
   validators.email,

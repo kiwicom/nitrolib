@@ -10,22 +10,22 @@ import Ticket from "@kiwicom/orbit-components/lib/icons/Ticket";
 import Calendar from "@kiwicom/orbit-components/lib/icons/Calendar";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 
-import Query from "../../../../../Query";
-import LogMount from "../../../../../LogMount";
-import InputText from "../../../../../InputText";
-import type { Change } from "../../../../../InputText";
-import IconText from "../../../../../IconText";
-import Translate from "../../../../../Translate";
-import IataPicker from "../../../../../IataPicker";
-import InputDate from "../../../../../InputDate";
-import parseDateFormat from "../../../../../InputDate/services/parseDateFormat";
-import firstFormError from "../../../../services/firstFormError";
-import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
-import * as normalizers from "../../../../../../services/input/normalizers";
-import * as validators from "../../../../../../services/input/validators";
-import isEmptish from "../../../../../../services/utils/isEmptish";
-import type { MyBookingInput } from "../../../../../../services/auth/api";
-import { OPEN_MODAL } from "../../../../../../consts/events";
+import Query from "../../../Query";
+import LogMount from "../../../LogMount";
+import InputText from "../../../InputText";
+import type { Change } from "../../../InputText";
+import IconText from "../../../IconText";
+import Translate from "../../../Translate";
+import IataPicker from "../../../IataPicker";
+import InputDate from "../../../InputDate";
+import parseDateFormat from "../../../InputDate/services/parseDateFormat";
+import firstFormError from "../../services/firstFormError";
+import { Consumer as IntlConsumer } from "../../../../services/intl/context";
+import * as normalizers from "../../../../services/input/normalizers";
+import * as validators from "../../../../services/input/validators";
+import isEmptish from "../../../../services/utils/isEmptish";
+import type { MyBookingInput } from "../../../../services/auth/api";
+import { OPEN_MODAL } from "../../../../consts/events";
 
 const FieldWrap = styled.div`
   position: relative;
