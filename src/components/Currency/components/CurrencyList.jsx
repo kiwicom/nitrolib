@@ -1,6 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
+import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import type { Currency } from "../../../records/Currency";
 import { themeDefault } from "../../../records/Theme";
@@ -8,7 +9,6 @@ import type { ThemeProps } from "../../../records/Theme";
 import separateList from "../../../services/utils/separateList";
 import Flex from "../../../primitives/Flex";
 import mq from "../../../styles/mq";
-import * as rtl from "../../../styles/rtl";
 import Tooltip from "../../Tooltip";
 import CurrencyItem from "./CurrencyItem";
 import Code from "./Code";
@@ -32,7 +32,7 @@ const Column = styled.div`
 
 const Item = styled.div`
   ${mq.gtTablet(css`
-    padding-${rtl.right}: 25px;
+    padding-${right}: 25px;
   `)};
 `;
 
@@ -43,7 +43,7 @@ Item.defaultProps = {
 const ItemText = styled.div`
   display: flex;
   line-height: 30px;
-  padding-${rtl.left}: 5px;
+  padding-${left}: 5px;
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   cursor: pointer;
   background: ${({ theme, active }: ActiveProps) =>
@@ -61,13 +61,13 @@ const ItemText = styled.div`
   }
 
   ${Sign} {
-    margin-${rtl.left}: 10px;
+    margin-${left}: 10px;
     color: ${({ theme, active }: ActiveProps) =>
       theme.orbit[active ? "paletteWhite" : "paletteInkNormal"]};
   }
 
   ${Name} {
-    margin-${rtl.left}: 10px;
+    margin-${left}: 10px;
     color: ${({ theme, active }: ActiveProps) =>
       theme.orbit[active ? "paletteWhite" : "paletteInkNormal"]};
   }

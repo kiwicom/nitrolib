@@ -1,10 +1,10 @@
 // @flow
 import styled, { css } from "styled-components";
+import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
 import mq from "../../../styles/mq";
-import * as rtl from "../../../styles/rtl";
 
 type LinkProps = {|
   ...ThemeProps,
@@ -20,7 +20,7 @@ const StyledLink = styled.a`
   text-decoration: none;
   position: relative;
   cursor: pointer;
-  margin-${rtl.left}: 20px;
+  margin-${left}: 20px;
   height: 50px;
   line-height: 50px;
 
@@ -46,8 +46,8 @@ const StyledLink = styled.a`
   }
 
   ${mq.mobile(css`
-    margin-${rtl.left}: 0;
-    padding-${rtl.left}: 10px;
+    margin-${left}: 0;
+    padding-${left}: 10px;
     font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextLarge};
     font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
     &:first-child {
@@ -69,7 +69,7 @@ const StyledLink = styled.a`
       }
     }
     i {
-      padding-${rtl.right}: 10px;
+      padding-${right}: 10px;
     }
   `)};
 `;

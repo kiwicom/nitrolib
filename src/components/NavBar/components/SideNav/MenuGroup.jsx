@@ -1,10 +1,10 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
+import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import * as rtl from "../../../../styles/rtl";
 
 type Props = {
   text?: React.Node,
@@ -12,7 +12,7 @@ type Props = {
 };
 
 const Menu = styled.div`
-  padding-${rtl.left}: 35px;
+  padding-${left}: 35px;
 `;
 
 Menu.defaultProps = {

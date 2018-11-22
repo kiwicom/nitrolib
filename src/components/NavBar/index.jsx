@@ -1,10 +1,10 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
+import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import { navbar } from "../../styles";
 import mq from "../../styles/mq";
-import * as rtl from "../../styles/rtl";
 import Desktop from "../Desktop";
 import Mobile from "../Mobile";
 import type { ThemeProps } from "../../records/Theme";
@@ -42,7 +42,7 @@ const Container = styled(Flex)`
   ${mq.gtTablet(css`
     position: fixed;
     top: 0;
-    ${rtl.left}: 0;
+    ${left}: 0;
   `)};
 `;
 

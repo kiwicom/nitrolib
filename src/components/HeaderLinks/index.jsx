@@ -3,9 +3,9 @@ import React from "react";
 import AirplaneUp from "@kiwicom/orbit-components/lib/icons/AirplaneUp";
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
+import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import mq from "../../styles/mq";
-import * as rtl from "../../styles/rtl";
 import ClickOutside from "../ClickOutside";
 import Toggle from "../Toggle";
 import Popup from "./primitives/Popup";
@@ -17,7 +17,7 @@ import { Consumer as InvertedConsumer } from "../../services/inverted/context";
 
 const Margin = styled.div`
   ${mq.mobile(css`
-    margin-${rtl.left}: 20px;
+    margin-${left}: 20px;
   `)};
 `;
 

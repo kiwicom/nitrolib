@@ -1,9 +1,9 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
+import { left, right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import mq from "../../styles/mq";
-import * as rtl from "../../styles/rtl";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 
@@ -35,15 +35,15 @@ const Tip = styled.span`
   ${({ position, theme }) =>
     (position === "left" &&
       `
-        ${rtl.right({ theme })}: 100%;
-        padding-${rtl.right({ theme })}: ${TIP_ARROW_SIZE}px;
-        margin-${rtl.right({ theme })}: ${TIP_OFFSET}px;
+        ${right({ theme })}: 100%;
+        padding-${right({ theme })}: ${TIP_ARROW_SIZE}px;
+        margin-${right({ theme })}: ${TIP_OFFSET}px;
       `) ||
     (position === "right" &&
       `
-        ${rtl.left({ theme })}: 100%;
-        padding-${rtl.left({ theme })}: ${TIP_ARROW_SIZE}px;
-        margin-${rtl.left({ theme })}: ${TIP_OFFSET}px;
+        ${left({ theme })}: 100%;
+        padding-${left({ theme })}: ${TIP_ARROW_SIZE}px;
+        margin-${left({ theme })}: ${TIP_OFFSET}px;
       `) ||
     (position === "top" &&
       `
@@ -83,15 +83,15 @@ const Tip = styled.span`
     ${({ theme, position }) =>
       (position === "left" &&
         `
-          ${rtl.right({ theme })}: 0;
-          border-${rtl.right({ theme })}-width: 0;
-          border-${rtl.left({ theme })}-color: ${theme.orbit.paletteInkDark};
+          ${right({ theme })}: 0;
+          border-${right({ theme })}-width: 0;
+          border-${left({ theme })}-color: ${theme.orbit.paletteInkDark};
         `) ||
       (position === "right" &&
         `
-          ${rtl.left({ theme })}: 0;
-          border-${rtl.left({ theme })}-width: 0;
-          border-${rtl.right({ theme })}-color: ${theme.orbit.paletteInkDark};
+          ${left({ theme })}: 0;
+          border-${left({ theme })}-width: 0;
+          border-${right({ theme })}-color: ${theme.orbit.paletteInkDark};
         `) ||
       (position === "top" &&
         `

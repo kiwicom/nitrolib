@@ -3,6 +3,7 @@
 .idea
 .tmp
 .cache
+.yalc
 coverage
 data
 dist-storybook

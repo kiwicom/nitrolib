@@ -1,8 +1,8 @@
 // @flow
 import styled, { css } from "styled-components";
+import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import mq from "../../../styles/mq";
-import * as rtl from "../../../styles/rtl";
 import type { ThemeProps } from "../../../records/Theme";
 import { themeDefault } from "../../../records/Theme";
 
@@ -23,15 +23,15 @@ const Popup = styled.div`
   box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
 
   ${mq.gtDesktop(css`
-    ${rtl.right}: ${({ positionMenuDesktop }) => `${positionMenuDesktop}px`};
+    ${right}: ${({ positionMenuDesktop }) => `${positionMenuDesktop}px`};
   `)};
 
   ${mq.tablet(css`
-    ${rtl.right}: ${({ positionMenuTablet }) => `${positionMenuTablet}px`};
+    ${right}: ${({ positionMenuTablet }) => `${positionMenuTablet}px`};
   `)};
 
   ${mq.mobile(css`
-    ${rtl.right}: 0;
+    ${right}: 0;
     left: 0;
     font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
     min-width: 100%;

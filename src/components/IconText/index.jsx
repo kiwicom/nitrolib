@@ -1,8 +1,8 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
+import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
-import * as rtl from "../../styles/rtl";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 
@@ -19,7 +19,7 @@ Container.defaultProps = {
 const IconWrapper = styled.div`
   display: flex;
   align-items: center;
-  padding-${rtl.right}: 10px;
+  padding-${right}: 10px;
 `;
 
 const Text = styled.span`
