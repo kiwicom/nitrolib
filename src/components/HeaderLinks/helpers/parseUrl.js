@@ -1,7 +1,7 @@
 // @flow
 
 // Types
-import type { Item, Param } from "../Links";
+import type { Item, Param } from "../components/Links/index";
 import type { ReadyUrl, HiddenUrls } from "../index";
 
 // Types
