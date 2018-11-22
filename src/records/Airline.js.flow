@@ -1,0 +1,12 @@
+// @flow strict
+export type Airline = {|
+  id: string,
+  lcc: number,
+  name: string,
+|};
+
+export type Airlines = {
+  [key: string]: Airline,
+};
+
+declare export var airlineDefault: Airline;

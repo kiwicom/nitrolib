@@ -39,10 +39,10 @@ Fetches production data.
 
 **Files:**
 * `translations/<locale>_<hash>.json` - translations for the given _locale_, cache-busted with the commit _hash_
-* `airlines.json` - contains basic information about supported airlines, see [Airline.js](./src/records/Airline.js)
-* `brandLanguages.json` - contains information about languages for different brands, see [BrandLanguage](../records#brandlanguage)
-* `brands.json` - contains brand config, see [Brand](../records#brand)
-* `continents.json` - contains a list of continents and their countries, see [Continents](../records#continents)
-* `countries.json` - contains basic information about all the world's countries, see [Country](../records#Country)
-* `languages.json` - contains information about our supported languages, see [LangInfo](../records#langinfo)
+* `airlines.json` - contains basic information about supported airlines, see [Airline.js](./records#airline)
+* `brandLanguages.json` - contains information about languages for different brands, see [BrandLanguage](./records#brandlanguage)
+* `brands.json` - contains brand config, see [Brand](./records#brand)
+* `continents.json` - contains a list of continents and their countries, see [Continents](./records#continents)
+* `countries.json` - contains basic information about all the world's countries, see [Country](./records#Country)
+* `languages.json` - contains information about our supported languages, see [LangInfo](./records#langinfo)
 * `translationsFiles.json` - contains a map of a _locale_ to its translation file

@@ -2,6 +2,7 @@
 
 Located in `@kiwicom/nitro/lib/records/<record>`.
 
+* [Airline](#airline)
 * [Auth](#auth)
 * [Brand](#brand)
 * [BrandLanguage](#brandlanguage)
@@ -15,6 +16,31 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [Languages](#languages)
 * [Theme](#theme)
 * [User](#user)
+
+## Airline
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/Airline";
+import type { Airline } from "@kiwicom/nitro/lib/records/Airline";
+```
+
+**Types:**
+```js
+export type Airline = {|
+  id: string,
+  lcc: number,
+  name: string,
+|};
+
+export type Airlines = {
+  [key: string]: Airline,
+};
+
+declare export var airlineDefault: Airline;
+```
+
+_TODO_
 
 ## Auth
 
