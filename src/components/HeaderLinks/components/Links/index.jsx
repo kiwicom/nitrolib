@@ -1,10 +1,10 @@
 // @flow strict
 import * as React from "react";
 
-import Link from "./Link";
-import Text from "../Text";
-import { parseUrl } from "./helpers/parseUrl";
-import type { ReadyUrl, HiddenUrls } from "./index";
+import Link from "../Link/index";
+import Text from "../../../Text/index";
+import { parseUrl } from "../../helpers/parseUrl";
+import type { ReadyUrl, HiddenUrls } from "../../index";
 
 export type Param = {|
   key: string,

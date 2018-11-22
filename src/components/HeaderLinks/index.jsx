@@ -5,13 +5,13 @@ import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
-import type { Item } from "./Links";
+import type { Item } from "./components/Links";
 import mq from "../../styles/mq";
 import ClickOutside from "../ClickOutside";
 import Toggle from "../Toggle";
 import Popup from "./primitives/Popup";
 import IconWrapper from "./primitives/IconWrapper";
-import Links from "./Links";
+import Links from "./components/Links/index";
 import Desktop from "../Desktop";
 import Mobile from "../Mobile";
 import getNavBarLinks from "./services/api";

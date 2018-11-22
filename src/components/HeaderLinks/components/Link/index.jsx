@@ -1,8 +1,8 @@
 // @flow strict
 import * as React from "react";
 
-import IconWrapper from "./primitives/IconWrapper";
-import StyledLink from "./primitives/StyledLink";
+import IconWrapper from "../../primitives/IconWrapper";
+import StyledLink from "../../primitives/StyledLink";
 
 type Props = {
   link: string,

@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import type { Item } from "./Links";
+import type { Item } from "./components/Links/index";
 
 export type Services = ?(Item[]);
 
