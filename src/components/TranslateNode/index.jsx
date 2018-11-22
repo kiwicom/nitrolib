@@ -1,4 +1,5 @@
 // @flow strict
+/* eslint-disable react/no-danger, react/no-array-index-key */
 import * as React from "react";
 
 import { Consumer } from "../../services/intl/context";
@@ -13,8 +14,15 @@ const TranslateNode = ({ t, values }: Props) => (
     {intl => (
       <>
         {Object.keys(values).reduce(
-          // $FlowExpected: we're transforming string[] to React.Node[]
-          (words, key) => words.map(word => (word === key ? values[key] : word)),
+          (words, key, i) =>
+            words.map(word =>
+              // $FlowExpected: we're transforming string[] to React.Node[]
+              word === key ? (
+                <span key={i}>{values[key]}</span>
+              ) : (
+                <span key={i} dangerouslySetInnerHTML={{ __html: word }} />
+              ),
+            ),
           intl.translate(t).split("__"),
         )}
       </>
