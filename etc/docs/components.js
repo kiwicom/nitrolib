@@ -42,7 +42,7 @@ Things that help in development.
 function componentsDocs() {
   const components = fsx
     .readdirSync(COMPONENTS)
-    .filter(component => !component.match(/^Init\w+/)) // these are documented in services;
+    .filter(component => !component.match(/^Init\w+/)) // these are documented in services
     .filter(component => fsx.existsSync(path.join(COMPONENTS, component, "README.md")));
 
   const features = components.filter(component => FEATURES[component]);
