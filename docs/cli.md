@@ -26,7 +26,7 @@ Collects translation keys wrapped in the `__` function.
 
 ## Fetch
 
-* `yarn nitro fetch [?--translations=<path>]`
+* `yarn nitro fetch ?[--translations <path>]`
 
 Fetches production data.
 
