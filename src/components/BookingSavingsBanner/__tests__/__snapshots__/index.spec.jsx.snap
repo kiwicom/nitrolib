@@ -388,14 +388,7 @@ exports[`#BookingSavingsBanner render 1`] = `
     }
   }
 >
-  <div
-    className="BannerDescription"
-    style={
-      Object {
-        "width": "70%",
-      }
-    }
-  >
+  <BookingSavingsBanner__BannerDescription>
     <Stack
       align="center"
       direction="column"
@@ -807,7 +800,6 @@ exports[`#BookingSavingsBanner render 1`] = `
       </BookingSavingsBanner__Row>
       <BookingSavingsBanner__Row>
         <Button
-          block={false}
           dataTest="saving-banner-button-find-more-trips"
           onClick={[MockFunction]}
           size="normal"
@@ -833,15 +825,8 @@ exports[`#BookingSavingsBanner render 1`] = `
         </ButtonLink>
       </BookingSavingsBanner__Row>
     </Stack>
-  </div>
-  <div
-    className="BannerLogo"
-    style={
-      Object {
-        "width": "30%",
-      }
-    }
-  >
+  </BookingSavingsBanner__BannerDescription>
+  <BookingSavingsBanner__BannerLogo>
     <Stack
       align="center"
       direction="column"
@@ -851,6 +836,6 @@ exports[`#BookingSavingsBanner render 1`] = `
         size="small"
       />
     </Stack>
-  </div>
+  </BookingSavingsBanner__BannerLogo>
 </BookingSavingsBanner__Container>
 `;

@@ -48,6 +48,12 @@ const Description = styled.p`
 Description.defaultProps = {
   theme: themeDefault,
 };
+const BannerDescription = styled.div`
+  width: 70%;
+`;
+const BannerLogo = styled.div`
+  width: 30%;
+`;
 
 type Props = {|
   dataTest?: string,
@@ -61,7 +67,7 @@ const BookingSavingsBanner = ({
   hrefLearnMore,
 }: Props) => (
   <Container data-test={dataTest}>
-    <div className="BannerDescription" style={{ width: "70%" }}>
+    <BannerDescription>
       <Stack align="center" direction="column">
         <Row>
           <DealsContainer>
@@ -80,7 +86,6 @@ const BookingSavingsBanner = ({
           <Button
             dataTest="saving-banner-button-find-more-trips"
             onClick={onMoreTripsClick}
-            block={false}
             type="secondary"
             size="normal"
           >
@@ -95,12 +100,12 @@ const BookingSavingsBanner = ({
           </ButtonLink>
         </Row>
       </Stack>
-    </div>
-    <div className="BannerLogo" style={{ width: "30%" }}>
+    </BannerDescription>
+    <BannerLogo>
       <Stack align="center" direction="column">
         <Illustration name="Money" size="small" />
       </Stack>
-    </div>
+    </BannerLogo>
   </Container>
 );
 

@@ -6,7 +6,7 @@ Example:
 ```js
 const MyComponent = ({ onShowAlternativeFlights }: Props) => (
   <div>
-    <BookingSavingsBanner dataTest="BookingSavingsAB" hrefLearnMore="https://kiwicom./learnmore-tat" onMoreTripsClick={onShowAlternativeFlights} />
+    <BookingSavingsBanner dataTest="BookingSavingsAB" hrefLearnMore="https://kiwi.com/learnmore-tat" onMoreTripsClick={onShowAlternativeFlights} />
   </div>
 );
 ```
