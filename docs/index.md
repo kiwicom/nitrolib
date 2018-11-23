@@ -9,4 +9,4 @@
 * [Records](./records) - data structures
 * [Services](./services) - i18n, branding, production data...
 
-Follow applicable guidelines from https://oreqizer.github.io/reactizer/, too!
+Follow applicable guidelines from https://oreqizer.github.io/reactizer/ too!
