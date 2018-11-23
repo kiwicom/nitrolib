@@ -16,7 +16,7 @@ const mapLanguages = require("./scripts/mapLanguages");
 const command = process.argv[2];
 
 const OUT = path.join(process.cwd(), "data");
-const TRANSLATIONS = path.join(process.cwd(), "node_modules/@kiwicom/translations/lib");
+const TRANSLATIONS = path.join(__dirname, "node_modules/@kiwicom/translations/lib"); // __dirname
 const TKEYS = path.join(OUT, "tkeys.json");
 
 function log(what) {
