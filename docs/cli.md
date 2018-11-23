@@ -39,6 +39,7 @@ Fetches production data.
 
 **Example:**
 * `yarn nitro fetch` - fetches data and translations
+* `yarn nitro fetch --translations ..` - fetches data and translations from up one level
 
 **Files:**
 * `translations/<locale>_<hash>.json` - translations for the given _locale_, cache-busted with the commit _hash_
