@@ -89,17 +89,15 @@ const NativeGroupedSelect = ({ icon, value, groups, divider, hideNativeText, onC
       hideNativeText={hideNativeText}
       onChange={(ev: SyntheticInputEvent<HTMLSelectElement>) => onChange(ev.target.value)}
     >
-      {groups
-        .filter(group => group.items.length > 0)
-        .map((group, index) => (
-          <optgroup key={group.key} label={index > 0 ? divider : null}>
-            {group.items.map(item => (
-              <option key={item.value} value={item.value}>
-                {item.text}
-              </option>
-            ))}
-          </optgroup>
-        ))}
+      {groups.filter(group => group.items.length > 0).map((group, index) => (
+        <optgroup key={group.key} label={index > 0 ? divider : null}>
+          {group.items.map(item => (
+            <option key={item.value} value={item.value}>
+              {item.text}
+            </option>
+          ))}
+        </optgroup>
+      ))}
     </Select>
   </Container>
 );
