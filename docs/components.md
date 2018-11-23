@@ -5,6 +5,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 **Features:**
 
 * [CookiesConsent](#cookiesconsent)
+* [Footer](#footer)
 * [HeaderLinks](#headerlinks)
 * [NavBar](#navbar)
 
@@ -43,6 +44,21 @@ type Props = {|
 Context needs:
 * **intl**
 * **brand**
+
+### Footer
+
+**Import:**
+```js
+import Footer from "@kiwicom/nitro/lib/components/Footer";
+```
+
+**Types:**
+```js
+type Props = {||};
+```
+
+Context needs:
+- **intl**
 
 ### HeaderLinks
 
