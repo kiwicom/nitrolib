@@ -16,6 +16,7 @@ type Props = {|
   positionMenuDesktop?: number,
   positionMenuTablet?: number,
   flat: boolean,
+  inverted?: boolean,
   favorite?: LanguageType[],
   hideNativeText?: boolean,
   onChange: (lang: string) => void,
@@ -27,6 +28,7 @@ const Language = ({
   hideNativeText,
   native,
   flat,
+  inverted,
   positionMenuDesktop,
   positionMenuTablet,
   favorite,
@@ -56,7 +58,10 @@ const Language = ({
               onChange={onChange}
             />
           ) : (
-            <CustomPicker openButton={<LanguageCurrent language={current} />} onChange={onChange}>
+            <CustomPicker
+              openButton={<LanguageCurrent language={current} inverted={inverted} />}
+              onChange={onChange}
+            >
               {render => (
                 <Menu
                   currentId={intl.language.id}

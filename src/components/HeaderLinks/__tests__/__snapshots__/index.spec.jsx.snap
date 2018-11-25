@@ -1,7 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#Currency render 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<Fragment>
+  <Mobile
+    display="flex"
+  >
+    <HeaderLinks__Margin>
+      <Toggle>
+        <Component />
+      </Toggle>
+    </HeaderLinks__Margin>
+  </Mobile>
+  <Desktop
+    display="flex"
+  >
+    <Links
+      forceNewWindow={false}
+      linkCars="https://www.kiwi.com/en/?headerLink=linkCars"
+      linkFlights="https://www.kiwi.com/en/?headerLink=linkFlights"
+      linkHolidays="https://www.kiwi.com/en/?headerLink=linkHolidays"
+      linkRooms="https://www.kiwi.com/en/?headerLink=linkRooms"
+    />
+  </Desktop>
+</Fragment>
 `;

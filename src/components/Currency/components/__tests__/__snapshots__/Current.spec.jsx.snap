@@ -1,7 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#Currency/CustomPicker/CurrencyItem render 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<Current__Wrapper>
+  <Code>
+    EUR
+  </Code>
+  <Current__Separator>
+    -
+  </Current__Separator>
+  <Sign>
+    €
+  </Sign>
+</Current__Wrapper>
 `;
