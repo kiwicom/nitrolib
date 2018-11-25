@@ -13,7 +13,6 @@ import IconWrapper from "./primitives/IconWrapper";
 import Links from "./Links";
 import Desktop from "../Desktop";
 import Mobile from "../Mobile";
-import { Consumer as InvertedConsumer } from "../../services/inverted/context";
 
 const Margin = styled.div`
   ${mq.mobile(css`
@@ -25,55 +24,59 @@ type Props = {|
   linkFlights: string,
   linkCars: string,
   linkRooms: string,
+  inverted?: boolean,
   linkHolidays: string,
   forceNewWindow: boolean,
 |};
 
-const HeaderLinks = ({ linkFlights, linkRooms, linkCars, linkHolidays, forceNewWindow }: Props) => (
-  <InvertedConsumer>
-    {({ inverted }) => (
-      <>
-        <Mobile display="flex">
-          <Margin>
-            <Toggle>
-              {({ open, onToggle }) => (
-                <ClickOutside active={open} onClickOutside={onToggle}>
-                  <>
-                    {open && (
-                      <Popup>
-                        <Links
-                          linkFlights={linkFlights}
-                          linkRooms={linkRooms}
-                          linkCars={linkCars}
-                          inverted={inverted}
-                          linkHolidays={linkHolidays}
-                          forceNewWindow={forceNewWindow}
-                        />
-                      </Popup>
-                    )}
-                    <IconWrapper act={open} onClick={onToggle} inverted={inverted}>
-                      <AirplaneUp />
-                      <ChevronDown size="small" />
-                    </IconWrapper>
-                  </>
-                </ClickOutside>
-              )}
-            </Toggle>
-          </Margin>
-        </Mobile>
-        <Desktop display="flex">
-          <Links
-            linkFlights={linkFlights}
-            linkRooms={linkRooms}
-            linkCars={linkCars}
-            inverted={inverted}
-            linkHolidays={linkHolidays}
-            forceNewWindow={forceNewWindow}
-          />
-        </Desktop>
-      </>
-    )}
-  </InvertedConsumer>
+const HeaderLinks = ({
+  linkFlights,
+  linkRooms,
+  linkCars,
+  linkHolidays,
+  forceNewWindow,
+  inverted,
+}: Props) => (
+  <>
+    <Mobile display="flex">
+      <Margin>
+        <Toggle>
+          {({ open, onToggle }) => (
+            <ClickOutside active={open} onClickOutside={onToggle}>
+              <>
+                {open && (
+                  <Popup>
+                    <Links
+                      linkFlights={linkFlights}
+                      linkRooms={linkRooms}
+                      linkCars={linkCars}
+                      inverted={inverted}
+                      linkHolidays={linkHolidays}
+                      forceNewWindow={forceNewWindow}
+                    />
+                  </Popup>
+                )}
+                <IconWrapper act={open} onClick={onToggle} inverted={inverted}>
+                  <AirplaneUp />
+                  <ChevronDown size="small" />
+                </IconWrapper>
+              </>
+            </ClickOutside>
+          )}
+        </Toggle>
+      </Margin>
+    </Mobile>
+    <Desktop display="flex">
+      <Links
+        linkFlights={linkFlights}
+        linkRooms={linkRooms}
+        linkCars={linkCars}
+        inverted={inverted}
+        linkHolidays={linkHolidays}
+        forceNewWindow={forceNewWindow}
+      />
+    </Desktop>
+  </>
 );
 
 HeaderLinks.defaultProps = {

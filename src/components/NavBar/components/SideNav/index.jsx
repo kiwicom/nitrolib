@@ -57,7 +57,11 @@ const Close = styled.div`
   top: 0;
   ${right}: 0;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
+<<<<<<< HEAD:src/components/NavBar/components/SideNav/index.jsx
   padding: ${rtlSpacing(`23px 30px 10px 0`)};
+=======
+  padding: ${rtlSpacing("23px 30px 10px 0")};
+>>>>>>> 5ef56f1... Navbar: removed inverted consumer:src/components/NavBar/components/Menu/components/SideNav/index.jsx
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
   cursor: pointer;
 `;

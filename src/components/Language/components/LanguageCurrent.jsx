@@ -5,10 +5,10 @@ import CountryFlag from "@kiwicom/orbit-components/lib/CountryFlag";
 
 import LanguageNameText from "./LanguageNameText";
 import type { LangInfo } from "../../../records/LangInfo";
-import { Consumer as InvertedConsumer } from "../../../services/inverted/context";
 
 type Props = {|
   language: LangInfo,
+  inverted?: boolean,
 |};
 
 const Container = styled.div`
@@ -16,16 +16,12 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const LanguageCurrent = ({ language }: Props) => (
-  <InvertedConsumer>
-    {({ inverted }) => (
-      <Container>
-        {/* $FlowExpected: their props are too specific */}
-        <CountryFlag code={language.flag} name={language.displayName} />
-        <LanguageNameText inverted={inverted}>{language.displayName}</LanguageNameText>
-      </Container>
-    )}
-  </InvertedConsumer>
+const LanguageCurrent = ({ language, inverted }: Props) => (
+  <Container>
+    {/* $FlowExpected: their props are too specific */}
+    <CountryFlag code={language.flag} name={language.displayName} />
+    <LanguageNameText inverted={inverted}>{language.displayName}</LanguageNameText>
+  </Container>
 );
 
 export default LanguageCurrent;
