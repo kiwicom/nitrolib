@@ -11,7 +11,6 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
-import * as rtl from "../../styles/rtl";
 import Text from "../Text";
 
 const Container = styled.div`
@@ -22,7 +21,7 @@ const Container = styled.div`
   border-radius: 3px;
   border: solid 1px ${({ theme }: ThemeProps) => theme.orbit.paletteCloudNormal};
   background-color: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
-  padding: ${rtl.box(24, 24, 24, 24)};
+  padding: 24px;
 `;
 
 Container.defaultProps = {
