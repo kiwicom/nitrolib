@@ -7,7 +7,7 @@
     "build": "run-p babel types keys docs",
     "babel": "babel src -d lib --ignore '**/__tests__/*'",
     "modules": "cross-env BABEL_ENV=modules babel src -d lib --ignore '**/__tests__/*' && renamer --find .js --replace .mjs 'lib/**'",
-    "types": "copyfiles -u 1 src/**/*.js.flow lib",
+    "types": "copyfiles -u 1 'src/**/*.js.flow' lib",
     "keys": "node etc/collectKeys.js",
     "docs": "node etc/docs",
     "docs:check": "node etc/docs/check.js",
