@@ -1,9 +1,9 @@
 // @flow strict
 import styled from "styled-components";
 
-const Flex = styled.div.attrs({
-  "data-test": ({ dataTest }) => dataTest,
-})`
+const Flex = styled.div.attrs(({ dataTest }) => ({
+  "data-test": dataTest,
+}))`
   display: flex;
   ${({ x, y, direction }) => x && `justify-content: ${direction === "column" ? y : x}`};
   ${({ x, y, direction }) => y && `align-items: ${direction === "column" ? x : y}`};
