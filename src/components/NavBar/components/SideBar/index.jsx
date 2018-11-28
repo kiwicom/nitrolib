@@ -67,7 +67,7 @@ export default class SideBar extends React.Component<Props> {
 
   el = document.createElement("div");
 
-  ref = React.createRef();
+  ref: { current: HTMLDivElement | null } = React.createRef();
 
   componentDidMount() {
     if (this.node) {
