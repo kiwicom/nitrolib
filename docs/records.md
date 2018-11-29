@@ -720,7 +720,7 @@ import type { Intl } from "@kiwicom/nitro/lib/records/Intl";
 ```js
 export type IntlRaw = {|
   language: LangInfo,
-  translations: { [key: string]: string },
+  translations: Translations,
 |};
 
 export type Intl = {|
