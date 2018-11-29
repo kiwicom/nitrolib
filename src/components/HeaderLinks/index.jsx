@@ -11,13 +11,28 @@ import Toggle from "../Toggle";
 import Popup from "./primitives/Popup";
 import IconWrapper from "./primitives/IconWrapper";
 import Links from "./Links";
-import Desktop from "../Desktop";
-import Mobile from "../Mobile";
 
 const Margin = styled.div`
-  ${mq.mobile(css`
+  ${mq.ltDesktop(css`
     margin-${left}: 20px;
-  `)};
+  `)}
+  ${mq.ltSmallMobile(css`
+    margin-${left}: 0;
+  `)}
+`;
+
+const LtDesktop = styled.div`
+  display: none;
+  ${mq.ltDesktop(css`
+    display: flex;
+  `)}
+`;
+
+const GtDesktop = styled.div`
+  display: none;
+  ${mq.gtDesktop(css`
+    display: flex;
+  `)}
 `;
 
 type Props = {|
@@ -38,7 +53,7 @@ const HeaderLinks = ({
   inverted,
 }: Props) => (
   <>
-    <Mobile display="flex">
+    <LtDesktop>
       <Margin>
         <Toggle>
           {({ open, onToggle }) => (
@@ -65,8 +80,8 @@ const HeaderLinks = ({
           )}
         </Toggle>
       </Margin>
-    </Mobile>
-    <Desktop display="flex">
+    </LtDesktop>
+    <GtDesktop>
       <Links
         linkFlights={linkFlights}
         linkRooms={linkRooms}
@@ -75,7 +90,7 @@ const HeaderLinks = ({
         linkHolidays={linkHolidays}
         forceNewWindow={forceNewWindow}
       />
-    </Desktop>
+    </GtDesktop>
   </>
 );
 

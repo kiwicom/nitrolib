@@ -3,7 +3,7 @@
 exports[`#Desktop render 1`] = `
 <StyledComponent
   display="block"
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -23,6 +23,7 @@ exports[`#Desktop render 1`] = `
         ],
       },
       "displayName": "Desktop__Wrapper",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "Desktop__Wrapper-z83utc-0",
       "target": "div",

@@ -2,18 +2,14 @@
 
 exports[`#Currency render 1`] = `
 <Fragment>
-  <Mobile
-    display="flex"
-  >
+  <HeaderLinks__LtDesktop>
     <HeaderLinks__Margin>
       <Toggle>
         <Component />
       </Toggle>
     </HeaderLinks__Margin>
-  </Mobile>
-  <Desktop
-    display="flex"
-  >
+  </HeaderLinks__LtDesktop>
+  <HeaderLinks__GtDesktop>
     <Links
       forceNewWindow={false}
       linkCars="https://www.kiwi.com/en/?headerLink=linkCars"
@@ -21,6 +17,6 @@ exports[`#Currency render 1`] = `
       linkHolidays="https://www.kiwi.com/en/?headerLink=linkHolidays"
       linkRooms="https://www.kiwi.com/en/?headerLink=linkRooms"
     />
-  </Desktop>
+  </HeaderLinks__GtDesktop>
 </Fragment>
 `;

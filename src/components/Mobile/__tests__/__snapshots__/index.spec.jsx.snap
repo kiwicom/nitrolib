@@ -3,7 +3,7 @@
 exports[`#Mobile render 1`] = `
 <StyledComponent
   display="block"
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -23,6 +23,7 @@ exports[`#Mobile render 1`] = `
         ],
       },
       "displayName": "Mobile__Wrapper",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "Mobile__Wrapper-sc-12in88y-0",
       "target": "div",

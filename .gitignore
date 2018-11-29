@@ -4,6 +4,7 @@
 .tmp
 .cache
 .yalc
+.vscode
 coverage
 data
 dist-storybook

@@ -516,7 +516,7 @@ exports[`#index render 1`] = `
       >
         <StyledComponent
           entered={true}
-          forwardedClass={
+          forwardedComponent={
             Object {
               "$$typeof": Symbol(react.forward_ref),
               "attrs": Array [],
@@ -921,6 +921,7 @@ exports[`#index render 1`] = `
                 },
               },
               "displayName": "SideBar__Container",
+              "foldedComponentIds": Array [],
               "render": [Function],
               "styledComponentId": "SideBar__Container-sc-1emfp22-0",
               "target": "section",
@@ -1729,7 +1730,7 @@ exports[`#index render 1`] = `
               }
             >
               <StyledComponent
-                forwardedClass={
+                forwardedComponent={
                   Object {
                     "$$typeof": Symbol(react.forward_ref),
                     "attrs": Array [],
@@ -2144,6 +2145,7 @@ exports[`#index render 1`] = `
                       },
                     },
                     "displayName": "SideBar__Wrapper",
+                    "foldedComponentIds": Array [],
                     "render": [Function],
                     "styledComponentId": "SideBar__Wrapper-sc-1emfp22-1",
                     "target": "div",
