@@ -308,7 +308,7 @@ import Text from "@kiwicom/nitro/lib/components/Text";
 type Props = {|
   ...$Diff<PropsOrbit, { children: React.Node }>,
   t: string,
-  values?: Values,
+  values?: { [key: string]: string | number },
   html?: boolean,
 |};
 ```
@@ -394,7 +394,7 @@ import Translate from "@kiwicom/nitro/lib/components/Translate";
 type Props = {|
   t: string,
   // defaulted
-  values?: Values, // {}, see 'services/intl/translate'
+  values?: { [key: string]: string | number }, // {}
   html?: boolean, // false
 |};
 ```

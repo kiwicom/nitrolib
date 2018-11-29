@@ -20,7 +20,7 @@
     "fixtures": "node ./bin/nitro.js keys 'src/**/*.{js,jsx}' && yarn fetch && node ./etc/fetchFixtures.js",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -o dist-storybook",
-    "prepare": "rimraf lib && run-p test lint typecheck && yarn build",
+    "prepare": "rimraf lib && run-p test lint && yarn build && typecheck",
     "localsync": "rimraf lib && yarn build && yalc push"
   },
   "keywords": [

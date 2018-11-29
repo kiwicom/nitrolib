@@ -11,7 +11,7 @@ unclear-type=off
 sketchy-null=off
 
 [ignore]
-<PROJECT_ROOT>/lib/.*
+# <PROJECT_ROOT>/lib/.* - not ignored intentionally, makes sure libdefs make sense
 
 [libs]
 types/
