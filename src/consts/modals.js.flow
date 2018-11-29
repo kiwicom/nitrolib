@@ -11,6 +11,9 @@ export const DEBUG: "debug" = "debug";
 export const CURRENCY_MENU: "currencyMenu" = "currencyMenu";
 export const LANGUAGE_MENU: "languageMenu" = "languageMenu";
 
+// FIXME remove usages, no need to separate
+export type AuthModal = "myBooking" | "register" | "signIn" | "forgotPassword";
+
 export type Modal =
   | ""
   | "myBooking"

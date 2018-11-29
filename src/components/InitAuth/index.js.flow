@@ -4,7 +4,20 @@ import type { Environment } from "react-relay";
 
 import type { Auth, SocialProvider } from "../../records/Auth";
 import type { Brand } from "../../records/Brand";
-import type { MyBookingInput, RegisterInput } from "../../services/auth/api";
+
+type MyBookingInput = {|
+  bid: string,
+  email: string,
+  iata: string,
+  departure: Date,
+|};
+
+type RegisterInput = {|
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string,
+|};
 
 type Arg = {|
   auth: Auth | null,

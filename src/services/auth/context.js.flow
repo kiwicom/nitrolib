@@ -3,7 +3,20 @@ import * as React from "react";
 import type { Environment } from "react-relay";
 
 import type { Auth, SocialProvider } from "../../records/Auth";
-import type { MyBookingInput, RegisterInput } from "./api";
+
+type MyBookingInput = {|
+  bid: string,
+  email: string,
+  iata: string,
+  departure: Date,
+|};
+
+type RegisterInput = {|
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string,
+|};
 
 export type Context = {|
   auth: Auth | null,
