@@ -4,7 +4,7 @@ import type { Translations, Translate } from "../services/intl/translate";
 
 export type IntlRaw = {|
   language: LangInfo,
-  translations: { [key: string]: string },
+  translations: Translations,
 |};
 
 export type Intl = {|
