@@ -440,7 +440,7 @@ export default class SideNav extends React.Component<Props, State> {
         {/* MODALS */}
         {modalOpen === MODALS.CHAT && (
           <Portal element={portal}>
-            <Modal onClose={this.handleCloseModal}>
+            <Modal onClose={this.handleCloseModal} closable>
               <ModalSection>
                 <LogMount event={{ event: OPEN_CHAT, data: null }} />
                 {chat}
@@ -451,7 +451,7 @@ export default class SideNav extends React.Component<Props, State> {
 
         {modalOpen === MODALS.SUBSCRIPTION && (
           <Portal element={portal}>
-            <Modal onClose={this.handleCloseModal}>
+            <Modal onClose={this.handleCloseModal} closable>
               <ModalSection>{subscription}</ModalSection>
             </Modal>
           </Portal>
@@ -459,7 +459,7 @@ export default class SideNav extends React.Component<Props, State> {
 
         {modalOpen === MODALS.DEBUG && (
           <Portal element={portal}>
-            <Modal onClose={this.handleCloseModal}>
+            <Modal onClose={this.handleCloseModal} closable>
               <ModalSection>{debug || null}</ModalSection>
             </Modal>
           </Portal>
