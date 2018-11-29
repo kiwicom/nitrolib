@@ -4,7 +4,7 @@ import * as React from "react";
 type Props = {|
   t: string,
   // defaulted
-  values?: { [key: string]: string }, // {}
+  values?: { [key: string]: string | number }, // {}
   html?: boolean, // false
 |};
 

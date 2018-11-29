@@ -5,7 +5,7 @@ import type { Props as PropsOrbit } from "@kiwicom/orbit-components/lib/Text";
 type Props = {|
   ...$Diff<PropsOrbit, { children: React.Node }>,
   t: string,
-  values?: { [key: string]: string },
+  values?: { [key: string]: string | number },
   html?: boolean,
 |};
 
