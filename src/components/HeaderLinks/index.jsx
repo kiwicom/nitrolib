@@ -39,9 +39,9 @@ type Props = {|
   linkFlights: string,
   linkCars: string,
   linkRooms: string,
-  inverted?: boolean,
   linkHolidays: string,
   forceNewWindow: boolean,
+  inverted?: boolean,
 |};
 
 const HeaderLinks = ({

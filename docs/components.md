@@ -75,6 +75,7 @@ type Props = {|
   linkRooms: string,
   linkHolidays: string, // empty string to omit
   forceNewWindow?: boolean, // force opening links in a new window
+  inverted?: boolean, // colors
 |};
 ```
 

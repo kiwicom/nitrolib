@@ -9,7 +9,6 @@ Located in `@kiwicom/nitro/lib/services/<service>`.
 * [currency](#currency)
 * [fetched](#fetched)
 * [intl](#intl)
-* [inverted](#inverted)
 * [log](#log)
 
 ## Contexts
@@ -228,27 +227,6 @@ type Props = {|
   raw: IntlRaw,
   children: (arg: Intl) => React.Node,
 |};
-```
-
-_TODO_
-
-### Inverted
-
-**Import:**
-```js
-import { Consumer, Provider } from "@kiwicom/nitro/lib/services/inverted/context";
-```
-
-**Types:**
-```js
-// TODO remove this file, make via props
-type Inverted = {|
-  inverted?: boolean,
-|};
-
-declare var context: React.Context<Inverted>;
-
-export const { Consumer, Provider } = context;
 ```
 
 _TODO_

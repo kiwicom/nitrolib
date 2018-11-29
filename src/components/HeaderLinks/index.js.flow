@@ -5,9 +5,9 @@ type Props = {|
   linkFlights: string,
   linkCars: string,
   linkRooms: string,
-  inverted?: boolean,
   linkHolidays: string, // empty string to omit
   forceNewWindow?: boolean, // force opening links in a new window
+  inverted?: boolean, // colors
 |};
 
 declare export default React.ComponentType<Props>;
