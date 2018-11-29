@@ -1,6 +1,6 @@
 // @flow strict
 
-import React from "react";
+import * as React from "react";
 import styled from "styled-components";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
