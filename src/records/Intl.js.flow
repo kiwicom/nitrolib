@@ -10,6 +10,7 @@ export type IntlRaw = {|
 export type Intl = {|
   ...IntlRaw,
   translate: Translate,
+  getLocale: (id: string) => Promise<$FlowFixMe>,
 |};
 
 export type IntlsRaw = { [key: string]: IntlRaw };
