@@ -14,50 +14,26 @@ export type Param = {|
 
 export type Item = {|
   id: string,
-  image?: string,
   translation: string,
-  provider: string,
-  isoShort?: boolean,
-  isoCars?: boolean,
-  supportedLanguages?: string[],
-  feLink?: boolean,
   newWindow: boolean,
-  params: Param[],
-  url?: {
-    default: string,
-  },
+  url: string,
 |};
 
 type Props = {|
   services: Item[],
-  searchParams: {
-    language: string,
-  },
-  urlParam: string,
-  readyUrls: ReadyUrl,
-  hiddenUrls: HiddenUrls,
 |};
 
-const Links: Props => React.Node = ({ services, searchParams, urlParam, readyUrls, hiddenUrls }) =>
-  services.map(item => {
-    const link = parseUrl({
-      item,
-      searchParams,
-      urlParam,
-      readyUrls,
-      hiddenUrls,
-    });
-
-    if (!link) return null;
-
-    return (
-      <Link
-        logTab={item.id}
-        link={link}
-        text={<Text t={item.translation} />}
-        newWindow={item.newWindow}
-      />
-    );
-  });
+const Links: Props => React.Node = ({ services }) =>
+  services.map(
+    item =>
+      item && (
+        <Link
+          logTab={item.id}
+          link={item.url}
+          text={<Text t={item.translation} />}
+          newWindow={item.newWindow}
+        />
+      ),
+  );
 
 export default Links;
