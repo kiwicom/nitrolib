@@ -43,7 +43,6 @@
     "@babel/runtime": "^7.1.5",
     "@kiwicom/orbit-design-tokens": "^0.2.5",
     "chalk": "^2.4.1",
-    "date-fns": "^2.0.0-alpha.20",
     "fs-extra": "^7.0.1",
     "i18n-extract": "^0.6.3",
     "libphonenumber-js": "^1.6.8",
@@ -55,6 +54,7 @@
   },
   "peerDependencies": {
     "@kiwicom/orbit-components": "^0.21.1",
+    "date-fns": "^2.0.0-alpha.21",
     "ramda": "^0.26.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -93,6 +93,7 @@
     "babel-preset-airbnb": "^3.0.1",
     "copyfiles": "^2.1.0",
     "cross-env": "^5.2.0",
+    "date-fns": "^2.0.0-alpha.21",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "enzyme-to-json": "^3.3.4",
