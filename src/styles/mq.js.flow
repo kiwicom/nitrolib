@@ -1,0 +1,25 @@
+// @flow strict
+import type { Interpolation } from "styled-components";
+
+export type Size =
+  | "gtDesktop"
+  | "ltDesktop"
+  | "tablet"
+  | "gtTablet"
+  | "ltTablet"
+  | "mobile"
+  | "bigMobile"
+  | "gtBigMobile"
+  | "ltBigMobile"
+  | "middleMobile"
+  | "gtMiddleMobile"
+  | "ltMiddleMobile"
+  | "smallMobile"
+  | "gtSmallMobile"
+  | "ltSmallMobile"
+  | "retinaOnly"
+  | "retinaMobileOnly";
+
+type SizeQueryFunction = (style: Interpolation[]) => Interpolation[];
+
+declare export default { [key: Size]: SizeQueryFunction };
