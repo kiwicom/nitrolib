@@ -9,10 +9,14 @@ type Props = {|
 |};
 
 type State = {|
-  locale: $FlowFixMe,
+  locale: $FlowFixMe | null,
 |};
 
 export default class DateFnsLocale extends React.PureComponent<Props, State> {
+  state = {
+    locale: null,
+  };
+
   componentDidMount() {
     const { id, getLocale } = this.props;
 
