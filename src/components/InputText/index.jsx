@@ -2,8 +2,8 @@
 import * as React from "react";
 import * as R from "ramda";
 import styled, { css } from "styled-components";
+import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
-import * as rtl from "../../styles/rtl";
 import borderMixin, { getBorderState } from "../../styles/mixins/border";
 import Translate from "../Translate";
 import TextNode from "../TextNode";
@@ -51,7 +51,7 @@ const stateMixin = css`
   position: absolute;
   font-size: 10px;
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
-  ${rtl.right}: 0;
+  ${right}: 0;
 `;
 
 const States = styled.div`

@@ -2,6 +2,8 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
+import { intlDefault } from "../../../records/Intl";
+
 import TranslateNode from "..";
 
 describe("#TranslateNode", () => {
@@ -10,6 +12,6 @@ describe("#TranslateNode", () => {
       <TranslateNode t="lol __x__ kek bur" values={{ x: <span>lmao</span> }} />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.prop("children")(intlDefault)).toMatchSnapshot();
   });
 });

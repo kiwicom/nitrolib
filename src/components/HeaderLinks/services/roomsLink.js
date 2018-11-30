@@ -1,6 +1,7 @@
 // @flow strict
 import * as R from "ramda";
-import { format, getDate } from "date-fns";
+import format from "date-fns/format";
+import getDate from "date-fns/getDate";
 
 import type { LangInfo } from "../../../records/LangInfo";
 import type { Currency } from "../../../records/Currency";

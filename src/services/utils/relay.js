@@ -6,7 +6,7 @@ export type Input = {
   variables: { [key: string]: string },
 };
 
-export type Call = (input: Input) => Promise<any>;
+export type Call = (input: Input) => Promise<$FlowFixMe>;
 
 const makeFetchQuery = (call: Call) => (operation, variables) =>
   call({

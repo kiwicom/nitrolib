@@ -31,6 +31,13 @@ storybook:
     paths:
       - dist-storybook/
 
+nodesecurity:
+  stage: build
+  image: kiwicom/nodesecurity
+  allow_failure: true
+  script:
+   - nsp check -o summary
+
 test:
   stage: build
   script:

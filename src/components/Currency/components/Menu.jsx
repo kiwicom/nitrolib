@@ -2,10 +2,10 @@
 import * as React from "react";
 import * as R from "ramda";
 import styled, { css } from "styled-components";
+import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import type { Currency } from "../../../records/Currency";
 import mq from "../../../styles/mq";
-import * as rtl from "../../../styles/rtl";
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
 import * as MODALS from "../../../consts/modals";
@@ -14,7 +14,7 @@ import CurrencyList from "./CurrencyList";
 
 const Container = styled.div`
   position: absolute;
-  ${rtl.right}: 0;
+  ${right}: 0;
   top: 50px;
   width: calc(100% - 40px);
   max-height: calc(100vh - 200px);
@@ -35,13 +35,13 @@ const Container = styled.div`
   `)}
 
   ${mq.tablet(css`
-    ${rtl.right}: ${({ positionMenuTablet }) => positionMenuTablet}px;
-    ${rtl.left}: inherit;
+    ${right}: ${({ positionMenuTablet }) => positionMenuTablet}px;
+    ${left}: inherit;
   `)}
 
   ${mq.gtDesktop(css`
-    ${rtl.left}: inherit;
-    ${rtl.right}: ${({ positionMenuDesktop }) => positionMenuDesktop}px;
+    ${left}: inherit;
+    ${right}: ${({ positionMenuDesktop }) => positionMenuDesktop}px;
   `)}
 `;
 
@@ -58,7 +58,7 @@ const Recommended = styled.div`
   &:after {
     position: absolute;
     bottom: 0;
-    ${rtl.left}: 0;
+    ${left}: 0;
     display: block;
     content: "";
     width: calc(100% - 10px);

@@ -2,14 +2,14 @@
 import * as React from "react";
 import styled from "styled-components";
 import { storiesOf } from "@storybook/react";
+import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import Currency from "../src/components/Currency";
-import * as rtl from "../src/styles/rtl";
 import withData from "./decorators/withData";
 
 const RegularWrap = styled.div`
-  float: ${rtl.right};
-  margin-${rtl.right}: 200px;
+  float: ${right};
+  margin-${right}: 200px;
 `;
 
 storiesOf("Currency", module)

@@ -2,6 +2,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
+import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import InputText from "../InputText";
 import type { Change } from "../InputText";
@@ -12,7 +13,6 @@ import { Consumer as IntlConsumer } from "../../services/intl/context";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 import AirportListData from "./AirportListData";
-import * as rtl from "../../styles/rtl";
 
 const Container = styled.div`
   position: relative;
@@ -21,7 +21,7 @@ const Container = styled.div`
 const ResultWrapper = styled.div`
   position: absolute;
   top: 74px;
-  ${rtl.left}: 0;
+  ${left}: 0;
   width: 100%;
   max-height: 300px;
   overflow-y: scroll;

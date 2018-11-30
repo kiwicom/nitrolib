@@ -2,6 +2,7 @@
 
 Located in `@kiwicom/nitro/lib/records/<record>`.
 
+* [Airline](#airline)
 * [Auth](#auth)
 * [Brand](#brand)
 * [BrandLanguage](#brandlanguage)
@@ -15,6 +16,31 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [Languages](#languages)
 * [Theme](#theme)
 * [User](#user)
+
+## Airline
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/Airline";
+import type { Airline } from "@kiwicom/nitro/lib/records/Airline";
+```
+
+**Types:**
+```js
+export type Airline = {|
+  id: string,
+  lcc: number,
+  name: string,
+|};
+
+export type Airlines = {
+  [key: string]: Airline,
+};
+
+declare export var airlineDefault: Airline;
+```
+
+_TODO_
 
 ## Auth
 
@@ -530,6 +556,13 @@ import type { Continents } from "@kiwicom/nitro/lib/records/Continents";
 ```js
 export type Continents = { [key: string]: string[] };
 
+declare export var tKeys: {|
+  aas: string,
+  ap: string,
+  eu: string,
+  mea: string,
+|};
+
 declare export var continentsDefault: Continents;
 ```
 
@@ -664,6 +697,7 @@ import type { Fetched } from "@kiwicom/nitro/lib/records/Fetched";
 **Types:**
 ```js
 export type Fetched = {|
+  airlines: Airlines,
   countries: Countries,
   continents: Continents,
   brandLanguage: BrandLanguage,
@@ -763,55 +797,7 @@ export type LangInfo = {|
 
 export type LangInfos = { [id: string]: LangInfo };
 
-// eslint-disable-next-line import/prefer-default-export
-export const langInfoDefault: LangInfo = {
-  id: "en",
-  name: "English",
-  displayName: "English",
-  phone: "gb",
-  email: "en",
-  defaultCountry: "gb",
-  api: "en",
-  moment: "en-gb",
-  jumio: "en_GB",
-  nginx: "en",
-  countriesTranslations: "EN",
-  translations: "en",
-  phraseApp: "en-GB",
-  canonical: "",
-  hreflang: "en-GB",
-  iso: "en-GB",
-  locations: "en",
-  dateFormat: "ddd D MMM",
-  dateFormatShort: "D/M",
-  dateFormatLong: "DD.MM.YYYY",
-  dateFormatPlain: "L",
-  timeFormat: "LT",
-  durationFormat: "H[h] mm[m]",
-  durationFormatShort: "m[m] ss[s]",
-  dimension: "__x__ cm",
-  weight: "__x__ kg",
-  latinInputs: false,
-  currency: "gbp",
-  direction: "ltr",
-  flag: "gb",
-  fontSubsets: "greek,latin-ext",
-  firstNamePlaceholder: "Harry James",
-  lastNamePlaceholder: "Brown",
-  addressPlaceholder: "71 Wall Stt",
-  cityPlaceholder: "New York",
-  zipCodePlaceholder: "10005",
-  idNumberPlaceholder: "1234567890",
-  companyVatPlaceholder: "10007",
-  companyNamePlaceholder: "Kiwi.com",
-  distanceUnit: "__x__ km",
-  distanceUnitConversionRate: "1",
-  elevioLang: "",
-  specialFont: "",
-  decimalSeparator: ".",
-  thousandsSeparator: ",",
-  separateFourDigits: "1",
-};
+declare export var langInfoDefault: LangInfo;
 
 declare export var fixDateFormat: (date: string) => string;
 ```

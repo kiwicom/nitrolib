@@ -1,9 +1,9 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
+import { rtlSpacing, borderRadius } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import { border } from "../../styles";
-import * as rtl from "../../styles/rtl";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 import mq from "../../styles/mq";
@@ -43,15 +43,15 @@ const Container = styled.button`
   transition: background ${({ theme }: ContainerProps) => theme.orbit.durationNormal};
   margin-bottom: ${({ theme }) => theme.orbit.spaceXXSmall};
   ${mq.gtTablet(css`
-    border-width: ${rtl.box(border.size, border.size, border.size, 0)};
+    border-width: ${rtlSpacing(`${border.size}px ${border.size}px ${border.size}px 0`)};
   `)};
   &:first-child {
     border-width: ${border.size}px;
-    border-radius: ${rtl.box(3, 0, 0, 3)};
+    border-radius: ${borderRadius("3px 0 0 3px")};
   }
 
   &:last-child {
-    border-radius: ${rtl.box(0, 3, 3, 0)};
+    border-radius: ${borderRadius("0 3px 3px 0")};
   }
 
   &:focus {

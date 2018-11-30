@@ -1,12 +1,10 @@
 // @flow strict
 import * as React from "react";
 
-import type { Values } from "../../services/intl/translate";
-
 type Props = {|
   t: string,
   // defaulted
-  values?: Values, // {}, see 'services/intl/translate'
+  values?: { [key: string]: string | number }, // {}
   html?: boolean, // false
 |};
 

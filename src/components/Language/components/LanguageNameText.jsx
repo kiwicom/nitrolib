@@ -1,7 +1,7 @@
 // @flow strict
 import styled from "styled-components";
+import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
-import * as rtl from "../../../styles/rtl";
 import type { ThemeProps } from "../../../records/Theme";
 import { themeDefault } from "../../../records/Theme";
 
@@ -12,7 +12,7 @@ type InvertedColor = {|
 |};
 
 const LanguageNameText = styled.span`
-  margin-${rtl.left}: 10px;
+  margin-${left}: 10px;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   letter-spacing: 0.02em;

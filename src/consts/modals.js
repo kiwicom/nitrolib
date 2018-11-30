@@ -11,11 +11,12 @@ export const DEBUG: "debug" = "debug";
 export const CURRENCY_MENU: "currencyMenu" = "currencyMenu";
 export const LANGUAGE_MENU: "languageMenu" = "languageMenu";
 
-export type AuthModal = "myBooking" | "register" | "signIn" | "forgotPassword";
-
 export type Modal =
-  | AuthModal
   | ""
+  | "myBooking"
+  | "register"
+  | "signIn"
+  | "forgotPassword"
   | "sideNav"
   | "chat"
   | "subscription"

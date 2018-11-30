@@ -3,10 +3,10 @@ import * as React from "react";
 import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
+import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import type { Item } from "./Links";
 import mq from "../../styles/mq";
-import * as rtl from "../../styles/rtl";
 import ClickOutside from "../ClickOutside";
 import Toggle from "../Toggle";
 import Popup from "./primitives/Popup";
@@ -17,8 +17,10 @@ import Mobile from "../Mobile";
 import getNavBarLinks from "./services/api";
 
 const Margin = styled.div`
-  ${mq.mobile(css`
-    margin-${rtl.left}: 20px;
+  ${mq.ltDesktop(css`
+    margin-${left}: 20px;
+  `)} ${mq.ltSmallMobile(css`
+    margin-${left}: 0;
   `)};
 `;
 

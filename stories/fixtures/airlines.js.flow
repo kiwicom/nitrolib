@@ -1,0 +1,4 @@
+// @flow strict
+import type { Airlines } from "../../src/records/Airline";
+
+declare export default Airlines;

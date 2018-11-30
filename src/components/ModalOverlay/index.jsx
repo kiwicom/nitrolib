@@ -2,8 +2,8 @@
 import * as React from "react";
 import styled from "styled-components";
 import MdClose from "react-icons/lib/md/close";
+import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
-import * as rtl from "../../styles/rtl";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 /**
@@ -33,7 +33,7 @@ const StyledClose = styled(MdClose)`
   height: 24px;
   width: 24px;
   top: -28px;
-  ${rtl.right}: 8px;
+  ${right}: 8px;
   cursor: pointer;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
 `;

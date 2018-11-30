@@ -1,12 +1,12 @@
 // @flow
 import styled from "styled-components";
+import { left, right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
-import * as rtl from "../../../../../styles/rtl";
 import { themeDefault } from "../../../../../records/Theme";
 
 const Column = styled.section`
-  padding-${rtl.left}: 25px;
-  padding-${rtl.right}: 5px;
+  padding-${left}: 25px;
+  padding-${right}: 5px;
   display: flex;
   flex-direction: column;
 `;

@@ -14,9 +14,9 @@ import * as authContext from "../../../../services/auth/context";
 import { Consumer as BrandConsumer } from "../../../../services/brand/context";
 import Button from "../../primitives/Button";
 import Trips from "../Trips";
-import Login from "./components/Login";
-import ForgotPassword from "./components/ForgotPassword";
-import SideNav from "./components/SideNav";
+import Login from "../Login";
+import ForgotPassword from "../ForgotPassword";
+import SideNav from "../SideNav";
 import * as MODALS from "../../../../consts/modals";
 import type { AuthModal, Modal as ModalType } from "../../../../consts/modals";
 import marginMixin from "../../styles/marginMixin";
@@ -137,7 +137,7 @@ export default class Menu extends React.Component<Props, State> {
         {modalOpen === MODALS.FORGOT_PASSWORD && (
           <CloseByKey onClose={this.handleClose}>
             <Portal element={portal}>
-              <Modal onClose={this.handleClose} size="normal">
+              <Modal onClose={this.handleClose} closable size="normal">
                 <ModalSection>
                   <BrandConsumer>
                     {brand => <ForgotPassword brandId={brand.id} onClose={this.handleClose} />}
@@ -153,7 +153,7 @@ export default class Menu extends React.Component<Props, State> {
           modalOpen === MODALS.REGISTER) && (
           <CloseByKey onClose={this.handleClose}>
             <Portal element={portal}>
-              <Modal onClose={this.handleClose} size="normal">
+              <Modal onClose={this.handleClose} closable size="normal">
                 <ModalSection>
                   <Login
                     // $FlowExpected: 'modalOpen' can only be one of these things

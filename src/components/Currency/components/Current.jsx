@@ -7,7 +7,6 @@ import type { Currency } from "../../../records/Currency";
 import Code from "./Code";
 import Sign from "./Sign";
 import type { ThemeProps } from "../../../records/Theme";
-import { Consumer as InvertedConsumer } from "../../../services/inverted/context";
 
 type InvertedProps = ThemeProps & {|
   inverted: boolean,
@@ -28,18 +27,15 @@ const Wrapper = styled.div`
 
 type Props = {|
   current: Currency,
+  inverted?: boolean,
 |};
 
-const Current = ({ current }: Props) => (
-  <InvertedConsumer>
-    {({ inverted }) => (
-      <Wrapper inverted={inverted}>
-        <Code>{getCode(current.id)}</Code>
-        <Separator>-</Separator>
-        <Sign>{getSymbol(current.format)}</Sign>
-      </Wrapper>
-    )}
-  </InvertedConsumer>
+const Current = ({ current, inverted }: Props) => (
+  <Wrapper inverted={inverted}>
+    <Code>{getCode(current.id)}</Code>
+    <Separator>-</Separator>
+    <Sign>{getSymbol(current.format)}</Sign>
+  </Wrapper>
 );
 
 export default Current;
