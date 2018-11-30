@@ -28,25 +28,16 @@ type State = {|
   services: ?Services,
 |};
 
-export type ReadyUrl = {|
-  rooms: ?{
-    query: string,
-    base: string,
-  },
-|};
-
-export type HiddenUrls = {|
-  holidays: boolean,
-  logitravel: boolean,
-|};
-
 type Props = {|
-  searchParams: {
-    language: string,
+  searchString: string,
+  language: {
+    id: string,
   },
-  urlParam: string,
-  readyUrls: ReadyUrl,
-  hiddenUrls: HiddenUrls,
+  currency: string,
+  searchForm: any,
+  roomsProvider: string,
+  holidaysProvider: string,
+  lastminuteSupported: boolean,
 |};
 
 class HeaderLinks extends React.Component<Props, State> {
@@ -55,17 +46,24 @@ class HeaderLinks extends React.Component<Props, State> {
   };
 
   static defaultProps = {
-    searchParams: {
-      language: "en",
+    searchString: "search",
+    language: {
+      id: "us",
     },
-    urlParam: "search",
-    hiddenUrls: {
-      holidays: true,
-      logitravel: false,
+    currency: "usd",
+    searchForm: {
+      destination: {
+        type: "oneWay",
+        name: "kifla",
+      },
+      checkIn: "sdoqjo",
+      checkOut: "sdhiqow",
+      adults: 1,
+      children: 2,
     },
-    readyUrls: {
-      rooms: null,
-    },
+    roomsProvider: "roomsKiwi",
+    holidaysProvider: "lastminute",
+    lastminuteSupported: true,
   };
 
   componentDidMount() {
@@ -73,9 +71,27 @@ class HeaderLinks extends React.Component<Props, State> {
   }
 
   getNavBarLinks = async () => {
+    const {
+      searchString,
+      language,
+      currency,
+      searchForm,
+      roomsProvider,
+      holidaysProvider,
+      lastminuteSupported,
+    } = this.props;
+
     try {
       // Fetch services
-      const services = await getNavBarLinks();
+      const services = await getNavBarLinks({
+        searchString,
+        language: language.id,
+        currency,
+        searchForm,
+        roomsProvider,
+        holidaysProvider,
+        lastminuteSupported,
+      });
 
       // Update state
       this.setState({ services: services.items });
@@ -85,7 +101,6 @@ class HeaderLinks extends React.Component<Props, State> {
   };
 
   render() {
-    const { searchParams, urlParam, readyUrls, hiddenUrls } = this.props;
     const { services } = this.state;
 
     // Hide until response
@@ -101,16 +116,7 @@ class HeaderLinks extends React.Component<Props, State> {
                   {open && (
                     <ClickOutside onClickOutside={onToggle}>
                       <Popup>
-                        {services &&
-                          services.length > 0 && (
-                            <Links
-                              urlParam={urlParam}
-                              searchParams={searchParams}
-                              services={services}
-                              readyUrls={readyUrls}
-                              hiddenUrls={hiddenUrls}
-                            />
-                          )}
+                        {services && services.length > 0 && <Links services={services} />}
                       </Popup>
                     </ClickOutside>
                   )}
@@ -124,16 +130,7 @@ class HeaderLinks extends React.Component<Props, State> {
           </Margin>
         </Mobile>
         <Desktop display="flex">
-          {services &&
-            services.length > 0 && (
-              <Links
-                urlParam={urlParam}
-                searchParams={searchParams}
-                services={services}
-                readyUrls={readyUrls}
-                hiddenUrls={hiddenUrls}
-              />
-            )}
+          {services && services.length > 0 && <Links services={services} />}
         </Desktop>
       </>
     );
