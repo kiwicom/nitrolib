@@ -47,7 +47,7 @@ const TripDataList = ({ env, onSelect }: Props) => (
         return (
           <TripContainer positionMenuTablet={0} positionMenuDesktop={50}>
             <StateContainer>
-              <Translate t={__("common.loading")} />
+              <Translate t="common.loading" />
             </StateContainer>
           </TripContainer>
         );
@@ -59,7 +59,7 @@ const TripDataList = ({ env, onSelect }: Props) => (
           <TripContainer positionMenuTablet={0} positionMenuDesktop={50}>
             <StateContainer>
               <Alert>
-                <Translate t={__("account.no_trips")} />
+                <Translate t="account.no_trips" />
               </Alert>
             </StateContainer>
           </TripContainer>

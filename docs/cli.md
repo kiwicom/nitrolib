@@ -10,7 +10,9 @@ All files are saved into the `<PROJECT_ROOT>/data` folder.
 
 * `yarn nitro keys [...globs]`
 
-Collects translation keys wrapped in the `__` function.
+Collects translation keys:
+ * wrapped in the `__` function
+ * used as the `t` prop in JSX
 
 **Args:**
 * `globs` - a list of globs where to search for translation keys as an argument

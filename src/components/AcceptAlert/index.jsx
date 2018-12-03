@@ -38,7 +38,7 @@ const AcceptAlert = ({ children, button, onClose }: Props) => (
 );
 
 AcceptAlert.defaultProps = {
-  button: <Translate t={__("common.ok")} />,
+  button: <Translate t="common.ok" />,
 };
 
 export default AcceptAlert;

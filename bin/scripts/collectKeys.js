@@ -1,20 +1,75 @@
-// @flow
-const { extractFromFiles } = require("i18n-extract");
+// @noflow
+/* eslint-disable no-console, fp/no-throw */
+const fs = require("fs");
+const R = require("ramda");
+const glob = require("glob");
+const babylon = require("@babel/parser");
+const traverse = require("@babel/traverse").default;
 
-function collectKeys(globs /* : string[] */) {
-  const keys = extractFromFiles(globs, {
-    marker: "__",
-  });
+// All of 'em
+const PLUGINS = [
+  "jsx",
+  "flow",
+  "classProperties",
+  "dynamicImport",
+  "optionalChaining",
+  "decorators-legacy", // FIXME delete this!
+];
 
-  const mapped = keys.reduce(
-    (acc, key) =>
-      Object.assign({}, acc, {
-        [key.key]: true,
-      }),
-    {},
-  );
+function collectFile(file) {
+  try {
+    const code = String(fs.readFileSync(file));
 
-  return mapped;
+    const ast = babylon.parse(code, {
+      sourceType: "module",
+      plugins: PLUGINS,
+    });
+
+    const collectedStrings = {};
+    traverse(ast, {
+      enter(p) {
+        // Collect all jsx 't' attributes
+        if (p.node.type === "JSXElement") {
+          const attrs = p.node.openingElement.attributes
+            .filter(attr => attr.name)
+            // FIXME 'tKey' is deprecated! Remove ASAP
+            .filter(attr => attr.name.name === "t" || attr.name.name === "tKey")
+            .filter(attr => attr.value.type === "StringLiteral");
+
+          attrs.forEach(attr => {
+            collectedStrings[attr.value.value] = true;
+          });
+        }
+
+        // Collect all '__' functions
+        if (p.isCallExpression(p.node) && p.node.callee.name === "__") {
+          if (p.node.arguments[0].type === "StringLiteral") {
+            collectedStrings[p.node.arguments[0].value] = true;
+          }
+        }
+
+        // FIXME 'translate' functions are deprecated! Remove ASAP
+        if (p.isCallExpression(p.node) && p.node.callee.name === "translate") {
+          if (p.node.arguments[0].type === "StringLiteral") {
+            collectedStrings[p.node.arguments[0].value] = true;
+          }
+        }
+      },
+    });
+
+    return collectedStrings;
+  } catch (err) {
+    throw new Error(`${file} blew up!`);
+  }
 }
+
+const collectGlob = g =>
+  glob
+    .sync(g)
+    .filter(file => !file.match(/.*\/__tests__\/.*/))
+    .map(collectFile)
+    .reduce((acc, keys) => Object.assign({}, acc, keys), {});
+
+const collectKeys = globs => R.mergeAll(globs.map(collectGlob));
 
 module.exports = collectKeys;

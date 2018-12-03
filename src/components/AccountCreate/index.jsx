@@ -46,9 +46,9 @@ const AccountCreate = ({
         <Header>
           <Illustration name="EnjoyApp" size="small" />
           <Heading element="h2">
-            <Translate t={__("account.create_account")} />
+            <Translate t="account.create_account" />
           </Heading>
-          <Translate t={__("account.create_account_description")} />
+          <Translate t="account.create_account_description" />
         </Header>
         <Section>
           <Stack desktop={{ spacing: "comfy" }}>
@@ -72,10 +72,10 @@ const AccountCreate = ({
               onChange={onPasswordConfirmChange}
             />
             <Button onClick={onContinue}>
-              <Translate t={__("account.create")} />
+              <Translate t="account.create" />
             </Button>
             <OrbitText size="small">
-              <Translate t={__("account.terms_and_privacy_policy")} html />
+              <Translate t="account.terms_and_privacy_policy" html />
             </OrbitText>
           </Stack>
         </Section>

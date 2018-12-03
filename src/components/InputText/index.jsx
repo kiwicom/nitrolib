@@ -209,7 +209,7 @@ class InputText extends React.PureComponent<Props, State> {
 
           {borderState === "hint" && (
             <Hint onClick={this.handleHint}>
-              <TextNode t={__("common.did_you_mean")} values={{ x: <HintText>{hint}</HintText> }} />
+              <TextNode t="common.did_you_mean" values={{ x: <HintText>{hint}</HintText> }} />
             </Hint>
           )}
         </States>

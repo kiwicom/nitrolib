@@ -32,7 +32,7 @@ const Links = ({
       inverted={inverted}
       newWindow={forceNewWindow}
       icon={<AirplaneUp />}
-      text={<Translate t={__("search.service.travel_anywhere")} />}
+      text={<Translate t="search.service.travel_anywhere" />}
     />
     {linkRooms && (
       <Link
@@ -41,7 +41,7 @@ const Links = ({
         inverted={inverted}
         newWindow
         icon={<Accommodation />}
-        text={<Translate t={__("search.service.rooms")} />}
+        text={<Translate t="search.service.rooms" />}
       />
     )}
     <Link
@@ -50,7 +50,7 @@ const Links = ({
       inverted={inverted}
       newWindow
       icon={<CarRental />}
-      text={<Translate t={__("search.service.cars")} />}
+      text={<Translate t="search.service.cars" />}
     />
     {linkHolidays && (
       <Link
@@ -58,7 +58,7 @@ const Links = ({
         newWindow
         inverted={inverted}
         icon={<Suitcase />}
-        text={<Translate t={__("search.service.holidays")} />}
+        text={<Translate t="search.service.holidays" />}
       />
     )}
   </>

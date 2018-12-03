@@ -10,7 +10,7 @@ Context needs:
 const Pay = ({ value }: Props) => (
   <Button>
     <TextNode
-      t={__("Pay __x__")}
+      t="Pay __x__"
       values={
         { x: <Price value={value} /> }
       }

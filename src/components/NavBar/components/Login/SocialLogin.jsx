@@ -60,7 +60,7 @@ const SocialLogin = ({ facebook, google, onSocialAuth }: Props) => (
           icon={<GoogleIcon />}
           onClick={() => onSocialAuth("google")}
         >
-          <Translate t={__("account.log_in_with")} values={{ provider: "Google" }} />
+          <Translate t="account.log_in_with" values={{ provider: "Google" }} />
         </Button>
       )}
       {facebook && (
@@ -71,14 +71,14 @@ const SocialLogin = ({ facebook, google, onSocialAuth }: Props) => (
           icon={<FacebookIcon />}
           onClick={() => onSocialAuth("facebook")}
         >
-          <Translate t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
+          <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
         </Button>
       )}
     </Stack>
     <Or>
       <OrLine />
       <OrText>
-        <Translate t={__("common.or")} />
+        <Translate t="common.or" />
       </OrText>
     </Or>
   </>

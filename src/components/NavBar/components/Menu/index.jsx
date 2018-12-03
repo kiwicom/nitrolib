@@ -100,7 +100,7 @@ export default class Menu extends React.Component<Props, State> {
                       onClick={this.handleOpenMyBooking}
                       color={!inverted && "secondary"}
                     >
-                      <Translate t={__("account.my_bookings_action")} />
+                      <Translate t="account.my_bookings_action" />
                     </Button>
                   </Desktop>
                   <Mobile display="flex">

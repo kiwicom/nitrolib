@@ -34,17 +34,17 @@ const Switch = ({ open, onOpenMyBooking, onOpenRegister, onOpenSignIn }: Props) 
     <GtMiddleMobile>
       <Flex>
         <Tab id="myBooking" active={open === "myBooking"} onClick={onOpenMyBooking}>
-          <Translate t={__("account.oneBookingLogin")} />
+          <Translate t="account.oneBookingLogin" />
         </Tab>
         <BrandConsumer>
           {brand =>
             brand.auth.credentials && (
               <>
                 <Tab id="register" active={open === "register"} onClick={onOpenRegister}>
-                  <Translate t={__("account.sign_up")} />
+                  <Translate t="account.sign_up" />
                 </Tab>
                 <Tab id="signIn" active={open === "signIn"} onClick={onOpenSignIn}>
-                  <Translate t={__("account.sign_in")} />
+                  <Translate t="account.sign_in" />
                 </Tab>
               </>
             )
@@ -55,17 +55,17 @@ const Switch = ({ open, onOpenMyBooking, onOpenRegister, onOpenSignIn }: Props) 
     <LtMiddleMobile>
       <Flex direction="column" x="stretch">
         <Tab id="myBooking" active={open === "myBooking"} onClick={onOpenMyBooking}>
-          <Translate t={__("account.oneBookingLogin")} />
+          <Translate t="account.oneBookingLogin" />
         </Tab>
         <BrandConsumer>
           {brand =>
             brand.auth.credentials && (
               <>
                 <Tab id="register" active={open === "register"} onClick={onOpenRegister}>
-                  <Translate t={__("account.sign_up")} />
+                  <Translate t="account.sign_up" />
                 </Tab>
                 <Tab id="signIn" active={open === "signIn"} onClick={onOpenSignIn}>
-                  <Translate t={__("account.sign_in")} />
+                  <Translate t="account.sign_in" />
                 </Tab>
               </>
             )

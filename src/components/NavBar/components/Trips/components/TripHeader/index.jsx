@@ -29,7 +29,7 @@ const TripHeader = ({ trips }: Props) => {
             href={`/${intl.language.id}/account#future`}
             color="secondary"
           >
-            <Translate t={__("account.upcoming_trips")} values={{ trips: countTrips }} />
+            <Translate t="account.upcoming_trips" values={{ trips: countTrips }} />
           </ButtonLink>
           <ButtonLink
             marginRight={20}
@@ -37,7 +37,7 @@ const TripHeader = ({ trips }: Props) => {
             bold
             href={`/${intl.language.id}/account#past`}
           >
-            <Translate t={__("account.past_trips")} />
+            <Translate t="account.past_trips" />
           </ButtonLink>
         </>
       )}

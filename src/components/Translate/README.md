@@ -2,8 +2,6 @@
 
 Translates the supplied key.
 
-> Make sure to wrap translation keys in the global `__` function!
-
 Context needs:
 * **intl**
 
@@ -11,7 +9,7 @@ Context needs:
 ```js
 const Submit = () => (
   <Button>
-    <Translate t={__("Submit")} />
+    <Translate t="Submit" />
   </Button>
 );
 ```

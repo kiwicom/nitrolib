@@ -21,7 +21,7 @@ const Help = ({ onOpen, inverted }: Props) => (
     dataTest="NavbarSupport"
   >
     <Desktop>
-      <Translate t={__("common.help")} />
+      <Translate t="common.help" />
     </Desktop>
     <Mobile>
       <Faq />

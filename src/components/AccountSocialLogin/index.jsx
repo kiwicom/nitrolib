@@ -24,28 +24,28 @@ const AccountSocialLogin = ({ onAskSignInLink, onFacebookLogin, onGoogleLogin, e
     <Header>
       <Illustration name="Login" size="small" />
       <Heading element="h2">
-        <Translate t={__("account.manage_your_bookings")} />
+        <Translate t="account.manage_your_bookings" />
       </Heading>
       <OrbitText weight="bold">
-        <Translate t={__("account.sign_in_description")} />
+        <Translate t="account.sign_in_description" />
       </OrbitText>
     </Header>
     <Section>
       <Stack desktop={{ direction: "row" }}>
         <Button type="facebook" bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
-          <Translate t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
+          <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
         </Button>
         <Button type="google" bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
-          <Translate t={__("account.log_in_with")} values={{ provider: "Google" }} />
+          <Translate t="account.log_in_with" values={{ provider: "Google" }} />
         </Button>
       </Stack>
     </Section>
     <Section>
       <OrbitText spaceAfter="normal">
-        <Translate t={__("account.send_link_to")} values={{ email }} />
+        <Translate t="account.send_link_to" values={{ email }} />
       </OrbitText>
       <Button type="secondary" onClick={onAskSignInLink}>
-        <Translate t={__("account.ask_sign_in_link")} />
+        <Translate t="account.ask_sign_in_link" />
       </Button>
     </Section>
   </>

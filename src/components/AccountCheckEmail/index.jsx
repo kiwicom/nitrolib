@@ -15,17 +15,17 @@ type Props = {|
 const AccountCheckEmail = ({ email, reason }: Props) => (
   <Section>
     <Heading element="h2" spaceAfter="small">
-      <Translate t={__("account.check_email")} />
+      <Translate t="account.check_email" />
     </Heading>
     <Illustration name="Mailbox" size="medium" spaceAfter="large" />
     {reason === "magicLink" && (
       <OrbitText>
-        <Translate t={__("account.check_email_magic_link")} values={{ email }} />
+        <Translate t="account.check_email_magic_link" values={{ email }} />
       </OrbitText>
     )}
     {reason === "signUpConfirmation" && (
       <OrbitText>
-        <Translate t={__("account.check_email_sign_up")} values={{ email }} />
+        <Translate t="account.check_email_sign_up" values={{ email }} />
       </OrbitText>
     )}
   </Section>

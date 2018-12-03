@@ -112,7 +112,7 @@ export default class ForgotPassword extends React.PureComponent<Props, State> {
       return (
         <AcceptAlert onClose={onClose}>
           <Text>
-            <Translate t={__("account.user_with_email_does_not_exist")} />
+            <Translate t="account.user_with_email_does_not_exist" />
           </Text>
         </AcceptAlert>
       );
@@ -122,7 +122,7 @@ export default class ForgotPassword extends React.PureComponent<Props, State> {
       return (
         <AcceptAlert onClose={onClose}>
           <Text>
-            <Translate t={__("account.you_will_recieve_password")} />
+            <Translate t="account.you_will_recieve_password" />
           </Text>
         </AcceptAlert>
       );
@@ -135,16 +135,16 @@ export default class ForgotPassword extends React.PureComponent<Props, State> {
           {error && (
             <FieldWrap>
               <Alert type="critical">
-                <Translate t={__("common.api_error")} />
+                <Translate t="common.api_error" />
               </Alert>
             </FieldWrap>
           )}
           <Text>
-            <Translate t={__("account.enter_your_email")} />
+            <Translate t="account.enter_your_email" />
           </Text>
           <FieldWrap>
             <IconText icon={<Envelope color="primary" size="small" />}>
-              <Translate t={__("common.email.colon")} />
+              <Translate t="common.email.colon" />
             </IconText>
             <InputText
               id="email"
@@ -160,9 +160,9 @@ export default class ForgotPassword extends React.PureComponent<Props, State> {
           </FieldWrap>
           <Button block submit size="large" disabled={loading || Boolean(email.error)}>
             {loading ? (
-              <Translate t={__("common.loading")} />
+              <Translate t="common.loading" />
             ) : (
-              <Translate t={__("account.reset_password")} />
+              <Translate t="account.reset_password" />
             )}
           </Button>
         </form>
