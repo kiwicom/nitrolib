@@ -159,11 +159,7 @@ export default class ForgotPassword extends React.PureComponent<Props, State> {
             />
           </FieldWrap>
           <Button block submit size="large" disabled={loading || Boolean(email.error)}>
-            {loading ? (
-              <Translate t="common.loading" />
-            ) : (
-              <Translate t="account.reset_password" />
-            )}
+            {loading ? <Translate t="common.loading" /> : <Translate t="account.reset_password" />}
           </Button>
         </form>
       </Container>
