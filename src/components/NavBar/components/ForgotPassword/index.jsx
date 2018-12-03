@@ -154,11 +154,11 @@ export default class ForgotPassword extends React.PureComponent<Props, State> {
               normalize={normalizers.email}
               validate={emailValidator}
               corrector={emailCorrector}
-              autocomplete="email"
+              autoComplete="email"
               showState={submitted}
             />
           </FieldWrap>
-          <Button block size="large" disabled={loading || Boolean(email.error)}>
+          <Button block submit size="large" disabled={loading || Boolean(email.error)}>
             {loading ? (
               <Translate t={__("common.loading")} />
             ) : (

@@ -191,7 +191,7 @@ export default class Register extends React.PureComponent<Props, State> {
             error={fields.firstName.error}
             onChange={this.handleChange}
             validate={validators.required}
-            autocomplete="given-name"
+            autoComplete="given-name"
             showState={submitted}
           />
         </FieldWrap>
@@ -205,7 +205,7 @@ export default class Register extends React.PureComponent<Props, State> {
             error={fields.lastName.error}
             onChange={this.handleChange}
             validate={validators.required}
-            autocomplete="family-name"
+            autoComplete="family-name"
             showState={submitted}
           />
         </FieldWrap>
@@ -221,7 +221,7 @@ export default class Register extends React.PureComponent<Props, State> {
             normalize={normalizers.email}
             validate={emailValidator}
             corrector={emailCorrector}
-            autocomplete="email"
+            autoComplete="email"
             showState={submitted}
           />
         </FieldWrap>

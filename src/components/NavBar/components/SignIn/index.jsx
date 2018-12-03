@@ -156,7 +156,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
             normalize={normalizers.email}
             validate={emailValidator}
             corrector={emailCorrector}
-            autocomplete="email"
+            autoComplete="email"
             showState={submitted}
           />
         </FieldWrap>

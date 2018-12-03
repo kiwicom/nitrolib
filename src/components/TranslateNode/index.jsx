@@ -15,12 +15,12 @@ const TranslateNode = ({ t, values }: Props) => (
       <>
         {Object.keys(values).reduce(
           (words, key, i) =>
-            words.map(word =>
+            words.map((word, j) =>
               // $FlowExpected: we're transforming string[] to React.Node[]
               word === key ? (
-                <span key={i}>{values[key]}</span>
+                <span key={`${i}-${j}`}>{values[key]}</span>
               ) : (
-                <span key={i} dangerouslySetInnerHTML={{ __html: word }} />
+                <span key={`${i}-${j}`} dangerouslySetInnerHTML={{ __html: word }} />
               ),
             ),
           intl.translate(t).split("__"),
