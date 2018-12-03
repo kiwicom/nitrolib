@@ -11,6 +11,8 @@ import type { ThemeProps } from "../../../../records/Theme";
 import { themeDefault } from "../../../../records/Theme";
 import type { SocialProvider } from "../../../../records/Auth";
 
+const STACK_DESKTOP = { direction: "row" };
+
 const Or = styled.div`
   position: relative;
   padding: 12px 0;
@@ -49,7 +51,7 @@ type Props = {|
 
 const SocialLogin = ({ facebook, google, onSocialAuth }: Props) => (
   <>
-    <Stack desktop={{ direction: "row" }}>
+    <Stack desktop={STACK_DESKTOP} direction="column">
       {google && (
         <Button
           block

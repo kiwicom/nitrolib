@@ -137,7 +137,7 @@ export default class Menu extends React.Component<Props, State> {
         {modalOpen === MODALS.FORGOT_PASSWORD && (
           <CloseByKey onClose={this.handleClose}>
             <Portal element={portal}>
-              <Modal onClose={this.handleClose} size="normal">
+              <Modal onClose={this.handleClose} closable size="normal">
                 <ModalSection>
                   <BrandConsumer>
                     {brand => <ForgotPassword brandId={brand.id} onClose={this.handleClose} />}
@@ -153,7 +153,7 @@ export default class Menu extends React.Component<Props, State> {
           modalOpen === MODALS.REGISTER) && (
           <CloseByKey onClose={this.handleClose}>
             <Portal element={portal}>
-              <Modal onClose={this.handleClose} size="normal">
+              <Modal onClose={this.handleClose} closable size="normal">
                 <ModalSection>
                   <Login
                     // $FlowExpected: 'modalOpen' can only be one of these things

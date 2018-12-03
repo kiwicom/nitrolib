@@ -26,9 +26,12 @@ Collects translation keys wrapped in the `__` function.
 
 ## Fetch
 
-* `yarn nitro fetch`
+* `yarn nitro fetch ?[--translations <path>]`
 
 Fetches production data.
+
+**Flags:**
+* `translations` _optional_ - the path to `node_modules` if they're not in the CWD
 
 **Requires:**
 * The `data/tkeys.json` file to exist due to translation whitelisting, see the `keys` command
@@ -36,6 +39,7 @@ Fetches production data.
 
 **Example:**
 * `yarn nitro fetch` - fetches data and translations
+* `yarn nitro fetch --translations ..` - fetches data and translations from up one level
 
 **Files:**
 * `translations/<locale>_<hash>.json` - translations for the given _locale_, cache-busted with the commit _hash_

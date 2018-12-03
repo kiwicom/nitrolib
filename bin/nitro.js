@@ -5,6 +5,7 @@
 const fs = require("fs-extra");
 const path = require("path");
 const chalk = require("chalk");
+const yargs = require("yargs");
 const R = require("ramda");
 
 const collectKeys = require("./scripts/collectKeys");
@@ -16,7 +17,6 @@ const mapLanguages = require("./scripts/mapLanguages");
 const command = process.argv[2];
 
 const OUT = path.join(process.cwd(), "data");
-const TRANSLATIONS = path.join(process.cwd(), "node_modules/@kiwicom/translations/lib");
 const TKEYS = path.join(OUT, "tkeys.json");
 
 function log(what) {
@@ -63,7 +63,11 @@ function keys(globs) {
   );
 }
 
-function fetch() {
+function fetch(translations /* : ?string */) {
+  const TRANSLATIONS = path.join(
+    translations || process.cwd(),
+    "node_modules/@kiwicom/translations/lib",
+  );
   if (!fs.existsSync(TRANSLATIONS)) {
     error("'fetch' requires the '@kiwicom/translations' module to be installed.");
     return;
@@ -93,5 +97,5 @@ if (command === commands.keys) {
 }
 
 if (command === commands.fetch) {
-  fetch();
+  fetch(yargs.argv.translations);
 }

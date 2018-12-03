@@ -11,6 +11,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 
 **Utilities:**
 
+* [BookingSavingsBanner](#bookingsavingsbanner)
 * [ClickOutside](#clickoutside)
 * [ClientOnly](#clientonly)
 * [Desktop](#desktop)
@@ -131,6 +132,33 @@ Context needs:
 ## Utilities
 
 Things that help in development.
+
+### BookingSavingsBanner
+
+**Import:**
+```js
+import BookingSavingsBanner from "@kiwicom/nitro/lib/components/BookingSavingsBanner";
+```
+
+**Types:**
+```js
+type Props = {|
+  dataTest?: string,
+  hrefLearnMore: string, // Link to learn more page
+  onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers modal with alternative trips
+|};
+```
+
+Throw-away ticket banner indicating savings in €.
+
+Example:
+```js
+const MyComponent = ({ onShowAlternativeFlights }: Props) => (
+  <div>
+    <BookingSavingsBanner dataTest="BookingSavingsAB" hrefLearnMore="https://kiwi.com/learnmore-tat" onMoreTripsClick={onShowAlternativeFlights} />
+  </div>
+);
+```
 
 ### ClickOutside
 
@@ -295,7 +323,7 @@ import Text from "@kiwicom/nitro/lib/components/Text";
 type Props = {|
   ...$Diff<PropsOrbit, { children: React.Node }>,
   t: string,
-  values?: Values,
+  values?: { [key: string]: string | number },
   html?: boolean,
 |};
 ```
@@ -381,7 +409,7 @@ import Translate from "@kiwicom/nitro/lib/components/Translate";
 type Props = {|
   t: string,
   // defaulted
-  values?: Values, // {}, see 'services/intl/translate'
+  values?: { [key: string]: string | number }, // {}
   html?: boolean, // false
 |};
 ```

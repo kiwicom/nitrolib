@@ -6,6 +6,7 @@ import FaAngleRight from "react-icons/lib/fa/angle-right";
 import Modal from "@kiwicom/orbit-components/lib/Modal";
 import Portal from "@kiwicom/orbit-components/lib/Portal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
+import { right, rtlSpacing } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import ClientOnly from "../../../ClientOnly/index";
 import Mobile from "../../../Mobile";
@@ -15,7 +16,6 @@ import { Consumer as BrandConsumer } from "../../../../services/brand/context";
 import { Consumer as AuthConsumer } from "../../../../services/auth/context";
 import type { ThemeProps } from "../../../../records/Theme";
 import { themeDefault } from "../../../../records/Theme";
-import * as rtl from "../../../../styles/rtl";
 import Currency from "../../../Currency";
 import LogMount from "../../../LogMount";
 import { OPEN_CHAT } from "../../../../consts/events";
@@ -55,9 +55,9 @@ const Content = styled.div`
 const Close = styled.div`
   position: absolute;
   top: 0;
-  ${rtl.right}: 0;
+  ${right}: 0;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
-  padding: ${rtl.box(23, 30, 10, 0)};
+  padding: ${rtlSpacing(`23px 30px 10px 0`)};
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
   cursor: pointer;
 `;
@@ -70,7 +70,7 @@ const CloseIcon = styled(FaAngleRight)`
   height: 14px;
   width: 14px;
   top: -28px;
-  ${rtl.right}: -5px;
+  ${right}: -5px;
 `;
 
 CloseIcon.defaultProps = {
@@ -440,7 +440,7 @@ export default class SideNav extends React.Component<Props, State> {
         {/* MODALS */}
         {modalOpen === MODALS.CHAT && (
           <Portal element={portal}>
-            <Modal onClose={this.handleCloseModal}>
+            <Modal onClose={this.handleCloseModal} closable>
               <ModalSection>
                 <LogMount event={{ event: OPEN_CHAT, data: null }} />
                 {chat}
@@ -451,7 +451,7 @@ export default class SideNav extends React.Component<Props, State> {
 
         {modalOpen === MODALS.SUBSCRIPTION && (
           <Portal element={portal}>
-            <Modal onClose={this.handleCloseModal}>
+            <Modal onClose={this.handleCloseModal} closable>
               <ModalSection>{subscription}</ModalSection>
             </Modal>
           </Portal>
@@ -459,7 +459,7 @@ export default class SideNav extends React.Component<Props, State> {
 
         {modalOpen === MODALS.DEBUG && (
           <Portal element={portal}>
-            <Modal onClose={this.handleCloseModal}>
+            <Modal onClose={this.handleCloseModal} closable>
               <ModalSection>{debug || null}</ModalSection>
             </Modal>
           </Portal>

@@ -9,7 +9,6 @@ Located in `@kiwicom/nitro/lib/services/<service>`.
 * [currency](#currency)
 * [fetched](#fetched)
 * [intl](#intl)
-* [inverted](#inverted)
 * [log](#log)
 
 ## Contexts
@@ -25,6 +24,20 @@ import { Consumer, Provider } from "@kiwicom/nitro/lib/services/auth/context";
 
 **Types:**
 ```js
+type MyBookingInput = {|
+  bid: string,
+  email: string,
+  iata: string,
+  departure: Date,
+|};
+
+type RegisterInput = {|
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string,
+|};
+
 export type Context = {|
   auth: Auth | null,
   loading: boolean,
@@ -52,6 +65,20 @@ import InitAuth from "@kiwicom/nitro/lib/components/InitAuth";
 
 **Types:**
 ```js
+type MyBookingInput = {|
+  bid: string,
+  email: string,
+  iata: string,
+  departure: Date,
+|};
+
+type RegisterInput = {|
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string,
+|};
+
 type Arg = {|
   auth: Auth | null,
   loading: boolean,
@@ -145,8 +172,8 @@ type Props = {|
   // defaulted
   mostUsed?: string[],
   // DI
-  getCurrencies?: typeof getCurrenciesCall,
-  getGeoCountry?: typeof getGeoCountryCall,
+  getCurrencies?: () => Promise<Currencies>,
+  getGeoCountry?: (ip: string) => Promise<string>,
 |};
 ```
 
@@ -200,27 +227,6 @@ type Props = {|
   raw: IntlRaw,
   children: (arg: Intl) => React.Node,
 |};
-```
-
-_TODO_
-
-### Inverted
-
-**Import:**
-```js
-import { Consumer, Provider } from "@kiwicom/nitro/lib/services/inverted/context";
-```
-
-**Types:**
-```js
-// TODO remove this file, make via props
-type Inverted = {|
-  inverted?: boolean,
-|};
-
-declare var context: React.Context<Inverted>;
-
-export const { Consumer, Provider } = context;
 ```
 
 _TODO_

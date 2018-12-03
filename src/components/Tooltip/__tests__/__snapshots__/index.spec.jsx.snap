@@ -794,7 +794,7 @@ exports[`#Tooltip mouse over + out 1`] = `
 
 exports[`#Tooltip mouse over + out 2`] = `
 <StyledComponent
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -1214,6 +1214,7 @@ exports[`#Tooltip mouse over + out 2`] = `
         },
       },
       "displayName": "Tooltip__Tip",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "Tooltip__Tip-sc-11si9k6-1",
       "target": "span",
@@ -2796,7 +2797,7 @@ exports[`#Tooltip mouse over + out 3`] = `
 
 exports[`#Tooltip mouse over + out 4`] = `
 <StyledComponent
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -3216,6 +3217,7 @@ exports[`#Tooltip mouse over + out 4`] = `
         },
       },
       "displayName": "Tooltip__Tip",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "Tooltip__Tip-sc-11si9k6-1",
       "target": "span",
@@ -4798,7 +4800,7 @@ exports[`#Tooltip render - block 1`] = `
 
 exports[`#Tooltip render - block 2`] = `
 <StyledComponent
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -4814,6 +4816,7 @@ exports[`#Tooltip render - block 2`] = `
         ],
       },
       "displayName": "Tooltip__Container",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "Tooltip__Container-sc-11si9k6-0",
       "target": "span",
@@ -6407,7 +6410,7 @@ exports[`#Tooltip render - bottom 1`] = `
 
 exports[`#Tooltip render - bottom 2`] = `
 <StyledComponent
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -6827,6 +6830,7 @@ exports[`#Tooltip render - bottom 2`] = `
         },
       },
       "displayName": "Tooltip__Tip",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "Tooltip__Tip-sc-11si9k6-1",
       "target": "span",
@@ -8409,7 +8413,7 @@ exports[`#Tooltip render - inline 1`] = `
 
 exports[`#Tooltip render - inline 2`] = `
 <StyledComponent
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -8425,6 +8429,7 @@ exports[`#Tooltip render - inline 2`] = `
         ],
       },
       "displayName": "Tooltip__Container",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "Tooltip__Container-sc-11si9k6-0",
       "target": "span",
@@ -10018,7 +10023,7 @@ exports[`#Tooltip render - left 1`] = `
 
 exports[`#Tooltip render - left 2`] = `
 <StyledComponent
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -10438,6 +10443,7 @@ exports[`#Tooltip render - left 2`] = `
         },
       },
       "displayName": "Tooltip__Tip",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "Tooltip__Tip-sc-11si9k6-1",
       "target": "span",
@@ -12020,7 +12026,7 @@ exports[`#Tooltip render - right 1`] = `
 
 exports[`#Tooltip render - right 2`] = `
 <StyledComponent
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -12440,6 +12446,7 @@ exports[`#Tooltip render - right 2`] = `
         },
       },
       "displayName": "Tooltip__Tip",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "Tooltip__Tip-sc-11si9k6-1",
       "target": "span",
@@ -13230,7 +13237,7 @@ exports[`#Tooltip render - right 2`] = `
 
 exports[`#Tooltip render - right 3`] = `
 <StyledComponent
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -13632,6 +13639,7 @@ exports[`#Tooltip render - right 3`] = `
         },
       },
       "displayName": "Tooltip__TipContent",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "Tooltip__TipContent-sc-11si9k6-2",
       "target": "span",
@@ -14824,7 +14832,7 @@ exports[`#Tooltip render - top 1`] = `
 
 exports[`#Tooltip render - top 2`] = `
 <StyledComponent
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -15244,6 +15252,7 @@ exports[`#Tooltip render - top 2`] = `
         },
       },
       "displayName": "Tooltip__Tip",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "Tooltip__Tip-sc-11si9k6-1",
       "target": "span",

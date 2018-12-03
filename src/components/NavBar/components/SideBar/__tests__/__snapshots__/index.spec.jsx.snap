@@ -27,9 +27,9 @@ exports[`#index render 1`] = `
   background: #fff;
   overflow-y: auto;
   height: 100%;
-  -webkit-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0);
+  -ms-transform: translate3d(0);
+  transform: translate3d(0);
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   -webkit-transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
@@ -75,9 +75,9 @@ exports[`#index render 1`] = `
   background: #fff;
   overflow-y: auto;
   height: 100%;
-  -webkit-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0);
+  -ms-transform: translate3d(0);
+  transform: translate3d(0);
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   -webkit-transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
@@ -516,7 +516,7 @@ exports[`#index render 1`] = `
       >
         <StyledComponent
           entered={true}
-          forwardedClass={
+          forwardedComponent={
             Object {
               "$$typeof": Symbol(react.forward_ref),
               "attrs": Array [],
@@ -921,6 +921,7 @@ exports[`#index render 1`] = `
                 },
               },
               "displayName": "SideBar__Container",
+              "foldedComponentIds": Array [],
               "render": [Function],
               "styledComponentId": "SideBar__Container-sc-1emfp22-0",
               "target": "section",
@@ -1729,7 +1730,7 @@ exports[`#index render 1`] = `
               }
             >
               <StyledComponent
-                forwardedClass={
+                forwardedComponent={
                   Object {
                     "$$typeof": Symbol(react.forward_ref),
                     "attrs": Array [],
@@ -2144,6 +2145,7 @@ exports[`#index render 1`] = `
                       },
                     },
                     "displayName": "SideBar__Wrapper",
+                    "foldedComponentIds": Array [],
                     "render": [Function],
                     "styledComponentId": "SideBar__Wrapper-sc-1emfp22-1",
                     "target": "div",
@@ -2583,9 +2585,9 @@ exports[`#index render 2`] = `
   background: #fff;
   overflow-y: auto;
   height: 100%;
-  -webkit-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0);
+  -ms-transform: translate3d(0);
+  transform: translate3d(0);
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   -webkit-transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;

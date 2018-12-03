@@ -1,9 +1,9 @@
 // @flow
 import styled, { css } from "styled-components";
 
+import mq from "../../../styles/mq";
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
-import mq from "../../../styles/mq";
 
 type ActiveProps = {|
   ...ThemeProps,
@@ -26,9 +26,10 @@ const IconWrapper = styled.i`
         transform: rotate(180deg);
       }
     `};
-  ${mq.mobile(css`
+
+  ${mq.ltDesktop(css`
     display: block;
-  `)};
+  `)}
 `;
 
 IconWrapper.defaultProps = {

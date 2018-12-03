@@ -3241,7 +3241,7 @@ exports[`#Currency/CustomPicker/CurrencyList render 1`] = `
 exports[`#Currency/CustomPicker/CurrencyList render 2`] = `
 <StyledComponent
   active={true}
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -3668,6 +3668,7 @@ exports[`#Currency/CustomPicker/CurrencyList render 2`] = `
         },
       },
       "displayName": "CurrencyList__ItemText",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "CurrencyList__ItemText-sc-1fawcms-2",
       "target": "div",
@@ -4083,7 +4084,7 @@ exports[`#Currency/CustomPicker/CurrencyList render 2`] = `
 exports[`#Currency/CustomPicker/CurrencyList render 3`] = `
 <StyledComponent
   active={false}
-  forwardedClass={
+  forwardedComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
@@ -4510,6 +4511,7 @@ exports[`#Currency/CustomPicker/CurrencyList render 3`] = `
         },
       },
       "displayName": "CurrencyList__ItemText",
+      "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "CurrencyList__ItemText-sc-1fawcms-2",
       "target": "div",

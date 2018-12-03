@@ -1,6 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
+import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
@@ -8,7 +9,6 @@ import { getByContinent } from "../../../records/Languages";
 import type { Language } from "../../../records/Languages";
 import mq from "../../../styles/mq";
 import buttonMixin from "../../../styles/mixins/button";
-import * as rtl from "../../../styles/rtl";
 import Translate from "../../Translate";
 import * as MODALS from "../../../consts/modals";
 import type { Modal as ModalType } from "../../../consts/modals";
@@ -35,7 +35,7 @@ const MenuWrapper = styled.div`
     mq.tablet(css`
       ${({ positionMenuTablet }: FlatProps) =>
         css`
-          ${rtl.right}: ${positionMenuTablet}px;
+          ${right}: ${positionMenuTablet}px;
         `};
     `)};
   ${({ flat }: FlatProps) =>
@@ -43,7 +43,7 @@ const MenuWrapper = styled.div`
     mq.gtDesktop(css`
       ${({ positionMenuDesktop }: FlatProps) =>
         css`
-          ${rtl.right}: ${positionMenuDesktop}px;
+          ${right}: ${positionMenuDesktop}px;
         `};
     `)};
 `;
@@ -134,7 +134,7 @@ const LanguageItem = styled.div`
   display: inline-flex;
   align-items: center;
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
-  padding-${rtl.left}: 5px;
+  padding-${left}: 5px;
   margin-bottom: 5px;
   box-sizing: border-box;
   cursor: pointer;

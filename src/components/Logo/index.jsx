@@ -1,26 +1,26 @@
 // @flow strict
 import React from "react";
 import styled, { css } from "styled-components";
+import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import { logo } from "../../styles";
 import type { ThemeProps } from "../../records/Theme";
 import { themeDefault } from "../../records/Theme";
 import SvgLogo from "./SvgLogo";
-import * as rtl from "../../styles/rtl";
 import mq from "../../styles/mq";
 
 const PoweredByKiwi = styled.span`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
   position: relative;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
-  margin-${rtl.left}: 10px;
-  padding-${rtl.left}: 10px;
+  margin-${left}: 10px;
+  padding-${left}: 10px;
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   &:before {
     content: "";
     top: 0;
     bottom: 0;
-    ${rtl.left}: 0;
+    ${left}: 0;
     margin: auto;
     position: absolute;
     width: 2px;
@@ -31,8 +31,8 @@ const PoweredByKiwi = styled.span`
   ${mq.ltTablet(css`
     font-size: 10px;
     font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};;
-    margin-${rtl.left}: 7px;
-    padding-${rtl.left}: 7px;
+    margin-${left}: 7px;
+    padding-${left}: 7px;
   `)};
 `;
 

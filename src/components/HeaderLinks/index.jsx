@@ -3,10 +3,10 @@ import * as React from "react";
 import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
+import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import type { Item } from "./components/Links";
 import mq from "../../styles/mq";
-import * as rtl from "../../styles/rtl";
 import ClickOutside from "../ClickOutside";
 import Toggle from "../Toggle";
 import Popup from "./primitives/Popup";
@@ -17,8 +17,10 @@ import Mobile from "../Mobile";
 import getNavBarLinks from "./services/api";
 
 const Margin = styled.div`
-  ${mq.mobile(css`
-    margin-${rtl.left}: 20px;
+  ${mq.ltDesktop(css`
+    margin-${left}: 20px;
+  `)} ${mq.ltSmallMobile(css`
+    margin-${left}: 0;
   `)};
 `;
 
@@ -28,25 +30,16 @@ type State = {|
   services: ?Services,
 |};
 
-export type ReadyUrl = {|
-  rooms: ?{
-    query: string,
-    base: string,
-  },
-|};
-
-export type HiddenUrls = {|
-  holidays: boolean,
-  logitravel: boolean,
-|};
-
 type Props = {|
-  searchParams: {
-    language: string,
+  searchString: string,
+  language: {
+    id: string,
   },
-  urlParam: string,
-  readyUrls: ReadyUrl,
-  hiddenUrls: HiddenUrls,
+  currency: string,
+  searchForm: any,
+  roomsProvider: string,
+  holidaysProvider: string,
+  lastminuteSupported: boolean,
 |};
 
 class HeaderLinks extends React.Component<Props, State> {
@@ -54,28 +47,32 @@ class HeaderLinks extends React.Component<Props, State> {
     services: null,
   };
 
-  static defaultProps = {
-    searchParams: {
-      language: "en",
-    },
-    urlParam: "search",
-    hiddenUrls: {
-      holidays: true,
-      logitravel: false,
-    },
-    readyUrls: {
-      rooms: null,
-    },
-  };
-
   componentDidMount() {
     this.getNavBarLinks();
   }
 
   getNavBarLinks = async () => {
+    const {
+      searchString,
+      language,
+      currency,
+      searchForm,
+      roomsProvider,
+      holidaysProvider,
+      lastminuteSupported,
+    } = this.props;
+
     try {
       // Fetch services
-      const services = await getNavBarLinks();
+      const services = await getNavBarLinks({
+        searchString,
+        language: language.id,
+        currency,
+        searchForm,
+        roomsProvider,
+        holidaysProvider,
+        lastminuteSupported,
+      });
 
       // Update state
       this.setState({ services: services.items });
@@ -85,7 +82,6 @@ class HeaderLinks extends React.Component<Props, State> {
   };
 
   render() {
-    const { searchParams, urlParam, readyUrls, hiddenUrls } = this.props;
     const { services } = this.state;
 
     // Hide until response
@@ -101,16 +97,7 @@ class HeaderLinks extends React.Component<Props, State> {
                   {open && (
                     <ClickOutside onClickOutside={onToggle}>
                       <Popup>
-                        {services &&
-                          services.length > 0 && (
-                            <Links
-                              urlParam={urlParam}
-                              searchParams={searchParams}
-                              services={services}
-                              readyUrls={readyUrls}
-                              hiddenUrls={hiddenUrls}
-                            />
-                          )}
+                        {services && services.length > 0 && <Links services={services} />}
                       </Popup>
                     </ClickOutside>
                   )}
@@ -124,16 +111,7 @@ class HeaderLinks extends React.Component<Props, State> {
           </Margin>
         </Mobile>
         <Desktop display="flex">
-          {services &&
-            services.length > 0 && (
-              <Links
-                urlParam={urlParam}
-                searchParams={searchParams}
-                services={services}
-                readyUrls={readyUrls}
-                hiddenUrls={hiddenUrls}
-              />
-            )}
+          {services && services.length > 0 && <Links services={services} />}
         </Desktop>
       </>
     );

@@ -4,8 +4,6 @@ import * as React from "react";
 import type { Brand } from "../../records/Brand";
 import type { Currencies, Currency } from "../../records/Currency";
 import type { Countries } from "../../records/Country";
-import getGeoCountryCall from "./services/getGeoCountry";
-import getCurrenciesCall from "./services/getCurrencies";
 
 type Arg = {|
   currency: Currency,
@@ -26,8 +24,8 @@ type Props = {|
   // defaulted
   mostUsed?: string[],
   // DI
-  getCurrencies?: typeof getCurrenciesCall,
-  getGeoCountry?: typeof getGeoCountryCall,
+  getCurrencies?: () => Promise<Currencies>,
+  getGeoCountry?: (ip: string) => Promise<string>,
 |};
 
 declare export default React.ComponentType<Props>;

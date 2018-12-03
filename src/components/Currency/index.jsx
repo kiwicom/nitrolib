@@ -16,6 +16,7 @@ type Props = {|
   loading: React.Node,
   positionMenuTablet?: number,
   positionMenuDesktop?: number,
+  inverted?: boolean,
   onSetModal?: (modal: ModalType) => void,
 |};
 
@@ -24,6 +25,7 @@ const Currency = ({
   loading,
   positionMenuDesktop,
   positionMenuTablet,
+  inverted,
   onSetModal,
 }: Props) => (
   <CurrencyConsumer>
@@ -44,7 +46,7 @@ const Currency = ({
       ) : (
         <CustomPicker
           onChange={onChange}
-          openButton={<Current current={currency} />}
+          openButton={<Current current={currency} inverted={inverted} />}
           dataTest="CurrencySwitcher"
         >
           {render => (

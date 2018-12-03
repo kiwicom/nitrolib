@@ -1,5 +1,5 @@
 // @flow strict
-import * as R from "ramda";
+import { css } from "styled-components";
 
 import { BREAKPOINTS } from "../../consts/device";
 import mq from "../mq";
@@ -32,12 +32,14 @@ const EXPECTED_QUERIES = {
 };
 
 describe("#mediaQuery", () => {
-  R.forEachObjIndexed((query, name) => {
+  Object.keys(EXPECTED_QUERIES).forEach(name => {
+    const query = EXPECTED_QUERIES[name];
     test(name, () => {
       expect(mq[name]).toBeInstanceOf(Function);
     });
+
     test(`${name} result`, () => {
-      const result = mq[name](`
+      const result = mq[name](css`
         color: red;
       `);
 
@@ -50,5 +52,5 @@ describe("#mediaQuery", () => {
 
       expect(resultCondensed).toBe(expectatedCondensed);
     });
-  }, EXPECTED_QUERIES);
+  });
 });

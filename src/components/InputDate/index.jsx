@@ -4,8 +4,8 @@ import styled from "styled-components";
 import setDate from "date-fns/setDate";
 import setMonth from "date-fns/setMonth";
 import setYear from "date-fns/setYear";
+import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
-import * as rtl from "../../styles/rtl";
 import { themeDefault } from "../../records/Theme";
 import Flex from "../../primitives/Flex";
 import calculateRanges from "./services/calculateRanges";
@@ -18,11 +18,11 @@ const SelectContainer = styled.div`
   margin: 0 5px;
 
   &:first-child {
-    margin-${rtl.left}: 0;
+    margin-${left}: 0;
   }
 
   &:last-child {
-    margin-${rtl.right}: 0;
+    margin-${right}: 0;
   }
 `;
 

@@ -2,6 +2,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
+import { withKnobs } from "@storybook/addon-knobs/react";
 
 import NavBar from "../src/components/NavBar";
 import HeaderLinks from "../src/components/HeaderLinks";
@@ -25,7 +26,7 @@ const headerLinksProps = {
 };
 
 storiesOf("NavBar", module)
-  .addDecorator(withData)
+  .addDecorator(withData, withKnobs)
   .add("default", () => (
     <NavBar
       headerLinks={<HeaderLinks {...headerLinksProps} />}

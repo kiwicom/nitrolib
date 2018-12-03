@@ -8,8 +8,8 @@ import Button from "@kiwicom/orbit-components/lib/Button";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import Security from "@kiwicom/orbit-components/lib/icons/Security";
+import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
-import * as rtl from "../../../../styles/rtl";
 import { themeDefault } from "../../../../records/Theme";
 import InputText from "../../../InputText";
 import LogMount from "../../../LogMount";
@@ -48,7 +48,7 @@ const FieldCentered = styled(FieldWrap)`
 `;
 
 const ForgotPasswordArrow = styled.span`
-  margin-${rtl.left}: 5px;
+  margin-${left}: 5px;
   margin-top: -2px;
 `;
 

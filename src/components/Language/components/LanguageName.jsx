@@ -2,19 +2,19 @@
 import * as React from "react";
 import styled from "styled-components";
 import CountryFlag from "@kiwicom/orbit-components/lib/CountryFlag";
+import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import { getNames } from "../../../records/Languages";
 import type { Language } from "../../../records/Languages";
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
-import * as rtl from "../../../styles/rtl";
 
 type Props = {|
   language: Language,
 |};
 
 const LanguageNameText = styled.span`
-  margin-${rtl.left}: 10px;
+  margin-${left}: 10px;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   letter-spacing: 0.02em;

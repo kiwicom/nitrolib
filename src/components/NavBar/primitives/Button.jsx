@@ -2,8 +2,8 @@
 import styled from "styled-components";
 import type { ReactComponentFunctional } from "styled-components";
 import * as React from "react";
+import { left, right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
-import * as rtl from "../../../styles/rtl";
 import type { ThemeProps } from "../../../records/Theme";
 import { themeDefault } from "../../../records/Theme";
 import buttonMixin from "../../../styles/mixins/button";
@@ -33,7 +33,9 @@ type Props = {|
 
 type PropsAll = {| ...ThemeProps, ...Props |};
 
-const Button: ReactComponentFunctional<Props, ThemeProps> = styled.button`
+const Button: ReactComponentFunctional<Props, ThemeProps> = styled.button.attrs(({ dataTest }) => ({
+  "data-test": dataTest,
+}))`
   ${buttonMixin};
   display: flex;
   color: ${({ theme, color }: PropsAll) =>
@@ -55,8 +57,8 @@ const Button: ReactComponentFunctional<Props, ThemeProps> = styled.button`
   white-space: nowrap;
   ${({ transition }) => transition && `transition: color 0.2s ease-in-out`};
   ${({ padding }) => padding && `padding: ${padding}`};
-  ${({ marginLeft, theme }) => marginLeft && `margin-${rtl.left({ theme })}: ${marginLeft}px`};
-  ${({ marginRight, theme }) => marginRight && `margin-${rtl.right({ theme })}: ${marginRight}px`};
+  ${({ marginLeft, theme }) => marginLeft && `margin-${left({ theme })}: ${marginLeft}px`};
+  ${({ marginRight, theme }) => marginRight && `margin-${right({ theme })}: ${marginRight}px`};
   ${({ fontSize }) => fontSize && `font-size: ${fontSize}`};
   ${({ x, y, direction }) => x && `justify-content: ${direction === "column" ? y : x}`};
   ${({ x, y, direction }) => y && `align-items: ${direction === "column" ? x : y}`};
