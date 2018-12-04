@@ -52,7 +52,7 @@ function collectFile(file) {
 
     return collectedStrings;
   } catch (err) {
-    throw new Error(`${file} blew up!`);
+    throw new Error(err, file);
   }
 }
 
