@@ -7,6 +7,7 @@ type Props = {|
   t: string,
   values?: { [key: string]: string | number },
   html?: boolean,
+  transform?: (value: string) => string,
 |};
 
 declare export default React.ComponentType<Props>;

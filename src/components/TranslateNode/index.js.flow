@@ -4,6 +4,8 @@ import * as React from "react";
 type Props = {|
   t: string,
   values: { [key: string]: React.Node },
+  // defaulted
+  transform?: (value: string) => string, // identity
 |};
 
 declare export default React.ComponentType<Props>;

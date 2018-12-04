@@ -1970,6 +1970,7 @@ exports[`#Language/CustomPicker/Menu render full 1`] = `
       <Translate
         html={false}
         t="common.languages_all"
+        transform={[Function]}
         values={Object {}}
       />
     </Menu__ContinentButton>

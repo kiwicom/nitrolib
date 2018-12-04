@@ -1574,6 +1574,7 @@ exports[`#InputText render active error 1`] = `
       <Translate
         html={false}
         t="An error"
+        transform={[Function]}
         values={Object {}}
       />
     </InputText__Error>
@@ -2755,6 +2756,7 @@ exports[`#InputText render hint 1`] = `
     >
       <TranslateNode
         t="common.did_you_mean"
+        transform={[Function]}
         values={
           Object {
             "x": <ForwardRef
@@ -5909,6 +5911,7 @@ exports[`#InputText render regular error 1`] = `
       <Translate
         html={false}
         t="An error"
+        transform={[Function]}
         values={Object {}}
       />
     </InputText__Error>
@@ -7879,6 +7882,7 @@ exports[`#InputText render show state error 1`] = `
       <Translate
         html={false}
         t="An error"
+        transform={[Function]}
         values={Object {}}
       />
     </InputText__Error>

@@ -6,6 +6,7 @@ type Props = {|
   ...$Diff<PropsOrbit, { children: React.Node }>,
   t: string,
   values: { [key: string]: React.Node },
+  transform?: (value: string) => string,
 |};
 
 declare export default React.ComponentType<Props>;

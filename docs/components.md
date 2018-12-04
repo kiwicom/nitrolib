@@ -319,6 +319,7 @@ type Props = {|
   t: string,
   values?: { [key: string]: string | number },
   html?: boolean,
+  transform?: (value: string) => string,
 |};
 ```
 
@@ -342,6 +343,7 @@ type Props = {|
   ...$Diff<PropsOrbit, { children: React.Node }>,
   t: string,
   values: { [key: string]: React.Node },
+  transform?: (value: string) => string,
 |};
 ```
 
@@ -401,10 +403,13 @@ type Props = {|
   // defaulted
   values?: { [key: string]: string | number }, // {}
   html?: boolean, // false
+  transform?: (value: string) => string, // identity
 |};
 ```
 
 Translates the supplied key.
+
+> The text output can be transformed using the `transform` function.
 
 Context needs:
 * **intl**
@@ -430,10 +435,14 @@ import TranslateNode from "@kiwicom/nitro/lib/components/TranslateNode";
 type Props = {|
   t: string,
   values: { [key: string]: React.Node },
+  // defaulted
+  transform?: (value: string) => string, // identity
 |};
 ```
 
 The same as `Translate`, except values are `React.Node`. Useful when you need to inject elements with event handlers!
+
+> The text output can be transformed using the `transform` function.
 
 Context needs:
 * **intl**

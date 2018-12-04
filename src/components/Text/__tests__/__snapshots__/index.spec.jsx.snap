@@ -5,6 +5,7 @@ exports[`#Text html 1`] = `
   <Translate
     html={true}
     t="lol"
+    transform={[Function]}
     values={Object {}}
   />
 </Text>
@@ -15,6 +16,7 @@ exports[`#Text string 1`] = `
   <Translate
     html={false}
     t="lol"
+    transform={[Function]}
     values={Object {}}
   />
 </Text>

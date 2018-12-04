@@ -13,6 +13,7 @@ exports[`#AccountNoAccount render 1`] = `
       <Translate
         html={false}
         t="account.no_bookings_or_account"
+        transform={[Function]}
         values={Object {}}
       />
     </Heading>
@@ -20,6 +21,7 @@ exports[`#AccountNoAccount render 1`] = `
       <Translate
         html={false}
         t="account.no_bookings_or_account_description"
+        transform={[Function]}
         values={Object {}}
       />
     </Text>
@@ -38,6 +40,7 @@ exports[`#AccountNoAccount render 1`] = `
         <Translate
           html={false}
           t="account.register"
+          transform={[Function]}
           values={Object {}}
         />
       </Button>
@@ -55,6 +58,7 @@ exports[`#AccountNoAccount render 1`] = `
           <Translate
             html={false}
             t="account.back"
+            transform={[Function]}
             values={Object {}}
           />
         </ButtonLink>
@@ -71,6 +75,7 @@ exports[`#AccountNoAccount render 1`] = `
       <Translate
         html={false}
         t="account.or_social_account"
+        transform={[Function]}
         values={Object {}}
       />
     </Text>
@@ -92,6 +97,7 @@ exports[`#AccountNoAccount render 1`] = `
         <Translate
           html={false}
           t="account.log_in_with"
+          transform={[Function]}
           values={
             Object {
               "provider": "Facebook",
@@ -109,6 +115,7 @@ exports[`#AccountNoAccount render 1`] = `
         <Translate
           html={false}
           t="account.log_in_with"
+          transform={[Function]}
           values={
             Object {
               "provider": "Google",

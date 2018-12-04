@@ -4,6 +4,7 @@ exports[`#TextNode string 1`] = `
 <Text>
   <TranslateNode
     t="lol __x__ kek bur"
+    transform={[Function]}
     values={
       Object {
         "x": <span>

@@ -404,6 +404,7 @@ exports[`#SideBar/ForgotPassword render 1`] = `
       <Translate
         html={false}
         t="account.enter_your_email"
+        transform={[Function]}
         values={Object {}}
       />
     </Text>
@@ -419,6 +420,7 @@ exports[`#SideBar/ForgotPassword render 1`] = `
         <Translate
           html={false}
           t="common.email.colon"
+          transform={[Function]}
           values={Object {}}
         />
       </IconText>
@@ -443,6 +445,7 @@ exports[`#SideBar/ForgotPassword render 1`] = `
       <Translate
         html={false}
         t="account.reset_password"
+        transform={[Function]}
         values={Object {}}
       />
     </Button>
@@ -857,6 +860,7 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
         <Translate
           html={false}
           t="common.api_error"
+          transform={[Function]}
           values={Object {}}
         />
       </Alert>
@@ -865,6 +869,7 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
       <Translate
         html={false}
         t="account.enter_your_email"
+        transform={[Function]}
         values={Object {}}
       />
     </Text>
@@ -880,6 +885,7 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
         <Translate
           html={false}
           t="common.email.colon"
+          transform={[Function]}
           values={Object {}}
         />
       </IconText>
@@ -904,6 +910,7 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
       <Translate
         html={false}
         t="account.reset_password"
+        transform={[Function]}
         values={Object {}}
       />
     </Button>
@@ -917,6 +924,7 @@ exports[`#SideBar/ForgotPassword render error INVALID_ARGUMENT_LOGIN 1`] = `
     <Translate
       html={false}
       t="common.ok"
+      transform={[Function]}
       values={Object {}}
     />
   }
@@ -926,6 +934,7 @@ exports[`#SideBar/ForgotPassword render error INVALID_ARGUMENT_LOGIN 1`] = `
     <Translate
       html={false}
       t="account.user_with_email_does_not_exist"
+      transform={[Function]}
       values={Object {}}
     />
   </Text>
@@ -1336,6 +1345,7 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
       <Translate
         html={false}
         t="account.enter_your_email"
+        transform={[Function]}
         values={Object {}}
       />
     </Text>
@@ -1351,6 +1361,7 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
         <Translate
           html={false}
           t="common.email.colon"
+          transform={[Function]}
           values={Object {}}
         />
       </IconText>
@@ -1375,6 +1386,7 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
       <Translate
         html={false}
         t="common.loading"
+        transform={[Function]}
         values={Object {}}
       />
     </Button>
@@ -1388,6 +1400,7 @@ exports[`#SideBar/ForgotPassword render submitted 1`] = `
     <Translate
       html={false}
       t="common.ok"
+      transform={[Function]}
       values={Object {}}
     />
   }
@@ -1397,6 +1410,7 @@ exports[`#SideBar/ForgotPassword render submitted 1`] = `
     <Translate
       html={false}
       t="account.you_will_recieve_password"
+      transform={[Function]}
       values={Object {}}
     />
   </Text>
