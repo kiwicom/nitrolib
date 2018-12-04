@@ -6,21 +6,14 @@ const glob = require("glob");
 const babylon = require("@babel/parser");
 const traverse = require("@babel/traverse").default;
 
-// All of 'em
-const PLUGINS = [
-  "jsx",
-  "flow",
-  "classProperties",
-  "dynamicImport",
-  "optionalChaining",
-  "decorators-legacy", // FIXME delete this!
-];
+const PLUGINS = ["jsx", "flow", "classProperties", "dynamicImport", "optionalChaining"];
 
 function collectFile(file) {
   try {
     const code = String(fs.readFileSync(file));
 
     const ast = babylon.parse(code, {
+      strict: false, // Allows shitty code to exist
       sourceType: "module",
       plugins: PLUGINS,
     });
