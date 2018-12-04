@@ -68,27 +68,16 @@ import HeaderLinks from "@kiwicom/nitro/lib/components/HeaderLinks";
 
 **Types:**
 ```js
-export type Services = ?(Item[]);
-
-export type ReadyUrl = {|
-  rooms: ?{
-    query: string,
-    base: string,
-  },
-|};
-
-export type HiddenUrls = {|
-  holidays: boolean,
-  logitravel: boolean,
-|};
-
 type Props = {|
-  searchParams: {
-    language: string,
+  searchString: string,
+  language: {
+    id: string,
   },
-  urlParam: string,
-  readyUrls: ReadyUrl,
-  hiddenUrls: HiddenUrls,
+  currency: string,
+  searchForm: any,
+  roomsProvider: string,
+  holidaysProvider: string,
+  lastminuteSupported: boolean,
 |};
 ```
 

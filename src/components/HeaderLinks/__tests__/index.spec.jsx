@@ -5,20 +5,25 @@ import { shallow } from "enzyme";
 import HeaderLinks from "..";
 
 const props = {
-  searchParams: {
-    language: "en",
+  searchString: "search",
+  language: {
+    id: "us",
   },
-  urlParam: "search",
-  readyUrls: {
-    rooms: {
-      query: "query",
-      base: "base",
+  currency: "gbp",
+  searchForm: {
+    mode: "oneWay",
+    destination: {
+      type: "string",
+      name: "string",
     },
+    checkIn: "wd",
+    checkOut: "we",
+    adults: 1,
+    children: 0,
   },
-  hiddenUrls: {
-    holidays: false,
-    logitravel: true,
-  },
+  roomsProvider: "string",
+  holidaysProvider: "string",
+  lastminuteSupported: false,
 };
 
 describe("#Currency", () => {
