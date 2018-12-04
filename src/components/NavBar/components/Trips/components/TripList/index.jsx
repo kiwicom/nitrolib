@@ -48,24 +48,23 @@ const TripList = ({ list, onSelect }: Props) => {
           return null;
         })}
 
-      {futureTrips &&
-        futureTrips.length > 0 && (
-          <TripListBottom>
-            <IntlConsumer>
-              {({ language }) =>
-                futureTrips &&
-                futureTrips.map(item => (
-                  <BottomTripItem
-                    key={item.id}
-                    id={item.id}
-                    imageUrl={item.destinationImageUrl || ""}
-                    lang={language.id}
-                  />
-                ))
-              }
-            </IntlConsumer>
-          </TripListBottom>
-        )}
+      {futureTrips && futureTrips.length > 0 && (
+        <TripListBottom>
+          <IntlConsumer>
+            {({ language }) =>
+              futureTrips &&
+              futureTrips.map(item => (
+                <BottomTripItem
+                  key={item.id}
+                  id={item.id}
+                  imageUrl={item.destinationImageUrl || ""}
+                  lang={language.id}
+                />
+              ))
+            }
+          </IntlConsumer>
+        </TripListBottom>
+      )}
     </>
   );
 };

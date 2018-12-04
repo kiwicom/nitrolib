@@ -104,12 +104,11 @@ export default class IataPicker extends React.PureComponent<Props, State> {
                 error={intl.translate(error)}
                 showState={showState}
               />
-              {open &&
-                value !== "" && (
-                  <ResultWrapper>
-                    <AirportListData value={value} onSelect={this.handleSelect} />
-                  </ResultWrapper>
-                )}
+              {open && value !== "" && (
+                <ResultWrapper>
+                  <AirportListData value={value} onSelect={this.handleSelect} />
+                </ResultWrapper>
+              )}
             </Container>
           </ClickOutside>
         )}
