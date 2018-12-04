@@ -182,14 +182,13 @@ export default class SignIn extends React.PureComponent<Props, State> {
             </Alert>
           </FieldWrap>
         )}
-        {submitted &&
-          errorSync && (
-            <FieldWrap>
-              <Alert type="critical">
-                <Translate t={errorSync} />
-              </Alert>
-            </FieldWrap>
-          )}
+        {submitted && errorSync && (
+          <FieldWrap>
+            <Alert type="critical">
+              <Translate t={errorSync} />
+            </Alert>
+          </FieldWrap>
+        )}
         <Button block submit disabled={loading}>
           <Translate t="account.sign_in" />
         </Button>
