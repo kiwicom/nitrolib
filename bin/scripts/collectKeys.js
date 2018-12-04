@@ -13,7 +13,7 @@ function collectFile(file) {
     const code = String(fs.readFileSync(file));
 
     const ast = babylon.parse(code, {
-      strict: false, // Allows shitty code to exist
+      strictMode: false, // Allows shitty code to exist
       sourceType: "module",
       plugins: PLUGINS,
     });
