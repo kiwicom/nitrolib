@@ -1,23 +1,26 @@
 // @flow strict
 /* eslint-disable react/no-danger */
 import * as React from "react";
+import * as R from "ramda";
 
 import type { Values } from "../../services/intl/translate";
 import { Consumer } from "../../services/intl/context";
 
 type Props = {
   t: string,
+  // defaulted
   values: Values,
   html: boolean,
+  transform: (value: string) => string,
 };
 
-const Translate = (props: Props) => (
+const Translate = ({ t, values, html, transform }: Props) => (
   <Consumer>
     {intl =>
-      props.html ? (
-        <span dangerouslySetInnerHTML={{ __html: intl.translate(props.t, props.values) }} />
+      html ? (
+        <span dangerouslySetInnerHTML={{ __html: transform(intl.translate(t, values)) }} />
       ) : (
-        intl.translate(props.t, props.values)
+        transform(intl.translate(t, values))
       )
     }
   </Consumer>
@@ -26,6 +29,7 @@ const Translate = (props: Props) => (
 Translate.defaultProps = {
   values: {},
   html: false,
+  transform: R.identity,
 };
 
 export default Translate;

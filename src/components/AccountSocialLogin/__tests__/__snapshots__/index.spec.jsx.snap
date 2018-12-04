@@ -13,6 +13,7 @@ exports[`#AccountPairedFacebook render 1`] = `
       <Translate
         html={false}
         t="account.manage_your_bookings"
+        transform={[Function]}
         values={Object {}}
       />
     </Heading>
@@ -22,6 +23,7 @@ exports[`#AccountPairedFacebook render 1`] = `
       <Translate
         html={false}
         t="account.sign_in_description"
+        transform={[Function]}
         values={Object {}}
       />
     </Text>
@@ -43,6 +45,7 @@ exports[`#AccountPairedFacebook render 1`] = `
         <Translate
           html={false}
           t="account.log_in_with"
+          transform={[Function]}
           values={
             Object {
               "provider": "Facebook",
@@ -59,6 +62,7 @@ exports[`#AccountPairedFacebook render 1`] = `
         <Translate
           html={false}
           t="account.log_in_with"
+          transform={[Function]}
           values={
             Object {
               "provider": "Google",
@@ -75,6 +79,7 @@ exports[`#AccountPairedFacebook render 1`] = `
       <Translate
         html={false}
         t="account.send_link_to"
+        transform={[Function]}
         values={
           Object {
             "email": "email@example.com",
@@ -89,6 +94,7 @@ exports[`#AccountPairedFacebook render 1`] = `
       <Translate
         html={false}
         t="account.ask_sign_in_link"
+        transform={[Function]}
         values={Object {}}
       />
     </Button>

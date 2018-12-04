@@ -15,6 +15,7 @@ exports[`#AccountLogin render 1`] = `
       <Translate
         html={false}
         t="account.manage_your_bookings"
+        transform={[Function]}
         values={Object {}}
       />
     </Heading>
@@ -24,6 +25,7 @@ exports[`#AccountLogin render 1`] = `
       <Translate
         html={false}
         t="account.sign_in_description"
+        transform={[Function]}
         values={Object {}}
       />
     </Text>
@@ -36,6 +38,7 @@ exports[`#AccountLogin render 1`] = `
       <Translate
         html={false}
         t="account.sign_in_description"
+        transform={[Function]}
         values={Object {}}
       />
     </Text>
@@ -62,6 +65,7 @@ exports[`#AccountLogin render 1`] = `
         <Translate
           html={false}
           t="account.continue"
+          transform={[Function]}
           values={Object {}}
         />
       </Button>
@@ -76,6 +80,7 @@ exports[`#AccountLogin render 1`] = `
         <Translate
           html={false}
           t="account.i_dont_have_account"
+          transform={[Function]}
           values={Object {}}
         />
       </TextLink>
@@ -91,6 +96,7 @@ exports[`#AccountLogin render 1`] = `
       <Translate
         html={false}
         t="account.or_social_account"
+        transform={[Function]}
         values={Object {}}
       />
     </Text>
@@ -113,6 +119,7 @@ exports[`#AccountLogin render 1`] = `
         <Translate
           html={false}
           t="account.log_in_with"
+          transform={[Function]}
           values={
             Object {
               "provider": "Facebook",
@@ -130,6 +137,7 @@ exports[`#AccountLogin render 1`] = `
         <Translate
           html={false}
           t="account.log_in_with"
+          transform={[Function]}
           values={
             Object {
               "provider": "Google",

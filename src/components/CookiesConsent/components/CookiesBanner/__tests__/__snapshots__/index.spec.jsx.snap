@@ -777,6 +777,7 @@ exports[`#CookiesBanner render 1`] = `
     <Translate
       html={true}
       t="content.cookies.banner.text"
+      transform={[Function]}
       values={Object {}}
     />
   </CookiesBanner__Message>

@@ -6,6 +6,7 @@ type Props = {|
   // defaulted
   values?: { [key: string]: string | number }, // {}
   html?: boolean, // false
+  transform?: (value: string) => string, // identity
 |};
 
 declare export default React.ComponentType<Props>;

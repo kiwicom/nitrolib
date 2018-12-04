@@ -9,6 +9,7 @@ exports[`#TripDataList render 1`] = `
     <Translate
       html={false}
       t="common.loading"
+      transform={[Function]}
       values={Object {}}
     />
   </TripDataList__StateContainer>

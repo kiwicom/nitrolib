@@ -9,6 +9,7 @@ exports[`#AccountCheckEmail render - magicLink 1`] = `
     <Translate
       html={false}
       t="account.check_email"
+      transform={[Function]}
       values={Object {}}
     />
   </Heading>
@@ -21,6 +22,7 @@ exports[`#AccountCheckEmail render - magicLink 1`] = `
     <Translate
       html={false}
       t="account.check_email_magic_link"
+      transform={[Function]}
       values={
         Object {
           "email": "foo@bar.com",
@@ -40,6 +42,7 @@ exports[`#AccountCheckEmail render - signUpConfirmation 1`] = `
     <Translate
       html={false}
       t="account.check_email"
+      transform={[Function]}
       values={Object {}}
     />
   </Heading>
@@ -52,6 +55,7 @@ exports[`#AccountCheckEmail render - signUpConfirmation 1`] = `
     <Translate
       html={false}
       t="account.check_email_sign_up"
+      transform={[Function]}
       values={
         Object {
           "email": "bar@foo.com",

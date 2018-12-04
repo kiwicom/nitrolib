@@ -8,6 +8,7 @@ exports[`#SideNav MenuItem render 1`] = `
     <Translate
       html={false}
       t="kek"
+      transform={[Function]}
       values={
         Object {
           "companyName": "Kiwi.com",

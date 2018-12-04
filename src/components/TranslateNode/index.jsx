@@ -1,15 +1,18 @@
 // @flow strict
 /* eslint-disable react/no-danger, react/no-array-index-key */
 import * as React from "react";
+import * as R from "ramda";
 
 import { Consumer } from "../../services/intl/context";
 
 type Props = {
   t: string,
   values: { [key: string]: React.Node },
+  // defaulted
+  transform: (value: string) => string,
 };
 
-const TranslateNode = ({ t, values }: Props) => (
+const TranslateNode = ({ t, values, transform }: Props) => (
   <Consumer>
     {intl => (
       <>
@@ -23,11 +26,15 @@ const TranslateNode = ({ t, values }: Props) => (
                 <span key={`${i}-${j}`} dangerouslySetInnerHTML={{ __html: word }} />
               ),
             ),
-          intl.translate(t).split("__"),
+          transform(intl.translate(t)).split("__"),
         )}
       </>
     )}
   </Consumer>
 );
+
+TranslateNode.defaultProps = {
+  transform: R.identity,
+};
 
 export default TranslateNode;

@@ -13,12 +13,14 @@ exports[`#AccountCreate render 1`] = `
       <Translate
         html={false}
         t="account.create_account"
+        transform={[Function]}
         values={Object {}}
       />
     </Heading>
     <Translate
       html={false}
       t="account.create_account_description"
+      transform={[Function]}
       values={Object {}}
     />
   </ModalHeader>
@@ -55,6 +57,7 @@ exports[`#AccountCreate render 1`] = `
         <Translate
           html={false}
           t="account.create"
+          transform={[Function]}
           values={Object {}}
         />
       </Button>
@@ -64,6 +67,7 @@ exports[`#AccountCreate render 1`] = `
         <Translate
           html={true}
           t="account.terms_and_privacy_policy"
+          transform={[Function]}
           values={Object {}}
         />
       </Text>

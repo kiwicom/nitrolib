@@ -2729,6 +2729,7 @@ exports[`#TripItem render 1`] = `
         <Translate
           html={false}
           t="account.trips_passengers"
+          transform={[Function]}
           values={
             Object {
               "passengers": 2,

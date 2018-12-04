@@ -12,11 +12,12 @@ type Props = {|
   t: string,
   values?: Values,
   html?: boolean,
+  transform?: (value: string) => string,
 |};
 
-const Text = ({ t, values, html, ...orbit }: Props) => (
+const Text = ({ t, values, html, transform, ...orbit }: Props) => (
   <TextOrbit {...orbit}>
-    <Translate t={t} values={values} html={html} />
+    <Translate t={t} values={values} html={html} transform={transform} />
   </TextOrbit>
 );
 

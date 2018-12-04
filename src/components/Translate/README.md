@@ -2,6 +2,8 @@
 
 Translates the supplied key.
 
+> The text output can be transformed using the `transform` function.
+
 Context needs:
 * **intl**
 

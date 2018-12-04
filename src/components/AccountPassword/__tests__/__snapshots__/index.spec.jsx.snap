@@ -13,6 +13,7 @@ exports[`#AccountPassword render 1`] = `
       <Translate
         html={false}
         t="account.manage_your_bookings"
+        transform={[Function]}
         values={Object {}}
       />
     </Heading>
@@ -22,6 +23,7 @@ exports[`#AccountPassword render 1`] = `
       <Translate
         html={false}
         t="account.sign_in_description"
+        transform={[Function]}
         values={Object {}}
       />
     </Text>
@@ -71,6 +73,7 @@ exports[`#AccountPassword render 1`] = `
         <Translate
           html={false}
           t="account.sign_in"
+          transform={[Function]}
           values={Object {}}
         />
       </Button>
@@ -83,6 +86,7 @@ exports[`#AccountPassword render 1`] = `
       <Translate
         html={false}
         t="account.send_link_to"
+        transform={[Function]}
         values={
           Object {
             "email": "example@example.com",
@@ -97,6 +101,7 @@ exports[`#AccountPassword render 1`] = `
       <Translate
         html={false}
         t="account.ask_sign_in_link"
+        transform={[Function]}
         values={Object {}}
       />
     </Button>

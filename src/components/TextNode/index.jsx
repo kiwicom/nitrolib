@@ -10,11 +10,12 @@ type Props = {|
   ...$Diff<PropsOrbit, { children: React.Node }>,
   t: string,
   values: { [key: string]: React.Node },
+  transform?: (value: string) => string,
 |};
 
-const TextNode = ({ t, values, ...orbit }: Props) => (
+const TextNode = ({ t, values, transform, ...orbit }: Props) => (
   <Text {...orbit}>
-    <TranslateNode t={t} values={values} />
+    <TranslateNode t={t} values={values} transform={transform} />
   </Text>
 );
 
