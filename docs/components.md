@@ -288,7 +288,7 @@ Context needs:
 const Pay = ({ value }: Props) => (
   <Button>
     <TextNode
-      t={__("Pay __x__")}
+      t="Pay __x__"
       values={
         { x: <Price value={value} /> }
       }
@@ -318,8 +318,6 @@ Our `Translate` wrapped in _Orbit_'s `Text`. Accepts both our and their props.
 
 Useful for both translating and making text nicer!
 
-> Make sure to wrap translation keys in the global `__` function!
-
 Context needs:
 * **intl**
 
@@ -342,8 +340,6 @@ type Props = {|
 Our `TranslateNode` wrapped in _Orbit_'s `Text`. Accepts both our and their props.
 
 Useful for both translating and making text nicer!
-
-> Make sure to wrap translation keys in the global `__` function!
 
 Context needs:
 * **intl**
@@ -402,8 +398,6 @@ type Props = {|
 
 Translates the supplied key.
 
-> Make sure to wrap translation keys in the global `__` function!
-
 Context needs:
 * **intl**
 
@@ -411,7 +405,7 @@ Context needs:
 ```js
 const Submit = () => (
   <Button>
-    <Translate t={__("Submit")} />
+    <Translate t="Submit" />
   </Button>
 );
 ```
@@ -433,8 +427,6 @@ type Props = {|
 
 The same as `Translate`, except values are `React.Node`. Useful when you need to inject elements with event handlers!
 
-> Make sure to wrap translation keys in the global `__` function!
-
 Context needs:
 * **intl**
 
@@ -442,7 +434,7 @@ Example:
 ```js
 const MyComponent = () => (
   <TranslateNode
-    t={__("Click this: __x__")}
+    t="Click this: __x__"
     values={
       { x: <button onClick={() => alert("Clicked")}>Yo</button> }
     }
