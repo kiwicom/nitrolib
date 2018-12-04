@@ -76,7 +76,7 @@ const Trips = ({ auth, env, onSelect }: Props) => (
             <Passenger size="small" />
             <Button onClick={onToggle} color="secondary">
               <HideOnLower>
-                <Translate t={__("account.my_bookings_action")} />
+                <Translate t="account.my_bookings_action" />
               </HideOnLower>
               <UserWrapper>
                 <span>(</span>

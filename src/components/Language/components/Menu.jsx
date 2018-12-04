@@ -222,7 +222,7 @@ export default class Menu extends React.Component<Props, State> {
         {!flat && (
           <ContinentList>
             <ContinentButton active={continent === ""} onClick={() => this.handleContinent("")}>
-              <Translate t={__("common.languages_all")} />
+              <Translate t="common.languages_all" />
             </ContinentButton>
             {continents.map(item => (
               <ContinentButton

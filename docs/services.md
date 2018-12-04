@@ -226,6 +226,8 @@ import InitIntl from "@kiwicom/nitro/lib/components/InitIntl";
 type Props = {|
   raw: IntlRaw,
   children: (arg: Intl) => React.Node,
+  // defaulted
+  getLocale?: () => Promise<$FlowFixMe>, // resolves en-US by default
 |};
 ```
 

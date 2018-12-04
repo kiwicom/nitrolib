@@ -5,17 +5,16 @@ import enUS from "date-fns/locale/en-US"; // fallback
 type Props = {|
   id: string,
   children: (locale: $FlowFixMe) => React.Node,
-  // defaulted
   getLocale: (id: string) => Promise<$FlowFixMe>,
 |};
 
 type State = {|
-  locale: $FlowFixMe,
+  locale: $FlowFixMe | null,
 |};
 
 export default class DateFnsLocale extends React.PureComponent<Props, State> {
-  static defaultProps = {
-    getLocale: () => Promise.resolve(enUS),
+  state = {
+    locale: null,
   };
 
   componentDidMount() {

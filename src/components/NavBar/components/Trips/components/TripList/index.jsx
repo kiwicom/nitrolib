@@ -23,7 +23,7 @@ const TripList = ({ list, onSelect }: Props) => {
   const futureTrips = upcoming && upcoming.slice(2, 6);
 
   if (upcoming && upcoming.length === 0) {
-    return <Translate t={__("account.no_trips")} />;
+    return <Translate t="account.no_trips" />;
   }
 
   return (

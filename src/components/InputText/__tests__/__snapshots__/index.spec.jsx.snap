@@ -2753,7 +2753,7 @@ exports[`#InputText render hint 1`] = `
         }
       }
     >
-      <TextNode
+      <TranslateNode
         t="common.did_you_mean"
         values={
           Object {

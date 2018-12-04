@@ -6,7 +6,7 @@ import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import borderMixin, { getBorderState } from "../../styles/mixins/border";
 import Translate from "../Translate";
-import TextNode from "../TextNode";
+import TranslateNode from "../TranslateNode";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 
@@ -209,7 +209,7 @@ class InputText extends React.PureComponent<Props, State> {
 
           {borderState === "hint" && (
             <Hint onClick={this.handleHint}>
-              <TextNode t={__("common.did_you_mean")} values={{ x: <HintText>{hint}</HintText> }} />
+              <TranslateNode t="common.did_you_mean" values={{ x: <HintText>{hint}</HintText> }} />
             </Hint>
           )}
         </States>

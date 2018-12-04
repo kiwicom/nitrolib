@@ -92,7 +92,7 @@ export default class IataPicker extends React.PureComponent<Props, State> {
           <ClickOutside active={open} onClickOutside={this.handleClickOutside}>
             <Container>
               <IconText icon={<Airplane color="primary" size="small" />}>
-                <Translate t={__("common.iata_code")} />
+                <Translate t="common.iata_code" />
               </IconText>
               <InputText
                 id={id}

@@ -223,7 +223,7 @@ export default class SideNav extends React.Component<Props, State> {
         <ClientOnly>
           <SideBar onClick={this.handleToggle} shown={modalOpen === MODALS.SIDE_NAV}>
             <Close onClick={this.handleToggle} data-test="NavbarMenuClose">
-              <Translate t={__("common.hide")} /> <CloseIcon />
+              <Translate t="common.hide" /> <CloseIcon />
             </Close>
 
             <Content>
@@ -262,19 +262,19 @@ export default class SideNav extends React.Component<Props, State> {
                           onSignOut();
                           this.handleToggle();
                         }}
-                        text={<Translate t={__("account.log_out")} />}
+                        text={<Translate t="account.log_out" />}
                       />
                     ) : (
                       <>
                         <MenuItem
                           Icon={icons.AccountCircle}
                           onClick={this.handleOpenSignIn}
-                          text={<Translate t={__("account.sign_in")} />}
+                          text={<Translate t="account.sign_in" />}
                         />
                         <MenuItem
                           Icon={icons.AccountCircle}
                           onClick={this.handleOpenRegister}
-                          text={<Translate t={__("account.sign_up")} />}
+                          text={<Translate t="account.sign_up" />}
                         />
                       </>
                     )}
@@ -292,7 +292,7 @@ export default class SideNav extends React.Component<Props, State> {
                   return (
                     <>
                       {/* EXPLORE */}
-                      <MenuGroup text={<Translate t={__("sidenav.connect")} />}>
+                      <MenuGroup text={<Translate t="sidenav.connect" />}>
                         {company.invite && (
                           <BrandedMenuItem
                             title={company.invite.title}
@@ -306,7 +306,7 @@ export default class SideNav extends React.Component<Props, State> {
                           <MenuItem
                             Icon={icons.ContactEmail}
                             onClick={this.handleOpenSubscription}
-                            text={<Translate t={__("common.subscribe")} />}
+                            text={<Translate t="common.subscribe" />}
                           />
                         )}
 
@@ -323,7 +323,7 @@ export default class SideNav extends React.Component<Props, State> {
                           <MenuItem
                             Icon={icons.Chat}
                             onClick={this.handleOpenChat}
-                            text={<Translate t={__("booking.abandonment.help.chat_action")} />}
+                            text={<Translate t="booking.abandonment.help.chat_action" />}
                           />
                         )}
 
@@ -340,7 +340,7 @@ export default class SideNav extends React.Component<Props, State> {
                       <Separator />
 
                       {/* COMPANY */}
-                      <MenuGroup text={<Translate t={__("sidenav.company")} />}>
+                      <MenuGroup text={<Translate t="sidenav.company" />}>
                         {company.about && (
                           <BrandedMenuItem
                             title={company.about.title}
@@ -394,7 +394,7 @@ export default class SideNav extends React.Component<Props, State> {
 
                       <Separator />
 
-                      <MenuGroup text={<Translate t={__("content.pages.legal.title")} />}>
+                      <MenuGroup text={<Translate t="content.pages.legal.title" />}>
                         {company.terms && (
                           <BrandedMenuItem
                             title={company.terms.title}

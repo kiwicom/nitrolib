@@ -6,6 +6,8 @@ import type { Intl, IntlRaw } from "../../records/Intl";
 type Props = {|
   raw: IntlRaw,
   children: (arg: Intl) => React.Node,
+  // defaulted
+  getLocale?: () => Promise<$FlowFixMe>, // resolves en-US by default
 |};
 
 declare export default React.ComponentType<Props>;

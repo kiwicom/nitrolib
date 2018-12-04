@@ -423,7 +423,7 @@ exports[`#SideBar/ForgotPassword render 1`] = `
         />
       </IconText>
       <ForwardRef
-        autocomplete="email"
+        autoComplete="email"
         corrector={[Function]}
         error="forms.this_field_must_be_filled"
         id="email"
@@ -438,6 +438,7 @@ exports[`#SideBar/ForgotPassword render 1`] = `
       block={true}
       disabled={true}
       size="large"
+      submit={true}
     >
       <Translate
         html={false}
@@ -883,7 +884,7 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
         />
       </IconText>
       <ForwardRef
-        autocomplete="email"
+        autoComplete="email"
         corrector={[Function]}
         error="forms.this_field_must_be_filled"
         id="email"
@@ -898,6 +899,7 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
       block={true}
       disabled={true}
       size="large"
+      submit={true}
     >
       <Translate
         html={false}
@@ -1353,7 +1355,7 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
         />
       </IconText>
       <ForwardRef
-        autocomplete="email"
+        autoComplete="email"
         corrector={[Function]}
         error="forms.this_field_must_be_filled"
         id="email"
@@ -1368,6 +1370,7 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
       block={true}
       disabled={true}
       size="large"
+      submit={true}
     >
       <Translate
         html={false}

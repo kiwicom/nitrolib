@@ -146,7 +146,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
 
         <FieldWrap>
           <IconText icon={<Envelope color="primary" size="small" />}>
-            <Translate t={__("common.email.colon")} />
+            <Translate t="common.email.colon" />
           </IconText>
           <InputText
             id="email"
@@ -156,14 +156,14 @@ export default class SignIn extends React.PureComponent<Props, State> {
             normalize={normalizers.email}
             validate={emailValidator}
             corrector={emailCorrector}
-            autocomplete="email"
+            autoComplete="email"
             showState={submitted}
           />
         </FieldWrap>
         <FieldWrap>
           {/* TODO: replace with Icon password after it will be added to Orbit */}
           <IconText icon={<Security color="primary" size="small" />}>
-            <Translate t={__("account.password.colon")} />
+            <Translate t="account.password.colon" />
           </IconText>
           <InputText
             id="password"
@@ -191,12 +191,12 @@ export default class SignIn extends React.PureComponent<Props, State> {
             </FieldWrap>
           )}
         <Button block submit disabled={loading}>
-          <Translate t={__("account.sign_in")} />
+          <Translate t="account.sign_in" />
         </Button>
         <FieldWrap>
           <FieldCentered>
             <TextLink onClick={onOpenForgotPassword}>
-              <Translate t={__("account.forgot_password")} />
+              <Translate t="account.forgot_password" />
               <ForgotPasswordArrow>
                 <FaLongArrowRight />
               </ForgotPasswordArrow>

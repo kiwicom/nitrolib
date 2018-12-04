@@ -58,7 +58,7 @@ const TripItem = ({
           {+countOtherCities > 1 && (
             <>
               <RouteTwoStops size="medium" />
-              <Translate t={__("account.trips_others")} values={{ others: countOtherCities }} />
+              <Translate t="account.trips_others" values={{ others: countOtherCities }} />
             </>
           )}
         </TripInfoLine>
@@ -71,7 +71,7 @@ const TripItem = ({
           <Day date={departureTime} /> - <Day date={arrivalTime} />
         </TripInfoLine>
         <TripInfoLine>
-          <Translate t={__("account.trips_passengers")} values={{ passengers: passengerCount }} />
+          <Translate t="account.trips_passengers" values={{ passengers: passengerCount }} />
         </TripInfoLine>
       </Column>
     </TripInfo>

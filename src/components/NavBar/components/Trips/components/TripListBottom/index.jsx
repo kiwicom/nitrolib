@@ -33,7 +33,7 @@ const TripListBottom = ({ children }: Props) => (
             bold
             href={`/${intl.language.id}/account#future`}
           >
-            <Translate t={__("account.all_trips")} />
+            <Translate t="account.all_trips" />
           </ButtonLink>
         </ItemWrapper>
       </>

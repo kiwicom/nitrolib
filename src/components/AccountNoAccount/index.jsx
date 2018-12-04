@@ -32,34 +32,34 @@ const AccountNoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }
     <Header>
       <Illustration name="NoBookings" size="small" />
       <Heading element="h2">
-        <Translate t={__("account.no_bookings_or_account")} />
+        <Translate t="account.no_bookings_or_account" />
       </Heading>
       <OrbitText>
-        <Translate t={__("account.no_bookings_or_account_description")} />
+        <Translate t="account.no_bookings_or_account_description" />
       </OrbitText>
     </Header>
     <Section>
       <Stack desktop={{ spacing: "natural" }}>
         <Button onClick={onRegister}>
-          <Translate t={__("account.register")} />
+          <Translate t="account.register" />
         </Button>
         <Align>
           <ButtonLink type="secondary" iconLeft={<ChevronLeft />} onClick={onBack}>
-            <Translate t={__("account.back")} />
+            <Translate t="account.back" />
           </ButtonLink>
         </Align>
       </Stack>
     </Section>
     <Section suppressed>
       <OrbitText weight="bold" spaceAfter="medium">
-        <Translate t={__("account.or_social_account")} />
+        <Translate t="account.or_social_account" />
       </OrbitText>
       <Stack desktop={{ spacing: "natural", direction: "row" }}>
         <Button type="facebook" block bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
-          <Translate t={__("account.log_in_with")} values={{ provider: "Facebook" }} />
+          <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
         </Button>
         <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
-          <Translate t={__("account.log_in_with")} values={{ provider: "Google" }} />
+          <Translate t="account.log_in_with" values={{ provider: "Google" }} />
         </Button>
       </Stack>
     </Section>

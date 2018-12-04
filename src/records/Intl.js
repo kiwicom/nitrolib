@@ -1,4 +1,6 @@
 // @flow strict
+import enUS from "date-fns/locale/en-US"; // fallback
+
 import { langInfoDefault } from "./LangInfo";
 import type { LangInfo } from "./LangInfo";
 import type { Translations, Translate } from "../services/intl/translate";
@@ -11,6 +13,7 @@ export type IntlRaw = {|
 export type Intl = {|
   ...IntlRaw,
   translate: Translate,
+  getLocale: (id: string) => Promise<$FlowFixMe>,
 |};
 
 export type IntlsRaw = { [key: string]: IntlRaw };
@@ -21,4 +24,5 @@ export const intlDefault: Intl = {
   language: langInfoDefault,
   translations: {},
   translate: id => id,
+  getLocale: () => Promise.resolve(enUS),
 };

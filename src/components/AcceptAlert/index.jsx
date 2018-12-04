@@ -9,7 +9,6 @@ import type { ThemeProps } from "../../records/Theme";
 import Translate from "../Translate";
 
 const Container = styled.div`
-  width: 560px;
   padding: ${padding.page}px;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
 `;
@@ -38,7 +37,7 @@ const AcceptAlert = ({ children, button, onClose }: Props) => (
 );
 
 AcceptAlert.defaultProps = {
-  button: <Translate t={__("common.ok")} />,
+  button: <Translate t="common.ok" />,
 };
 
 export default AcceptAlert;

@@ -20,7 +20,7 @@ const Starred = ({ children }: Props) => (
         {open && <ClickOutside onClickOutside={onToggle}>{children}</ClickOutside>}
         <Desktop>
           <Button onClick={onToggle}>
-            <Text t={__("starred.starred")} />
+            <Text t="starred.starred" />
           </Button>
         </Desktop>
         <Mobile>

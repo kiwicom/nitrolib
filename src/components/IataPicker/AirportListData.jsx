@@ -28,7 +28,7 @@ const AirportListData = ({ value, onSelect, environment }: Props) => (
       if (res.error) {
         return (
           <Alert type="critical">
-            <Translate t={__("common.api_error")} />
+            <Translate t="common.api_error" />
           </Alert>
         );
       }

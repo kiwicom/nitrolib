@@ -183,7 +183,7 @@ export default class Register extends React.PureComponent<Props, State> {
 
         <FieldWrap>
           <IconText icon={<User color="primary" size="small" />}>
-            <Translate t={__("common.firstname.colon")} />
+            <Translate t="common.firstname.colon" />
           </IconText>
           <InputText
             id="firstName"
@@ -191,13 +191,13 @@ export default class Register extends React.PureComponent<Props, State> {
             error={fields.firstName.error}
             onChange={this.handleChange}
             validate={validators.required}
-            autocomplete="given-name"
+            autoComplete="given-name"
             showState={submitted}
           />
         </FieldWrap>
         <FieldWrap>
           <IconText icon={<User color="primary" size="small" />}>
-            <Translate t={__("common.lastname.colon")} />
+            <Translate t="common.lastname.colon" />
           </IconText>
           <InputText
             id="lastName"
@@ -205,13 +205,13 @@ export default class Register extends React.PureComponent<Props, State> {
             error={fields.lastName.error}
             onChange={this.handleChange}
             validate={validators.required}
-            autocomplete="family-name"
+            autoComplete="family-name"
             showState={submitted}
           />
         </FieldWrap>
         <FieldWrap>
           <IconText icon={<Envelope color="primary" size="small" />}>
-            <Translate t={__("common.email.colon")} />
+            <Translate t="common.email.colon" />
           </IconText>
           <InputText
             id="email"
@@ -221,13 +221,13 @@ export default class Register extends React.PureComponent<Props, State> {
             normalize={normalizers.email}
             validate={emailValidator}
             corrector={emailCorrector}
-            autocomplete="email"
+            autoComplete="email"
             showState={submitted}
           />
         </FieldWrap>
         <FieldWrap>
           <IconText icon={<Security color="primary" size="small" />}>
-            <Translate t={__("account.password.colon")} />
+            <Translate t="account.password.colon" />
           </IconText>
           <InputText
             id="password"
@@ -241,7 +241,7 @@ export default class Register extends React.PureComponent<Props, State> {
         </FieldWrap>
         <FieldPolicy>
           <Text>
-            <Translate t={__("account.registration_privacy_policy")} html />
+            <Translate t="account.registration_privacy_policy" html />
           </Text>
         </FieldPolicy>
         {error && (
@@ -260,7 +260,7 @@ export default class Register extends React.PureComponent<Props, State> {
             </FieldWrap>
           )}
         <Button block submit disabled={loading}>
-          <Translate t={__("account.sign_up")} />
+          <Translate t="account.sign_up" />
         </Button>
       </form>
     );

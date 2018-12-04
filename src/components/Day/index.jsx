@@ -9,13 +9,12 @@ import DateFnsLocale from "../DateFnsLocale";
 type Props = {
   date: Date,
   format: string,
-  getLocale?: (id: string) => Promise<$FlowFixMe>,
 };
 
 const Day = (props: Props) => (
   <Consumer>
     {intl => (
-      <DateFnsLocale id={intl.language.locations} getLocale={props.getLocale}>
+      <DateFnsLocale id={intl.language.locations} getLocale={intl.getLocale}>
         {locale =>
           format(props.date, props.format || fixDateFormat(intl.language.dateFormat), {
             locale,
