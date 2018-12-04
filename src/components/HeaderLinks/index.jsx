@@ -40,6 +40,7 @@ type Props = {|
   roomsProvider: string,
   holidaysProvider: string,
   lastminuteSupported: boolean,
+  testResponse?: Services,
 |};
 
 class HeaderLinks extends React.Component<Props, State> {
@@ -60,24 +61,29 @@ class HeaderLinks extends React.Component<Props, State> {
       roomsProvider,
       holidaysProvider,
       lastminuteSupported,
+      testResponse,
     } = this.props;
 
-    try {
-      // Fetch services
-      const services = await getNavBarLinks({
-        searchString,
-        language: language.id,
-        currency,
-        searchForm,
-        roomsProvider,
-        holidaysProvider,
-        lastminuteSupported,
-      });
+    if (testResponse) {
+      this.setState({ services: testResponse });
+    } else {
+      try {
+        // Fetch services
+        const services = await getNavBarLinks({
+          searchString,
+          language: language.id,
+          currency,
+          searchForm,
+          roomsProvider,
+          holidaysProvider,
+          lastminuteSupported,
+        });
 
-      // Update state
-      this.setState({ services: services.items });
-    } catch (e) {
-      // TODO: Track error
+        // Update state
+        this.setState({ services: services.items });
+      } catch (e) {
+        // TODO: Track error
+      }
     }
   };
 
