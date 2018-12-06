@@ -51,20 +51,18 @@ class HeaderLinks extends React.Component<Props, State> {
     language: {
       id: "us",
     },
-    currency: "usd",
+    currency: { id: "gbp" },
     searchForm: {
+      mode: "oneWay",
       destination: {
-        type: "oneWay",
-        name: "kifla",
+        type: "2",
+        name: "Warsaw",
       },
-      checkIn: "sdoqjo",
-      checkOut: "sdhiqow",
+      checkIn: new Date(),
+      checkOut: null,
       adults: 1,
-      children: 2,
+      children: 0,
     },
-    roomsProvider: "roomsKiwi",
-    holidaysProvider: "lastminute",
-    lastminuteSupported: true,
   };
 
   componentDidMount() {
@@ -81,7 +79,7 @@ class HeaderLinks extends React.Component<Props, State> {
         // Fetch services
         const services = await getNavBarLinks({
           searchString,
-          language: language.id,
+          language,
           currency,
           searchForm,
         });

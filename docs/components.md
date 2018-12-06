@@ -69,7 +69,7 @@ import HeaderLinks from "@kiwicom/nitro/lib/components/HeaderLinks";
 **Types:**
 ```js
 type SearchForm = {|
-  destination?: string,
+  destination: { type: string, name: string },
   checkIn?: Date,
   checkOut?: Date,
   adults: number,
@@ -81,11 +81,8 @@ type Props = {|
   language: {
     id: string,
   },
-  currency: string,
+  currency: { id: string },
   searchForm: SearchForm,
-  roomsProvider: string,
-  holidaysProvider: string,
-  lastminuteSupported: boolean,
 |};
 ```
 
