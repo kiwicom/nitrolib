@@ -13,7 +13,7 @@ export type IntlRaw = {|
 export type Intl = {|
   ...IntlRaw,
   translate: Translate,
-  getLocale: (id: string) => Promise<$FlowFixMe>,
+  getLocale: Promise<$FlowFixMe>,
 |};
 
 export type IntlsRaw = { [key: string]: IntlRaw };
@@ -24,5 +24,5 @@ export const intlDefault: Intl = {
   language: langInfoDefault,
   translations: {},
   translate: id => id,
-  getLocale: () => Promise.resolve(enUS),
+  getLocale: Promise.resolve(enUS),
 };
