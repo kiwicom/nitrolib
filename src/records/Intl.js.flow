@@ -10,7 +10,7 @@ export type IntlRaw = {|
 export type Intl = {|
   ...IntlRaw,
   translate: Translate,
-  getLocale: Promise<$FlowFixMe>,
+  getLocale: Promise<$FlowFixMe>, // Resolves 'date-fns' locale
 |};
 
 export type IntlsRaw = { [key: string]: IntlRaw };
