@@ -9,7 +9,7 @@ const COMPONENTS = path.join(SRC, "components");
 const getReadme = readme =>
   readme
     .split("\n")
-    .filter(line => !line.match(/^#{1,3} \w+/)) // remove big headings
+    .filter(line => !line.match(/^#{1,2} \w+/)) // remove big headings
     .join("\n")
     .trim(); // trim that shit
 

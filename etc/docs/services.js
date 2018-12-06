@@ -58,7 +58,7 @@ function getContextDoc(service) {
   const doc = utils.getReadme(readme);
 
   return [
-    `### ${capitalize(service)}`,
+    `## ${capitalize(service)}`,
     "",
     "**Import:**",
     "```js",
@@ -73,16 +73,6 @@ function getContextDoc(service) {
 }
 
 const getList = component => `* [${component}](#${component.toLowerCase()})`;
-
-const CONTEXT_TEXT = `## Contexts
-
-Services that export a _React_ context.
-`;
-
-// const UTILITIES_TEXT = `## Utilities
-//
-// Things that help in development.
-// `;
 
 function servicesDocs() {
   const services = fsx.readdirSync(SERVICES);
@@ -105,7 +95,7 @@ function servicesDocs() {
     "",
     "Located in `@kiwicom/nitro/lib/services/<service>`.",
     "",
-    "**Context:**",
+    "**List:**",
     "",
     contextsList,
     "",
@@ -113,9 +103,7 @@ function servicesDocs() {
     // "",
     // utilitiesList,
     // "",
-    CONTEXT_TEXT,
     contextsDocs,
-    // UTILITIES_TEXT,
     // utilitiesDocs,
   ].join("\n");
 
