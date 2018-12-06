@@ -22,17 +22,14 @@ type Props = {|
 |};
 
 const Links: Props => React.Node = ({ services }) =>
-  services.map(
-    item =>
-      item && (
-        <Link
-          logTab={item.id}
-          link={item.url}
-          text={<Text t={item.translation} />}
-          icon={item.id}
-          newWindow={item.newWindow}
-        />
-      ),
-  );
+  services.map(item => (
+    <Link
+      logTab={item.id}
+      link={item.url}
+      text={<Text t={item.translation} />}
+      icon={item.id}
+      newWindow={item.newWindow}
+    />
+  ));
 
 export default Links;
