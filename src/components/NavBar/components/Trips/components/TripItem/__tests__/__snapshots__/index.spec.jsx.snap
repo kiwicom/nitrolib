@@ -2332,12 +2332,12 @@ exports[`#TripItem render 1`] = `
       >
         <Day
           date={2017-08-03T21:10:00.000Z}
-          format=""
+          format="dd/MM/yyyy"
         />
          - 
         <Day
           date={2017-08-03T23:45:00.000Z}
-          format=""
+          format="dd/MM/yyyy"
         />
       </TripInfoLine>
       <TripInfoLine
