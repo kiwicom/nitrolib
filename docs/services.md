@@ -239,8 +239,6 @@ Contains all necessary information regarding **i18n**:
 * **translate** function
 * **`date-fns` locale**
 
-See the [Intl](./records#intl) record.
-
 Components for translating:
 * [Text](./components#text)
 * [TextNode](./components#textnode)
@@ -309,8 +307,6 @@ See types:
 * [Intl](./records#intl)
 
 Useful for initiating the **intl** context from raw intl data.
-
-See the `Intl` and `IntlRaw` types in [Intl](./records#intl).
 
 ```js
 import type { IntlRaw, Intl } from "@kiwicom/nitro/lib/records/Intl";

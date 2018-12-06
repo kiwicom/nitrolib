@@ -20,9 +20,9 @@ function getFlowRecordImports(file) {
 
   const imports = String(fsx.readFileSync(file))
     .split("\n")
-    .map(line => line.match(/^import .* from ".*\/records\/(\w+)"/))
+    .map(line => line.match(/^import .* from "(.*\/records|\.)\/(\w+)";$/))
     .filter(Boolean)
-    .map(match => match[1])
+    .map(match => match[2])
     .map(record => `* [${record}](./records#${record.toLowerCase()})`);
 
   if (imports.length === 0) {
