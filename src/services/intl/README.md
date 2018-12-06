@@ -6,8 +6,6 @@ Contains all necessary information regarding **i18n**:
 * **translate** function
 * **`date-fns` locale**
 
-See the [Intl](./records#intl) record.
-
 Components for translating:
 * [Text](./components#text)
 * [TextNode](./components#textnode)

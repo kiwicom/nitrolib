@@ -2,8 +2,6 @@
 
 Useful for initiating the **intl** context from raw intl data.
 
-See the `Intl` and `IntlRaw` types in [Intl](./records#intl).
-
 ```js
 import type { IntlRaw, Intl } from "@kiwicom/nitro/lib/records/Intl";
 

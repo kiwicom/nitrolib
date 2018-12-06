@@ -54,6 +54,9 @@ declare var context: React.Context<Context>;
 export const { Consumer, Provider } = context;
 ```
 
+See types:
+* [Auth](./records#auth)
+
 _TODO_
 
 ### InitAuth
@@ -103,6 +106,10 @@ type Props = {|
 |};
 ```
 
+See types:
+* [Auth](./records#auth)
+* [Brand](./records#brand)
+
 _TODO_
 
 ### Brand
@@ -118,6 +125,9 @@ declare var context: React.Context<Brand>;
 
 export const { Consumer, Provider } = context;
 ```
+
+See types:
+* [Brand](./records#brand)
 
 _TODO_
 
@@ -141,6 +151,9 @@ declare var context: React.Context<Context>;
 
 export const { Consumer, Provider } = context;
 ```
+
+See types:
+* [Currency](./records#currency)
 
 _TODO_
 
@@ -177,6 +190,11 @@ type Props = {|
 |};
 ```
 
+See types:
+* [Brand](./records#brand)
+* [Currency](./records#currency)
+* [Country](./records#country)
+
 _TODO_
 
 ### Fetched
@@ -193,6 +211,9 @@ declare var context: React.Context<Fetched>;
 export const { Consumer, Provider } = context;
 ```
 
+See types:
+* [Fetched](./records#fetched)
+
 _TODO_
 
 ### Intl
@@ -208,6 +229,9 @@ declare var context: React.Context<Intl>;
 
 export const { Consumer, Provider } = context;
 ```
+
+See types:
+* [Intl](./records#intl)
 
 Contains all necessary information regarding **i18n**:
 * **[LangInfo](./records#langinfo)** - a record from the `data/languages.json` file
@@ -281,6 +305,9 @@ type Props = {|
 |};
 ```
 
+See types:
+* [Intl](./records#intl)
+
 Useful for initiating the **intl** context from raw intl data.
 
 See the `Intl` and `IntlRaw` types in [Intl](./records#intl).
@@ -348,5 +375,8 @@ declare var context: React.Context<Context<any, any>>;
 
 export const { Provider, Consumer } = context;
 ```
+
+See types:
+* [Event](./records#event)
 
 _TODO_

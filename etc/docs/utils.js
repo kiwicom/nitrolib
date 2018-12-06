@@ -13,6 +13,25 @@ const getReadme = readme =>
     .join("\n")
     .trim(); // trim that shit
 
+function getFlowRecordImports(file) {
+  if (!fsx.existsSync(file)) {
+    throw new Error(`Documented features need a '.js.flow' file! Missing: ${file}`);
+  }
+
+  const imports = String(fsx.readFileSync(file))
+    .split("\n")
+    .map(line => line.match(/^import .* from ".*\/records\/(\w+)"/))
+    .filter(Boolean)
+    .map(match => match[1])
+    .map(record => `* [${record}](./records#${record.toLowerCase()})`);
+
+  if (imports.length === 0) {
+    return "";
+  }
+
+  return ["", "See types:", ...imports].join("\n");
+}
+
 function getFlowFile(file) {
   if (!fsx.existsSync(file)) {
     throw new Error(`Documented features need a '.js.flow' file! Missing: ${file}`);
@@ -26,7 +45,9 @@ function getFlowFile(file) {
     .join("\n")
     .trim(); // trim that shit
 
-  return ["**Types:**", "```js", text, "```"].join("\n");
+  const maybeImports = getFlowRecordImports(file);
+
+  return ["**Types:**", "```js", text, "```", maybeImports].filter(Boolean).join("\n");
 }
 
 function getComponentDoc(name, readme) {
