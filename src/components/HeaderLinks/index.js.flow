@@ -1,7 +1,7 @@
 // @flow strict
 
 type SearchForm = {|
-  destination?: string,
+  destination: { type: string, name: string },
   checkIn?: Date,
   checkOut?: Date,
   adults: number,
@@ -13,11 +13,8 @@ type Props = {|
   language: {
     id: string,
   },
-  currency: string,
+  currency: { id: string },
   searchForm: SearchForm,
-  roomsProvider: string,
-  holidaysProvider: string,
-  lastminuteSupported: boolean,
 |};
 
 declare export default React.ComponentType<Props>;

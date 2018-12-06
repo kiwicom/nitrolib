@@ -8,9 +8,6 @@ type GetNavBarLinks = {
   language: string,
   currency: string,
   searchForm: any,
-  roomsProvider: string,
-  holidaysProvider: string,
-  lastminuteSupported: boolean,
 };
 
 export default function getNavBarLinks({
@@ -18,9 +15,6 @@ export default function getNavBarLinks({
   language,
   currency,
   searchForm,
-  roomsProvider,
-  holidaysProvider,
-  lastminuteSupported,
 }: GetNavBarLinks) {
   return fetch("http://localhost:3000/navbar", {
     method: "POST",
@@ -32,9 +26,6 @@ export default function getNavBarLinks({
       language,
       currency,
       searchForm,
-      roomsProvider,
-      holidaysProvider,
-      lastminuteSupported,
     }),
   }).then(handleJSON);
 }

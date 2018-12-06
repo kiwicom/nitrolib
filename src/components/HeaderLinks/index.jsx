@@ -24,7 +24,7 @@ const Margin = styled.div`
   `)};
 `;
 
-type Services = ?(Item[]);
+type Services = Item[] | null;
 
 type State = {|
   services: ?Services,
@@ -37,9 +37,6 @@ type Props = {|
   },
   currency: string,
   searchForm: any,
-  roomsProvider: string,
-  holidaysProvider: string,
-  lastminuteSupported: boolean,
   testResponse?: Services,
 |};
 
@@ -53,16 +50,7 @@ class HeaderLinks extends React.Component<Props, State> {
   }
 
   getNavBarLinks = async () => {
-    const {
-      searchString,
-      language,
-      currency,
-      searchForm,
-      roomsProvider,
-      holidaysProvider,
-      lastminuteSupported,
-      testResponse,
-    } = this.props;
+    const { searchString, language, currency, searchForm, testResponse } = this.props;
 
     if (testResponse) {
       this.setState({ services: testResponse });
@@ -74,9 +62,6 @@ class HeaderLinks extends React.Component<Props, State> {
           language: language.id,
           currency,
           searchForm,
-          roomsProvider,
-          holidaysProvider,
-          lastminuteSupported,
         });
 
         // Update state

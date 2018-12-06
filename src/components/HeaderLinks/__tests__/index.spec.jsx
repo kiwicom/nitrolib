@@ -16,7 +16,7 @@ const props = {
   searchForm: {
     mode: "oneWay",
     destination: {
-      type: 2,
+      type: "2",
       name: "Warsaw",
     },
     checkIn: new Date(),
