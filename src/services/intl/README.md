@@ -12,7 +12,7 @@ Components for translating:
 * [Translate](./components#translate)
 * [TranslateNode](./components#translatenode)
 
-#### Translate function
+### Translate function
 
 If you need to output a string, not a component, use the `translate` function located in the context:
 
@@ -29,7 +29,7 @@ If you need to output a string, not a component, use the `translate` function lo
 </IntlConsumer>
 ```
 
-#### Date-fns locale
+### Date-fns locale
 
 A promise that resolves to a `date-fns` locale. Defaults to `en-US`. To lazy load your own locale, use dynamic `import`:
 

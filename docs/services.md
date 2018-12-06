@@ -2,7 +2,7 @@
 
 Located in `@kiwicom/nitro/lib/services/<service>`.
 
-**Context:**
+**List:**
 
 * [auth](#auth)
 * [brand](#brand)
@@ -11,11 +11,7 @@ Located in `@kiwicom/nitro/lib/services/<service>`.
 * [intl](#intl)
 * [log](#log)
 
-## Contexts
-
-Services that export a _React_ context.
-
-### Auth
+## Auth
 
 **Import:**
 ```js
@@ -112,7 +108,7 @@ See types:
 
 _TODO_
 
-### Brand
+## Brand
 
 **Import:**
 ```js
@@ -131,7 +127,7 @@ See types:
 
 _TODO_
 
-### Currency
+## Currency
 
 **Import:**
 ```js
@@ -197,7 +193,7 @@ See types:
 
 _TODO_
 
-### Fetched
+## Fetched
 
 **Import:**
 ```js
@@ -216,7 +212,7 @@ See types:
 
 _TODO_
 
-### Intl
+## Intl
 
 **Import:**
 ```js
@@ -245,7 +241,7 @@ Components for translating:
 * [Translate](./components#translate)
 * [TranslateNode](./components#translatenode)
 
-#### Translate function
+### Translate function
 
 If you need to output a string, not a component, use the `translate` function located in the context:
 
@@ -262,7 +258,7 @@ If you need to output a string, not a component, use the `translate` function lo
 </IntlConsumer>
 ```
 
-#### Date-fns locale
+### Date-fns locale
 
 A promise that resolves to a `date-fns` locale. Defaults to `en-US`. To lazy load your own locale, use dynamic `import`:
 
@@ -354,7 +350,7 @@ export default function render(locale: string) {
 }
 ```
 
-### Log
+## Log
 
 **Import:**
 ```js
