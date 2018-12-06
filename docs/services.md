@@ -212,7 +212,51 @@ export const { Consumer, Provider } = context;
 Contains all necessary information regarding **i18n**:
 * **language info** - a record from the `data/languages.json` file, see `records/LangInfo.js` for the type and default value
 * **translations** - one of the files from `data/translations/<locale>_<hash>.json`, a key/value object
-* **translate function** - read below
+* **translate function**
+* **`date-fns` locale**
+
+See the [Intl](./records#intl) record.
+
+#### Translate
+
+If you need to output a string, not a component, use the `translate` function located in the context:
+
+```js
+<IntlConsumer>
+  {({ translate }) => (
+    <input
+      id={id}
+      value={value} 
+      onChange={onChange}
+      placeholder={translate(__("First name"))}
+    />
+  )}
+</IntlConsumer>
+```
+
+#### Date-fns locale
+
+A promise that resolves to a `date-fns` locale. Defaults to `en-US`. To lazy load your own locale, use dynamic `import`:
+
+```js
+const LOCALES = {
+  cz: () => import("date-fns/locales/cz"),
+  enUS: () => import("date-fns/locales/en-US"),
+  ru: () => import("date-fns/locales/ru"),
+};
+
+const ID = window.__INTL__.language.id;
+
+const localeFn = LOCALES[ID] || LOCALES.enUS; // Fallback to 'en-US'
+
+<InitIntl raw={intlRaw} getLocale={localeFn()}>
+  {intl => (
+    <IntlProvider value={intl}>
+      <Root />
+    </IntlProvider>
+  )}
+</InitIntl>
+```
 
 ### InitIntl
 
@@ -227,11 +271,59 @@ type Props = {|
   raw: IntlRaw,
   children: (arg: Intl) => React.Node,
   // defaulted
-  getLocale?: () => Promise<$FlowFixMe>, // resolves en-US by default
+  getLocale?: Promise<$FlowFixMe>, // resolves en-US by default
 |};
 ```
 
-_TODO_
+Useful for initiating the **intl** context from raw intl data.
+
+See the `Intl` and `IntlRaw` types in [Intl](./records#intl).
+
+```js
+import type { IntlRaw, Intl } from "@kiwicom/nitro/lib/records/Intl";
+
+const raw: IntlRaw = window.__INTL__; // intl data from the server
+
+const App = () => (
+  <InitIntl raw={raw}>
+    {(intl: Intl) => (
+      <IntlProvider value={intl}>
+        <Root />
+      </IntlProvider>
+    )}
+  </InitIntl>
+)
+
+const node = document.getElementById("root");
+if (node) {
+  ReactDOM.hydrate(<App />, node);
+}
+```
+
+On the server:
+
+```js
+import type { IntlRaw, Intl } from "@kiwicom/nitro/lib/records/Intl";
+
+import { locales } from "./data";
+
+export default function render(locale: string) {
+  const raw: IntlRaw = locales[locale];
+
+  const markup = ReactDOM.renderToString(
+    <InitIntl raw={raw}>
+      {(intl: Intl) => (
+        <IntlProvider value={intl}>
+          <Root />
+        </IntlProvider>
+      )}
+    </InitIntl>
+  );
+
+  // <Html /> puts the raw intl data into window.__INTL__
+  return ReactDOM.renderToStaticNodeStream(<Html intl={raw} />);
+}
+```
 
 ### Log
 

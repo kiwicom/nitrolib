@@ -14,7 +14,7 @@ type Props = {
 const Day = (props: Props) => (
   <Consumer>
     {intl => (
-      <DateFnsLocale id={intl.language.locations} getLocale={intl.getLocale}>
+      <DateFnsLocale getLocale={intl.getLocale}>
         {locale =>
           format(props.date, props.format || fixDateFormat(intl.language.dateFormat), {
             locale,
@@ -26,7 +26,7 @@ const Day = (props: Props) => (
 );
 
 Day.defaultProps = {
-  format: "",
+  format: "dd/MM/yyyy",
 };
 
 export default Day;

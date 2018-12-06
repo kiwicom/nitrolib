@@ -49,6 +49,6 @@ Fetches production data.
 * `brandLanguages.json` - contains information about languages for different brands, see [BrandLanguage](./records#brandlanguage)
 * `brands.json` - contains brand config, see [Brand](./records#brand)
 * `continents.json` - contains a list of continents and their countries, see [Continents](./records#continents)
-* `countries.json` - contains basic information about all the world's countries, see [Country](./records#Country)
+* `countries.json` - contains basic information about all the world's countries, see [Country](./records#country)
 * `languages.json` - contains information about our supported languages, see [LangInfo](./records#langinfo)
 * `translationsFiles.json` - contains a map of a _locale_ to its translation file

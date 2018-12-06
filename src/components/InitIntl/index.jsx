@@ -10,7 +10,7 @@ type Props = {|
   raw: IntlRaw,
   children: (arg: Intl) => React.Node,
   // defaulted
-  getLocale: () => Promise<$FlowFixMe>,
+  getLocale: Promise<$FlowFixMe>,
 |};
 
 const InitIntl = ({ raw, getLocale, children }: Props) =>
@@ -22,7 +22,7 @@ const InitIntl = ({ raw, getLocale, children }: Props) =>
   });
 
 InitIntl.defaultProps = {
-  getLocale: () => Promise.resolve(enUS),
+  getLocale: Promise.resolve(enUS),
 };
 
 export default InitIntl;

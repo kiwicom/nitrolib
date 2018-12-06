@@ -3,9 +3,8 @@ import * as React from "react";
 import enUS from "date-fns/locale/en-US"; // fallback
 
 type Props = {|
-  id: string,
   children: (locale: $FlowFixMe) => React.Node,
-  getLocale: (id: string) => Promise<$FlowFixMe>,
+  getLocale: Promise<$FlowFixMe>,
 |};
 
 type State = {|
@@ -18,9 +17,9 @@ export default class DateFnsLocale extends React.PureComponent<Props, State> {
   };
 
   componentDidMount() {
-    const { id, getLocale } = this.props;
+    const { getLocale } = this.props;
 
-    getLocale(id)
+    getLocale
       .then(locale => {
         this.setState({ locale });
       })
