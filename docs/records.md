@@ -62,6 +62,9 @@ export type SocialProvider = "facebook" | "google";
 declare export var authDefault: Auth | null;
 ```
 
+See types:
+* [User](./records#user)
+
 _TODO_
 
 ## Brand
@@ -542,6 +545,9 @@ export type BrandLanguages = {
 declare export var brandLanguageDefault: BrandLanguage;
 ```
 
+See types:
+* [Languages](./records#languages)
+
 _TODO_
 
 ## Continents
@@ -706,6 +712,12 @@ export type Fetched = {|
 declare export var fetchedDefault: Fetched;
 ```
 
+See types:
+* [Airline](./records#airline)
+* [Country](./records#country)
+* [Continents](./records#continents)
+* [BrandLanguage](./records#brandlanguage)
+
 _TODO_
 
 ## Intl
@@ -734,6 +746,9 @@ export type Intls = { [key: string]: Intl };
 
 declare export var intlDefault: Intl;
 ```
+
+See types:
+* [LangInfo](./records#langinfo)
 
 Holds all necessary **i18n** data & functions.
 
@@ -858,6 +873,9 @@ declare export var themeDefault: Theme;
 
 declare export var getBrandTheme: (brand: Brand, rtl?: boolean) => Theme;
 ```
+
+See types:
+* [Brand](./records#brand)
 
 _TODO_
 
