@@ -24,9 +24,6 @@ const props = {
     adults: 1,
     children: 0,
   },
-  roomsProvider: "string",
-  holidaysProvider: "string",
-  lastminuteSupported: false,
 };
 
 const testResponse = [
