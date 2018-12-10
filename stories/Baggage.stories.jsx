@@ -98,12 +98,68 @@ const BaggageData: BaggageType = {
         {
           category: "handBag",
           group: "adult",
-          combination: [0, 1],
+          combination: [0],
           price: {
             currency: "EUR",
             amount: 0,
           },
           originalIndex: 0,
+          allowanceGraph: {
+            add: {},
+            remove: {},
+          },
+        },
+        {
+          category: "handBag",
+          group: "adult",
+          combination: [1],
+          price: {
+            currency: "EUR",
+            amount: 15,
+          },
+          originalIndex: 1,
+          allowanceGraph: {
+            add: {},
+            remove: {},
+          },
+        },
+        {
+          category: "handBag",
+          group: "adult",
+          combination: [0, 1],
+          price: {
+            currency: "EUR",
+            amount: 20,
+          },
+          originalIndex: 2,
+          allowanceGraph: {
+            add: {},
+            remove: {},
+          },
+        },
+        {
+          category: "handBag",
+          group: "adult",
+          combination: [0, 1, 1],
+          price: {
+            currency: "EUR",
+            amount: 30,
+          },
+          originalIndex: 3,
+          allowanceGraph: {
+            add: {},
+            remove: {},
+          },
+        },
+        {
+          category: "handBag",
+          group: "adult",
+          combination: [0, 1, 1, 1],
+          price: {
+            currency: "EUR",
+            amount: 40,
+          },
+          originalIndex: 4,
           allowanceGraph: {
             add: {},
             remove: {},
@@ -119,7 +175,7 @@ const BaggageData: BaggageType = {
             currency: "EUR",
             amount: 0,
           },
-          originalIndex: 1,
+          originalIndex: 5,
           allowanceGraph: {
             add: {
               "0": 1,
@@ -137,7 +193,7 @@ const BaggageData: BaggageType = {
             currency: "EUR",
             amount: 0,
           },
-          originalIndex: 2,
+          originalIndex: 6,
           allowanceGraph: {
             add: {},
             remove: {
@@ -153,7 +209,7 @@ const BaggageData: BaggageType = {
             currency: "EUR",
             amount: 25,
           },
-          originalIndex: 3,
+          originalIndex: 7,
           allowanceGraph: {
             add: {},
             remove: {
@@ -169,7 +225,7 @@ const BaggageData: BaggageType = {
             currency: "EUR",
             amount: 30,
           },
-          originalIndex: 4,
+          originalIndex: 8,
           allowanceGraph: {
             add: {},
             remove: {

@@ -22,7 +22,22 @@ type Props = {
 };
 
 class Baggage extends React.Component<Props> {
-  getBaggagePickerOptions = type => {
+  getOptionItems = (definitions, combinations) =>
+    combinations.reduce((acc, item) => {
+      const key = item.toString();
+      if (acc[key]) {
+        acc[key].amount += 1;
+      } else {
+        acc[key] = {
+          amount: 1,
+          category: definitions[item].category,
+          restrictions: definitions[item].restrictions,
+        };
+      }
+      return acc;
+    }, {});
+
+  getBaggagePickerOptions = (type: string) => {
     const {
       baggage: { combinations, definitions },
       passengerCategory,
@@ -30,16 +45,15 @@ class Baggage extends React.Component<Props> {
 
     const bagCombinations = combinations[passengerCategory][type];
     const bagDefinitions = definitions[type];
-    const bagOptions = bagCombinations.map(c => c.combination.map(item => bagDefinitions[item]));
 
-    const bagOptionsWithPrice = bagOptions.map((o, index) => ({
-      items: o,
+    const options = bagCombinations.map(combination => ({
+      originalIndex: combination.originalIndex,
       bagType: type,
-      price: bagCombinations[index].price,
-      originalIndex: bagCombinations[index].originalIndex,
+      price: combination.price,
+      items: this.getOptionItems(bagDefinitions, combination.combination),
     }));
 
-    return bagOptionsWithPrice;
+    return options;
   };
 
   render() {

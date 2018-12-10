@@ -88,18 +88,19 @@ const Option = ({ items, price, isChecked, onClick }) => (
       <Radio checked={isChecked} />
     </div>
     <OptionLabel>
-      {items.length > 0 ? (
-        items.map((item, index) => (
-          <BaggageItem key={`item-${index}`}>
+      {Object.keys(items).length > 0 ? (
+        Object.keys(items).map(key => (
+          <BaggageItem key={`item-${key}`}>
             <Flex>
-              {getIconFromCategory(item.category)}
+              {getIconFromCategory(items[key].category)}
+              {items[key].amount > 1 && <Text weight="bold">{items[key].amount}x</Text>}
               <Text>
-                {item.category === "holdBag" && `${item.restrictions.weight}kg `}
-                {getTextFromCategory(item.category)}
+                {items[key].category === "holdBag" && `${items[key].restrictions.weight}kg `}
+                {getTextFromCategory(items[key].category)}
               </Text>
             </Flex>
-            <Text>{getBaggageSize(item.restrictions)}</Text>
-            {index === 0 ? (
+            <Text>{getBaggageSize(items[key].restrictions)}</Text>
+            {key === "0" ? (
               <Text weight="bold">
                 {price.amount}
                 {price.currency}
@@ -130,13 +131,13 @@ const BaggagePicker = ({ title, options, selectedIndex, onChange }) => {
         <InformationCircle size="small" color="secondary" />
       </TitleWrapper>
       <Text>Select one option:</Text>
-      {options.map(option => (
+      {Object.keys(options).map(key => (
         <Option
-          key={option.originalIndex}
-          items={option.items}
-          price={option.price}
-          isChecked={option.originalIndex === selectedIndex}
-          onClick={() => onChange(option.bagType, option.originalIndex)}
+          key={options[key].originalIndex}
+          items={options[key].items}
+          price={options[key].price}
+          isChecked={options[key].originalIndex === selectedIndex}
+          onClick={() => onChange(options[key].bagType, options[key].originalIndex)}
         />
       ))}
     </BaggageWrapper>
