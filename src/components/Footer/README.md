@@ -1,4 +1,1 @@
 # Footer
-
-Context needs:
-- **intl**

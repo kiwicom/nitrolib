@@ -1,4 +1,1 @@
 # HeaderLinks
-
-Context needs:
-* **intl**
