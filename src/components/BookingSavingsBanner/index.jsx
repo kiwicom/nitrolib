@@ -15,10 +15,12 @@ import Translate from "../Translate";
 
 type Props = {|
   hrefLearnMore: string,
+  amount: number,
+  currency: string,
   onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
-const BookingSavingsBanner = ({ onMoreTripsClick, hrefLearnMore }: Props) => (
+const BookingSavingsBanner = ({ onMoreTripsClick, hrefLearnMore, amount, currency }: Props) => (
   <Card>
     <CardSection>
       <Stack
@@ -32,7 +34,13 @@ const BookingSavingsBanner = ({ onMoreTripsClick, hrefLearnMore }: Props) => (
             <Stack align="center" spacing="condensed">
               <Deals />
               <Heading element="h2" type="title2">
-                <Translate t="booking.savings_banner.title" />
+                <Translate
+                  t="booking.savings_banner.title"
+                  values={{
+                    amount,
+                    currency,
+                  }}
+                />
               </Heading>
             </Stack>
             <WrapperText spaceAfter="medium">

@@ -38,7 +38,12 @@ exports[`#BookingSavingsBanner render 1`] = `
                 html={false}
                 t="booking.savings_banner.title"
                 transform={[Function]}
-                values={Object {}}
+                values={
+                  Object {
+                    "amount": 28.76,
+                    "currency": "€",
+                  }
+                }
               />
             </Heading>
           </Stack>
