@@ -4,6 +4,8 @@ import * as React from "react";
 type Props = {|
   dataTest?: string,
   hrefLearnMore: string, // Link to learn more page
+  amount: number,
+  currency: string,
   onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers modal with alternative trips
 |};
 

@@ -7,6 +7,7 @@ import type { Currency } from "../../../records/Currency";
 import Code from "./Code";
 import Sign from "./Sign";
 import type { ThemeProps } from "../../../records/Theme";
+import { themeDefault } from "../../../records/Theme";
 
 type InvertedProps = ThemeProps & {|
   inverted: boolean,
@@ -24,6 +25,10 @@ const Wrapper = styled.div`
       inverted ? theme.orbit.paletteWhiteHover : theme.orbit.paletteProductNormalHover};
   }
 `;
+
+Wrapper.defaultProps = {
+  theme: themeDefault,
+};
 
 type Props = {|
   current: Currency,
