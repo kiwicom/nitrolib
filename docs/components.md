@@ -41,9 +41,8 @@ type Props = {|
 |};
 ```
 
-Context needs:
-* **intl**
-* **brand**
+**Context needs:**
+* intl
 
 ### Footer
 
@@ -57,8 +56,8 @@ import Footer from "@kiwicom/nitro/lib/components/Footer";
 type Props = {||};
 ```
 
-Context needs:
-- **intl**
+**Context needs:**
+* intl
 
 ### HeaderLinks
 
@@ -87,8 +86,8 @@ type Props = {|
 |};
 ```
 
-Context needs:
-* **intl**
+**Context needs:**
+* intl
 
 ### NavBar
 
@@ -116,12 +115,13 @@ type Props = {|
 |};
 ```
 
-Context needs:
-* **intl**
-* **brand**
-* **fetched**
-* **currency**
-* **auth**
+**Context needs:**
+* auth
+* brand
+* currency
+* fetched
+* intl
+* log
 
 ## Utilities
 
@@ -142,6 +142,9 @@ type Props = {|
   onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers modal with alternative trips
 |};
 ```
+
+**Context needs:**
+* intl
 
 Throw-away ticket banner indicating savings in €.
 
@@ -286,10 +289,10 @@ type Props = {|
 |};
 ```
 
-Renders a formatted price.
+**Context needs:**
+* currency
 
-Context needs:
-* **currency**
+Renders a formatted price.
 
 **Example:**
 ```js
@@ -323,12 +326,12 @@ type Props = {|
 |};
 ```
 
+**Context needs:**
+* intl
+
 Our `Translate` wrapped in _Orbit_'s `Text`. Accepts both our and their props.
 
 Useful for both translating and making text nicer!
-
-Context needs:
-* **intl**
 
 ### TextNode
 
@@ -347,12 +350,12 @@ type Props = {|
 |};
 ```
 
+**Context needs:**
+* intl
+
 Our `TranslateNode` wrapped in _Orbit_'s `Text`. Accepts both our and their props.
 
 Useful for both translating and making text nicer!
-
-Context needs:
-* **intl**
 
 ### Toggle
 
@@ -407,12 +410,12 @@ type Props = {|
 |};
 ```
 
+**Context needs:**
+* intl
+
 Translates the supplied key.
 
 > The text output can be transformed using the `transform` function. You can use arrow functions - the component does not implement pure render.
-
-Context needs:
-* **intl**
 
 **Example:**
 ```js
@@ -440,12 +443,12 @@ type Props = {|
 |};
 ```
 
+**Context needs:**
+* intl
+
 The same as `Translate`, except values are `React.Node`. Useful when you need to inject elements with event handlers!
 
 > The text output can be transformed using the `transform` function. You can use arrow functions - the component does not implement pure render.
-
-Context needs:
-* **intl**
 
 Example:
 ```js

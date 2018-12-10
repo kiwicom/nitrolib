@@ -2,9 +2,6 @@
 
 Renders a formatted price.
 
-Context needs:
-* **currency**
-
 **Example:**
 ```js
 const Pay = ({ value }: Props) => (
