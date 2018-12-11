@@ -5,6 +5,7 @@ import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
+import Translate from "../../../Translate";
 
 const Link = styled.a`
   display: flex;
@@ -56,21 +57,22 @@ const Item = styled.span`
 type Props = {|
   Icon: React.ComponentType<$Subtype<{ +className?: string }>>,
   text: React.Node,
+  translate?: string,
   link: string,
   onClick?: () => void,
 |};
 
-const MenuItem = ({ onClick, Icon, text, link }: Props) => (
+const MenuItem = ({ onClick, Icon, text, link, translate }: Props) => (
   <Container onClick={onClick}>
     {link !== "" ? (
       <Link href={link} itemProp="url">
         <Icon className="menuIcon" />
-        <Item itemProp="name">{text}</Item>
+        <Item itemProp="name">{translate ? <Translate t={translate} /> : text}</Item>
       </Link>
     ) : (
       <Link>
         <Icon className="menuIcon" />
-        <Item itemProp="name">{text}</Item>
+        <Item itemProp="name">{translate ? <Translate t={translate} /> : text}</Item>
       </Link>
     )}
   </Container>

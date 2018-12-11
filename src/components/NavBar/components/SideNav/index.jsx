@@ -8,9 +8,9 @@ import Portal from "@kiwicom/orbit-components/lib/Portal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import { right, rtlSpacing } from "@kiwicom/orbit-components/lib/utils/rtl";
 
+import Translate from "../../../Translate";
 import ClientOnly from "../../../ClientOnly/index";
 import Mobile from "../../../Mobile";
-import Translate from "../../../Translate";
 import Language from "../../../Language";
 import { Consumer as BrandConsumer } from "../../../../services/brand/context";
 import { Consumer as AuthConsumer } from "../../../../services/auth/context";
@@ -423,6 +423,7 @@ export default class SideNav extends React.Component<Props, State> {
                         )}
                         <MenuItem
                           text="Cookies settings"
+                          translate="seo.content.title_cookies_settings"
                           link="/pages/cookies_settings"
                           Icon={icons.Settings}
                         />
