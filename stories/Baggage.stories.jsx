@@ -46,12 +46,12 @@ const BaggageData: BaggageType = {
         note: null,
         price: {
           currency: "EUR",
-          amount: 0,
+          amount: 10,
         },
         currency: "EUR",
         category: "holdBag",
         restrictions: {
-          weight: 18,
+          weight: 10,
           height: 52,
           width: 26,
           length: 78,
@@ -67,7 +67,7 @@ const BaggageData: BaggageType = {
         currency: "EUR",
         category: "holdBag",
         restrictions: {
-          weight: 18,
+          weight: 15,
           height: 52,
           width: 26,
           length: 78,
@@ -83,7 +83,7 @@ const BaggageData: BaggageType = {
         currency: "EUR",
         category: "holdBag",
         restrictions: {
-          weight: 18,
+          weight: 25,
           height: 52,
           width: 26,
           length: 78,
@@ -191,7 +191,7 @@ const BaggageData: BaggageType = {
           combination: [0],
           price: {
             currency: "EUR",
-            amount: 0,
+            amount: 10,
           },
           originalIndex: 6,
           allowanceGraph: {
@@ -226,6 +226,38 @@ const BaggageData: BaggageType = {
             amount: 30,
           },
           originalIndex: 8,
+          allowanceGraph: {
+            add: {},
+            remove: {
+              "2": 0,
+            },
+          },
+        },
+        {
+          category: "holdBag",
+          group: "adult",
+          combination: [1, 1, 2],
+          price: {
+            currency: "EUR",
+            amount: 50,
+          },
+          originalIndex: 9,
+          allowanceGraph: {
+            add: {},
+            remove: {
+              "2": 0,
+            },
+          },
+        },
+        {
+          category: "holdBag",
+          group: "adult",
+          combination: [1, 1, 2, 2],
+          price: {
+            currency: "EUR",
+            amount: 60,
+          },
+          originalIndex: 10,
           allowanceGraph: {
             add: {},
             remove: {
@@ -361,7 +393,7 @@ const BaggageData: BaggageType = {
 const props = {
   passengerIndex: 0,
   passengerCategory: "adult",
-  passengerBaggage: { handBag: 0, holdBag: 1 },
+  passengerBaggage: { handBag: 1, holdBag: 7 },
   changeBagCombination: (type, index) => {
     console.log(type, index);
   },
