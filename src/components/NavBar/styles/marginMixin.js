@@ -5,17 +5,17 @@ import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import mq from "../../../styles/mq";
 
 const marginMixin = css`
-  margin-${left}: 20px;
+  margin-${/* sc-custom "left" */ left}: 20px;
 
   &:first-child {
-    margin-${left}: 0;
+    margin-${/* sc-custom "left" */ left}: 0;
   }
 
   ${mq.ltTablet(css`
-    margin-${left}: 5px;
+    margin-${/* sc-custom "left" */ left}: 5px;
 
     &:first-child {
-      margin-${left}: 5px;
+      margin-${/* sc-custom "left" */ left}: 5px;
     }
   `)};
 `;

@@ -13,14 +13,14 @@ const PoweredByKiwi = styled.span`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
   position: relative;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
-  margin-${left}: 10px;
-  padding-${left}: 10px;
+  margin-${/* sc-custom "left" */ left}: 10px;
+  padding-${/* sc-custom "left" */ left}: 10px;
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   &:before {
     content: "";
     top: 0;
     bottom: 0;
-    ${left}: 0;
+    ${/* sc-custom "left" */ left}: 0;
     margin: auto;
     position: absolute;
     width: 2px;
@@ -31,8 +31,8 @@ const PoweredByKiwi = styled.span`
   ${mq.ltTablet(css`
     font-size: 10px;
     font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};;
-    margin-${left}: 7px;
-    padding-${left}: 7px;
+    margin-${/* sc-custom "left" */ left}: 7px;
+    padding-${/* sc-custom "left" */ left}: 7px;
   `)};
 `;
 

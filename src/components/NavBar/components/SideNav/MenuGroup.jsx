@@ -12,7 +12,7 @@ type Props = {
 };
 
 const Menu = styled.div`
-  padding-${left}: 35px;
+  padding-${/* sc-custom "left" */ left}: 35px;
 `;
 
 Menu.defaultProps = {

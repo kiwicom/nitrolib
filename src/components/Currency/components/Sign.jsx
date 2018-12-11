@@ -1,6 +1,10 @@
 // @flow strict
-import styled from "styled-components";
+import * as React from "react";
 
-const Sign = styled.span``;
+type Props = {|
+  children: React.Node,
+|};
+
+const Sign = ({ children }: Props) => <span>{children}</span>;
 
 export default Sign;

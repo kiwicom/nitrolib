@@ -11,7 +11,7 @@
     "@babel/proposal-optional-chaining",
     "id",
     "relay",
-    ["styled-components", { "ssr": true }],
+    ["styled-components", { "ssr": true, "transpileTemplateLiterals": true }],
     "ramda"
   ],
   "env": {

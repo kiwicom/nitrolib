@@ -35,7 +35,7 @@ const MenuWrapper = styled.div`
     mq.tablet(css`
       ${({ positionMenuTablet }: FlatProps) =>
         css`
-          ${right}: ${positionMenuTablet}px;
+          ${/* sc-custom "right" */ right}: ${positionMenuTablet}px;
         `};
     `)};
   ${({ flat }: FlatProps) =>
@@ -43,7 +43,7 @@ const MenuWrapper = styled.div`
     mq.gtDesktop(css`
       ${({ positionMenuDesktop }: FlatProps) =>
         css`
-          ${right}: ${positionMenuDesktop}px;
+          ${/* sc-custom "right" */ right}: ${positionMenuDesktop}px;
         `};
     `)};
 `;
@@ -134,7 +134,7 @@ const LanguageItem = styled.div`
   display: inline-flex;
   align-items: center;
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
-  padding-${left}: 5px;
+  padding-${/* sc-custom "left" */ left}: 5px;
   margin-bottom: 5px;
   box-sizing: border-box;
   cursor: pointer;

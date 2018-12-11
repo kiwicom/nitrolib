@@ -15,12 +15,13 @@
     "relay:schema": "graphql get-schema",
     "test": "jest",
     "lint": "eslint './**/*.{js,jsx,js.flow}'",
+    "lint:css": "stylelint './src/**/*.{js,jsx}'",
     "typecheck": "flow check",
     "fetch": "node ./bin/nitro.js fetch",
     "fixtures": "node ./bin/nitro.js keys 'src/**/*.{js,jsx}' && yarn fetch && node ./etc/fetchFixtures.js",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -o dist-storybook",
-    "prepare": "rimraf lib && run-p test lint && yarn build && yarn typecheck",
+    "prepare": "rimraf lib && run-p test lint lint:css && yarn build && yarn typecheck",
     "localsync": "rimraf lib && yarn build && yalc push"
   },
   "keywords": [
@@ -92,7 +93,7 @@
     "babel-plugin-idx": "^2.4.0",
     "babel-plugin-ramda": "^1.6.3",
     "babel-plugin-relay": "^1.7.0",
-    "babel-plugin-styled-components": "^1.9.1",
+    "babel-plugin-styled-components": "^1.9.4",
     "babel-preset-airbnb": "^3.0.1",
     "copyfiles": "^2.1.0",
     "cross-env": "^5.2.0",
@@ -124,6 +125,11 @@
     "relay-compiler": "^1.7.0",
     "renamer": "^1.1.0",
     "rimraf": "^2.6.2",
-    "styled-components": "^4.1.1"
+    "styled-components": "^4.1.1",
+    "stylelint": "^9.9.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-custom-processor-loader": "^0.6.0",
+    "stylelint-processor-styled-components": "^1.5.1"
   }
 }

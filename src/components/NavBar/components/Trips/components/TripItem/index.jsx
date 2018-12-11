@@ -26,10 +26,11 @@ type Props = {|
 |};
 
 const Img = styled.img`
-  display: "flex";
-  justify-content: "center";
-  overlfow: "hidden";
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
   height: 180px;
+
   ${mq.ltMiddleMobile(css`
     height: 120px;
   `)};

@@ -14,7 +14,7 @@ type Props = {|
 |};
 
 const LanguageNameText = styled.span`
-  margin-${left}: 10px;
+  margin-${/* sc-custom "left" */ left}: 10px;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   letter-spacing: 0.02em;

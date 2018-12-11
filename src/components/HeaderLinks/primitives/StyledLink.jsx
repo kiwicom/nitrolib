@@ -20,33 +20,29 @@ const StyledLink = styled.a`
   text-decoration: none;
   position: relative;
   cursor: pointer;
-  margin-${left}: 20px;
+  margin-${/* sc-custom "left" */ left}: 20px;
   height: 50px;
-
-  &:first-child {
-    &:link, &:visited {
-      color: ${({ theme, inverted }: LinkProps) =>
-        inverted ? theme.orbit.paletteWhite : theme.orbit.paletteProductNormal};
-    }
-  }
 
   &:link, &:visited {
     color: ${({ active, theme, inverted }: LinkProps) =>
       inverted
         ? (active && theme.orbit.paletteWhiteActive) || theme.orbit.paletteWhite
         : (active && theme.orbit.paletteProductNormal) || theme.orbit.paletteInkNormal};
-  }
+    
+    &:first-child {
+      color: ${({ theme, inverted }: LinkProps) =>
+        inverted ? theme.orbit.paletteWhite : theme.orbit.paletteProductNormal};
+    }
 
-  &:hover {
-    &:link, &:visited {
+    &:hover {
       color: ${({ theme, inverted }: LinkProps) =>
         inverted ? theme.orbit.paletteWhiteHover : theme.orbit.paletteProductNormal};
     }
   }
 
   ${mq.ltDesktop(css`
-    margin-${left}: 0;
-    padding-${left}: 10px;
+    margin-${/* sc-custom "left" */ left}: 0;
+    padding-${/* sc-custom "left" */ left}: 10px;
     font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextLarge};
     font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
     &:first-child {
@@ -71,7 +67,7 @@ const StyledLink = styled.a`
       }
     }
     i {
-      padding-${right}: 10px;
+      padding-${/* sc-custom "right" */ right}: 10px;
     }
     `)}
 `;

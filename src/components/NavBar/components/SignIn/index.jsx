@@ -48,7 +48,7 @@ const FieldCentered = styled(FieldWrap)`
 `;
 
 const ForgotPasswordArrow = styled.span`
-  margin-${left}: 5px;
+  margin-${/* sc-custom "left" */ left}: 5px;
   margin-top: -2px;
 `;
 

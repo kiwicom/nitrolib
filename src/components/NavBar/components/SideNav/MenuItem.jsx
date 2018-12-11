@@ -31,7 +31,7 @@ const Container = styled.div`
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
     width: 16px;
     height: 16px;
-    margin-${right}: 10px;
+    margin-${/* sc-custom "right" */ right}: 10px;
   }
 
   &:hover {

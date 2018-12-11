@@ -14,7 +14,7 @@ import CurrencyList from "./CurrencyList";
 
 const Container = styled.div`
   position: absolute;
-  ${right}: 0;
+  ${/* sc-custom "right" */ right}: 0;
   top: 50px;
   width: calc(100% - 40px);
   max-height: calc(100vh - 200px);
@@ -35,13 +35,13 @@ const Container = styled.div`
   `)}
 
   ${mq.tablet(css`
-    ${right}: ${({ positionMenuTablet }) => positionMenuTablet}px;
-    ${left}: inherit;
+    ${/* sc-custom "right" */ right}: ${({ positionMenuTablet }) => positionMenuTablet}px;
+    ${/* sc-custom "left" */ left}: inherit;
   `)}
 
   ${mq.gtDesktop(css`
-    ${left}: inherit;
-    ${right}: ${({ positionMenuDesktop }) => positionMenuDesktop}px;
+    ${/* sc-custom "left" */ left}: inherit;
+    ${/* sc-custom "right" */ right}: ${({ positionMenuDesktop }) => positionMenuDesktop}px;
   `)}
 `;
 
@@ -58,7 +58,7 @@ const Recommended = styled.div`
   &:after {
     position: absolute;
     bottom: 0;
-    ${left}: 0;
+    ${/* sc-custom "left" */ left}: 0;
     display: block;
     content: "";
     width: calc(100% - 10px);

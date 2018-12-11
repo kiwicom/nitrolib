@@ -18,11 +18,11 @@ const SelectContainer = styled.div`
   margin: 0 5px;
 
   &:first-child {
-    margin-${left}: 0;
+    margin-${/* sc-custom "left" */ left}: 0;
   }
 
   &:last-child {
-    margin-${right}: 0;
+    margin-${/* sc-custom "right" */ right}: 0;
   }
 `;
 

@@ -35,7 +35,6 @@ const Currency = ({
       }
 
       const availableList = getAvailableList(available);
-
       return native ? (
         <NativePicker
           current={currency}

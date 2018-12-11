@@ -32,7 +32,7 @@ const Column = styled.div`
 
 const Item = styled.div`
   ${mq.gtTablet(css`
-    padding-${right}: 25px;
+    padding-${/* sc-custom "right" */ right}: 25px;
   `)};
 `;
 
@@ -43,7 +43,7 @@ Item.defaultProps = {
 const ItemText = styled.div`
   display: flex;
   line-height: 30px;
-  padding-${left}: 5px;
+  padding-${/* sc-custom "left" */ left}: 5px;
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   cursor: pointer;
   background: ${({ theme, active }: ActiveProps) =>
@@ -61,13 +61,13 @@ const ItemText = styled.div`
   }
 
   ${Sign} {
-    margin-${left}: 10px;
+    margin-${/* sc-custom "left" */ left}: 10px;
     color: ${({ theme, active }: ActiveProps) =>
       theme.orbit[active ? "paletteWhite" : "paletteInkNormal"]};
   }
 
   ${Name} {
-    margin-${left}: 10px;
+    margin-${/* sc-custom "left" */ left}: 10px;
     color: ${({ theme, active }: ActiveProps) =>
       theme.orbit[active ? "paletteWhite" : "paletteInkNormal"]};
   }

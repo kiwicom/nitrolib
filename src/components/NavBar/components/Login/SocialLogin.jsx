@@ -31,7 +31,7 @@ const OrText = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); // vertical and horizontal center
+  transform: translate(-50%, -50%);
   padding: 10px;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   text-transform: uppercase;

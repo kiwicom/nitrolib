@@ -83,6 +83,7 @@ const MenuOpen = styled.div`
   padding: 0 2px;
   svg {
     fill: ${({ inverted, theme }: InvertedProps) => inverted && theme.orbit.paletteWhite};
+    height: 20px;
   }
   &:hover {
     background: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
@@ -91,9 +92,6 @@ const MenuOpen = styled.div`
       fill: ${({ theme, inverted }: InvertedProps) =>
         inverted ? theme.orbit.paletteWhiteHover : theme.orbit.paletteWhite};
     }
-  }
-  svg {
-    height: 20px;
   }
 `;
 

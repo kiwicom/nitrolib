@@ -48,6 +48,11 @@ lint:
   script:
     - yarn lint
 
+stylelint:
+  stage: build
+  script:
+    - yarn lint:css
+
 flow:
   stage: build
   script:

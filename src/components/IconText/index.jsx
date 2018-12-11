@@ -19,7 +19,7 @@ Container.defaultProps = {
 const IconWrapper = styled.div`
   display: flex;
   align-items: center;
-  padding-${right}: 10px;
+  padding-${/* sc-custom "right" */ right}: 10px;
 `;
 
 const Text = styled.span`
