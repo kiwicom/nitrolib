@@ -8,6 +8,7 @@ type GetNavBarLinks = {
   language: { id: string },
   currency: string,
   searchForm: any,
+  splitster: {},
 };
 
 export default function getNavBarLinks({
@@ -15,6 +16,7 @@ export default function getNavBarLinks({
   language,
   currency,
   searchForm,
+  splitster,
 }: GetNavBarLinks) {
   return fetch("http://localhost:3000/navbar", {
     method: "POST",
@@ -26,6 +28,7 @@ export default function getNavBarLinks({
       language,
       currency,
       searchForm,
+      splitster,
     }),
   }).then(handleJSON);
 }
