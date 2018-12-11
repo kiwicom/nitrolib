@@ -60,9 +60,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   box-shadow: rgb(232, 237, 241) 0px -1px inset;
-  background: ${({ theme }) => theme.orbit.paletteWhite};
+  background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
+  ${({ valid }) => !valid && `opacity: .5`}
   &:hover {
-    background: ${({ theme }) => theme.orbit.paletteWhiteHover};
+    background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhiteHover};
   }
 `;
 
@@ -122,7 +123,7 @@ const StarredItinerary = ({
   passengerCount,
   passengerMulty,
 }: Props) => {
-  const lastUpdate = <TimeInWords time={updated} />;
+  const lastUpdate = <TimeInWords to={updated} />;
   const getPriceUpdated = () => {
     if (!isValid) {
       return (
@@ -149,7 +150,7 @@ const StarredItinerary = ({
     ) : (
       <TranslateNode
         t={__("starred.created_at")}
-        values={{ createdAt: <TimeInWords time={created} /> }}
+        values={{ createdAt: <TimeInWords to={created} /> }}
       />
     );
   };
@@ -157,7 +158,7 @@ const StarredItinerary = ({
   return (
     <StarredConsumer>
       {({ isMobile, lang, setNotice, ShareDialog }) => (
-        <Wrapper onClick={() => goToJourneyNitro()}>
+        <Wrapper onClick={() => goToJourneyNitro()} valid={isValid}>
           <TextWrapper type="secondary" size="small">
             {getPriceUpdated()}
           </TextWrapper>

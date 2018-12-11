@@ -10,7 +10,7 @@ import { intlDefault } from "../../../records/Intl";
 describe("#DistanceInWords", () => {
   test("#formatDistance", () => {
     const time = addHours(Date.now(), 10);
-    const wrapper = shallow(<DistanceInWords time={time} />);
+    const wrapper = shallow(<DistanceInWords to={time} />);
 
     expect(wrapper.prop("children")(intlDefault)).toMatchSnapshot();
   });

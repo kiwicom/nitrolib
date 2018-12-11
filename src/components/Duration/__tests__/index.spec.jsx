@@ -9,7 +9,7 @@ describe("#Duration", () => {
     const dateFrom = new Date(Date.UTC(2017, 9, 28));
     const dateTo = new Date(Date.UTC(2017, 9, 30));
 
-    const wrapper = shallow(<Duration timeFrom={dateFrom} timeTo={dateTo} />);
+    const wrapper = shallow(<Duration from={dateFrom} to={dateTo} />);
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -18,7 +18,7 @@ describe("#Duration", () => {
     const dateFrom = new Date(Date.UTC(2017, 9, 28));
     const dateTo = new Date(Date.UTC(2017, 9, 30));
 
-    const wrapper = shallow(<Duration timeFrom={dateFrom} timeTo={dateTo} format="HH:mm:ss" />);
+    const wrapper = shallow(<Duration from={dateFrom} to={dateTo} format="HH:mm:ss" />);
 
     expect(wrapper).toMatchSnapshot();
   });

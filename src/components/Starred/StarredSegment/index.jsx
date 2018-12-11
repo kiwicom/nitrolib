@@ -8,6 +8,7 @@ import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 import type { DepartureArrival } from "../../../records/Flight";
 import Day from "../../Day";
 import Duration from "../../Duration";
+import TimeInWords from "../../DistanceInWords";
 
 type Props = {|
   departure: DepartureArrival,
@@ -63,7 +64,7 @@ const StarredTripSegment = ({ departure, arrival }: Props) => (
       <WrapperTime>
         <Stack direction="column" align="end" shrink spacing="tight">
           <TextWrapper weight="bold">
-            <Duration timeFrom={departure.when.local} timeTo={arrival.when.local} format="HH:mm" />
+            <Duration from={departure.when.local} to={arrival.when.local} format="HH:mm" />
           </TextWrapper>
           <TextWrapper type="secondary" size="small">
             <Day date={departure.when.local} format="HH:mm" />

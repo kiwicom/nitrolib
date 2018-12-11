@@ -6,13 +6,14 @@ import * as locales from "date-fns/locale";
 import { Consumer } from "../../services/intl/context";
 
 type Props = {|
-  time: Date | string,
+  to: Date | string,
+  from?: Date,
 |};
 
 const DistanceInWords = (props: Props) => (
   <Consumer>
     {intl =>
-      formatDistance(Date.now(), props.time, {
+      formatDistance(props.from || Date.now(), props.to, {
         locale: locales[intl.language.locations] || locales.enUS,
       })
     }

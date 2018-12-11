@@ -8,14 +8,14 @@ import differenceInSeconds from "date-fns/differenceInSeconds";
 import { Consumer } from "../../services/intl/context";
 
 type Props = {
-  timeFrom: Date,
-  timeTo: Date,
+  to: Date,
+  from: Date,
   format: string,
 };
 
 const Duration = (props: Props) => {
-  const { timeFrom, timeTo } = props;
-  const date = addSeconds(new Date(0), differenceInSeconds(timeTo, timeFrom));
+  const { from, to } = props;
+  const date = addSeconds(new Date(0), differenceInSeconds(from, to));
   return (
     <Consumer>
       {intl =>
