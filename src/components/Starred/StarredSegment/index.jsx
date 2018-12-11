@@ -8,7 +8,6 @@ import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 import type { DepartureArrival } from "../../../records/Flight";
 import Day from "../../Day";
 import Duration from "../../Duration";
-import TimeInWords from "../../DistanceInWords";
 
 type Props = {|
   departure: DepartureArrival,

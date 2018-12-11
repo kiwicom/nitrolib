@@ -128,9 +128,9 @@ const StarredItinerary = ({
     if (!isValid) {
       return (
         <>
-          <Text t={__("starred.flight_not_available")} />
+          <Text size="small" type="secondary" t={__("starred.flight_not_available")} />
           <ActionButton onClick={onRemove}>
-            <Text t={__("starred.remove_starred")} />
+            <Text size="small" type="secondary" t={__("starred.remove_starred")} />
           </ActionButton>
         </>
       );
@@ -138,6 +138,8 @@ const StarredItinerary = ({
     if (price !== getBestPrice(journey)) {
       return (
         <Text
+          size="small"
+          type="secondary"
           t={__("starred.price_update_changed")}
           values={{
             origPrice: price,
@@ -146,12 +148,16 @@ const StarredItinerary = ({
       );
     }
     return priceUpdatedAt ? (
-      <TranslateNode t={__("starred.price-update")} values={{ lastUpdate }} />
+      <TextWrapper size="small" type="secondary">
+        <TranslateNode t={__("starred.price-update")} values={{ lastUpdate }} />
+      </TextWrapper>
     ) : (
-      <TranslateNode
-        t={__("starred.created_at")}
-        values={{ createdAt: <TimeInWords to={created} /> }}
-      />
+      <TextWrapper size="small" type="secondary">
+        <TranslateNode
+          t={__("starred.created_at")}
+          values={{ createdAt: <TimeInWords to={created} /> }}
+        />
+      </TextWrapper>
     );
   };
 
