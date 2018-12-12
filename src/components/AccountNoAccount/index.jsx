@@ -39,7 +39,7 @@ const AccountNoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }
       </OrbitText>
     </Header>
     <Section>
-      <Stack desktop={{ spacing: "natural" }}>
+      <Stack spacing="natural" direction="column" desktop={{ direction: "row" }}>
         <Button onClick={onRegister}>
           <Translate t="account.register" />
         </Button>
@@ -54,7 +54,7 @@ const AccountNoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }
       <OrbitText weight="bold" spaceAfter="medium">
         <Translate t="account.or_social_account" />
       </OrbitText>
-      <Stack desktop={{ spacing: "natural", direction: "row" }}>
+      <Stack spacing="natural" flex>
         <Button type="facebook" block bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
           <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
         </Button>

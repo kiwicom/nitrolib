@@ -35,6 +35,9 @@ exports[`#AccountPairedFacebook render 1`] = `
           "direction": "row",
         }
       }
+      direction="column"
+      flex={true}
+      spacing="condensed"
     >
       <Button
         bordered={true}

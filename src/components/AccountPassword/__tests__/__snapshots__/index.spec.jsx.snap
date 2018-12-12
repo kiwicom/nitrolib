@@ -34,7 +34,8 @@ exports[`#AccountPassword render 1`] = `
       weight="bold"
     >
       <Stack
-        direction="row"
+        align="center"
+        flex={true}
         spacing="tight"
       >
         <Text
@@ -53,13 +54,8 @@ exports[`#AccountPassword render 1`] = `
       </Stack>
     </Text>
     <Stack
-      desktop={
-        Object {
-          "align": "end",
-          "direction": "row",
-          "spacing": "condensed",
-        }
-      }
+      align="end"
+      spacing="condensed"
     >
       <ForwardRef
         label="account.password"

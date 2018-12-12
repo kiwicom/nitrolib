@@ -43,14 +43,9 @@ exports[`#AccountLogin render 1`] = `
       />
     </Text>
     <Stack
-      desktop={
-        Object {
-          "align": "end",
-          "direction": "row",
-          "spacing": "condensed",
-        }
-      }
+      align="end"
       spaceAfter="small"
+      spacing="condensed"
     >
       <ForwardRef
         label="account.email"
@@ -101,13 +96,8 @@ exports[`#AccountLogin render 1`] = `
       />
     </Text>
     <Stack
-      desktop={
-        Object {
-          "align": "end",
-          "direction": "row",
-          "spacing": "natural",
-        }
-      }
+      align="end"
+      spacing="natural"
     >
       <Button
         block={true}

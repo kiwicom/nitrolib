@@ -30,9 +30,11 @@ exports[`#AccountNoAccount render 1`] = `
     <Stack
       desktop={
         Object {
-          "spacing": "natural",
+          "direction": "row",
         }
       }
+      direction="column"
+      spacing="natural"
     >
       <Button
         onClick={[Function]}
@@ -80,12 +82,8 @@ exports[`#AccountNoAccount render 1`] = `
       />
     </Text>
     <Stack
-      desktop={
-        Object {
-          "direction": "row",
-          "spacing": "natural",
-        }
-      }
+      flex={true}
+      spacing="natural"
     >
       <Button
         block={true}

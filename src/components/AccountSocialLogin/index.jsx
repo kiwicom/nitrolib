@@ -31,7 +31,7 @@ const AccountSocialLogin = ({ onAskSignInLink, onFacebookLogin, onGoogleLogin, e
       </OrbitText>
     </Header>
     <Section>
-      <Stack desktop={{ direction: "row" }}>
+      <Stack flex direction="column" spacing="condensed" desktop={{ direction: "row" }}>
         <Button type="facebook" bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
           <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
         </Button>

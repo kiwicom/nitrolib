@@ -26,11 +26,7 @@ exports[`#AccountCreate render 1`] = `
   </ModalHeader>
   <ModalSection>
     <Stack
-      desktop={
-        Object {
-          "spacing": "comfy",
-        }
-      }
+      spacing="comfy"
     >
       <ForwardRef
         label="account.email"

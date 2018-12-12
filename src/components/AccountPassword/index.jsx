@@ -54,14 +54,14 @@ const AccountPassword = ({
         </Header>
         <Section>
           <OrbitText weight="bold" spaceAfter="medium">
-            <Stack direction="row" spacing="tight">
+            <Stack spacing="tight" flex align="center">
               <OrbitText weight="bold">{email}</OrbitText>
               <TextLink type="primary" onClick={onChangeEmail}>
                 <Edit size="small" />
               </TextLink>
             </Stack>
           </OrbitText>
-          <Stack desktop={{ direction: "row", spacing: "condensed", align: "end" }}>
+          <Stack align="end" spacing="condensed">
             <InputField
               label={intl.translate(__("account.password"))}
               type="password"

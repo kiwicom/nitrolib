@@ -62,14 +62,7 @@ const AccountLogin = ({
           <OrbitText weight="bold" spaceAfter="medium">
             <Translate t="account.sign_in_description" />
           </OrbitText>
-          <Stack
-            spaceAfter="small"
-            desktop={{
-              spacing: "condensed",
-              direction: "row",
-              align: "end",
-            }}
-          >
+          <Stack spaceAfter="small" spacing="condensed" align="end">
             <InputField
               label={intl.translate(__("account.email"))}
               placeholder={intl.translate(__("account.email_placeholder"))}
@@ -91,7 +84,7 @@ const AccountLogin = ({
           <OrbitText weight="bold" spaceAfter="medium">
             <Translate t="account.or_social_account" />
           </OrbitText>
-          <Stack desktop={{ spacing: "natural", direction: "row", align: "end" }}>
+          <Stack spacing="natural" align="end">
             <Button
               type="facebook"
               block

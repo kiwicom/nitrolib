@@ -51,7 +51,7 @@ const AccountCreate = ({
           <Translate t="account.create_account_description" />
         </Header>
         <Section>
-          <Stack desktop={{ spacing: "comfy" }}>
+          <Stack spacing="comfy">
             <InputField
               label={intl.translate(__("account.email"))}
               placeholder={intl.translate(__("account.email_placeholder"))}
