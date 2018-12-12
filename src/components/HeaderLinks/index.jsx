@@ -46,25 +46,6 @@ class HeaderLinks extends React.Component<Props, State> {
     services: null,
   };
 
-  static defaultProps = {
-    searchString: "search",
-    language: {
-      id: "us",
-    },
-    currency: { id: "gbp" },
-    searchForm: {
-      mode: "oneWay",
-      destination: {
-        type: "2",
-        name: "Warsaw",
-      },
-      checkIn: new Date(),
-      checkOut: null,
-      adults: 1,
-      children: 0,
-    },
-  };
-
   componentDidMount() {
     this.getNavBarLinks();
   }
