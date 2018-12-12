@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 export const MAX_TRIPS = 3;
 export const BADGE_MAX = 9;

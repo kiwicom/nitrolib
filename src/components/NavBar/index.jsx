@@ -125,7 +125,7 @@ const NavBar = ({
         </Stack>
       </Desktop>
       <TextWrapper size="small" weight="normal">
-        <Starred positionMenuDesktop={270} positionMenuTablet={0} />
+        <Starred positionMenuDesktop={270} inverted={inverted} positionMenuTablet={0} />
       </TextWrapper>
       <Mobile>
         <Help onOpen={onOpenFaq} inverted={inverted} />

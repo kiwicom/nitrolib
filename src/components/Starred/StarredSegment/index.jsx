@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import styled from "styled-components";
 import FlightDirect from "@kiwicom/orbit-components/lib/icons/FlightDirect";
@@ -44,8 +44,8 @@ const StarredTripSegment = ({ departure, arrival }: Props) => (
     <Stack shrink justify="between" align="center" spacing="tight">
       <Flight>
         <LongText>
-          <TextWrapper weight="bold">
-            <Stack shrink align="center" spacing="tight">
+          <Stack shrink align="center" spacing="tight">
+            <TextWrapper weight="bold">
               <TextOverflow>
                 {departure.where.name} ({departure.where.code})
               </TextOverflow>
@@ -53,8 +53,8 @@ const StarredTripSegment = ({ departure, arrival }: Props) => (
               <TextOverflow>
                 {arrival.where.name} ({arrival.where.code})
               </TextOverflow>
-            </Stack>
-          </TextWrapper>
+            </TextWrapper>
+          </Stack>
           <TextWrapper type="secondary" size="small">
             <Day date={departure.when.local} />
           </TextWrapper>

@@ -15,7 +15,7 @@ type Props = {
 
 const Duration = (props: Props) => {
   const { from, to } = props;
-  const date = addSeconds(new Date(0), differenceInSeconds(from, to));
+  const date = addSeconds(new Date(0), differenceInSeconds(to, from));
   return (
     <Consumer>
       {intl =>

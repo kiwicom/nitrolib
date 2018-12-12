@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
 import Star from "@kiwicom/orbit-components/lib/icons/StarFull";
@@ -123,8 +123,8 @@ const StarredItinerary = ({
   passengerCount,
   passengerMulty,
 }: Props) => {
-  const lastUpdate = <TimeInWords to={updated} />;
   const getPriceUpdated = () => {
+    console.log(isValid);
     if (!isValid) {
       return (
         <>
@@ -137,27 +137,21 @@ const StarredItinerary = ({
     }
     if (price !== getBestPrice(journey)) {
       return (
-        <Text
-          size="small"
-          type="secondary"
-          t={__("starred.price_update_changed")}
+        <TranslateNode
+          t="starred.price_update_changed"
           values={{
-            origPrice: price,
+            lastUpdate: <TimeInWords to={updated} />,
           }}
         />
       );
     }
     return priceUpdatedAt ? (
-      <TextWrapper size="small" type="secondary">
-        <TranslateNode t={__("starred.price-update")} values={{ lastUpdate }} />
-      </TextWrapper>
+      <TranslateNode
+        t="starred.price_update"
+        values={{ lastUpdate: <TimeInWords to={updated} /> }}
+      />
     ) : (
-      <TextWrapper size="small" type="secondary">
-        <TranslateNode
-          t={__("starred.created_at")}
-          values={{ createdAt: <TimeInWords to={created} /> }}
-        />
-      </TextWrapper>
+      <TranslateNode t="starred.created_at" values={{ createdAt: <TimeInWords to={created} /> }} />
     );
   };
 
@@ -176,7 +170,7 @@ const StarredItinerary = ({
               <PriceInfo>
                 {passengerCount > 1 &&
                   (passengerMulty ? (
-                    <Text type="secondary" size="small" t={__("result.total_price")} />
+                    <Text type="secondary" size="small" t="result.total_price" />
                   ) : (
                     <Text
                       type="secondary"

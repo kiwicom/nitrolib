@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import styled from "styled-components";
 
@@ -21,7 +21,7 @@ const StarredFooter = () => (
           fontSize={14}
           href={`/${intl.language.id}/content/account/starred`}
         >
-          <Translate t={__("common.view_all")} />
+          <Translate t="common.view_all" />
         </ButtonLink>
       )}
     </IntlConsumer>

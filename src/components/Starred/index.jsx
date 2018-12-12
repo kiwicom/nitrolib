@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import StarIcon from "@kiwicom/orbit-components/lib/icons/StarFull";
+import StarFull from "@kiwicom/orbit-components/lib/icons/StarFull";
 import styled from "styled-components";
 
 import Button from "../NavBar/primitives/Button";
@@ -36,15 +36,18 @@ StarredBadge.defaultProps = {
 type Props = {|
   positionMenuDesktop: number,
   positionMenuTablet: number,
+  inverted: boolean,
 |};
 
-const Starred = ({ positionMenuDesktop, positionMenuTablet }: Props) => (
+const Starred = ({ positionMenuDesktop, positionMenuTablet, inverted }: Props) => (
   <StarredConsumer>
     {starred => {
       const { starredList, onClearStarred, onRemoveStarred, shareUrl, goToJourneyNitro } = starred;
       const starredShow = starredList && starredList.slice(0, MAX_TRIPS);
       const starredCount = starredList && starredList.length;
       const starredFooter = starredCount >= 1 && <StarredFooter tripsCount={starredCount} />;
+      const buttonColor = inverted ? null : "secondary";
+      const StarIcon = inverted ? <StarFull customColor="#fff" /> : <StarFull color="primary" />;
 
       return (
         <Toggle>
@@ -71,13 +74,13 @@ const Starred = ({ positionMenuDesktop, positionMenuTablet }: Props) => (
                 </ClickOutside>
               )}
               <Desktop>
-                <Button onClick={onToggle} color="secondary">
+                <Button onClick={onToggle} color={buttonColor}>
                   <Translate t={__("starred.starred")} />
                 </Button>
               </Desktop>
               <Mobile>
-                <Button onClick={onToggle} color="secondary">
-                  <StarIcon color="primary" />
+                <Button onClick={onToggle} color={buttonColor}>
+                  {StarIcon}
                 </Button>
               </Mobile>
               {starredCount > 0 && (

@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import styled from "styled-components";
 
@@ -19,6 +19,7 @@ type Props = {|
 
 const NoFlights = styled.div`
   padding: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
+  max-width: 550px;
 `;
 
 NoFlights.defaultProps = {
@@ -55,7 +56,7 @@ const StarredList = ({ trips, onRemove, tripsCount, shareUrl, goToJourneyNitro }
     tripList
   ) : (
     <NoFlights>
-      <Text t={__("starred.no_flights")} />
+      <Text t="starred.no_flights" />
     </NoFlights>
   );
 };

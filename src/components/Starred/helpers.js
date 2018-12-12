@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import isAfter from "date-fns/isAfter"; // keys
 import * as R from "ramda";
 

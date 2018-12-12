@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 
 import Translate from "../../Translate";
@@ -12,10 +12,10 @@ type Props = {|
 const StarredHeader = ({ tripsCount, onClearStorage }: Props) => (
   <>
     <ButtonLink color="secondary" marginLeft={20}>
-      <Translate t={__("starred.total_flights")} values={{ total: tripsCount }} />
+      <Translate t="starred.total_flights" values={{ total: tripsCount }} />
     </ButtonLink>
     <ButtonLink color="warning" marginRight={20} onClick={() => onClearStorage()}>
-      <Translate t={__("starred.unstar_all_trips")} />
+      <Translate t="starred.unstar_all_trips" />
     </ButtonLink>
   </>
 );
