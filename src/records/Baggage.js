@@ -5,32 +5,43 @@ export type BaggageSubCategory = "holdBag" | "personalItem" | "cabinBag";
 
 export type BaggageGroup = "adult" | "child" | "infant";
 
-export const CATEGORY_API_CONVERTER = {
-  hold_bag: "holdBag",
-  hand_bag: "handBag",
-  personal_item: "personalItem",
-  cabin_bag: "cabinBag",
-};
-export const CATEGORY_TO_API_CONVERTER = {
-  holdBag: "hold_bag",
-  handBag: "hand_bag",
-  personalItem: "personal_item",
-  cabinBag: "cabin_bag",
+export type Price = {
+  currency: string,
+  amount: number,
 };
 
-export type Definition<C: BaggageSubCategory> = {|
-  note: ?string,
-  price: number,
-  currency: ?string,
-  category: C,
-  restrictions: {
-    weight: number,
-    height: number,
-    width: number,
-    length: number,
-    dimensions_sum: number,
-  },
+export type Restrictions = {|
+  weight: number,
+  height: number,
+  width: number,
+  length: number,
+  dimensions_sum: ?number,
 |};
+
+export type Definition<C: BaggageSubCategory> = {
+  note: ?string,
+  price: Price,
+  category: C,
+  restrictions: Restrictions,
+  conditions?: {
+    is_priority: Array<string>,
+  },
+};
+
+export type Item = {
+  [string]: {
+    amount: number,
+    subcategory: BaggageSubCategory,
+    restrictions: Restrictions,
+  },
+};
+
+export type Option = {
+  originalIndex: number,
+  category: BaggageCategory,
+  price: Price,
+  items: Item,
+};
 
 export type HandBagDefinition = Definition<"personalItem" | "cabinBag">;
 export type HoldBagDefinition = Definition<"holdBag">;
@@ -57,10 +68,7 @@ export type Combination<C: BaggageCategory, G: BaggageGroup> = {|
   group: G,
   allowanceGraph: CombinationAllowanceGraph,
   combination: number[],
-  price: {
-    currency: string,
-    amount: number,
-  },
+  price: Price,
 |};
 
 export type CombinationsGroup<G: BaggageGroup> = {|
@@ -79,30 +87,4 @@ export type Combinations = {|
 export type BaggageType = {
   definitions: Definitions, // Definitions same as from api
   combinations: Combinations,
-};
-
-export type Price = {
-  amount: number,
-  currency: string,
-};
-
-export type Restrictions = {
-  dimensions_sum: number,
-  height: number,
-  length: number,
-  weight: number,
-  width: number,
-};
-
-export type Item = {
-  amount: number,
-  category: string,
-  restrictions: Restrictions,
-};
-
-export type OptionBaggage = {
-  originalIndex: number,
-  bagType: string,
-  price: Price,
-  items: { [key: string]: Item },
 };
