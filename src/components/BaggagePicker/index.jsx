@@ -69,10 +69,12 @@ const OptionLabel = styled.div`
   width: 100%;
 `;
 
-const FlexWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  width: 35%;
+const CategoryWrapper = styled(Flex)`
+  width: 50%;
+`;
+
+const RestrictionsWrapper = styled(Flex)`
+  width: 50%;
 `;
 
 const BaggageItem = styled.div`
@@ -80,6 +82,9 @@ const BaggageItem = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  &:not(:first-child) {
+    margin-top: 8px;
+  }
 `;
 
 const EmptyLabel = () => (
@@ -106,7 +111,7 @@ const Option = ({ items, price, isChecked, onClick }) => {
         {Object.keys(items).length > 0 ? (
           Object.keys(items).map(key => (
             <BaggageItem key={`item-${key}`}>
-              <FlexWrapper>
+              <CategoryWrapper y="center">
                 {getIconFromCategory(items[key].category)}
                 <Text>
                   {items[key].amount > 1 && (
@@ -117,23 +122,27 @@ const Option = ({ items, price, isChecked, onClick }) => {
                   {items[key].category === "holdBag" && `${items[key].restrictions.weight}kg `}
                   {getTextFromCategory(items[key].category)}
                 </Text>
-              </FlexWrapper>
-              <Text type="secondary">{getBaggageSize(items[key].restrictions)}</Text>
-              {key === firstItemKey ? (
-                <Text weight="bold">{`${price.amount} ${price.currency}`}</Text>
-              ) : (
-                <span style={{ width: "47px" }} />
-              )}
+              </CategoryWrapper>
+              <RestrictionsWrapper x="space-between" y="center">
+                <Text type="secondary">{getBaggageSize(items[key].restrictions)}</Text>
+                {key === firstItemKey ? (
+                  <Text weight="bold">{`${price.amount} ${price.currency}`}</Text>
+                ) : (
+                  <span />
+                )}
+              </RestrictionsWrapper>
             </BaggageItem>
           ))
         ) : (
           <EmptyLabel />
         )}
         {hasSingleCategory && category === "cabinBag" && (
-          <Flex y="center">
-            <Close color={isChecked ? "warning" : "secondary"} />
-            <Text type={isChecked ? "warning" : "secondary"}>No personal item</Text>
-          </Flex>
+          <BaggageItem>
+            <Flex y="center">
+              <Close color={isChecked ? "warning" : "secondary"} />
+              <Text type={isChecked ? "warning" : "secondary"}>No personal item</Text>
+            </Flex>
+          </BaggageItem>
         )}
       </OptionLabel>
     </OptionWrapper>
@@ -204,7 +213,9 @@ class BaggagePicker extends React.Component<Props, State> {
     return (
       <BaggageWrapper>
         <TitleWrapper>
-          <Text uppercase>{title}</Text>
+          <Text weight="bold" uppercase>
+            {title}
+          </Text>
           <InformationCircle size="small" color="secondary" />
         </TitleWrapper>
         <Text>Select one option:</Text>
