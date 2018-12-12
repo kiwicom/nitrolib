@@ -18,7 +18,7 @@ export default function getNavBarLinks({
   searchForm,
   splitster,
 }: GetNavBarLinks) {
-  return fetch("http://localhost:3000/navbar", {
+  return fetch("https://ancillaries-integration.skypicker.com/navbar", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
