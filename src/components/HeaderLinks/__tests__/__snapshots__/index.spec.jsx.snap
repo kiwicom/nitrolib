@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HeaderLinks Link should render correctly 1`] = `
+exports[`HeaderLinks Link component should render correctly 1`] = `
 <StyledLink
   active={false}
   href="https://www.kiwi.com"
@@ -785,7 +785,7 @@ exports[`HeaderLinks Link should render correctly 1`] = `
 </StyledLink>
 `;
 
-exports[`HeaderLinks Links should render correctly 1`] = `
+exports[`HeaderLinks Links component should render correctly 1`] = `
 Array [
   <Link
     active={false}
@@ -823,7 +823,11 @@ Array [
       />
     }
   />,
-  "",
+  <Link
+    active={false}
+    newWindow={false}
+    text={<Text />}
+  />,
   <Link
     active={false}
     icon="logitravel"
