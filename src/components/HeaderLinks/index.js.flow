@@ -9,8 +9,8 @@ type Services = Item[] | null;
 type SearchForm = {|
   mode: string,
   destination: { type: string, name: string },
-  checkIn?: ?Date,
-  checkOut?: ?Date,
+  checkIn: Date,
+  checkOut: Date | null,
   adults: number,
   children: number,
 |};
@@ -20,7 +20,9 @@ type Props = {|
   language: {
     id: string,
   },
-  currency: { id: string },
+  currency: {
+    id: string,
+  },
   searchForm: SearchForm,
   testResponse?: Services,
 |};

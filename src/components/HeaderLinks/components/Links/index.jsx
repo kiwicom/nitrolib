@@ -4,12 +4,6 @@ import * as React from "react";
 import Link from "../Link/index";
 import Text from "../../../Text/index";
 
-export type Param = {|
-  key: string,
-  prop?: string,
-  value?: string,
-|};
-
 export type Item = {|
   id: string,
   translation: string,
@@ -28,6 +22,7 @@ const Links: Props => React.Node = ({ services }) =>
         <Link
           logTab={item.id}
           link={item.url}
+          icon={item.id}
           text={<Text t={item.translation} />}
           newWindow={item.newWindow}
         />

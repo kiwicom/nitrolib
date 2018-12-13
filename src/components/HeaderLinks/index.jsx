@@ -31,8 +31,8 @@ type Services = Item[] | null;
 type SearchForm = {|
   mode: string,
   destination: { type: string, name: string },
-  checkIn?: Date,
-  checkOut?: Date | null,
+  checkIn: Date,
+  checkOut: Date | null,
   adults: number,
   children: number,
 |};
@@ -56,25 +56,6 @@ type State = {|
 class HeaderLinks extends React.Component<Props, State> {
   state = {
     services: null,
-  };
-
-  static defaultProps = {
-    searchString: "search",
-    language: {
-      id: "us",
-    },
-    currency: { id: "gbp" },
-    searchForm: {
-      mode: "oneWay",
-      destination: {
-        type: "2",
-        name: "Warsaw",
-      },
-      checkIn: new Date(),
-      checkOut: null,
-      adults: 1,
-      children: 0,
-    },
   };
 
   componentDidMount() {

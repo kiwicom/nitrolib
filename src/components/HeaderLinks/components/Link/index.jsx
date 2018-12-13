@@ -1,12 +1,34 @@
 // @flow strict
 import * as React from "react";
+import styled, { css } from "styled-components";
+import {
+  AirplaneUp,
+  CarRental,
+  Accommodation,
+  Suitcase,
+} from "@kiwicom/orbit-components/lib/icons";
 
+import mq from "../../../../styles/mq";
 import IconWrapper from "../../primitives/IconWrapper";
 import StyledLink from "../../primitives/StyledLink";
 
+const mapIcons = {
+  travel: <AirplaneUp />,
+  cars: <CarRental />,
+  rooms: <Accommodation />,
+  holidays: <Suitcase />,
+  logitravel: <Suitcase />,
+};
+
+const Icon = styled.div`
+  ${mq.gtTablet(css`
+    display: none;
+  `)}
+`;
+
 type Props = {
   link: string,
-  icon?: React.Node,
+  icon: string,
   text: React.Node,
   inverted?: boolean,
   active: boolean,
@@ -21,7 +43,11 @@ const Link = ({ active, link, newWindow, icon, text, inverted }: Props) => (
     target={newWindow ? "_blank" : null}
     rel={newWindow ? "noopener noreferrer" : null}
   >
-    <IconWrapper>{icon}</IconWrapper>
+    {icon && mapIcons[icon] && (
+      <Icon>
+        <IconWrapper>{mapIcons[icon]}</IconWrapper>
+      </Icon>
+    )}
     {text}
   </StyledLink>
 );
