@@ -1,6 +1,7 @@
 // @flow strict
 
 import { handleJSON } from "../../../services/fetch/handlers";
+import type { Splitster } from "../index";
 
 // Types
 type GetNavBarLinks = {
@@ -8,7 +9,7 @@ type GetNavBarLinks = {
   language: { id: string },
   currency: string,
   searchForm: any,
-  splitster: {},
+  splitster: Splitster,
 };
 
 export default function getNavBarLinks({

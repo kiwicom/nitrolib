@@ -24,10 +24,13 @@ const Margin = styled.div`
   `)};
 `;
 
+// Types
 type Services = Item[] | null;
 
-type State = {|
-  services: ?Services,
+export type Splitster = {|
+  HEADER_LINKS_PACKAGE_PROVIDER: string,
+  HEADER_LINKS_PACKAGE_PROVIDER_LASTMINUTE: string,
+  HEADER_LINKS_ROOMS_PROVIDER: string,
 |};
 
 type Props = {|
@@ -38,7 +41,11 @@ type Props = {|
   currency: string,
   searchForm: any,
   testResponse?: Services,
-  splitster: {},
+  splitster: Splitster,
+|};
+
+type State = {|
+  services: ?Services,
 |};
 
 class HeaderLinks extends React.Component<Props, State> {

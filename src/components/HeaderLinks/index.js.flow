@@ -1,5 +1,11 @@
 // @flow strict
 
+export type Splitster = {|
+  HEADER_LINKS_PACKAGE_PROVIDER: string,
+  HEADER_LINKS_PACKAGE_PROVIDER_LASTMINUTE: string,
+  HEADER_LINKS_ROOMS_PROVIDER: string,
+|};
+
 type SearchForm = {|
   destination: { type: string, name: string },
   checkIn?: Date,
@@ -15,6 +21,7 @@ type Props = {|
   },
   currency: { id: string },
   searchForm: SearchForm,
+  splitster: Splitster,
 |};
 
 declare export default React.ComponentType<Props>;
