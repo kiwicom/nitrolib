@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import styled, { css } from "styled-components";
 import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 

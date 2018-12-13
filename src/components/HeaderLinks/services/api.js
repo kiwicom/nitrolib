@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import { handleJSON } from "../../../services/fetch/handlers";
 

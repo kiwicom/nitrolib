@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import styled, { css } from "styled-components";
 
 import mq from "../../../styles/mq";

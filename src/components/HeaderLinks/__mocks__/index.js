@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 export const props = {
   searchString: "search",
   language: {

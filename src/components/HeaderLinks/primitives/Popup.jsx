@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import styled from "styled-components";
 
 import { themeDefault } from "../../../records/Theme";
