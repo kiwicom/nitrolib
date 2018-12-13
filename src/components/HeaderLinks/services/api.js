@@ -6,7 +6,7 @@ import { handleJSON } from "../../../services/fetch/handlers";
 type GetNavBarLinks = {
   searchString: string,
   language: { id: string },
-  currency: string,
+  currency: { id: string },
   searchForm: any,
 };
 

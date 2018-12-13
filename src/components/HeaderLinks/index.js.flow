@@ -2,10 +2,15 @@
 
 import * as React from "react";
 
+import type { Item } from "./components/Links";
+
+type Services = Item[] | null;
+
 type SearchForm = {|
+  mode: string,
   destination: { type: string, name: string },
-  checkIn?: Date,
-  checkOut?: Date,
+  checkIn?: ?Date,
+  checkOut?: ?Date,
   adults: number,
   children: number,
 |};
@@ -17,6 +22,7 @@ type Props = {|
   },
   currency: { id: string },
   searchForm: SearchForm,
+  testResponse?: Services,
 |};
 
 declare export default React.ComponentType<Props>;

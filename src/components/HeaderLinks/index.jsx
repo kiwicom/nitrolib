@@ -25,10 +25,16 @@ const Margin = styled.div`
   `)}
 `;
 
+// Types
 type Services = Item[] | null;
 
-type State = {|
-  services: ?Services,
+type SearchForm = {|
+  mode: string,
+  destination: { type: string, name: string },
+  checkIn?: Date,
+  checkOut?: Date | null,
+  adults: number,
+  children: number,
 |};
 
 type Props = {|
@@ -36,9 +42,15 @@ type Props = {|
   language: {
     id: string,
   },
-  currency: string,
-  searchForm: any,
+  currency: {
+    id: string,
+  },
+  searchForm: SearchForm,
   testResponse?: Services,
+|};
+
+type State = {|
+  services: ?Services,
 |};
 
 class HeaderLinks extends React.Component<Props, State> {
