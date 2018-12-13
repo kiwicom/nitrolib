@@ -25,6 +25,7 @@ type Props = {|
   },
   searchForm: SearchForm,
   testResponse?: Services,
+  splitster: {},
 |};
 
 declare export default React.ComponentType<Props>;

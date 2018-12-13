@@ -1,6 +1,7 @@
 // @flow
 
 import { handleJSON } from "../../../services/fetch/handlers";
+import setSplitsterCookies from "./splitsterCookies";
 
 // Types
 type GetNavBarLinks = {
@@ -8,6 +9,7 @@ type GetNavBarLinks = {
   language: { id: string },
   currency: { id: string },
   searchForm: any,
+  splitster: {},
 };
 
 export default function getNavBarLinks({
@@ -15,6 +17,7 @@ export default function getNavBarLinks({
   language,
   currency,
   searchForm,
+  splitster,
 }: GetNavBarLinks) {
   return fetch("http://localhost:3000/navbar", {
     method: "POST",
@@ -26,6 +29,9 @@ export default function getNavBarLinks({
       language,
       currency,
       searchForm,
+      splitster,
     }),
-  }).then(handleJSON);
+  })
+    .then(handleJSON)
+    .then(setSplitsterCookies);
 }

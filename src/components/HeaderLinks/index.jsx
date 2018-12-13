@@ -47,6 +47,7 @@ type Props = {|
   },
   searchForm: SearchForm,
   testResponse?: Services,
+  splitster: {},
 |};
 
 type State = {|
@@ -63,7 +64,7 @@ class HeaderLinks extends React.Component<Props, State> {
   }
 
   getNavBarLinks = async () => {
-    const { searchString, language, currency, searchForm, testResponse } = this.props;
+    const { searchString, language, currency, searchForm, testResponse, splitster } = this.props;
 
     if (testResponse) {
       this.setState({ services: testResponse });
@@ -75,6 +76,7 @@ class HeaderLinks extends React.Component<Props, State> {
           language,
           currency,
           searchForm,
+          splitster,
         });
 
         // Update state
