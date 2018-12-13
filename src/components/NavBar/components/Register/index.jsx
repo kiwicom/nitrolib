@@ -164,7 +164,7 @@ export default class Register extends React.PureComponent<Props, State> {
         onCloseSuccess();
       })
       .catch(err => {
-        const msg = String(err);
+        const msg = err.message;
 
         this.setState({ error: ERRORS[msg] || msg });
       });

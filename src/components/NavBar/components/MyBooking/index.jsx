@@ -188,7 +188,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
     })
       .then(onCloseSuccess)
       .catch(err => {
-        const msg = String(err);
+        const msg = err.message;
 
         if (msg === "Booking not found") {
           this.setState({ error: __("account.my_booking_login_incorrect") });

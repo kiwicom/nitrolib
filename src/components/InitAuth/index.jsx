@@ -70,6 +70,10 @@ export default class InitAuth extends React.PureComponent<Props, State> {
       .then(onMyBooking)
       .then(() => {
         this.setState({ loading: false });
+      })
+      .catch(err => {
+        this.setState({ loading: false });
+        return Promise.reject(err);
       });
   };
 
@@ -82,6 +86,10 @@ export default class InitAuth extends React.PureComponent<Props, State> {
       .then(onRegister)
       .then(() => {
         this.setState({ loading: false });
+      })
+      .catch(err => {
+        this.setState({ loading: false });
+        return Promise.reject(err);
       });
   };
 
@@ -94,6 +102,10 @@ export default class InitAuth extends React.PureComponent<Props, State> {
       .then(onSocialAuth)
       .then(() => {
         this.setState({ loading: false });
+      })
+      .catch(err => {
+        this.setState({ loading: false });
+        return Promise.reject(err);
       });
   };
 
@@ -101,10 +113,16 @@ export default class InitAuth extends React.PureComponent<Props, State> {
     const { brand, onSignIn } = this.props;
 
     this.setState({ loading: true });
-    return api.signIn({ email, password, brand: brand.id }).then(auth => {
-      onSignIn(auth.token);
-      this.setState({ auth, loading: false });
-    });
+    return api
+      .signIn({ email, password, brand: brand.id })
+      .then(auth => {
+        onSignIn(auth.token);
+        this.setState({ auth, loading: false });
+      })
+      .catch(err => {
+        this.setState({ loading: false });
+        return Promise.reject(err);
+      });
   };
 
   handleSignOut = () => {
