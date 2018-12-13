@@ -102,63 +102,60 @@ const NavBar = ({
   onSelectTrip,
   onLogoClick,
 }: Props) => (
-  // $FlowExpected: TODO describe
-  <React.StrictMode>
-    <Container x="space-between" y="center" dataTest="Navbar" inverted={inverted}>
-      <Flex y="center" x="flex-start">
-        <Logo inverted={inverted} onClick={onLogoClick} />
-        {headerLinks && (
-          <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
-        )}
-      </Flex>
-      <Flex y="center">
-        <Wrapper>
-          <Desktop display="flex">
-            <WrapperChild>
-              <ButtonWrapper>
-                <WrapperChild>
-                  <Language
-                    positionMenuDesktop={270}
-                    positionMenuTablet={5}
-                    inverted={inverted}
-                    onChange={onSaveLanguage}
-                    onSetModal={onSetModal}
-                  />
-                </WrapperChild>
-                <WrapperChild>
-                  <Currency
-                    positionMenuDesktop={270}
-                    positionMenuTablet={5}
-                    inverted={inverted}
-                    onSetModal={onSetModal}
-                  />
-                </WrapperChild>
-                <WrapperChild>
-                  <Help onOpen={onOpenFaq} inverted={inverted} />
-                </WrapperChild>
-              </ButtonWrapper>
-            </WrapperChild>
-          </Desktop>
-          <WrapperChild>{starred}</WrapperChild>
-          <Mobile>
-            <WrapperChild>
-              <Help onOpen={onOpenFaq} inverted={inverted} />
-            </WrapperChild>
-          </Mobile>
-          <Menu
-            chat={chat}
-            subscription={subscription}
-            debug={debug}
-            onSetModal={onSetModal}
-            onSaveLanguage={onSaveLanguage}
-            onSelectTrip={onSelectTrip}
-            inverted={inverted}
-            portal={portal}
-          />
-        </Wrapper>
-      </Flex>
-    </Container>
-  </React.StrictMode>
+  <Container x="space-between" y="center" dataTest="Navbar" inverted={inverted}>
+    <Flex y="center" x="flex-start">
+      <Logo inverted={inverted} onClick={onLogoClick} />
+      {headerLinks && (
+        <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
+      )}
+    </Flex>
+    <Flex y="center">
+      <Wrapper>
+        <Desktop display="flex">
+          <WrapperChild>
+            <ButtonWrapper>
+              <WrapperChild>
+                <Language
+                  positionMenuDesktop={270}
+                  positionMenuTablet={5}
+                  inverted={inverted}
+                  onChange={onSaveLanguage}
+                  onSetModal={onSetModal}
+                />
+              </WrapperChild>
+              <WrapperChild>
+                <Currency
+                  positionMenuDesktop={270}
+                  positionMenuTablet={5}
+                  inverted={inverted}
+                  onSetModal={onSetModal}
+                />
+              </WrapperChild>
+              <WrapperChild>
+                <Help onOpen={onOpenFaq} inverted={inverted} />
+              </WrapperChild>
+            </ButtonWrapper>
+          </WrapperChild>
+        </Desktop>
+        <WrapperChild>{starred}</WrapperChild>
+        <Mobile>
+          <WrapperChild>
+            <Help onOpen={onOpenFaq} inverted={inverted} />
+          </WrapperChild>
+        </Mobile>
+        <Menu
+          chat={chat}
+          subscription={subscription}
+          debug={debug}
+          onSetModal={onSetModal}
+          onSaveLanguage={onSaveLanguage}
+          onSelectTrip={onSelectTrip}
+          inverted={inverted}
+          portal={portal}
+        />
+      </Wrapper>
+    </Flex>
+  </Container>
 );
 
 NavBar.defaultProps = {
