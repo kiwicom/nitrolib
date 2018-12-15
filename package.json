@@ -111,7 +111,7 @@
     "eslint-plugin-react": "^7.11.1",
     "flow-bin": "^0.87.0",
     "graphql": "^14.0.2",
-    "graphql-cli": "^2.17.0",
+    "graphql-cli": "^3.0.0",
     "gulp": "^4.0.0",
     "jest": "^23.6.0",
     "jest-styled-components": "^6.3.1",
