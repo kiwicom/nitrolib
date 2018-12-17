@@ -98,7 +98,7 @@ class HeaderLinks extends React.Component<Props, State> {
         onFetch(services);
       }
     } catch (err) {
-      context.log({ event: "Header links error", data: null });
+      context.log({ event: "Header links error", data: err });
     }
   };
 
