@@ -5,16 +5,19 @@ import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
-import type { Item } from "./components/Links";
+import type { HeaderLink } from "./records/HeaderLink";
 import mq from "../../styles/mq";
 import ClickOutside from "../ClickOutside";
 import Toggle from "../Toggle";
 import Popup from "./primitives/Popup";
 import IconWrapper from "./primitives/IconWrapper";
-import Links from "./components/Links/index";
+import Links from "./components/Links";
 import Desktop from "../Desktop";
 import Mobile from "../Mobile";
 import getNavBarLinks from "./services/api";
+import withLog from "../../services/log/decorator";
+import type { Decorated } from "../../services/log/decorator";
+import type { Context } from "../../services/log/context";
 
 const Margin = styled.div`
   ${mq.ltDesktop(css`
@@ -25,8 +28,6 @@ const Margin = styled.div`
     margin-${/* sc-custom "left" */ left}: 0;
   `)}
 `;
-
-type Services = Item[] | null;
 
 type SearchForm = {|
   mode: string,
@@ -46,13 +47,15 @@ type Props = {|
     id: string,
   },
   searchForm: SearchForm,
-  testResponse?: Services,
+  testResponse?: HeaderLink[],
   splitster: $FlowFixMe, // TODO specify types
   onFetch?: (services: $FlowFixMe) => void, // TODO specify types
+  // context
+  context: Context<"Header links error", null>,
 |};
 
 type State = {|
-  services: Services | null,
+  services: HeaderLink[] | null,
 |};
 
 class HeaderLinks extends React.Component<Props, State> {
@@ -73,6 +76,7 @@ class HeaderLinks extends React.Component<Props, State> {
       testResponse,
       splitster,
       onFetch,
+      context,
     } = this.props;
 
     if (testResponse) {
@@ -94,7 +98,7 @@ class HeaderLinks extends React.Component<Props, State> {
         onFetch(services);
       }
     } catch (err) {
-      // TODO handle error
+      context.log({ event: "Header links error", data: null });
     }
   };
 
@@ -134,4 +138,6 @@ class HeaderLinks extends React.Component<Props, State> {
   }
 }
 
-export default HeaderLinks;
+const WithLogHeaderLinks: Decorated<Props> = withLog(HeaderLinks);
+
+export default WithLogHeaderLinks;

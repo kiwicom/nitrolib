@@ -2,10 +2,13 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import HeaderLinks from "..";
+import HeaderLinksWrapped from "..";
 
-import Link from "../components/Link";
-import Links from "../components/Links";
+import Link from "../components/Link/index";
+import Links from "../components/Links/index";
+
+// $FlowExpected: It is there
+const HeaderLinks = HeaderLinksWrapped.WrappedComponent;
 
 const props = {
   searchString: "Suche",

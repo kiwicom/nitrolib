@@ -1,14 +1,19 @@
 // @flow strict
 import { handleJSON } from "../../../services/fetch/handlers";
 import { JSON_BOTH } from "../../../services/fetch/headers";
+import type { HeaderLink } from "../records/HeaderLink";
 
-type GetNavBarLinks = {
+export type HeaderLinksInput = {|
   searchString: string,
   language: { id: string },
   currency: { id: string },
   searchForm: $FlowFixMe, // TODO specify types
   splitster: $FlowFixMe, // TODO specify types
-};
+|};
+
+export type HeaderLinksRes = {|
+  items: HeaderLink[],
+|};
 
 const getNavBarLinks = ({
   searchString,
@@ -16,7 +21,7 @@ const getNavBarLinks = ({
   currency,
   searchForm,
   splitster,
-}: GetNavBarLinks): Promise<$FlowFixMe> => // TODO specify types
+}: HeaderLinksInput): Promise<HeaderLinksRes> =>
   fetch("http://localhost:3000/navbar", {
     method: "POST",
     headers: JSON_BOTH,
