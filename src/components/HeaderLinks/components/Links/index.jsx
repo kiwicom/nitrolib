@@ -1,18 +1,12 @@
 // @flow strict
 import * as React from "react";
 
-import Link from "../Link/index";
-import Text from "../../../Text/index";
-
-export type Item = {|
-  id: string,
-  translation: string,
-  newWindow: boolean,
-  url: string,
-|};
+import Link from "../Link";
+import Text from "../../../Text";
+import type { HeaderLink } from "../../records/HeaderLink";
 
 type Props = {|
-  services: Item[],
+  services: HeaderLink[],
 |};
 
 const Links: Props => React.Node = ({ services }) =>
