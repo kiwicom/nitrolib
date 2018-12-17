@@ -52,26 +52,29 @@ const buildLink = (baseUrl: string, params: Params) => {
     .filter(Boolean)
     .join("&");
 
-  return `${baseUrl}${urlParams.destination ? "searchresults" : "index"}.html${query &&
-    `${baseUrl.includes("?") ? "&" : "?"}${query}`}`;
+  return {
+    base: baseUrl,
+    query: `${urlParams.destination ? "searchresults" : "index"}.html${query &&
+      `${baseUrl.includes("?") ? "&" : "?"}${query}`}`,
+  };
 };
 
 const PROVIDERS = {
   booking: (params: Params) =>
-    buildLink("https://www.booking.com/", {
+    buildLink("BOOKING", {
       ...params,
       aid: "aid=1549681",
     }),
   roomsKiwi: (params: Params) =>
-    buildLink("https://rooms.kiwi.com/", {
+    buildLink("ROOMS_KIWI", {
       ...params,
-      label: "label=headerlinks",
+      label: "headerlinks",
     }),
   roomsKiwiCode: (params: Params) =>
-    buildLink("https://rooms.kiwi.com/", {
+    buildLink("ROOMS_KIWI_CODE", {
       ...params,
       aid: "aid=1549200",
-      label: "label=headerlinks",
+      label: "headerlinks",
     }),
 };
 
