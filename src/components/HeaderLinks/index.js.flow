@@ -1,13 +1,36 @@
 // @flow strict
 import * as React from "react";
 
+type Item = {|
+  id: string,
+  translation: string,
+  newWindow: boolean,
+  url: string,
+|};
+
+type Services = Item[] | null;
+
+type SearchForm = {|
+  mode: string,
+  destination: { type: string, name: string },
+  checkIn: Date,
+  checkOut: Date | null,
+  adults: number,
+  children: number,
+|};
+
 type Props = {|
-  linkFlights: string,
-  linkCars: string,
-  linkRooms: string,
-  linkHolidays: string, // empty string to omit
-  forceNewWindow?: boolean, // force opening links in a new window
-  inverted?: boolean, // colors
+  searchString: string,
+  language: {
+    id: string,
+  },
+  currency: {
+    id: string,
+  },
+  searchForm: SearchForm,
+  splitster: $FlowFixMe, // TODO specify types
+  testResponse?: $FlowFixMe, // TODO specify types
+  onFetch?: (services: Services) => void,
 |};
 
 declare export default React.ComponentType<Props>;
