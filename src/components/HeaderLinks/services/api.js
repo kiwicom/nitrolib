@@ -1,29 +1,25 @@
-// @flow
-
+// @flow strict
 import { handleJSON } from "../../../services/fetch/handlers";
-import setSplitsterCookies from "./splitsterCookies";
+import { JSON_BOTH } from "../../../services/fetch/headers";
 
-// Types
 type GetNavBarLinks = {
   searchString: string,
   language: { id: string },
   currency: { id: string },
-  searchForm: any,
-  splitster: {},
+  searchForm: $FlowFixMe, // TODO specify types
+  splitster: $FlowFixMe, // TODO specify types
 };
 
-export default function getNavBarLinks({
+const getNavBarLinks = ({
   searchString,
   language,
   currency,
   searchForm,
   splitster,
-}: GetNavBarLinks) {
-  return fetch("http://localhost:3000/navbar", {
+}: GetNavBarLinks): Promise<$FlowFixMe> => // TODO specify types
+  fetch("http://localhost:3000/navbar", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: JSON_BOTH,
     body: JSON.stringify({
       searchString,
       language,
@@ -31,7 +27,6 @@ export default function getNavBarLinks({
       searchForm,
       splitster,
     }),
-  })
-    .then(handleJSON)
-    .then(setSplitsterCookies);
-}
+  }).then(handleJSON);
+
+export default getNavBarLinks;

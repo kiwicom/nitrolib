@@ -18,14 +18,14 @@ import getNavBarLinks from "./services/api";
 
 const Margin = styled.div`
   ${mq.ltDesktop(css`
-    margin-${left}: 20px;
+    margin-${/* sc-custom "left" */ left}: 20px;
   `)}
+
   ${mq.ltSmallMobile(css`
-    margin-${left}: 0;
+    margin-${/* sc-custom "left" */ left}: 0;
   `)}
 `;
 
-// Types
 type Services = Item[] | null;
 
 type SearchForm = {|
@@ -47,11 +47,12 @@ type Props = {|
   },
   searchForm: SearchForm,
   testResponse?: Services,
-  splitster: {},
+  splitster: $FlowFixMe, // TODO specify types
+  onFetch?: (services: $FlowFixMe) => void, // TODO specify types
 |};
 
 type State = {|
-  services: ?Services,
+  services: Services | null,
 |};
 
 class HeaderLinks extends React.Component<Props, State> {
@@ -64,33 +65,42 @@ class HeaderLinks extends React.Component<Props, State> {
   }
 
   getNavBarLinks = async () => {
-    const { searchString, language, currency, searchForm, testResponse, splitster } = this.props;
+    const {
+      searchString,
+      language,
+      currency,
+      searchForm,
+      testResponse,
+      splitster,
+      onFetch,
+    } = this.props;
 
     if (testResponse) {
       this.setState({ services: testResponse });
-    } else {
-      try {
-        // Fetch services
-        const services = await getNavBarLinks({
-          searchString,
-          language,
-          currency,
-          searchForm,
-          splitster,
-        });
+      return;
+    }
 
-        // Update state
-        this.setState({ services: services.items });
-      } catch (e) {
-        // TODO: Track error
+    try {
+      const services = await getNavBarLinks({
+        searchString,
+        language,
+        currency,
+        searchForm,
+        splitster,
+      });
+
+      this.setState({ services: services.items });
+      if (onFetch) {
+        onFetch(services);
       }
+    } catch (err) {
+      // TODO handle error
     }
   };
 
   render() {
     const { services } = this.state;
 
-    // Hide until response
     if (!services) return null;
 
     return (

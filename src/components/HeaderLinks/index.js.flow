@@ -1,8 +1,12 @@
 // @flow strict
-
 import * as React from "react";
 
-import type { Item } from "./components/Links";
+type Item = {|
+  id: string,
+  translation: string,
+  newWindow: boolean,
+  url: string,
+|};
 
 type Services = Item[] | null;
 
@@ -24,8 +28,9 @@ type Props = {|
     id: string,
   },
   searchForm: SearchForm,
-  testResponse?: Services,
-  splitster: {},
+  splitster: $FlowFixMe, // TODO specify types
+  testResponse?: $FlowFixMe, // TODO specify types
+  onFetch?: (services: Services) => void,
 |};
 
 declare export default React.ComponentType<Props>;
