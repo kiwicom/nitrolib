@@ -37,7 +37,7 @@ type Props = {|
   searchForm: SearchForm | null,
   splitster: Splitster,
   onFetch?: (services: HeaderLinksRes) => void,
-  testResponse?: HeaderLink[],
+  testResponse?: HeaderLinksRes,
   // context
   context: Context<"Header links error", null>, // TODO consts or whatever
 |};
@@ -68,7 +68,7 @@ class HeaderLinks extends React.Component<Props, State> {
     } = this.props;
 
     if (testResponse) {
-      this.setState({ services: testResponse });
+      this.setState({ services: testResponse.items });
       return;
     }
 
