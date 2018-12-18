@@ -22,7 +22,7 @@ const getNavBarLinks = ({
   searchForm,
   splitster,
 }: HeaderLinksInput): Promise<HeaderLinksRes> =>
-  fetch("http://localhost:3000/navbar", {
+  fetch("https://ancillaries-integration.skypicker.com/navbar", {
     method: "POST",
     headers: JSON_BOTH,
     body: JSON.stringify({
