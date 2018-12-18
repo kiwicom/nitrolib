@@ -1,24 +1,16 @@
 // @flow strict
 import * as React from "react";
 
-import type { HeaderLink } from "./records/HeaderLink";
-
-type SearchForm = {|
-  mode: string,
-  destination: { type: string, name: string },
-  checkIn: Date,
-  checkOut: Date | null,
-  adults: number,
-  children: number,
-|};
+import type { Splitster, HeaderLinksRes } from "./services/api";
+import type { HeaderLink, SearchForm } from "./records/HeaderLink";
 
 type Props = {|
   searchString: string, // The 'search' word translated for a proper redirection
   languageId: string,
   currencyId: string,
   searchForm: SearchForm | null,
-  splitster: $FlowFixMe, // TODO specify types
-  onFetch?: (services: $FlowFixMe) => void, // TODO specify types
+  splitster: Splitster,
+  onFetch?: (services: HeaderLinksRes) => void,
   testResponse?: HeaderLink[], // TODO DI actual API call
 |};
 
