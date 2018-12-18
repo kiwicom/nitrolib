@@ -31,7 +31,7 @@ const Margin = styled.div`
 
 type SearchForm = {|
   mode: string,
-  destination: { type: string, name: string },
+  destination: { type: string, name: string }, // TODO move proper search form into records @vacuum
   checkIn: Date,
   checkOut: Date | null,
   adults: number,
@@ -40,18 +40,14 @@ type SearchForm = {|
 
 type Props = {|
   searchString: string,
-  language: {
-    id: string,
-  },
-  currency: {
-    id: string,
-  },
-  searchForm: SearchForm,
-  testResponse?: HeaderLink[],
+  languageId: string,
+  currencyId: string,
+  searchForm: SearchForm | null,
   splitster: $FlowFixMe, // TODO specify types
   onFetch?: (services: $FlowFixMe) => void, // TODO specify types
+  testResponse?: HeaderLink[], // TODO DI actual API call
   // context
-  context: Context<"Header links error", null>,
+  context: Context<"Header links error", null>, // TODO consts or whatever
 |};
 
 type State = {|
@@ -70,8 +66,8 @@ class HeaderLinks extends React.Component<Props, State> {
   getNavBarLinks = async () => {
     const {
       searchString,
-      language,
-      currency,
+      languageId,
+      currencyId,
       searchForm,
       testResponse,
       splitster,
@@ -87,8 +83,8 @@ class HeaderLinks extends React.Component<Props, State> {
     try {
       const services = await getNavBarLinks({
         searchString,
-        language,
-        currency,
+        languageId,
+        currencyId,
         searchForm,
         splitster,
       });

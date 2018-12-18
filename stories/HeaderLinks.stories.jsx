@@ -7,12 +7,8 @@ import withData from "./decorators/withData";
 
 const props = {
   searchString: "Suche",
-  language: {
-    id: "de",
-  },
-  currency: {
-    id: "gbp",
-  },
+  languageId: "de",
+  currencyId: "GBP",
   searchForm: {
     mode: "oneWay",
     destination: {

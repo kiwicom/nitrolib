@@ -5,8 +5,8 @@ import type { HeaderLink } from "../records/HeaderLink";
 
 export type HeaderLinksInput = {|
   searchString: string,
-  language: { id: string },
-  currency: { id: string },
+  languageId: string,
+  currencyId: string,
   searchForm: $FlowFixMe, // TODO specify types
   splitster: $FlowFixMe, // TODO specify types
 |};
@@ -17,8 +17,8 @@ export type HeaderLinksRes = {|
 
 const getNavBarLinks = ({
   searchString,
-  language,
-  currency,
+  languageId,
+  currencyId,
   searchForm,
   splitster,
 }: HeaderLinksInput): Promise<HeaderLinksRes> =>
@@ -27,8 +27,8 @@ const getNavBarLinks = ({
     headers: JSON_BOTH,
     body: JSON.stringify({
       searchString,
-      language,
-      currency,
+      language: { id: languageId },
+      currency: { id: currencyId },
       searchForm,
       splitster,
     }),

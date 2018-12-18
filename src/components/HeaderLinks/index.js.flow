@@ -1,14 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-type Item = {|
-  id: string,
-  translation: string,
-  newWindow: boolean,
-  url: string,
-|};
-
-type Services = Item[] | null;
+import type { HeaderLink } from "./records/HeaderLink";
 
 type SearchForm = {|
   mode: string,
@@ -20,17 +13,13 @@ type SearchForm = {|
 |};
 
 type Props = {|
-  searchString: string,
-  language: {
-    id: string,
-  },
-  currency: {
-    id: string,
-  },
-  searchForm: SearchForm,
+  searchString: string, // The 'search' word translated for a proper redirection
+  languageId: string,
+  currencyId: string,
+  searchForm: SearchForm | null,
   splitster: $FlowFixMe, // TODO specify types
-  testResponse?: $FlowFixMe, // TODO specify types
-  onFetch?: (services: Services) => void,
+  onFetch?: (services: $FlowFixMe) => void, // TODO specify types
+  testResponse?: HeaderLink[], // TODO DI actual API call
 |};
 
 declare export default React.ComponentType<Props>;
