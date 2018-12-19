@@ -73,12 +73,14 @@ class Baggage extends React.Component<Props> {
         />
         <BaggagePicker
           title="Cabin baggage"
+          tooltip="Includes smaller bags that can be taken into the cabin and stored in the overhead locker or under your seat."
           options={handBagOptions}
           selectedIndex={handBag}
           onChange={changeBagCombination}
         />
         <BaggagePicker
           title="Checked baggage"
+          tooltip="Includes larger baggage items that you must deposit at the airline check-in counter before going through security at the airport."
           options={holdBagOptions}
           selectedIndex={holdBag}
           onChange={changeBagCombination}

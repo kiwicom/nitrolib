@@ -1,5 +1,6 @@
 // @flow
 import * as React from "react";
+import styled from "styled-components";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import InformationCircle from "@kiwicom/orbit-components/lib/icons/InformationCircle";
@@ -7,6 +8,7 @@ import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import ChevronUp from "@kiwicom/orbit-components/lib/icons/ChevronUp";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
+import Tooltip from "../Tooltip";
 import Flex from "../../primitives/Flex";
 import type { OptionBaggage } from "../../records/Baggage";
 import Options from "./BaggeOptions";
@@ -18,11 +20,20 @@ type State = {
 
 type Props = {|
   options: Array<OptionBaggage>,
+  tooltip: string,
   title: string,
   onChange: (bagtype: string, index: number) => void,
-  selectedIndex: string,
+  selectedIndex: number,
 |};
 
+const TooltipContent = styled.p`
+  width: 240px;
+  border-radius: 3px;
+  box-shadow: 0 4px 12px 0 rgba(23, 27, 30, 0.3);
+  line-height: 1.33;
+  font-size: 12px;
+  padding: 9px 11px;
+`;
 class BaggagePicker extends React.Component<Props, State> {
   state = {
     showedItems: [],
@@ -59,16 +70,18 @@ class BaggagePicker extends React.Component<Props, State> {
   };
 
   render() {
-    const { title, options, selectedIndex, onChange } = this.props;
+    const { title, tooltip, options, selectedIndex, onChange } = this.props;
     const { showedItems, hiddenItems } = this.state;
 
     return (
       <Stack spacing="condensed">
         <Stack align="center" spacing="tight">
-          <Text weight="bold" uppercase>
+          <Text weight="bold" uppercase element="span">
             {title}
           </Text>
-          <InformationCircle size="small" color="secondary" />
+          <Tooltip tip={<TooltipContent>{tooltip}</TooltipContent>} position="right">
+            <InformationCircle size="small" color="secondary" />
+          </Tooltip>
         </Stack>
         <Text>Select one option:</Text>
         {showedItems.map(item => (
