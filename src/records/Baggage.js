@@ -28,21 +28,6 @@ export type Definition<C: BaggageSubCategory> = {
   },
 };
 
-export type Item = {
-  [string]: {
-    amount: number,
-    subcategory: BaggageSubCategory,
-    restrictions: Restrictions,
-  },
-};
-
-export type Option = {
-  originalIndex: number,
-  category: BaggageCategory,
-  price: Price,
-  items: Item,
-};
-
 export type HandBagDefinition = Definition<"personalItem" | "cabinBag">;
 export type HoldBagDefinition = Definition<"holdBag">;
 
@@ -87,4 +72,17 @@ export type Combinations = {|
 export type BaggageType = {
   definitions: Definitions, // Definitions same as from api
   combinations: Combinations,
+};
+
+export type Item = {
+  amount: number,
+  category: string,
+  restrictions: Restrictions,
+};
+
+export type OptionBaggage = {
+  originalIndex: number,
+  bagType: string,
+  price: Price,
+  items: { [key: string]: Item },
 };
