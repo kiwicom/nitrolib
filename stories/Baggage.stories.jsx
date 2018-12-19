@@ -2,10 +2,9 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 
-import type { BaggageType } from "../src/components/Baggage/types";
+import type { BaggageType } from "../src/records/Baggage";
 import Baggage from "../src/components/Baggage";
 import baggageData from "../src/components/Baggage/baggageData";
-
 
 const props = {
   passengerIndex: 0,
