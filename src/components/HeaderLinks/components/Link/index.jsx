@@ -1,12 +1,10 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
-import {
-  AirplaneUp,
-  CarRental,
-  Accommodation,
-  Suitcase,
-} from "@kiwicom/orbit-components/lib/icons";
+import AirplaneUp from "@kiwicom/orbit-components/lib/icons/AirplaneUp";
+import CarRental from "@kiwicom/orbit-components/lib/icons/CarRental";
+import Accommodation from "@kiwicom/orbit-components/lib/icons/Accommodation";
+import Suitcase from "@kiwicom/orbit-components/lib/icons/Suitcase";
 
 import mq from "../../../../styles/mq";
 import IconWrapper from "../../primitives/IconWrapper";
@@ -20,20 +18,29 @@ const mapIcons = {
   logitravel: <Suitcase />,
 };
 
+// These exist just to be collected
+// eslint-disable-next-line no-unused-vars
+const KEYS = {
+  travel: __("search.service.travel_anywhere"),
+  rooms: __("search.service.rooms"),
+  cars: __("search.service.cars"),
+  holidays: __("search.service.holidays"),
+};
+
 const Icon = styled.div`
   ${mq.gtTablet(css`
     display: none;
   `)}
 `;
 
-type Props = {
+type Props = {|
   link: string,
   icon: string,
   text: React.Node,
-  inverted?: boolean,
   active: boolean,
   newWindow: boolean,
-};
+  inverted?: boolean,
+|};
 
 const Link = ({ active, link, newWindow, icon, text, inverted }: Props) => (
   <StyledLink

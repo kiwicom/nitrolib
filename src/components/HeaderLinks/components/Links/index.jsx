@@ -2,25 +2,22 @@
 import * as React from "react";
 
 import Link from "../Link";
-import Text from "../../../Text";
+import Translate from "../../../Translate";
 import type { HeaderLink } from "../../records/HeaderLink";
 
 type Props = {|
   services: HeaderLink[],
 |};
 
-const Links: Props => React.Node = ({ services }) =>
-  services.map(
-    item =>
-      item && (
-        <Link
-          logTab={item.id}
-          link={item.url}
-          icon={item.id}
-          text={<Text t={item.translation} />}
-          newWindow={item.newWindow}
-        />
-      ),
-  );
+const Links = ({ services }: Props): React.Node[] =>
+  services.map(item => (
+    <Link
+      key={item.id}
+      link={item.url}
+      icon={item.id}
+      text={<Translate t={item.translation} />}
+      newWindow={item.newWindow}
+    />
+  ));
 
 export default Links;

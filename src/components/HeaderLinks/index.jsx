@@ -4,6 +4,7 @@ import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
+import Text from "@kiwicom/orbit-components/lib/Text";
 
 import mq from "../../styles/mq";
 import ClickOutside from "../ClickOutside";
@@ -96,7 +97,9 @@ class HeaderLinks extends React.Component<Props, State> {
     if (!services) return null;
 
     return (
-      <>
+      // 'StyledLink' css was heavily incompatible with 'Text', so it had to be moved here
+      // TODO cleanup @viktr
+      <Text>
         <Mobile display="flex">
           <Margin>
             <Toggle>
@@ -121,7 +124,7 @@ class HeaderLinks extends React.Component<Props, State> {
         <Desktop display="flex">
           {services && services.length > 0 && <Links services={services} />}
         </Desktop>
-      </>
+      </Text>
     );
   }
 }

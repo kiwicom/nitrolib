@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import styled, { css } from "styled-components";
 import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
@@ -45,31 +45,30 @@ const StyledLink = styled.a`
     padding-${/* sc-custom "left" */ left}: 10px;
     font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextLarge};
     font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
-    &:first-child {
-      &:link, &:visited {
+
+    i {
+      padding-${/* sc-custom "right" */ right}: 10px;
+    }
+
+    &:link, &:visited {
+      color: ${({ theme }: LinkProps) => theme.orbit.paletteInkNormal};
+      
+      &:hover {
+        color: ${({ theme }: LinkProps) => theme.orbit.paletteProductNormal};
+        
+        i {
+          color: ${({ theme }) => theme.orbit.paletteInkNormal};
+        }
+      }
+
+      &:first-child {
         color: ${({ theme }: LinkProps) => theme.orbit.paletteProductNormal};
         i {
           color: ${({ theme }) => theme.orbit.paletteInkNormal};
         }
       }
     }
-
-    &:link, &:visited {
-      color: ${({ theme }: LinkProps) => theme.orbit.paletteInkNormal};
-    }
-
-    &:hover {
-      &:link, &:visited {
-        color: ${({ theme }: LinkProps) => theme.orbit.paletteProductNormal};
-      }
-      i {
-        color: ${({ theme }) => theme.orbit.paletteInkNormal};
-      }
-    }
-    i {
-      padding-${/* sc-custom "right" */ right}: 10px;
-    }
-    `)}
+  `)}
 `;
 
 StyledLink.defaultProps = {
