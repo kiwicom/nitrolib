@@ -2,17 +2,16 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
-import Tab from "../../../Tab";
+import Tab from "../../../Tab/index";
 import Flex from "../../../../primitives/Flex";
-import Translate from "../../../Translate";
+import Translate from "../../../Translate/index";
 import { Consumer as BrandConsumer } from "../../../../services/brand/context";
+import * as MODALS from "../../../../consts/modals";
 import mq from "../../../../styles/mq";
 
 type Props = {|
-  open: "myBooking" | "register" | "signIn",
-  onOpenMyBooking: () => void,
-  onOpenRegister: () => void,
-  onOpenSignIn: () => void,
+  value: string,
+  onChange: (value: string) => void,
 |};
 
 const GtMiddleMobile = styled.div`
@@ -29,21 +28,21 @@ const LtMiddleMobile = styled.div`
   `)};
 `;
 
-const Switch = ({ open, onOpenMyBooking, onOpenRegister, onOpenSignIn }: Props) => (
+const Switch = ({ value, onChange }: Props) => (
   <>
     <GtMiddleMobile>
       <Flex>
-        <Tab id="myBooking" active={open === "myBooking"} onClick={onOpenMyBooking}>
+        <Tab id={MODALS.MY_BOOKING} active={value === MODALS.MY_BOOKING} onClick={onChange}>
           <Translate t="account.oneBookingLogin" />
         </Tab>
         <BrandConsumer>
           {brand =>
             brand.auth.credentials && (
               <>
-                <Tab id="register" active={open === "register"} onClick={onOpenRegister}>
+                <Tab id={MODALS.REGISTER} active={value === MODALS.REGISTER} onClick={onChange}>
                   <Translate t="account.sign_up" />
                 </Tab>
-                <Tab id="signIn" active={open === "signIn"} onClick={onOpenSignIn}>
+                <Tab id={MODALS.SIGN_IN} active={value === MODALS.SIGN_IN} onClick={onChange}>
                   <Translate t="account.sign_in" />
                 </Tab>
               </>
@@ -54,17 +53,17 @@ const Switch = ({ open, onOpenMyBooking, onOpenRegister, onOpenSignIn }: Props) 
     </GtMiddleMobile>
     <LtMiddleMobile>
       <Flex direction="column" x="stretch">
-        <Tab id="myBooking" active={open === "myBooking"} onClick={onOpenMyBooking}>
+        <Tab id={MODALS.MY_BOOKING} active={value === MODALS.MY_BOOKING} onClick={onChange}>
           <Translate t="account.oneBookingLogin" />
         </Tab>
         <BrandConsumer>
           {brand =>
             brand.auth.credentials && (
               <>
-                <Tab id="register" active={open === "register"} onClick={onOpenRegister}>
+                <Tab id={MODALS.REGISTER} active={value === MODALS.REGISTER} onClick={onChange}>
                   <Translate t="account.sign_up" />
                 </Tab>
-                <Tab id="signIn" active={open === "signIn"} onClick={onOpenSignIn}>
+                <Tab id={MODALS.SIGN_IN} active={value === MODALS.SIGN_IN} onClick={onChange}>
                   <Translate t="account.sign_in" />
                 </Tab>
               </>

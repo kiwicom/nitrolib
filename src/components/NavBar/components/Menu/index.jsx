@@ -2,23 +2,18 @@
 import * as React from "react";
 import styled from "styled-components";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
-import Modal from "@kiwicom/orbit-components/lib/Modal";
-import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
-import Portal from "@kiwicom/orbit-components/lib/Portal";
 
-import CloseByKey from "../../../CloseByKey";
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
 import Translate from "../../../Translate";
-import * as authContext from "../../../../services/auth/context";
-import { Consumer as BrandConsumer } from "../../../../services/brand/context";
+import ValueBind from "../../../ValueBind";
+import { Consumer as ModalConsumer } from "../../../../services/modal/context";
+import { Consumer as AuthConsumer } from "../../../../services/auth/context";
 import Button from "../../primitives/Button";
 import Trips from "../Trips";
-import Login from "../Login";
-import ForgotPassword from "../ForgotPassword";
 import SideNav from "../SideNav";
 import * as MODALS from "../../../../consts/modals";
-import type { AuthModal, Modal as ModalType } from "../../../../consts/modals";
+import type { Modal } from "../../../../consts/modals";
 import marginMixin from "../../styles/marginMixin";
 
 const Wrapper = styled.div`
@@ -31,93 +26,49 @@ type Props = {|
   debug?: React.Node,
   portal: string,
   inverted: boolean,
-  onSetModal: (modal: ModalType) => void,
+  onSetModal: (modal: Modal) => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
 |};
 
-type State = {|
-  modalOpen: "" | AuthModal,
-|};
-
-export default class Menu extends React.Component<Props, State> {
-  state = {
-    modalOpen: MODALS.NONE,
-  };
-
-  componentDidUpdate(prevProps: Props, prevState: State) {
-    const { onSetModal } = this.props;
-    const { modalOpen } = this.state;
-
-    if (modalOpen !== prevState.modalOpen) {
-      onSetModal(modalOpen);
-    }
-  }
-
-  handleClose = () => {
-    this.setState({ modalOpen: "" });
-  };
-
-  handleOpenMyBooking = () => {
-    this.setState({ modalOpen: MODALS.MY_BOOKING });
-  };
-
-  handleOpenRegister = () => {
-    this.setState({ modalOpen: MODALS.REGISTER });
-  };
-
-  handleOpenSignIn = () => {
-    this.setState({ modalOpen: MODALS.SIGN_IN });
-  };
-
-  handleOpenForgotPassword = () => {
-    this.setState({ modalOpen: MODALS.FORGOT_PASSWORD });
-  };
-
-  render() {
-    const {
-      chat,
-      subscription,
-      debug,
-      portal,
-      inverted,
-      onSaveLanguage,
-      onSelectTrip,
-      onSetModal,
-    } = this.props;
-    const { modalOpen } = this.state;
-
-    return (
+const Menu = ({
+  chat,
+  subscription,
+  debug,
+  portal,
+  inverted,
+  onSaveLanguage,
+  onSelectTrip,
+  onSetModal,
+}: Props) => (
+  <ModalConsumer>
+    {({ onChange }) => (
       <>
         <Wrapper>
-          <authContext.Consumer>
+          <AuthConsumer>
             {({ auth, environment }) =>
               auth === null ? (
-                <>
-                  <Desktop display="flex">
-                    <Button
-                      direction="x"
-                      onClick={this.handleOpenMyBooking}
-                      color={!inverted && "secondary"}
-                    >
-                      <Translate t="account.my_bookings_action" />
-                    </Button>
-                  </Desktop>
-                  <Mobile display="flex">
-                    <Button
-                      direction="x"
-                      color={!inverted && "secondary"}
-                      onClick={this.handleOpenMyBooking}
-                    >
-                      <AccountCircle />
-                    </Button>
-                  </Mobile>
-                </>
+                <ValueBind value={MODALS.MY_BOOKING} onChange={onChange}>
+                  {({ onClick }) => (
+                    <>
+                      <Desktop display="flex">
+                        <Button direction="x" onClick={onClick} color={!inverted && "secondary"}>
+                          <Translate t="account.my_bookings_action" />
+                        </Button>
+                      </Desktop>
+                      <Mobile display="flex">
+                        <Button direction="x" color={!inverted && "secondary"} onClick={onClick}>
+                          <AccountCircle />
+                        </Button>
+                      </Mobile>
+                    </>
+                  )}
+                </ValueBind>
               ) : (
                 <Trips auth={auth} env={environment} onSelect={onSelectTrip} />
               )
             }
-          </authContext.Consumer>
+          </AuthConsumer>
         </Wrapper>
 
         <Wrapper>
@@ -127,49 +78,14 @@ export default class Menu extends React.Component<Props, State> {
             debug={debug}
             inverted={inverted}
             portal={portal}
-            onOpenRegister={this.handleOpenRegister}
-            onOpenSignIn={this.handleOpenSignIn}
+            onOpenModal={onChange}
             onSaveLanguage={onSaveLanguage}
             onSetModal={onSetModal}
           />
         </Wrapper>
-
-        {modalOpen === MODALS.FORGOT_PASSWORD && (
-          <CloseByKey onClose={this.handleClose}>
-            <Portal element={portal}>
-              <Modal onClose={this.handleClose} closable size="normal">
-                <ModalSection>
-                  <BrandConsumer>
-                    {brand => <ForgotPassword brandId={brand.id} onClose={this.handleClose} />}
-                  </BrandConsumer>
-                </ModalSection>
-              </Modal>
-            </Portal>
-          </CloseByKey>
-        )}
-
-        {(modalOpen === MODALS.MY_BOOKING ||
-          modalOpen === MODALS.SIGN_IN ||
-          modalOpen === MODALS.REGISTER) && (
-          <CloseByKey onClose={this.handleClose}>
-            <Portal element={portal}>
-              <Modal onClose={this.handleClose} closable size="normal">
-                <ModalSection>
-                  <Login
-                    // $FlowExpected: 'modalOpen' can only be one of these things
-                    open={modalOpen}
-                    onCloseSuccess={this.handleClose}
-                    onOpenMyBooking={this.handleOpenMyBooking}
-                    onOpenRegister={this.handleOpenRegister}
-                    onOpenSignIn={this.handleOpenSignIn}
-                    onOpenForgotPassword={this.handleOpenForgotPassword}
-                  />
-                </ModalSection>
-              </Modal>
-            </Portal>
-          </CloseByKey>
-        )}
       </>
-    );
-  }
-}
+    )}
+  </ModalConsumer>
+);
+
+export default Menu;

@@ -15,8 +15,7 @@ describe("#SideNav", () => {
         portal=""
         inverted={false}
         debug={<div>debug</div>}
-        onOpenSignIn={jest.fn()}
-        onOpenRegister={jest.fn()}
+        onOpenModal={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSetModal={jest.fn()}
       />,
@@ -32,8 +31,7 @@ describe("#SideNav", () => {
         subscription={<div>subscription</div>}
         portal=""
         inverted={false}
-        onOpenSignIn={jest.fn()}
-        onOpenRegister={jest.fn()}
+        onOpenModal={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSetModal={jest.fn()}
       />,
@@ -41,52 +39,6 @@ describe("#SideNav", () => {
     wrapper.instance().handleToggle();
 
     expect(wrapper.state("modalOpen")).toEqual(MODALS.SIDE_NAV);
-  });
-
-  test("opens signin when clicked", () => {
-    const signIn = jest.fn();
-    const setModal = jest.fn();
-    const wrapper = shallow(
-      <SideNav
-        chat={<div>chat</div>}
-        subscription={<div>subscription</div>}
-        portal=""
-        inverted={false}
-        onOpenSignIn={signIn}
-        onOpenRegister={jest.fn()}
-        onSaveLanguage={jest.fn()}
-        onSetModal={setModal}
-      />,
-    );
-    wrapper.instance().handleToggle();
-    setModal.mockClear();
-    wrapper.instance().handleOpenSignIn();
-
-    expect(signIn).toHaveBeenCalled();
-    expect(setModal).not.toBeCalled();
-  });
-
-  test("opens register when clicked", () => {
-    const register = jest.fn();
-    const setModal = jest.fn();
-    const wrapper = shallow(
-      <SideNav
-        chat={<div>chat</div>}
-        subscription={<div>subscription</div>}
-        portal=""
-        inverted={false}
-        onOpenSignIn={jest.fn()}
-        onOpenRegister={register}
-        onSaveLanguage={jest.fn()}
-        onSetModal={setModal}
-      />,
-    );
-    wrapper.instance().handleToggle();
-    setModal.mockClear();
-    wrapper.instance().handleOpenRegister();
-
-    expect(register).toHaveBeenCalled();
-    expect(setModal).not.toBeCalled();
   });
 
   test("opens chat", () => {
@@ -97,8 +49,7 @@ describe("#SideNav", () => {
         subscription={<div>subscription</div>}
         portal=""
         inverted={false}
-        onOpenSignIn={jest.fn()}
-        onOpenRegister={jest.fn()}
+        onOpenModal={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSetModal={setModal}
       />,
@@ -119,8 +70,7 @@ describe("#SideNav", () => {
         subscription={<div>subscription</div>}
         portal=""
         inverted={false}
-        onOpenSignIn={jest.fn()}
-        onOpenRegister={jest.fn()}
+        onOpenModal={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSetModal={setModal}
       />,
@@ -142,8 +92,7 @@ describe("#SideNav", () => {
         portal=""
         inverted={false}
         debug={<div>debug</div>}
-        onOpenSignIn={jest.fn()}
-        onOpenRegister={jest.fn()}
+        onOpenModal={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSetModal={setModal}
       />,
@@ -164,8 +113,7 @@ describe("#SideNav", () => {
         subscription={<div>subscription</div>}
         portal=""
         inverted={false}
-        onOpenSignIn={jest.fn()}
-        onOpenRegister={jest.fn()}
+        onOpenModal={jest.fn()}
         onSaveLanguage={jest.fn()}
         onSetModal={setModal}
       />,

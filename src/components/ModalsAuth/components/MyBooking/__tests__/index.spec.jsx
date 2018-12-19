@@ -9,7 +9,7 @@ const NOW = new Date(Date.UTC(2020, 0, 1));
 describe("#MyBooking", () => {
   test("render", () => {
     const wrapper = shallow(
-      <MyBooking loading={false} now={NOW} onMyBooking={jest.fn()} onCloseSuccess={jest.fn()} />,
+      <MyBooking loading={false} now={NOW} onMyBooking={jest.fn()} onChange={jest.fn()} />,
     );
 
     expect(wrapper).toMatchSnapshot();
@@ -17,7 +17,7 @@ describe("#MyBooking", () => {
 
   test("render error", () => {
     const wrapper = shallow(
-      <MyBooking loading={false} now={NOW} onMyBooking={jest.fn()} onCloseSuccess={jest.fn()} />,
+      <MyBooking loading={false} now={NOW} onMyBooking={jest.fn()} onChange={jest.fn()} />,
     );
 
     wrapper.setState({ error: "Error! :(" });
@@ -27,7 +27,7 @@ describe("#MyBooking", () => {
 
   test("not handle non-existent field", () => {
     const wrapper = shallow(
-      <MyBooking loading={false} now={NOW} onMyBooking={jest.fn()} onCloseSuccess={jest.fn()} />,
+      <MyBooking loading={false} now={NOW} onMyBooking={jest.fn()} onChange={jest.fn()} />,
     );
 
     wrapper.instance().handleChange({ id: "asdf", value: "omfg" });
@@ -37,7 +37,7 @@ describe("#MyBooking", () => {
 
   test("handle change bid", () => {
     const wrapper = shallow(
-      <MyBooking loading={false} onMyBooking={jest.fn()} onCloseSuccess={jest.fn()} />,
+      <MyBooking loading={false} onMyBooking={jest.fn()} onChange={jest.fn()} />,
     );
 
     wrapper.instance().handleChange({ id: "bid", value: "1234" });
@@ -47,7 +47,7 @@ describe("#MyBooking", () => {
 
   test("handle normalize bid", () => {
     const wrapper = shallow(
-      <MyBooking loading={false} onMyBooking={jest.fn()} onCloseSuccess={jest.fn()} />,
+      <MyBooking loading={false} onMyBooking={jest.fn()} onChange={jest.fn()} />,
     );
 
     wrapper.instance().handleChange({ id: "bid", value: "1234" });
@@ -57,7 +57,7 @@ describe("#MyBooking", () => {
 
   test("handle change email", () => {
     const wrapper = shallow(
-      <MyBooking loading={false} onMyBooking={jest.fn()} onCloseSuccess={jest.fn()} />,
+      <MyBooking loading={false} onMyBooking={jest.fn()} onChange={jest.fn()} />,
     );
 
     wrapper.instance().handleChange({ id: "email", value: "lol@kek.bur" });
@@ -67,7 +67,7 @@ describe("#MyBooking", () => {
 
   test("handle select iata", () => {
     const wrapper = shallow(
-      <MyBooking loading={false} onMyBooking={jest.fn()} onCloseSuccess={jest.fn()} />,
+      <MyBooking loading={false} onMyBooking={jest.fn()} onChange={jest.fn()} />,
     );
 
     wrapper.instance().handleSelectIata("VIE");
@@ -77,7 +77,7 @@ describe("#MyBooking", () => {
 
   test("handle change departure", () => {
     const wrapper = shallow(
-      <MyBooking loading={false} onMyBooking={jest.fn()} onCloseSuccess={jest.fn()} />,
+      <MyBooking loading={false} onMyBooking={jest.fn()} onChange={jest.fn()} />,
     );
 
     const date = new Date(Date.UTC(2020, 0, 1));
@@ -89,7 +89,7 @@ describe("#MyBooking", () => {
   test("handle submit", async () => {
     const onMyBooking = jest.fn().mockImplementation(() => Promise.resolve());
     const wrapper = shallow(
-      <MyBooking loading={false} onMyBooking={onMyBooking} onCloseSuccess={jest.fn()} />,
+      <MyBooking loading={false} onMyBooking={onMyBooking} onChange={jest.fn()} />,
     );
 
     const date = new Date(Date.UTC(2020, 0, 1));
@@ -116,9 +116,7 @@ describe("#MyBooking", () => {
 
   test("handle submit loading", async () => {
     const onMyBooking = jest.fn().mockImplementation(() => Promise.resolve());
-    const wrapper = shallow(
-      <MyBooking loading onMyBooking={onMyBooking} onCloseSuccess={jest.fn()} />,
-    );
+    const wrapper = shallow(<MyBooking loading onMyBooking={onMyBooking} onChange={jest.fn()} />);
 
     await wrapper.instance().handleSubmit({ preventDefault: jest.fn() });
     wrapper.update();
@@ -131,7 +129,7 @@ describe("#MyBooking", () => {
   test("handle submit form error", async () => {
     const onMyBooking = jest.fn().mockImplementation(() => Promise.resolve());
     const wrapper = shallow(
-      <MyBooking loading={false} onMyBooking={onMyBooking} onCloseSuccess={jest.fn()} />,
+      <MyBooking loading={false} onMyBooking={onMyBooking} onChange={jest.fn()} />,
     );
 
     await wrapper.instance().handleSubmit({ preventDefault: jest.fn() });
@@ -147,7 +145,7 @@ describe("#MyBooking", () => {
       .fn()
       .mockImplementation(() => Promise.reject(new Error("common.api_error")));
     const wrapper = shallow(
-      <MyBooking loading={false} onMyBooking={onMyBooking} onCloseSuccess={jest.fn()} />,
+      <MyBooking loading={false} onMyBooking={onMyBooking} onChange={jest.fn()} />,
     );
 
     const date = new Date(Date.UTC(2020, 0, 1));

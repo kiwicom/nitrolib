@@ -1,0 +1,11 @@
+// @flow strict
+import * as React from "react";
+
+export type Context = {|
+  value: string,
+  onChange: (value?: string) => void,
+|};
+
+declare var context: React.Context<Context>;
+
+export const { Consumer, Provider } = context;

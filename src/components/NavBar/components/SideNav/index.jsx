@@ -129,7 +129,7 @@ Link.defaultProps = {
 };
 
 type State = {|
-  modalOpen: "" | "chat" | "subscription" | "debug" | "sideNav",
+  modalOpen: "" | "chat" | "subscription" | "debug" | "sideNav", // FIXME use modal context
 |};
 
 type Props = {|
@@ -138,8 +138,7 @@ type Props = {|
   debug?: React.Node,
   portal: string,
   inverted: boolean,
-  onOpenSignIn: () => void,
-  onOpenRegister: () => void,
+  onOpenModal: (value: string) => void,
   onSaveLanguage: (lang: string) => void,
   onSetModal: (modal: ModalType) => void,
 |};
@@ -167,15 +166,15 @@ export default class SideNav extends React.Component<Props, State> {
   };
 
   handleOpenSignIn = () => {
-    const { onOpenSignIn } = this.props;
-    onOpenSignIn();
+    const { onOpenModal } = this.props;
+    onOpenModal(MODALS.SIGN_IN);
 
     this.setState({ modalOpen: MODALS.NONE });
   };
 
   handleOpenRegister = () => {
-    const { onOpenRegister } = this.props;
-    onOpenRegister();
+    const { onOpenModal } = this.props;
+    onOpenModal(MODALS.REGISTER);
 
     this.setState({ modalOpen: MODALS.NONE });
   };

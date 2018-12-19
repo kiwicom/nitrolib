@@ -10,16 +10,16 @@ import Ticket from "@kiwicom/orbit-components/lib/icons/Ticket";
 import Calendar from "@kiwicom/orbit-components/lib/icons/Calendar";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 
-import Query from "../../../Query";
-import LogMount from "../../../LogMount";
-import InputText from "../../../InputText";
-import type { Change } from "../../../InputText";
-import IconText from "../../../IconText";
-import Translate from "../../../Translate";
-import IataPicker from "../../../IataPicker";
-import InputDate from "../../../InputDate";
+import Query from "../../../Query/index";
+import LogMount from "../../../LogMount/index";
+import InputText from "../../../InputText/index";
+import type { Change } from "../../../InputText/index";
+import IconText from "../../../IconText/index";
+import Translate from "../../../Translate/index";
+import IataPicker from "../../../IataPicker/index";
+import InputDate from "../../../InputDate/index";
 import parseDateFormat from "../../../InputDate/services/parseDateFormat";
-import firstFormError from "../../services/firstFormError";
+import firstFormError from "../../../NavBar/services/firstFormError";
 import { Consumer as IntlConsumer } from "../../../../services/intl/context";
 import * as normalizers from "../../../../services/input/normalizers";
 import * as validators from "../../../../services/input/validators";
@@ -35,7 +35,7 @@ const FieldWrap = styled.div`
 type Props = {|
   loading: boolean,
   onMyBooking: (input: MyBookingInput) => Promise<void>,
-  onCloseSuccess: () => void,
+  onChange: () => void,
   // DI
   now: Date,
 |};
@@ -167,7 +167,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
   handleSubmit = (ev: SyntheticEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
-    const { loading, onMyBooking, onCloseSuccess } = this.props;
+    const { loading, onMyBooking, onChange } = this.props;
     const { fields } = this.state;
 
     if (loading) {
@@ -186,7 +186,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
       iata: fields.iata.value,
       departure: fields.departure.value,
     })
-      .then(onCloseSuccess)
+      .then(onChange)
       .catch(err => {
         const msg = err.message;
 

@@ -11,11 +11,12 @@ import Security from "@kiwicom/orbit-components/lib/icons/Security";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import { themeDefault } from "../../../../records/Theme";
+import ValueBind from "../../../ValueBind";
 import InputText from "../../../InputText";
 import LogMount from "../../../LogMount";
 import type { Change } from "../../../InputText";
 import Translate from "../../../Translate";
-import firstFormError from "../../services/firstFormError";
+import firstFormError from "../../../NavBar/services/firstFormError";
 import compose from "../../../../services/input/composeValidator";
 import * as validators from "../../../../services/input/validators";
 import * as normalizers from "../../../../services/input/normalizers";
@@ -59,8 +60,7 @@ ForgotPasswordArrow.defaultProps = {
 type Props = {|
   loading: boolean,
   onSignIn: (email: string, password: string) => Promise<void>,
-  onCloseSuccess: () => void,
-  onOpenForgotPassword: () => void,
+  onChange: (value?: string) => void,
 |};
 
 type Field<T> = {|
@@ -112,7 +112,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
   handleSubmit = (ev: SyntheticEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
-    const { loading, onSignIn, onCloseSuccess } = this.props;
+    const { loading, onSignIn, onChange } = this.props;
     const { fields } = this.state;
 
     if (loading) {
@@ -125,7 +125,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
     }
 
     onSignIn(fields.email.value, fields.password.value)
-      .then(onCloseSuccess)
+      .then(onChange)
       .catch(err => {
         const msg = err.message;
 
@@ -135,7 +135,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
 
   render() {
     const { fields, submitted, error } = this.state;
-    const { loading, onOpenForgotPassword } = this.props;
+    const { loading, onChange } = this.props;
 
     const errorSync = firstFormError(fields);
 
@@ -194,12 +194,16 @@ export default class SignIn extends React.PureComponent<Props, State> {
         </Button>
         <FieldWrap>
           <FieldCentered>
-            <TextLink onClick={onOpenForgotPassword}>
-              <Translate t="account.forgot_password" />
-              <ForgotPasswordArrow>
-                <FaLongArrowRight />
-              </ForgotPasswordArrow>
-            </TextLink>
+            <ValueBind value="forgotPassword" onChange={onChange}>
+              {({ onClick }) => (
+                <TextLink onClick={onClick}>
+                  <Translate t="account.forgot_password" />
+                  <ForgotPasswordArrow>
+                    <FaLongArrowRight />
+                  </ForgotPasswordArrow>
+                </TextLink>
+              )}
+            </ValueBind>
           </FieldCentered>
         </FieldWrap>
       </form>

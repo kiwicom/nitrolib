@@ -9,13 +9,13 @@ import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
 import Security from "@kiwicom/orbit-components/lib/icons/Security";
 import User from "@kiwicom/orbit-components/lib/icons/Passenger";
 
-import Query from "../../../Query";
-import LogMount from "../../../LogMount";
-import InputText from "../../../InputText";
-import type { Change } from "../../../InputText";
-import IconText from "../../../IconText";
-import Translate from "../../../Translate";
-import firstFormError from "../../services/firstFormError";
+import Query from "../../../Query/index";
+import LogMount from "../../../LogMount/index";
+import InputText from "../../../InputText/index";
+import type { Change } from "../../../InputText/index";
+import IconText from "../../../IconText/index";
+import Translate from "../../../Translate/index";
+import firstFormError from "../../../NavBar/services/firstFormError";
 import * as normalizers from "../../../../services/input/normalizers";
 import * as validators from "../../../../services/input/validators";
 import compose from "../../../../services/input/composeValidator";
@@ -62,7 +62,7 @@ FieldPolicy.defaultProps = {
 type Props = {|
   loading: boolean,
   onRegister: (input: RegisterInput) => Promise<void>,
-  onCloseSuccess: () => void,
+  onChange: () => void,
 |};
 
 type Field<T> = {|
@@ -142,7 +142,7 @@ export default class Register extends React.PureComponent<Props, State> {
   handleSubmit = (ev: SyntheticEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
-    const { loading, onRegister, onCloseSuccess } = this.props;
+    const { loading, onRegister, onChange } = this.props;
     const { fields } = this.state;
 
     if (loading) {
@@ -161,7 +161,7 @@ export default class Register extends React.PureComponent<Props, State> {
       password: fields.password.value,
     })
       .then(() => {
-        onCloseSuccess();
+        onChange();
       })
       .catch(err => {
         const msg = err.message;
