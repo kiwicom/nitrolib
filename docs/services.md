@@ -10,6 +10,7 @@ Located in `@kiwicom/nitro/lib/services/<service>`.
 * [fetched](#fetched)
 * [intl](#intl)
 * [log](#log)
+* [modal](#modal)
 
 ## Auth
 
@@ -372,3 +373,26 @@ See types:
 * [Event](./records#event)
 
 _TODO_
+
+## Modal
+
+**Import:**
+```js
+import { Consumer, Provider } from "@kiwicom/nitro/lib/services/modal/context";
+```
+
+**Types:**
+```js
+export type Context = {|
+  value: string,
+  onChange: (value?: string) => void,
+|};
+
+declare var context: React.Context<Context>;
+
+export const { Consumer, Provider } = context;
+```
+
+Holds an information about which modal is currently open. Only supports one modal **on purpose**.
+
+> Initialize using the [Value](./components#value) component, it has no associated `InitModal` component.

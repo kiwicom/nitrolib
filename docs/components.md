@@ -131,6 +131,7 @@ type Props = {|
 * fetched
 * intl
 * log
+* modal
 
 ## Utilities
 
