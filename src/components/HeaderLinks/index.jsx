@@ -5,7 +5,6 @@ import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
-import type { HeaderLink } from "./records/HeaderLink";
 import mq from "../../styles/mq";
 import ClickOutside from "../ClickOutside";
 import Toggle from "../Toggle";
@@ -16,8 +15,10 @@ import Desktop from "../Desktop";
 import Mobile from "../Mobile";
 import getNavBarLinks from "./services/api";
 import withLog from "../../services/log/decorator";
+import type { HeaderLink, SearchForm } from "./records/HeaderLink";
 import type { Decorated } from "../../services/log/decorator";
 import type { Context } from "../../services/log/context";
+import type { Splitster, HeaderLinksRes } from "./services/api";
 
 const Margin = styled.div`
   ${mq.ltDesktop(css`
@@ -29,23 +30,14 @@ const Margin = styled.div`
   `)}
 `;
 
-type SearchForm = {|
-  mode: string,
-  destination: { type: string, name: string }, // TODO move proper search form into records @vacuum
-  checkIn: Date,
-  checkOut: Date | null,
-  adults: number,
-  children: number,
-|};
-
 type Props = {|
   searchString: string,
   languageId: string,
   currencyId: string,
   searchForm: SearchForm | null,
-  splitster: $FlowFixMe, // TODO specify types
-  onFetch?: (services: $FlowFixMe) => void, // TODO specify types
-  testResponse?: HeaderLink[], // TODO DI actual API call
+  splitster: Splitster,
+  onFetch?: (services: HeaderLinksRes) => void,
+  testResponse?: HeaderLinksRes,
   // context
   context: Context<"Header links error", null>, // TODO consts or whatever
 |};
@@ -76,7 +68,7 @@ class HeaderLinks extends React.Component<Props, State> {
     } = this.props;
 
     if (testResponse) {
-      this.setState({ services: testResponse });
+      this.setState({ services: testResponse.items });
       return;
     }
 
