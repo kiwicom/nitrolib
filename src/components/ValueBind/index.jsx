@@ -1,0 +1,26 @@
+// @flow strict
+import * as React from "react";
+
+type Data = {|
+  onClick: () => void,
+|};
+
+type Props = {|
+  value: string,
+  onChange: (value: string) => void,
+  children: (data: Data) => React.Node,
+|};
+
+export default class ValueBind extends React.PureComponent<Props> {
+  handleClick = () => {
+    const { value, onChange } = this.props;
+
+    onChange(value);
+  };
+
+  render() {
+    const { children } = this.props;
+
+    return children({ onClick: this.handleClick });
+  }
+}

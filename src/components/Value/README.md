@@ -2,6 +2,8 @@
 
 A render props container component that holds a string value. Useful for modals, for example.
 
+> Super useful when combined with the [ValueBind](#valuebind) component!
+
 **Example:**
 ```js
 const AuthModals = ({ query }: Props) => (
@@ -11,8 +13,12 @@ const AuthModals = ({ query }: Props) => (
         <ModalLogin open={value === "login"} onClose={onChange} />
         <ModalRegister open={value === "register"} onClose={onChange} />
         
-        <ButtonLogin onClick={() => onChange("login")} />
-        <ButtonRegister onClick={() => onChange("register")} />
+        <ValueBind value="login" onChange={onChange}>
+          {({ onClick }) => <Button onClick={onClick}>Login</Button>}
+        </ValueBind>
+        <ValueBind value="register" onChange={onChange}>
+          {({ onClick }) => <Button onClick={onClick}>Register</Button>}
+        </ValueBind>
       </>
     )}
   </Value>
