@@ -22,6 +22,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [Toggle](#toggle)
 * [Translate](#translate)
 * [TranslateNode](#translatenode)
+* [Value](#value)
 
 ## Features
 
@@ -68,38 +69,33 @@ import HeaderLinks from "@kiwicom/nitro/lib/components/HeaderLinks";
 
 **Types:**
 ```js
-type Item = {|
-  id: string,
-  translation: string,
-  newWindow: boolean,
-  url: string,
-|};
+type Splitster = {
+  // FIXME add a firm structure
+  [key: string]: string,
+};
 
-type Services = Item[] | null;
-
-type SearchForm = {|
-  mode: string,
-  destination: { type: string, name: string },
-  checkIn: Date,
-  checkOut: Date | null,
-  adults: number,
-  children: number,
+type Response = {|
+  splitster: Splitster,
+  items: HeaderLink[],
 |};
 
 type Props = {|
-  searchString: string,
-  language: {
-    id: string,
-  },
-  currency: {
-    id: string,
-  },
-  searchForm: SearchForm,
-  splitster: $FlowFixMe, // TODO specify types
-  testResponse?: $FlowFixMe, // TODO specify types
-  onFetch?: (services: Services) => void,
+  searchString: string, // The 'search' word translated for a proper redirection
+  languageId: string,
+  currencyId: string,
+  searchForm: SearchForm | null,
+  splitster: Splitster,
+  onFetch?: (services: Response) => void,
+  testResponse?: Response, // TODO DI actual API call
 |};
 ```
+
+See types:
+* [HeaderLink](./records#headerlink)
+
+**Context needs:**
+* intl
+* log
 
 ### NavBar
 
@@ -151,6 +147,8 @@ import BookingSavingsBanner from "@kiwicom/nitro/lib/components/BookingSavingsBa
 type Props = {|
   dataTest?: string,
   hrefLearnMore: string, // Link to learn more page
+  amount: number,
+  currency: string,
   onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers modal with alternative trips
 |};
 ```
@@ -472,4 +470,44 @@ const MyComponent = () => (
     }
   />
 );
+```
+
+### Value
+
+**Import:**
+```js
+import Value from "@kiwicom/nitro/lib/components/Value";
+```
+
+**Types:**
+```js
+type Data = {|
+  value: string,
+  onChange: (value?: string) => void, // 'value' defaults to ""
+|};
+
+type Props = {|
+  children: (data: Data) => React.Node,
+  // defaulted
+  initial?: string, // ""
+|};
+```
+
+A render props container component that holds a string value. Useful for modals, for example.
+
+**Example:**
+```js
+const AuthModals = ({ query }: Props) => (
+  <Value initial={query.modal || ""}>
+    {({ value, onChange }) => (
+      <>
+        <ModalLogin open={value === "login"} onClose={onChange} />
+        <ModalRegister open={value === "register"} onClose={onChange} />
+        
+        <ButtonLogin onClick={() => onChange("login")} />
+        <ButtonRegister onClick={() => onChange("register")} />
+      </>
+    )}
+  </Value>
+)
 ```

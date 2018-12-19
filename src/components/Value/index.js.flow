@@ -1,0 +1,15 @@
+// @flow strict
+import * as React from "react";
+
+type Data = {|
+  value: string,
+  onChange: (value?: string) => void, // 'value' defaults to ""
+|};
+
+type Props = {|
+  children: (data: Data) => React.Node,
+  // defaulted
+  initial?: string, // ""
+|};
+
+declare export default React.ComponentType<Props>;
