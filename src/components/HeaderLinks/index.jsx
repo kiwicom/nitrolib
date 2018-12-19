@@ -99,7 +99,7 @@ class HeaderLinks extends React.Component<Props, State> {
     return (
       // 'StyledLink' css was heavily incompatible with 'Text', so it had to be moved here
       // TODO cleanup @viktr
-      <Text>
+      <Text element="div">
         <Mobile display="flex">
           <Margin>
             <Toggle>

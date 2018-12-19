@@ -28,11 +28,6 @@ const StyledLink = styled.a`
       inverted
         ? (active && theme.orbit.paletteWhiteActive) || theme.orbit.paletteWhite
         : (active && theme.orbit.paletteProductNormal) || theme.orbit.paletteInkNormal};
-    
-    &:first-child {
-      color: ${({ theme, inverted }: LinkProps) =>
-        inverted ? theme.orbit.paletteWhite : theme.orbit.paletteProductNormal};
-    }
 
     &:hover {
       color: ${({ theme, inverted }: LinkProps) =>
@@ -55,14 +50,7 @@ const StyledLink = styled.a`
       
       &:hover {
         color: ${({ theme }: LinkProps) => theme.orbit.paletteProductNormal};
-        
-        i {
-          color: ${({ theme }) => theme.orbit.paletteInkNormal};
-        }
-      }
 
-      &:first-child {
-        color: ${({ theme }: LinkProps) => theme.orbit.paletteProductNormal};
         i {
           color: ${({ theme }) => theme.orbit.paletteInkNormal};
         }

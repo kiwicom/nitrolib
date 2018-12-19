@@ -62,20 +62,4 @@ storiesOf("NavBar", module)
       onSaveLanguage={action("Save language")}
       onSelectTrip={action("Select trip")}
     />
-  ))
-  .add("inverted", () => (
-    <NavBar
-      headerLinks={<HeaderLinks {...props} />}
-      chat={<h1>Chat</h1>}
-      subscription={<h1>Subscription</h1>}
-      debug={<h1>Debug</h1>}
-      starred={<span>Starred</span>}
-      inverted
-      portal=""
-      onOpenFaq={action("Open FAQ")}
-      onLogoClick={action("Click logo")}
-      onSetModal={action("Set modal")}
-      onSaveLanguage={action("Save language")}
-      onSelectTrip={action("Select trip")}
-    />
   ));
