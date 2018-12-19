@@ -26,7 +26,7 @@ describe("HeaderLinks", () => {
 
   test("Link component should render correctly", () => {
     const wrapper = shallow(
-      <Link logTab="travel" link="https://www.kiwi.com" text="Travel" icon="travel" newWindow />,
+      <Link link="https://www.kiwi.com" text="Travel" icon="travel" newWindow />,
     );
 
     expect(wrapper).toMatchSnapshot();
