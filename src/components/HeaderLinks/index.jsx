@@ -18,7 +18,7 @@ import withLog from "../../services/log/decorator";
 import type { HeaderLink, SearchForm } from "./records/HeaderLink";
 import type { Decorated } from "../../services/log/decorator";
 import type { Context } from "../../services/log/context";
-import type { Splitster, HeaderLinksRes } from "./services/api";
+import type { Splitster, Response } from "./services/api";
 
 const Margin = styled.div`
   ${mq.ltDesktop(css`
@@ -36,8 +36,8 @@ type Props = {|
   currencyId: string,
   searchForm: SearchForm | null,
   splitster: Splitster,
-  onFetch?: (services: HeaderLinksRes) => void,
-  testResponse?: HeaderLinksRes,
+  onFetch?: (services: Response) => void,
+  testResponse?: Response, // TODO solve using DI
   // context
   context: Context<"Header links error", null>, // TODO consts or whatever
 |};

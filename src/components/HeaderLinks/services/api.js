@@ -4,18 +4,19 @@ import { JSON_BOTH } from "../../../services/fetch/headers";
 import type { HeaderLink, SearchForm } from "../records/HeaderLink";
 
 export type Splitster = {
+  // FIXME add a firm structure
   [key: string]: string,
 };
 
-export type HeaderLinksInput = {|
+export type Input = {|
   searchString: string,
   languageId: string,
   currencyId: string,
-  searchForm: ?SearchForm,
+  searchForm: SearchForm | null,
   splitster: Splitster,
 |};
 
-export type HeaderLinksRes = {|
+export type Response = {|
   splitster: Splitster,
   items: HeaderLink[],
 |};
@@ -26,7 +27,7 @@ const getNavBarLinks = ({
   currencyId,
   searchForm,
   splitster,
-}: HeaderLinksInput): Promise<HeaderLinksRes> =>
+}: Input): Promise<Response> =>
   fetch("https://ancillaries-integration.skypicker.com/navbar", {
     method: "POST",
     headers: JSON_BOTH,

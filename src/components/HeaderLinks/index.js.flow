@@ -1,8 +1,17 @@
 // @flow strict
 import * as React from "react";
 
-import type { Splitster, HeaderLinksRes } from "./services/api";
 import type { HeaderLink, SearchForm } from "./records/HeaderLink";
+
+type Splitster = {
+  // FIXME add a firm structure
+  [key: string]: string,
+};
+
+type Response = {|
+  splitster: Splitster,
+  items: HeaderLink[],
+|};
 
 type Props = {|
   searchString: string, // The 'search' word translated for a proper redirection
@@ -10,8 +19,8 @@ type Props = {|
   currencyId: string,
   searchForm: SearchForm | null,
   splitster: Splitster,
-  onFetch?: (services: HeaderLinksRes) => void,
-  testResponse?: HeaderLink[], // TODO DI actual API call
+  onFetch?: (services: Response) => void,
+  testResponse?: Response, // TODO DI actual API call
 |};
 
 declare export default React.ComponentType<Props>;

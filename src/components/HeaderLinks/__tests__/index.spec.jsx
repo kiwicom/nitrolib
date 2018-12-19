@@ -6,7 +6,7 @@ import HeaderLinksWrapped from "..";
 
 import Link from "../components/Link/index";
 import Links from "../components/Links/index";
-import { props, response } from "../__mocks__/HeaderLinks";
+import { props, response } from "../__mocks__/api";
 
 // $FlowExpected: It is there
 const HeaderLinks = HeaderLinksWrapped.WrappedComponent;
