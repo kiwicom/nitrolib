@@ -23,6 +23,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [Translate](#translate)
 * [TranslateNode](#translatenode)
 * [Value](#value)
+* [ValueBind](#valuebind)
 
 ## Features
 
@@ -495,6 +496,8 @@ type Props = {|
 
 A render props container component that holds a string value. Useful for modals, for example.
 
+> Super useful when combined with the [ValueBind](#valuebind) component!
+
 **Example:**
 ```js
 const AuthModals = ({ query }: Props) => (
@@ -504,10 +507,46 @@ const AuthModals = ({ query }: Props) => (
         <ModalLogin open={value === "login"} onClose={onChange} />
         <ModalRegister open={value === "register"} onClose={onChange} />
         
-        <ButtonLogin onClick={() => onChange("login")} />
-        <ButtonRegister onClick={() => onChange("register")} />
+        <ValueBind value="login" onChange={onChange}>
+          {({ onClick }) => <Button onClick={onClick}>Login</Button>}
+        </ValueBind>
+        <ValueBind value="register" onChange={onChange}>
+          {({ onClick }) => <Button onClick={onClick}>Register</Button>}
+        </ValueBind>
       </>
     )}
   </Value>
+)
+```
+
+### ValueBind
+
+**Import:**
+```js
+import ValueBind from "@kiwicom/nitro/lib/components/ValueBind";
+```
+
+**Types:**
+```js
+type Data = {|
+  onClick: () => void,
+|};
+
+type Props = {|
+  value: string,
+  onChange: (value: string) => void,
+  children: (data: Data) => React.Node,
+|};
+```
+
+Binds a value to a callback, that's it. Useful for changing `onChange` callbacks to `onClick` ones.
+
+```js
+const OpenLogin = ({ onChange }: Props) => (
+  <ValueBind value="login" onChange={onChange}>
+    {({ onClick }) => (
+      <Button onClick={onClick} />
+    )}
+  </ValueBind>
 )
 ```
