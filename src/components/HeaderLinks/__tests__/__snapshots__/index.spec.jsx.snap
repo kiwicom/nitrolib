@@ -851,7 +851,9 @@ Array [
 `;
 
 exports[`HeaderLinks should render correctly 1`] = `
-<Text>
+<Text
+  element="div"
+>
   <Mobile
     display="flex"
   >
