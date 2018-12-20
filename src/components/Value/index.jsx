@@ -16,7 +16,7 @@ type State = {|
   value: string,
 |};
 
-export default class Value extends React.PureComponent<Props, State> {
+export default class Value extends React.Component<Props, State> {
   static defaultProps = {
     initial: "",
   };

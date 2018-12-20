@@ -11,7 +11,7 @@ type Props = {|
   children: (data: Data) => React.Node,
 |};
 
-export default class ValueBind extends React.PureComponent<Props> {
+export default class ValueBind extends React.Component<Props> {
   handleClick = () => {
     const { value, onChange } = this.props;
 
