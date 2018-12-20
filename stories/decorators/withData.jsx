@@ -9,8 +9,10 @@ import { Provider as BrandProvider } from "../../src/services/brand/context";
 import { Provider as IntlProvider } from "../../src/services/intl/context";
 import { Provider as FetchedProvider } from "../../src/services/fetched/context";
 import { Provider as CurrencyProvider } from "../../src/services/currency/context";
+import { Provider as ModalProvider } from "../../src/services/modal/context";
 import InitIntl from "../../src/components/InitIntl";
 import InitCurrency from "../../src/components/InitCurrency";
+import Value from "../../src/components/Value";
 import brandLanguages from "../fixtures/brandLanguages";
 import brands from "../fixtures/brands";
 import airlines from "../fixtures/airlines";
@@ -65,7 +67,13 @@ const withData = (storyFn: () => React.Node) => {
                   langCurrency={language.currency}
                   onChange={action("Save currency")}
                 >
-                  {currency => <CurrencyProvider value={currency}>{storyFn()}</CurrencyProvider>}
+                  {currency => (
+                    <CurrencyProvider value={currency}>
+                      <Value>
+                        {modal => <ModalProvider value={modal}>{storyFn()}</ModalProvider>}
+                      </Value>
+                    </CurrencyProvider>
+                  )}
                 </InitCurrency>
               </FetchedProvider>
             </IntlProvider>

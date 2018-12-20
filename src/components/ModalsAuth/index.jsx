@@ -22,55 +22,57 @@ type Props = {|
 
 const ModalsAuth = ({ portal }: Props) => (
   <ModalConsumer>
-    {({ value, onChange }) => (
-      <AuthConsumer>
-        {auth => (
-          <ValueBind value={MODALS.NONE} onChange={onChange}>
-            {({ onClick }) => (
-              <CloseByKey onClose={onClick}>
-                <Portal element={portal}>
-                  <Modal>
-                    <ModalSection>
-                      <Container value={value} onChange={onChange}>
-                        {value === MODALS.MY_BOOKING && (
-                          <MyBooking
-                            loading={auth.loading}
-                            onMyBooking={auth.onMyBooking}
-                            onChange={onChange}
-                          />
-                        )}
+    {({ value, onChange }) =>
+      value !== MODALS.NONE && (
+        <AuthConsumer>
+          {auth => (
+            <ValueBind value={MODALS.NONE} onChange={onChange}>
+              {({ onClick }) => (
+                <CloseByKey onClose={onClick}>
+                  <Portal element={portal}>
+                    <Modal onClose={onClick}>
+                      <ModalSection>
+                        <Container value={value} onChange={onChange}>
+                          {value === MODALS.MY_BOOKING && (
+                            <MyBooking
+                              loading={auth.loading}
+                              onMyBooking={auth.onMyBooking}
+                              onChange={onChange}
+                            />
+                          )}
 
-                        {value === MODALS.REGISTER && (
-                          <Register
-                            loading={auth.loading}
-                            onRegister={auth.onRegister}
-                            onChange={onChange}
-                          />
-                        )}
+                          {value === MODALS.REGISTER && (
+                            <Register
+                              loading={auth.loading}
+                              onRegister={auth.onRegister}
+                              onChange={onChange}
+                            />
+                          )}
 
-                        {value === MODALS.SIGN_IN && (
-                          <SignIn
-                            loading={auth.loading}
-                            onSignIn={auth.onSignIn}
-                            onChange={onChange}
-                          />
-                        )}
+                          {value === MODALS.SIGN_IN && (
+                            <SignIn
+                              loading={auth.loading}
+                              onSignIn={auth.onSignIn}
+                              onChange={onChange}
+                            />
+                          )}
 
-                        {value === MODALS.FORGOT_PASSWORD && (
-                          <BrandConsumer>
-                            {brand => <ForgotPassword brandId={brand.id} onClose={onClick} />}
-                          </BrandConsumer>
-                        )}
-                      </Container>
-                    </ModalSection>
-                  </Modal>
-                </Portal>
-              </CloseByKey>
-            )}
-          </ValueBind>
-        )}
-      </AuthConsumer>
-    )}
+                          {value === MODALS.FORGOT_PASSWORD && (
+                            <BrandConsumer>
+                              {brand => <ForgotPassword brandId={brand.id} onClose={onClick} />}
+                            </BrandConsumer>
+                          )}
+                        </Container>
+                      </ModalSection>
+                    </Modal>
+                  </Portal>
+                </CloseByKey>
+              )}
+            </ValueBind>
+          )}
+        </AuthConsumer>
+      )
+    }
   </ModalConsumer>
 );
 
