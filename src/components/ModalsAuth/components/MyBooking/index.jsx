@@ -186,7 +186,9 @@ export default class MyBooking extends React.PureComponent<Props, State> {
       iata: fields.iata.value,
       departure: fields.departure.value,
     })
-      .then(onChange)
+      .then(() => {
+        onChange();
+      })
       .catch(err => {
         const msg = err.message;
 
