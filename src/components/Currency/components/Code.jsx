@@ -1,10 +1,6 @@
 // @flow strict
-import * as React from "react";
+import styled from "styled-components";
 
-type Props = {|
-  children: React.Node,
-|};
-
-const Code = ({ children }: Props) => <span>{children}</span>;
+const Code = styled.span``;
 
 export default Code;
