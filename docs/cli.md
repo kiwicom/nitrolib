@@ -28,20 +28,20 @@ Collects translation keys:
 
 ## Fetch
 
-* `yarn nitro fetch ?[--translations <path>]`
+* `yarn nitro fetch [--translations <path>]`
 
 Fetches production data.
 
 **Flags:**
-* `translations` _optional_ - the path to `node_modules` if they're not in the CWD
+* `translations` _optional_ - path to a custom translations folder
 
 **Requires:**
 * The `data/tkeys.json` file to exist due to translation whitelisting, see the `keys` command
-* The `@kiwicom/translations` package installed
+* The `@kiwicom/translations` package installed if not using a custom project
 
 **Example:**
 * `yarn nitro fetch` - fetches data and translations
-* `yarn nitro fetch --translations ..` - fetches data and translations from up one level
+* `yarn nitro fetch --translations ./locales` - fetches data and translations from a custom folder
 
 **Files:**
 * `translations/<locale>_<hash>.json` - translations for the given _locale_, cache-busted with the commit _hash_
