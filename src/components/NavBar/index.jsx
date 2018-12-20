@@ -36,7 +36,6 @@ const Container = styled(Flex)`
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   padding: 0 10px;
   box-sizing: border-box;
-  z-index: 824;
 
   ${mq.gtTablet(css`
     position: fixed;
