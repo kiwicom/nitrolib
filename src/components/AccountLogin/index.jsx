@@ -9,31 +9,20 @@ import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
-import Section, { StyledModalSection } from "@kiwicom/orbit-components/lib/Modal/ModalSection";
-import styled from "styled-components";
+import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
 import Translate from "../Translate";
 import { Consumer } from "../../services/intl/context";
 
-// temporary fix for InputField width, will be fixed in orbit-components ASAP
-// TODO: replace with fragment
-const Wrapper = styled.div`
-  ${StyledModalSection} label {
-    width: 100%;
-  }
-`;
-
-type IllustrationType = "Login" | "Help" | "InviteAFriend" | "AirHelp";
-
 type Props = {|
-  illustration?: IllustrationType,
-  text?: string | React.Node,
   email: string,
-  onNoAccount: (ev?: SyntheticEvent<HTMLLinkElement>) => void,
-  onGoogleLogin: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
-  onFacebookLogin: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
+  illustration?: "Login" | "Help" | "InviteAFriend" | "AirHelp",
+  text?: React.Node,
+  onNoAccount: (ev: SyntheticEvent<HTMLLinkElement>) => void,
+  onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
-  onContinue: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
+  onContinue: (ev: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
 const AccountLogin = ({
@@ -48,7 +37,7 @@ const AccountLogin = ({
 }: Props) => (
   <Consumer>
     {intl => (
-      <Wrapper>
+      <>
         <Section>
           <Illustration name={illustration || "Login"} size="small" spaceAfter="small" />
           <Heading element="h2" spaceAfter="small">
@@ -99,7 +88,7 @@ const AccountLogin = ({
             </Button>
           </Stack>
         </Section>
-      </Wrapper>
+      </>
     )}
   </Consumer>
 );

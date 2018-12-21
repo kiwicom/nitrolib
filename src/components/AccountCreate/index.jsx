@@ -6,9 +6,8 @@ import InputField from "@kiwicom/orbit-components/lib/InputField";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import Header from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
-import Section, { StyledModalSection } from "@kiwicom/orbit-components/lib/Modal/ModalSection";
+import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
-import styled from "styled-components";
 
 import { Consumer } from "../../services/intl/context";
 import Translate from "../Translate";
@@ -23,14 +22,6 @@ type Props = {|
   onContinue: (ev: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
-// temporary fix for InputField width, will be fixed in orbit-components ASAP
-// TODO: replace with fragment
-const Wrapper = styled.div`
-  ${StyledModalSection} label {
-    width: 100%;
-  }
-`;
-
 const AccountCreate = ({
   email,
   onEmailChange,
@@ -42,7 +33,7 @@ const AccountCreate = ({
 }: Props) => (
   <Consumer>
     {intl => (
-      <Wrapper>
+      <>
         <Header>
           <Illustration name="EnjoyApp" size="small" />
           <Heading element="h2">
@@ -79,7 +70,7 @@ const AccountCreate = ({
             </OrbitText>
           </Stack>
         </Section>
-      </Wrapper>
+      </>
     )}
   </Consumer>
 );
