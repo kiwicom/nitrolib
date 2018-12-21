@@ -23,6 +23,12 @@ describe("#AccountLogin", () => {
     const wrapper2 = shallow(<span>{wrapper.prop("children")(intlDefault)}</span>);
 
     expect(wrapper2.find("Illustration").prop("name")).toBe("Login");
+    expect(
+      wrapper2
+        .find("Heading")
+        .children("Translate")
+        .prop("t"),
+    ).toBe("account.manage_your_bookings");
   });
 
   test("render custom illustration", () => {
