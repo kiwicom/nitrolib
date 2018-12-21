@@ -8,12 +8,22 @@ describe("#AccountCheckEmail", () => {
   test("render - magicLink", () => {
     const wrapper = shallow(<AccountCheckEmail email="foo@bar.com" reason="magicLink" />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(
+      wrapper
+        .find("Text")
+        .children("Translate")
+        .prop("t"),
+    ).toBe("account.check_email_magic_link");
   });
 
   test("render - signUpConfirmation", () => {
     const wrapper = shallow(<AccountCheckEmail email="bar@foo.com" reason="signUpConfirmation" />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(
+      wrapper
+        .find("Text")
+        .children("Translate")
+        .prop("t"),
+    ).toBe("account.check_email_sign_up");
   });
 });

@@ -12,17 +12,27 @@ describe("#AcceptAlert", () => {
       </AcceptAlert>,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(
+      wrapper
+        .find("Button")
+        .children("Translate")
+        .exists(),
+    ).toBe(true);
   });
 
   test("render - button", () => {
     const wrapper = shallow(
-      <AcceptAlert onClose={jest.fn()} button={<span>Submit</span>}>
+      <AcceptAlert onClose={jest.fn()} button={<span className="Submit">Submit</span>}>
         <p>Content</p>
       </AcceptAlert>,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(
+      wrapper
+        .find("Button")
+        .children()
+        .is(".Submit"),
+    ).toBe(true);
   });
 
   test("close", () => {

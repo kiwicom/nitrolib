@@ -9,7 +9,7 @@ import type { ThemeProps } from "../../records/Theme";
 import Translate from "../Translate";
 
 const Container = styled.div`
-  padding: ${padding.page}px;
+  padding: ${padding.page}px; // TODO Orbit
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
 `;
 
@@ -23,7 +23,7 @@ const Message = styled.div`
 
 type Props = {|
   children: React.Node,
-  button?: React.Node,
+  button: React.Node,
   onClose: () => void,
 |};
 
