@@ -85,7 +85,7 @@ exports[`#AccountPairedFacebook render 1`] = `
         transform={[Function]}
         values={
           Object {
-            "email": "email@example.com",
+            "email": "kek@bur.com",
           }
         }
       />

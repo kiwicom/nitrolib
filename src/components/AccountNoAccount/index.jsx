@@ -21,10 +21,10 @@ const Align = styled.div`
 `;
 
 type Props = {|
-  onBack: (ev?: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLButtonElement>) => void,
-  onRegister: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
-  onFacebookLogin: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
-  onGoogleLogin: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
+  onBack: (ev: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLButtonElement>) => void,
+  onRegister: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
 const AccountNoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }: Props) => (

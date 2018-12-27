@@ -11,7 +11,7 @@ describe("#AccountPairedFacebook", () => {
         onAskSignInLink={() => {}}
         onFacebookLogin={() => {}}
         onGoogleLogin={() => {}}
-        email="email@example.com"
+        email="kek@bur.com"
       />,
     );
 

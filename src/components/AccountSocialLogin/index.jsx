@@ -14,9 +14,9 @@ import Translate from "../Translate";
 
 type Props = {|
   email: string,
-  onAskSignInLink: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
-  onFacebookLogin: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
-  onGoogleLogin: (ev?: SyntheticEvent<HTMLButtonElement>) => void,
+  onAskSignInLink: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
 const AccountSocialLogin = ({ onAskSignInLink, onFacebookLogin, onGoogleLogin, email }: Props) => (

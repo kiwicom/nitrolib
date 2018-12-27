@@ -8,20 +8,11 @@ import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import Edit from "@kiwicom/orbit-components/lib/icons/Edit";
 import Header from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
-import Section, { StyledModalSection } from "@kiwicom/orbit-components/lib/Modal/ModalSection";
+import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
-import styled from "styled-components";
 
 import { Consumer } from "../../services/intl/context";
 import Translate from "../Translate";
-
-// temporary fix for InputField width, will be fixed in orbit-components ASAP
-// TODO: replace with fragment
-const Wrapper = styled.div`
-  ${StyledModalSection} label {
-    width: 100%;
-  }
-`;
 
 type Props = {|
   email: string,
@@ -42,7 +33,7 @@ const AccountPassword = ({
 }: Props) => (
   <Consumer>
     {intl => (
-      <Wrapper>
+      <>
         <Header>
           <Illustration name="Login" size="small" />
           <Heading element="h2">
@@ -81,7 +72,7 @@ const AccountPassword = ({
             <Translate t="account.ask_sign_in_link" />
           </Button>
         </Section>
-      </Wrapper>
+      </>
     )}
   </Consumer>
 );

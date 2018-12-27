@@ -7,31 +7,28 @@ import CountryFlag from "@kiwicom/orbit-components/lib/CountryFlag";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 import type { AirportResult_item } from "./__generated__/AirportResult_item.graphql";
+import buttonMixin from "../../styles/mixins/button";
 
-type ButtonProps = ThemeProps & {
-  selected: boolean,
-};
+type ButtonProps = {|
+  ...ThemeProps,
+  selected?: boolean,
+|};
 
 const Container = styled.button`
+  ${buttonMixin};
   display: flex;
   cursor: pointer;
   height: 48px;
   width: 100%;
   padding: 12px;
-  margin: 0;
   background: ${({ theme, selected }: ButtonProps) =>
     theme.orbit[selected ? "paletteCloudNormal" : "paletteWhite"]};
   text-align: start;
-  border: none;
   box-shadow: 0 1px 0 ${({ theme }: ThemeProps) => theme.orbit.paletteCloudNormal};
   transition: background ${({ theme }: ThemeProps) => theme.orbit.durationNormal};
 
   &:hover {
     background: ${({ theme }: ThemeProps) => theme.orbit.paletteCloudNormal};
-  }
-
-  &:focus {
-    outline: none;
   }
 `;
 
@@ -47,14 +44,10 @@ const Name = styled.span`
 type Props = {|
   item: AirportResult_item,
   onClick: (id: string) => void,
-  selected: boolean,
+  selected?: boolean,
 |};
 
 class AirportResult extends React.PureComponent<Props> {
-  static defaultProps = {
-    selected: false,
-  };
-
   handleClick = () => {
     const { item, onClick } = this.props;
 
@@ -67,6 +60,7 @@ class AirportResult extends React.PureComponent<Props> {
     const { item, selected } = this.props;
 
     const country = item.country?.locationId || "anywhere";
+
     return (
       <Container onClick={this.handleClick} selected={selected}>
         {/* $FlowExpected: CountryFlag's types are way too explicit */}

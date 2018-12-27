@@ -23,7 +23,7 @@ const Message = styled.div`
 
 type Props = {|
   children: React.Node,
-  button: React.Node,
+  button?: React.Node,
   onClose: () => void,
 |};
 
@@ -31,13 +31,9 @@ const AcceptAlert = ({ children, button, onClose }: Props) => (
   <Container>
     <Message>{children}</Message>
     <Button block onClick={onClose}>
-      {button}
+      {button || <Translate t="common.ok" />}
     </Button>
   </Container>
 );
-
-AcceptAlert.defaultProps = {
-  button: <Translate t="common.ok" />,
-};
 
 export default AcceptAlert;

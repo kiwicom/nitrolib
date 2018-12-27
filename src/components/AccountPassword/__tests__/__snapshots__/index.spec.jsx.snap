@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#AccountPassword render 1`] = `
-<ForwardRef>
+<React.Fragment>
   <ModalHeader>
     <Illustration
       name="Login"
@@ -41,7 +41,7 @@ exports[`#AccountPassword render 1`] = `
         <Text
           weight="bold"
         >
-          example@example.com
+          kek@bur.com
         </Text>
         <TextLink
           onClick={[Function]}
@@ -61,7 +61,7 @@ exports[`#AccountPassword render 1`] = `
         label="account.password"
         onChange={[Function]}
         type="password"
-        value="asdfg"
+        value="kek"
       />
       <Button
         onClick={[Function]}
@@ -85,7 +85,7 @@ exports[`#AccountPassword render 1`] = `
         transform={[Function]}
         values={
           Object {
-            "email": "example@example.com",
+            "email": "kek@bur.com",
           }
         }
       />
@@ -102,5 +102,5 @@ exports[`#AccountPassword render 1`] = `
       />
     </Button>
   </ModalSection>
-</ForwardRef>
+</React.Fragment>
 `;

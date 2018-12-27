@@ -920,14 +920,6 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
 
 exports[`#SideBar/ForgotPassword render error INVALID_ARGUMENT_LOGIN 1`] = `
 <AcceptAlert
-  button={
-    <Translate
-      html={false}
-      t="common.ok"
-      transform={[Function]}
-      values={Object {}}
-    />
-  }
   onClose={[MockFunction]}
 >
   <Text>
@@ -1396,14 +1388,6 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
 
 exports[`#SideBar/ForgotPassword render submitted 1`] = `
 <AcceptAlert
-  button={
-    <Translate
-      html={false}
-      t="common.ok"
-      transform={[Function]}
-      values={Object {}}
-    />
-  }
   onClose={[MockFunction]}
 >
   <Text>

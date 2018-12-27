@@ -14,8 +14,8 @@ describe("#AccountPassword", () => {
         onChangeEmail={() => {}}
         onPasswordChange={() => {}}
         onSignIn={() => {}}
-        password="asdfg"
-        email="example@example.com"
+        password="kek"
+        email="kek@bur.com"
       />,
     );
 
