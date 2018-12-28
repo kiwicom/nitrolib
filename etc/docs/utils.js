@@ -91,7 +91,7 @@ function getComponentDoc(name, readme) {
 
   const props = getFlowFile(path.join(COMPONENTS, name, "index.js.flow"));
   const contexts = getContextNeeds(path.join(COMPONENTS, name))
-    .map(context => `* ${context}`)
+    .map(context => `* [${context}](./services#${context.toLowerCase()})`)
     .join("\n");
 
   return [

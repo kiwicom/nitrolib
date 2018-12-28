@@ -4,6 +4,7 @@ import { shallow } from "enzyme";
 
 import AcceptAlert from "..";
 
+// TODO test styled components everywhere using 'mount', or try traverse and render
 describe("#AcceptAlert", () => {
   test("render", () => {
     const wrapper = shallow(

@@ -44,7 +44,7 @@ type Props = {|
 ```
 
 **Context needs:**
-* intl
+* [intl](./services#intl)
 
 ### Footer
 
@@ -59,7 +59,7 @@ type Props = {||};
 ```
 
 **Context needs:**
-* intl
+* [intl](./services#intl)
 
 ### HeaderLinks
 
@@ -95,8 +95,8 @@ See types:
 * [HeaderLink](./records#headerlink)
 
 **Context needs:**
-* intl
-* log
+* [intl](./services#intl)
+* [log](./services#log)
 
 ### NavBar
 
@@ -125,13 +125,13 @@ type Props = {|
 ```
 
 **Context needs:**
-* auth
-* brand
-* currency
-* fetched
-* intl
-* log
-* modal
+* [auth](./services#auth)
+* [brand](./services#brand)
+* [currency](./services#currency)
+* [fetched](./services#fetched)
+* [intl](./services#intl)
+* [log](./services#log)
+* [modal](./services#modal)
 
 ## Utilities
 
@@ -156,7 +156,7 @@ type Props = {|
 ```
 
 **Context needs:**
-* intl
+* [intl](./services#intl)
 
 Throw-away ticket banner indicating savings in €.
 
@@ -302,7 +302,7 @@ type Props = {|
 ```
 
 **Context needs:**
-* currency
+* [currency](./services#currency)
 
 Renders a formatted price.
 
@@ -339,7 +339,7 @@ type Props = {|
 ```
 
 **Context needs:**
-* intl
+* [intl](./services#intl)
 
 Our `Translate` wrapped in _Orbit_'s `Text`. Accepts both our and their props.
 
@@ -363,7 +363,7 @@ type Props = {|
 ```
 
 **Context needs:**
-* intl
+* [intl](./services#intl)
 
 Our `TranslateNode` wrapped in _Orbit_'s `Text`. Accepts both our and their props.
 
@@ -423,7 +423,7 @@ type Props = {|
 ```
 
 **Context needs:**
-* intl
+* [intl](./services#intl)
 
 Translates the supplied key.
 
@@ -456,7 +456,7 @@ type Props = {|
 ```
 
 **Context needs:**
-* intl
+* [intl](./services#intl)
 
 The same as `Translate`, except values are `React.Node`. Useful when you need to inject elements with event handlers!
 
