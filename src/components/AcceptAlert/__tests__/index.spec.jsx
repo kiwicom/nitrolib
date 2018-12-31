@@ -1,12 +1,26 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 
 import AcceptAlert from "..";
 
-// TODO test styled components everywhere using 'mount', or try traverse and render
+import { themeDefault } from "../../../records/Theme";
+
 describe("#AcceptAlert", () => {
   test("render", () => {
+    const wrapper = mount(
+      <AcceptAlert onClose={jest.fn()}>
+        <p>Content</p>
+      </AcceptAlert>,
+    );
+
+    expect(wrapper.find("AcceptAlert__Container")).toHaveStyleRule(
+      "background",
+      themeDefault.orbit.paletteWhite,
+    );
+  });
+
+  test("render translate", () => {
     const wrapper = shallow(
       <AcceptAlert onClose={jest.fn()}>
         <p>Content</p>
@@ -21,9 +35,9 @@ describe("#AcceptAlert", () => {
     ).toBe(true);
   });
 
-  test("render - button", () => {
+  test("render button", () => {
     const wrapper = shallow(
-      <AcceptAlert onClose={jest.fn()} button={<span className="Submit">Submit</span>}>
+      <AcceptAlert onClose={jest.fn()} button={<span>Submit</span>}>
         <p>Content</p>
       </AcceptAlert>,
     );
@@ -31,9 +45,9 @@ describe("#AcceptAlert", () => {
     expect(
       wrapper
         .find("Button")
-        .children()
-        .is(".Submit"),
-    ).toBe(true);
+        .children("span")
+        .text(),
+    ).toBe("Submit");
   });
 
   test("close", () => {

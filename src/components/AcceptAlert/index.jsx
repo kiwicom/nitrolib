@@ -9,7 +9,7 @@ import type { ThemeProps } from "../../records/Theme";
 import Translate from "../Translate";
 
 const Container = styled.div`
-  padding: ${padding.page}px; // TODO Orbit
+  padding: ${padding.page}px; /* TODO Orbit */
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
 `;
 

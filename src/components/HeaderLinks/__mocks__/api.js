@@ -1,4 +1,6 @@
-// @flow
+// @flow strict
+
+// TODO move to HeaderLinks/records/HeaderLink.js
 export const props = {
   searchString: "Suche",
   languageId: "de",

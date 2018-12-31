@@ -1,8 +1,10 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 
 import { AirportResultUnwrapped as AirportResult } from "..";
+
+import { themeDefault } from "../../../records/Theme";
 
 const item: any = {
   locationId: "VIE",
@@ -18,15 +20,21 @@ const item: any = {
 
 describe("#AirportResult", () => {
   test("render default", () => {
-    const wrapper = shallow(<AirportResult item={item} onClick={jest.fn()} />);
+    const wrapper = mount(<AirportResult item={item} onClick={jest.fn()} />);
 
-    expect(wrapper.find("AirportResult__Container").prop("selected")).toBeUndefined();
+    expect(wrapper.find("AirportResult__Container")).toHaveStyleRule(
+      "background",
+      themeDefault.orbit.paletteWhite,
+    );
   });
 
   test("render selected", () => {
-    const wrapper = shallow(<AirportResult item={item} selected onClick={jest.fn()} />);
+    const wrapper = mount(<AirportResult item={item} selected onClick={jest.fn()} />);
 
-    expect(wrapper.find("AirportResult__Container").prop("selected")).toBe(true);
+    expect(wrapper.find("AirportResult__Container")).toHaveStyleRule(
+      "background",
+      themeDefault.orbit.paletteCloudNormal,
+    );
   });
 
   test("render country", () => {
