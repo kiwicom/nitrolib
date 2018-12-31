@@ -12,7 +12,7 @@ describe("#ClientOnly", () => {
       </ClientOnly>,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.contains(<div>kek</div>)).toBe(true);
   });
 
   test("no mount", () => {
@@ -23,7 +23,8 @@ describe("#ClientOnly", () => {
     );
 
     wrapper.setState({ mounted: false });
-    expect(wrapper).toMatchSnapshot();
+
+    expect(wrapper.isEmptyRender()).toBe(true);
   });
 
   test("no mount loader", () => {
@@ -34,6 +35,7 @@ describe("#ClientOnly", () => {
     );
 
     wrapper.setState({ mounted: false });
-    expect(wrapper).toMatchSnapshot();
+
+    expect(wrapper.contains(<h2>loading...</h2>)).toBe(true);
   });
 });

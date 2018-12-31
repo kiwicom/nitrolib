@@ -4,10 +4,12 @@ import { shallow } from "enzyme";
 
 import BrandName from "..";
 
+import { brandDefault } from "../../../records/Brand";
+
 describe("#BrandName", () => {
   test("render", () => {
     const wrapper = shallow(<BrandName />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.prop("children")(brandDefault)).toBe(brandDefault.name);
   });
 });
