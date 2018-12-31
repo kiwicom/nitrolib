@@ -1,0 +1,11 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {|
+  onClose: (ev: KeyboardEvent) => void,
+  children: React.Node,
+  // defaulted
+  closeKey?: string, // Escape
+|};
+
+declare export default React.ComponentType<Props>;

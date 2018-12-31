@@ -4,9 +4,10 @@ import * as React from "react";
 const ESCAPE = "Escape";
 
 type Props = {|
-  closeKey: string,
+  onClose: (ev: KeyboardEvent) => void,
   children: React.Node,
-  onClose: (event?: KeyboardEvent) => void,
+  // defaulted
+  closeKey: string,
 |};
 
 export default class CloseByKey extends React.PureComponent<Props> {
@@ -18,7 +19,6 @@ export default class CloseByKey extends React.PureComponent<Props> {
     const { body } = document;
 
     if (body) {
-      body.focus();
       body.addEventListener("keydown", this.handleKeyDown);
     }
   }
@@ -31,13 +31,13 @@ export default class CloseByKey extends React.PureComponent<Props> {
     }
   }
 
-  handleKeyDown = (event: KeyboardEvent) => {
-    event.stopPropagation();
+  handleKeyDown = (ev: KeyboardEvent) => {
+    ev.stopPropagation();
 
     const { closeKey, onClose } = this.props;
 
-    if (onClose && event.key === closeKey) {
-      onClose(event);
+    if (onClose && ev.key === closeKey) {
+      onClose(ev);
     }
   };
 

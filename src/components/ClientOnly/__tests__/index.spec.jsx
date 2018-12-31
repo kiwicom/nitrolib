@@ -12,7 +12,7 @@ describe("#ClientOnly", () => {
       </ClientOnly>,
     );
 
-    expect(wrapper.contains(<div>kek</div>)).toBe(true);
+    expect(wrapper.matchesElement(<div>kek</div>)).toBe(true);
   });
 
   test("no mount", () => {
@@ -36,6 +36,6 @@ describe("#ClientOnly", () => {
 
     wrapper.setState({ mounted: false });
 
-    expect(wrapper.contains(<h2>loading...</h2>)).toBe(true);
+    expect(wrapper.matchesElement(<h2>loading...</h2>)).toBe(true);
   });
 });
