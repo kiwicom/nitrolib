@@ -163,20 +163,30 @@ const translation = {
 };
 
 describe("#languages", () => {
-  test("get Brand Languages", () => {
+  test("get brand languages", () => {
     const res = fns.getBrandLanguages(brands, languages, countries);
 
     expect(res).toEqual(brandLanguages);
   });
 
-  test("translate And Sort Continents", () => {
-    const res = fns.translateAndSortContinents(brandLanguages.hotelexpress, translation);
+  test("translate and sort continents", () => {
+    const res = fns.translateAndSortContinents(
+      {
+        continents: ["eu", "ap"],
+        defaultLocale: "en",
+        languages: {
+          cz: { continent: "ap", defaultCountry: "th", flag: "th", id: "th", name: "Thailand" },
+          en: { continent: "eu", defaultCountry: "gb", flag: "uk", id: "en", name: "English (UK)" },
+        },
+      },
+      translation,
+    );
 
     expect(res).toEqual({
-      continents: ["eu"],
+      continents: ["ap", "eu"],
       defaultLocale: "en",
       languages: {
-        cz: { continent: "eu", defaultCountry: "cz", flag: "cz", id: "cz", name: "Czech" },
+        cz: { continent: "ap", defaultCountry: "th", flag: "th", id: "th", name: "Thailand" },
         en: { continent: "eu", defaultCountry: "gb", flag: "uk", id: "en", name: "English (UK)" },
       },
     });

@@ -46,7 +46,7 @@ const tKeys = {
 const translateAndSortContinents = (brandLanguage, translations) =>
   R.over(
     R.lensProp("continents"),
-    R.compose(R.sortBy(continent => translations[tKeys[continent]])),
+    R.sortBy(continent => translations[tKeys[continent]]),
     brandLanguage,
   );
 
