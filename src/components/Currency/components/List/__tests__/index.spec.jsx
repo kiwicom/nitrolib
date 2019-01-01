@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import CurrencyList from "../CurrencyList";
+import List from "..";
 
 const currencies = {
   gbp: {
@@ -51,9 +51,10 @@ const active = currencies.eur;
 
 const list = [currencies.gbp, currencies.eur, currencies.czk, currencies.usd];
 
+// TODO fix these tests
 describe("#Currency/CustomPicker/CurrencyList", () => {
   test("render", () => {
-    const wrapper = shallow(<CurrencyList active={active} list={list} onSetCurrency={jest.fn()} />);
+    const wrapper = shallow(<List active={active} list={list} onSetCurrency={jest.fn()} />);
 
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.find("CurrencyList__ItemText[active=true]").shallow()).toMatchSnapshot();
@@ -67,9 +68,7 @@ describe("#Currency/CustomPicker/CurrencyList", () => {
 
   test("handle click", () => {
     const onSetCurrency = jest.fn();
-    const wrapper = shallow(
-      <CurrencyList active={active} list={list} onSetCurrency={onSetCurrency} />,
-    );
+    const wrapper = shallow(<List active={active} list={list} onSetCurrency={onSetCurrency} />);
 
     wrapper
       .find("CurrencyList__Item")

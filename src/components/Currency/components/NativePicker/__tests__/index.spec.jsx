@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import Menu from "../Menu";
+import NativePicker from "../index";
 
 const currencies = {
   gbp: {
@@ -53,10 +53,10 @@ const available = [currencies.gbp, currencies.eur, currencies.czk, currencies.us
 
 const recommended = [currencies.eur, currencies.czk, currencies.gbp];
 
-describe("#Currency/Menu", () => {
+describe("#Currency/NativePicker", () => {
   test("render", () => {
     const wrapper = shallow(
-      <Menu
+      <NativePicker
         current={current}
         available={available}
         recommended={recommended}
@@ -65,36 +65,5 @@ describe("#Currency/Menu", () => {
     );
 
     expect(wrapper).toMatchSnapshot();
-  });
-
-  test("render - no recommended", () => {
-    const wrapper = shallow(
-      <Menu current={current} available={available} recommended={[]} onChange={jest.fn()} />,
-    );
-
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  test("notifies about visibility change", () => {
-    const onSetModal = jest.fn();
-
-    const wrapper = shallow(
-      <Menu
-        current={current}
-        available={available}
-        recommended={recommended}
-        onChange={jest.fn()}
-        onSetModal={onSetModal}
-      />,
-    );
-
-    expect(onSetModal).toBeCalledTimes(1);
-    expect(onSetModal).toBeCalledWith("currencyMenu");
-
-    onSetModal.mockReset();
-    wrapper.unmount();
-
-    expect(onSetModal).toBeCalledTimes(1);
-    expect(onSetModal).toBeCalledWith("");
   });
 });

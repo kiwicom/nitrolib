@@ -2,11 +2,11 @@
 import * as React from "react";
 
 import { Consumer as CurrencyConsumer } from "../../services/currency/context";
-import NativePicker from "./NativePicker";
+import NativePicker from "./components/NativePicker/index";
 import CustomPicker from "../CustomPicker";
 import { currencyDefault, getAvailableList } from "../../records/Currency";
-import Current from "./components/Current";
-import Menu from "./components/Menu";
+import Current from "./components/Current/index";
+import Menu from "./components/Menu/index";
 import LogMount from "../LogMount";
 import { OPEN_CURRENCY } from "../../consts/events";
 import type { Modal as ModalType } from "../../consts/modals";

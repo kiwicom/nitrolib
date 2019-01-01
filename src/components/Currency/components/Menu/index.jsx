@@ -4,13 +4,13 @@ import * as R from "ramda";
 import styled, { css } from "styled-components";
 import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
-import type { Currency } from "../../../records/Currency";
-import mq from "../../../styles/mq";
-import { themeDefault } from "../../../records/Theme";
-import type { ThemeProps } from "../../../records/Theme";
-import * as MODALS from "../../../consts/modals";
-import type { Modal as ModalType } from "../../../consts/modals";
-import CurrencyList from "./CurrencyList";
+import type { Currency } from "../../../../records/Currency";
+import mq from "../../../../styles/mq";
+import { themeDefault } from "../../../../records/Theme";
+import type { ThemeProps } from "../../../../records/Theme";
+import * as MODALS from "../../../../consts/modals";
+import type { Modal as ModalType } from "../../../../consts/modals";
+import List from "../List/index";
 
 const Container = styled.div`
   position: absolute;
@@ -114,10 +114,10 @@ class Menu extends React.Component<Props> {
       >
         {!R.isEmpty(recommended) && (
           <Recommended>
-            <CurrencyList list={recommended} active={current} onSetCurrency={onChange} />
+            <List list={recommended} active={current} onSetCurrency={onChange} />
           </Recommended>
         )}
-        <CurrencyList list={available} active={current} onSetCurrency={onChange} />
+        <List list={available} active={current} onSetCurrency={onChange} />
       </Container>
     );
   }

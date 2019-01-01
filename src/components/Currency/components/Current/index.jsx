@@ -2,15 +2,16 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { getCode, getSymbol } from "../../../records/Currency";
-import type { Currency } from "../../../records/Currency";
-import Code from "./Code";
-import Sign from "./Sign";
-import type { ThemeProps } from "../../../records/Theme";
-import { themeDefault } from "../../../records/Theme";
+import { getCode, getSymbol } from "../../../../records/Currency";
+import type { Currency } from "../../../../records/Currency";
+import Code from "../../primitives/Code";
+import Sign from "../../primitives/Sign";
+import type { ThemeProps } from "../../../../records/Theme";
+import { themeDefault } from "../../../../records/Theme";
 
-type InvertedProps = ThemeProps & {|
-  inverted: boolean,
+type InvertedProps = {|
+  ...ThemeProps,
+  inverted: ?boolean,
 |};
 
 const Separator = styled.span`
@@ -20,6 +21,7 @@ const Separator = styled.span`
 const Wrapper = styled.div`
   color: ${({ theme, inverted }: InvertedProps) =>
     inverted ? theme.orbit.paletteWhite : theme.orbit.paletteInkNormal};
+
   &:hover {
     color: ${({ theme, inverted }: InvertedProps) =>
       inverted ? theme.orbit.paletteWhiteHover : theme.orbit.paletteProductNormalHover};

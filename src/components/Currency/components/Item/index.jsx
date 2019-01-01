@@ -2,12 +2,12 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
-import { getCode, getSymbol } from "../../../records/Currency";
-import type { Currency } from "../../../records/Currency";
-import mq from "../../../styles/mq";
-import Code from "./Code";
-import Sign from "./Sign";
-import Name from "./Name";
+import { getCode, getSymbol } from "../../../../records/Currency";
+import type { Currency } from "../../../../records/Currency";
+import mq from "../../../../styles/mq";
+import Code from "../../primitives/Code";
+import Sign from "../../primitives/Sign";
+import Name from "../../primitives/Name";
 
 const NameSeparator = styled.span`
   margin: 0 5px;
@@ -21,7 +21,7 @@ type Props = {|
   item: Currency,
 |};
 
-const CurrencyItem = ({ item }: Props) => (
+const Item = ({ item }: Props) => (
   <>
     <Code>{getCode(item.id)}</Code>
     <Sign>{getSymbol(item.format)}</Sign>
@@ -30,4 +30,4 @@ const CurrencyItem = ({ item }: Props) => (
   </>
 );
 
-export default CurrencyItem;
+export default Item;

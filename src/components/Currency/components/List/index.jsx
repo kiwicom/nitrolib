@@ -3,17 +3,17 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
-import type { Currency } from "../../../records/Currency";
-import { themeDefault } from "../../../records/Theme";
-import type { ThemeProps } from "../../../records/Theme";
-import separateList from "../../../services/utils/separateList";
-import Flex from "../../../primitives/Flex";
-import mq from "../../../styles/mq";
-import Tooltip from "../../Tooltip";
-import CurrencyItem from "./CurrencyItem";
-import Code from "./Code";
-import Name from "./Name";
-import Sign from "./Sign";
+import type { Currency } from "../../../../records/Currency";
+import { themeDefault } from "../../../../records/Theme";
+import type { ThemeProps } from "../../../../records/Theme";
+import separateList from "../../services/separateList";
+import Flex from "../../../../primitives/Flex";
+import mq from "../../../../styles/mq";
+import Tooltip from "../../../Tooltip/index";
+import CurrencyItem from "../Item/index";
+import Code from "../../primitives/Code";
+import Name from "../../primitives/Name";
+import Sign from "../../primitives/Sign";
 
 type ActiveProps = {|
   ...ThemeProps,
@@ -93,13 +93,12 @@ type Props = {|
   onSetCurrency: (code: string) => void,
 |};
 
-const CurrencyList = ({ active, list, onSetCurrency }: Props) => (
+const List = ({ active, list, onSetCurrency }: Props) => (
   <Flex wrap="wrap">
     {separateList(COLUMNS, list).map((items, i) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <Column key={i}>
+      <Column key={items.reduce((acc, next) => acc + next.id, "")}>
         {items.map(item => (
-          <Item key={item.id} data-test={`CurrencySwitcher-Item-${item.id}`}>
+          <Item key={item.id} data-test={item.id}>
             <Tooltip position={i > 1 ? "left" : "right"} tip={<Tip>{item.name}</Tip>}>
               <ItemText active={item.id === active.id} onClick={() => onSetCurrency(item.id)}>
                 <CurrencyItem item={item} />
@@ -112,4 +111,4 @@ const CurrencyList = ({ active, list, onSetCurrency }: Props) => (
   </Flex>
 );
 
-export default CurrencyList;
+export default List;
