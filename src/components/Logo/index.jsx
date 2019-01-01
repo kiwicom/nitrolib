@@ -90,16 +90,12 @@ export const Logo = ({
   onClick,
 }: Props) =>
   id === "kiwicom" ? (
-    <Link href={`${redirectUrl}${languageId}/`} onClick={onClick} data-test="NavbarLogoLink">
+    <Link href={`${redirectUrl}${languageId}/`} onClick={onClick}>
       <SvgLogo height={logo.height} width={logo.width} title={title} inverted={inverted} />
     </Link>
   ) : (
     <>
-      <LogoLinkStyled
-        href={`${redirectUrl}${languageId}/`}
-        onClick={onClick}
-        data-test="NavbarLogoLink"
-      >
+      <LogoLinkStyled href={`${redirectUrl}${languageId}/`} onClick={onClick}>
         <LogoStyled
           title={title}
           alt={title}

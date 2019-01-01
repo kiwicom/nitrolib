@@ -8,7 +8,7 @@ describe("#CookiesConsent", () => {
   test("render - cookies not accepted", () => {
     const wrapper = shallow(<CookiesConsent onAccept={jest.fn()} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("CookiesBanner").exists()).toBe(true);
   });
 
   test("render - cookies accepted", () => {
@@ -16,7 +16,7 @@ describe("#CookiesConsent", () => {
 
     wrapper.setState({ accepted: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.isEmptyRender()).toBe(true);
   });
 
   test("accept cookies", () => {

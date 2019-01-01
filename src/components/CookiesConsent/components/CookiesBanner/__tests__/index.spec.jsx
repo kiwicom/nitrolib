@@ -1,14 +1,27 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 
 import CookiesBanner from "..";
 
+import { BREAKPOINTS } from "../../../../../consts/device";
+import { themeDefault } from "../../../../../records/Theme";
+
 describe("#CookiesBanner", () => {
   test("render", () => {
-    const wrapper = shallow(<CookiesBanner onAccept={jest.fn()} />);
+    const wrapper = mount(<CookiesBanner onAccept={jest.fn()} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("CookiesBanner__Container")).toHaveStyleRule(
+      "background",
+      themeDefault.orbit.paletteInkDark,
+    );
+    expect(wrapper.find("CookiesBanner__Container")).toHaveStyleRule(
+      "background",
+      themeDefault.orbit.paletteWhite,
+      {
+        media: `(min-width:${BREAKPOINTS.TABLET}px)`,
+      },
+    );
   });
 
   test("click accept", () => {

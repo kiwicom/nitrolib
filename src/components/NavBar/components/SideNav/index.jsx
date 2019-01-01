@@ -213,13 +213,13 @@ export default class SideNav extends React.Component<Props, State> {
 
     return (
       <>
-        <MenuOpen onClick={this.handleToggle} data-test="NavbarMenu" inverted={inverted}>
+        <MenuOpen onClick={this.handleToggle} inverted={inverted}>
           <MenuHamburger />
         </MenuOpen>
 
         <ClientOnly>
           <SideBar onClick={this.handleToggle} shown={modalOpen === MODALS.SIDE_NAV}>
-            <Close onClick={this.handleToggle} data-test="NavbarMenuClose">
+            <Close onClick={this.handleToggle}>
               <Translate t="common.hide" /> <CloseIcon />
             </Close>
 

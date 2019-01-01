@@ -3,7 +3,6 @@
 exports[`#SideNav render 1`] = `
 <Fragment>
   <SideNav__MenuOpen
-    data-test="NavbarMenu"
     inverted={false}
     onClick={[Function]}
     theme={
@@ -401,7 +400,6 @@ exports[`#SideNav render 1`] = `
       shown={false}
     >
       <SideNav__Close
-        data-test="NavbarMenuClose"
         onClick={[Function]}
         theme={
           Object {

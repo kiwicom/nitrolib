@@ -168,8 +168,11 @@ type EnzymeMatchersType = {
 /**
  *  Plugin: jest-styled-components
  */
+type Modifier = ":hover" | ":active";
 type StyledComponentsMatchersType = {
-  toHaveStyleRule(rule: string, value: string): void,
+  toHaveStyleRule(
+    rule: string, value: string, options?: {| media?: string, modifier?: Modifier |},
+  ): void,
 };
 
 // DOM testing library extensions https://github.com/kentcdodds/dom-testing-library#custom-jest-matchers
@@ -283,7 +286,7 @@ type JestExtendedMatchersType = {
     /**
      * Use `.toBeTrue` when checking a value is equal (===) to `true`.
      */
-    toBeTrue(): void;
+    toBe(true): void;
 
     /**
      * Use `.toBeFalse` when checking a value is equal (===) to `false`.
