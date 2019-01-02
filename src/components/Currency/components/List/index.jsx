@@ -60,13 +60,13 @@ const ItemText = styled.div`
       theme.orbit[active ? "paletteWhite" : "paletteInkNormal"]};
   }
 
-  ${Sign} {
+  ${Name} {
     margin-${/* sc-custom "left" */ left}: 10px;
     color: ${({ theme, active }: ActiveProps) =>
       theme.orbit[active ? "paletteWhite" : "paletteInkNormal"]};
   }
 
-  ${Name} {
+  ${Sign} {
     margin-${/* sc-custom "left" */ left}: 10px;
     color: ${({ theme, active }: ActiveProps) =>
       theme.orbit[active ? "paletteWhite" : "paletteInkNormal"]};
