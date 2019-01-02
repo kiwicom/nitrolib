@@ -1,8 +1,9 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 
-import Menu from "../Menu/index";
+import Menu from "..";
+import { BREAKPOINTS } from "../../../../../consts/device";
 
 const currencies = {
   gbp: {
@@ -55,6 +56,31 @@ const recommended = [currencies.eur, currencies.czk, currencies.gbp];
 
 describe("#Currency/Menu", () => {
   test("render", () => {
+    const tablet = 13;
+    const desktop = 37;
+    const wrapper = mount(
+      <Menu
+        current={current}
+        available={available}
+        recommended={recommended}
+        positionMenuTablet={tablet}
+        positionMenuDesktop={desktop}
+        onChange={jest.fn()}
+      />,
+    );
+
+    expect(wrapper.find("Menu__Container")).toHaveStyleRule("left", "inherit", {
+      media: `(min-width: ${BREAKPOINTS.TABLET}px)`,
+    });
+    expect(wrapper.find("Menu__Container")).toHaveStyleRule("right", `${tablet}px`, {
+      media: `(min-width: ${BREAKPOINTS.TABLET}px)`,
+    });
+    expect(wrapper.find("Menu__Container")).toHaveStyleRule("right", `${desktop}px`, {
+      media: `(min-width: ${BREAKPOINTS.DESKTOP}px)`,
+    });
+  });
+
+  test("recommended", () => {
     const wrapper = shallow(
       <Menu
         current={current}
@@ -64,17 +90,18 @@ describe("#Currency/Menu", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Menu__Recommended").exists()).toBe(true);
   });
 
-  test("render - no recommended", () => {
+  test("no recommended", () => {
     const wrapper = shallow(
       <Menu current={current} available={available} recommended={[]} onChange={jest.fn()} />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Menu__Recommended").exists()).toBe(false);
   });
 
+  // FIXME remove this eventually
   test("notifies about visibility change", () => {
     const onSetModal = jest.fn();
 
@@ -96,5 +123,19 @@ describe("#Currency/Menu", () => {
 
     expect(onSetModal).toBeCalledTimes(1);
     expect(onSetModal).toBeCalledWith("");
+  });
+
+  test("not notifies about visibility change", () => {
+    const wrapper = shallow(
+      <Menu
+        current={current}
+        available={available}
+        recommended={recommended}
+        onChange={jest.fn()}
+      />,
+    );
+
+    wrapper.unmount();
+    // No blowup - OK
   });
 });

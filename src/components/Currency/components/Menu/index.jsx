@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from "react";
-import * as R from "ramda";
 import styled, { css } from "styled-components";
 import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
@@ -22,7 +21,7 @@ const Container = styled.div`
   box-sizing: border-box;
   padding: 15px 12px;
   overflow-y: scroll;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
 
@@ -32,15 +31,11 @@ const Container = styled.div`
     margin: 0;
     max-height: calc(100vh - 60px);
     overflow-y: auto;
-  `)}
-
-  ${mq.tablet(css`
-    ${/* sc-custom "right" */ right}: ${({ positionMenuTablet }) => positionMenuTablet}px;
     ${/* sc-custom "left" */ left}: inherit;
+    ${/* sc-custom "right" */ right}: ${({ positionMenuTablet }) => positionMenuTablet}px;
   `)}
 
   ${mq.gtDesktop(css`
-    ${/* sc-custom "left" */ left}: inherit;
     ${/* sc-custom "right" */ right}: ${({ positionMenuDesktop }) => positionMenuDesktop}px;
   `)}
 `;
@@ -107,12 +102,8 @@ class Menu extends React.Component<Props> {
       positionMenuTablet,
     } = this.props;
     return (
-      <Container
-        positionMenuDesktop={positionMenuDesktop}
-        positionMenuTablet={positionMenuTablet}
-        data-test="CurrencySwitcher-List"
-      >
-        {!R.isEmpty(recommended) && (
+      <Container positionMenuDesktop={positionMenuDesktop} positionMenuTablet={positionMenuTablet}>
+        {recommended.length > 0 && (
           <Recommended>
             <List list={recommended} active={current} onSetCurrency={onChange} />
           </Recommended>
