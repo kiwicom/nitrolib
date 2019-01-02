@@ -3,6 +3,7 @@ import * as React from "react";
 import { shallow, mount } from "enzyme";
 
 import Menu from "..";
+
 import { BREAKPOINTS } from "../../../../../consts/device";
 
 const currencies = {
