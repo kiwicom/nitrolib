@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
@@ -42,19 +42,19 @@ const Select = styled.select`
 
   ${({ hideNativeText }) =>
     hideNativeText &&
-    `
-    width: 24px;
-    margin-left: -24px;
-    color: transparent;
-
-    &:hover {
+    css`
+      width: 24px;
+      margin-left: -24px;
       color: transparent;
-    }
 
-    & > optgroup {
-      color: initial;
-    }
-  `};
+      &:hover {
+        color: transparent;
+      }
+
+      & > optgroup {
+        color: initial;
+      }
+    `};
 `;
 
 Select.defaultProps = {
@@ -76,8 +76,8 @@ type Props = {|
   icon: React.Node,
   value: string,
   groups: Group[],
-  divider: ?string,
-  hideNativeText?: boolean,
+  divider: string,
+  hideNativeText: boolean,
   onChange: (value: string) => void,
 |};
 
@@ -107,6 +107,7 @@ const NativeGroupedSelect = ({ icon, value, groups, divider, hideNativeText, onC
 NativeGroupedSelect.defaultProps = {
   icon: null,
   divider: "-----------------",
+  hideNativeText: false,
 };
 
 export default NativeGroupedSelect;

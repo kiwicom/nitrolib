@@ -54,6 +54,7 @@ exports[`#Currency/NativePicker render 1`] = `
       },
     ]
   }
+  hideNativeText={false}
   icon={
     <Exchange
       className="CurrencySwitcher-icon"

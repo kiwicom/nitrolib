@@ -25,6 +25,7 @@ exports[`#Language/NativePicker render 1`] = `
       },
     ]
   }
+  hideNativeText={false}
   icon={
     <CountryFlag
       code="gb"

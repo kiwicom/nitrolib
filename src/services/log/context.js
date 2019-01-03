@@ -9,7 +9,9 @@ export type Context<E, D> = {|
 
 // FIXME find a way to make Flow infer types based on usage if possible
 const contextDefault: Context<any, any> = {
-  log: ev => console.log("%cNITROLOG", "color: green", ev), // eslint-disable-line no-console
+  // Removed on purpose:
+  // ev => console.log("%cNITROLOG", "color: green", ev), // eslint-disable-line no-console
+  log: () => {},
 };
 
 const context: React.Context<Context<any, any>> = React.createContext(contextDefault);
