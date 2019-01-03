@@ -79,9 +79,11 @@ class BaggagePicker extends React.Component<Props, State> {
           <Text weight="bold" uppercase element="span">
             {title}
           </Text>
-          <Tooltip tip={<TooltipContent>{tooltip}</TooltipContent>} position="right">
-            <InformationCircle size="small" color="secondary" />
-          </Tooltip>
+          <div>
+            <Tooltip tip={<TooltipContent>{tooltip}</TooltipContent>} position="right">
+              <InformationCircle size="small" color="secondary" />
+            </Tooltip>
+          </div>
         </Stack>
         <Text>Select one option:</Text>
         {showedItems.map(item => (

@@ -1,11 +1,10 @@
 // @flow strict
 import * as React from "react";
-import styled from "styled-components";
 import BaggageSet from "@kiwicom/orbit-components/lib/icons/BaggageSet";
 import CardHeader from "@kiwicom/orbit-components/lib/Card/CardHeader";
 
 import BaggagePicker from "../BaggagePicker";
-import type { BaggageType, BaggageGroup } from "./types";
+import type { BaggageType, BaggageGroup } from "../../records/Baggage";
 
 type Props = {
   passengerIndex: number,

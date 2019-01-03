@@ -21,7 +21,7 @@ type Props = {
   onClick: () => void,
 };
 
-type Checked = ThemeProps & {
+type OptionWrapperProps = ThemeProps & {
   checked: boolean,
 };
 
@@ -29,8 +29,11 @@ const OptionWrapper = styled.div`
   padding: ${({ theme }) => theme.orbit.spaceSmall};
   border-radius: ${({ theme }) => theme.orbit.borderRadiusNormal};
   border: 1px solid
-    ${({ theme, checked }: Checked) =>
+    ${({ theme, checked }: OptionWrapperProps) =>
       checked ? theme.orbit.colorTextButtonPrimaryBordered : theme.orbit.borderColorCard};
+  &:hover {
+    border-color: ${({ theme }: ThemeProps) => theme.orbit.borderColorCheckboxRadioHover};
+  }
 `;
 
 // TODO: fix it. Radio icon and baggage icons should have equal sizes
