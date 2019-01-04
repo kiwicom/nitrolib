@@ -46,7 +46,6 @@ const Currency = ({
         <CustomPicker
           onChange={onChange}
           openButton={<Current current={currency} inverted={inverted} />}
-          dataTest="CurrencySwitcher"
         >
           {render => (
             <>
