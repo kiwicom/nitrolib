@@ -2,10 +2,9 @@
 import * as React from "react";
 
 type Props = {|
-  dataTest?: string,
-  hrefLearnMore: string, // Link to learn more page
   amount: number,
   currency: string,
+  onLearnMoreClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers redirection to learn more article
   onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers modal with alternative trips
 |};
 

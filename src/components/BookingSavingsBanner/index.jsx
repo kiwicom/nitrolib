@@ -5,7 +5,6 @@ import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import Deals from "@kiwicom/orbit-components/lib/icons/Deals";
 import Button from "@kiwicom/orbit-components/lib/Button";
-import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import WrapperText from "@kiwicom/orbit-components/lib/Text";
 import Card from "@kiwicom/orbit-components/lib/Card";
@@ -14,13 +13,13 @@ import CardSection from "@kiwicom/orbit-components/lib/Card/CardSection";
 import Translate from "../Translate";
 
 type Props = {|
-  hrefLearnMore: string,
   amount: number,
   currency: string,
+  onLearnMoreClick: (e: SyntheticEvent<HTMLButtonElement>) => void,
   onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
-const BookingSavingsBanner = ({ onMoreTripsClick, hrefLearnMore, amount, currency }: Props) => (
+const BookingSavingsBanner = ({ amount, currency, onLearnMoreClick, onMoreTripsClick }: Props) => (
   <Card>
     <CardSection>
       <Stack
@@ -56,14 +55,14 @@ const BookingSavingsBanner = ({ onMoreTripsClick, hrefLearnMore, amount, currenc
             >
               <Translate t="booking.savings_banner.find_more_trips" />
             </Button>
-            <ButtonLink
+            <Button
               dataTest="saving-banner-button-learn-more"
-              href={hrefLearnMore}
+              onClick={onLearnMoreClick}
               size="small"
               type="secondary"
             >
               <Translate t="common.learn_more" />
-            </ButtonLink>
+            </Button>
           </Stack>
         </Stack>
         <Illustration name="Money" size="small" />

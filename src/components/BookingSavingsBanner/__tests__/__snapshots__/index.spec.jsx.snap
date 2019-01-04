@@ -75,15 +75,11 @@ exports[`#BookingSavingsBanner render 1`] = `
               values={Object {}}
             />
           </Button>
-          <ButtonLink
-            component="button"
+          <Button
             dataTest="saving-banner-button-learn-more"
-            external={false}
-            href="kiwi.com"
+            onClick={[MockFunction]}
             size="small"
-            transparent={false}
             type="secondary"
-            width={0}
           >
             <Translate
               html={false}
@@ -91,7 +87,7 @@ exports[`#BookingSavingsBanner render 1`] = `
               transform={[Function]}
               values={Object {}}
             />
-          </ButtonLink>
+          </Button>
         </Stack>
       </Stack>
       <Illustration

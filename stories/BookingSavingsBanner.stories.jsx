@@ -9,7 +9,7 @@ storiesOf("BookingSavingsBanner", module).add("default", () => (
   <BookingSavingsBanner
     amount={28.76}
     currency="€"
-    hrefLearnMore="kiwi.com"
+    onLearnMoreClick={action("onLearnMoreClick")}
     onMoreTripsClick={action("onMoreTripsClick")}
   />
 ));

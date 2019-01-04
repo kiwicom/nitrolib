@@ -10,7 +10,7 @@ describe("#BookingSavingsBanner", () => {
       <BookingSavingsBanner
         amount={28.76}
         currency="€"
-        hrefLearnMore="kiwi.com"
+        onLearnMoreClick={jest.fn()}
         onMoreTripsClick={jest.fn()}
       />,
     );
@@ -18,19 +18,23 @@ describe("#BookingSavingsBanner", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test("click", () => {
-    const onClick = jest.fn();
+  test("on click", () => {
+    const onLearnMoreClick = jest.fn();
+    const onMoreTripsClick = jest.fn();
+
     const wrapper = shallow(
       <BookingSavingsBanner
         amount={28.76}
         currency="€"
-        hrefLearnMore="kiwi.com"
-        onMoreTripsClick={onClick}
+        onLearnMoreClick={onLearnMoreClick}
+        onMoreTripsClick={onMoreTripsClick}
       />,
     );
 
+    wrapper.find(`[dataTest="saving-banner-button-learn-more"]`).simulate("click");
     wrapper.find(`[dataTest="saving-banner-button-find-more-trips"]`).simulate("click");
 
-    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(onLearnMoreClick).toHaveBeenCalledTimes(1);
+    expect(onMoreTripsClick).toHaveBeenCalledTimes(1);
   });
 });
