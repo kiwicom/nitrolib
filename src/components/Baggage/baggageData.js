@@ -83,6 +83,9 @@ export default {
           length: 78,
           dimensions_sum: 156,
         },
+        conditions: {
+          is_priority: ["FR", "W6"],
+        },
       },
     ],
   },

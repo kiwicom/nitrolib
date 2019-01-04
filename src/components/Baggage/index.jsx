@@ -31,6 +31,7 @@ class Baggage extends React.Component<Props> {
           amount: 1,
           category: definitions[item].category,
           restrictions: definitions[item].restrictions,
+          conditions: definitions[item].conditions,
         };
       }
       return acc;
@@ -45,11 +46,11 @@ class Baggage extends React.Component<Props> {
     const bagCombinations = combinations[passengerCategory][type];
     const bagDefinitions = definitions[type];
 
-    const options = bagCombinations.map(combination => ({
-      originalIndex: combination.originalIndex,
+    const options = bagCombinations.map(c => ({
+      originalIndex: c.originalIndex,
       bagType: type,
-      price: combination.price,
-      items: this.getOptionItems(bagDefinitions, combination.combination),
+      price: c.price,
+      items: this.getOptionItems(bagDefinitions, c.combination),
     }));
 
     return options;

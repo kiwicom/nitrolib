@@ -27,7 +27,7 @@ const OptionItem = ({
   categoryName,
 }: Props) => (
   <Stack shrink spacing="natural" align="center">
-    <Stack shrink align="center" spacing="tight">
+    <Stack shrink align="center" spacing="condensed">
       {categoryIcon}
       <Text>
         {amount > 1 && (
