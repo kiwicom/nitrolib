@@ -19,7 +19,7 @@ import { themeDefault } from "../../../../records/Theme";
 import Currency from "../../../Currency";
 import LogMount from "../../../LogMount";
 import { OPEN_CHAT } from "../../../../consts/events";
-import SideBar from "../SideBar";
+import SideBar from "../../../SideBar";
 import MenuGroup from "./MenuGroup";
 import MenuItem from "./MenuItem";
 import BrandedMenuItem from "./BrandedMenuItem";

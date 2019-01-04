@@ -2,14 +2,11 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
 import styled, { css } from "styled-components";
-import { Transition } from "react-transition-group";
 import { right, translate3d } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import mq from "../../../../styles/mq";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-
-const DURATION = 250;
 
 type ShownProps = {|
   shown: boolean,
@@ -24,7 +21,7 @@ const Container = styled.section`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: ${({ entered }) => (entered ? `rgba(0, 0, 0, .5)` : `transparent`)};
+  background-color: ${({ entered }) => (entered ? "rgba(0, 0, 0, .5)" : "transparent")};
   transition: background-color ${({ theme }: ThemeProps) => theme.orbit.durationNormal} ease-in-out;
   z-index: ${({ theme }: ThemeProps) => theme.orbit.zIndexModal};
 `;
@@ -42,7 +39,7 @@ const Wrapper = styled.div`
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   overflow-y: auto;
   height: 100%;
-  transform: ${({ shown }) => (shown ? translate3d(`0`) : translate3d(`480px, 0, 0`))};
+  transform: ${({ shown }) => (shown ? translate3d("0") : translate3d("480px, 0, 0"))};
   transition: transform ${({ theme }: ThemeProps) => theme.orbit.durationNormal} ease-in-out;
   box-shadow: 0 6px 16px rgba(46, 53, 59, 0.22), 0 1px 3px rgba(0, 0, 0, 0.09);
 
@@ -57,52 +54,46 @@ Wrapper.defaultProps = {
 };
 
 type Props = {|
-  shown: boolean,
+  status: "entering" | "entered" | "exiting" | "exited" | "unmounted",
   onClick: () => void,
   children: React.Node,
 |};
 
-export default class SideBar extends React.Component<Props> {
-  node = document.body;
-
+export default class Core extends React.Component<Props> {
   el = document.createElement("div");
 
   ref: { current: HTMLDivElement | null } = React.createRef();
 
   componentDidMount() {
-    if (this.node) {
-      this.node.appendChild(this.el);
+    if (document.body) {
+      document.body.appendChild(this.el);
     }
   }
 
   componentWillUnmount() {
-    if (this.node) {
-      this.node.removeChild(this.el);
+    if (document.body) {
+      document.body.removeChild(this.el);
     }
   }
 
   render() {
-    const { shown, onClick, children } = this.props;
+    const { status, onClick, children } = this.props;
 
     return ReactDOM.createPortal(
-      <Transition in={shown} timeout={DURATION}>
-        {status => (
-          <Container
-            shown={status !== "exited"}
-            entered={status === "entered"}
-            ref={this.ref}
-            onClick={(ev: SyntheticEvent<HTMLDivElement>) => {
-              if (this.ref.current === ev.target) {
-                onClick();
-              }
-            }}
-            role="button"
-            tabIndex="0"
-          >
-            <Wrapper shown={status !== "exiting" && status !== "exited"}>{children}</Wrapper>
-          </Container>
-        )}
-      </Transition>,
+      <Container
+        shown={status !== "exited"}
+        entered={status === "entered"}
+        ref={this.ref}
+        onClick={(ev: SyntheticEvent<HTMLDivElement>) => {
+          if (this.ref.current === ev.target) {
+            onClick();
+          }
+        }}
+        role="button"
+        tabIndex="0"
+      >
+        <Wrapper shown={status !== "exiting" && status !== "exited"}>{children}</Wrapper>
+      </Container>,
       this.el,
     );
   }
