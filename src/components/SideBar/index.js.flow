@@ -1,0 +1,10 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {|
+  shown: boolean,
+  onClick: () => void,
+  children: React.Node,
+|};
+
+declare export default React.ComponentType<Props>;

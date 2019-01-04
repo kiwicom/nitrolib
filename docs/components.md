@@ -14,9 +14,11 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [BookingSavingsBanner](#bookingsavingsbanner)
 * [ClickOutside](#clickoutside)
 * [ClientOnly](#clientonly)
+* [CloseByKey](#closebykey)
 * [Desktop](#desktop)
 * [Mobile](#mobile)
 * [Price](#price)
+* [SideBar](#sidebar)
 * [Text](#text)
 * [TextNode](#textnode)
 * [Toggle](#toggle)
@@ -227,6 +229,25 @@ const MyComponent = () => (
 );
 ```
 
+### CloseByKey
+
+**Import:**
+```js
+import CloseByKey from "@kiwicom/nitro/lib/components/CloseByKey";
+```
+
+**Types:**
+```js
+type Props = {|
+  onClose: (ev: KeyboardEvent) => void,
+  children: React.Node,
+  // defaulted
+  closeKey?: string, // Escape
+|};
+```
+
+Fires a callback whenever a user presses the close button (_Escape_ by default).
+
 ### Desktop
 
 **Import:**
@@ -319,6 +340,24 @@ const Pay = ({ value }: Props) => (
   </Button>
 );
 ```
+
+### SideBar
+
+**Import:**
+```js
+import SideBar from "@kiwicom/nitro/lib/components/SideBar";
+```
+
+**Types:**
+```js
+type Props = {|
+  shown: boolean,
+  onClick: () => void,
+  children: React.Node,
+|};
+```
+
+A container for a sidebar sliding from the _right_ (_left_ in RTL). It is appended to `document.body`.
 
 ### Text
 
