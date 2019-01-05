@@ -21,6 +21,7 @@ describe("#index", () => {
 
     expect(container).toHaveStyleRule("visibility", "visible");
     expect(container).toHaveStyleRule("background-color", "transparent");
+    expect(wrappr).toHaveStyleRule("right", "0");
     expect(wrappr).toHaveStyleRule("transform", "translate3d(480px,0,0)");
   });
 
@@ -36,6 +37,7 @@ describe("#index", () => {
 
     expect(container).toHaveStyleRule("visibility", "hidden");
     expect(container).toHaveStyleRule("background-color", "transparent");
+    expect(wrappr).toHaveStyleRule("right", "0");
     expect(wrappr).toHaveStyleRule("transform", "translate3d(480px,0,0)");
   });
 
@@ -51,6 +53,55 @@ describe("#index", () => {
 
     expect(container).toHaveStyleRule("visibility", "visible");
     expect(container).toHaveStyleRule("background-color", "rgba(0,0,0,.5)");
+    expect(wrappr).toHaveStyleRule("right", "0");
+    expect(wrappr).toHaveStyleRule("transform", "translate3d(0)");
+  });
+
+  test("render exiting inverted", () => {
+    const wrapper = mount(
+      <Core onClick={jest.fn()} status="exiting" inverted>
+        <h1>Kek</h1>
+      </Core>,
+    );
+
+    const container = wrapper.find("Core__Container");
+    const wrappr = wrapper.find("Core__Wrapper");
+
+    expect(container).toHaveStyleRule("visibility", "visible");
+    expect(container).toHaveStyleRule("background-color", "transparent");
+    expect(wrappr).toHaveStyleRule("left", "0");
+    expect(wrappr).toHaveStyleRule("transform", "translate3d(-480px,0,0)");
+  });
+
+  test("render exited inverted", () => {
+    const wrapper = mount(
+      <Core onClick={jest.fn()} status="exited" inverted>
+        <h1>Kek</h1>
+      </Core>,
+    );
+
+    const container = wrapper.find("Core__Container");
+    const wrappr = wrapper.find("Core__Wrapper");
+
+    expect(container).toHaveStyleRule("visibility", "hidden");
+    expect(container).toHaveStyleRule("background-color", "transparent");
+    expect(wrappr).toHaveStyleRule("left", "0");
+    expect(wrappr).toHaveStyleRule("transform", "translate3d(-480px,0,0)");
+  });
+
+  test("render entered inverted", () => {
+    const wrapper = mount(
+      <Core onClick={jest.fn()} status="entered" inverted>
+        <h1>Kek</h1>
+      </Core>,
+    );
+
+    const container = wrapper.find("Core__Container");
+    const wrappr = wrapper.find("Core__Wrapper");
+
+    expect(container).toHaveStyleRule("visibility", "visible");
+    expect(container).toHaveStyleRule("background-color", "rgba(0,0,0,.5)");
+    expect(wrappr).toHaveStyleRule("left", "0");
     expect(wrappr).toHaveStyleRule("transform", "translate3d(0)");
   });
 

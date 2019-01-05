@@ -2,7 +2,7 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
 import styled, { css } from "styled-components";
-import { right, translate3d } from "@kiwicom/orbit-components/lib/utils/rtl";
+import { right, left, translate3d } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import mq from "../../../../styles/mq";
 import { themeDefault } from "../../../../records/Theme";
@@ -11,6 +11,11 @@ import type { ThemeProps } from "../../../../records/Theme";
 type ShownProps = {|
   shown: boolean,
   showing: boolean,
+|};
+
+type InvertedProps = {|
+  ...ThemeProps,
+  inverted?: boolean,
 |};
 
 const Container = styled.section`
@@ -30,16 +35,25 @@ Container.defaultProps = {
   theme: themeDefault,
 };
 
+const rightCSS = css`
+  ${right}: 0;
+  transform: ${({ shown }: ShownProps) => (shown ? translate3d("0") : translate3d("480px, 0, 0"))};
+`;
+
+const leftCSS = css`
+  ${left}: 0;
+  transform: ${({ shown }: ShownProps) => (shown ? translate3d("0") : translate3d("-480px, 0, 0"))};
+`;
+
 const Wrapper = styled.div`
+  ${({ inverted }: InvertedProps) => (!inverted ? rightCSS : leftCSS)};
   width: 480px;
   position: absolute;
-  ${right}: 0;
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   overflow-y: auto;
   height: 100%;
-  transform: ${({ shown }) => (shown ? translate3d("0") : translate3d("480px, 0, 0"))};
   transition: transform ${({ theme }: ThemeProps) => theme.orbit.durationNormal} ease-in-out;
   box-shadow: 0 6px 16px rgba(46, 53, 59, 0.22), 0 1px 3px rgba(0, 0, 0, 0.09);
 
@@ -55,6 +69,7 @@ Wrapper.defaultProps = {
 
 type Props = {|
   status: "entering" | "entered" | "exiting" | "exited" | "unmounted",
+  inverted?: boolean,
   onClick: () => void,
   children: React.Node,
 |};
@@ -77,10 +92,11 @@ export default class Core extends React.Component<Props> {
   }
 
   render() {
-    const { status, onClick, children } = this.props;
+    const { status, inverted, onClick, children } = this.props;
 
     return ReactDOM.createPortal(
       <Container
+        inverted={inverted}
         shown={status !== "exited"}
         entered={status === "entered"}
         ref={this.ref}
@@ -92,7 +108,9 @@ export default class Core extends React.Component<Props> {
         role="button"
         tabIndex="0"
       >
-        <Wrapper shown={status !== "exiting" && status !== "exited"}>{children}</Wrapper>
+        <Wrapper inverted={inverted} shown={status !== "exiting" && status !== "exited"}>
+          {children}
+        </Wrapper>
       </Container>,
       this.el,
     );

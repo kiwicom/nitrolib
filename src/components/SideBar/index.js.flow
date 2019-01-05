@@ -3,6 +3,7 @@ import * as React from "react";
 
 type Props = {|
   shown: boolean,
+  inverted?: boolean, // opens from the other side
   onClick: () => void,
   children: React.Node,
 |};
