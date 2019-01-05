@@ -14,22 +14,18 @@ type Props = {
 
 const TranslateNode = ({ t, values, transform }: Props) => (
   <Consumer>
-    {intl => (
-      <>
-        {Object.keys(values).reduce(
-          (words, key, i) =>
-            words.map((word, j) =>
-              // $FlowExpected: we're transforming string[] to React.Node[]
-              word === key ? (
-                <span key={`${i}-${j}`}>{values[key]}</span>
-              ) : (
-                <span key={`${i}-${j}`} dangerouslySetInnerHTML={{ __html: word }} />
-              ),
-            ),
-          transform(intl.translate(t)).split("__"),
-        )}
-      </>
-    )}
+    {intl =>
+      transform(intl.translate(t))
+        .split("__")
+        .filter(Boolean)
+        .map((word, i) =>
+          values[word] ? (
+            <span key={i}>{values[word]}</span>
+          ) : (
+            <span key={i} dangerouslySetInnerHTML={{ __html: word }} />
+          ),
+        )
+    }
   </Consumer>
 );
 
