@@ -15,7 +15,6 @@ describe("#Translate", () => {
   test("html", () => {
     const wrapper = mount(<Translate t="lol" html />);
 
-    expect(wrapper).toMatchSnapshot();
     expect(wrapper.contains(<span dangerouslySetInnerHTML={{ __html: "lol" }} />)).toBe(true);
   });
 });
