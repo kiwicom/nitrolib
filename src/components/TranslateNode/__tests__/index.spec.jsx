@@ -23,7 +23,7 @@ describe("#TranslateNode", () => {
     expect(wrapper.contains(<span dangerouslySetInnerHTML={{ __html: " kek bur" }} />)).toBe(true);
   });
 
-  test("more vlaues", () => {
+  test("more values", () => {
     const wrapper = mount(
       <TranslateNode
         t="lol __x__ kek bur __y__"

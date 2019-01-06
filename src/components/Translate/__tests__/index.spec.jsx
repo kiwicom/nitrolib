@@ -1,21 +1,21 @@
 // @flow strict
+/* eslint-disable react/no-danger */
 import * as React from "react";
-import { shallow } from "enzyme";
-
-import { intlDefault } from "../../../records/Intl";
+import { mount } from "enzyme";
 
 import Translate from "..";
 
 describe("#Translate", () => {
   test("string", () => {
-    const wrapper = shallow(<Translate t="lol" />);
+    const wrapper = mount(<Translate t="lol" />);
 
-    expect(wrapper.prop("children")(intlDefault)).toMatchSnapshot();
+    expect(wrapper.contains("lol")).toBe(true);
   });
 
   test("html", () => {
-    const wrapper = shallow(<Translate t="lol" html />);
+    const wrapper = mount(<Translate t="lol" html />);
 
-    expect(wrapper.prop("children")(intlDefault)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.contains(<span dangerouslySetInnerHTML={{ __html: "lol" }} />)).toBe(true);
   });
 });

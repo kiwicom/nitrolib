@@ -1,13 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#Translate html 1`] = `
-<span
-  dangerouslySetInnerHTML={
-    Object {
-      "__html": "lol",
+<Translate
+  html={true}
+  t="lol"
+  transform={[Function]}
+  values={Object {}}
+>
+  <span
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "lol",
+      }
     }
-  }
-/>
+  />
+</Translate>
 `;
-
-exports[`#Translate string 1`] = `"lol"`;
