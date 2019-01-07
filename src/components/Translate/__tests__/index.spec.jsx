@@ -5,7 +5,27 @@ import { mount } from "enzyme";
 
 import Translate from "..";
 
+import { Provider } from "../../../services/intl/context";
+import { intlDefault } from "../../../records/Intl";
+
 describe("#Translate", () => {
+  test("translate call", () => {
+    const translate = jest.fn().mockImplementation(() => "lmao");
+    const wrapper = mount(
+      <Provider
+        value={{
+          ...intlDefault,
+          translate,
+        }}
+      >
+        <Translate t="lol" values={{ kek: "bur" }} />
+      </Provider>,
+    );
+
+    expect(translate).toBeCalledWith("lol", { kek: "bur" });
+    expect(wrapper.contains("lmao")).toBe(true);
+  });
+
   test("string", () => {
     const wrapper = mount(<Translate t="lol" />);
 
