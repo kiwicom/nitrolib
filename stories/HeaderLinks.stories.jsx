@@ -6,6 +6,7 @@ import HeaderLinks from "../src/components/HeaderLinks";
 import withData from "./decorators/withData";
 
 const props = {
+  inverted: false,
   searchString: "Suche",
   languageId: "de",
   currencyId: "GBP",

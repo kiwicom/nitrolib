@@ -10,6 +10,7 @@ import ModalsAuth from "../src/components/ModalsAuth";
 import withData from "./decorators/withData";
 
 const props = {
+  inverted: false,
   searchString: "Suche",
   languageId: "de",
   currencyId: "GBP",

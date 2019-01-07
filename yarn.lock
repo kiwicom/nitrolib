@@ -890,9 +890,10 @@
     request-promise "^4.1.1"
     yargs "^8.0.2"
 
-"@kiwicom/orbit-components@^0.21.1":
-  version "0.21.1"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.21.1.tgz#2d2f686290d9d71c11abb1a306019cc34544d8b1"
+"@kiwicom/orbit-components@^0.24.0":
+  version "0.24.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.24.0.tgz#25a8d369dec39af166380c76b6cab3913aaef36b"
+  integrity sha512-XA4R84T7Wf5GwLM1xZSHIj0jDFqsciYvuenTvGqi6AbbqrCgCsZbvsnULswYsswP5s3A7B22tACUWnNP+Sh1NQ==
   dependencies:
     "@kiwicom/orbit-design-tokens" "^0.2.5"
 
