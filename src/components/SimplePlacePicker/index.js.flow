@@ -1,0 +1,13 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {|
+  label: string,
+  error: string,
+  icon?: React.Node,
+  onBlur?: () => void,
+  onFocus?: () => void,
+  value: string,
+|};
+
+declare export default React.ComponentType<Props>;

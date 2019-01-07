@@ -6,6 +6,7 @@ const config = {
   bookingApiUrl: "https://booking-api.skypicker.com",
   apiAuthUrl: "https://auth.skypicker.com",
   authApiUrl: "https://auth.skypicker.com",
+  apiLocations: "https://api.skypicker.com/locations/",
   umbrellaUrl: "https://r-umbrella-app.skypicker.com/graphql",
   mockApiUrl: "https://skymock.skypicker.com",
   logstashApiUrl: "https://logg.kiwi.com/logmole",
