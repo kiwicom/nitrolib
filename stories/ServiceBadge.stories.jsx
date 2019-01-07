@@ -7,4 +7,4 @@ import ServiceBadge from "../src/components/ServiceBadge";
 
 storiesOf("ServiceBadge", module)
   .addDecorator(withKnobs)
-  .add("default", () => <ServiceBadge premium={boolean("premium", false)} />);
+  .add("default", () => <ServiceBadge premium={boolean("Premium", false)} />);

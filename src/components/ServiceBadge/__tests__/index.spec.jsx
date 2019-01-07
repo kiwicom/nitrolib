@@ -5,19 +5,15 @@ import { shallow } from "enzyme";
 import ServiceBadge from "..";
 
 describe("#ServiceBadge", () => {
-  test("render", () => {
+  test("plus", () => {
     const wrapper = shallow(<ServiceBadge />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Text").prop("t")).toBe("booking.service_packages.plus");
   });
 
-  test("translation plus", () => {
-    const wrapperPlus = shallow(<ServiceBadge />);
-    expect(wrapperPlus.find("Text").prop("t")).toBe("booking.service_packages.plus");
-  });
+  test("premium", () => {
+    const wrapper = shallow(<ServiceBadge premium />);
 
-  test("translation premium", () => {
-    const wrapperPlus = shallow(<ServiceBadge premium />);
-    expect(wrapperPlus.find("Text").prop("t")).toBe("booking.service_packages.premium");
+    expect(wrapper.find("Text").prop("t")).toBe("booking.service_packages.premium");
   });
 });
