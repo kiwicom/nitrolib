@@ -59,10 +59,10 @@ class BaggagePicker extends React.Component<Props, State> {
     const { showedItems } = this.state;
     if (showedItems.length === options.length) {
       const slicedOptionKeys = options.slice(0, 3);
-      const getHiddens = options.length - slicedOptionKeys.length;
+      const hiddenOptionsNumber = options.length - slicedOptionKeys.length;
       this.setState({
         showedItems: slicedOptionKeys,
-        hiddenItems: getHiddens,
+        hiddenItems: hiddenOptionsNumber,
       });
     } else {
       this.setState({ showedItems: options, hiddenItems: 0 });
@@ -74,7 +74,7 @@ class BaggagePicker extends React.Component<Props, State> {
     const { showedItems, hiddenItems } = this.state;
 
     return (
-      <Stack spacing="condensed">
+      <Stack spacing="condensed" spaceAfter="largest">
         <Stack align="center" spacing="tight">
           <Text weight="bold" uppercase element="span">
             {title}

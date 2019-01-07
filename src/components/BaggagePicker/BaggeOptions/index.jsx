@@ -4,6 +4,7 @@ import styled from "styled-components";
 import R from "ramda";
 import BaggageChecked from "@kiwicom/orbit-components/lib/icons/BaggageChecked";
 import BaggagePersonalItem from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItem";
+import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
 import BaggageCabin from "@kiwicom/orbit-components/lib/icons/BaggageCabin";
 import PriorityBoarding from "@kiwicom/orbit-components/lib/icons/PriorityBoarding";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
@@ -11,6 +12,7 @@ import Close from "@kiwicom/orbit-components/lib/icons/Close";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Radio from "@kiwicom/orbit-components/lib/Radio";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
 
 import OptionItem from "./OptionItem";
 import { themeDefault } from "../../../records/Theme";
@@ -85,11 +87,11 @@ const getIconFromCategory = category => {
 const getAirlinesWithPriorityBoarding = itemsArray => {
   const airlines = itemsArray.reduce((acc, item) => {
     if (item.conditions && item.conditions.is_priority) {
-      return [...acc, item.conditions.is_priority];
+      return [...acc, ...item.conditions.is_priority];
     }
     return acc || [];
   }, []);
-  return R.uniq(...airlines);
+  return R.uniq(airlines);
 };
 
 const IconWrapper = styled.div`
@@ -131,7 +133,7 @@ const EmptyLabel = () => (
 
 const Option = ({ items, price, isChecked, onClick }: Props) => {
   const itemsArr = Object.keys(items).map(key => items[key]);
-  const hasSingleCategory = itemsArr.length === 1;
+  const hasSingleItem = itemsArr.length === 1;
   const firstItem = itemsArr[0];
   const priorityAirlines = getAirlinesWithPriorityBoarding(itemsArr);
 
@@ -139,12 +141,13 @@ const Option = ({ items, price, isChecked, onClick }: Props) => {
     <OptionWrapper onClick={onClick} checked={isChecked}>
       <Stack flex>
         <RadioWrapper>
-          <Radio />
+          <Radio checked={isChecked} />
         </RadioWrapper>
         <Stack shrink flex spacing="condensed" direction="column">
           {itemsArr.length > 0 ? (
-            itemsArr.map(item => (
+            itemsArr.map((item, index) => (
               <OptionItem
+                key={index} // eslint-disable-line
                 amount={item.amount}
                 restrictions={item.restrictions}
                 holdBag={item.category === "holdBag"}
@@ -158,13 +161,16 @@ const Option = ({ items, price, isChecked, onClick }: Props) => {
           ) : (
             <EmptyLabel />
           )}
-          {hasSingleCategory && firstItem.category === "cabinBag" && (
+          {hasSingleItem && firstItem.category === "cabinBag" && (
             <Stack flex align="center" spacing="tight">
-              <Close color={isChecked ? "warning" : "secondary"} />
+              <BaggagePersonalItemNone color={isChecked ? "warning" : "secondary"} />
               <Text type={isChecked ? "warning" : "secondary"}>No personal item</Text>
             </Stack>
           )}
           {priorityAirlines.length > 0 && <PriorityBoardingInfo airlines={priorityAirlines} />}
+          {firstItem && firstItem.category === "holdBag" && isChecked && (
+            <Alert>You must collect and recheck your baggage between certain flights.</Alert>
+          )}
         </Stack>
       </Stack>
     </OptionWrapper>
