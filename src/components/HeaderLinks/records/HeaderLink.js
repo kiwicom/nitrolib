@@ -4,6 +4,7 @@ export type HeaderLink = {|
   translation: string,
   newWindow: boolean,
   url: string,
+  active?: boolean,
 |};
 
 export type SearchForm = {|

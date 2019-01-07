@@ -46,8 +46,13 @@ const StyledLink = styled.a`
     }
 
     &:link, &:visited {
-      color: ${({ theme }: LinkProps) => theme.orbit.paletteInkNormal};
-      
+      color: ${({ active, theme }: LinkProps) =>
+        active ? theme.orbit.paletteProductNormal : theme.orbit.paletteInkNormal};
+
+      i {
+        color: ${({ theme }) => theme.orbit.paletteInkNormal};
+      }
+
       &:hover {
         color: ${({ theme }: LinkProps) => theme.orbit.paletteProductNormal};
 

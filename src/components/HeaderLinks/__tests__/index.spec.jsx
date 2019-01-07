@@ -21,14 +21,14 @@ describe("HeaderLinks", () => {
   });
 
   test("Links component should render correctly", () => {
-    const wrapper = shallow(<Links services={response.items} />);
+    const wrapper = shallow(<Links inverted={false} services={response.items} />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   test("Link component should render correctly", () => {
     const wrapper = shallow(
-      <Link link="https://www.kiwi.com" text="Travel" icon="travel" newWindow />,
+      <Link link="https://www.kiwi.com" text="Travel" icon="travel" active={false} newWindow />,
     );
 
     expect(wrapper).toMatchSnapshot();

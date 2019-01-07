@@ -37,7 +37,7 @@ type Props = {|
   link: string,
   icon: string,
   text: React.Node,
-  active: boolean,
+  active?: boolean,
   newWindow: boolean,
   inverted?: boolean,
 |};

@@ -32,6 +32,7 @@ const Margin = styled.div`
 `;
 
 type Props = {|
+  inverted: boolean,
   searchString: string,
   languageId: string,
   currencyId: string,
@@ -92,6 +93,7 @@ class HeaderLinks extends React.Component<Props, State> {
   };
 
   render() {
+    const { inverted } = this.props;
     const { services } = this.state;
 
     if (!services) return null;
@@ -108,7 +110,9 @@ class HeaderLinks extends React.Component<Props, State> {
                   {open && (
                     <ClickOutside onClickOutside={onToggle}>
                       <Popup>
-                        {services && services.length > 0 && <Links services={services} />}
+                        {services && services.length > 0 && (
+                          <Links inverted={inverted} services={services} />
+                        )}
                       </Popup>
                     </ClickOutside>
                   )}
@@ -122,7 +126,7 @@ class HeaderLinks extends React.Component<Props, State> {
           </Margin>
         </Mobile>
         <Desktop display="flex">
-          {services && services.length > 0 && <Links services={services} />}
+          {services && services.length > 0 && <Links inverted={inverted} services={services} />}
         </Desktop>
       </Text>
     );

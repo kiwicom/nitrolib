@@ -14,6 +14,7 @@ type Response = {|
 |};
 
 type Props = {|
+  inverted: boolean,
   searchString: string, // The 'search' word translated for a proper redirection
   languageId: string,
   currencyId: string,
