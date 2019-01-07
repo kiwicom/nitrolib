@@ -78,6 +78,9 @@ export type Item = {
   amount: number,
   category: string,
   restrictions: Restrictions,
+  conditions?: {
+    is_priority: Array<string>,
+  },
 };
 
 export type OptionBaggage = {
