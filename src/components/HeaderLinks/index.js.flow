@@ -14,12 +14,12 @@ type Response = {|
 |};
 
 type Props = {|
-  inverted: boolean,
   searchString: string, // The 'search' word translated for a proper redirection
   languageId: string,
   currencyId: string,
   searchForm: SearchForm | null,
   splitster: Splitster,
+  inverted?: boolean,
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO DI actual API call
 |};
