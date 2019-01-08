@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from "react";
-import * as R from "ramda";
 import Faq from "@kiwicom/orbit-components/lib/icons/QuestionCircle";
 
 import Translate from "../../../Translate";
@@ -14,12 +13,7 @@ type Props = {|
 |};
 
 const Help = ({ onOpen, inverted }: Props) => (
-  <Button
-    onClick={onOpen || R.identity}
-    disabled={!onOpen}
-    color={!inverted && "secondary"}
-    dataTest="NavbarSupport"
-  >
+  <Button onClick={onOpen} disabled={!onOpen} color={!inverted && "secondary"}>
     <Desktop>
       <Translate t="common.help" />
     </Desktop>

@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import styled from "styled-components";
 import type { ReactComponentFunctional } from "styled-components";
 import * as React from "react";
@@ -28,14 +28,11 @@ type Props = {|
   x?: string,
   y?: string,
   direction?: string,
-  dataTest?: string,
 |};
 
 type PropsAll = {| ...ThemeProps, ...Props |};
 
-const Button: ReactComponentFunctional<Props, ThemeProps> = styled.button.attrs(({ dataTest }) => ({
-  "data-test": dataTest,
-}))`
+const Button: ReactComponentFunctional<Props, ThemeProps> = styled.button`
   ${buttonMixin};
   display: flex;
   color: ${({ theme, color }: PropsAll) =>

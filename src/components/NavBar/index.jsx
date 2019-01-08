@@ -101,7 +101,7 @@ const NavBar = ({
   onSelectTrip,
   onLogoClick,
 }: Props) => (
-  <Container x="space-between" y="center" dataTest="Navbar" inverted={inverted}>
+  <Container x="space-between" y="center" data-test="NavBar" inverted={inverted}>
     <Flex y="center" x="flex-start">
       <Logo inverted={inverted} onClick={onLogoClick} />
       {headerLinks && (

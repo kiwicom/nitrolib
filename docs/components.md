@@ -52,7 +52,7 @@ type Props = {|
 Closeable cookies thingie.
 
 **Selectors:**
-* Container: `[data-test="CookiesConsent"]`
+* Container - `[data-test="CookiesConsent"]`
 
 ### Currency
 
@@ -81,8 +81,8 @@ type Props = {|
 A currency picker.
 
 **Selectors:**
-* Open button: `[data-test="Currency"] button[data-test="Open"]`
-* Item: `[data-test="Currency"] [data-test="eur"]:first`
+* Open button - `[data-test="Currency"] button[data-test="Open"]`
+* Item - `[data-test="Currency"] [data-test="eur"]:first`
 
 ### Footer
 
@@ -171,6 +171,12 @@ type Props = {|
 * [intl](./services#intl)
 * [log](./services#log)
 * [modal](./services#modal)
+
+**Selectors:**
+* Container - `[data-test="NavBar"]`
+* Logo - `[data-test="NavBar"] [data-test="Logo"]`
+* Open button - `[data-test="NavBar"] [data-test="Open"]`
+* Close button - `[data-test="NavBar"] [data-test="Close"]`
 
 ## Utilities
 

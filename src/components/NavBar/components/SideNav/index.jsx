@@ -9,7 +9,7 @@ import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import { right, rtlSpacing } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import Translate from "../../../Translate";
-import ClientOnly from "../../../ClientOnly/index";
+import ClientOnly from "../../../ClientOnly";
 import Mobile from "../../../Mobile";
 import Language from "../../../Language";
 import { Consumer as BrandConsumer } from "../../../../services/brand/context";
@@ -26,6 +26,7 @@ import BrandedMenuItem from "./BrandedMenuItem";
 import { icons, getPagesItems, getSocialMediaItems } from "./services/menu";
 import * as MODALS from "../../../../consts/modals";
 import type { Modal as ModalType } from "../../../../consts/modals";
+import button from "../../../../styles/mixins/button";
 
 type InvertedProps = {|
   ...ThemeProps,
@@ -52,7 +53,8 @@ const Content = styled.div`
   }
 `;
 
-const Close = styled.div`
+const Close = styled.button`
+  ${button};
   position: absolute;
   top: 0;
   ${right}: 0;
@@ -77,7 +79,8 @@ CloseIcon.defaultProps = {
   theme: themeDefault,
 };
 
-const MenuOpen = styled.div`
+const MenuOpen = styled.button`
+  ${button};
   cursor: pointer;
   display: flex;
   padding: 0 2px;
@@ -213,13 +216,13 @@ export default class SideNav extends React.Component<Props, State> {
 
     return (
       <>
-        <MenuOpen onClick={this.handleToggle} inverted={inverted}>
+        <MenuOpen data-test="Open" onClick={this.handleToggle} inverted={inverted}>
           <MenuHamburger />
         </MenuOpen>
 
         <ClientOnly>
           <SideBar onClick={this.handleToggle} shown={modalOpen === MODALS.SIDE_NAV}>
-            <Close onClick={this.handleToggle}>
+            <Close data-test="Close" onClick={this.handleToggle}>
               <Translate t="common.hide" /> <CloseIcon />
             </Close>
 

@@ -3,4 +3,4 @@
 Closeable cookies thingie.
 
 **Selectors:**
-* Container: `[data-test="CookiesConsent"]`
+* Container - `[data-test="CookiesConsent"]`
