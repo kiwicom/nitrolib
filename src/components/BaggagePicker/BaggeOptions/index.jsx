@@ -44,13 +44,8 @@ const OptionWrapper = styled.div`
   }
 `;
 
-// TODO: fix it. Radio icon and baggage icons should have equal sizes
 const RadioWrapper = styled.div`
   width: 20px;
-  svg {
-    height: 24px;
-    width: 24px;
-  }
 `;
 
 OptionWrapper.defaultProps = {
@@ -77,13 +72,13 @@ const getTextFromCategory = category => {
 const getIconFromCategory = category => {
   switch (category) {
     case "personalItem":
-      return <BaggagePersonalItem color="primary" />;
+      return <BaggagePersonalItem size="medium" color="primary" />;
     case "cabinBag":
-      return <BaggageCabin color="primary" />;
+      return <BaggageCabin size="medium" color="primary" />;
     case "holdBag":
-      return <BaggageChecked color="primary" />;
+      return <BaggageChecked size="medium" color="primary" />;
     default:
-      return <Close color="primary" />;
+      return <Close size="medium" color="primary" />;
   }
 };
 
