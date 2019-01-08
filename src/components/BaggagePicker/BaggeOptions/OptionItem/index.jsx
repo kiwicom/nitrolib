@@ -88,7 +88,7 @@ const OptionItem = ({
   categoryIcon,
   categoryName,
 }: Props) => (
-  <Stack shrink spacing="natural" align="center">
+  <Stack shrink align="center">
     <Stack shrink spacing="condensed">
       {categoryIcon}
       <TitleWrapper>

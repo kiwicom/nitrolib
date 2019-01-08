@@ -1,5 +1,6 @@
 // @flow strict
 import * as React from "react";
+import styled from "styled-components";
 import BaggageSet from "@kiwicom/orbit-components/lib/icons/BaggageSet";
 import CardHeader from "@kiwicom/orbit-components/lib/Card/CardHeader";
 
@@ -19,6 +20,12 @@ type Props = {
   hasDubaiAirport: boolean,
   airlines: Array<*>,
 };
+
+const FixWrapper = styled.div`
+  > div {
+    padding: 0 0 24px 0;
+  }
+`;
 
 class Baggage extends React.Component<Props> {
   getOptionItems = (definitions, combinations) =>
@@ -65,12 +72,14 @@ class Baggage extends React.Component<Props> {
     } = this.props;
     return (
       <>
-        <CardHeader
-          icon={<BaggageSet />}
-          title="Baggage bundles"
-          subTitle="Baggage options vary by carrier. We only offer bundles that are suitable for all your connections."
-          dataTest="baggage-header"
-        />
+        <FixWrapper>
+          <CardHeader
+            icon={<BaggageSet />}
+            title="Baggage bundles"
+            subTitle="Baggage options vary by carrier. We only offer bundles that are suitable for all your connections."
+            dataTest="baggage-header"
+          />
+        </FixWrapper>
         <BaggagePicker
           title="Cabin baggage"
           tooltip="Includes smaller bags that can be taken into the cabin and stored in the overhead locker or under your seat."

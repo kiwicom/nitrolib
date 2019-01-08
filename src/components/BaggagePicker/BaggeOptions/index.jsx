@@ -39,6 +39,9 @@ const OptionWrapper = styled.div`
   &:hover {
     border-color: ${({ theme }: ThemeProps) => theme.orbit.borderColorCheckboxRadioHover};
   }
+  > *:not(:last-child) {
+    margin-bottom: 12px;
+  }
 `;
 
 // TODO: fix it. Radio icon and baggage icons should have equal sizes
@@ -143,7 +146,7 @@ const Option = ({ items, price, isChecked, onClick }: Props) => {
         <RadioWrapper>
           <Radio checked={isChecked} />
         </RadioWrapper>
-        <Stack shrink flex spacing="condensed" direction="column">
+        <Stack shrink flex spacing="extraTight" direction="column">
           {itemsArr.length > 0 ? (
             itemsArr.map((item, index) => (
               <OptionItem
@@ -168,11 +171,11 @@ const Option = ({ items, price, isChecked, onClick }: Props) => {
             </Stack>
           )}
           {priorityAirlines.length > 0 && <PriorityBoardingInfo airlines={priorityAirlines} />}
-          {firstItem && firstItem.category === "holdBag" && isChecked && (
-            <Alert>You must collect and recheck your baggage between certain flights.</Alert>
-          )}
         </Stack>
       </Stack>
+      {firstItem && firstItem.category === "holdBag" && isChecked && (
+        <Alert>You must collect and recheck your baggage between certain flights.</Alert>
+      )}
     </OptionWrapper>
   );
 };
