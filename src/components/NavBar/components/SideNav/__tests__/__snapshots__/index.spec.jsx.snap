@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#SideNav render 1`] = `
-<Fragment>
+<section
+  data-test="SideNav"
+>
   <SideNav__MenuOpen
     data-test="Open"
     inverted={false}
@@ -2377,5 +2379,5 @@ exports[`#SideNav render 1`] = `
       </SideNav__Content>
     </SideBar>
   </ClientOnly>
-</Fragment>
+</section>
 `;

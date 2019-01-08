@@ -13,7 +13,7 @@ type Props = {|
 |};
 
 const Help = ({ onOpen, inverted }: Props) => (
-  <Button onClick={onOpen} disabled={!onOpen} color={!inverted && "secondary"}>
+  <Button data-test="Help" onClick={onOpen} disabled={!onOpen} color={!inverted && "secondary"}>
     <Desktop>
       <Translate t="common.help" />
     </Desktop>

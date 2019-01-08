@@ -3,5 +3,6 @@
 **Selectors:**
 * Container - `[data-test="NavBar"]`
 * Logo - `[data-test="NavBar"] [data-test="Logo"]`
-* Open button - `[data-test="NavBar"] [data-test="Open"]`
-* Close button - `[data-test="NavBar"] [data-test="Close"]`
+* Help - `[data-test="NavBar"] [data-test="Help"]`
+* Open button - `[data-test="NavBar"] [data-test="SideNav"] [data-test="Open"]`
+* Close button - `[data-test="NavBar"] [data-test="SideNav"] [data-test="Close"]`

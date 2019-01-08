@@ -3,6 +3,7 @@
 exports[`#Help render 1`] = `
 <Button
   color="secondary"
+  data-test="Help"
   disabled={false}
   onClick={[MockFunction]}
   theme={

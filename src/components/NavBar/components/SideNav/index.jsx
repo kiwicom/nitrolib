@@ -215,7 +215,7 @@ export default class SideNav extends React.Component<Props, State> {
     const { modalOpen } = this.state;
 
     return (
-      <>
+      <section data-test="SideNav">
         <MenuOpen data-test="Open" onClick={this.handleToggle} inverted={inverted}>
           <MenuHamburger />
         </MenuOpen>
@@ -464,7 +464,7 @@ export default class SideNav extends React.Component<Props, State> {
             </Modal>
           </Portal>
         )}
-      </>
+      </section>
     );
   };
 }
