@@ -32,13 +32,13 @@ const Margin = styled.div`
 `;
 
 type Props = {|
-  inverted: boolean,
   searchString: string,
   languageId: string,
   currencyId: string,
   searchForm: SearchForm | null,
   splitster: Splitster,
   onFetch?: (services: Response) => void,
+  inverted?: boolean,
   testResponse?: Response, // TODO solve using DI
   // context
   context: Context<"Header links error", null>, // TODO consts or whatever

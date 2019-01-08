@@ -6,8 +6,8 @@ import Translate from "../../../Translate";
 import type { HeaderLink } from "../../records/HeaderLink";
 
 type Props = {|
-  inverted: boolean,
   services: HeaderLink[],
+  inverted?: boolean,
 |};
 
 const Links = ({ inverted, services }: Props): React.Node[] =>
