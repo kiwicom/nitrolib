@@ -34,7 +34,6 @@ const props = {
   selfTransferEnabled: true,
   selfTransferTooltip: "SelfTransferTooltip", // check current implementation
   disabledBagsInMmb: true,
-  hasDubaiAirport: true,
   airlines: [],
 };
 
@@ -47,6 +46,7 @@ storiesOf("Baggage", module)
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
           holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
         }}
+        hasDubaiAirport={boolean("hasDubaiAirport", false, "Baggage")}
         {...props}
       />
     </div>

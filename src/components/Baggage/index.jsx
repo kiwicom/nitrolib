@@ -3,6 +3,9 @@ import * as React from "react";
 import styled from "styled-components";
 import BaggageSet from "@kiwicom/orbit-components/lib/icons/BaggageSet";
 import CardHeader from "@kiwicom/orbit-components/lib/Card/CardHeader";
+import TextLink from "@kiwicom/orbit-components/lib/TextLink";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
+import Text from "@kiwicom/orbit-components/lib/Text";
 
 import BaggagePicker from "../BaggagePicker";
 import type { BaggageType, BaggageGroup } from "../../records/Baggage";
@@ -68,6 +71,7 @@ class Baggage extends React.Component<Props> {
     const holdBagOptions = this.getBaggagePickerOptions("holdBag");
     const {
       changeBagCombination,
+      hasDubaiAirport,
       passengerBaggage: { handBag, holdBag },
     } = this.props;
     return (
@@ -80,6 +84,13 @@ class Baggage extends React.Component<Props> {
             dataTest="baggage-header"
           />
         </FixWrapper>
+        {hasDubaiAirport && (
+          <Alert icon spaceAfter="medium">
+            <Text>
+              There are special <TextLink>baggage rules</TextLink> in Dubai (DXB)
+            </Text>
+          </Alert>
+        )}
         <BaggagePicker
           title="Cabin baggage"
           tooltip="Includes smaller bags that can be taken into the cabin and stored in the overhead locker or under your seat."
