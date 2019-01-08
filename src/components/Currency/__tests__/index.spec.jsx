@@ -149,6 +149,34 @@ describe("#Currency", () => {
     expect(onChange).toBeCalledWith("gbp");
   });
 
+  test("on change first", () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <Provider
+        value={{
+          currency: current,
+          available: currencies,
+          recommended,
+          onChange,
+        }}
+      >
+        <Currency />
+      </Provider>,
+    );
+
+    // Open it up
+    wrapper.find("[data-test='Currency'] button[data-test='Open']").simulate("click");
+
+    wrapper
+      .find("[data-test='Currency']")
+      .find("[data-test='gbp']")
+      .first()
+      .find("button")
+      .simulate("click");
+
+    expect(onChange).toBeCalledWith("gbp");
+  });
+
   test("on change custom recommended", () => {
     const onChange = jest.fn();
     const wrapper = mount(
@@ -168,7 +196,7 @@ describe("#Currency", () => {
     wrapper.find("[data-test='Currency'] button[data-test='Open']").simulate("click");
 
     wrapper
-      .find("CustomPicker")
+      .find("[data-test='Currency']")
       .find("Menu")
       .find("Menu__Recommended")
       .find("List")
@@ -199,7 +227,7 @@ describe("#Currency", () => {
     wrapper.find("[data-test='Currency'] button[data-test='Open']").simulate("click");
 
     wrapper
-      .find("CustomPicker")
+      .find("[data-test='Currency']")
       .find("Menu")
       .find("List")
       .at(1)

@@ -30,7 +30,11 @@ class CookiesConsent extends React.PureComponent<Props, State> {
       return null;
     }
 
-    return <CookiesBanner onAccept={this.handleAccept} />;
+    return (
+      <section data-test="CookiesConsent">
+        <CookiesBanner onAccept={this.handleAccept} />
+      </section>
+    );
   }
 }
 
