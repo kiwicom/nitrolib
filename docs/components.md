@@ -5,6 +5,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 **Features:**
 
 * [CookiesConsent](#cookiesconsent)
+* [Currency](#currency)
 * [Footer](#footer)
 * [HeaderLinks](#headerlinks)
 * [NavBar](#navbar)
@@ -48,6 +49,41 @@ type Props = {|
 **Context needs:**
 * [intl](./services#intl)
 
+Closeable cookies thingie.
+
+**Selectors:**
+* Container: `[data-test="CookiesConsent"]`
+
+### Currency
+
+**Import:**
+```js
+import Currency from "@kiwicom/nitro/lib/components/Currency";
+```
+
+**Types:**
+```js
+type Props = {|
+  positionMenuTablet?: number,
+  positionMenuDesktop?: number,
+  inverted?: boolean,
+  onSetModal?: (modal: ModalType) => void,
+  // defaulted
+  native?: boolean,
+  loading?: React.Node,
+|};
+```
+
+**Context needs:**
+* [currency](./services#currency)
+* [log](./services#log)
+
+A currency picker.
+
+**Selectors:**
+* Open button: `[data-test="Currency"] button[data-test="Open"]`
+* Item: `[data-test="Currency"] [data-test="eur"]:first`
+
 ### Footer
 
 **Import:**
@@ -88,6 +124,7 @@ type Props = {|
   currencyId: string,
   searchForm: SearchForm | null,
   splitster: Splitster,
+  inverted?: boolean,
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO DI actual API call
 |};
@@ -352,6 +389,7 @@ import SideBar from "@kiwicom/nitro/lib/components/SideBar";
 ```js
 type Props = {|
   shown: boolean,
+  inverted?: boolean, // opens from the other side
   onClick: () => void,
   children: React.Node,
 |};
