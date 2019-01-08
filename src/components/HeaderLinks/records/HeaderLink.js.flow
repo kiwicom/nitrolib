@@ -1,10 +1,11 @@
 // @flow strict
+export type ActiveTab = "travel" | null;
+
 export type HeaderLink = {|
   id: string,
   translation: string,
   newWindow: boolean,
   url: string,
-  active?: boolean,
 |};
 
 export type SearchForm = {|

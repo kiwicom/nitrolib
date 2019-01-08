@@ -21,7 +21,9 @@ describe("HeaderLinks", () => {
   });
 
   test("Links component should render correctly", () => {
-    const wrapper = shallow(<Links inverted={false} services={response.items} />);
+    const wrapper = shallow(
+      <Links activeTab="travel" inverted={false} services={response.items} />,
+    );
 
     expect(wrapper).toMatchSnapshot();
   });

@@ -875,7 +875,6 @@ exports[`HeaderLinks should render correctly 1`] = `
       services={
         Array [
           Object {
-            "active": true,
             "id": "travel",
             "newWindow": false,
             "translation": "search.service.travel_anywhere",

@@ -35,7 +35,6 @@ export const response = {
       id: "travel",
       newWindow: false,
       translation: "search.service.travel_anywhere",
-      active: true,
       url:
         "https://red-cougar.kiwi.com/nav-bar-link?u=TRAVEL&r=search&lang=us&payload=eyJjYXRlZ29yeSI6Ik5hdkJhciIsInN1YkNhdGVnb3J5IjoiTGluayIsImFjdGlvbiI6IkNsaWNrIiwiZGV0YWlsIjoia2l3aS5jb20gLSB0cmF2ZWwifQ==",
     },

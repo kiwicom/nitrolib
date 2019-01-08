@@ -16,7 +16,7 @@ import Desktop from "../Desktop";
 import Mobile from "../Mobile";
 import getNavBarLinks from "./services/api";
 import withLog from "../../services/log/decorator";
-import type { HeaderLink, SearchForm } from "./records/HeaderLink";
+import type { HeaderLink, SearchForm, ActiveTab } from "./records/HeaderLink";
 import type { Decorated } from "../../services/log/decorator";
 import type { Context } from "../../services/log/context";
 import type { Splitster, Response } from "./services/api";
@@ -32,6 +32,7 @@ const Margin = styled.div`
 `;
 
 type Props = {|
+  activeTab: ActiveTab,
   searchString: string,
   languageId: string,
   currencyId: string,
@@ -93,7 +94,7 @@ class HeaderLinks extends React.Component<Props, State> {
   };
 
   render() {
-    const { inverted } = this.props;
+    const { inverted, activeTab } = this.props;
     const { services } = this.state;
 
     if (!services) return null;
@@ -111,7 +112,7 @@ class HeaderLinks extends React.Component<Props, State> {
                     <ClickOutside onClickOutside={onToggle}>
                       <Popup>
                         {services && services.length > 0 && (
-                          <Links inverted={inverted} services={services} />
+                          <Links inverted={inverted} services={services} activeTab={activeTab} />
                         )}
                       </Popup>
                     </ClickOutside>
@@ -126,7 +127,9 @@ class HeaderLinks extends React.Component<Props, State> {
           </Margin>
         </Mobile>
         <Desktop display="flex">
-          {services && services.length > 0 && <Links inverted={inverted} services={services} />}
+          {services && services.length > 0 && (
+            <Links inverted={inverted} services={services} activeTab={activeTab} />
+          )}
         </Desktop>
       </Text>
     );
