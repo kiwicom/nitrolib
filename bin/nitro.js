@@ -28,6 +28,14 @@ function error(what) {
   console.log(`${chalk.bold.red(">")} ${what}`);
 }
 
+function sortObjectByKeys(unordered) {
+  const orderedKeys = Object.keys(unordered).sort(); // eslint-disable-line fp/no-mutating-methods
+  return orderedKeys.reduce((acc, key) => {
+    acc[key] = unordered[key];
+    return acc;
+  }, {});
+}
+
 const resolve = glob => path.join(process.cwd(), glob);
 
 const commands = {
@@ -52,7 +60,7 @@ function keys(globs) {
 
   const collected = collectKeys(globs.map(resolve));
 
-  const data = R.merge(ours, collected);
+  const data = sortObjectByKeys(R.merge(ours, collected));
   fs.outputJsonSync(path.join(process.cwd(), "data/tkeys.json"), data, {
     spaces: 2,
   });
