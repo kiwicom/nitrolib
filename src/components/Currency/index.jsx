@@ -2,22 +2,23 @@
 import * as React from "react";
 
 import { Consumer as CurrencyConsumer } from "../../services/currency/context";
-import NativePicker from "./components/NativePicker/index";
+import NativePicker from "./components/NativePicker";
 import CustomPicker from "../CustomPicker";
 import { currencyDefault, getAvailableList } from "../../records/Currency";
-import Current from "./components/Current/index";
-import Menu from "./components/Menu/index";
+import Current from "./components/Current";
+import Menu from "./components/Menu";
 import LogMount from "../LogMount";
 import { OPEN_CURRENCY } from "../../consts/events";
 import type { Modal as ModalType } from "../../consts/modals";
 
 type Props = {|
-  native: boolean,
-  loading: React.Node,
   positionMenuTablet?: number,
   positionMenuDesktop?: number,
   inverted?: boolean,
   onSetModal?: (modal: ModalType) => void,
+  // defaulted
+  native: boolean,
+  loading: React.Node,
 |};
 
 const Currency = ({
@@ -35,33 +36,37 @@ const Currency = ({
       }
 
       const availableList = getAvailableList(available);
-      return native ? (
-        <NativePicker
-          current={currency}
-          available={availableList}
-          recommended={recommended}
-          onChange={onChange}
-        />
-      ) : (
-        <CustomPicker
-          onChange={onChange}
-          openButton={<Current current={currency} inverted={inverted} />}
-        >
-          {render => (
-            <>
-              <LogMount event={{ event: OPEN_CURRENCY, data: null }} />
-              <Menu
-                onChange={render.onChange}
-                current={currency}
-                available={availableList}
-                recommended={recommended}
-                positionMenuDesktop={positionMenuDesktop}
-                positionMenuTablet={positionMenuTablet}
-                onSetModal={onSetModal}
-              />
-            </>
+      return (
+        <section data-test="Currency">
+          {native ? (
+            <NativePicker
+              current={currency}
+              available={availableList}
+              recommended={recommended}
+              onChange={onChange}
+            />
+          ) : (
+            <CustomPicker
+              onChange={onChange}
+              openButton={<Current current={currency} inverted={inverted} />}
+            >
+              {render => (
+                <>
+                  <LogMount event={{ event: OPEN_CURRENCY, data: null }} />
+                  <Menu
+                    onChange={render.onChange}
+                    current={currency}
+                    available={availableList}
+                    recommended={recommended}
+                    positionMenuDesktop={positionMenuDesktop}
+                    positionMenuTablet={positionMenuTablet}
+                    onSetModal={onSetModal}
+                  />
+                </>
+              )}
+            </CustomPicker>
           )}
-        </CustomPicker>
+        </section>
       );
     }}
   </CurrencyConsumer>

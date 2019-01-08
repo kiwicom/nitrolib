@@ -165,10 +165,7 @@ describe("#Currency", () => {
     );
 
     // Open it up
-    wrapper
-      .find("CustomPicker")
-      .find("CustomPicker__OpenButton")
-      .simulate("click");
+    wrapper.find("[data-test='Currency'] button[data-test='Open']").simulate("click");
 
     wrapper
       .find("CustomPicker")
@@ -199,10 +196,7 @@ describe("#Currency", () => {
     );
 
     // Open it up
-    wrapper
-      .find("CustomPicker")
-      .find("CustomPicker__OpenButton")
-      .simulate("click");
+    wrapper.find("[data-test='Currency'] button[data-test='Open']").simulate("click");
 
     wrapper
       .find("CustomPicker")

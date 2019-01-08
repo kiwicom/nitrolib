@@ -33,16 +33,18 @@ type Arg = {|
 
 type Props = {|
   openButton: React.Node | React.Node[],
-  children: (arg: Arg) => React.Node,
   onChange: (input: string) => void,
+  children: (arg: Arg) => React.Node,
 |};
 
-const CustomPicker = ({ openButton, children, onChange }: Props) => (
+const CustomPicker = ({ openButton, onChange, children }: Props) => (
   <Toggle>
     {({ open, onToggle }) => (
       <ClickOutside active={open} onClickOutside={onToggle}>
         <>
-          <OpenButton onClick={onToggle}>{openButton}</OpenButton>
+          <OpenButton onClick={onToggle} data-test="Open">
+            {openButton}
+          </OpenButton>
           {open &&
             children({
               onChange: (input: string) => {

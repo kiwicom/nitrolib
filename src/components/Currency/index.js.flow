@@ -1,0 +1,16 @@
+// @flow strict
+import * as React from "react";
+
+import type { Modal as ModalType } from "../../consts/modals";
+
+type Props = {|
+  positionMenuTablet?: number,
+  positionMenuDesktop?: number,
+  inverted?: boolean,
+  onSetModal?: (modal: ModalType) => void,
+  // defaulted
+  native?: boolean,
+  loading?: React.Node,
+|};
+
+declare export default React.ComponentType<Props>;
