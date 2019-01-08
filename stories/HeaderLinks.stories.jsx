@@ -1,12 +1,14 @@
 // @flow strict
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
+import { withKnobs, boolean } from "@storybook/addon-knobs/react";
 
 import HeaderLinks from "../src/components/HeaderLinks";
 import withData from "./decorators/withData";
 
+const GROUP_ID = "UI";
+
 const props = {
-  inverted: false,
   searchString: "Suche",
   languageId: "de",
   currencyId: "GBP",
@@ -29,5 +31,5 @@ const props = {
 };
 
 storiesOf("HeaderLinks", module)
-  .addDecorator(withData)
-  .add("default", () => <HeaderLinks {...props} />);
+  .addDecorator(withData, withKnobs)
+  .add("default", () => <HeaderLinks {...props} inverted={boolean("Inverted", false, GROUP_ID)} />);

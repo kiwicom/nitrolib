@@ -35,7 +35,7 @@ const StyledLink = styled.a`
     }
   }
 
-  ${mq.ltDesktop(css`
+  ${mq.ltTablet(css`
     margin-${/* sc-custom "left" */ left}: 0;
     padding-${/* sc-custom "left" */ left}: 10px;
     font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextLarge};
