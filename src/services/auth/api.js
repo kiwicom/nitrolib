@@ -1,4 +1,6 @@
 // @flow strict
+import "isomorphic-unfetch";
+import btoa from "btoa-lite";
 import format from "date-fns/format";
 import querystring from "querystring";
 
@@ -13,7 +15,7 @@ import getOAuthRedirectUrl from "./services/getOAuthRedirectUrl";
 // noinspection SpellCheckingInspection
 const USER = "5433ecccaff67";
 
-const makeAuthHeader = (token: string) => `Basic ${window.btoa(`${USER}:${token}`)}`;
+const makeAuthHeader = (token: string) => `Basic ${btoa(`${USER}:${token}`)}`;
 
 type GetTokenUserRes = {|
   user_id: string,
