@@ -264,5 +264,81 @@ export default {
         },
       ],
     },
+    child: {
+      handBag: [
+        {
+          category: "handBag",
+          group: "child",
+          combination: [0],
+          price: {
+            currency: "EUR",
+            amount: 0,
+          },
+          originalIndex: 0,
+          allowanceGraph: {
+            add: {},
+            remove: {},
+          },
+        },
+      ],
+      holdBag: [
+        {
+          category: "holdBag",
+          group: "child",
+          combination: [],
+          price: {
+            currency: "EUR",
+            amount: 0,
+          },
+          originalIndex: 5,
+          allowanceGraph: {
+            add: {
+              "0": 1,
+              "1": 2,
+              "2": 3,
+            },
+            remove: {},
+          },
+        },
+      ],
+    },
+    infant: {
+      handBag: [
+        {
+          category: "handBag",
+          group: "infant",
+          combination: [0],
+          price: {
+            currency: "EUR",
+            amount: 0,
+          },
+          originalIndex: 0,
+          allowanceGraph: {
+            add: {},
+            remove: {},
+          },
+        },
+      ],
+      holdBag: [
+        {
+          category: "holdBag",
+          group: "infant",
+          combination: [],
+          price: {
+            currency: "EUR",
+            amount: 0,
+          },
+          originalIndex: 5,
+          allowanceGraph: {
+            add: {
+              "0": 1,
+              "1": 2,
+              "2": 3,
+            },
+            remove: {},
+          },
+        },
+      ],
+    },
   },
 };

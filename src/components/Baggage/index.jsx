@@ -8,7 +8,12 @@ import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Text from "@kiwicom/orbit-components/lib/Text";
 
 import BaggagePicker from "../BaggagePicker";
-import type { BaggageType, BaggageGroup } from "../../records/Baggage";
+import type {
+  BaggageType,
+  BaggageGroup,
+  HoldBagDefinition,
+  HandBagDefinition,
+} from "../../records/Baggage";
 
 type Props = {
   passengerIndex: number,
@@ -21,7 +26,7 @@ type Props = {
   selfTransferTooltip: string, // temp type
   disabledBagsInMmb: boolean,
   hasDubaiAirport: boolean,
-  airlines: Array<*>,
+  airlines: Array<string>,
 };
 
 const FixWrapper = styled.div`
@@ -31,7 +36,10 @@ const FixWrapper = styled.div`
 `;
 
 class Baggage extends React.Component<Props> {
-  getOptionItems = (definitions, combinations) =>
+  getOptionItems = (
+    definitions: HoldBagDefinition | HandBagDefinition,
+    combinations: Array<number>,
+  ) =>
     combinations.reduce((acc, item) => {
       const key = item.toString();
       if (acc[key]) {

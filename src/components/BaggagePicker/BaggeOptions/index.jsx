@@ -101,14 +101,14 @@ IconWrapper.defaultProps = {
   theme: themeDefault,
 };
 
-const arrToHumanString = arr => {
+const arrToHumanString = (arr: Array<string>): string => {
   if (arr.length === 1) return arr[0];
   const firsts = arr.slice(0, -1);
-  const last = R.last(arr);
+  const last = arr.slice(-1)[0];
   return `${firsts.join(", ")} and ${last}`;
 };
 
-const PriorityBoardingInfo = ({ airlines }: Array<string>) => (
+const PriorityBoardingInfo = ({ airlines }: { airlines: Array<string> }) => (
   <Stack flex direction="row" align="center">
     <IconWrapper>
       <PriorityBoarding color="secondary" size="small" />
