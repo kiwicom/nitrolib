@@ -119,11 +119,11 @@ type Response = {|
 |};
 
 type Props = {|
-  searchString: string, // The 'search' word translated for a proper redirection
   languageId: string,
   currencyId: string,
   searchForm: SearchForm | null,
   splitster: Splitster,
+  active?: string, // TODO maybe add specific if ids are also specified
   inverted?: boolean,
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO DI actual API call
@@ -176,8 +176,8 @@ type Props = {|
 * Container - `[data-test="NavBar"]`
 * Logo - `[data-test="NavBar"] [data-test="Logo"]`
 * Help - `[data-test="NavBar"] [data-test="Help"]`
-* Open button - `[data-test="NavBar"] [data-test="SideNav"] [data-test="Open"]`
-* Close button - `[data-test="NavBar"] [data-test="SideNav"] [data-test="Close"]`
+* Open button - `[data-test="SideNav"] [data-test="Open"]`
+* Close button - `[data-test="SideNav"] [data-test="Close"]`
 
 ## Utilities
 
@@ -195,37 +195,18 @@ import BookingSavingsBanner from "@kiwicom/nitro/lib/components/BookingSavingsBa
 type Props = {|
   amount: number,
   currency: string,
-  dataTest?: string,
   onLearnMoreClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers redirection to learn more article
   onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers modal with alternative trips
 |};
 ```
-
-**Selectors:**
-* Find more trips button: `[data-test="saving-banner-button-find-more-trips"]`
-* Learn more button: `[data-test="saving-banner-button-learn-more"]`
 
 **Context needs:**
 * [intl](./services#intl)
 
 Throw-away ticket banner indicating savings in €.
 
-Example:
-```js
-const MyComponent = ({
-  savings,
-  currency,
-  onLearnMoreClick,
-  onMoreTripsClick,
-}: Props) => (
-  <BookingSavingsBanner
-    amount={savings}
-    currency={currency}
-    onLearnMoreClick={onLearnMoreClick}
-    onMoreTripsClick={onMoreTripsClick}
-  />
-)
-```
+**Selectors:**
+* Container: `[data-test="BookingSavingsBanner"]`
 
 ### ClickOutside
 
@@ -603,7 +584,7 @@ const AuthModals = ({ query }: Props) => (
       <>
         <ModalLogin open={value === "login"} onClose={onChange} />
         <ModalRegister open={value === "register"} onClose={onChange} />
-
+        
         <ValueBind value="login" onChange={onChange}>
           {({ onClick }) => <Button onClick={onClick}>Login</Button>}
         </ValueBind>
