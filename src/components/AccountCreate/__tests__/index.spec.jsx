@@ -23,7 +23,7 @@ describe("#AccountCreate", () => {
     expect(wrapper.prop("children")(intlDefault)).toMatchSnapshot();
   });
 
-  it('shows validation errors', () => {
+  test("validation errors", () => {
     const wrapper = shallow(
       <AccountCreate
         email=""

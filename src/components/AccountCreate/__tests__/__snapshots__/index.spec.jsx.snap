@@ -71,7 +71,7 @@ exports[`#AccountCreate render 1`] = `
 </React.Fragment>
 `;
 
-exports[`#AccountCreate shows validation errors 1`] = `
+exports[`#AccountCreate validation errors 1`] = `
 <React.Fragment>
   <ModalHeader>
     <Illustration
