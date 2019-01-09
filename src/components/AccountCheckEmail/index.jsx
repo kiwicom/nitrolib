@@ -1,15 +1,15 @@
 // @flow strict
 import * as React from "react";
-import Text from "@kiwicom/orbit-components/lib/Text";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
+import Text from "../Text";
 import Translate from "../Translate";
 
 type Props = {|
   email: string,
-  reason: "magicLink" | "signUpConfirmation",
+  reason: "magicLink" | "signUpConfirmation" | "resetPassword",
 |};
 
 const AccountCheckEmail = ({ email, reason }: Props) => (
@@ -20,17 +20,11 @@ const AccountCheckEmail = ({ email, reason }: Props) => (
 
     <Illustration name="Mailbox" size="medium" spaceAfter="large" />
 
-    {reason === "magicLink" && (
-      <Text>
-        <Translate t="account.check_email_magic_link" values={{ email }} />
-      </Text>
-    )}
+    {reason === "magicLink" && <Text t="account.check_email_magic_link" values={{ email }} />}
 
-    {reason === "signUpConfirmation" && (
-      <Text>
-        <Translate t="account.check_email_sign_up" values={{ email }} />
-      </Text>
-    )}
+    {reason === "signUpConfirmation" && <Text t="account.check_email_sign_up" values={{ email }} />}
+
+    {reason === "resetPassword" && <Text t="account.you_will_recieve_password" />}
   </Section>
 );
 

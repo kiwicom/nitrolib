@@ -12,8 +12,22 @@ storiesOf("AccountPassword", module)
       onAskSignInLink={() => {}}
       onChangeEmail={() => {}}
       onPasswordChange={() => {}}
+      onForgotPassword={() => {}}
       onSignIn={() => {}}
       password="asdfg"
       email="example@example.com"
+    />
+  ))
+  .add("loading", () => (
+    <AccountPassword
+      onAskSignInLink={() => {}}
+      onChangeEmail={() => {}}
+      onPasswordChange={() => {}}
+      onForgotPassword={() => {}}
+      onSignIn={() => {}}
+      password="asdfg"
+      email="example@example.com"
+      isSigningIn
+      isSendingEmail
     />
   ));

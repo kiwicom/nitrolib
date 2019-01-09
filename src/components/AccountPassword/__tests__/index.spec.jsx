@@ -13,6 +13,7 @@ describe("#AccountPassword", () => {
         onAskSignInLink={() => {}}
         onChangeEmail={() => {}}
         onPasswordChange={() => {}}
+        onForgotPassword={() => {}}
         onSignIn={() => {}}
         password="kek"
         email="kek@bur.com"

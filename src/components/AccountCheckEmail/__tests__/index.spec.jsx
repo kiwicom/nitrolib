@@ -5,25 +5,15 @@ import { shallow } from "enzyme";
 import AccountCheckEmail from "..";
 
 describe("#AccountCheckEmail", () => {
-  test("render - magicLink", () => {
-    const wrapper = shallow(<AccountCheckEmail email="foo@bar.com" reason="magicLink" />);
+  [
+    ["magicLink", "account.check_email_magic_link"],
+    ["signUpConfirmation", "account.check_email_sign_up"],
+    ["resetPassword", "account.you_will_recieve_password"],
+  ].forEach(([reason, tKey]) =>
+    test(`render - ${reason}`, () => {
+      const wrapper = shallow(<AccountCheckEmail email="foo@bar.com" reason={reason} />);
 
-    expect(
-      wrapper
-        .find("Text")
-        .children("Translate")
-        .prop("t"),
-    ).toBe("account.check_email_magic_link");
-  });
-
-  test("render - signUpConfirmation", () => {
-    const wrapper = shallow(<AccountCheckEmail email="bar@foo.com" reason="signUpConfirmation" />);
-
-    expect(
-      wrapper
-        .find("Text")
-        .children("Translate")
-        .prop("t"),
-    ).toBe("account.check_email_sign_up");
-  });
+      expect(wrapper.find("Text").prop("t")).toBe(tKey);
+    }),
+  );
 });
