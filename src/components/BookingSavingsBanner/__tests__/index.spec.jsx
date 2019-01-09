@@ -15,7 +15,7 @@ describe("#BookingSavingsBanner", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Card").prop("dataTest")).toBe("BookingSavingsBanner");
   });
 
   test("on click", () => {

@@ -18,13 +18,7 @@ type Props = {|
   onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
-const BookingSavingsBanner = ({
-  amount,
-  currency,
-  dataTest,
-  onLearnMoreClick,
-  onMoreTripsClick,
-}: Props) => (
+const BookingSavingsBanner = ({ amount, currency, onLearnMoreClick, onMoreTripsClick }: Props) => (
   <Card dataTest="BookingSavingsBanner">
     <CardSection>
       <Stack
