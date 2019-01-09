@@ -1,5 +1,4 @@
 // @flow strict
-
 import * as React from "react";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
@@ -15,7 +14,6 @@ import Translate from "../Translate";
 type Props = {|
   amount: number,
   currency: string,
-  dataTest?: string,
   onLearnMoreClick: (e: SyntheticEvent<HTMLButtonElement>) => void,
   onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void,
 |};
@@ -27,7 +25,7 @@ const BookingSavingsBanner = ({
   onLearnMoreClick,
   onMoreTripsClick,
 }: Props) => (
-  <Card dataTest={dataTest}>
+  <Card dataTest="BookingSavingsBanner">
     <CardSection>
       <Stack
         direction="column"
