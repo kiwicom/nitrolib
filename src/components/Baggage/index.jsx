@@ -25,15 +25,11 @@ type Props = {
   selfTransferEnabled: boolean, // eslint-disable-line
   selfTransferTooltip: string, // eslint-disable-line
   disabledBagsInMmb: boolean, // eslint-disable-line
-  hasDubaiAirport: boolean,
+  hasDubaiAirport: boolean, // eslint-disable-line
   airlines: Array<string>, // eslint-disable-line
+  pickerType: "handBag" | "holdBag",
+  context: "booking" | "mmb", // eslint-disable-line
 };
-
-const FixWrapper = styled.div`
-  > div {
-    padding: 0 0 24px 0;
-  }
-`;
 
 class Baggage extends React.Component<Props> {
   getOptionItems = (
@@ -75,45 +71,17 @@ class Baggage extends React.Component<Props> {
   };
 
   render() {
-    const handBagOptions = this.getBaggagePickerOptions("handBag");
-    const holdBagOptions = this.getBaggagePickerOptions("holdBag");
-    const {
-      changeBagCombination,
-      hasDubaiAirport,
-      passengerBaggage: { handBag, holdBag },
-    } = this.props;
+    const { changeBagCombination, pickerType, passengerBaggage } = this.props;
+    const baggageOptions = this.getBaggagePickerOptions(pickerType);
+
     return (
-      <>
-        <FixWrapper>
-          <CardHeader
-            icon={<BaggageSet />}
-            title="Baggage bundles"
-            subTitle="Baggage options vary by carrier. We only offer bundles that are suitable for all your connections."
-            dataTest="baggage-header"
-          />
-        </FixWrapper>
-        {hasDubaiAirport && (
-          <Alert icon spaceAfter="medium">
-            <Text>
-              There are special <TextLink>baggage rules</TextLink> in Dubai (DXB)
-            </Text>
-          </Alert>
-        )}
-        <BaggagePicker
-          title="Cabin baggage"
-          tooltip="Includes smaller bags that can be taken into the cabin and stored in the overhead locker or under your seat."
-          options={handBagOptions}
-          selectedIndex={handBag}
-          onChange={changeBagCombination}
-        />
-        <BaggagePicker
-          title="Checked baggage"
-          tooltip="Includes larger baggage items that you must deposit at the airline check-in counter before going through security at the airport."
-          options={holdBagOptions}
-          selectedIndex={holdBag}
-          onChange={changeBagCombination}
-        />
-      </>
+      <BaggagePicker
+        title="Cabin baggage"
+        tooltip="Includes smaller bags that can be taken into the cabin and stored in the overhead locker or under your seat."
+        options={baggageOptions}
+        selectedIndex={passengerBaggage[pickerType]}
+        onChange={changeBagCombination}
+      />
     );
   }
 }

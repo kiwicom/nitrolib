@@ -39,9 +39,45 @@ const props = {
 
 storiesOf("Baggage", module)
   .addDecorator(withKnobs)
-  .add("default", () => (
+  .add("both", () => (
     <div style={{ padding: "24px" }}>
       <Baggage
+        pickerType="handBag"
+        passengerBaggage={{
+          handBag: select("Handbag", handBagOptions, 1, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
+        }}
+        hasDubaiAirport={boolean("hasDubaiAirport", false, "Baggage")}
+        {...props}
+      />
+      <Baggage
+        pickerType="holdBag"
+        passengerBaggage={{
+          handBag: select("Handbag", handBagOptions, 1, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
+        }}
+        hasDubaiAirport={boolean("hasDubaiAirport", false, "Baggage")}
+        {...props}
+      />
+    </div>
+  ))
+  .add("handBag", () => (
+    <div style={{ padding: "24px" }}>
+      <Baggage
+        pickerType="handBag"
+        passengerBaggage={{
+          handBag: select("Handbag", handBagOptions, 1, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
+        }}
+        hasDubaiAirport={boolean("hasDubaiAirport", false, "Baggage")}
+        {...props}
+      />
+    </div>
+  ))
+  .add("holdBag", () => (
+    <div style={{ padding: "24px" }}>
+      <Baggage
+        pickerType="holdBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
           holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
