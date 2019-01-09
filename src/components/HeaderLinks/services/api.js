@@ -9,7 +9,6 @@ export type Splitster = {
 };
 
 export type Input = {|
-  searchString: string,
   languageId: string,
   currencyId: string,
   searchForm: SearchForm | null,
@@ -22,7 +21,6 @@ export type Response = {|
 |};
 
 const getNavBarLinks = ({
-  searchString,
   languageId,
   currencyId,
   searchForm,
@@ -32,7 +30,6 @@ const getNavBarLinks = ({
     method: "POST",
     headers: JSON_BOTH,
     body: JSON.stringify({
-      searchString,
       language: { id: languageId },
       currency: { id: currencyId },
       searchForm,

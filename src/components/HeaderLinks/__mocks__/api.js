@@ -2,8 +2,6 @@
 
 // TODO move to HeaderLinks/records/HeaderLink.js
 export const props = {
-  inverted: false,
-  searchString: "Suche",
   languageId: "de",
   currencyId: "GBP",
   searchForm: {

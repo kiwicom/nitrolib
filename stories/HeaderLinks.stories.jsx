@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { withKnobs, boolean } from "@storybook/addon-knobs/react";
+import { withKnobs, string, boolean } from "@storybook/addon-knobs/react";
 
 import HeaderLinks from "../src/components/HeaderLinks";
 import withData from "./decorators/withData";
@@ -9,7 +9,6 @@ import withData from "./decorators/withData";
 const GROUP_ID = "UI";
 
 const props = {
-  searchString: "Suche",
   languageId: "de",
   currencyId: "GBP",
   searchForm: {
@@ -32,4 +31,10 @@ const props = {
 
 storiesOf("HeaderLinks", module)
   .addDecorator(withData, withKnobs)
-  .add("default", () => <HeaderLinks {...props} inverted={boolean("Inverted", false, GROUP_ID)} />);
+  .add("default", () => (
+    <HeaderLinks
+      {...props}
+      active={string("Active", "travel", GROUP_ID)} // TODO make this a select
+      inverted={boolean("Inverted", false, GROUP_ID)}
+    />
+  ));

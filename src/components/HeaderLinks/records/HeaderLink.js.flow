@@ -1,6 +1,4 @@
 // @flow strict
-export type ActiveTab = "travel" | null;
-
 export type HeaderLink = {|
   id: string,
   translation: string,
