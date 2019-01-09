@@ -1,7 +1,7 @@
 // @flow strict
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { withKnobs, select, text, boolean, number } from "@storybook/addon-knobs";
+import { withKnobs, select, boolean } from "@storybook/addon-knobs";
 
 import Baggage from "../src/components/Baggage";
 import baggageData from "../src/components/Baggage/baggageData";
@@ -27,7 +27,7 @@ const props = {
   passengerIndex: 0,
   passengerCategory: "adult",
   changeBagCombination: (type, index) => {
-    console.log(type, index);
+    console.log(type, index); // eslint-disable-line
   },
   baggage: baggageData,
   shouldShowRecheckNote: true,

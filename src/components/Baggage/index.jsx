@@ -16,17 +16,17 @@ import type {
 } from "../../records/Baggage";
 
 type Props = {
-  passengerIndex: number,
+  passengerIndex: number, // eslint-disable-line
   changeBagCombination: () => void,
   passengerCategory: BaggageGroup,
   passengerBaggage: { handBag: number, holdBag: number },
   baggage: BaggageType,
-  shouldShowRecheckNote: boolean,
-  selfTransferEnabled: boolean,
-  selfTransferTooltip: string, // temp type
-  disabledBagsInMmb: boolean,
+  shouldShowRecheckNote: boolean, // eslint-disable-line
+  selfTransferEnabled: boolean, // eslint-disable-line
+  selfTransferTooltip: string, // eslint-disable-line
+  disabledBagsInMmb: boolean, // eslint-disable-line
   hasDubaiAirport: boolean,
-  airlines: Array<string>,
+  airlines: Array<string>, // eslint-disable-line
 };
 
 const FixWrapper = styled.div`

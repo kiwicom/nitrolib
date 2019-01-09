@@ -11,7 +11,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Tooltip from "../Tooltip";
 import Flex from "../../primitives/Flex";
 import type { OptionBaggage } from "../../records/Baggage";
-import Options from "./BaggeOptions";
+import Options from "./BaggageOptions";
 
 type State = {
   showedItems: Array<OptionBaggage>,
@@ -22,7 +22,7 @@ type Props = {|
   options: Array<OptionBaggage>,
   tooltip: string,
   title: string,
-  onChange: (bagtype: string, index: number) => void,
+  onChange: (bagType: string, index: number) => void,
   selectedIndex: number,
 |};
 
