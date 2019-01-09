@@ -18,78 +18,79 @@ exports[`#AccountPassword render 1`] = `
       />
     </Heading>
     <Text
-      weight="bold"
-    >
-      <Translate
-        html={false}
-        t="account.sign_in_description"
-        transform={[Function]}
-        values={Object {}}
-      />
-    </Text>
+      t="account.sign_in_description"
+    />
   </ModalHeader>
   <ModalSection>
-    <Text
-      spaceAfter="medium"
-      weight="bold"
+    <form
+      onSubmit={[Function]}
     >
-      <Stack
-        align="center"
-        flex={true}
-        spacing="tight"
-      >
-        <Text
-          weight="bold"
+      <Stack>
+        <Stack
+          align="center"
+          flex={true}
+          spacing="tight"
         >
-          kek@bur.com
-        </Text>
+          <Text
+            weight="bold"
+          >
+            kek@bur.com
+          </Text>
+          <TextLink
+            onClick={[Function]}
+            type="primary"
+          >
+            <Edit
+              size="small"
+            />
+          </TextLink>
+        </Stack>
+        <Stack
+          align="end"
+          spacing="condensed"
+        >
+          <ForwardRef
+            label="account.password"
+            onChange={[Function]}
+            type="password"
+            value="kek"
+          />
+          <Button
+            submit={true}
+          >
+            <Translate
+              html={false}
+              t="account.sign_in"
+              transform={[Function]}
+              values={Object {}}
+            />
+          </Button>
+        </Stack>
         <TextLink
           onClick={[Function]}
-          type="primary"
+          size="small"
+          type="secondary"
         >
-          <Edit
-            size="small"
+          <Translate
+            html={false}
+            t="account.forgot_password"
+            transform={[Function]}
+            values={Object {}}
           />
         </TextLink>
       </Stack>
-    </Text>
-    <Stack
-      align="end"
-      spacing="condensed"
-    >
-      <ForwardRef
-        label="account.password"
-        onChange={[Function]}
-        type="password"
-        value="kek"
-      />
-      <Button
-        onClick={[Function]}
-      >
-        <Translate
-          html={false}
-          t="account.sign_in"
-          transform={[Function]}
-          values={Object {}}
-        />
-      </Button>
-    </Stack>
+    </form>
   </ModalSection>
   <ModalSection>
     <Text
       spaceAfter="normal"
-    >
-      <Translate
-        html={false}
-        t="account.send_link_to"
-        transform={[Function]}
-        values={
-          Object {
-            "email": "kek@bur.com",
-          }
+      t="account.send_link_to"
+      values={
+        Object {
+          "email": "kek@bur.com",
         }
-      />
-    </Text>
+      }
+    />
     <Button
       onClick={[Function]}
       type="secondary"

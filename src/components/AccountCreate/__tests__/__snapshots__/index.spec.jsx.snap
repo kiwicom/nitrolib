@@ -25,49 +25,48 @@ exports[`#AccountCreate render 1`] = `
     />
   </ModalHeader>
   <ModalSection>
-    <Stack
-      spacing="comfy"
+    <form
+      onSubmit={[Function]}
     >
-      <ForwardRef
-        label="account.email"
-        onChange={[Function]}
-        placeholder="account.email_placeholder"
-        type="email"
-        value=""
-      />
-      <ForwardRef
-        label="account.password"
-        onChange={[Function]}
-        type="password"
-        value=""
-      />
-      <ForwardRef
-        label="account.password_confirmaiton"
-        onChange={[Function]}
-        type="password"
-        value=""
-      />
-      <Button
-        onClick={[Function]}
+      <Stack
+        spacing="comfy"
       >
-        <Translate
-          html={false}
-          t="account.create"
-          transform={[Function]}
-          values={Object {}}
+        <ForwardRef
+          label="account.email"
+          onChange={[Function]}
+          placeholder="account.email_placeholder"
+          type="email"
+          value=""
         />
-      </Button>
-      <Text
-        size="small"
-      >
-        <Translate
+        <ForwardRef
+          label="account.password"
+          onChange={[Function]}
+          type="password"
+          value=""
+        />
+        <ForwardRef
+          label="account.password_confirmaiton"
+          onChange={[Function]}
+          type="password"
+          value=""
+        />
+        <Button
+          submit={true}
+        >
+          <Translate
+            html={false}
+            t="account.create"
+            transform={[Function]}
+            values={Object {}}
+          />
+        </Button>
+        <Text
           html={true}
+          size="small"
           t="account.terms_and_privacy_policy"
-          transform={[Function]}
-          values={Object {}}
         />
-      </Text>
-    </Stack>
+      </Stack>
+    </form>
   </ModalSection>
 </React.Fragment>
 `;
