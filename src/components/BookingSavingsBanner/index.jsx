@@ -15,12 +15,19 @@ import Translate from "../Translate";
 type Props = {|
   amount: number,
   currency: string,
+  dataTest?: string,
   onLearnMoreClick: (e: SyntheticEvent<HTMLButtonElement>) => void,
   onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
-const BookingSavingsBanner = ({ amount, currency, onLearnMoreClick, onMoreTripsClick }: Props) => (
-  <Card>
+const BookingSavingsBanner = ({
+  amount,
+  currency,
+  dataTest,
+  onLearnMoreClick,
+  onMoreTripsClick,
+}: Props) => (
+  <Card dataTest={dataTest}>
     <CardSection>
       <Stack
         direction="column"

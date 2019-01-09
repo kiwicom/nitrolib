@@ -193,13 +193,17 @@ import BookingSavingsBanner from "@kiwicom/nitro/lib/components/BookingSavingsBa
 **Types:**
 ```js
 type Props = {|
-  dataTest?: string,
-  hrefLearnMore: string, // Link to learn more page
   amount: number,
   currency: string,
+  dataTest?: string,
+  onLearnMoreClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers redirection to learn more article
   onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers modal with alternative trips
 |};
 ```
+
+**Selectors:**
+* Find more trips button: `[data-test="saving-banner-button-find-more-trips"]`
+* Learn more button: `[data-test="saving-banner-button-learn-more"]`
 
 **Context needs:**
 * [intl](./services#intl)
@@ -208,11 +212,19 @@ Throw-away ticket banner indicating savings in €.
 
 Example:
 ```js
-const MyComponent = ({ onShowAlternativeFlights }: Props) => (
-  <div>
-    <BookingSavingsBanner dataTest="BookingSavingsAB" hrefLearnMore="https://kiwi.com/learnmore-tat" onMoreTripsClick={onShowAlternativeFlights} />
-  </div>
-);
+const MyComponent = ({
+  savings,
+  currency,
+  onLearnMoreClick,
+  onMoreTripsClick,
+}: Props) => (
+  <BookingSavingsBanner
+    amount={savings}
+    currency={currency}
+    onLearnMoreClick={onLearnMoreClick}
+    onMoreTripsClick={onMoreTripsClick}
+  />
+)
 ```
 
 ### ClickOutside
@@ -591,7 +603,7 @@ const AuthModals = ({ query }: Props) => (
       <>
         <ModalLogin open={value === "login"} onClose={onChange} />
         <ModalRegister open={value === "register"} onClose={onChange} />
-        
+
         <ValueBind value="login" onChange={onChange}>
           {({ onClick }) => <Button onClick={onClick}>Login</Button>}
         </ValueBind>
