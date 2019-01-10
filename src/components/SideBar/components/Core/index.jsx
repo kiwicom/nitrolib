@@ -70,6 +70,7 @@ Wrapper.defaultProps = {
 type Props = {|
   status: "entering" | "entered" | "exiting" | "exited" | "unmounted",
   inverted?: boolean,
+  unmasked?: boolean,
   onClick: () => void,
   children: React.Node,
 |};
@@ -92,15 +93,16 @@ export default class Core extends React.Component<Props> {
   }
 
   render() {
-    const { status, inverted, onClick, children } = this.props;
+    const { status, inverted, unmasked, onClick, children } = this.props;
 
     return ReactDOM.createPortal(
       <Container
         inverted={inverted}
         shown={status !== "exited"}
-        entered={status === "entered"}
+        entered={!unmasked && status === "entered"}
         ref={this.ref}
         onClick={(ev: SyntheticEvent<HTMLDivElement>) => {
+          if (unmasked) return;
           if (this.ref.current === ev.target) {
             onClick();
           }
