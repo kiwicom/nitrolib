@@ -30,11 +30,12 @@ const props = {
     console.log(type, index); // eslint-disable-line
   },
   baggage: baggageData,
-  shouldShowRecheckNote: true,
+  hasDubaiAirport: true,
   selfTransferEnabled: true,
   selfTransferTooltip: "SelfTransferTooltip", // check current implementation
   disabledBagsInMmb: true,
   airlines: [],
+  context: "booking",
 };
 
 storiesOf("Baggage", module)
@@ -47,7 +48,7 @@ storiesOf("Baggage", module)
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
           holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
         }}
-        hasDubaiAirport={boolean("hasDubaiAirport", false, "Baggage")}
+        shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}
       />
       <Baggage
@@ -56,7 +57,7 @@ storiesOf("Baggage", module)
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
           holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
         }}
-        hasDubaiAirport={boolean("hasDubaiAirport", false, "Baggage")}
+        shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}
       />
     </div>
@@ -69,7 +70,7 @@ storiesOf("Baggage", module)
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
           holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
         }}
-        hasDubaiAirport={boolean("hasDubaiAirport", false, "Baggage")}
+        shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}
       />
     </div>
@@ -82,7 +83,7 @@ storiesOf("Baggage", module)
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
           holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
         }}
-        hasDubaiAirport={boolean("hasDubaiAirport", false, "Baggage")}
+        shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}
       />
     </div>

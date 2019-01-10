@@ -24,6 +24,7 @@ type Props = {|
   title: string,
   onChange: (bagType: string, index: number) => void,
   selectedIndex: number,
+  shouldShowRecheckNote: boolean,
 |};
 
 const TooltipContent = styled.p`
@@ -70,7 +71,7 @@ class BaggagePicker extends React.Component<Props, State> {
   };
 
   render() {
-    const { title, tooltip, options, selectedIndex, onChange } = this.props;
+    const { title, tooltip, options, selectedIndex, onChange, shouldShowRecheckNote } = this.props;
     const { showedItems, hiddenItems } = this.state;
 
     return (
@@ -93,6 +94,7 @@ class BaggagePicker extends React.Component<Props, State> {
             price={item.price}
             isChecked={item.originalIndex === selectedIndex}
             onClick={() => onChange(item.bagType, item.originalIndex)}
+            shouldShowRecheckNote={shouldShowRecheckNote}
           />
         ))}
         {options.length > 4 && (

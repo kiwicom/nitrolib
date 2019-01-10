@@ -24,6 +24,7 @@ type Props = {
   price: Price,
   isChecked: boolean,
   onClick: () => void,
+  shouldShowRecheckNote: boolean,
 };
 
 type OptionWrapperProps = ThemeProps & {
@@ -129,7 +130,7 @@ const EmptyLabel = () => (
   </Stack>
 );
 
-const Option = ({ items, price, isChecked, onClick }: Props) => {
+const Option = ({ items, price, isChecked, onClick, shouldShowRecheckNote }: Props) => {
   const itemsArr = Object.keys(items).map(key => items[key]);
   const hasSingleItem = itemsArr.length === 1;
   const firstItem = itemsArr[0];
@@ -168,7 +169,7 @@ const Option = ({ items, price, isChecked, onClick }: Props) => {
           {priorityAirlines.length > 0 && <PriorityBoardingInfo airlines={priorityAirlines} />}
         </Stack>
       </Stack>
-      {firstItem && firstItem.category === "holdBag" && isChecked && (
+      {shouldShowRecheckNote && firstItem && firstItem.category === "holdBag" && isChecked && (
         <Alert>You must collect and recheck your baggage between certain flights.</Alert>
       )}
     </OptionWrapper>

@@ -1,11 +1,5 @@
 // @flow strict
 import * as React from "react";
-import styled from "styled-components";
-import BaggageSet from "@kiwicom/orbit-components/lib/icons/BaggageSet";
-import CardHeader from "@kiwicom/orbit-components/lib/Card/CardHeader";
-import TextLink from "@kiwicom/orbit-components/lib/TextLink";
-import Alert from "@kiwicom/orbit-components/lib/Alert";
-import Text from "@kiwicom/orbit-components/lib/Text";
 
 import BaggagePicker from "../BaggagePicker";
 import type {
@@ -71,7 +65,12 @@ class Baggage extends React.Component<Props> {
   };
 
   render() {
-    const { changeBagCombination, pickerType, passengerBaggage } = this.props;
+    const {
+      changeBagCombination,
+      pickerType,
+      passengerBaggage,
+      shouldShowRecheckNote,
+    } = this.props;
     const baggageOptions = this.getBaggagePickerOptions(pickerType);
 
     return (
@@ -81,6 +80,7 @@ class Baggage extends React.Component<Props> {
         options={baggageOptions}
         selectedIndex={passengerBaggage[pickerType]}
         onChange={changeBagCombination}
+        shouldShowRecheckNote={shouldShowRecheckNote}
       />
     );
   }
