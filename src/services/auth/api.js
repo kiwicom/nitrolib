@@ -1,8 +1,8 @@
 // @flow strict
-import "isomorphic-unfetch";
-import btoa from "btoa-lite";
+import "isomorphic-fetch";
 import format from "date-fns/format";
 import querystring from "querystring";
+import btoa from "btoa-lite";
 
 import { mapUser } from "../../records/User";
 import type { User } from "../../records/User";

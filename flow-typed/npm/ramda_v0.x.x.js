@@ -1,5 +1,5 @@
-// flow-typed signature: 8fe1b4ff3b03e2c0d3828f44d8584462
-// flow-typed version: f76e4b9985/ramda_v0.x.x/flow_>=v0.82.x
+// flow-typed signature: b7746e34ce08fb368820c628cf462560
+// flow-typed version: 0b401d1dd6/ramda_v0.x.x/flow_>=v0.82.x
 
 /* eslint-disable no-unused-vars, no-redeclare */
 
@@ -314,52 +314,37 @@ declare module ramda {
       args: [A, B, C, D, E, F, G, H, I]
     ) => () => R);
 
-  declare var pipe: {
-    <A, B, C, D, E, F, G>(ab: UnaryFn<A, B>, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>, ef: UnaryFn<E, F>, fg: UnaryFn<F, G>): UnaryFn<A, G>,
-    <A0, A1, B, C, D, E, F, G>(ab: (A0, A1) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>, ef: UnaryFn<E, F>, fg: UnaryFn<F, G>): (A0, A1) => G,
-    <A0, A1, A2, B, C, D, E, F, G>(ab: (A0, A1, A2) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>, ef: UnaryFn<E, F>, fg: UnaryFn<F, G>): (A0, A1, A2) => G,
-    <A0, A1, A2, A3, B, C, D, E, F, G>(ab: (A0, A1, A2, A3) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>, ef: UnaryFn<E, F>, fg: UnaryFn<F, G>): (A0, A1, A2, A3) => G,
-    <A0, A1, A2, A3, A4, B, C, D, E, F, G>(ab: (A0, A1, A2, A3, A4) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>, ef: UnaryFn<E, F>, fg: UnaryFn<F, G>): (A0, A1, A2, A3, A4) => G,
-    <A0, A1, A2, A3, A4, A5, B, C, D, E, F, G>(ab: (A0, A1, A2, A3, A4, A5) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>, ef: UnaryFn<E, F>, fg: UnaryFn<F, G>): (A0, A1, A2, A3, A4, A5) => G,
-
-    <A, B, C, D, E, F>(ab: UnaryFn<A, B>, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>, ef: UnaryFn<E, F>): UnaryFn<A, F>,
-    <A0, A1, B, C, D, E, F>(ab: (A0, A1) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>, ef: UnaryFn<E, F>): (A0, A1) => F,
-    <A0, A1, A2, B, C, D, E, F>(ab: (A0, A1, A2) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>, ef: UnaryFn<E, F>): (A0, A1, A2) => F,
-    <A0, A1, A2, A3, B, C, D, E, F>(ab: (A0, A1, A2, A3) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>, ef: UnaryFn<E, F>): (A0, A1, A2, A3) => F,
-    <A0, A1, A2, A3, A4, B, C, D, E, F>(ab: (A0, A1, A2, A3, A4) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>, ef: UnaryFn<E, F>): (A0, A1, A2, A3, A4) => F,
-    <A0, A1, A2, A3, A4, A5, B, C, D, E, F>(ab: (A0, A1, A2, A3, A4, A5) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>, ef: UnaryFn<E, F>): (A0, A1, A2, A3, A4, A5) => F,
-
-    <A, B, C, D, E>(ab: UnaryFn<A, B>, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>): UnaryFn<A, E>,
-    <A0, A1, B, C, D, E>(ab: (A0, A1) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>): (A0, A1) => E,
-    <A0, A1, A2, B, C, D, E>(ab: (A0, A1, A2) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>): (A0, A1, A2) => E,
-    <A0, A1, A2, A3, B, C, D, E>(ab: (A0, A1, A2, A3) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>): (A0, A1, A2, A3) => E,
-    <A0, A1, A2, A3, A4, B, C, D, E>(ab: (A0, A1, A2, A3, A4) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>): (A0, A1, A2, A3, A4) => E,
-    <A0, A1, A2, A3, A4, A5, B, C, D, E>(ab: (A0, A1, A2, A3, A4, A5) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>, de: UnaryFn<D, E>): (A0, A1, A2, A3, A4, A5) => E,
-
-    <A, B, C, D>(ab: UnaryFn<A, B>, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>): UnaryFn<A, D>,
-    <A0, A1, B, C, D>(ab: (A0, A1) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>): (A0, A1) => D,
-    <A0, A1, A2, B, C, D>(ab: (A0, A1, A2) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>): (A0, A1, A2) => D,
-    <A0, A1, A2, A3, B, C, D>(ab: (A0, A1, A2, A3) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>): (A0, A1, A2, A3) => D,
-    <A0, A1, A2, A3, A4, B, C, D>(ab: (A0, A1, A2, A3, A4) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>): (A0, A1, A2, A3, A4) => D,
-    <A0, A1, A2, A3, A4, A5, B, C, D>(ab: (A0, A1, A2, A3, A4, A5) => B, bc: UnaryFn<B, C>, cd: UnaryFn<C, D>): (A0, A1, A2, A3, A4, A5) => D,
-
-    <A, B, C>(ab: UnaryFn<A, B>, bc: UnaryFn<B, C>): UnaryFn<A, C>,
-    <A0, A1, B, C>(ab: (A0, A1) => B, bc: UnaryFn<B, C>): (A0, A1) => C,
-    <A0, A1, A2, B, C>(ab: (A0, A1, A2) => B, bc: UnaryFn<B, C>): (A0, A1, A2) => C,
-    <A0, A1, A2, A3, B, C>(ab: (A0, A1, A2, A3) => B, bc: UnaryFn<B, C>): (A0, A1, A2, A3) => C,
-    <A0, A1, A2, A3, A4, B, C>(ab: (A0, A1, A2, A3, A4) => B, bc: UnaryFn<B, C>): (A0, A1, A2, A3, A4) => C,
-    <A0, A1, A2, A3, A4, A5, B, C>(ab: (A0, A1, A2, A3, A4, A5) => B, bc: UnaryFn<B, C>): (A0, A1, A2, A3, A4, A5) => C,
-
-
-    <A, B>(ab: UnaryFn<A, B>): UnaryFn<A, B>,
-    <A0, A1, B>(ab: (A0, A1) => B): (A0, A1) => B,
-    <A0, A1, A2, B>(ab: (A0, A1, A2) => B): (A0, A1, A2) => B,
-    <A0, A1, A2, A3, B>(ab: (A0, A1, A2, A3) => B): (A0, A1, A2, A3) => B,
-    <A0, A1, A2, A3, A4, B>(ab: (A0, A1, A2, A3, A4) => B): (A0, A1, A2, A3, A4) => B,
-    <A0, A1, A2, A3, A4, A5, B>(ab: (A0, A1, A2, A3, A4, A5) => B): (A0, A1, A2, A3, A4, A5) => B,
-  };
-
-  declare type Pipe = typeof pipe;
+  declare type Pipe = (<A, B, C, D, E, F, G>(
+    ab: UnaryFn<A, B>,
+    bc: UnaryFn<B, C>,
+    cd: UnaryFn<C, D>,
+    de: UnaryFn<D, E>,
+    ef: UnaryFn<E, F>,
+    fg: UnaryFn<F, G>,
+  ) => UnaryFn<A, G>) &
+    (<A, B, C, D, E, F>(
+      ab: UnaryFn<A, B>,
+      bc: UnaryFn<B, C>,
+      cd: UnaryFn<C, D>,
+      de: UnaryFn<D, E>,
+      ef: UnaryFn<E, F>,
+    ) => UnaryFn<A, F>) &
+    (<A, B, C, D, E>(
+      ab: UnaryFn<A, B>,
+      bc: UnaryFn<B, C>,
+      cd: UnaryFn<C, D>,
+      de: UnaryFn<D, E>,
+    ) => UnaryFn<A, E>) &
+    (<A, B, C, D>(
+      ab: UnaryFn<A, B>,
+      bc: UnaryFn<B, C>,
+      cd: UnaryFn<C, D>,
+    ) => UnaryFn<A, D>) &
+    (<A, B, C>(
+      ab: UnaryFn<A, B>,
+      bc: UnaryFn<B, C>,
+    ) => UnaryFn<A, C>) &
+    (<A, B>(ab: UnaryFn<A, B>) => UnaryFn<A, B>);
 
   declare type PipeP = (<A, B, C, D, E, F, G>(
     ab: UnaryPromiseFn<A, B>,
@@ -479,6 +464,7 @@ declare module ramda {
    */
 
   declare var compose: Compose;
+  declare var pipe: Pipe;
   declare var pipeK: PipeK;
   declare var pipeP: PipeP;
   declare var curry: Curry;
@@ -594,11 +580,8 @@ declare module ramda {
   declare function chain<A, B>(f: (x: A) => B[], xs: A[]): B[]
   declare function chain<A, B>(f: (x: A) => B[]): (xs: A[]) => B[]
 
-  declare function concat<V, T: Array<V>>(x: T, y: T): T;
-  declare function concat<V, T: Array<V>>(x: T): (y: T) => T;
-
-  declare function concat(x: string, y: string): string;
-  declare function concat(x: string): (y: string) => string;
+  declare function concat<V, T: Array<V> | string>(x: T, y: T): T;
+  declare function concat<V, T: Array<V> | string>(x: T): (y: T) => T;
 
   declare function contains<E, T: Array<E> | string>(x: E, xs: T): boolean;
   declare function contains<E, T: Array<E> | string>(
@@ -1427,7 +1410,7 @@ declare module ramda {
   declare var mergeDeepRight: (<A, B>(a: A, b: B) => B & A) &
     (<A, B>(a: A) => (b: B) => B & A);
 
-  declare type MergeWith = (<A, B, T: $Values<A> & $Values<B>>(
+  declare type MergeWith = (<A: { [k: string]: mixed }, B: { [k: string]: mixed }, T>(
     fn: (a: T, b: T) => T,
     a: A,
     b: B
@@ -1444,22 +1427,22 @@ declare module ramda {
     ) => (b: B) => A & B);
 
   declare type MergeWithKey = (<
-    A,
-    B,
-    S: $Keys<A> & $Keys<B>,
-    T: $ElementType<A, $Keys<A>> & $ElementType<B, $Keys<B>>,
+    S: string,
+    A: { [k: string]: mixed },
+    B: { [k: string]: mixed },
+    T
   >(
     fn: (s: S, a: T, b: T) => T,
     a: A,
     b: B
   ) => A & B) &
-    (<S, T, A, B>(
+    (<S: string, A: { [k: string]: mixed }, B: { [k: string]: mixed }, T>(
       fn: (s: S, a: T, b: T) => T,
     ) => (a: A, b: B) => A & B) &
-    (<S, T, A, B>(
+    (<S: string, A: { [k: string]: mixed }, B: { [k: string]: mixed }, T>(
       fn: (s: S, a: T, b: T) => T,
     ) => (a: A) => (b: B) => A & B) &
-    (<S, T, A, B>(
+    (<S: string, A: { [k: string]: mixed }, B: { [k: string]: mixed }, T>(
       fn: (s: S, a: T, b: T) => T,
       a: A,
     ) => (b: B) => A & B);

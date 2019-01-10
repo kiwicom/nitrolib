@@ -1,7 +1,7 @@
 // @noflow
 const fs = require("fs-extra");
 const path = require("path");
-const fetch = require("isomorphic-unfetch");
+const fetch = require("isomorphic-fetch");
 
 const countries = require("./utils/countries");
 
