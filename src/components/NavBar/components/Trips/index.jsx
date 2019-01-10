@@ -57,46 +57,53 @@ HideOnLower.defaultProps = {
   theme: themeDefault,
 };
 
-const Trips = ({ auth, env, onSelect }: Props) => (
-  <Toggle>
-    {({ open, onToggle }) => (
-      <div>
-        {open && (
-          <ClickOutside
-            onClickOutside={ev => {
-              ev.stopPropagation();
-              onToggle();
-            }}
-          >
-            <TripDataList env={env} onSelect={onSelect} />
-          </ClickOutside>
-        )}
-        <Desktop display="flex">
-          <Flex y="center">
-            <Passenger size="small" />
-            <Button onClick={onToggle} color="secondary">
-              <HideOnLower>
-                <Translate t="account.my_bookings_action" />
-              </HideOnLower>
+const Trips = ({ auth, env, onSelect }: Props) => {
+  const { firstname } = auth.user;
+  const usernameShort = firstname || auth.user.email;
+  const username =
+    firstname && auth.user.lastname ? `${firstname} ${auth.user.lastname}` : usernameShort;
+
+  return (
+    <Toggle>
+      {({ open, onToggle }) => (
+        <div>
+          {open && (
+            <ClickOutside
+              onClickOutside={ev => {
+                ev.stopPropagation();
+                onToggle();
+              }}
+            >
+              <TripDataList env={env} onSelect={onSelect} />
+            </ClickOutside>
+          )}
+          <Desktop display="flex">
+            <Flex y="center">
+              <Passenger size="small" />
+              <Button onClick={onToggle} color="secondary">
+                <HideOnLower>
+                  <Translate t="account.my_bookings_action" />
+                </HideOnLower>
+                <UserWrapper>
+                  <span>(</span>
+                  <UserName>{`${usernameShort}...`}</UserName>
+                  <span>)</span>
+                </UserWrapper>
+              </Button>
+            </Flex>
+          </Desktop>
+          <Mobile display="flex">
+            <Button onClick={onToggle} y="center" color="secondary">
+              <Passenger size="small" />
               <UserWrapper>
-                <span>(</span>
-                <UserName>{`${auth.user.firstname}...`}</UserName>
-                <span>)</span>
+                <UserName>{username}</UserName>
               </UserWrapper>
             </Button>
-          </Flex>
-        </Desktop>
-        <Mobile display="flex">
-          <Button onClick={onToggle} y="center" color="secondary">
-            <Passenger size="small" />
-            <UserWrapper>
-              <UserName>{`${auth.user.firstname} ${auth.user.lastname}`}</UserName>
-            </UserWrapper>
-          </Button>
-        </Mobile>
-      </div>
-    )}
-  </Toggle>
-);
+          </Mobile>
+        </div>
+      )}
+    </Toggle>
+  );
+};
 
 export default Trips;

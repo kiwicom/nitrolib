@@ -3,7 +3,7 @@ import type { User } from "./User";
 
 export type Auth = {|
   user: User,
-  token: string,
+  token: ?string,
 |};
 
 export type SocialProvider = "facebook" | "google";

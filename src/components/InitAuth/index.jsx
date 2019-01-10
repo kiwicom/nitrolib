@@ -116,7 +116,7 @@ export default class InitAuth extends React.PureComponent<Props, State> {
     return api
       .signIn({ email, password, brand: brand.id })
       .then(auth => {
-        onSignIn(auth.token);
+        onSignIn(auth.token || "");
         this.setState({ auth, loading: false });
       })
       .catch(err => {
@@ -139,7 +139,7 @@ export default class InitAuth extends React.PureComponent<Props, State> {
     return children({
       auth,
       loading,
-      environment: makeEnvironment(makeCall(auth !== null ? auth.token : "")),
+      environment: makeEnvironment(makeCall(auth !== null && auth.token ? auth.token : "")),
       onMyBooking: this.handleMyBooking,
       onRegister: this.handleRegister,
       onSocialAuth: this.handleSocialAuth,
