@@ -215,225 +215,232 @@ export default class SideNav extends React.Component<Props, State> {
     const { modalOpen } = this.state;
 
     return (
-      <section data-test="SideNav">
+      <>
         <MenuOpen data-test="Open" onClick={this.handleToggle} inverted={inverted}>
           <MenuHamburger />
         </MenuOpen>
 
         <ClientOnly>
           <SideBar onClick={this.handleToggle} shown={modalOpen === MODALS.SIDE_NAV}>
-            <Close data-test="Close" onClick={this.handleToggle}>
-              <Translate t="common.hide" /> <CloseIcon />
-            </Close>
+            <section data-test="SideNav">
+              <Close data-test="Close" onClick={this.handleToggle}>
+                <Translate t="common.hide" /> <CloseIcon />
+              </Close>
 
-            <Content>
-              {/* DEV FEATURES */}
-              {debug && (
-                <MenuGroup text="Dev features">
-                  <MenuItem
-                    Icon={icons.Settings}
-                    onClick={this.handleOpenDebug}
-                    text="Show debug window"
-                  />
-                </MenuGroup>
-              )}
-
-              <Separator />
-
-              {/* Languages and Currencies */}
-              <Mobile display="flex">
-                <MenuGroup>
-                  <Language onChange={onSaveLanguage} native />
-                  <CurrencySpacing>
-                    <Currency native />
-                  </CurrencySpacing>
-                  <Separator />
-                </MenuGroup>
-              </Mobile>
-
-              {/* SIGN-IN/UP/OUT */}
-              <AuthConsumer>
-                {({ auth, onSignOut }) => (
-                  <MenuGroup>
-                    {auth !== null ? (
-                      <MenuItem
-                        Icon={icons.AccountCircle}
-                        onClick={() => {
-                          onSignOut();
-                          this.handleToggle();
-                        }}
-                        text={<Translate t="account.log_out" />}
-                      />
-                    ) : (
-                      <>
-                        <MenuItem
-                          Icon={icons.AccountCircle}
-                          onClick={this.handleOpenSignIn}
-                          text={<Translate t="account.sign_in" />}
-                        />
-                        <MenuItem
-                          Icon={icons.AccountCircle}
-                          onClick={this.handleOpenRegister}
-                          text={<Translate t="account.sign_up" />}
-                        />
-                      </>
-                    )}
+              <Content>
+                {/* DEV FEATURES */}
+                {debug && (
+                  <MenuGroup text="Dev features">
+                    <MenuItem
+                      Icon={icons.Settings}
+                      onClick={this.handleOpenDebug}
+                      text="Show debug window"
+                    />
                   </MenuGroup>
                 )}
-              </AuthConsumer>
 
-              <Separator />
+                <Separator />
 
-              <BrandConsumer>
-                {brand => {
-                  const company = getPagesItems(brand);
-                  const socialMedia = getSocialMediaItems(brand);
+                {/* Languages and Currencies */}
+                <Mobile display="flex">
+                  <MenuGroup>
+                    <Language onChange={onSaveLanguage} native />
+                    <CurrencySpacing>
+                      <Currency native />
+                    </CurrencySpacing>
+                    <Separator />
+                  </MenuGroup>
+                </Mobile>
 
-                  return (
-                    <>
-                      {/* EXPLORE */}
-                      <MenuGroup text={<Translate t="sidenav.connect" />}>
-                        {company.invite && (
-                          <BrandedMenuItem
-                            title={company.invite.title}
-                            Icon={company.invite.Icon}
-                            link={company.invite.link}
-                          />
-                        )}
-
-                        {/* Newsletter */}
-                        {brand.communication.newsletter.enabled && (
-                          <MenuItem
-                            Icon={icons.ContactEmail}
-                            onClick={this.handleOpenSubscription}
-                            text={<Translate t="common.subscribe" />}
-                          />
-                        )}
-
-                        {company.stories && (
-                          <BrandedMenuItem
-                            title={company.stories.title}
-                            Icon={company.stories.Icon}
-                            link={company.stories.link}
-                          />
-                        )}
-
-                        {/* Chat */}
-                        {brand.contacts.chat.enabled && (
-                          <MenuItem
-                            Icon={icons.Chat}
-                            onClick={this.handleOpenChat}
-                            text={<Translate t="booking.abandonment.help.chat_action" />}
-                          />
-                        )}
-
-                        {/* --- Social links --- */}
-                        <MediaIcons>
-                          {socialMedia.map(({ link, Icon }) => (
-                            <Link key={link} href={link} target="_blank" rel="noopener noreferrer">
-                              {Icon && <Icon className="socialIcon" />}
-                            </Link>
-                          ))}
-                        </MediaIcons>
-                      </MenuGroup>
-
-                      <Separator />
-
-                      {/* COMPANY */}
-                      <MenuGroup text={<Translate t="sidenav.company" />}>
-                        {company.about && (
-                          <BrandedMenuItem
-                            title={company.about.title}
-                            Icon={company.about.Icon}
-                            link={company.about.link}
-                          />
-                        )}
-                        {company.careers && (
-                          <BrandedMenuItem
-                            title={company.careers.title}
-                            Icon={company.careers.Icon}
-                            link={company.careers.link}
-                          />
-                        )}
-                        {brand.id === "kiwicom" && (
-                          <>
-                            <MenuItem
-                              Icon={icons.KiwicomCare}
-                              link="https://care.kiwi.com/"
-                              text="Care Kiwi.com"
-                            />
-                            <MenuItem
-                              Icon={icons.Code}
-                              link="https://code.kiwi.com/"
-                              text="Code Kiwi.com"
-                            />
-                          </>
-                        )}
-                        {company.branding && (
-                          <BrandedMenuItem
-                            title={company.branding.title}
-                            Icon={company.branding.Icon}
-                            link={company.branding.link}
-                          />
-                        )}
-                        {company.guarantee && (
-                          <BrandedMenuItem
-                            title={company.guarantee.title}
-                            Icon={company.guarantee.Icon}
-                            link={company.guarantee.link}
-                          />
-                        )}
-                        {company.media && (
-                          <BrandedMenuItem
-                            title={company.media.title}
-                            Icon={company.media.Icon}
-                            link={company.media.link}
-                          />
-                        )}
-                      </MenuGroup>
-
-                      <Separator />
-
-                      <MenuGroup text={<Translate t="content.pages.legal.title" />}>
-                        {company.terms && (
-                          <BrandedMenuItem
-                            title={company.terms.title}
-                            Icon={company.terms.Icon}
-                            link={company.terms.link}
-                          />
-                        )}
-                        {company.gdpr_terms && (
-                          <BrandedMenuItem
-                            title={company.gdpr_terms.title}
-                            Icon={company.gdpr_terms.Icon}
-                            link={company.gdpr_terms.link}
-                          />
-                        )}
-                        {company.privacy && (
-                          <BrandedMenuItem
-                            title={company.privacy.title}
-                            Icon={company.privacy.Icon}
-                            link={company.privacy.link}
-                          />
-                        )}
-                        {company.security && (
-                          <BrandedMenuItem
-                            title={company.security.title}
-                            Icon={company.security.Icon}
-                            link={company.security.link}
-                          />
-                        )}
+                {/* SIGN-IN/UP/OUT */}
+                <AuthConsumer>
+                  {({ auth, onSignOut }) => (
+                    <MenuGroup>
+                      {auth !== null ? (
                         <MenuItem
-                          text={<Translate t="seo.content.title_cookies_settings" />}
-                          link="/pages/cookies_settings"
-                          Icon={icons.Settings}
+                          Icon={icons.AccountCircle}
+                          onClick={() => {
+                            onSignOut();
+                            this.handleToggle();
+                          }}
+                          text={<Translate t="account.log_out" />}
                         />
-                      </MenuGroup>
-                    </>
-                  );
-                }}
-              </BrandConsumer>
-            </Content>
+                      ) : (
+                        <>
+                          <MenuItem
+                            Icon={icons.AccountCircle}
+                            onClick={this.handleOpenSignIn}
+                            text={<Translate t="account.sign_in" />}
+                          />
+                          <MenuItem
+                            Icon={icons.AccountCircle}
+                            onClick={this.handleOpenRegister}
+                            text={<Translate t="account.sign_up" />}
+                          />
+                        </>
+                      )}
+                    </MenuGroup>
+                  )}
+                </AuthConsumer>
+
+                <Separator />
+
+                <BrandConsumer>
+                  {brand => {
+                    const company = getPagesItems(brand);
+                    const socialMedia = getSocialMediaItems(brand);
+
+                    return (
+                      <>
+                        {/* EXPLORE */}
+                        <MenuGroup text={<Translate t="sidenav.connect" />}>
+                          {company.invite && (
+                            <BrandedMenuItem
+                              title={company.invite.title}
+                              Icon={company.invite.Icon}
+                              link={company.invite.link}
+                            />
+                          )}
+
+                          {/* Newsletter */}
+                          {brand.communication.newsletter.enabled && (
+                            <MenuItem
+                              Icon={icons.ContactEmail}
+                              onClick={this.handleOpenSubscription}
+                              text={<Translate t="common.subscribe" />}
+                            />
+                          )}
+
+                          {company.stories && (
+                            <BrandedMenuItem
+                              title={company.stories.title}
+                              Icon={company.stories.Icon}
+                              link={company.stories.link}
+                            />
+                          )}
+
+                          {/* Chat */}
+                          {brand.contacts.chat.enabled && (
+                            <MenuItem
+                              Icon={icons.Chat}
+                              onClick={this.handleOpenChat}
+                              text={<Translate t="booking.abandonment.help.chat_action" />}
+                            />
+                          )}
+
+                          {/* --- Social links --- */}
+                          <MediaIcons>
+                            {socialMedia.map(({ link, Icon }) => (
+                              <Link
+                                key={link}
+                                href={link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {Icon && <Icon className="socialIcon" />}
+                              </Link>
+                            ))}
+                          </MediaIcons>
+                        </MenuGroup>
+
+                        <Separator />
+
+                        {/* COMPANY */}
+                        <MenuGroup text={<Translate t="sidenav.company" />}>
+                          {company.about && (
+                            <BrandedMenuItem
+                              title={company.about.title}
+                              Icon={company.about.Icon}
+                              link={company.about.link}
+                            />
+                          )}
+                          {company.careers && (
+                            <BrandedMenuItem
+                              title={company.careers.title}
+                              Icon={company.careers.Icon}
+                              link={company.careers.link}
+                            />
+                          )}
+                          {brand.id === "kiwicom" && (
+                            <>
+                              <MenuItem
+                                Icon={icons.KiwicomCare}
+                                link="https://care.kiwi.com/"
+                                text="Care Kiwi.com"
+                              />
+                              <MenuItem
+                                Icon={icons.Code}
+                                link="https://code.kiwi.com/"
+                                text="Code Kiwi.com"
+                              />
+                            </>
+                          )}
+                          {company.branding && (
+                            <BrandedMenuItem
+                              title={company.branding.title}
+                              Icon={company.branding.Icon}
+                              link={company.branding.link}
+                            />
+                          )}
+                          {company.guarantee && (
+                            <BrandedMenuItem
+                              title={company.guarantee.title}
+                              Icon={company.guarantee.Icon}
+                              link={company.guarantee.link}
+                            />
+                          )}
+                          {company.media && (
+                            <BrandedMenuItem
+                              title={company.media.title}
+                              Icon={company.media.Icon}
+                              link={company.media.link}
+                            />
+                          )}
+                        </MenuGroup>
+
+                        <Separator />
+
+                        <MenuGroup text={<Translate t="content.pages.legal.title" />}>
+                          {company.terms && (
+                            <BrandedMenuItem
+                              title={company.terms.title}
+                              Icon={company.terms.Icon}
+                              link={company.terms.link}
+                            />
+                          )}
+                          {company.gdpr_terms && (
+                            <BrandedMenuItem
+                              title={company.gdpr_terms.title}
+                              Icon={company.gdpr_terms.Icon}
+                              link={company.gdpr_terms.link}
+                            />
+                          )}
+                          {company.privacy && (
+                            <BrandedMenuItem
+                              title={company.privacy.title}
+                              Icon={company.privacy.Icon}
+                              link={company.privacy.link}
+                            />
+                          )}
+                          {company.security && (
+                            <BrandedMenuItem
+                              title={company.security.title}
+                              Icon={company.security.Icon}
+                              link={company.security.link}
+                            />
+                          )}
+                          <MenuItem
+                            text={<Translate t="seo.content.title_cookies_settings" />}
+                            link="/pages/cookies_settings"
+                            Icon={icons.Settings}
+                          />
+                        </MenuGroup>
+                      </>
+                    );
+                  }}
+                </BrandConsumer>
+              </Content>
+            </section>
           </SideBar>
         </ClientOnly>
 
@@ -464,7 +471,7 @@ export default class SideNav extends React.Component<Props, State> {
             </Modal>
           </Portal>
         )}
-      </section>
+      </>
     );
   };
 }
