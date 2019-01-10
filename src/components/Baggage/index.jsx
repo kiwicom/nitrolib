@@ -64,6 +64,13 @@ class Baggage extends React.Component<Props> {
     return options;
   };
 
+  getTitle = type => (type === "handBag" ? "Cabin baggage" : "Checked baggage");
+
+  getTooltip = type =>
+    type === "handBag"
+      ? "Includes smaller bags that can be taken into the cabin and stored in the overhead locker or under your seat."
+      : "Includes larger baggage items that you must deposit at the airline check-in counter before going through security at the airport.";
+
   render() {
     const {
       changeBagCombination,
@@ -75,8 +82,8 @@ class Baggage extends React.Component<Props> {
 
     return (
       <BaggagePicker
-        title="Cabin baggage"
-        tooltip="Includes smaller bags that can be taken into the cabin and stored in the overhead locker or under your seat."
+        title={this.getTitle(pickerType)}
+        tooltip={this.getTooltip(pickerType)}
         options={baggageOptions}
         selectedIndex={passengerBaggage[pickerType]}
         onChange={changeBagCombination}
