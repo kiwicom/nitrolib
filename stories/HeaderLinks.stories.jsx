@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { withKnobs, string, boolean } from "@storybook/addon-knobs/react";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs/react";
 
 import HeaderLinks from "../src/components/HeaderLinks";
 import withData from "./decorators/withData";
@@ -34,7 +34,7 @@ storiesOf("HeaderLinks", module)
   .add("default", () => (
     <HeaderLinks
       {...props}
-      active={string("Active", "travel", GROUP_ID)} // TODO make this a select
+      active={text("Active", "travel", GROUP_ID)} // TODO make this a select
       inverted={boolean("Inverted", false, GROUP_ID)}
     />
   ));
