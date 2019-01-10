@@ -4,6 +4,7 @@ import * as React from "react";
 type Props = {|
   shown: boolean,
   inverted?: boolean, // opens from the other side
+  unmasked?: boolean, // removes outer mask and disables onClick
   onClick: () => void,
   children: React.Node,
 |};

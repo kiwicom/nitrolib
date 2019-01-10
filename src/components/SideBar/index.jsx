@@ -9,14 +9,15 @@ const DURATION = 250;
 type Props = {|
   shown: boolean,
   inverted?: boolean,
+  unmasked?: boolean,
   onClick: () => void,
   children: React.Node,
 |};
 
-const SideBar = ({ shown, inverted, onClick, children }: Props) => (
+const SideBar = ({ shown, inverted, unmasked, onClick, children }: Props) => (
   <Transition in={shown} timeout={DURATION}>
     {status => (
-      <Core status={status} inverted={inverted} onClick={onClick}>
+      <Core status={status} inverted={inverted} onClick={onClick} unmasked={unmasked}>
         {children}
       </Core>
     )}

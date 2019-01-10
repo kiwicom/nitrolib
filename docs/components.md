@@ -393,6 +393,7 @@ import SideBar from "@kiwicom/nitro/lib/components/SideBar";
 type Props = {|
   shown: boolean,
   inverted?: boolean, // opens from the other side
+  unmasked?: boolean, // removes outer mask and disables onClick
   onClick: () => void,
   children: React.Node,
 |};
@@ -589,7 +590,7 @@ const AuthModals = ({ query }: Props) => (
       <>
         <ModalLogin open={value === "login"} onClose={onChange} />
         <ModalRegister open={value === "register"} onClose={onChange} />
-        
+
         <ValueBind value="login" onChange={onChange}>
           {({ onClick }) => <Button onClick={onClick}>Login</Button>}
         </ValueBind>
