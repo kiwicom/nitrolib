@@ -64,9 +64,9 @@ class Baggage extends React.Component<Props> {
     return options;
   };
 
-  getTitle = type => (type === "handBag" ? "Cabin baggage" : "Checked baggage");
+  getTitle = (type: string): string => (type === "handBag" ? "Cabin baggage" : "Checked baggage");
 
-  getTooltip = type =>
+  getTooltip = (type: string): string =>
     type === "handBag"
       ? "Includes smaller bags that can be taken into the cabin and stored in the overhead locker or under your seat."
       : "Includes larger baggage items that you must deposit at the airline check-in counter before going through security at the airport.";
