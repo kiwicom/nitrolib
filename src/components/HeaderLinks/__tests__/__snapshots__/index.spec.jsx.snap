@@ -960,9 +960,7 @@ exports[`HeaderLinks should render correctly 1`] = `
 <Text
   element="div"
 >
-  <Mobile
-    display="flex"
-  >
+  <HeaderLinks__Mobile>
     <HeaderLinks__Margin>
       <Toggle
         initial={false}
@@ -970,10 +968,8 @@ exports[`HeaderLinks should render correctly 1`] = `
         <Component />
       </Toggle>
     </HeaderLinks__Margin>
-  </Mobile>
-  <Desktop
-    display="flex"
-  >
+  </HeaderLinks__Mobile>
+  <HeaderLinks__Desktop>
     <Links
       services={
         Array [
@@ -1004,6 +1000,6 @@ exports[`HeaderLinks should render correctly 1`] = `
         ]
       }
     />
-  </Desktop>
+  </HeaderLinks__Desktop>
 </Text>
 `;

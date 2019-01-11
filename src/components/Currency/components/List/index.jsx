@@ -9,7 +9,7 @@ import type { ThemeProps } from "../../../../records/Theme";
 import separateList from "../../services/separateList";
 import Flex from "../../../../primitives/Flex";
 import mq from "../../../../styles/mq";
-import buttonMixin from "../../../../styles/mixins/button";
+import button from "../../../../styles/mixins/button";
 import Tooltip from "../../../Tooltip/index";
 import CurrencyItem from "../Item/index";
 import Code from "../../primitives/Code";
@@ -42,9 +42,10 @@ Item.defaultProps = {
 };
 
 const ItemText = styled.button`
-  ${buttonMixin};
+  ${button};
   display: flex;
   line-height: 30px;
+  width: 100%;
   padding-${/* sc-custom "left" */ left}: 5px;
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   cursor: pointer;

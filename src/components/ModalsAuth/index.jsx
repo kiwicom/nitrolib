@@ -32,37 +32,41 @@ const ModalsAuth = ({ portal }: Props) => (
                   <Portal element={portal}>
                     <Modal onClose={onClick}>
                       <ModalSection>
-                        <Container value={value} onChange={onChange}>
-                          {value === MODALS.MY_BOOKING && (
+                        {value === MODALS.MY_BOOKING && (
+                          <Container value={value} onChange={onChange}>
                             <MyBooking
                               loading={auth.loading}
                               onMyBooking={auth.onMyBooking}
                               onChange={onChange}
                             />
-                          )}
+                          </Container>
+                        )}
 
-                          {value === MODALS.REGISTER && (
+                        {value === MODALS.REGISTER && (
+                          <Container value={value} onChange={onChange}>
                             <Register
                               loading={auth.loading}
                               onRegister={auth.onRegister}
                               onChange={onChange}
                             />
-                          )}
+                          </Container>
+                        )}
 
-                          {value === MODALS.SIGN_IN && (
+                        {value === MODALS.SIGN_IN && (
+                          <Container value={value} onChange={onChange}>
                             <SignIn
                               loading={auth.loading}
                               onSignIn={auth.onSignIn}
                               onChange={onChange}
                             />
-                          )}
+                          </Container>
+                        )}
 
-                          {value === MODALS.FORGOT_PASSWORD && (
-                            <BrandConsumer>
-                              {brand => <ForgotPassword brandId={brand.id} onClose={onClick} />}
-                            </BrandConsumer>
-                          )}
-                        </Container>
+                        {value === MODALS.FORGOT_PASSWORD && (
+                          <BrandConsumer>
+                            {brand => <ForgotPassword brandId={brand.id} onClose={onClick} />}
+                          </BrandConsumer>
+                        )}
                       </ModalSection>
                     </Modal>
                   </Portal>

@@ -12,8 +12,6 @@ import Toggle from "../Toggle";
 import Popup from "./primitives/Popup";
 import IconWrapper from "./primitives/IconWrapper";
 import Links from "./components/Links";
-import Desktop from "../Desktop";
-import Mobile from "../Mobile";
 import getNavBarLinks from "./services/api";
 import withLog from "../../services/log/decorator";
 import type { HeaderLink, SearchForm } from "./records/HeaderLink";
@@ -29,6 +27,24 @@ const Margin = styled.div`
   ${mq.ltSmallMobile(css`
     margin-${/* sc-custom "left" */ left}: 0;
   `)}
+`;
+
+// Different size than the existing component
+const Mobile = styled.div`
+  display: flex;
+
+  ${mq.gtDesktop(css`
+    display: none;
+  `)};
+`;
+
+// Different size than the existing component
+const Desktop = styled.div`
+  display: none;
+
+  ${mq.gtDesktop(css`
+    display: flex;
+  `)};
 `;
 
 type Props = {|
@@ -100,30 +116,30 @@ class HeaderLinks extends React.Component<Props, State> {
       // 'StyledLink' css was heavily incompatible with 'Text', so it had to be moved here
       // TODO cleanup @viktr
       <Text element="div">
-        <Mobile display="flex">
+        <Mobile>
           <Margin>
             <Toggle>
               {({ open, onToggle }) => (
-                <>
-                  {open && (
-                    <ClickOutside onClickOutside={onToggle}>
+                <ClickOutside active={open} onClickOutside={onToggle}>
+                  <>
+                    {open && (
                       <Popup>
                         {services && services.length > 0 && (
                           <Links inverted={inverted} services={services} active={active} />
                         )}
                       </Popup>
-                    </ClickOutside>
-                  )}
-                  <IconWrapper hover onClick={onToggle}>
-                    <Airplane />
-                    <ChevronDown size="small" />
-                  </IconWrapper>
-                </>
+                    )}
+                    <IconWrapper hover onClick={onToggle}>
+                      <Airplane />
+                      <ChevronDown size="small" />
+                    </IconWrapper>
+                  </>
+                </ClickOutside>
               )}
             </Toggle>
           </Margin>
         </Mobile>
-        <Desktop display="flex">
+        <Desktop>
           {services && services.length > 0 && (
             <Links inverted={inverted} services={services} active={active} />
           )}

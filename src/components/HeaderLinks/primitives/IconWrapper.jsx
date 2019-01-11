@@ -1,7 +1,6 @@
 // @flow
 import styled, { css } from "styled-components";
 
-import mq from "../../../styles/mq";
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
 
@@ -15,7 +14,7 @@ type ActiveProps = {|
 const IconWrapper = styled.i`
   color: ${({ theme, inverted, act }: ActiveProps) =>
     inverted && (!act ? theme.orbit.paletteWhite : theme.orbit.paletteInkNormal)};
-  display: none;
+  display: block;
   cursor: pointer;
   ${({ act }) =>
     act &&
@@ -26,10 +25,6 @@ const IconWrapper = styled.i`
         transform: rotate(180deg);
       }
     `};
-
-  ${mq.ltDesktop(css`
-    display: block;
-  `)}
 `;
 
 IconWrapper.defaultProps = {
