@@ -36,6 +36,7 @@ const UserWrapper = styled.div`
   padding-left: 5px;
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
+
   ${mq.ltMiddleMobile(css`
     display: none;
   `)};
@@ -58,10 +59,9 @@ HideOnLower.defaultProps = {
 };
 
 const Trips = ({ auth, env, onSelect }: Props) => {
-  const { firstname } = auth.user;
-  const usernameShort = firstname || auth.user.email;
+  const usernameShort = auth.type === "user" ? auth.user.firstname : auth.email;
   const username =
-    firstname && auth.user.lastname ? `${firstname} ${auth.user.lastname}` : usernameShort;
+    auth.type === "user" ? `${auth.user.firstname} ${auth.user.lastname}` : auth.email;
 
   return (
     <Toggle>

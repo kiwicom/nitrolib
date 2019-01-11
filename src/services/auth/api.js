@@ -6,7 +6,7 @@ import btoa from "btoa-lite";
 
 import { mapUser } from "../../records/User";
 import type { User } from "../../records/User";
-import type { Auth } from "../../records/Auth";
+import type { AuthUser } from "../../records/Auth";
 import config from "../../consts/config";
 import { handleError, handleJSON } from "../fetch/handlers";
 import { JSON_BOTH } from "../fetch/headers";
@@ -83,7 +83,7 @@ type LoginResponse = {|
   locks?: any[],
 |};
 
-export async function signIn(input: LoginInput): Promise<Auth> {
+export async function signIn(input: LoginInput): Promise<AuthUser> {
   const res: LoginResponse = await fetch(`${config.apiAuthUrl}/v1/user.login`, {
     method: "POST",
     headers: {
@@ -103,7 +103,7 @@ export async function signIn(input: LoginInput): Promise<Auth> {
 
   const user = await getTokenUser(res.token);
 
-  return { user, token: res.token };
+  return { type: "user", user, token: res.token };
 }
 
 export async function logout(token: string): Promise<void> {

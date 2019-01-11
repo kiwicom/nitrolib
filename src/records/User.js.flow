@@ -1,10 +1,10 @@
 // @flow strict
 export type User = {|
-  id: ?string,
+  id: string,
   email: string,
-  verified: ?boolean,
-  firstname: ?string,
-  lastname: ?string,
+  verified: boolean,
+  firstname: string,
+  lastname: string,
   // apiToken: string,
   // affiliateId: string,
   // cardDiscount: number,

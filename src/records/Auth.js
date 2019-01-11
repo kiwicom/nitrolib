@@ -1,10 +1,19 @@
 // @flow strict
 import type { User } from "./User";
 
-export type Auth = {|
+export type AuthUser = {|
+  type: "user",
   user: User,
   token: string,
 |};
+
+export type AuthMagic = {|
+  type: "magic",
+  email: string,
+  token: string,
+|};
+
+export type Auth = AuthUser | AuthMagic;
 
 export type SocialProvider = "facebook" | "google";
 
