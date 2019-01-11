@@ -4,7 +4,7 @@ import { mount } from "enzyme";
 
 import Toggle from "..";
 
-describe("#Currency", () => {
+describe("#Toggle", () => {
   test("render", () => {
     const wrapper = mount(
       <Toggle>
