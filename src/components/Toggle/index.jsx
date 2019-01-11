@@ -8,6 +8,8 @@ type Data = {|
 
 type Props = {|
   children: (data: Data) => React.Node,
+  // defaulted
+  initial: boolean,
 |};
 
 type State = {|
@@ -15,8 +17,13 @@ type State = {|
 |};
 
 class Toggle extends React.Component<Props, State> {
+  static defaultProps = {
+    initial: false,
+  };
+
   state = {
-    open: false,
+    // eslint-disable-next-line react/destructuring-assignment
+    open: this.props.initial,
   };
 
   onToggle = () => {

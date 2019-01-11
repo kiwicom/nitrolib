@@ -964,7 +964,9 @@ exports[`HeaderLinks should render correctly 1`] = `
     display="flex"
   >
     <HeaderLinks__Margin>
-      <Toggle>
+      <Toggle
+        initial={false}
+      >
         <Component />
       </Toggle>
     </HeaderLinks__Margin>

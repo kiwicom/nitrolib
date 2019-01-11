@@ -465,6 +465,8 @@ type Data = {|
 
 type Props = {|
   children: (data: Data) => React.Node,
+  // defaulted
+  initial?: boolean, // false
 |};
 ```
 
