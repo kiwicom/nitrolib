@@ -9,7 +9,7 @@ describe("#Toggle", () => {
     const wrapper = mount(
       <Toggle>
         {({ open, onToggle }) => (
-          <button type="button" onClick={onToggle} open={open}>
+          <button type="button" onClick={onToggle}>
             <h1>LOL</h1>
             {open && <p>Kek</p>}
           </button>
@@ -24,7 +24,7 @@ describe("#Toggle", () => {
     const wrapper = mount(
       <Toggle initial>
         {({ open, onToggle }) => (
-          <button type="button" onClick={onToggle} open={open}>
+          <button type="button" onClick={onToggle}>
             <h1>LOL</h1>
             {open && <p>Kek</p>}
           </button>
@@ -39,7 +39,7 @@ describe("#Toggle", () => {
     const wrapper = mount(
       <Toggle>
         {({ open, onToggle }) => (
-          <button type="button" onClick={onToggle} open={open}>
+          <button type="button" onClick={onToggle}>
             <h1>LOL</h1>
             {open && <p>Kek</p>}
           </button>
