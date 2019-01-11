@@ -16,6 +16,7 @@ const mapIcons = {
   rooms: <Accommodation />,
   holidays: <Suitcase />,
   logitravel: <Suitcase />,
+  bedfinder: <Suitcase />,
 };
 
 // These exist just to be collected
