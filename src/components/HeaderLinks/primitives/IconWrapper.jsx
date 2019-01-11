@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import styled, { css } from "styled-components";
 
 import { themeDefault } from "../../../records/Theme";
@@ -16,6 +16,7 @@ const IconWrapper = styled.i`
     inverted && (!act ? theme.orbit.paletteWhite : theme.orbit.paletteInkNormal)};
   display: block;
   cursor: pointer;
+  padding-right: 10px;
   ${({ act }) =>
     act &&
     css`

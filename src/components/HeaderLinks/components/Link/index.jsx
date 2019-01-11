@@ -28,7 +28,7 @@ const KEYS = {
 };
 
 const Icon = styled.div`
-  ${mq.gtTablet(css`
+  ${mq.gtDesktop(css`
     display: none;
   `)}
 `;
