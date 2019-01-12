@@ -2,6 +2,7 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
+import Text from "@kiwicom/orbit-components/lib/Text";
 
 import type { Currency } from "../../../../records/Currency";
 import { themeDefault } from "../../../../records/Theme";
@@ -103,9 +104,11 @@ const List = ({ active, list, onSetCurrency }: Props) => (
         {items.map(item => (
           <Item key={item.id} data-test={item.id}>
             <Tooltip position={i > 1 ? "left" : "right"} tip={<Tip>{item.name}</Tip>}>
-              <ItemText active={item.id === active.id} onClick={() => onSetCurrency(item.id)}>
-                <CurrencyItem item={item} />
-              </ItemText>
+              <Text>
+                <ItemText active={item.id === active.id} onClick={() => onSetCurrency(item.id)}>
+                  <CurrencyItem item={item} />
+                </ItemText>
+              </Text>
             </Tooltip>
           </Item>
         ))}
