@@ -14,6 +14,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Radio from "@kiwicom/orbit-components/lib/Radio";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 
+import Translate from "../../Translate";
 import OptionItem from "./OptionItem";
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
@@ -60,13 +61,13 @@ const getBaggageSize = ({ height, length, weight, width }) =>
 const getTextFromCategory = category => {
   switch (category) {
     case "personalItem":
-      return "Personal item";
+      return <Translate t="common.baggage.personal_item" />;
     case "cabinBag":
-      return "Cabin bag";
+      return <Translate t="common.baggage.cabin_bag" />;
     case "holdBag":
-      return "checked bag";
+      return <Translate t="common.baggage.checked_bag" />;
     default:
-      return "No checked baggage";
+      return <Translate t="common.baggage.no_checked_baggage" />;
   }
 };
 
@@ -115,9 +116,12 @@ const PriorityBoardingInfo = ({ airlines }: { airlines: Array<string> }) => (
       <PriorityBoarding color="secondary" size="small" />
     </IconWrapper>
     <Text size="small" element="p">
-      Priority Boarding for {arrToHumanString(airlines)} is included for free in this bundle.
+      <Translate
+        t="common.baggage.priority_boarding"
+        values={{ airlines: arrToHumanString(airlines) }}
+      />
       <TextLink external={false} onClick={() => {}} href="https://kiwi.com" type="secondary">
-        Learn more
+        <Translate t="common.baggage.learn_more" />
       </TextLink>
     </Text>
   </Stack>

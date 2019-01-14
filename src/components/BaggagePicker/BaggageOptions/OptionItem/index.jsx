@@ -16,7 +16,7 @@ type Props = {|
   firstItem: boolean,
   price: Price,
   categoryIcon: React$Element<any>,
-  categoryName: string,
+  categoryName: React$Node,
   baggageSize: string,
 |};
 

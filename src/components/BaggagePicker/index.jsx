@@ -8,6 +8,7 @@ import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import ChevronUp from "@kiwicom/orbit-components/lib/icons/ChevronUp";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
+import Translate from "../Translate";
 import Tooltip from "../Tooltip";
 import Flex from "../../primitives/Flex";
 import type { OptionBaggage } from "../../records/Baggage";
@@ -20,11 +21,12 @@ type State = {
 
 type Props = {|
   options: Array<OptionBaggage>,
-  tooltip: string,
-  title: string,
+  tooltip: React$Node,
+  title: React$Node,
   onChange: (bagType: string, index: number) => void,
   selectedIndex: number,
   shouldShowRecheckNote: boolean,
+  context: "booking" | "mmb",
 |};
 
 const TooltipContent = styled.p`
@@ -71,7 +73,15 @@ class BaggagePicker extends React.Component<Props, State> {
   };
 
   render() {
-    const { title, tooltip, options, selectedIndex, onChange, shouldShowRecheckNote } = this.props;
+    const {
+      title,
+      context,
+      tooltip,
+      options,
+      selectedIndex,
+      onChange,
+      shouldShowRecheckNote,
+    } = this.props;
     const { showedItems, hiddenItems } = this.state;
 
     return (
@@ -86,7 +96,14 @@ class BaggagePicker extends React.Component<Props, State> {
             </Tooltip>
           </div>
         </Stack>
-        <Text>Select one option:</Text>
+
+        <Text>
+          {context === "booking" ? (
+            <Translate t="common.baggage.select_option" />
+          ) : (
+            <Translate t="common.baggage.switch_option" />
+          )}
+        </Text>
         {showedItems.map(item => (
           <Options
             key={item.originalIndex}
@@ -105,7 +122,11 @@ class BaggagePicker extends React.Component<Props, State> {
               type="secondary"
               iconRight={hiddenItems > 0 ? <ChevronDown /> : <ChevronUp />}
             >
-              {hiddenItems > 0 ? `Show ${hiddenItems} more bundles` : "Hide"}
+              {hiddenItems > 0 ? (
+                <Translate t="common.baggage.show_more" values={{ number: hiddenItems }} />
+              ) : (
+                <Translate t="common.baggage.hide" />
+              )}
             </Button>
           </Flex>
         )}
