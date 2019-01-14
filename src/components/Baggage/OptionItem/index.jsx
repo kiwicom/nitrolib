@@ -4,10 +4,10 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import styled, { css } from "styled-components";
 
-import mq from "../../../../styles/mq";
-import { themeDefault } from "../../../../records/Theme";
-import type { ThemeProps } from "../../../../records/Theme";
-import type { Price, Restrictions } from "../../../../records/Baggage";
+import mq from "../../../styles/mq";
+import { themeDefault } from "../../../records/Theme";
+import type { ThemeProps } from "../../../records/Theme";
+import type { Price, Restrictions } from "../../../records/Baggage";
 
 type Props = {|
   holdBag: boolean,

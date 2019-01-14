@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import BaggagePicker from "../BaggagePicker";
+import BaggagePicker from "./BaggagePicker";
 import type {
   BaggageType,
   BaggageGroup,

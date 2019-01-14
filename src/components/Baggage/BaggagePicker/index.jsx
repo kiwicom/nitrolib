@@ -8,11 +8,11 @@ import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import ChevronUp from "@kiwicom/orbit-components/lib/icons/ChevronUp";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import Translate from "../Translate";
-import Tooltip from "../Tooltip";
-import Flex from "../../primitives/Flex";
-import type { OptionBaggage } from "../../records/Baggage";
-import Options from "./BaggageOptions";
+import Translate from "../../Translate";
+import Tooltip from "../../Tooltip";
+import Flex from "../../../primitives/Flex";
+import type { OptionBaggage } from "../../../records/Baggage";
+import Options from "../BaggageOptions";
 
 type State = {
   showedItems: Array<OptionBaggage>,

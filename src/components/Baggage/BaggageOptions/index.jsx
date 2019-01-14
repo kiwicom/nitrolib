@@ -15,7 +15,7 @@ import Radio from "@kiwicom/orbit-components/lib/Radio";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 
 import Translate from "../../Translate";
-import OptionItem from "./OptionItem";
+import OptionItem from "../OptionItem";
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
 import type { Price, Item } from "../../../records/Baggage";
