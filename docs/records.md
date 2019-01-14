@@ -663,6 +663,7 @@ export type Currencies = {
 
 declare export var getCode: (code: string) => string;
 declare export var getSymbol: (format: string) => string;
+declare export var convert: (currency: Currency, eur: number) => number;
 declare export var format: (currency: Currency, price: number) => string;
 
 declare export var getAvailableList: Currencies => Currency[];
