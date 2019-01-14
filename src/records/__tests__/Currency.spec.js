@@ -11,7 +11,7 @@ describe("#Currency", () => {
   });
 
   test("convert", () => {
-    expect(currency.convert({ ...currency.currencyDefault, rate: 2 }, 10)).toBe(5);
+    expect(currency.convert({ ...currency.currencyDefault, rate: 1.105 }, 10)).toBe(9.05);
   });
 
   test("format", () => {
