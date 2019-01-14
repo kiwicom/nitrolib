@@ -6,14 +6,11 @@ type Props = {|
   placeholder: string,
   label?: string,
   onChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
-  onFocus: () => void,
   icon?: React.Node,
-  onBlur?: () => void,
-  changeItemIndex: (arg: number) => void,
-  onFocus?: () => void,
+  changeItemIndex: (index: number, down?: boolean) => void,
   error: string,
-  resultsLast: number,
   value: string,
+  dropdownLength: number,
   selectedIndex: number,
   children: React.Node,
 |};
@@ -27,9 +24,9 @@ class PlacePickerInput extends React.Component<Props> {
   };
 
   selectDown = () => {
-    const { selectedIndex, changeItemIndex, resultsLast } = this.props;
-    if (selectedIndex < resultsLast) {
-      changeItemIndex(selectedIndex + 1);
+    const { selectedIndex, changeItemIndex, dropdownLength } = this.props;
+    if (selectedIndex < dropdownLength - 1) {
+      changeItemIndex(selectedIndex + 1, true);
     }
   };
 
@@ -46,17 +43,7 @@ class PlacePickerInput extends React.Component<Props> {
   };
 
   render() {
-    const {
-      placeholder,
-      label,
-      icon,
-      value,
-      error,
-      onFocus,
-      onBlur,
-      onChange,
-      children,
-    } = this.props;
+    const { placeholder, label, icon, value, error, onChange, children } = this.props;
     return (
       <>
         <InputField
@@ -68,8 +55,6 @@ class PlacePickerInput extends React.Component<Props> {
           prefix={icon}
           value={value}
           error={error}
-          onFocus={onFocus}
-          onBlur={onBlur}
         />
         {children}
       </>

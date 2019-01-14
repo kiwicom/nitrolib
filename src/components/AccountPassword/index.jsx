@@ -55,7 +55,7 @@ const AccountPassword = ({
           <form onSubmit={onSignIn}>
             <Stack>
               {error && (
-                <Alert type="critical" title={null} icon>
+                <Alert type="critical" icon>
                   {error}
                 </Alert>
               )}

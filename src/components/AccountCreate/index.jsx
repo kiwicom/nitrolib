@@ -64,7 +64,7 @@ const AccountCreate = ({
           <form onSubmit={onContinue}>
             <Stack spacing="comfy">
               {error && (
-                <Alert type="critical" title={null} icon>
+                <Alert type="critical" icon>
                   {error}
                 </Alert>
               )}

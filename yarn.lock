@@ -890,25 +890,11 @@
     request-promise "^4.1.1"
     yargs "^8.0.2"
 
-<<<<<<< HEAD
-"@kiwicom/orbit-components@^0.25.0":
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.25.0.tgz#3926ca4453241dffeb56296e85d25a8d9c721a34"
-  integrity sha512-o/5nQQzZIFhU/diUi5PXpplRDHqHq/Lct/KBfeo81gTYtMNdshDdwvK0JGq2HbVjlJAR7F0At/aA63SI1tjUBQ==
-=======
-"@kiwicom/orbit-components@^0.26.0":
-  version "0.26.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.26.0.tgz#62731620699be6ee6a7f56f9b0c10d7e83c17973"
->>>>>>> 73630ad... SimplePlacePicker: Init
+"@kiwicom/orbit-components@^0.27.0":
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.27.0.tgz#387daa83b0f1264e0803b81d6f5d250fe050afb3"
   dependencies:
     "@kiwicom/orbit-design-tokens" "^0.3.0"
-
-"@kiwicom/orbit-design-tokens@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-design-tokens/-/orbit-design-tokens-0.3.0.tgz#5cfc1b5d9a9e4e8f84c9b09769880ebbb9078516"
-  integrity sha512-T5A7QoaadSgEN+WX5qvAS3TPPyklmurRSOz6AR7Th4Ou/Pz6VpGTheIm6QtjoqmZo6CkInLJHRgYAUrWdWaWHA==
-  dependencies:
-    ramda "^0.25.0"
 
 "@kiwicom/orbit-design-tokens@^0.3.0":
   version "0.3.0"
@@ -2779,7 +2765,6 @@ bser@^2.0.0:
 btoa-lite@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/btoa-lite/-/btoa-lite-1.0.0.tgz#337766da15801210fdd956c22e9c6891ab9d0337"
-  integrity sha1-M3dm2hWAEhD92VbCLpxokaudAzc=
 
 buffer-equal-constant-time@1.0.1:
   version "1.0.1"
@@ -4714,7 +4699,6 @@ fbjs@0.8.17, fbjs@^0.8.4, fbjs@^0.8.5, fbjs@^0.8.9:
 fetch-mock@^7.3.0:
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/fetch-mock/-/fetch-mock-7.3.0.tgz#4bf41190c19477c4c86ce1739972035bb02b3add"
-  integrity sha512-KxBeS8vsADFbWPVomuwxYqOJ2obZo6CidgkypjDPeu6zl+tAJvh2GfLDmJ8u//xgBGM9iOGwOxafeqAclilH2A==
   dependencies:
     babel-polyfill "^6.26.0"
     glob-to-regexp "^0.4.0"
@@ -5133,7 +5117,6 @@ glob-to-regexp@^0.3.0:
 glob-to-regexp@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/glob-to-regexp/-/glob-to-regexp-0.4.0.tgz#49bd677b1671022bd10921c3788f23cdebf9c7e6"
-  integrity sha512-fyPCII4vn9Gvjq2U/oDAfP433aiE64cyP/CJjRJcpVGjqqNdioUYn9+r0cSzT1XPwmGAHuTT7iv+rQT8u/YHKQ==
 
 glob-watcher@^5.0.0:
   version "5.0.3"
@@ -8313,7 +8296,6 @@ path-to-regexp@^1.1.1:
 path-to-regexp@^2.2.1:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-2.4.0.tgz#35ce7f333d5616f1c1e1bfe266c3aba2e5b2e704"
-  integrity sha512-G6zHoVqC6GGTQkZwF4lkuEyMbVOjoBKAEybQUypI1WTkqinCOrq2x6U2+phkJ1XsEMTy4LjtwPI7HW+NVrRR2w==
 
 path-type@^1.0.0:
   version "1.1.0"

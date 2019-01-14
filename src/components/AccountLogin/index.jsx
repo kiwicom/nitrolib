@@ -54,7 +54,7 @@ const AccountLogin = ({
           <form onSubmit={onContinue}>
             <Stack>
               {error && (
-                <Alert type="critical" title={null} icon>
+                <Alert type="critical" icon>
                   {error}
                 </Alert>
               )}
