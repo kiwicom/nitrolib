@@ -10,12 +10,12 @@ describe("#Currency", () => {
     expect(currency.getSymbol(currency.currencyDefault.format)).toBe("€");
   });
 
-  test("format", () => {
-    expect(currency.format(currency.currencyDefault, 10)).toBe("10 €");
+  test("convert", () => {
+    expect(currency.convert({ ...currency.currencyDefault, rate: 2 }, 10)).toBe(5);
   });
 
-  test("format with rate", () => {
-    expect(currency.format({ ...currency.currencyDefault, rate: 0.8 }, 10)).toBe("8 €");
+  test("format", () => {
+    expect(currency.format(currency.currencyDefault, 10)).toBe("10 €");
   });
 
   test("get available list", () => {

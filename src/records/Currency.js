@@ -16,10 +16,18 @@ export type Currencies = {
   [key: string]: Currency,
 };
 
-export const getCode = (code: string) => code.toUpperCase();
-export const getSymbol = (format: string) => format.replace("__price__", "").trim();
-export const format = (currency: Currency, price: number) =>
-  currency.format.replace("__price__", String(price * currency.rate));
+export const getCode = (code: string): string => code.toUpperCase();
+
+export const getSymbol = (format: string): string => format.replace("__price__", "").trim();
+
+export const convert = (currency: Currency, eur: number): number => {
+  const amount = eur / currency.rate;
+
+  return Number(amount.toFixed(Number(currency.round)));
+};
+
+export const format = (currency: Currency, price: number): string =>
+  currency.format.replace("__price__", String(convert(currency, price)));
 
 export const getAvailableList: Currencies => Currency[] = R.compose(
   R.sortBy(R.prop("id")),
