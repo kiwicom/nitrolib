@@ -3,6 +3,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withKnobs, select, boolean } from "@storybook/addon-knobs";
 
+import withData from "./decorators/withData";
 import Baggage from "../src/components/Baggage";
 import baggageData from "../src/components/Baggage/baggageData";
 
@@ -39,6 +40,7 @@ const props = {
 };
 
 storiesOf("Baggage", module)
+  .addDecorator(withData)
   .addDecorator(withKnobs)
   .add("both", () => (
     <div style={{ padding: "24px" }}>
