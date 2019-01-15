@@ -5,6 +5,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 import { createFragmentContainer, graphql } from "react-relay";
 
+import slugFunc from "../services/slug";
 import type { LocationPickerRow_item } from "./__generated__/LocationPickerRow_item.graphql";
 import PickerRow from "../primitives/PickerRow";
 
@@ -17,7 +18,7 @@ type Props = {|
 
 const LocationPickerRow = ({ handleSelect, item, selected, index }: Props) => {
   const { type, country, name, code } = item;
-  const slug = (type === "airport" && code) || (type === "city" && country && country.name);
+  const slug = slugFunc({ type, country, name, code });
   return (
     <PickerRow onClick={() => handleSelect(item, index)} selected={selected}>
       <Stack spacing="condensed" flex align="center">
@@ -31,11 +32,11 @@ const LocationPickerRow = ({ handleSelect, item, selected, index }: Props) => {
   );
 };
 
+// Boris help (not sure about @relay(mask: false), but it eliminates $refType error)
 export default createFragmentContainer(
   LocationPickerRow,
   graphql`
-    fragment LocationPickerRow_item on Location {
-      id
+    fragment LocationPickerRow_item on Location @relay(mask: false) {
       type
       name
       country {

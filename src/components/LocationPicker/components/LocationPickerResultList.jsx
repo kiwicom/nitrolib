@@ -29,7 +29,6 @@ const LocationPickerResultList = ({
           /* $FlowExpected: TODO describe */
           handleResults((list && list.edges && list.edges.map(edge => edge && edge.node)) || []);
           return (
-            /* $FlowExpected: TODO describe */
             <LocationPickerRow
               index={index}
               key={id}

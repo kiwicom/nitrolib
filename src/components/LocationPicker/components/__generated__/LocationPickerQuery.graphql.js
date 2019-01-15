@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 4d6f3cde6b2b71c24566e6a10743901c
+ * @relayHash d57cf7855eb777d98d9e1b30a8ba50cf
  */
 
 /* eslint-disable */
@@ -51,7 +51,6 @@ fragment LocationPickerResultList_list on LocationConnection {
 }
 
 fragment LocationPickerRow_item on Location {
-  id
   type
   name
   country {
@@ -104,7 +103,7 @@ return {
   "operationKind": "query",
   "name": "LocationPickerQuery",
   "id": null,
-  "text": "query LocationPickerQuery(\n  $input: String!\n) {\n  allLocations(last: 50, search: $input) {\n    ...LocationPickerResultList_list\n  }\n}\n\nfragment LocationPickerResultList_list on LocationConnection {\n  edges {\n    node {\n      id\n      type\n      code\n      name\n      country {\n        code\n        name\n      }\n      ...LocationPickerRow_item\n    }\n  }\n}\n\nfragment LocationPickerRow_item on Location {\n  id\n  type\n  name\n  country {\n    name\n    code\n  }\n  code\n}\n",
+  "text": "query LocationPickerQuery(\n  $input: String!\n) {\n  allLocations(last: 50, search: $input) {\n    ...LocationPickerResultList_list\n  }\n}\n\nfragment LocationPickerResultList_list on LocationConnection {\n  edges {\n    node {\n      id\n      type\n      code\n      name\n      country {\n        code\n        name\n      }\n      ...LocationPickerRow_item\n    }\n  }\n}\n\nfragment LocationPickerRow_item on Location {\n  type\n  name\n  country {\n    name\n    code\n  }\n  code\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",

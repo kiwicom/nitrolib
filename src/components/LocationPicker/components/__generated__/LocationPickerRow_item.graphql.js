@@ -10,17 +10,15 @@
 import type { ConcreteFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type LocationPickerRow_item$ref: FragmentReference;
-export type LocationPickerRow_item = {|
-  +id: string,
+export type LocationPickerRow_item = {
   +type: ?string,
   +name: ?string,
-  +country: ?{|
+  +country: ?{
     +name: ?string,
     +code: ?string,
-  |},
+  },
   +code: ?string,
-  +$refType: LocationPickerRow_item$ref,
-|};
+};
 */
 
 
@@ -43,16 +41,11 @@ return {
   "kind": "Fragment",
   "name": "LocationPickerRow_item",
   "type": "Location",
-  "metadata": null,
+  "metadata": {
+    "mask": false
+  },
   "argumentDefinitions": [],
   "selections": [
-    {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "id",
-      "args": null,
-      "storageKey": null
-    },
     {
       "kind": "ScalarField",
       "alias": null,
@@ -79,5 +72,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'db6a381701642bd2b25acbfd23cbffdf';
+(node/*: any*/).hash = '55c7a6007080c8d8d83697bfccf100ad';
 module.exports = node;

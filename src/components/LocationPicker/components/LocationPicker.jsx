@@ -11,6 +11,7 @@ import Text from "../../Text";
 import NoResult from "../primitives/NoResult";
 import LocationPickerResultList from "./LocationPickerResultList";
 import type { LocationPickerRow_item } from "./__generated__/LocationPickerRow_item.graphql";
+import placeholderFunc from "../services/placeholder";
 
 type Props = {|
   label: string,
@@ -56,12 +57,9 @@ class LocationPicker extends React.Component<Props, State> {
 
   handleSelect = (item: LocationPickerRow_item, index: number) => {
     const { type, country, code, name } = item;
-    const countryName = type === "city" && country && country.name ? ` (${country.name}) ` : "";
-    const airportCode = type === "airport" && code ? ` (${code}) ` : "";
-
     this.setState({
       active: false,
-      placeholderChange: String(name) + countryName + airportCode,
+      placeholderChange: placeholderFunc({ type, country, code, name }),
       selectedIndex: index,
     });
   };
