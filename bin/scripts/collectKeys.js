@@ -59,7 +59,7 @@ function collectFile(file) {
 const collectGlob = g =>
   glob
     .sync(g)
-    .filter(file => !file.match(/.*\/__tests__\/.*/))
+    .filter(file => !file.match(/.*\.spec\.jsx?$/))
     .map(collectFile)
     .reduce((acc, keys) => Object.assign({}, acc, keys), {});
 
