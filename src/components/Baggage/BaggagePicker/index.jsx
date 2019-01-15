@@ -12,7 +12,7 @@ import Translate from "../../Translate";
 import Tooltip from "../../Tooltip";
 import Flex from "../../../primitives/Flex";
 import type { OptionBaggage } from "../../../records/Baggage";
-import Options from "../BaggageOptions";
+import Option from "../BaggageOption";
 
 type State = {
   showedItems: Array<OptionBaggage>,
@@ -105,7 +105,7 @@ class BaggagePicker extends React.Component<Props, State> {
           )}
         </Text>
         {showedItems.map(item => (
-          <Options
+          <Option
             key={item.originalIndex}
             items={item.items}
             price={item.price}
