@@ -10,14 +10,13 @@ import type { ThemeProps } from "../../../records/Theme";
 import type { Price, Restrictions } from "../../../records/Baggage";
 
 type Props = {|
-  holdBag: boolean,
+  isHoldBag: boolean,
   amount: number,
   restrictions: Restrictions,
   firstItem: boolean,
   price: Price,
   categoryIcon: React$Element<any>,
   categoryName: React$Node,
-  baggageSize: string,
 |};
 
 type BaggageSizeTextProps = ThemeProps & {
@@ -82,38 +81,42 @@ const OptionItem = ({
   firstItem,
   amount,
   restrictions,
-  holdBag,
+  isHoldBag,
   price,
-  baggageSize,
   categoryIcon,
   categoryName,
-}: Props) => (
-  <Stack shrink align="center">
-    <Stack shrink spacing="condensed">
-      {categoryIcon}
-      <TitleWrapper>
-        <Text>
-          <Title>
-            {amount > 1 && (
-              <Text element="span" weight="bold">
-                {`${amount}x `}
-              </Text>
-            )}
-            {holdBag && `${restrictions.weight}kg`} {categoryName}
-          </Title>
-        </Text>
-        <BaggageSizeText isMobile>{baggageSize}</BaggageSizeText>
-      </TitleWrapper>
+}: Props) => {
+  const getBaggageSize = ({ height, length, weight, width }) =>
+    `${length} x ${width} x ${height} cm, ${weight} kg`;
+
+  return (
+    <Stack shrink align="center">
+      <Stack shrink spacing="condensed">
+        {categoryIcon}
+        <TitleWrapper>
+          <Text>
+            <Title>
+              {amount > 1 && (
+                <Text element="span" weight="bold">
+                  {`${amount}x `}
+                </Text>
+              )}
+              {isHoldBag && `${restrictions.weight}kg`} {categoryName}
+            </Title>
+          </Text>
+          <BaggageSizeText isMobile>{getBaggageSize(restrictions)}</BaggageSizeText>
+        </TitleWrapper>
+      </Stack>
+      <BaggageInfoWrapper>
+        <BaggageSizeText>{getBaggageSize(restrictions)}</BaggageSizeText>
+        {firstItem ? (
+          <Text element="span" weight="bold">{`${price.amount} ${price.currency}`}</Text>
+        ) : (
+          <span />
+        )}
+      </BaggageInfoWrapper>
     </Stack>
-    <BaggageInfoWrapper>
-      <BaggageSizeText>{baggageSize}</BaggageSizeText>
-      {firstItem ? (
-        <Text element="span" weight="bold">{`${price.amount} ${price.currency}`}</Text>
-      ) : (
-        <span />
-      )}
-    </BaggageInfoWrapper>
-  </Stack>
-);
+  );
+};
 
 export default OptionItem;

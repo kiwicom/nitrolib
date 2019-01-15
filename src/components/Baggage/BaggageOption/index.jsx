@@ -55,9 +55,6 @@ OptionWrapper.defaultProps = {
   checked: false,
 };
 
-const getBaggageSize = ({ height, length, weight, width }) =>
-  `${length} x ${width} x ${height} cm, ${weight} kg`;
-
 const getTextFromCategory = category => {
   switch (category) {
     case "personalItem":
@@ -153,11 +150,10 @@ const Option = ({ items, price, isChecked, onClick, shouldShowRecheckNote }: Pro
                 key={index} // eslint-disable-line
                 amount={item.amount}
                 restrictions={item.restrictions}
-                holdBag={item.category === "holdBag"}
+                isHoldBag={item.category === "holdBag"}
                 firstItem={item === itemsArr[0]}
                 categoryIcon={getIconFromCategory(item.category)}
                 categoryName={getTextFromCategory(item.category)}
-                baggageSize={getBaggageSize(item.restrictions)}
                 price={price}
               />
             ))
