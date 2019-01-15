@@ -9,13 +9,13 @@ import type { LocationPickerRow_item } from "./__generated__/LocationPickerRow_i
 import PickerRow from "../primitives/PickerRow";
 
 type Props = {|
+  index: number,
   item: LocationPickerRow_item,
   handleSelect: (arg: LocationPickerRow_item, index: number) => void,
   selected: boolean,
-  index: number,
 |};
 
-const LocationPickerRow = ({ handleSelect, item, index, selected }: Props) => {
+const LocationPickerRow = ({ handleSelect, item, selected, index }: Props) => {
   const { type, country, name, code } = item;
   const slug = (type === "airport" && code) || (type === "city" && country && country.name);
   return (

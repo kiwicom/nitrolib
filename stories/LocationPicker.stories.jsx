@@ -3,12 +3,15 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { withKnobs, select, text } from "@storybook/addon-knobs/react";
 import * as Icons from "@kiwicom/orbit-components/lib/icons";
+import GpsIcon from "@kiwicom/orbit-components/lib/icons/Gps";
 
 import LocationPicker from "../src/components/LocationPicker";
 
-storiesOf("SimplePlacePicker", module)
+storiesOf("LocationPicker", module)
   .addDecorator(withKnobs)
-  .add("default", () => <LocationPicker label="From" error={text("Error", "")} />)
+  .add("default", () => (
+    <LocationPicker icon={<GpsIcon />} label="From" error={text("Error", "")} />
+  ))
   .add("Playground", () => {
     const selectIcon = select("Icon", Object.keys(Icons), "Gps");
     const Icon = Icons[selectIcon];

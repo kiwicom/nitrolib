@@ -9,25 +9,25 @@ import LocationPickerRow from "./LocationPickerRow";
 type Props = {|
   handleSelect: (arg: LocationPickerRow_item, index: number) => void,
   selectedIndex: number,
+  handleResults: (arg: Array<LocationPickerRow_item>) => void,
   list: LocationPickerResultList_list,
-  handleLength: (arg: number) => void,
 |};
 
 const LocationPickerResultList = ({
   list,
   handleSelect,
-  handleLength,
+  handleResults,
   selectedIndex,
 }: Props): React.Node[] | null =>
-  !list.edges
-    ? null
-    : list.edges
+  list && list.edges
+    ? list.edges
         .map(edge => edge && edge.node)
         .filter(Boolean)
         .map((item, index) => {
           const { id } = item;
-          const length = list && list.edges && list.edges.length;
-          handleLength(length || 0);
+          // Boris help ˆ__ˆ
+          /* $FlowExpected: TODO describe */
+          handleResults((list && list.edges && list.edges.map(edge => edge && edge.node)) || []);
           return (
             /* $FlowExpected: TODO describe */
             <LocationPickerRow
@@ -38,7 +38,8 @@ const LocationPickerResultList = ({
               item={item}
             />
           );
-        });
+        })
+    : null;
 
 export default createFragmentContainer(
   LocationPickerResultList,

@@ -2,9 +2,9 @@
 import * as React from "react";
 import { graphql, QueryRenderer } from "react-relay";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
+import InputField from "@kiwicom/orbit-components/lib/InputField";
 
 import environmentReal from "../../../services/environment";
-import LocationPickerInput from "./LocationPickerInput";
 import PickerDropDown from "../primitives/PickerDropDown";
 import ClickOutside from "../../ClickOutside";
 import Text from "../../Text";
@@ -14,27 +14,17 @@ import type { LocationPickerRow_item } from "./__generated__/LocationPickerRow_i
 
 type Props = {|
   label: string,
-  icon?: React.Node,
+  icon: React.Node,
   error: string,
   placeholder: string,
   environment: typeof environmentReal,
-|};
-
-export type Arg = {|
-  name: string,
-  code: string,
-  type: string,
-  country: {
-    name: string,
-    code: string,
-  },
 |};
 
 type State = {|
   active: boolean,
   selectedIndex: number,
   placeholderChange: string,
-  dropdownLength: number,
+  results: Array<LocationPickerRow_item>,
 |};
 
 class LocationPicker extends React.Component<Props, State> {
@@ -45,16 +35,22 @@ class LocationPicker extends React.Component<Props, State> {
   state = {
     selectedIndex: 0,
     active: false,
+    results: [],
     // eslint-disable-next-line react/destructuring-assignment
     placeholderChange: this.props.placeholder,
-    dropdownLength: 0,
   };
 
   node: { current: any | HTMLDivElement } = React.createRef();
 
-  onClickOutside = () => {
+  handleClose = () => {
     this.setState({
       active: false,
+    });
+  };
+
+  handleResultList = (arr: Array<LocationPickerRow_item>) => {
+    this.setState({
+      results: arr,
     });
   };
 
@@ -70,49 +66,65 @@ class LocationPicker extends React.Component<Props, State> {
     });
   };
 
-  handleLength = (length: number) => {
-    this.setState({
-      dropdownLength: length,
-    });
-  };
-
-  changeItemIndex = (index: number, down?: boolean) => {
-    const rowHeight = this.node.current?.children[0].clientHeight;
-
-    if (down) {
-      this.node.current.scrollTop += rowHeight;
-    } else {
-      this.node.current.scrollTop -= rowHeight;
-    }
-
-    this.setState({ selectedIndex: index });
-  };
-
   handleChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
     const { value } = ev.target;
+
     this.setState({
       placeholderChange: value,
       active: true,
     });
   };
 
+  handleSelectItem = (ev: SyntheticKeyboardEvent<EventTarget>) => {
+    ev.preventDefault();
+    const { selectedIndex, results } = this.state;
+    const rowHeight = this.node.current?.children[0].clientHeight;
+
+    const ARROW_UP = 38;
+    const ARROW_DOWN = 40;
+    const ESC = 27;
+    const ENTER = 13;
+
+    if (ev.keyCode === ENTER) {
+      this.handleSelect(results[selectedIndex], selectedIndex);
+    }
+
+    if (ev.keyCode === ESC) {
+      this.handleClose();
+    }
+
+    if (ev.keyCode === ARROW_UP) {
+      if (selectedIndex > 0) {
+        this.setState({ selectedIndex: selectedIndex - 1 });
+        this.node.current.scrollTop -= rowHeight;
+      }
+    }
+
+    if (ev.keyCode === ARROW_DOWN) {
+      if (selectedIndex < results.length - 1) {
+        this.setState({ selectedIndex: selectedIndex + 1 });
+        this.node.current.scrollTop += rowHeight;
+      }
+    }
+  };
+
   render() {
     const { label, icon, error, environment, placeholder } = this.props;
-    const { active, selectedIndex, placeholderChange, dropdownLength } = this.state;
+    const { active, selectedIndex, placeholderChange } = this.state;
 
     return (
-      <ClickOutside active={active} onClickOutside={this.onClickOutside}>
-        <LocationPickerInput
-          placeholder={placeholderChange || placeholder}
-          label={label}
-          changeItemIndex={this.changeItemIndex}
-          selectedIndex={selectedIndex}
-          onChange={this.handleChange}
-          icon={icon}
-          dropdownLength={dropdownLength}
-          error={error}
-          value={active ? placeholderChange : ""}
-        >
+      <ClickOutside active={active} onClickOutside={this.handleClose}>
+        <>
+          <InputField
+            label={label}
+            inlineLabel
+            placeholder={placeholderChange || placeholder}
+            onChange={this.handleChange}
+            onKeyUp={this.handleSelectItem}
+            prefix={icon}
+            value={active ? placeholderChange : ""}
+            error={error}
+          />
           {placeholderChange && active && (
             <QueryRenderer
               environment={environment}
@@ -147,14 +159,14 @@ class LocationPicker extends React.Component<Props, State> {
                       list={res.props.allLocations}
                       handleSelect={this.handleSelect}
                       selectedIndex={selectedIndex}
-                      handleLength={this.handleLength}
+                      handleResults={this.handleResultList}
                     />
                   </PickerDropDown>
                 );
               }}
             />
           )}
-        </LocationPickerInput>
+        </>
       </ClickOutside>
     );
   }

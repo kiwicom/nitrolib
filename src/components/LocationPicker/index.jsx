@@ -7,10 +7,10 @@ import { Consumer as IntlConsumer } from "../../services/intl/context";
 type Props = {|
   label: string,
   error: string,
-  icon?: React.Node,
+  icon: React.Node,
 |};
 
-const SimplePlacePicker = ({ icon, label, error }: Props) => (
+const SimpleLocationPicker = ({ icon, label, error }: Props) => (
   <IntlConsumer>
     {intl => (
       <LocationPicker
@@ -23,4 +23,4 @@ const SimplePlacePicker = ({ icon, label, error }: Props) => (
   </IntlConsumer>
 );
 
-export default SimplePlacePicker;
+export default SimpleLocationPicker;
