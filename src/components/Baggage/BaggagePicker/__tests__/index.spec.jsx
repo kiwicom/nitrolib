@@ -35,11 +35,12 @@ describe("#BaggagePicker", () => {
     expect(wrapper.find("Button").exists()).toBe(false);
   });
 
-  test("show all options after calling handleToggleOptions", () => {
+  test("show all options after clicking on Button", () => {
     const wrapper = shallow(<BaggagePicker {...props} />);
     const instance = wrapper.instance();
+
     expect(instance.state.hiddenItems).toBe(3);
-    instance.handleToggleOptions();
+    wrapper.find("Button").simulate("click");
     expect(instance.state.hiddenItems).toBe(0);
   });
 });
