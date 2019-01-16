@@ -14,6 +14,7 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [Intl](#intl)
 * [LangInfo](#langinfo)
 * [Languages](#languages)
+* [Location](#location)
 * [Theme](#theme)
 * [User](#user)
 
@@ -52,10 +53,19 @@ import type { Auth } from "@kiwicom/nitro/lib/records/Auth";
 
 **Types:**
 ```js
-export type Auth = {|
+export type AuthUser = {|
+  type: "user",
   user: User,
   token: string,
 |};
+
+export type AuthMagic = {|
+  type: "magic",
+  email: string,
+  token: string,
+|};
+
+export type Auth = AuthUser | AuthMagic;
 
 export type SocialProvider = "facebook" | "google";
 
@@ -852,6 +862,64 @@ declare export var getNames: (lang: Language) => LanguageNames;
 ```
 
 _TODO_
+
+## Location
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/Location";
+import type { Location } from "@kiwicom/nitro/lib/records/Location";
+```
+
+**Types:**
+```js
+export type LocationArea = {|
+  id: string,
+  name: string,
+  slug: string,
+  code: string,
+|};
+
+type Common = {|
+  id: string,
+  name: string,
+  code?: string,
+  slug: string,
+  location: {|
+    lat: number,
+    lng: number,
+  |},
+|};
+
+export type LocationCountry = {|
+  ...Common,
+  type: "country" | "special",
+|};
+
+export type LocationSubdivision = {|
+  ...Common,
+  type: "subdivision" | "autonomous_territory",
+  country: LocationArea,
+|};
+
+export type LocationCity = {|
+  ...Common,
+  type: "city",
+  country: LocationArea,
+  subdivision: LocationArea,
+|};
+
+export type LocationAirport = {|
+  ...Common,
+  type: "airport" | "station",
+  country: LocationArea,
+  city: LocationArea,
+|};
+
+export type Location = LocationCountry | LocationSubdivision | LocationCity | LocationAirport;
+```
+
+
 
 ## Theme
 

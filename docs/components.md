@@ -17,6 +17,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [ClientOnly](#clientonly)
 * [CloseByKey](#closebykey)
 * [Desktop](#desktop)
+* [LocationPicker](#locationpicker)
 * [Mobile](#mobile)
 * [Price](#price)
 * [SideBar](#sidebar)
@@ -318,6 +319,31 @@ const NavBar = () => (
 );
 ```
 
+### LocationPicker
+
+**Import:**
+```js
+import LocationPicker from "@kiwicom/nitro/lib/components/LocationPicker";
+```
+
+**Types:**
+```js
+type Props = {|
+  value: Location | null,
+  onChange: (loc: Location) => void,
+  label: string,
+  icon: React.Node,
+  // defaulted
+  environment?: Environment,
+|};
+```
+
+See types:
+* [Location](./records#location)
+
+**Context needs:**
+* [intl](./services#intl)
+
 ### Mobile
 
 **Import:**
@@ -590,7 +616,7 @@ const AuthModals = ({ query }: Props) => (
       <>
         <ModalLogin open={value === "login"} onClose={onChange} />
         <ModalRegister open={value === "register"} onClose={onChange} />
-
+        
         <ValueBind value="login" onChange={onChange}>
           {({ onClick }) => <Button onClick={onClick}>Login</Button>}
         </ValueBind>
