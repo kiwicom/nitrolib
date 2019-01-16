@@ -13,7 +13,7 @@ type Props = {|
 |};
 
 const AccountCheckEmail = ({ email, reason }: Props) => (
-  <Section>
+  <Section dataTest="AccountCheckEmail">
     <Heading element="h2" spaceAfter="small">
       <Translate t="account.check_email" />
     </Heading>

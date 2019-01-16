@@ -72,7 +72,7 @@ const AccountLogin = ({
           </Heading>
           <Text spaceAfter="large" t={DESC_TKEY[type]} />
         </Section>
-        <Section>
+        <Section dataTest="AccountLogin">
           <form onSubmit={onContinue}>
             <Stack>
               {error && (
@@ -88,6 +88,7 @@ const AccountLogin = ({
                   type="email"
                   value={email}
                   onChange={onEmailChange}
+                  dataTest="Email"
                 />
                 <Button submit loading={isLoading}>
                   <Translate t="account.continue" />

@@ -60,7 +60,7 @@ const AccountCreate = ({
           </Heading>
           <Translate t="account.create_account_description" />
         </Header>
-        <Section>
+        <Section dataTest="AccountCreate">
           <form onSubmit={onContinue}>
             <Stack spacing="comfy">
               {error && (
@@ -77,6 +77,7 @@ const AccountCreate = ({
                 value={email}
                 onChange={onEmailChange}
                 onBlur={onEmailBlur}
+                dataTest="Email"
               />
               <InputField
                 label={intl.translate(__("account.password"))}
@@ -85,6 +86,7 @@ const AccountCreate = ({
                 value={password}
                 onChange={onPasswordChange}
                 onBlur={onPasswordBlur}
+                dataTest="Password"
               />
               <InputField
                 label={intl.translate(__("account.password_confirmaiton"))}
@@ -93,6 +95,7 @@ const AccountCreate = ({
                 value={passwordConfirm}
                 onChange={onPasswordConfirmChange}
                 onBlur={onPasswordConfirmBlur}
+                dataTest="PasswordConfirm"
               />
               <Button submit loading={isLoading}>
                 <Translate t="account.create" />

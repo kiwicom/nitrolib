@@ -51,7 +51,7 @@ const AccountPassword = ({
           </Heading>
           <Text t="account.sign_in_description" />
         </Header>
-        <Section>
+        <Section dataTest="AccountPassword">
           <form onSubmit={onSignIn}>
             <Stack>
               {error && (
@@ -67,10 +67,11 @@ const AccountPassword = ({
               </Stack>
               <Stack align="end" spacing="condensed">
                 <InputField
-                  label={intl.translate(__("account.password"))}
+                  label={intl.translate(__("account.password_input"))}
                   type="password"
                   onChange={onPasswordChange}
                   value={password}
+                  dataTest="Password"
                 />
                 <Button submit loading={isSigningIn}>
                   <Translate t="account.sign_in" />
@@ -84,7 +85,12 @@ const AccountPassword = ({
         </Section>
         <Section>
           <Text spaceAfter="normal" t="account.send_link_to" values={{ email }} />
-          <Button type="secondary" onClick={onAskSignInLink} loading={isSendingEmail}>
+          <Button
+            type="secondary"
+            onClick={onAskSignInLink}
+            loading={isSendingEmail}
+            dataTest="AskForMagic"
+          >
             <Translate t="account.ask_sign_in_link" />
           </Button>
         </Section>

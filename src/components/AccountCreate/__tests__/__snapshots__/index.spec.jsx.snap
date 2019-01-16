@@ -24,7 +24,9 @@ exports[`#AccountCreate render 1`] = `
       values={Object {}}
     />
   </ModalHeader>
-  <ModalSection>
+  <ModalSection
+    dataTest="AccountCreate"
+  >
     <form
       onSubmit={[Function]}
     >
@@ -32,6 +34,7 @@ exports[`#AccountCreate render 1`] = `
         spacing="comfy"
       >
         <ForwardRef
+          dataTest="Email"
           label="account.email"
           onChange={[Function]}
           placeholder="account.email_placeholder"
@@ -39,12 +42,14 @@ exports[`#AccountCreate render 1`] = `
           value=""
         />
         <ForwardRef
+          dataTest="Password"
           label="account.password"
           onChange={[Function]}
           type="password"
           value=""
         />
         <ForwardRef
+          dataTest="PasswordConfirm"
           label="account.password_confirmaiton"
           onChange={[Function]}
           type="password"
@@ -95,7 +100,9 @@ exports[`#AccountCreate validation errors 1`] = `
       values={Object {}}
     />
   </ModalHeader>
-  <ModalSection>
+  <ModalSection
+    dataTest="AccountCreate"
+  >
     <form
       onSubmit={[Function]}
     >
@@ -103,6 +110,7 @@ exports[`#AccountCreate validation errors 1`] = `
         spacing="comfy"
       >
         <ForwardRef
+          dataTest="Email"
           error="Wrong format of e-mail"
           label="account.email"
           onChange={[Function]}
@@ -111,6 +119,7 @@ exports[`#AccountCreate validation errors 1`] = `
           value=""
         />
         <ForwardRef
+          dataTest="Password"
           error="Password should be more complex"
           label="account.password"
           onChange={[Function]}
@@ -118,6 +127,7 @@ exports[`#AccountCreate validation errors 1`] = `
           value=""
         />
         <ForwardRef
+          dataTest="PasswordConfirm"
           error="Passwords do not match"
           label="account.password_confirmaiton"
           onChange={[Function]}

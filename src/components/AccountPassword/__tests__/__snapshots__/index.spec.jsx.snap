@@ -21,7 +21,9 @@ exports[`#AccountPassword render 1`] = `
       t="account.sign_in_description"
     />
   </ModalHeader>
-  <ModalSection>
+  <ModalSection
+    dataTest="AccountPassword"
+  >
     <form
       onSubmit={[Function]}
     >
@@ -50,7 +52,8 @@ exports[`#AccountPassword render 1`] = `
           spacing="condensed"
         >
           <ForwardRef
-            label="account.password"
+            dataTest="Password"
+            label="account.password_input"
             onChange={[Function]}
             type="password"
             value="kek"
@@ -92,6 +95,7 @@ exports[`#AccountPassword render 1`] = `
       }
     />
     <Button
+      dataTest="AskForMagic"
       onClick={[Function]}
       type="secondary"
     >
