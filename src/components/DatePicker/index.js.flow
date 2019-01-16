@@ -1,0 +1,12 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {|
+  value: Date,
+  onChange: (date: Date) => void,
+  label: string,
+  min: Date,
+  max: Date,
+|};
+
+declare export default React.ComponentType<Props>;
