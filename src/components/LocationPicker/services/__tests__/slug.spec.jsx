@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import slug from "../slug";
 
 const cityParams = {
@@ -115,27 +115,27 @@ const countryParams = {
 };
 
 describe("#LocationPicker/service/slug", () => {
-  test("#slug (selected city)", () => {
-    expect(slug(cityParams)).toEqual("(United States)");
+  test("selected city", () => {
+    expect(slug(cityParams)).toBe("(United States)");
   });
 
-  test("#slug (selected country)", () => {
-    expect(slug(countryParams)).toEqual(false);
+  test("selected country", () => {
+    expect(slug(countryParams)).toBe("");
   });
 
-  test("#slug (selected airport)", () => {
-    expect(slug(airportParams)).toEqual("(MCO)");
+  test("selected airport", () => {
+    expect(slug(airportParams)).toBe("(MCO)");
   });
 
-  test("#slug (selected autonomous territory)", () => {
-    expect(slug(autonomousParams)).toEqual("(United States)");
+  test("selected autonomous territory", () => {
+    expect(slug(autonomousParams)).toBe("(United States)");
   });
 
-  test("#slug (selected station)", () => {
-    expect(slug(stationParams)).toEqual("(ZMS)");
+  test("selected station", () => {
+    expect(slug(stationParams)).toBe("(ZMS)");
   });
 
-  test("#slug (selected special)", () => {
-    expect(slug(specialParams)).toEqual(false);
+  test("selected special", () => {
+    expect(slug(specialParams)).toBe("");
   });
 });
