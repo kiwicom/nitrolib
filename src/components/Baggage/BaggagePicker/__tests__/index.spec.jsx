@@ -7,8 +7,7 @@ import exampleData from "../baggagePickerData";
 
 const props = {
   options: exampleData,
-  tooltip: <span>Tooltip</span>,
-  title: <span>Title</span>,
+  pickerType: "handBag",
   onChange: () => {},
   selectedIndex: 5,
   shouldShowRecheckNote: true,
@@ -42,5 +41,27 @@ describe("#BaggagePicker", () => {
     expect(instance.state.hiddenItems).toBe(3);
     wrapper.find("Button").simulate("click");
     expect(instance.state.hiddenItems).toBe(0);
+  });
+
+  test("getTitle return title with proper translation key", () => {
+    const wrapper = shallow(<BaggagePicker {...props} />);
+    const instance = wrapper.instance();
+
+    const cabinBaggageTitle = instance.getTitle("handBag");
+    expect(cabinBaggageTitle.props.t).toEqual("common.baggage.cabin_baggage");
+
+    const checkedBaggageTitle = instance.getTitle("holdBag");
+    expect(checkedBaggageTitle.props.t).toEqual("common.baggage.checked_baggage");
+  });
+
+  test("getTooltip return tooltip with proper translation key", () => {
+    const wrapper = shallow(<BaggagePicker {...props} />);
+    const instance = wrapper.instance();
+
+    const cabinBaggageTooltip = instance.getTooltip("handBag");
+    expect(cabinBaggageTooltip.props.t).toEqual("common.baggage.tooltip.cabin_baggage");
+
+    const checkedBaggageTooltip = instance.getTooltip("holdBag");
+    expect(checkedBaggageTooltip.props.t).toEqual("common.baggage.tooltip.checked_baggage");
   });
 });

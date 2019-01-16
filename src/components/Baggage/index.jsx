@@ -65,20 +65,6 @@ class Baggage extends React.Component<Props> {
     return options;
   };
 
-  getTitle = (type: string): React$Node =>
-    type === "handBag" ? (
-      <Translate t="common.baggage.cabin_baggage" />
-    ) : (
-      <Translate t="common.baggage.checked_baggage" />
-    );
-
-  getTooltip = (type: string): React$Node =>
-    type === "handBag" ? (
-      <Translate t="common.baggage.tooltip.cabin_baggage" />
-    ) : (
-      <Translate t="common.baggage.tooltip.checked_baggage" />
-    );
-
   render() {
     const {
       changeBagCombination,
@@ -92,8 +78,7 @@ class Baggage extends React.Component<Props> {
     return (
       <BaggagePicker
         context={context}
-        title={this.getTitle(pickerType)}
-        tooltip={this.getTooltip(pickerType)}
+        pickerType={pickerType}
         options={baggageOptions}
         selectedIndex={passengerBaggage[pickerType]}
         onChange={changeBagCombination}

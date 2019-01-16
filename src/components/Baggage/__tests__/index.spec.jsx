@@ -45,26 +45,4 @@ describe("#Baggage", () => {
     expect(handBagOptions[0].bagType).toEqual("handBag");
     expect(holdBagOptions[0].bagType).toEqual("holdBag");
   });
-
-  test("getTitle return title with proper translation key", () => {
-    const wrapper = shallow(<Baggage {...props} />);
-    const instance = wrapper.instance();
-
-    const cabinBaggageTitle = instance.getTitle("handBag");
-    expect(cabinBaggageTitle.props.t).toEqual("common.baggage.cabin_baggage");
-
-    const checkedBaggageTitle = instance.getTitle("holdBag");
-    expect(checkedBaggageTitle.props.t).toEqual("common.baggage.checked_baggage");
-  });
-
-  test("getTooltip return tooltip with proper translation key", () => {
-    const wrapper = shallow(<Baggage {...props} />);
-    const instance = wrapper.instance();
-
-    const cabinBaggageTooltip = instance.getTooltip("handBag");
-    expect(cabinBaggageTooltip.props.t).toEqual("common.baggage.tooltip.cabin_baggage");
-
-    const checkedBaggageTooltip = instance.getTooltip("holdBag");
-    expect(checkedBaggageTooltip.props.t).toEqual("common.baggage.tooltip.checked_baggage");
-  });
 });

@@ -7,9 +7,12 @@ import InformationCircle from "@kiwicom/orbit-components/lib/icons/InformationCi
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import ChevronUp from "@kiwicom/orbit-components/lib/icons/ChevronUp";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Close from "@kiwicom/orbit-components/lib/icons/Close";
 
 import Translate from "../../Translate";
 import Tooltip from "../../Tooltip";
+import { themeDefault } from "../../../records/Theme";
+import type { ThemeProps } from "../../../records/Theme";
 import Flex from "../../../primitives/Flex";
 import type { OptionBaggage } from "../../../records/Baggage";
 import Option from "../BaggageOption";
@@ -21,8 +24,7 @@ type State = {
 
 type Props = {|
   options: Array<OptionBaggage>,
-  tooltip: React$Node,
-  title: React$Node,
+  pickerType: "handBag" | "holdBag",
   onChange: (bagType: string, index: number) => void,
   selectedIndex: number,
   shouldShowRecheckNote: boolean,
@@ -72,11 +74,31 @@ class BaggagePicker extends React.Component<Props, State> {
     }
   };
 
+  getTitle = (type: string): React$Node =>
+    type === "handBag" ? (
+      <Translate t="common.baggage.cabin_baggage" />
+    ) : (
+      <Translate t="common.baggage.checked_baggage" />
+    );
+
+  getTooltip = (type: string): React$Node =>
+    type === "handBag" ? (
+      <Translate t="common.baggage.tooltip.cabin_baggage" />
+    ) : (
+      <Translate t="common.baggage.tooltip.checked_baggage" />
+    );
+
+  getEmptyOptionText = (type: string): React$Node =>
+    type === "handBag" ? (
+      <Translate t="common.baggage.cabin_baggage_not_available" />
+    ) : (
+      <Translate t="common.baggage.checked_baggage_not_available" />
+    );
+
   render() {
     const {
-      title,
       context,
-      tooltip,
+      pickerType,
       options,
       selectedIndex,
       onChange,
@@ -88,10 +110,13 @@ class BaggagePicker extends React.Component<Props, State> {
       <Stack spacing="condensed" spaceAfter="largest">
         <Stack align="center" spacing="tight">
           <Text weight="bold" uppercase element="span">
-            {title}
+            {this.getTitle(pickerType)}
           </Text>
           <div>
-            <Tooltip tip={<TooltipContent>{tooltip}</TooltipContent>} position="right">
+            <Tooltip
+              tip={<TooltipContent>{this.getTooltip(pickerType)}</TooltipContent>}
+              position="right"
+            >
               <InformationCircle size="small" color="secondary" />
             </Tooltip>
           </div>
