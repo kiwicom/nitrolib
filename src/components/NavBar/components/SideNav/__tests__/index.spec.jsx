@@ -12,11 +12,13 @@ describe("#SideNav", () => {
       <SideNav
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        starred={<div>starred</div>}
         portal=""
         inverted={false}
         debug={<div>debug</div>}
         onOpenModal={jest.fn()}
         onSaveLanguage={jest.fn()}
+        onOpenFaq={jest.fn()}
         onSetModal={jest.fn()}
       />,
     );
@@ -29,10 +31,12 @@ describe("#SideNav", () => {
       <SideNav
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        starred={<div>starred</div>}
         portal=""
         inverted={false}
         onOpenModal={jest.fn()}
         onSaveLanguage={jest.fn()}
+        onOpenFaq={jest.fn()}
         onSetModal={jest.fn()}
       />,
     );
@@ -47,10 +51,12 @@ describe("#SideNav", () => {
       <SideNav
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        starred={<div>starred</div>}
         portal=""
         inverted={false}
         onOpenModal={jest.fn()}
         onSaveLanguage={jest.fn()}
+        onOpenFaq={jest.fn()}
         onSetModal={setModal}
       />,
     );
@@ -68,10 +74,12 @@ describe("#SideNav", () => {
       <SideNav
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        starred={<div>starred</div>}
         portal=""
         inverted={false}
         onOpenModal={jest.fn()}
         onSaveLanguage={jest.fn()}
+        onOpenFaq={jest.fn()}
         onSetModal={setModal}
       />,
     );
@@ -89,11 +97,13 @@ describe("#SideNav", () => {
       <SideNav
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        starred={<div>starred</div>}
         portal=""
         inverted={false}
         debug={<div>debug</div>}
         onOpenModal={jest.fn()}
         onSaveLanguage={jest.fn()}
+        onOpenFaq={jest.fn()}
         onSetModal={setModal}
       />,
     );
@@ -111,10 +121,12 @@ describe("#SideNav", () => {
       <SideNav
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        starred={<div>starred</div>}
         portal=""
         inverted={false}
         onOpenModal={jest.fn()}
         onSaveLanguage={jest.fn()}
+        onOpenFaq={jest.fn()}
         onSetModal={setModal}
       />,
     );

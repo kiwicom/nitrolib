@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 type Props = {|
-  children: React.Node | React.Node[],
+  children: React.Node,
   // defaulted
   display: "block" | "inline" | "inline-block" | "flex",
 |};

@@ -9,6 +9,7 @@ import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import { right, rtlSpacing } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import Translate from "../../../Translate";
+import Text from "../../../Text";
 import ClientOnly from "../../../ClientOnly";
 import Mobile from "../../../Mobile";
 import Language from "../../../Language";
@@ -138,12 +139,16 @@ type State = {|
 type Props = {|
   chat: React.Node,
   subscription: React.Node,
+  starred: React.Node,
   debug?: React.Node,
   portal: string,
   inverted: boolean,
   onOpenModal: (value: string) => void,
   onSaveLanguage: (lang: string) => void,
+  onOpenStarred: (e: SyntheticEvent<any>) => void,
+  onOpenFaq: ?() => void,
   onSetModal: (modal: ModalType) => void,
+  onToggleTrips: () => void,
 |};
 
 export default class SideNav extends React.Component<Props, State> {
@@ -166,6 +171,13 @@ export default class SideNav extends React.Component<Props, State> {
       onSetModal(MODALS.SIDE_NAV);
       this.setState({ modalOpen: MODALS.SIDE_NAV });
     }
+  };
+
+  handleOpenBookingLogin = () => {
+    const { onOpenModal } = this.props;
+    onOpenModal(MODALS.MY_BOOKING);
+
+    this.setState({ modalOpen: MODALS.NONE });
   };
 
   handleOpenSignIn = () => {
@@ -210,13 +222,42 @@ export default class SideNav extends React.Component<Props, State> {
     this.setState({ modalOpen: MODALS.NONE });
   };
 
+  handleOpenFaq = () => {
+    const { onOpenFaq } = this.props;
+
+    if (onOpenFaq) {
+      onOpenFaq();
+      this.handleToggle();
+    }
+  };
+
+  handleOpenTrips = () => {
+    const { onToggleTrips } = this.props;
+
+    onToggleTrips();
+    this.handleToggle();
+  };
+
   render = () => {
-    const { chat, subscription, debug, onSaveLanguage, portal, inverted } = this.props;
+    const {
+      chat,
+      subscription,
+      starred,
+      debug,
+      onSaveLanguage,
+      onOpenStarred,
+      onOpenFaq,
+      portal,
+      inverted,
+    } = this.props;
     const { modalOpen } = this.state;
 
     return (
       <>
         <MenuOpen data-test="NavBar-SideNav-Open" onClick={this.handleToggle} inverted={inverted}>
+          <Mobile>
+            <Text t="common.menu" />
+          </Mobile>
           <MenuHamburger />
         </MenuOpen>
 
@@ -242,12 +283,23 @@ export default class SideNav extends React.Component<Props, State> {
                 <Separator />
 
                 {/* Languages and Currencies */}
-                <Mobile display="flex">
+                <Mobile>
                   <MenuGroup>
                     <Language onChange={onSaveLanguage} native />
                     <CurrencySpacing>
                       <Currency native />
                     </CurrencySpacing>
+                    <Separator />
+                  </MenuGroup>
+                  <MenuGroup>
+                    <MenuItem Icon={icons.StarFull} onClick={onOpenStarred} text={starred} />
+                    {onOpenFaq && (
+                      <MenuItem
+                        Icon={icons.QuestionCircle}
+                        onClick={this.handleOpenFaq}
+                        text={<Translate t="common.help" />}
+                      />
+                    )}
                     <Separator />
                   </MenuGroup>
                 </Mobile>
@@ -257,16 +309,32 @@ export default class SideNav extends React.Component<Props, State> {
                   {({ auth, onSignOut }) => (
                     <MenuGroup>
                       {auth !== null ? (
-                        <MenuItem
-                          Icon={icons.AccountCircle}
-                          onClick={() => {
-                            onSignOut();
-                            this.handleToggle();
-                          }}
-                          text={<Translate t="account.log_out" />}
-                        />
+                        <>
+                          <MenuItem
+                            Icon={icons.AccountCircle}
+                            onClick={this.handleOpenTrips}
+                            text={
+                              auth.type === "user"
+                                ? `${auth.user.firstname} ${auth.user.lastname}`
+                                : auth.email
+                            }
+                          />
+                          <MenuItem
+                            Icon={icons.AccountCircle}
+                            onClick={() => {
+                              onSignOut();
+                              this.handleToggle();
+                            }}
+                            text={<Translate t="account.log_out" />}
+                          />
+                        </>
                       ) : (
                         <>
+                          <MenuItem
+                            Icon={icons.AccountCircle}
+                            onClick={this.handleOpenBookingLogin}
+                            text={<Translate t="account.my_bookings_action" />}
+                          />
                           <MenuItem
                             Icon={icons.AccountCircle}
                             onClick={this.handleOpenSignIn}

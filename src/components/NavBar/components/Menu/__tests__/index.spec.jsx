@@ -10,11 +10,13 @@ describe("#Menu", () => {
       <Menu
         chat={<div>chat</div>}
         subscription={<div>subscription</div>}
+        starred={<div>starred</div>}
         debug={<div>debug</div>}
         portal=""
         inverted={false}
         onSaveLanguage={jest.fn()}
         onSelectTrip={jest.fn()}
+        onOpenFaq={jest.fn()}
         onSetModal={jest.fn()}
       />,
     );

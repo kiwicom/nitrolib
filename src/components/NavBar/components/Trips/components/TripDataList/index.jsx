@@ -11,6 +11,7 @@ import TripList from "../TripList";
 import TripContainer from "../../../../../TripsContainer";
 
 type Props = {|
+  portal: string,
   onSelect: (bid: string) => void,
   // DI
   env: Environment,
@@ -20,7 +21,7 @@ const StateContainer = styled.div`
   padding: 10px;
 `;
 
-const TripDataList = ({ env, onSelect }: Props) => (
+const TripDataList = ({ env, portal, onSelect }: Props) => (
   <QueryRenderer
     environment={env}
     query={graphql`
@@ -35,7 +36,7 @@ const TripDataList = ({ env, onSelect }: Props) => (
     render={res => {
       if (res.error) {
         return (
-          <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
+          <TripContainer portal={portal} padding>
             <StateContainer>
               <Alert type="critical">{String(res.error)}</Alert>
             </StateContainer>
@@ -45,7 +46,7 @@ const TripDataList = ({ env, onSelect }: Props) => (
 
       if (!res.props) {
         return (
-          <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
+          <TripContainer portal={portal} padding>
             <StateContainer>
               <Translate t="common.loading" />
             </StateContainer>
@@ -56,7 +57,7 @@ const TripDataList = ({ env, onSelect }: Props) => (
       const { customerBookings } = res.props;
       if (!customerBookings) {
         return (
-          <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
+          <TripContainer portal={portal} padding>
             <StateContainer>
               <Alert>
                 <Translate t="account.no_trips" />
@@ -67,11 +68,7 @@ const TripDataList = ({ env, onSelect }: Props) => (
       }
 
       return (
-        <TripContainer
-          header={<TripHeader trips={customerBookings} />}
-          positionMenuTablet={0}
-          positionMenuDesktop={50}
-        >
+        <TripContainer header={<TripHeader trips={customerBookings} />} portal={portal}>
           <TripList list={customerBookings} onSelect={onSelect} />
         </TripContainer>
       );

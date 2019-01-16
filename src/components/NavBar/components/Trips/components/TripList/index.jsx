@@ -1,5 +1,6 @@
 // @flow
 import React from "react";
+import styled from "styled-components";
 import { createFragmentContainer, graphql } from "react-relay";
 
 import Translate from "../../../../../Translate";
@@ -10,6 +11,10 @@ import MulticityTrips from "../MulticityTrips";
 import TripListBottom from "../TripListBottom";
 import BottomTripItem from "../BottomTripItem";
 import ReturnTrips from "../ReturnTrips";
+
+const Padding = styled.div`
+  padding: 12px;
+`;
 
 type Props = {|
   list: TripList_list,
@@ -23,7 +28,11 @@ const TripList = ({ list, onSelect }: Props) => {
   const futureTrips = upcoming && upcoming.slice(2, 6);
 
   if (upcoming && upcoming.length === 0) {
-    return <Translate t="account.no_trips" />;
+    return (
+      <Padding>
+        <Translate t="account.no_trips" />
+      </Padding>
+    );
   }
 
   return (

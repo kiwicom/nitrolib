@@ -6,16 +6,19 @@ import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import { navbar } from "../../styles";
+import Translate from "../Translate";
 import Desktop from "../Desktop";
-import Mobile from "../Mobile";
+import Toggle from "../Toggle";
 import type { ThemeProps } from "../../records/Theme";
 import { themeDefault } from "../../records/Theme";
 import Flex from "../../primitives/Flex";
+import Button from "./primitives/Button";
 import Language from "../Language";
 import { Consumer as BrandConsumer } from "../../services/brand/context";
-import Help from "./components/Help";
+import { Consumer as AuthConsumer } from "../../services/auth/context";
 import Menu from "./components/Menu";
 import Logo from "./components/Logo";
+import Trips from "./components/Trips";
 import Currency from "../Currency";
 import type { Modal } from "../../consts/modals";
 import marginMixin from "./styles/marginMixin";
@@ -79,6 +82,7 @@ type Props = {|
   subscription: React.Node,
   debug: React.Node,
   portal: string,
+  onOpenStarred: (e: SyntheticEvent<any>) => void,
   onOpenFaq: ?() => void,
   onSetModal: (modal: Modal) => void,
   onSaveLanguage: (lang: string) => void,
@@ -98,66 +102,89 @@ const NavBar = ({
   debug,
   portal,
   inverted,
+  onOpenStarred,
   onOpenFaq,
   onSetModal,
   onSaveLanguage,
   onSelectTrip,
   onLogoClick,
 }: Props) => (
-  <Container x="space-between" y="center" data-test="NavBar" inverted={inverted}>
-    <Stack flex shrink align="center">
-      <Logo inverted={inverted} onClick={onLogoClick} />
-      {headerLinks && (
-        <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
-      )}
-    </Stack>
-    <Flex y="center">
-      <Wrapper>
-        <Desktop display="flex">
-          <WrapperChild>
-            <ButtonWrapper>
-              <WrapperChild>
-                <Language
-                  positionMenuDesktop={270}
-                  positionMenuTablet={5}
-                  inverted={inverted}
-                  onChange={onSaveLanguage}
-                  onSetModal={onSetModal}
-                />
-              </WrapperChild>
-              <WrapperChild>
-                <Currency
-                  positionMenuDesktop={270}
-                  positionMenuTablet={5}
-                  inverted={inverted}
-                  onSetModal={onSetModal}
-                />
-              </WrapperChild>
-              <WrapperChild>
-                <Help onOpen={onOpenFaq} inverted={inverted} />
-              </WrapperChild>
-            </ButtonWrapper>
-          </WrapperChild>
-        </Desktop>
-        <WrapperChild>{starred}</WrapperChild>
-        <Mobile>
-          <WrapperChild>
-            <Help onOpen={onOpenFaq} inverted={inverted} />
-          </WrapperChild>
-        </Mobile>
-        <Menu
-          chat={chat}
-          subscription={subscription}
-          debug={debug}
-          onSetModal={onSetModal}
-          onSaveLanguage={onSaveLanguage}
-          onSelectTrip={onSelectTrip}
-          inverted={inverted}
-          portal={portal}
-        />
-      </Wrapper>
-    </Flex>
-  </Container>
+  <Toggle>
+    {({ open: openTrips, onToggle: onToggleTrips }) => (
+      <>
+        <Container x="space-between" y="center" data-test="NavBar" inverted={inverted}>
+          <Stack flex shrink align="center">
+            <Logo inverted={inverted} onClick={onLogoClick} />
+            {headerLinks && (
+              <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
+            )}
+          </Stack>
+          <Flex y="center">
+            <Wrapper>
+              <Desktop display="flex">
+                <WrapperChild>
+                  <ButtonWrapper>
+                    <WrapperChild>
+                      <Language
+                        positionMenuDesktop={270}
+                        positionMenuTablet={5}
+                        inverted={inverted}
+                        onChange={onSaveLanguage}
+                        onSetModal={onSetModal}
+                      />
+                    </WrapperChild>
+                    <WrapperChild>
+                      <Currency
+                        positionMenuDesktop={270}
+                        positionMenuTablet={5}
+                        inverted={inverted}
+                        onSetModal={onSetModal}
+                      />
+                    </WrapperChild>
+                    <WrapperChild>
+                      <Button
+                        data-test="Help"
+                        onClick={onOpenFaq}
+                        disabled={!onOpenFaq}
+                        color={!inverted && "secondary"}
+                      >
+                        <Translate t="common.help" />
+                      </Button>
+                    </WrapperChild>
+                    <WrapperChild>{starred}</WrapperChild>
+                  </ButtonWrapper>
+                </WrapperChild>
+              </Desktop>
+              <Menu
+                chat={chat}
+                subscription={subscription}
+                starred={starred}
+                debug={debug}
+                onSetModal={onSetModal}
+                onSaveLanguage={onSaveLanguage}
+                onOpenStarred={onOpenStarred}
+                onOpenFaq={onOpenFaq}
+                onToggleTrips={onToggleTrips}
+                inverted={inverted}
+                portal={portal}
+              />
+            </Wrapper>
+          </Flex>
+        </Container>
+        <AuthConsumer>
+          {({ environment }) => (
+            <Trips
+              env={environment}
+              portal={portal}
+              open={openTrips}
+              onToggle={onToggleTrips}
+              onSelect={onSelectTrip}
+            />
+          )}
+        </AuthConsumer>
+      </>
+    )}
+  </Toggle>
 );
 
 NavBar.defaultProps = {

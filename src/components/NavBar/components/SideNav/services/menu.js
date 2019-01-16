@@ -21,6 +21,7 @@ import Twitter from "@kiwicom/orbit-components/lib/icons/Twitter";
 import Linkedin from "@kiwicom/orbit-components/lib/icons/Linkedin";
 import Chat from "@kiwicom/orbit-components/lib/icons/Chat";
 import Exchange from "@kiwicom/orbit-components/lib/icons/Exchange";
+import QuestionCircle from "@kiwicom/orbit-components/lib/icons/QuestionCircle";
 
 import type { Brand } from "../../../../../records/Brand";
 
@@ -45,6 +46,7 @@ export const icons = {
   Settings,
   Chat,
   Exchange,
+  QuestionCircle,
 };
 
 const companyPagesUI = {

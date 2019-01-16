@@ -4,21 +4,31 @@ import styled from "styled-components";
 import type { ThemeProps } from "../../../records/Theme";
 import { themeDefault } from "../../../records/Theme";
 
+type HeaderProps = {|
+  ...ThemeProps,
+  mobile: boolean,
+|};
+
 const Header = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   position: relative;
-  height: 40px;
   overflow: hidden;
-  box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
-  background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
+  ${({ theme, mobile }: HeaderProps) =>
+    !mobile &&
+    `
+    height: 40px;
+    box-shadow: ${theme.orbit.boxShadowElevatedLevel1};
+    background: ${theme.orbit.paletteWhite};
+  `};
   z-index: 2;
 `;
 
 Header.defaultProps = {
   theme: themeDefault,
+  mobile: false,
 };
 
 export default Header;

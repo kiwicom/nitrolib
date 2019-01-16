@@ -57,7 +57,7 @@ type Props = {|
   Icon: React.ComponentType<$Subtype<{ +className?: string }>>,
   text: React.Node,
   link: string,
-  onClick?: () => void,
+  onClick?: (e: SyntheticEvent<any>) => void,
 |};
 
 const MenuItem = ({ onClick, Icon, text, link }: Props) => (
