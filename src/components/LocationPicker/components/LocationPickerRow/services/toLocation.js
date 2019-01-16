@@ -42,7 +42,6 @@ function toLocation(input: LocationPickerRow_item): Location {
       ...common,
       type: "airport",
       city: toLocationArea(input.city || locationAreaDefault),
-      subdivision: toLocationArea(input.subdivision || locationAreaDefault),
       country: toLocationArea(input.country || locationAreaDefault),
     };
   }

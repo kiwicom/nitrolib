@@ -9,7 +9,7 @@ export type LocationArea = {|
 type Common = {|
   id: string,
   name: string,
-  code: string,
+  code?: string,
   slug: string,
   location: {|
     lat: number,
@@ -19,12 +19,12 @@ type Common = {|
 
 export type LocationCountry = {|
   ...Common,
-  type: "country",
+  type: "country" | "special",
 |};
 
 export type LocationSubdivision = {|
   ...Common,
-  type: "subdivision",
+  type: "subdivision" | "autonomous_territory",
   country: LocationArea,
 |};
 
@@ -37,9 +37,8 @@ export type LocationCity = {|
 
 export type LocationAirport = {|
   ...Common,
-  type: "airport",
+  type: "airport" | "station",
   country: LocationArea,
-  subdivision: LocationArea,
   city: LocationArea,
 |};
 

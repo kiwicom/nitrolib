@@ -18,9 +18,9 @@ type Props = {|
 |};
 
 const LocationPickerRow = ({ item, selected, onSelect }: Props) => {
-  const { type, country, name, code } = item;
+  const { type, name, code } = item;
 
-  const slug = getSlug({ type, country, name, code });
+  const slug = getSlug(toLocation(item));
 
   return (
     <PickerRow onClick={() => onSelect(toLocation(item))} selected={selected}>
@@ -28,7 +28,7 @@ const LocationPickerRow = ({ item, selected, onSelect }: Props) => {
         {/* $FlowExpected: TODO describe */}
         {type === "country" && <CountryFlag code={code.toLowerCase()} />}
         <TextWrapper weight="bold">
-          {name} {slug && `(${slug})`}
+          {name} {slug}
         </TextWrapper>
       </Stack>
     </PickerRow>
