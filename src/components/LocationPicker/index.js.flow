@@ -1,10 +1,16 @@
 // @flow strict
 import * as React from "react";
+import type { Environment } from "react-relay";
+
+import type { Location } from "../../records/Location";
 
 type Props = {|
+  value: Location | null,
+  onChange: (loc: Location) => void,
   label: string,
-  error: string,
-  icon?: React.Node,
+  icon: React.Node,
+  // defaulted
+  environment?: Environment,
 |};
 
 declare export default React.ComponentType<Props>;

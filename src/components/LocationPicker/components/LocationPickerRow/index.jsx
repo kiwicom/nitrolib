@@ -1,29 +1,32 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import CountryFlag from "@kiwicom/orbit-components/lib/CountryFlag";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 import { createFragmentContainer, graphql } from "react-relay";
 
-import slugFunc from "../services/slug";
+import getSlug from "../../services/slug";
 import type { LocationPickerRow_item } from "./__generated__/LocationPickerRow_item.graphql";
-import PickerRow from "../primitives/PickerRow";
+import PickerRow from "../../primitives/PickerRow";
+import type { Location } from "../../../../records/Location";
+import toLocation from "./services/toLocation";
 
 type Props = {|
-  index: number,
   item: LocationPickerRow_item,
-  handleSelect: (arg: LocationPickerRow_item, index: number) => void,
   selected: boolean,
+  onSelect: (loc: Location) => void,
 |};
 
-const LocationPickerRow = ({ handleSelect, item, selected, index }: Props) => {
+const LocationPickerRow = ({ item, selected, onSelect }: Props) => {
   const { type, country, name, code } = item;
-  const slug = slugFunc({ type, country, name, code });
+
+  const slug = getSlug({ type, country, name, code });
+
   return (
-    <PickerRow onClick={() => handleSelect(item, index)} selected={selected}>
+    <PickerRow onClick={() => onSelect(toLocation(item))} selected={selected}>
       <Stack spacing="condensed" flex align="center">
         {/* $FlowExpected: TODO describe */}
-        {type === "country" && <CountryFlag code={code} />}
+        {type === "country" && <CountryFlag code={code.toLowerCase()} />}
         <TextWrapper weight="bold">
           {name} {slug && `(${slug})`}
         </TextWrapper>
@@ -32,18 +35,39 @@ const LocationPickerRow = ({ handleSelect, item, selected, index }: Props) => {
   );
 };
 
-// Boris help (not sure about @relay(mask: false), but it eliminates $refType error)
 export default createFragmentContainer(
   LocationPickerRow,
   graphql`
-    fragment LocationPickerRow_item on Location @relay(mask: false) {
+    fragment LocationPickerRow_item on Location {
+      locationId
       type
       name
-      country {
+      code
+      slug
+
+      location {
+        lat
+        lng
+      }
+
+      city {
+        locationId
         name
+        slug
         code
       }
-      code
+      country {
+        locationId
+        name
+        slug
+        code
+      }
+      subdivision {
+        locationId
+        name
+        slug
+        code
+      }
     }
   `,
 );

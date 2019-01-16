@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import slug from "../slug";
 
 const cityParams = {
