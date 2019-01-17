@@ -4,8 +4,8 @@ import { storiesOf } from "@storybook/react";
 import { withKnobs, select, boolean } from "@storybook/addon-knobs";
 
 import withData from "./decorators/withData";
-import Baggage from "../src/components/Baggage";
-import { baggageData, emptyData } from "../src/components/Baggage/services/data";
+import BaggagePicker from "../src/components/BaggagePicker";
+import { baggageData, emptyData } from "../src/components/BaggagePicker/services/data";
 
 const handBagOptions = {
   first: 0,
@@ -32,18 +32,18 @@ const props = {
   },
   baggage: baggageData,
   selfTransferEnabled: true,
-  selfTransferTooltip: "SelfTransferTooltip", // check current implementation
+  selfTransferTooltip: "SelfTransferTooltip",
   disabledBagsInMmb: true,
   airlines: [],
   context: "booking",
 };
 
-storiesOf("Baggage", module)
+storiesOf("BaggagePicker", module)
   .addDecorator(withData)
   .addDecorator(withKnobs)
   .add("both", () => (
     <div style={{ padding: "24px" }}>
-      <Baggage
+      <BaggagePicker
         pickerType="handBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
@@ -52,7 +52,7 @@ storiesOf("Baggage", module)
         shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}
       />
-      <Baggage
+      <BaggagePicker
         pickerType="holdBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
@@ -65,7 +65,7 @@ storiesOf("Baggage", module)
   ))
   .add("both empty", () => (
     <div style={{ padding: "24px" }}>
-      <Baggage
+      <BaggagePicker
         pickerType="handBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
@@ -75,7 +75,7 @@ storiesOf("Baggage", module)
         {...props}
         baggage={emptyData}
       />
-      <Baggage
+      <BaggagePicker
         pickerType="holdBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
@@ -89,7 +89,7 @@ storiesOf("Baggage", module)
   ))
   .add("handBag", () => (
     <div style={{ padding: "24px" }}>
-      <Baggage
+      <BaggagePicker
         pickerType="handBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
@@ -102,7 +102,7 @@ storiesOf("Baggage", module)
   ))
   .add("holdBag", () => (
     <div style={{ padding: "24px" }}>
-      <Baggage
+      <BaggagePicker
         pickerType="holdBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),

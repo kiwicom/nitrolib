@@ -2,7 +2,7 @@
 import * as React from "react";
 import R from "ramda";
 
-import BaggagePicker from "./components/BaggagePicker";
+import Picker from "./components/Picker";
 import type {
   BaggageType,
   BaggageGroup,
@@ -76,7 +76,7 @@ class Baggage extends React.Component<Props> {
     const baggageOptions = this.getBaggagePickerOptions(pickerType);
 
     return (
-      <BaggagePicker
+      <Picker
         context={context}
         pickerType={pickerType}
         options={baggageOptions}
