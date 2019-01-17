@@ -1,10 +1,12 @@
 // @flow strict
 import * as React from "react";
+import R from "ramda";
 
 import BaggagePicker from "./components/BaggagePicker";
 import type {
   BaggageType,
   BaggageGroup,
+  OptionBaggage,
   HoldBagDefinition,
   HandBagDefinition,
 } from "../../records/Baggage";
@@ -19,7 +21,6 @@ type Props = {
   selfTransferEnabled: boolean, // eslint-disable-line
   selfTransferTooltip: string, // eslint-disable-line
   disabledBagsInMmb: boolean, // eslint-disable-line
-  hasDubaiAirport: boolean, // eslint-disable-line
   airlines: Array<string>, // eslint-disable-line
   pickerType: "handBag" | "holdBag",
   context: "booking" | "mmb", // eslint-disable-line
@@ -51,10 +52,10 @@ class Baggage extends React.Component<Props> {
       passengerCategory,
     } = this.props;
 
-    const bagCombinations = combinations[passengerCategory][type];
+    const bagCombinations = R.path([passengerCategory, type], combinations) || [];
     const bagDefinitions = definitions[type];
 
-    const options = bagCombinations.map(c => ({
+    const options: Array<OptionBaggage> = bagCombinations.map(c => ({
       originalIndex: c.originalIndex,
       bagType: type,
       price: c.price,

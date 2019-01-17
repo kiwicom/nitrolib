@@ -46,14 +46,14 @@ const OptionWrapper = styled.div`
   }
 `;
 
-const RadioWrapper = styled.div`
-  width: 20px;
-`;
-
 OptionWrapper.defaultProps = {
   theme: themeDefault,
   checked: false,
 };
+
+const RadioWrapper = styled.div`
+  width: 20px;
+`;
 
 const getTextFromCategory = category => {
   switch (category) {
@@ -92,7 +92,9 @@ const getAirlinesWithPriorityBoarding = itemsArray => {
 };
 
 const IconWrapper = styled.div`
-  border-top: 1px solid grey;
+  border-top: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorInput};
+  width: 22px;
+  text-align: center;
   margin-right: ${({ theme }: ThemeProps) => theme.orbit.spaceXSmall};
 `;
 

@@ -56,7 +56,7 @@ describe("#BaggageOption", () => {
   test("render checked Radio", () => {
     const wrapper = shallow(<BaggageOption {...props} isChecked />);
     expect(wrapper.find("Radio").exists()).toBe(true);
-    const radioProps = wrapper.find("Radio").props("checked") || {};
+    const radioProps = wrapper.find("Radio").props() || {};
     expect(radioProps.checked).toBe(true);
   });
 

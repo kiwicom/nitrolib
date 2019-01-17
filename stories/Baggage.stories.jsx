@@ -31,7 +31,6 @@ const props = {
     console.log(type, index); // eslint-disable-line
   },
   baggage: baggageData,
-  hasDubaiAirport: true,
   selfTransferEnabled: true,
   selfTransferTooltip: "SelfTransferTooltip", // check current implementation
   disabledBagsInMmb: true,

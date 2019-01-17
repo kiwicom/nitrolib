@@ -71,7 +71,7 @@ export type Combinations = {|
 
 export type BaggageType = {
   definitions: Definitions, // Definitions same as from api
-  combinations: Combinations,
+  combinations: Combinations, // Combinations same as from api
 };
 
 export type Item = {
