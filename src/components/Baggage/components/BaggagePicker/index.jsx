@@ -6,10 +6,13 @@ import Button from "@kiwicom/orbit-components/lib/Button";
 import InformationCircle from "@kiwicom/orbit-components/lib/icons/InformationCircle";
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import ChevronUp from "@kiwicom/orbit-components/lib/icons/ChevronUp";
+import Close from "@kiwicom/orbit-components/lib/icons/Close";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import Translate from "../../../Translate/index";
 import Tooltip from "../../../Tooltip/index";
+import { themeDefault } from "../../../../records/Theme";
+import type { ThemeProps } from "../../../../records/Theme";
 import Flex from "../../../../primitives/Flex";
 import type { OptionBaggage } from "../../../../records/Baggage";
 import Option from "../BaggageOption/index";
@@ -36,6 +39,18 @@ const TooltipContent = styled.p`
   font-size: 12px;
   padding: 9px 11px;
 `;
+
+const EmptyOption = styled.div`
+  display: flex;
+  align-items: center;
+  padding: ${({ theme }) => theme.orbit.spaceSmall};
+  border-radius: ${({ theme }) => theme.orbit.borderRadiusNormal};
+  border: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorCard};
+`;
+
+EmptyOption.defaultProps = {
+  theme: themeDefault,
+};
 class BaggagePicker extends React.Component<Props, State> {
   state = {
     showedItems: [],
@@ -118,24 +133,32 @@ class BaggagePicker extends React.Component<Props, State> {
             </Tooltip>
           </div>
         </Stack>
-
-        <Text>
-          {context === "booking" ? (
-            <Translate t="common.baggage.select_option" />
-          ) : (
-            <Translate t="common.baggage.switch_option" />
-          )}
-        </Text>
-        {showedItems.map(item => (
-          <Option
-            key={item.originalIndex}
-            items={item.items}
-            price={item.price}
-            isChecked={item.originalIndex === selectedIndex}
-            onClick={() => onChange(item.bagType, item.originalIndex)}
-            shouldShowRecheckNote={shouldShowRecheckNote}
-          />
-        ))}
+        {options.length > 0 && (
+          <Text>
+            {context === "booking" ? (
+              <Translate t="common.baggage.select_option" />
+            ) : (
+              <Translate t="common.baggage.switch_option" />
+            )}
+          </Text>
+        )}
+        {options.length > 0 ? (
+          showedItems.map(item => (
+            <Option
+              key={item.originalIndex}
+              items={item.items}
+              price={item.price}
+              isChecked={item.originalIndex === selectedIndex}
+              onClick={() => onChange(item.bagType, item.originalIndex)}
+              shouldShowRecheckNote={shouldShowRecheckNote}
+            />
+          ))
+        ) : (
+          <EmptyOption>
+            <Close size="medium" color="critical" />
+            <Text>{this.getEmptyOptionText(pickerType)}</Text>
+          </EmptyOption>
+        )}
         {options.length > 4 && (
           <Flex x="center">
             <Button

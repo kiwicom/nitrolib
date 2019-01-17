@@ -1,5 +1,5 @@
 // @flow
-export default {
+export const baggageData = {
   definitions: {
     handBag: [
       {
@@ -339,6 +339,27 @@ export default {
           },
         },
       ],
+    },
+  },
+};
+
+export const emptyData = {
+  definitions: {
+    handBag: [],
+    holdBag: [],
+  },
+  combinations: {
+    adult: {
+      handBag: [],
+      holdBag: [],
+    },
+    child: {
+      handBag: [],
+      holdBag: [],
+    },
+    infant: {
+      handBag: [],
+      holdBag: [],
     },
   },
 };

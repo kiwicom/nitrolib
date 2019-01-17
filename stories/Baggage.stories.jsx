@@ -5,7 +5,7 @@ import { withKnobs, select, boolean } from "@storybook/addon-knobs";
 
 import withData from "./decorators/withData";
 import Baggage from "../src/components/Baggage";
-import baggageData from "../src/components/Baggage/services/data";
+import { baggageData, emptyData } from "../src/components/Baggage/services/data";
 
 const handBagOptions = {
   first: 0,
@@ -61,6 +61,30 @@ storiesOf("Baggage", module)
         }}
         shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}
+      />
+    </div>
+  ))
+  .add("both empty", () => (
+    <div style={{ padding: "24px" }}>
+      <Baggage
+        pickerType="handBag"
+        passengerBaggage={{
+          handBag: select("Handbag", handBagOptions, 1, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
+        }}
+        shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
+        {...props}
+        baggage={emptyData}
+      />
+      <Baggage
+        pickerType="holdBag"
+        passengerBaggage={{
+          handBag: select("Handbag", handBagOptions, 1, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
+        }}
+        shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
+        {...props}
+        baggage={emptyData}
       />
     </div>
   ))
