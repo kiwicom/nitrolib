@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import styled from "styled-components";
 import Text from "@kiwicom/orbit-components/lib/Text";
@@ -7,15 +7,12 @@ import InformationCircle from "@kiwicom/orbit-components/lib/icons/InformationCi
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import ChevronUp from "@kiwicom/orbit-components/lib/icons/ChevronUp";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
-import Close from "@kiwicom/orbit-components/lib/icons/Close";
 
-import Translate from "../../Translate";
-import Tooltip from "../../Tooltip";
-import { themeDefault } from "../../../records/Theme";
-import type { ThemeProps } from "../../../records/Theme";
-import Flex from "../../../primitives/Flex";
-import type { OptionBaggage } from "../../../records/Baggage";
-import Option from "../BaggageOption";
+import Translate from "../../../Translate/index";
+import Tooltip from "../../../Tooltip/index";
+import Flex from "../../../../primitives/Flex";
+import type { OptionBaggage } from "../../../../records/Baggage";
+import Option from "../BaggageOption/index";
 
 type State = {
   showedItems: Array<OptionBaggage>,

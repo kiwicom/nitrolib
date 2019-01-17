@@ -14,11 +14,11 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Radio from "@kiwicom/orbit-components/lib/Radio";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 
-import Translate from "../../Translate";
-import OptionItem from "../OptionItem";
-import { themeDefault } from "../../../records/Theme";
-import type { ThemeProps } from "../../../records/Theme";
-import type { Price, Item } from "../../../records/Baggage";
+import Translate from "../../../Translate/index";
+import OptionItem from "../OptionItem/index";
+import { themeDefault } from "../../../../records/Theme";
+import type { ThemeProps } from "../../../../records/Theme";
+import type { Price, Item } from "../../../../records/Baggage";
 
 type Props = {
   items: { [key: string]: Item },

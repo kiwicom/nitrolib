@@ -5,7 +5,7 @@ import { withKnobs, select, boolean } from "@storybook/addon-knobs";
 
 import withData from "./decorators/withData";
 import Baggage from "../src/components/Baggage";
-import baggageData from "../src/components/Baggage/baggageData";
+import baggageData from "../src/components/Baggage/services/data";
 
 const handBagOptions = {
   first: 0,

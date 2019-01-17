@@ -1,14 +1,13 @@
 // @flow strict
 import * as React from "react";
 
-import BaggagePicker from "./BaggagePicker";
+import BaggagePicker from "./components/BaggagePicker";
 import type {
   BaggageType,
   BaggageGroup,
   HoldBagDefinition,
   HandBagDefinition,
 } from "../../records/Baggage";
-import Translate from "../Translate";
 
 type Props = {
   passengerIndex: number, // eslint-disable-line

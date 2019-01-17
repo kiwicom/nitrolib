@@ -3,7 +3,7 @@ import * as React from "react";
 import { shallow } from "enzyme";
 
 import BaggagePicker from "../index";
-import exampleData from "../baggagePickerData";
+import exampleData from "../services/data";
 
 const props = {
   options: exampleData,
