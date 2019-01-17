@@ -15,10 +15,11 @@ import Translate from "../Translate";
 import Text from "../Text";
 import { Consumer } from "../../services/intl/context";
 
+type LoginType = "mmb" | "help" | "refer";
+
 type Props = {|
+  type: LoginType,
   email: string,
-  illustration?: "Login" | "Help" | "InviteAFriend" | "AirHelp",
-  text?: React.Node,
   error?: React.Node,
   isLoading?: boolean,
   onNoAccount: (ev: SyntheticEvent<HTMLLinkElement>) => void,
@@ -28,11 +29,28 @@ type Props = {|
   onContinue: (ev: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
+const ILLUSTRATION = {
+  help: "Help",
+  refer: "ReferAFriend",
+  mmb: "Login",
+};
+
+const TITLE_TKEY = {
+  help: __("account.login_title.get_help"),
+  refer: __("account.login_title.refer"),
+  mmb: __("account.manage_your_bookings"),
+};
+
+const DESC_TKEY = {
+  help: __("account.login_description.help"),
+  refer: __("account.login_description.refer"),
+  mmb: __("account.sign_in_description"),
+};
+
 const AccountLogin = ({
+  type,
   email,
-  text,
   error,
-  illustration,
   isLoading,
   onNoAccount,
   onGoogleLogin,
@@ -44,11 +62,15 @@ const AccountLogin = ({
     {intl => (
       <>
         <Section>
-          <Illustration name={illustration || "Login"} size="small" spaceAfter="small" />
+          <Illustration
+            name={ILLUSTRATION[type] || ILLUSTRATION.mmb}
+            size="small"
+            spaceAfter="small"
+          />
           <Heading element="h2" spaceAfter="small">
-            {text || <Translate t="account.manage_your_bookings" />}
+            <Translate t={TITLE_TKEY[type] || TITLE_TKEY.mmb} />
           </Heading>
-          <Text spaceAfter="large" t="account.sign_in_description" />
+          <Text spaceAfter="large" t={DESC_TKEY[type] || DESC_TKEY.mmb} />
         </Section>
         <Section>
           <form onSubmit={onContinue}>
@@ -98,5 +120,9 @@ const AccountLogin = ({
     )}
   </Consumer>
 );
+
+AccountLogin.defaultProps = {
+  type: "mmb",
+};
 
 export default AccountLogin;

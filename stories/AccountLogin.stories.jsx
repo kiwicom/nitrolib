@@ -6,16 +6,18 @@ import AccountLogin from "../src/components/AccountLogin";
 import withData from "./decorators/withData";
 import Text from "../src/components/Text";
 
+const commonProps = {
+  email: "",
+  error: <Text t="account.submit_error.general" />,
+  onNoAccount: () => {},
+  onEmailChange: () => {},
+  onFacebookLogin: () => {},
+  onGoogleLogin: () => {},
+  onContinue: () => {},
+};
+
 storiesOf("AccountLogin", module)
   .addDecorator(withData)
-  .add("default", () => (
-    <AccountLogin
-      email=""
-      error={<Text t="account.submit_error.general" />}
-      onNoAccount={() => {}}
-      onEmailChange={() => {}}
-      onFacebookLogin={() => {}}
-      onGoogleLogin={() => {}}
-      onContinue={() => {}}
-    />
-  ));
+  .add("default", () => <AccountLogin {...commonProps} />)
+  .add("Help", () => <AccountLogin {...commonProps} type="help" />)
+  .add("Refer A Friend", () => <AccountLogin {...commonProps} type="refer" />);
