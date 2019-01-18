@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#LocationPicker With Icon 1`] = `
+<ClickOutside
+  active={false}
+  onClickOutside={[Function]}
+>
+  <InputField
+    inlineLabel={true}
+    label="From"
+    onChange={[Function]}
+    placeholder=""
+    prefix={<Gps />}
+    value=""
+  />
+</ClickOutside>
+`;
+
+exports[`#LocationPicker render 1`] = `
+<ClickOutside
+  active={false}
+  onClickOutside={[Function]}
+>
+  <InputField
+    inlineLabel={true}
+    label="From"
+    onChange={[Function]}
+    placeholder="Denver (United States)"
+    value=""
+  />
+</ClickOutside>
+`;
+
+exports[`#LocationPicker render active 1`] = `
+<ClickOutside
+  active={true}
+  onClickOutside={[Function]}
+>
+  <InputField
+    inlineLabel={true}
+    label="From"
+    onChange={[Function]}
+    placeholder=""
+    value=""
+  />
+</ClickOutside>
+`;

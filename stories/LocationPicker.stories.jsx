@@ -10,10 +10,13 @@ import LocationPicker from "../src/components/LocationPicker";
 storiesOf("LocationPicker", module)
   .addDecorator(withKnobs)
   .add("default", () => (
+    <LocationPicker value={null} onChange={action("change")} label={text("Label", "From")} />
+  ))
+  .add("with icon", () => (
     <LocationPicker
       value={null}
-      onChange={action("change")}
       icon={<GpsIcon />}
+      onChange={action("change")}
       label={text("Label", "From")}
     />
   ));

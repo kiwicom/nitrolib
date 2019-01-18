@@ -8,7 +8,7 @@ type Props = {|
   value: Location | null,
   onChange: (loc: Location) => void,
   label: string,
-  icon: React.Node,
+  icon?: React.Node,
   // defaulted
   environment?: Environment,
 |};

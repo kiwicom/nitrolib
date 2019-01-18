@@ -30,7 +30,7 @@ type Props = {|
   value: Location | null,
   onChange: (loc: Location) => void,
   label: string,
-  icon: React.Node,
+  icon?: React.Node,
   // defaulted
   environment: Environment,
 |};
@@ -38,6 +38,7 @@ type Props = {|
 type State = {|
   active: boolean,
   input: string,
+  placeholder: string,
 |};
 
 class LocationPicker extends React.Component<Props, State> {
@@ -48,6 +49,7 @@ class LocationPicker extends React.Component<Props, State> {
   state = {
     active: false,
     input: "",
+    placeholder: "",
   };
 
   node: { current: any | HTMLDivElement } = React.createRef();
@@ -60,10 +62,12 @@ class LocationPicker extends React.Component<Props, State> {
 
   handleSelect = (item: Location) => {
     const { onChange } = this.props;
+    const placeholder = getPlaceholder(item);
 
     onChange(item);
     this.setState({
       active: false,
+      placeholder,
     });
   };
 
@@ -76,16 +80,16 @@ class LocationPicker extends React.Component<Props, State> {
 
   render() {
     const { value, label, icon, environment } = this.props;
-    const { active, input } = this.state;
-
-    const placeholder = value ? getPlaceholder(value) : null;
+    const { active, input, placeholder } = this.state;
+    const placeholderFromValue = value ? getPlaceholder(value) : placeholder;
 
     return (
       <ClickOutside active={active} onClickOutside={this.handleClose}>
         <>
           <InputField
             inlineLabel
-            placeholder={placeholder || label}
+            label={label}
+            placeholder={placeholderFromValue}
             onChange={this.handleChange}
             prefix={icon}
             value={active ? input : ""}
