@@ -18,7 +18,9 @@ export async function handleJSON<T>(res: Response): Promise<T> {
 
   // Our API convention
   if (data.error_code) {
-    return Promise.reject(new Error(data.message));
+    return Promise.reject(
+      new Error(`Fetch: ${data.message}. Data: ${JSON.stringify(data, null, "  ")}`),
+    );
   }
 
   return data;
