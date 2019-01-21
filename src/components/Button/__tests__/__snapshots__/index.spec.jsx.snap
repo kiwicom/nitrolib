@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Button html 1`] = `
+<Button
+  onClick={[Function]}
+>
+  <Translate
+    html={true}
+    t="lol"
+    transform={[Function]}
+    values={Object {}}
+  />
+</Button>
+`;
+
+exports[`#Button string 1`] = `
+<Button
+  onClick={[Function]}
+>
+  <Translate
+    html={false}
+    t="lol"
+    transform={[Function]}
+    values={Object {}}
+  />
+</Button>
+`;
