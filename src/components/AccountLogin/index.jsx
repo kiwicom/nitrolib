@@ -68,9 +68,9 @@ const AccountLogin = ({
             spaceAfter="small"
           />
           <Heading element="h2" spaceAfter="small">
-            <Translate t={TITLE_TKEY[type] || TITLE_TKEY.mmb} />
+            <Translate t={TITLE_TKEY[type]} />
           </Heading>
-          <Text spaceAfter="large" t={DESC_TKEY[type] || DESC_TKEY.mmb} />
+          <Text spaceAfter="large" t={DESC_TKEY[type]} />
         </Section>
         <Section>
           <form onSubmit={onContinue}>
