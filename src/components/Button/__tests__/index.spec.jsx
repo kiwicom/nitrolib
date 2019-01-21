@@ -6,13 +6,13 @@ import Button from "..";
 
 describe("#Button", () => {
   test("string", () => {
-    const wrapper = shallow(<Button onClick={() => "kek"} t="lol" />);
+    const wrapper = shallow(<Button onClick={jest.fn()} t="kek" />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   test("html", () => {
-    const wrapper = shallow(<Button onClick={() => "kek"} t="lol" html />);
+    const wrapper = shallow(<Button onClick={jest.fn()} t="kek" html />);
 
     expect(wrapper).toMatchSnapshot();
   });
