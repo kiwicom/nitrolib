@@ -1,4 +1,6 @@
 // @flow strict
+import * as R from "ramda";
+
 export type LangInfo = {|
   id: string,
   name: string,
@@ -100,8 +102,10 @@ export const langInfoDefault: LangInfo = {
   separateFourDigits: "1",
 };
 
-export const fixDateFormat = (date: string) => {
-  const re = /\b(D|DD|YYYY)\b/g;
-  const rep = /\b(ddd)\b/g;
-  return date.replace(re, match => match.toLowerCase()).replace(rep, "eee");
-};
+export const fixDateFormat: (format: string) => string = R.compose(
+  R.replace(/\bYYYY\b/g, "yyyy"),
+  R.replace(/\bMMMD\b/g, "MMMd"), // Japan special
+  R.replace(/\bD\b/g, "d"),
+  R.replace(/\bDD\b/g, "dd"),
+  R.replace(/\bddd\b/g, "eee"),
+);
