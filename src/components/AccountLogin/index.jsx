@@ -70,7 +70,7 @@ const AccountLogin = ({
           <Heading element="h2" spaceAfter="small">
             <Translate t={TITLE_TKEY[type]} />
           </Heading>
-          <Text spaceAfter="large" t={DESC_TKEY[type]} />
+          <Text t={DESC_TKEY[type]} />
         </Section>
         <Section dataTest="AccountLogin">
           <form onSubmit={onContinue}>

@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from "react";
-import OrbitText from "@kiwicom/orbit-components/lib/Text";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
@@ -11,6 +10,7 @@ import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import Translate from "../Translate";
+import Text from "../Text";
 
 type Props = {|
   email: string,
@@ -26,9 +26,7 @@ const AccountSocialLogin = ({ onAskSignInLink, onFacebookLogin, onGoogleLogin, e
       <Heading element="h2">
         <Translate t="account.manage_your_bookings" />
       </Heading>
-      <OrbitText weight="bold">
-        <Translate t="account.sign_in_description" />
-      </OrbitText>
+      <Text t="account.sign_in_description" />
     </Header>
     <Section>
       <Stack flex direction="column" spacing="condensed" desktop={{ direction: "row" }}>
@@ -41,9 +39,7 @@ const AccountSocialLogin = ({ onAskSignInLink, onFacebookLogin, onGoogleLogin, e
       </Stack>
     </Section>
     <Section>
-      <OrbitText spaceAfter="normal">
-        <Translate t="account.send_link_to" values={{ email }} />
-      </OrbitText>
+      <Text spaceAfter="normal" t="account.send_link_to" values={{ email }} />
       <Button type="secondary" onClick={onAskSignInLink}>
         <Translate t="account.ask_sign_in_link" />
       </Button>

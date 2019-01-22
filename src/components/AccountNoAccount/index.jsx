@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from "react";
-import OrbitText from "@kiwicom/orbit-components/lib/Text";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 import Button from "@kiwicom/orbit-components/lib/Button";
@@ -14,6 +13,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import styled from "styled-components";
 
 import Translate from "../Translate";
+import Text from "../Text";
 
 // TODO: remove it after nitro update
 const Align = styled.div`
@@ -34,9 +34,7 @@ const AccountNoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }
       <Heading element="h2">
         <Translate t="account.no_bookings_or_account" />
       </Heading>
-      <OrbitText>
-        <Translate t="account.no_bookings_or_account_description" />
-      </OrbitText>
+      <Text t="account.no_bookings_or_account_description" />
     </Header>
     <Section>
       <Stack spacing="natural" direction="column" desktop={{ direction: "row" }}>
@@ -51,9 +49,7 @@ const AccountNoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }
       </Stack>
     </Section>
     <Section suppressed>
-      <OrbitText weight="bold" spaceAfter="medium">
-        <Translate t="account.or_social_account" />
-      </OrbitText>
+      <Text t="account.or_social_account" weight="bold" spaceAfter="medium" />
       <Stack spacing="natural" flex>
         <Button type="facebook" block bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
           <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />

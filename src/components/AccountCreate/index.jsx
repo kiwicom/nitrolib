@@ -58,7 +58,7 @@ const AccountCreate = ({
           <Heading element="h2">
             <Translate t="account.create_account" />
           </Heading>
-          <Translate t="account.create_account_description" />
+          <Text t="account.create_account_description" />
         </Header>
         <Section dataTest="AccountCreate">
           <form onSubmit={onContinue}>
