@@ -2,11 +2,11 @@
 
 exports[`#Button html 1`] = `
 <Button
-  onClick={[Function]}
+  onClick={[MockFunction]}
 >
   <Translate
     html={true}
-    t="lol"
+    t="kek"
     transform={[Function]}
     values={Object {}}
   />
@@ -15,11 +15,11 @@ exports[`#Button html 1`] = `
 
 exports[`#Button string 1`] = `
 <Button
-  onClick={[Function]}
+  onClick={[MockFunction]}
 >
   <Translate
     html={false}
-    t="lol"
+    t="kek"
     transform={[Function]}
     values={Object {}}
   />
