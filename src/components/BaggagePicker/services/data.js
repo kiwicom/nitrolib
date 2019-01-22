@@ -3,343 +3,275 @@ export const baggageData = {
   definitions: {
     handBag: [
       {
-        note: null,
+        conditions: {
+          passengerGroups: ["adult"],
+        },
         price: {
           currency: "EUR",
           amount: 0,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
         },
-        currency: "EUR",
         category: "personalItem",
         restrictions: {
           weight: 5,
           height: 20,
           width: 20,
           length: 20,
-          dimensions_sum: null,
+          dimensionsSum: null,
         },
       },
       {
-        note: null,
+        conditions: {
+          passengerGroups: ["adult"],
+        },
         price: {
           currency: "EUR",
-          amount: 0,
+          amount: 10,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
         },
-        currency: "EUR",
         category: "cabinBag",
         restrictions: {
           weight: 10,
           height: 35,
           width: 20,
           length: 45,
-          dimensions_sum: null,
+          dimensionsSum: null,
         },
       },
     ],
     holdBag: [
       {
         note: null,
+        conditions: {
+          passengerGroups: ["adult"],
+        },
         price: {
           currency: "EUR",
           amount: 10,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
         },
-        currency: "EUR",
         category: "holdBag",
         restrictions: {
           weight: 10,
           height: 52,
           width: 26,
           length: 78,
-          dimensions_sum: 156,
+          dimensionsSum: 156,
         },
       },
       {
-        note: null,
+        conditions: {
+          passengerGroups: ["adult"],
+        },
         price: {
           currency: "EUR",
-          amount: 25,
+          amount: 20,
+          base: 20,
+          merchant: null,
+          service: 5,
+          serviceFlat: 0,
         },
-        currency: "EUR",
         category: "holdBag",
         restrictions: {
           weight: 15,
           height: 52,
           width: 26,
           length: 78,
-          dimensions_sum: 156,
+          dimensionsSum: 156,
         },
       },
       {
-        note: null,
+        conditions: {
+          passengerGroups: ["adult"],
+          isPriority: ["FR", "W6"],
+        },
         price: {
           currency: "EUR",
           amount: 30,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
         },
-        currency: "EUR",
         category: "holdBag",
         restrictions: {
           weight: 25,
           height: 52,
           width: 26,
           length: 78,
-          dimensions_sum: 156,
-        },
-        conditions: {
-          is_priority: ["FR", "W6"],
+          dimensionsSum: 156,
         },
       },
     ],
   },
   combinations: {
-    adult: {
-      handBag: [
-        {
-          category: "handBag",
-          group: "adult",
-          combination: [0],
-          price: {
-            currency: "EUR",
-            amount: 0,
-          },
-          originalIndex: 0,
-          allowanceGraph: {
-            add: {},
-            remove: {},
-          },
+    handBag: [
+      {
+        conditions: {
+          passengerGroups: ["adult"],
         },
-        {
-          category: "handBag",
-          group: "adult",
-          combination: [1],
-          price: {
-            currency: "EUR",
-            amount: 15,
-          },
-          originalIndex: 1,
-          allowanceGraph: {
-            add: {},
-            remove: {},
-          },
+        indices: [0],
+        price: {
+          currency: "EUR",
+          amount: 0,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
         },
-        {
-          category: "handBag",
-          group: "adult",
-          combination: [0, 1],
-          price: {
-            currency: "EUR",
-            amount: 20,
-          },
-          originalIndex: 2,
-          allowanceGraph: {
-            add: {},
-            remove: {},
-          },
+      },
+      {
+        conditions: {
+          passengerGroups: ["adult"],
         },
-        {
-          category: "handBag",
-          group: "adult",
-          combination: [0, 1, 1],
-          price: {
-            currency: "EUR",
-            amount: 30,
-          },
-          originalIndex: 3,
-          allowanceGraph: {
-            add: {},
-            remove: {},
-          },
+        indices: [1],
+        price: {
+          currency: "EUR",
+          amount: 10,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
         },
-        {
-          category: "handBag",
-          group: "adult",
-          combination: [0, 1, 1, 1],
-          price: {
-            currency: "EUR",
-            amount: 40,
-          },
-          originalIndex: 4,
-          allowanceGraph: {
-            add: {},
-            remove: {},
-          },
+      },
+      {
+        conditions: {
+          passengerGroups: ["adult"],
         },
-      ],
-      holdBag: [
-        {
-          category: "holdBag",
-          group: "adult",
-          combination: [],
-          price: {
-            currency: "EUR",
-            amount: 0,
-          },
-          originalIndex: 5,
-          allowanceGraph: {
-            add: {
-              "0": 1,
-              "1": 2,
-              "2": 3,
-            },
-            remove: {},
-          },
+        indices: [0, 1],
+        price: {
+          currency: "EUR",
+          amount: 10,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
         },
-        {
-          category: "holdBag",
-          group: "adult",
-          combination: [0],
-          price: {
-            currency: "EUR",
-            amount: 10,
-          },
-          originalIndex: 6,
-          allowanceGraph: {
-            add: {},
-            remove: {
-              "0": 0,
-            },
-          },
+      },
+      {
+        conditions: {
+          passengerGroups: ["adult"],
         },
-        {
-          category: "holdBag",
-          group: "adult",
-          combination: [1],
-          price: {
-            currency: "EUR",
-            amount: 25,
-          },
-          originalIndex: 7,
-          allowanceGraph: {
-            add: {},
-            remove: {
-              "1": 0,
-            },
-          },
+        indices: [0, 1, 1],
+        price: {
+          currency: "EUR",
+          amount: 20,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
         },
-        {
-          category: "holdBag",
-          group: "adult",
-          combination: [2],
-          price: {
-            currency: "EUR",
-            amount: 30,
-          },
-          originalIndex: 8,
-          allowanceGraph: {
-            add: {},
-            remove: {
-              "2": 0,
-            },
-          },
+      },
+      {
+        conditions: {
+          passengerGroups: ["adult"],
         },
-        {
-          category: "holdBag",
-          group: "adult",
-          combination: [1, 1, 2],
-          price: {
-            currency: "EUR",
-            amount: 50,
-          },
-          originalIndex: 9,
-          allowanceGraph: {
-            add: {},
-            remove: {
-              "2": 0,
-            },
-          },
+        indices: [0, 1, 1, 1],
+        price: {
+          currency: "EUR",
+          amount: 30,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
         },
-        {
-          category: "holdBag",
-          group: "adult",
-          combination: [1, 1, 2, 2],
-          price: {
-            currency: "EUR",
-            amount: 60,
-          },
-          originalIndex: 10,
-          allowanceGraph: {
-            add: {},
-            remove: {
-              "2": 0,
-            },
-          },
+      },
+    ],
+    holdBag: [
+      {
+        conditions: {
+          passengerGroups: ["adult"],
         },
-      ],
-    },
-    child: {
-      handBag: [
-        {
-          category: "handBag",
-          group: "child",
-          combination: [0],
-          price: {
-            currency: "EUR",
-            amount: 0,
-          },
-          originalIndex: 0,
-          allowanceGraph: {
-            add: {},
-            remove: {},
-          },
+        indices: [],
+        price: {
+          currency: "EUR",
+          amount: 0,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
         },
-      ],
-      holdBag: [
-        {
-          category: "holdBag",
-          group: "child",
-          combination: [],
-          price: {
-            currency: "EUR",
-            amount: 0,
-          },
-          originalIndex: 5,
-          allowanceGraph: {
-            add: {
-              "0": 1,
-              "1": 2,
-              "2": 3,
-            },
-            remove: {},
-          },
+      },
+      {
+        conditions: {
+          passengerGroups: ["adult"],
         },
-      ],
-    },
-    infant: {
-      handBag: [
-        {
-          category: "handBag",
-          group: "infant",
-          combination: [0],
-          price: {
-            currency: "EUR",
-            amount: 0,
-          },
-          originalIndex: 0,
-          allowanceGraph: {
-            add: {},
-            remove: {},
-          },
+        indices: [0],
+        price: {
+          currency: "EUR",
+          amount: 10,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
         },
-      ],
-      holdBag: [
-        {
-          category: "holdBag",
-          group: "infant",
-          combination: [],
-          price: {
-            currency: "EUR",
-            amount: 0,
-          },
-          originalIndex: 5,
-          allowanceGraph: {
-            add: {
-              "0": 1,
-              "1": 2,
-              "2": 3,
-            },
-            remove: {},
-          },
+      },
+      {
+        conditions: {
+          passengerGroups: ["adult"],
         },
-      ],
-    },
+        indices: [1],
+        price: {
+          currency: "EUR",
+          amount: 20,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
+        },
+      },
+      {
+        conditions: {
+          passengerGroups: ["adult"],
+        },
+        indices: [2],
+        price: {
+          currency: "EUR",
+          amount: 30,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
+        },
+      },
+      {
+        conditions: {
+          passengerGroups: ["adult"],
+        },
+        indices: [1, 1, 2],
+        price: {
+          currency: "EUR",
+          amount: 70,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
+        },
+      },
+      {
+        conditions: {
+          passengerGroups: ["adult"],
+        },
+        indices: [1, 1, 2, 2],
+        price: {
+          currency: "EUR",
+          amount: 100,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
+        },
+      },
+    ],
   },
 };
 
@@ -349,17 +281,7 @@ export const emptyData = {
     holdBag: [],
   },
   combinations: {
-    adult: {
-      handBag: [],
-      holdBag: [],
-    },
-    child: {
-      handBag: [],
-      holdBag: [],
-    },
-    infant: {
-      handBag: [],
-      holdBag: [],
-    },
+    handBag: [],
+    holdBag: [],
   },
 };

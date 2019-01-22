@@ -83,8 +83,8 @@ const getIconFromCategory = category => {
 
 const getAirlinesWithPriorityBoarding = itemsArray => {
   const airlines = itemsArray.reduce((acc, item) => {
-    if (item.conditions && item.conditions.is_priority) {
-      return [...acc, ...item.conditions.is_priority];
+    if (item.conditions && item.conditions.isPriority) {
+      return [...acc, ...item.conditions.isPriority];
     }
     return acc || [];
   }, []);

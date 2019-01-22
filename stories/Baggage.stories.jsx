@@ -16,12 +16,12 @@ const handBagOptions = {
 };
 
 const holdBagOptions = {
-  first: 5,
-  second: 6,
-  third: 7,
-  fourth: 8,
-  fifth: 9,
-  sixth: 10,
+  first: 0,
+  second: 1,
+  third: 2,
+  fourth: 3,
+  fifth: 4,
+  sixth: 5,
 };
 
 const props = {
@@ -47,7 +47,7 @@ storiesOf("BaggagePicker", module)
         pickerType="handBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
-          holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
         }}
         shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}
@@ -56,7 +56,7 @@ storiesOf("BaggagePicker", module)
         pickerType="holdBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
-          holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
         }}
         shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}
@@ -69,7 +69,7 @@ storiesOf("BaggagePicker", module)
         pickerType="handBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
-          holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
         }}
         shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}
@@ -79,7 +79,7 @@ storiesOf("BaggagePicker", module)
         pickerType="holdBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
-          holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
         }}
         shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}
@@ -93,7 +93,7 @@ storiesOf("BaggagePicker", module)
         pickerType="handBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
-          holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
         }}
         shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}
@@ -106,7 +106,7 @@ storiesOf("BaggagePicker", module)
         pickerType="holdBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
-          holdBag: select("Holdbag", holdBagOptions, 6, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
         }}
         shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}

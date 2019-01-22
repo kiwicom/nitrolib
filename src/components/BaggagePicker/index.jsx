@@ -12,15 +12,13 @@ import type {
 } from "../../records/Baggage";
 
 type Props = {
-  passengerIndex: number, // eslint-disable-line
   changeBagCombination: () => void,
   passengerCategory: BaggageGroup,
   passengerBaggage: { handBag: number, holdBag: number },
   baggage: BaggageType,
-  shouldShowRecheckNote: boolean, // eslint-disable-line
+  shouldShowRecheckNote: boolean,
   selfTransferEnabled: boolean, // eslint-disable-line
   selfTransferTooltip: string, // eslint-disable-line
-  disabledBagsInMmb: boolean, // eslint-disable-line
   airlines: Array<string>, // eslint-disable-line
   pickerType: "handBag" | "holdBag",
   context: "booking" | "mmb", // eslint-disable-line
@@ -46,20 +44,27 @@ class Baggage extends React.Component<Props> {
       return acc;
     }, {});
 
-  getBaggagePickerOptions = (type: string) => {
+  getOptions = () => {
     const {
       baggage: { combinations, definitions },
       passengerCategory,
+      pickerType,
     } = this.props;
 
-    const bagCombinations = R.path([passengerCategory, type], combinations) || [];
-    const bagDefinitions = definitions[type];
+    const bagCombinations = combinations[pickerType]
+      .map((item, index) => {
+        item.originalIndex = index; // eslint-disable-line
+        return item;
+      })
+      .filter(i => R.includes(passengerCategory, i.conditions.passengerGroups));
+
+    const bagDefinitions = definitions[pickerType];
 
     const options: Array<OptionBaggage> = bagCombinations.map(c => ({
       originalIndex: c.originalIndex,
-      bagType: type,
+      bagType: pickerType,
       price: c.price,
-      items: this.getOptionItems(bagDefinitions, c.combination),
+      items: this.getOptionItems(bagDefinitions, c.indices),
     }));
 
     return options;
@@ -73,7 +78,7 @@ class Baggage extends React.Component<Props> {
       shouldShowRecheckNote,
       context,
     } = this.props;
-    const baggageOptions = this.getBaggagePickerOptions(pickerType);
+    const baggageOptions = this.getOptions();
 
     return (
       <Picker
