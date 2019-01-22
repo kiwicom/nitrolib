@@ -2,6 +2,7 @@
 
 exports[`#TripDataList render 1`] = `
 <TripContainer
+  padding={true}
   positionMenuDesktop={50}
   positionMenuTablet={0}
 >

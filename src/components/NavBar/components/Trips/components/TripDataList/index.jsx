@@ -35,7 +35,7 @@ const TripDataList = ({ env, onSelect }: Props) => (
     render={res => {
       if (res.error) {
         return (
-          <TripContainer positionMenuTablet={0} positionMenuDesktop={50}>
+          <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
             <StateContainer>
               <Alert type="critical">{String(res.error)}</Alert>
             </StateContainer>
@@ -45,7 +45,7 @@ const TripDataList = ({ env, onSelect }: Props) => (
 
       if (!res.props) {
         return (
-          <TripContainer positionMenuTablet={0} positionMenuDesktop={50}>
+          <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
             <StateContainer>
               <Translate t="common.loading" />
             </StateContainer>
@@ -56,7 +56,7 @@ const TripDataList = ({ env, onSelect }: Props) => (
       const { customerBookings } = res.props;
       if (!customerBookings) {
         return (
-          <TripContainer positionMenuTablet={0} positionMenuDesktop={50}>
+          <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
             <StateContainer>
               <Alert>
                 <Translate t="account.no_trips" />
