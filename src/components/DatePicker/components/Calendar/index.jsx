@@ -6,7 +6,6 @@ import ChevronRight from "@kiwicom/orbit-components/lib/icons/ChevronRight";
 import styled from "styled-components";
 
 import calculateRanges from "../../../../services/dates/calculateRanges";
-import CalendarWrapper from "../../primitives/DatePickerWrapper";
 import Weeks from "../Weeks/index";
 import Days from "../Days/Days";
 import Months from "../Months/index";
@@ -14,8 +13,7 @@ import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 
 const CalendarTop = styled.div`
-  background: ${({ theme }: ThemeProps) => theme.orbit.paletteCloudLight};
-  padding: 0 ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
+  margin-top: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
   display: flex;
   height: 40px;
 `;
@@ -24,18 +22,20 @@ CalendarTop.defaultProps = {
   theme: themeDefault,
 };
 
-const CalendarContent = styled.div`
-  padding: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall}
-    ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
-`;
-
-CalendarContent.defaultProps = {
-  theme: themeDefault,
-};
-
 const Arrow = styled.div`
   cursor: pointer;
+  background: #e8edf1;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: ${({ theme }) => theme.orbit.borderRadiusNormal};
 `;
+
+Arrow.defaultProps = {
+  theme: themeDefault,
+};
 
 type Props = {|
   value: Date,
@@ -51,23 +51,21 @@ const Calendar = ({ value, viewing, min, max, onSelect, decrease, increase }: Pr
   const { months } = calculateRanges(min, max, value);
 
   return (
-    <CalendarWrapper>
+    <>
       <CalendarTop>
         <Stack align="center" flex justify="between">
           <Arrow onClick={decrease}>
-            <ChevronLeft size="large" color="secondary" />
+            <ChevronLeft size="small" color="secondary" />
           </Arrow>
           <Months months={months} viewing={viewing} />
           <Arrow onClick={increase}>
-            <ChevronRight size="large" color="secondary" />
+            <ChevronRight size="small" color="secondary" />
           </Arrow>
         </Stack>
       </CalendarTop>
-      <CalendarContent>
-        <Weeks value={value} />
-        <Days value={value} viewing={viewing} onSelect={onSelect} />
-      </CalendarContent>
-    </CalendarWrapper>
+      <Weeks value={viewing} />
+      <Days value={value} viewing={viewing} onSelect={onSelect} />
+    </>
   );
 };
 

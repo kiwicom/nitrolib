@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
-import getDay from "date-fns/getDay";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Text from "@kiwicom/orbit-components/lib/Text";
 
 import DayFormat from "../../../Day/index";
 import DayWrapper from "../../primitives/Day";
@@ -12,16 +12,14 @@ type Props = {|
 |};
 
 const Weeks = ({ value }: Props): React.Node => (
-  <Stack align="center" justify="between" spaceAfter="medium">
-    {getWeekDays(value).map(weekDay => {
-      const weekends = getDay(weekDay) === 6 || getDay(weekDay) === 0;
-
-      return (
-        <DayWrapper key={weekDay} color={weekends ? "product" : "dark"}>
+  <Stack align="center" justify="between" spacing="extraTight" spaceAfter="medium">
+    {getWeekDays(value).map(weekDay => (
+      <DayWrapper key={weekDay} disabled>
+        <Text size="small">
           <DayFormat format="iii" date={weekDay} />
-        </DayWrapper>
-      );
-    })}
+        </Text>
+      </DayWrapper>
+    ))}
   </Stack>
 );
 

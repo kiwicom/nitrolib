@@ -6,27 +6,23 @@ import type { ThemeProps } from "../../../records/Theme";
 
 type ActiveProps = ThemeProps & {|
   active: boolean,
-  today: boolean,
-  hover: boolean,
-  color: "white" | "dark" | "product",
+  disabled: boolean,
 |};
 
 const Day = styled.div`
-  color: ${({ color, theme }: ActiveProps) =>
-    (color === "white" && theme.orbit.paletteWhite) ||
-    (color === "dark" && theme.orbit.paletteInkDark) ||
-    (color === "product" && theme.orbit.paletteProductNormal)};
-  ${({ active, theme }: ActiveProps) =>
-    active && `background: ${theme.orbit.paletteProductNormal}`};
-  height: 30px;
+  ${({ active, theme }: ActiveProps) => active && `background: ${theme.orbit.paletteBlueNormal}`};
+  height: 50px;
+  width: 50px;
   display: flex;
+  border-radius: 4px;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? `initial` : `pointer`)};
   &:hover {
-    background: ${({ theme, hover }: ActiveProps) =>
-      hover ? theme.orbit.paletteCloudLightHover : theme.orbit.paletteWhite};
+    background: ${({ theme, disabled, active }: ActiveProps) =>
+      (!disabled && !active && theme.orbit.paletteCloudLightHover) ||
+      (active && theme.orbit.paletteBlueNormal) ||
+      `none`};
   }
 `;
 

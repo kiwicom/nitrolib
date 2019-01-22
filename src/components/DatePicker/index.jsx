@@ -8,8 +8,11 @@ import endOfMonth from "date-fns/endOfMonth";
 import startOfMonth from "date-fns/startOfMonth";
 import format from "date-fns/format";
 
+import { fixDateFormat } from "../../records/LangInfo";
 import Calendar from "./components/Calendar/index";
 import ClickOutside from "../ClickOutside";
+import DatePickerWrapper from "./primitives/DatePickerWrapper";
+import { Consumer as IntlConsumer } from "../../services/intl/context";
 
 type Props = {|
   value: Date,
@@ -24,8 +27,6 @@ type State = {|
   active: boolean,
   viewing: Date,
 |};
-
-const FORMAT = "ccc d MMM"; // TODO take from Intl
 
 export default class DatePicker extends React.Component<Props, State> {
   state = {
@@ -51,6 +52,10 @@ export default class DatePicker extends React.Component<Props, State> {
     const { viewing } = this.state;
 
     this.handleClose();
+    this.setState({
+      viewing: setDate(viewing, day),
+    });
+
     onChange(setDate(viewing, day));
   };
 
@@ -84,27 +89,33 @@ export default class DatePicker extends React.Component<Props, State> {
 
     return (
       <ClickOutside active={active} onClickOutside={this.handleClose}>
-        <>
-          <InputField
-            inlineLabel
-            placeholder={format(value, FORMAT)}
-            maxLength={0}
-            onFocus={this.handleOpen}
-            label={label}
-            prefix={icon}
-          />
-          {active && (
-            <Calendar
-              decrease={this.handleDecrease}
-              increase={this.handleIncrease}
-              value={value}
-              viewing={viewing}
-              onSelect={this.handleSelect}
-              min={min}
-              max={max}
-            />
-          )}
-        </>
+        <DatePickerWrapper active={active}>
+          <IntlConsumer>
+            {intl => (
+              <>
+                <InputField
+                  inlineLabel
+                  placeholder={format(viewing, fixDateFormat(intl.language.dateFormat))}
+                  maxLength={0}
+                  onFocus={this.handleOpen}
+                  label={label}
+                  prefix={icon}
+                />
+                {active && (
+                  <Calendar
+                    decrease={this.handleDecrease}
+                    increase={this.handleIncrease}
+                    value={value}
+                    viewing={viewing}
+                    onSelect={this.handleSelect}
+                    min={min}
+                    max={max}
+                  />
+                )}
+              </>
+            )}
+          </IntlConsumer>
+        </DatePickerWrapper>
       </ClickOutside>
     );
   }
