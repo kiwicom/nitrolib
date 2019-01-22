@@ -26,7 +26,7 @@ const Day = (props: Props) => (
 );
 
 Day.defaultProps = {
-  format: "dd/MM/yyyy",
+  format: "",
 };
 
 export default Day;
