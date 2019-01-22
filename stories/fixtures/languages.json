@@ -224,7 +224,7 @@
     "locations": "de",
     "dateFormat": "ddd D.M.",
     "dateFormatShort": "D.M.",
-    "dateFormatLong": "YYYY-MM-DD",
+    "dateFormatLong": "DD.MM.YYYY",
     "dateFormatPlain": "L",
     "timeFormat": "LT",
     "durationFormat": "H[h] mm[m]",

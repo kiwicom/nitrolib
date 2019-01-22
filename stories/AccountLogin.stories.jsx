@@ -8,7 +8,7 @@ import Text from "../src/components/Text";
 
 const commonProps = {
   email: "",
-  error: <Text t="account.submit_error.general" />,
+  error: <Text t="common.api_error" />,
   onNoAccount: () => {},
   onEmailChange: () => {},
   onFacebookLogin: () => {},

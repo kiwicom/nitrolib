@@ -1200,10 +1200,10 @@
   dependencies:
     ramda "^0.25.0"
 
-"@kiwicom/translations@^1.79.0":
-  version "1.134.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.134.0.tgz#f76c6210b4c1f049eb892bb68dde9970fa99efc7"
-  integrity sha512-HvZ1mVseoXzY+aCrUcKir4fGUr2GL8sQ/97p9yGe7BwkZ9u1vpvy7ClAk91GP5kQMIhycSKaximjC+pBbxad9Q==
+"@kiwicom/translations@^1.132.0":
+  version "1.132.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.132.0.tgz#a41a6711acbcaba6049c680faaa2676db5814377"
+  integrity sha512-Q5+KE4jg/+mlw4q/efcHB/OIxPiu8BkBdVANTsN5tVVeSnxQ2qLWlktQns2Ly4KCBYPrHtoC/WNM4n9sFcZ9Lg==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
