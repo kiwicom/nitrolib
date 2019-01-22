@@ -18,15 +18,8 @@ exports[`#AccountPairedFacebook render 1`] = `
       />
     </Heading>
     <Text
-      weight="bold"
-    >
-      <Translate
-        html={false}
-        t="account.sign_in_description"
-        transform={[Function]}
-        values={Object {}}
-      />
-    </Text>
+      t="account.sign_in_description"
+    />
   </ModalHeader>
   <ModalSection>
     <Stack
@@ -78,18 +71,13 @@ exports[`#AccountPairedFacebook render 1`] = `
   <ModalSection>
     <Text
       spaceAfter="normal"
-    >
-      <Translate
-        html={false}
-        t="account.send_link_to"
-        transform={[Function]}
-        values={
-          Object {
-            "email": "kek@bur.com",
-          }
+      t="account.send_link_to"
+      values={
+        Object {
+          "email": "kek@bur.com",
         }
-      />
-    </Text>
+      }
+    />
     <Button
       onClick={[Function]}
       type="secondary"

@@ -17,14 +17,9 @@ exports[`#AccountNoAccount render 1`] = `
         values={Object {}}
       />
     </Heading>
-    <Text>
-      <Translate
-        html={false}
-        t="account.no_bookings_or_account_description"
-        transform={[Function]}
-        values={Object {}}
-      />
-    </Text>
+    <Text
+      t="account.no_bookings_or_account_description"
+    />
   </ModalHeader>
   <ModalSection>
     <Stack
@@ -72,15 +67,9 @@ exports[`#AccountNoAccount render 1`] = `
   >
     <Text
       spaceAfter="medium"
+      t="account.or_social_account"
       weight="bold"
-    >
-      <Translate
-        html={false}
-        t="account.or_social_account"
-        transform={[Function]}
-        values={Object {}}
-      />
-    </Text>
+    />
     <Stack
       flex={true}
       spacing="natural"
