@@ -5,6 +5,7 @@ type Props = {|
   value: Date,
   onChange: (date: Date) => void,
   label: string,
+  icon?: React.Node,
   min: Date,
   max: Date,
 |};

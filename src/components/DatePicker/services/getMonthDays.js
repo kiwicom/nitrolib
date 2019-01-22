@@ -21,14 +21,14 @@ type Params = {|
   weekStart?: 0 | 1 | 2 | 3 | 4 | 5 | 6,
 |};
 
-const getMonthDays = ({ date, weekStart }: Params): Array<Array<string | number>> => {
+const getMonthDays = ({ date, weekStart = 1 }: Params): string[][] => {
   const getDate = new Date(getYear(date), getMonth(date));
   const weeks = eachWeekOfInterval(
     {
       start: startOfMonth(getDate),
       end: endOfMonth(getDate),
     },
-    { weekStartsOn: weekStart || 1 },
+    { weekStartsOn: weekStart },
   );
 
   const weekDays = weeks.map(weekDay => getWeekDays(weekDay));

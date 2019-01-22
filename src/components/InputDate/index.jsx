@@ -8,7 +8,7 @@ import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import { themeDefault } from "../../records/Theme";
 import Flex from "../../primitives/Flex";
-import calculateRanges from "./services/calculateRanges";
+import calculateRanges from "../../services/dates/calculateRanges";
 import Dates from "./Dates";
 import Months from "./Months";
 import Years from "./Years";

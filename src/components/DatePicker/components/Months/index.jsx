@@ -3,12 +3,12 @@ import * as React from "react";
 import getMonth from "date-fns/getMonth";
 import getYear from "date-fns/getYear";
 
-import { Consumer as IntlConsumer } from "../../../services/intl/context";
-import Month from "../primitives/Month";
+import { Consumer as IntlConsumer } from "../../../../services/intl/context";
+import Month from "../../primitives/Month";
 
 type Props = {|
-  months: Array<number>,
-  date: Date,
+  months: number[],
+  viewing: Date,
 |};
 
 const MONTHS = [
@@ -26,16 +26,16 @@ const MONTHS = [
   __("December"),
 ];
 
-const DatePickerMonths = ({ months, date }: Props) => (
+const Months = ({ months, viewing }: Props) => (
   <IntlConsumer>
     {intl =>
       months.map((month, i) => (
-        <Month key={month} value={month} shown={i === getMonth(date)}>
-          {intl.translate(MONTHS[month])} {getYear(date)}
+        <Month key={month} value={month} shown={i === getMonth(viewing)}>
+          {intl.translate(MONTHS[month])} {getYear(viewing)}
         </Month>
       ))
     }
   </IntlConsumer>
 );
 
-export default DatePickerMonths;
+export default Months;

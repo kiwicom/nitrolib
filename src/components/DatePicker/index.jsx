@@ -1,38 +1,40 @@
 // @flow strict
 import * as React from "react";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
-import getYear from "date-fns/getYear";
 import setDate from "date-fns/setDate";
-import getDate from "date-fns/getDate";
-import getMonth from "date-fns/getMonth";
+import addMonths from "date-fns/addMonths";
+import isWithinInterval from "date-fns/isWithinInterval";
+import endOfMonth from "date-fns/endOfMonth";
+import startOfMonth from "date-fns/startOfMonth";
 import format from "date-fns/format";
 
-import DatePicker from "./components/DatePicker";
+import Calendar from "./components/Calendar/index";
 import ClickOutside from "../ClickOutside";
 
 type Props = {|
+  value: Date,
   onChange: (date: Date) => void,
   label: string,
+  icon?: React.Node,
   min: Date,
   max: Date,
-  value: Date,
 |};
 
 type State = {|
   active: boolean,
-  date: Date,
+  viewing: Date,
 |};
 
-const FORMAT = "ccc d MMM";
+const FORMAT = "ccc d MMM"; // TODO take from Intl
 
-class DatePickerWrapper extends React.Component<Props, State> {
+export default class DatePicker extends React.Component<Props, State> {
   state = {
     active: false,
     // eslint-disable-next-line react/destructuring-assignment
-    date: this.props.value || new Date(),
+    viewing: this.props.value,
   };
 
-  handleToggle = () => {
+  handleOpen = () => {
     this.setState({
       active: true,
     });
@@ -44,63 +46,59 @@ class DatePickerWrapper extends React.Component<Props, State> {
     });
   };
 
-  handleSelect = (date: Date, day: number | string) => {
-    this.handleClose();
+  handleSelect = (day: number) => {
+    const { onChange } = this.props;
+    const { viewing } = this.state;
 
-    this.setState({
-      date: setDate(new Date(date), +day),
-    });
+    this.handleClose();
+    onChange(setDate(viewing, day));
   };
 
   handleDecrease = () => {
-    const { date } = this.state;
-    const { min } = this.props;
+    const { viewing } = this.state;
+    const { min, max } = this.props;
 
-    const minDate = setDate(new Date(getYear(min), getMonth(min)), getDate(min));
+    const viewingNew = addMonths(viewing, -1);
+    if (!isWithinInterval(viewingNew, { start: startOfMonth(min), end: endOfMonth(max) })) {
+      return;
+    }
 
-    this.setState({
-      date:
-        date > minDate
-          ? setDate(new Date(getYear(date), getMonth(date) - 1), getDate(date))
-          : minDate,
-    });
+    this.setState({ viewing: viewingNew });
   };
 
   handleIncrease = () => {
-    const { date } = this.state;
-    const { max } = this.props;
+    const { viewing } = this.state;
+    const { min, max } = this.props;
 
-    const maxDate = setDate(new Date(getYear(max), getMonth(max)), getDate(max));
+    const viewingNew = addMonths(viewing, 1);
+    if (!isWithinInterval(viewingNew, { start: startOfMonth(min), end: endOfMonth(max) })) {
+      return;
+    }
 
-    this.setState({
-      date:
-        date < maxDate
-          ? setDate(new Date(getYear(date), getMonth(date) + 1), getDate(date))
-          : maxDate,
-    });
+    this.setState({ viewing: viewingNew });
   };
 
   render() {
-    const { min, max, value, onChange, label } = this.props;
-    const { active, date } = this.state;
+    const { value, min, max, label, icon } = this.props;
+    const { active, viewing } = this.state;
 
     return (
       <ClickOutside active={active} onClickOutside={this.handleClose}>
         <>
           <InputField
             inlineLabel
-            placeholder={format(date, FORMAT)}
+            placeholder={format(value, FORMAT)}
             maxLength={0}
-            onChange={onChange}
-            onFocus={this.handleToggle}
+            onFocus={this.handleOpen}
             label={label}
+            prefix={icon}
           />
           {active && (
-            <DatePicker
+            <Calendar
               decrease={this.handleDecrease}
               increase={this.handleIncrease}
               value={value}
-              date={date}
+              viewing={viewing}
               onSelect={this.handleSelect}
               min={min}
               max={max}
@@ -111,5 +109,3 @@ class DatePickerWrapper extends React.Component<Props, State> {
     );
   }
 }
-
-export default DatePickerWrapper;

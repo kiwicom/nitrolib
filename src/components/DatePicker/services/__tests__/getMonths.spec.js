@@ -3,7 +3,7 @@ import getMonthDays from "../getMonthDays";
 
 describe("#getMonthsDays", () => {
   test("getMonth's days matrix", () => {
-    const date = new Date(2019, 0, 1)
+    const date = new Date(2019, 0, 1);
 
     expect(getMonthDays({ date })).toEqual([
       ["", "1", "2", "3", "4", "5", "6"],
