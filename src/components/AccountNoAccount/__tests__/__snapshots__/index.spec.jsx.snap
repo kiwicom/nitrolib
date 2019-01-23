@@ -19,6 +19,11 @@ exports[`#AccountNoAccount render 1`] = `
     </Heading>
     <Text
       t="account.no_bookings_or_account_description"
+      values={
+        Object {
+          "brandName": "Kiwi.com",
+        }
+      }
     />
   </ModalHeader>
   <ModalSection>

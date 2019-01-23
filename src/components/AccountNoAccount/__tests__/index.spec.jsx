@@ -8,6 +8,7 @@ describe("#AccountNoAccount", () => {
   test("render", () => {
     const wrapper = shallow(
       <AccountNoAccount
+        brandName="Kiwi.com"
         onBack={() => {}}
         onRegister={() => {}}
         onFacebookLogin={() => {}}

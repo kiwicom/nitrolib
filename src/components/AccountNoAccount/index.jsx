@@ -21,20 +21,27 @@ const Align = styled.div`
 `;
 
 type Props = {|
+  brandName: string,
   onBack: (ev: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLButtonElement>) => void,
   onRegister: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
-const AccountNoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }: Props) => (
+const AccountNoAccount = ({
+  brandName,
+  onBack,
+  onRegister,
+  onFacebookLogin,
+  onGoogleLogin,
+}: Props) => (
   <>
     <Header>
       <Illustration name="NoBookings" size="small" />
       <Heading element="h2">
         <Translate t="account.no_bookings_or_account" />
       </Heading>
-      <Text t="account.no_bookings_or_account_description" />
+      <Text t="account.no_bookings_or_account_description" values={{ brandName }} />
     </Header>
     <Section>
       <Stack spacing="natural" direction="column" desktop={{ direction: "row" }}>

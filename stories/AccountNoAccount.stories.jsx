@@ -9,6 +9,7 @@ storiesOf("AccountNoAccount", module)
   .addDecorator(withData)
   .add("default", () => (
     <AccountNoAccount
+      brandName="Kiwi.com"
       onBack={() => {}}
       onRegister={() => {}}
       onFacebookLogin={() => {}}
