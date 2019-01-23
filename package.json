@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "@babel/parser": "^7.1.6",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/runtime": "^7.1.5",
     "@babel/traverse": "^7.1.6",
     "@kiwicom/orbit-design-tokens": "^0.3.0",

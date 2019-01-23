@@ -26,6 +26,15 @@ const GROUP_ID = "Context";
 
 addDecorator(withKnobs);
 
+const LOCALES = {
+  cs: () => import("date-fns/locale/cs"),
+  enUS: () => import("date-fns/locale/en-US"),
+  ru: () => import("date-fns/locale/ru"),
+  ja: () => import("date-fns/locale/ja"),
+};
+
+const localeFn = (ID: string) => LOCALES[ID] || LOCALES.enUS; // Fallback to 'en-US'
+
 const withData = (storyFn: () => React.Node) => {
   const brandId = select("Brand", Object.keys(brands), "kiwicom", GROUP_ID);
   const localeId = select("Locale", Object.keys(languages), "en", GROUP_ID);
@@ -54,7 +63,7 @@ const withData = (storyFn: () => React.Node) => {
     <BrandProvider value={brand}>
       {/* $FlowExpected: ThemeProvider has bad typedefs */}
       <ThemeProvider theme={getBrandTheme(brand, language.direction === "rtl")}>
-        <InitIntl raw={intlRaw}>
+        <InitIntl raw={intlRaw} getLocale={localeFn(localeId)()}>
           {intl => (
             <IntlProvider value={intl}>
               <FetchedProvider value={fetched}>

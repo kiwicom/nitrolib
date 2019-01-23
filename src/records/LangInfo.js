@@ -108,4 +108,5 @@ export const fixDateFormat: (format: string) => string = R.compose(
   R.replace(/\bD\b/g, "d"),
   R.replace(/\bDD\b/g, "dd"),
   R.replace(/\bddd\b/g, "eee"),
+  R.replace(/\bdd\b/g, "eeeeee"),
 );

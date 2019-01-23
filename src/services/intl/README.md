@@ -21,7 +21,7 @@ If you need to output a string, not a component, use the `translate` function lo
   {({ translate }) => (
     <input
       id={id}
-      value={value} 
+      value={value}
       onChange={onChange}
       placeholder={translate(__("First name"))}
     />
@@ -35,9 +35,9 @@ A promise that resolves to a `date-fns` locale. Defaults to `en-US`. To lazy loa
 
 ```js
 const LOCALES = {
-  cz: () => import("date-fns/locales/cz"),
-  enUS: () => import("date-fns/locales/en-US"),
-  ru: () => import("date-fns/locales/ru"),
+  cs: () => import("date-fns/locale/cs"),
+  enUS: () => import("date-fns/locale/en-US"),
+  ru: () => import("date-fns/locale/ru"),
 };
 
 const ID = window.__INTL__.language.id;
