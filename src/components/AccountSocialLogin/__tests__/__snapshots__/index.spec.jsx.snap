@@ -12,13 +12,22 @@ exports[`#AccountPairedFacebook render 1`] = `
     >
       <Translate
         html={false}
-        t="account.manage_your_bookings"
+        t="account.login_title.paired_with_social"
         transform={[Function]}
-        values={Object {}}
+        values={
+          Object {
+            "provider": "Facebook",
+          }
+        }
       />
     </Heading>
     <Text
-      t="account.sign_in_description"
+      t="account.login_description.paired_with_social"
+      values={
+        Object {
+          "provider": "Facebook",
+        }
+      }
     />
   </ModalHeader>
   <ModalSection>
@@ -45,23 +54,6 @@ exports[`#AccountPairedFacebook render 1`] = `
           values={
             Object {
               "provider": "Facebook",
-            }
-          }
-        />
-      </Button>
-      <Button
-        bordered={true}
-        icon={<Google />}
-        onClick={[Function]}
-        type="google"
-      >
-        <Translate
-          html={false}
-          t="account.log_in_with"
-          transform={[Function]}
-          values={
-            Object {
-              "provider": "Google",
             }
           }
         />

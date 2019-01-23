@@ -16,6 +16,7 @@ const defaultProps = {
   onSignIn: () => {},
   password: "kek",
   email: "kek@bur.com",
+  brandName: "Kiwi.com",
 };
 
 describe("#AccountPassword", () => {

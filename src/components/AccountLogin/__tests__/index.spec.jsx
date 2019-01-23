@@ -8,6 +8,7 @@ import { intlDefault } from "../../../records/Intl";
 
 const commonProps = {
   email: "",
+  brandName: "Kiwi.com",
   onNoAccount: () => {},
   onEmailChange: () => {},
   onFacebookLogin: () => {},

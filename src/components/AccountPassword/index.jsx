@@ -19,6 +19,7 @@ import Text from "../Text";
 type Props = {|
   email: string,
   password: string,
+  brandName: string,
   error?: React.Node,
   isSigningIn?: boolean,
   isSendingEmail?: boolean,
@@ -33,6 +34,7 @@ const AccountPassword = ({
   email,
   password,
   error,
+  brandName,
   isSigningIn,
   isSendingEmail,
   onChangeEmail,
@@ -49,7 +51,7 @@ const AccountPassword = ({
           <Heading element="h2">
             <Translate t="account.manage_your_bookings" />
           </Heading>
-          <Text t="account.sign_in_description" />
+          <Text t="account.sign_in_description" values={{ brandName }} />
         </Header>
         <Section dataTest="AccountPassword">
           <form onSubmit={onSignIn}>

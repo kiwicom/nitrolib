@@ -16,6 +16,7 @@ storiesOf("AccountPassword", module)
       onSignIn={() => {}}
       password="asdfg"
       email="example@example.com"
+      brandName="Kiwi.com"
     />
   ))
   .add("loading", () => (
@@ -27,6 +28,7 @@ storiesOf("AccountPassword", module)
       onSignIn={() => {}}
       password="asdfg"
       email="example@example.com"
+      brandName="Kiwi.com"
       isSigningIn
       isSendingEmail
     />

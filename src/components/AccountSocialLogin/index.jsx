@@ -14,27 +14,40 @@ import Text from "../Text";
 
 type Props = {|
   email: string,
+  pairedWith: "facebook" | "google",
   onAskSignInLink: (ev: SyntheticEvent<HTMLButtonElement>) => void,
-  onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
-  onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onSocialLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
-const AccountSocialLogin = ({ onAskSignInLink, onFacebookLogin, onGoogleLogin, email }: Props) => (
+const BUTTON_ICON = {
+  facebook: <FacebookIcon />,
+  google: <GoogleIcon />,
+};
+
+const PROVIDER = {
+  google: "Google",
+  facebook: "Facebook",
+};
+
+const AccountSocialLogin = ({ onAskSignInLink, onSocialLogin, email, pairedWith }: Props) => (
   <>
     <Header>
       <Illustration name="Login" size="small" />
       <Heading element="h2">
-        <Translate t="account.manage_your_bookings" />
+        <Translate
+          t="account.login_title.paired_with_social"
+          values={{ provider: PROVIDER[pairedWith] }}
+        />
       </Heading>
-      <Text t="account.sign_in_description" />
+      <Text
+        t="account.login_description.paired_with_social"
+        values={{ provider: PROVIDER[pairedWith] }}
+      />
     </Header>
     <Section>
       <Stack flex direction="column" spacing="condensed" desktop={{ direction: "row" }}>
-        <Button type="facebook" bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
-          <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
-        </Button>
-        <Button type="google" bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
-          <Translate t="account.log_in_with" values={{ provider: "Google" }} />
+        <Button type={pairedWith} bordered icon={BUTTON_ICON[pairedWith]} onClick={onSocialLogin}>
+          <Translate t="account.log_in_with" values={{ provider: PROVIDER[pairedWith] }} />
         </Button>
       </Stack>
     </Section>

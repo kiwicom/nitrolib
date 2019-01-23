@@ -20,6 +20,7 @@ type LoginType = "mmb" | "help" | "refer";
 type Props = {|
   type: LoginType,
   email: string,
+  brandName: string,
   error?: React.Node,
   isLoading?: boolean,
   onNoAccount: (ev: SyntheticEvent<HTMLLinkElement>) => void,
@@ -51,6 +52,7 @@ const AccountLogin = ({
   type,
   email,
   error,
+  brandName,
   isLoading,
   onNoAccount,
   onGoogleLogin,
@@ -70,7 +72,7 @@ const AccountLogin = ({
           <Heading element="h2" spaceAfter="small">
             <Translate t={TITLE_TKEY[type]} />
           </Heading>
-          <Text t={DESC_TKEY[type]} />
+          <Text t={DESC_TKEY[type]} values={{ brandName }} />
         </Section>
         <Section dataTest="AccountLogin">
           <form onSubmit={onContinue}>

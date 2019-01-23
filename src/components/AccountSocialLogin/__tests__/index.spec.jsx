@@ -9,9 +9,9 @@ describe("#AccountPairedFacebook", () => {
     const wrapper = shallow(
       <AccountPairedFacebook
         onAskSignInLink={() => {}}
-        onFacebookLogin={() => {}}
-        onGoogleLogin={() => {}}
+        onSocialLogin={() => {}}
         email="kek@bur.com"
+        pairedWith="facebook"
       />,
     );
 

@@ -19,6 +19,11 @@ exports[`#AccountPassword render 1`] = `
     </Heading>
     <Text
       t="account.sign_in_description"
+      values={
+        Object {
+          "brandName": "Kiwi.com",
+        }
+      }
     />
   </ModalHeader>
   <ModalSection
