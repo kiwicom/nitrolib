@@ -40,9 +40,24 @@ describe("#LangInfo", () => {
     expect(fixDateFormat(date)).toBe("eee d MMM");
   });
 
+  test("fixDateFormat - 'dd' -> 'eeeeee'", () => {
+    const date = "ddd dd MMM";
+    expect(fixDateFormat(date)).toBe("eee eeeeee MMM");
+  });
+
+  test("fixDateFormat - 'D' -> 'd'", () => {
+    const date = "D D D D D";
+    expect(fixDateFormat(date)).toBe("d d d d d");
+  });
+
   test("fixDateFormat - 'YYYY -> 'yyyy'", () => {
     const date = "YYYY yyy YY Y Y";
     expect(fixDateFormat(date)).toBe("yyyy yyy YY Y Y");
+  });
+
+  test("fixDateFormat - 'DD' -> 'dd'", () => {
+    const date = "DD DDD DD DD DDDD";
+    expect(fixDateFormat(date)).toBe("dd DDD dd dd DDDD");
   });
 
   formats.forEach(f => {
