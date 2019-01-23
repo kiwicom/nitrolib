@@ -14,7 +14,7 @@ import Tooltip from "../../../Tooltip/index";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import Flex from "../../../../primitives/Flex";
-import type { OptionBaggage } from "../../../../records/Baggage";
+import type { OptionBaggage, BaggageCategory } from "../../../../records/Baggage";
 import Option from "../Option/index";
 
 type State = {
@@ -25,7 +25,7 @@ type State = {
 type Props = {|
   options: Array<OptionBaggage>,
   pickerType: "handBag" | "holdBag",
-  onChange: (bagType: string, index: number) => void,
+  onChange: (pickerType: BaggageCategory, index: number) => void,
   selectedIndex: number,
   shouldShowRecheckNote: boolean,
   context: "booking" | "mmb",
@@ -149,7 +149,7 @@ class BaggagePicker extends React.Component<Props, State> {
               items={item.items}
               price={item.price}
               isChecked={item.originalIndex === selectedIndex}
-              onClick={() => onChange(item.bagType, item.originalIndex)}
+              onClick={() => onChange(item.pickerType, item.originalIndex)}
               shouldShowRecheckNote={shouldShowRecheckNote}
             />
           ))

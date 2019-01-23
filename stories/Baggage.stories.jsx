@@ -33,7 +33,6 @@ const props = {
   baggage: baggageData,
   selfTransferEnabled: true,
   selfTransferTooltip: "SelfTransferTooltip",
-  disabledBagsInMmb: true,
   airlines: [],
   context: "booking",
 };

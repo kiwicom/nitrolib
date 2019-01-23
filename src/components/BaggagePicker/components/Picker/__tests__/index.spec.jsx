@@ -2,11 +2,11 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import BaggagePicker from "../index";
-import exampleData from "../services/data";
+import Picker from "../index";
+import baggageOptions from "../services/data";
 
 const props = {
-  options: exampleData,
+  options: baggageOptions,
   pickerType: "handBag",
   onChange: () => {},
   selectedIndex: 5,
@@ -16,26 +16,26 @@ const props = {
 
 describe("#BaggagePicker", () => {
   test("render", () => {
-    const wrapper = shallow(<BaggagePicker {...props} />);
+    const wrapper = shallow(<Picker {...props} />);
     expect(wrapper.find("Option").exists()).toBe(true);
   });
 
   test("hide options and render show more button", () => {
-    const wrapper = shallow(<BaggagePicker {...props} />);
+    const wrapper = shallow(<Picker {...props} />);
     const instance = wrapper.instance();
     expect(instance.state.hiddenItems).toBe(3);
     expect(wrapper.find("Button").exists()).toBe(true);
   });
 
   test("show all options and don't render show more button", () => {
-    const wrapper = shallow(<BaggagePicker {...props} options={exampleData.slice(0, 4)} />);
+    const wrapper = shallow(<Picker {...props} options={baggageOptions.slice(0, 4)} />);
     const instance = wrapper.instance();
     expect(instance.state.hiddenItems).toBe(0);
     expect(wrapper.find("Button").exists()).toBe(false);
   });
 
   test("show all options after clicking on Button", () => {
-    const wrapper = shallow(<BaggagePicker {...props} />);
+    const wrapper = shallow(<Picker {...props} />);
     const instance = wrapper.instance();
 
     expect(instance.state.hiddenItems).toBe(3);
@@ -44,7 +44,7 @@ describe("#BaggagePicker", () => {
   });
 
   test("getTitle return title with proper translation key", () => {
-    const wrapper = shallow(<BaggagePicker {...props} />);
+    const wrapper = shallow(<Picker {...props} />);
     const instance = wrapper.instance();
 
     const cabinBaggageTitle = instance.getTitle("handBag");
@@ -55,7 +55,7 @@ describe("#BaggagePicker", () => {
   });
 
   test("getTooltip return tooltip with proper translation key", () => {
-    const wrapper = shallow(<BaggagePicker {...props} />);
+    const wrapper = shallow(<Picker {...props} />);
     const instance = wrapper.instance();
 
     const cabinBaggageTooltip = instance.getTooltip("handBag");

@@ -7,8 +7,11 @@ import BaggageOption from "../index";
 const handBagExample = {
   amount: 1,
   category: "cabinBag",
+  conditions: {
+    passengerGroups: ["adult"],
+  },
   restrictions: {
-    dimensions_sum: 156,
+    dimensionsSum: 156,
     height: 35,
     length: 45,
     weight: 10,
@@ -22,10 +25,11 @@ const props = {
       amount: 1,
       category: "holdBag",
       conditions: {
-        is_priority: ["FR", "W6"],
+        isPriority: ["FR", "W6"],
+        passengerGroups: ["adult"],
       },
       restrictions: {
-        dimensions_sum: 156,
+        dimensionsSum: 156,
         height: 52,
         length: 78,
         weight: 25,
@@ -36,6 +40,10 @@ const props = {
   price: {
     amount: 0,
     currency: "EUR",
+    base: 0,
+    merchant: null,
+    service: 0,
+    serviceFlat: 0,
   },
   isChecked: false,
   onClick: jest.fn(),

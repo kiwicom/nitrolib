@@ -8,7 +8,7 @@ const props = {
   isHoldBag: true,
   amount: 1,
   restrictions: {
-    dimensions_sum: 156,
+    dimensionsSum: 156,
     height: 52,
     length: 78,
     weight: 25,
@@ -18,6 +18,10 @@ const props = {
   price: {
     amount: 10,
     currency: "EUR",
+    base: 0,
+    merchant: null,
+    service: 0,
+    serviceFlat: 0,
   },
   categoryIcon: <span>Icon</span>,
   categoryName: <span>Category</span>,

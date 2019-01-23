@@ -2,12 +2,15 @@
 
 export type BaggageCategory = "holdBag" | "handBag";
 export type BaggageSubCategory = "holdBag" | "personalItem" | "cabinBag";
-
-export type BaggageGroup = "adult" | "child" | "infant";
+export type PassengerGroup = "adult" | "child" | "infant";
 
 export type Price = {
   currency: string,
   amount: number,
+  base: number,
+  merchant?: ?string,
+  service: number,
+  serviceFlat: number,
 };
 
 export type Restrictions = {|
@@ -15,16 +18,16 @@ export type Restrictions = {|
   height: number,
   width: number,
   length: number,
-  dimensions_sum: ?number,
+  dimensionsSum: ?number,
 |};
 
 export type Definition<C: BaggageSubCategory> = {
-  note: ?string,
-  price: Price,
   category: C,
+  price: Price,
   restrictions: Restrictions,
-  conditions?: {
-    is_priority: Array<string>,
+  conditions: {
+    isPriority?: Array<string>,
+    passengerGroups: Array<PassengerGroup>,
   },
 };
 
@@ -32,60 +35,41 @@ export type HandBagDefinition = Definition<"personalItem" | "cabinBag">;
 export type HoldBagDefinition = Definition<"holdBag">;
 
 export type Definitions = {|
-  handBag: HandBagDefinition[],
-  holdBag: HoldBagDefinition[],
+  handBag: Array<HandBagDefinition>,
+  holdBag: Array<HoldBagDefinition>,
 |};
 
-export type CombinationAllowanceGraph = {
-  add: {
-    // Bag with {BagIndex} is ADDED, {BaggageCombinationIndex} is the new combination
-    [BagIndex: string]: number,
-  },
-  remove: {
-    // Bag with {BagIndex} is REMOVED, {BaggageCombinationIndex} is the new combination
-    [BagIndex: string]: number,
-  },
-};
-
-export type Combination<C: BaggageCategory, G: BaggageGroup> = {|
-  originalIndex: ?number, // index from original api array of combination
-  category: C,
-  group: G,
-  allowanceGraph: CombinationAllowanceGraph,
-  combination: number[],
+export type Combination = {|
+  indices: Array<number>,
   price: Price,
-|};
-
-export type CombinationsGroup<G: BaggageGroup> = {|
-  handBag: Combination<"handBag", G>[],
-  holdBag: Combination<"holdBag", G>[],
+  conditions: {
+    passengerGroups: Array<PassengerGroup>,
+  },
 |};
 
 export type Combinations = {|
-  adult: CombinationsGroup<"adult">,
-  // $FlowFixMe
-  child: CombinationsGroup<"child">,
-  // $FlowFixMe
-  infant: CombinationsGroup<"infant">,
+  handBag: Array<Combination>,
+  holdBag: Array<Combination>,
 |};
 
 export type BaggageType = {
-  definitions: Definitions, // Definitions same as from api
-  combinations: Combinations, // Combinations same as from api
+  definitions: Definitions,
+  combinations: Combinations,
 };
 
 export type Item = {
   amount: number,
-  category: string,
+  category: BaggageSubCategory,
   restrictions: Restrictions,
-  conditions?: {
-    is_priority: Array<string>,
+  conditions: {
+    isPriority?: Array<string>,
+    passengerGroups: Array<PassengerGroup>,
   },
 };
 
 export type OptionBaggage = {
   originalIndex: number,
-  bagType: string,
+  pickerType: BaggageCategory,
   price: Price,
   items: { [key: string]: Item },
 };

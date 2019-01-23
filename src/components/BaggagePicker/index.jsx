@@ -5,40 +5,37 @@ import R from "ramda";
 import Picker from "./components/Picker";
 import type {
   BaggageType,
-  BaggageGroup,
-  OptionBaggage,
-  HoldBagDefinition,
+  BaggageCategory,
+  PassengerGroup,
+  Combination,
   HandBagDefinition,
+  HoldBagDefinition,
+  OptionBaggage,
 } from "../../records/Baggage";
 
 type Props = {
   changeBagCombination: () => void,
-  passengerCategory: BaggageGroup,
+  passengerCategory: PassengerGroup,
   passengerBaggage: { handBag: number, holdBag: number },
   baggage: BaggageType,
   shouldShowRecheckNote: boolean,
-  selfTransferEnabled: boolean, // eslint-disable-line
-  selfTransferTooltip: string, // eslint-disable-line
   airlines: Array<string>, // eslint-disable-line
-  pickerType: "handBag" | "holdBag",
-  context: "booking" | "mmb", // eslint-disable-line
+  pickerType: BaggageCategory,
+  context: "booking" | "mmb",
 };
 
 class Baggage extends React.Component<Props> {
-  getOptionItems = (
-    definitions: HoldBagDefinition | HandBagDefinition,
-    combinations: Array<number>,
-  ) =>
-    combinations.reduce((acc, item) => {
-      const key = item.toString();
+  getOptionItems = (definitions: HoldBagDefinition | HandBagDefinition, indices: Array<number>) =>
+    indices.reduce((acc, optionIndex) => {
+      const key = optionIndex.toString();
       if (acc[key]) {
         acc[key].amount += 1;
       } else {
         acc[key] = {
           amount: 1,
-          category: definitions[item].category,
-          restrictions: definitions[item].restrictions,
-          conditions: definitions[item].conditions,
+          category: definitions[optionIndex].category,
+          restrictions: definitions[optionIndex].restrictions,
+          conditions: definitions[optionIndex].conditions,
         };
       }
       return acc;
@@ -51,18 +48,22 @@ class Baggage extends React.Component<Props> {
       pickerType,
     } = this.props;
 
-    const bagCombinations = combinations[pickerType]
-      .map((item, index) => {
-        item.originalIndex = index; // eslint-disable-line
-        return item;
-      })
-      .filter(i => R.includes(passengerCategory, i.conditions.passengerGroups));
+    const indexedCombinations: Array<Combination & { originalIndex: number }> = combinations[
+      pickerType
+    ].map((item, index) => {
+      item.originalIndex = index; // eslint-disable-line
+      return item;
+    });
+    const bagCombinations = indexedCombinations.filter(i =>
+      // $FlowFixMe
+      R.includes(passengerCategory, i.conditions.passengerGroups),
+    );
 
     const bagDefinitions = definitions[pickerType];
 
     const options: Array<OptionBaggage> = bagCombinations.map(c => ({
       originalIndex: c.originalIndex,
-      bagType: pickerType,
+      pickerType,
       price: c.price,
       items: this.getOptionItems(bagDefinitions, c.indices),
     }));
@@ -77,6 +78,7 @@ class Baggage extends React.Component<Props> {
       passengerBaggage,
       shouldShowRecheckNote,
       context,
+      // airlines,
     } = this.props;
     const baggageOptions = this.getOptions();
 

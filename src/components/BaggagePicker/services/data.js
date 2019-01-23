@@ -47,7 +47,6 @@ export const baggageData = {
     ],
     holdBag: [
       {
-        note: null,
         conditions: {
           passengerGroups: ["adult"],
         },
