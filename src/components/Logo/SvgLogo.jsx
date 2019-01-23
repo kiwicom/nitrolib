@@ -8,6 +8,10 @@ import mq from "../../styles/mq";
 
 const LtMiddleMobile = styled.div`
   display: none;
+  svg {
+    display: block;
+  }
+
   ${mq.ltSmallMobile(css`
     display: block;
   `)};
@@ -15,6 +19,10 @@ const LtMiddleMobile = styled.div`
 
 const GtMiddleMobile = styled.div`
   display: none;
+  svg {
+    display: block;
+  }
+
   ${mq.gtSmallMobile(css`
     display: block;
   `)};

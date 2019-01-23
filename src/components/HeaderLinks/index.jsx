@@ -1,12 +1,11 @@
 // @flow strict
 import * as React from "react";
-import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
+import AirplaneUp from "@kiwicom/orbit-components/lib/icons/AirplaneUp";
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
-import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
-import Text from "@kiwicom/orbit-components/lib/Text";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import mq from "../../styles/mq";
 import ClickOutside from "../ClickOutside";
 import Toggle from "../Toggle";
 import Popup from "./primitives/Popup";
@@ -19,21 +18,11 @@ import type { Decorated } from "../../services/log/decorator";
 import type { Context } from "../../services/log/context";
 import type { Splitster, Response } from "./services/api";
 
-const Margin = styled.div`
-  ${mq.ltDesktop(css`
-    margin-${/* sc-custom "left" */ left}: 20px;
-  `)}
-
-  ${mq.ltSmallMobile(css`
-    margin-${/* sc-custom "left" */ left}: 0;
-  `)}
-`;
-
 // Different size than the existing component
 const Mobile = styled.div`
   display: flex;
 
-  ${mq.gtDesktop(css`
+  ${mq.desktop(css`
     display: none;
   `)};
 `;
@@ -42,7 +31,7 @@ const Mobile = styled.div`
 const Desktop = styled.div`
   display: none;
 
-  ${mq.gtDesktop(css`
+  ${mq.desktop(css`
     display: flex;
   `)};
 `;
@@ -113,38 +102,38 @@ class HeaderLinks extends React.Component<Props, State> {
     if (!services) return null;
 
     return (
-      // 'StyledLink' css was heavily incompatible with 'Text', so it had to be moved here
-      // TODO cleanup @viktr
-      <Text element="div">
+      <>
         <Mobile>
-          <Margin>
-            <Toggle>
-              {({ open, onToggle }) => (
-                <ClickOutside active={open} onClickOutside={onToggle}>
-                  <>
-                    {open && (
-                      <Popup>
-                        {services && services.length > 0 && (
+          <Toggle>
+            {({ open, onToggle }) => (
+              <ClickOutside active={open} onClickOutside={onToggle}>
+                <>
+                  {open && (
+                    <Popup>
+                      {services && services.length > 0 && (
+                        <Stack direction="column" spacing="comfy">
                           <Links inverted={inverted} services={services} active={active} />
-                        )}
-                      </Popup>
-                    )}
-                    <IconWrapper hover onClick={onToggle}>
-                      <Airplane />
-                      <ChevronDown size="small" />
-                    </IconWrapper>
-                  </>
-                </ClickOutside>
-              )}
-            </Toggle>
-          </Margin>
+                        </Stack>
+                      )}
+                    </Popup>
+                  )}
+                  <IconWrapper act={open} hover onClick={onToggle}>
+                    <AirplaneUp />
+                    <ChevronDown size="small" />
+                  </IconWrapper>
+                </>
+              </ClickOutside>
+            )}
+          </Toggle>
         </Mobile>
         <Desktop>
           {services && services.length > 0 && (
-            <Links inverted={inverted} services={services} active={active} />
+            <Stack flex>
+              <Links inverted={inverted} services={services} active={active} />
+            </Stack>
           )}
         </Desktop>
-      </Text>
+      </>
     );
   }
 }

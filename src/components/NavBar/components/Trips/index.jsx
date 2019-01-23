@@ -3,6 +3,7 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import type { Environment } from "react-relay";
 import Passenger from "@kiwicom/orbit-components/lib/icons/Passenger";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import Button from "../../primitives/Button";
 import ClickOutside from "../../../ClickOutside";
@@ -15,7 +16,6 @@ import type { ThemeProps } from "../../../../records/Theme";
 import Toggle from "../../../Toggle";
 import TripDataList from "./components/TripDataList";
 import Flex from "../../../../primitives/Flex";
-import mq from "../../../../styles/mq";
 
 type Props = {|
   auth: Auth,
@@ -32,13 +32,13 @@ const UserName = styled.div`
 `;
 
 const UserWrapper = styled.div`
-  display: flex;
-  padding-left: 5px;
-  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
-  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
+  display: none;
 
-  ${mq.ltMiddleMobile(css`
-    display: none;
+  ${mq.mediumMobile(css`
+    display: flex;
+    padding-left: 5px;
+    font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
+    color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
   `)};
 `;
 
@@ -47,11 +47,11 @@ UserWrapper.defaultProps = {
 };
 
 const HideOnLower = styled.div`
-  display: block;
-  margin-left: ${({ theme }: ThemeProps) => theme.orbit.spaceXXSmall};
-  @media (max-width: 975px) {
-    display: none;
-  }
+  display: none;
+  ${mq.tablet(css`
+    display: block;
+    margin-left: ${({ theme }: ThemeProps) => theme.orbit.spaceXXSmall};
+  `)}
 `;
 
 HideOnLower.defaultProps = {
@@ -93,7 +93,7 @@ const Trips = ({ auth, env, onSelect }: Props) => {
             </Flex>
           </Desktop>
           <Mobile display="flex">
-            <Button onClick={onToggle} y="center" color="secondary">
+            <Button onClick={onToggle} color="secondary">
               <Passenger size="small" />
               <UserWrapper>
                 <UserName>{username}</UserName>

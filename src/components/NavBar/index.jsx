@@ -2,9 +2,10 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import { navbar } from "../../styles";
-import mq from "../../styles/mq";
 import Desktop from "../Desktop";
 import Mobile from "../Mobile";
 import type { ThemeProps } from "../../records/Theme";
@@ -35,9 +36,11 @@ const Container = styled(Flex)`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   padding: 0 10px;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   box-sizing: border-box;
 
-  ${mq.gtTablet(css`
+  ${mq.tablet(css`
     position: fixed;
     top: 0;
     ${left}: 0;
@@ -102,12 +105,12 @@ const NavBar = ({
   onLogoClick,
 }: Props) => (
   <Container x="space-between" y="center" data-test="NavBar" inverted={inverted}>
-    <Flex y="center" x="flex-start">
+    <Stack flex shrink align="center">
       <Logo inverted={inverted} onClick={onLogoClick} />
       {headerLinks && (
         <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
       )}
-    </Flex>
+    </Stack>
     <Flex y="center">
       <Wrapper>
         <Desktop display="flex">

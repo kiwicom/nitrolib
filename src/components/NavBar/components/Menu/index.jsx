@@ -52,12 +52,12 @@ const Menu = ({
                   {({ onClick }) => (
                     <>
                       <Desktop display="flex">
-                        <Button direction="x" onClick={onClick} color={!inverted && "secondary"}>
+                        <Button onClick={onClick} color={!inverted && "secondary"}>
                           <Translate t="account.my_bookings_action" />
                         </Button>
                       </Desktop>
                       <Mobile display="flex">
-                        <Button direction="x" color={!inverted && "secondary"} onClick={onClick}>
+                        <Button color={!inverted && "secondary"} onClick={onClick}>
                           <AccountCircle />
                         </Button>
                       </Mobile>

@@ -7,6 +7,7 @@ import Translate from "../../../../../Translate";
 import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
 import ButtonLink from "../../../../primitives/ButtonLink";
 import mq from "../../../../../../styles/mq";
+import Flex from "../../../../../../primitives/Flex";
 
 type Props = {|
   children: React.Node,
@@ -26,15 +27,16 @@ const TripListBottom = ({ children }: Props) => (
       <>
         <ItemWrapper>
           <TripsBottomWrapper>{children}</TripsBottomWrapper>
-          <ButtonLink
-            color="primary"
-            marginLeft={25}
-            y="center"
-            bold
-            href={`/${intl.language.id}/account#future`}
-          >
-            <Translate t="account.all_trips" />
-          </ButtonLink>
+          <Flex y="center">
+            <ButtonLink
+              color="primary"
+              marginLeft={25}
+              bold
+              href={`/${intl.language.id}/account#future`}
+            >
+              <Translate t="account.all_trips" />
+            </ButtonLink>
+          </Flex>
         </ItemWrapper>
       </>
     )}

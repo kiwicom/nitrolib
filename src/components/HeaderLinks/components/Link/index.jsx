@@ -5,8 +5,9 @@ import AirplaneUp from "@kiwicom/orbit-components/lib/icons/AirplaneUp";
 import CarRental from "@kiwicom/orbit-components/lib/icons/CarRental";
 import Accommodation from "@kiwicom/orbit-components/lib/icons/Accommodation";
 import Suitcase from "@kiwicom/orbit-components/lib/icons/Suitcase";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import mq from "../../../../styles/mq";
 import IconWrapper from "../../primitives/IconWrapper";
 import StyledLink from "../../primitives/StyledLink";
 
@@ -29,7 +30,7 @@ const KEYS = {
 };
 
 const Icon = styled.div`
-  ${mq.gtDesktop(css`
+  ${mq.desktop(css`
     display: none;
   `)}
 `;
@@ -51,12 +52,14 @@ const Link = ({ active, link, newWindow, icon, text, inverted }: Props) => (
     target={newWindow ? "_blank" : null}
     rel={newWindow ? "noopener noreferrer" : null}
   >
-    {icon && mapIcons[icon] && (
-      <Icon>
-        <IconWrapper>{mapIcons[icon]}</IconWrapper>
-      </Icon>
-    )}
-    {text}
+    <Stack flex align="center">
+      {icon && mapIcons[icon] && (
+        <Icon>
+          <IconWrapper>{mapIcons[icon]}</IconWrapper>
+        </Icon>
+      )}
+      {text}
+    </Stack>
   </StyledLink>
 );
 

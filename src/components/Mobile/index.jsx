@@ -1,8 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
-
-import mq from "../../styles/mq";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 type Props = {|
   children: React.Node | React.Node[],
@@ -13,7 +12,7 @@ type Props = {|
 const Wrapper = styled.div`
   display: ${({ display }: Props) => display};
 
-  ${mq.gtTablet(css`
+  ${mq.tablet(css`
     display: none;
   `)};
 `;
