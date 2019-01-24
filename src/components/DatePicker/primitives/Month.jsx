@@ -6,9 +6,9 @@ import type { ThemeProps } from "../../../records/Theme";
 
 const Month = styled.div`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
-  display: ${({ shown }) => (shown ? `flex` : `none`)};
-  font-size: ${({ theme }) => theme.orbit.fontSizeTextSmall};
-  font-weight: ${({ theme }) => theme.orbit.fontWeightMedium};
+  display: flex;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   align-items: center;
   justify-content: center;
 `;

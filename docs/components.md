@@ -16,6 +16,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [ClickOutside](#clickoutside)
 * [ClientOnly](#clientonly)
 * [CloseByKey](#closebykey)
+* [DatePicker](#datepicker)
 * [Desktop](#desktop)
 * [LocationPicker](#locationpicker)
 * [Mobile](#mobile)
@@ -289,6 +290,31 @@ type Props = {|
 
 Fires a callback whenever a user presses the close button (_Escape_ by default).
 
+### DatePicker
+
+**Import:**
+```js
+import DatePicker from "@kiwicom/nitro/lib/components/DatePicker";
+```
+
+**Types:**
+```js
+type Props = {|
+  value: Date,
+  onChange: (date: Date) => void,
+  label: string,
+  icon?: React.Node,
+  min: Date,
+  max: Date,
+|};
+```
+
+**Context needs:**
+* [intl](./services#intl)
+
+_TODOs_
+- [ ] DI `new Date()` into components for tests
+
 ### Desktop
 
 **Import:**
@@ -332,7 +358,7 @@ type Props = {|
   value: Location | null,
   onChange: (loc: Location) => void,
   label: string,
-  icon: React.Node,
+  icon?: React.Node,
   // defaulted
   environment?: Environment,
 |};

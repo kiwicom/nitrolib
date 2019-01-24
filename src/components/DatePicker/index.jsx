@@ -95,7 +95,7 @@ export default class DatePicker extends React.Component<Props, State> {
               <>
                 <InputField
                   inlineLabel
-                  placeholder={format(viewing, fixDateFormat(intl.language.dateFormat))}
+                  placeholder={format(value, fixDateFormat(intl.language.dateFormat))}
                   maxLength={0}
                   onFocus={this.handleOpen}
                   label={label}
@@ -103,13 +103,13 @@ export default class DatePicker extends React.Component<Props, State> {
                 />
                 {active && (
                   <Calendar
-                    decrease={this.handleDecrease}
-                    increase={this.handleIncrease}
                     value={value}
                     viewing={viewing}
-                    onSelect={this.handleSelect}
                     min={min}
                     max={max}
+                    onSelect={this.handleSelect}
+                    onDecrease={this.handleDecrease}
+                    onIncrease={this.handleIncrease}
                   />
                 )}
               </>

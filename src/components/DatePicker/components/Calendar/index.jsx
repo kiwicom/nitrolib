@@ -1,11 +1,11 @@
 // @flow strict
 import * as React from "react";
+import styled from "styled-components";
+import getMonth from "date-fns/getMonth";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import ChevronLeft from "@kiwicom/orbit-components/lib/icons/ChevronLeft";
 import ChevronRight from "@kiwicom/orbit-components/lib/icons/ChevronRight";
-import styled from "styled-components";
 
-import calculateRanges from "../../../../services/dates/calculateRanges";
 import Weeks from "../Weeks/index";
 import Days from "../Days/Days";
 import Months from "../Months/index";
@@ -43,30 +43,26 @@ type Props = {|
   min: Date,
   max: Date,
   onSelect: (day: number) => void,
-  decrease: () => void,
-  increase: () => void,
+  onDecrease: () => void,
+  onIncrease: () => void,
 |};
 
-const Calendar = ({ value, viewing, min, max, onSelect, decrease, increase }: Props) => {
-  const { months } = calculateRanges(min, max, value);
-
-  return (
-    <>
-      <CalendarTop>
-        <Stack align="center" flex justify="between">
-          <Arrow onClick={decrease}>
-            <ChevronLeft size="small" color="secondary" />
-          </Arrow>
-          <Months months={months} viewing={viewing} />
-          <Arrow onClick={increase}>
-            <ChevronRight size="small" color="secondary" />
-          </Arrow>
-        </Stack>
-      </CalendarTop>
-      <Weeks value={viewing} />
-      <Days value={value} viewing={viewing} onSelect={onSelect} />
-    </>
-  );
-};
+const Calendar = ({ value, viewing, min, max, onSelect, onDecrease, onIncrease }: Props) => (
+  <>
+    <CalendarTop>
+      <Stack align="center" flex justify="between">
+        <Arrow onClick={onDecrease}>
+          <ChevronLeft size="small" color="secondary" />
+        </Arrow>
+        <Months month={getMonth(viewing)} viewing={viewing} />
+        <Arrow onClick={onIncrease}>
+          <ChevronRight size="small" color="secondary" />
+        </Arrow>
+      </Stack>
+    </CalendarTop>
+    <Weeks value={viewing} />
+    <Days value={value} viewing={viewing} min={min} max={max} onSelect={onSelect} />
+  </>
+);
 
 export default Calendar;
