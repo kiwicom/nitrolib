@@ -21,10 +21,13 @@ function getComponentDoc(component) {
 const FEATURES = {
   CookiesConsent: true,
   Currency: true,
+  DatePicker: true,
   Footer: true,
   HeaderLinks: true,
   Languages: true,
+  LocationPicker: true,
   NavBar: true,
+  SideBar: true,
 };
 
 const getList = component => `* [${component}](#${component.toLowerCase()})`;

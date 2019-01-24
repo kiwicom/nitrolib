@@ -4,7 +4,10 @@ const fsx = require("fs-extra");
 const path = require("path");
 
 const SRC = path.join(__dirname, "../../src");
+const STORIES = path.join(__dirname, "../../stories");
 const COMPONENTS = path.join(SRC, "components");
+
+const STORYBOOK_URL = "https://nitro-storybook-master.fe.staging.kiwi.com/";
 
 const getReadme = readme =>
   readme
@@ -12,6 +15,14 @@ const getReadme = readme =>
     .filter(line => !line.match(/^#{1,2} \w+/)) // remove big headings
     .join("\n")
     .trim(); // trim that shit
+
+const getStory = name => {
+  if (!fsx.existsSync(path.join(STORIES, `${name}.stories.jsx`))) {
+    throw new Error(`Documented features need a '.stories.jsx' in 'stories/'! Missing: ${name}`);
+  }
+
+  return `${STORYBOOK_URL}?selectedKind=${name}`;
+};
 
 const getImports = file =>
   String(fsx.readFileSync(file))
@@ -88,7 +99,7 @@ function getFlowFile(file) {
 
 function getComponentDoc(name, readme) {
   const doc = getReadme(readme);
-
+  const story = getStory(name);
   const props = getFlowFile(path.join(COMPONENTS, name, "index.js.flow"));
   const contexts = getContextNeeds(path.join(COMPONENTS, name))
     .map(context => `* [${context}](./services#${context.toLowerCase()})`)
@@ -97,6 +108,8 @@ function getComponentDoc(name, readme) {
   return [
     [
       `### ${name}`,
+      "",
+      `[Storybook](${story}).`,
       "",
       "**Import:**",
       "```js",
