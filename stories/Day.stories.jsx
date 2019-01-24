@@ -7,4 +7,4 @@ import withData from "./decorators/withData";
 
 storiesOf("Day", module)
   .addDecorator(withData)
-  .add("a day", () => <Day date={new Date(Date.UTC(2018, 9, 28))} format="MMMd日(iiiiii)" />);
+  .add("a day", () => <Day date={new Date(Date.UTC(2018, 9, 28))} />);
