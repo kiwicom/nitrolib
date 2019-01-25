@@ -27,7 +27,10 @@ type Props = {
 };
 
 class Baggage extends React.Component<Props> {
-  getOptionItems = (definitions: HoldBagDefinition | HandBagDefinition, indices: Array<number>) =>
+  getOptionItems = (
+    definitions: Array<HoldBagDefinition> | Array<HandBagDefinition>,
+    indices: Array<number>,
+  ) =>
     indices.reduce((acc, optionIndex) => {
       const key = optionIndex.toString();
       if (acc[key]) {
@@ -50,20 +53,17 @@ class Baggage extends React.Component<Props> {
       pickerType,
     } = this.props;
 
-    const indexedCombinations: Array<Combination & { originalIndex: number }> = combinations[
+    const indexedCombinations: Array<{ ...Combination, originalIndex: number }> = combinations[
       pickerType
-    ].map((item, index) => {
-      item.originalIndex = index; // eslint-disable-line
-      return item;
-    });
-    const bagCombinations = indexedCombinations.filter(i =>
-      // $FlowFixMe
-      R.includes(passengerCategory, i.conditions.passengerGroups),
-    );
-
+    ]
+      .map((item, index) => ({ ...item, originalIndex: index }))
+      .filter(i =>
+        // $FlowFixMe
+        R.includes(passengerCategory, i.conditions.passengerGroups),
+      );
     const bagDefinitions = definitions[pickerType];
 
-    const options: Array<OptionBaggage> = bagCombinations.map(c => ({
+    const options: Array<OptionBaggage> = indexedCombinations.map(c => ({
       originalIndex: c.originalIndex,
       pickerType,
       price: c.price,
