@@ -6,9 +6,12 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 
 * [CookiesConsent](#cookiesconsent)
 * [Currency](#currency)
+* [DatePicker](#datepicker)
 * [Footer](#footer)
 * [HeaderLinks](#headerlinks)
+* [LocationPicker](#locationpicker)
 * [NavBar](#navbar)
+* [SideBar](#sidebar)
 
 **Utilities:**
 
@@ -16,12 +19,9 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [ClickOutside](#clickoutside)
 * [ClientOnly](#clientonly)
 * [CloseByKey](#closebykey)
-* [DatePicker](#datepicker)
 * [Desktop](#desktop)
-* [LocationPicker](#locationpicker)
 * [Mobile](#mobile)
 * [Price](#price)
-* [SideBar](#sidebar)
 * [Text](#text)
 * [TextNode](#textnode)
 * [Toggle](#toggle)
@@ -35,6 +35,8 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 Actual components that do stuff. See [storybook](https://nitro-storybook-master.fe.staging.kiwi.com) for a live example.
 
 ### CookiesConsent
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=CookiesConsent).
 
 **Import:**
 ```js
@@ -57,6 +59,8 @@ Closeable cookies thingie.
 * Container - `[data-test="CookiesConsent"]`
 
 ### Currency
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Currency).
 
 **Import:**
 ```js
@@ -86,7 +90,36 @@ A currency picker.
 * Open button - `[data-test="Currency"] button[data-test="Open"]`
 * Item - `[data-test="Currency"] [data-test="eur"]:first`
 
+### DatePicker
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=DatePicker).
+
+**Import:**
+```js
+import DatePicker from "@kiwicom/nitro/lib/components/DatePicker";
+```
+
+**Types:**
+```js
+type Props = {|
+  value: Date,
+  onChange: (date: Date) => void,
+  label: string,
+  icon?: React.Node,
+  min: Date,
+  max: Date,
+|};
+```
+
+**Context needs:**
+* [intl](./services#intl)
+
+_TODOs_
+- [ ] DI `new Date()` into components for tests
+
 ### Footer
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Footer).
 
 **Import:**
 ```js
@@ -102,6 +135,8 @@ type Props = {||};
 * [intl](./services#intl)
 
 ### HeaderLinks
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=HeaderLinks).
 
 **Import:**
 ```js
@@ -139,7 +174,36 @@ See types:
 * [intl](./services#intl)
 * [log](./services#log)
 
+### LocationPicker
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=LocationPicker).
+
+**Import:**
+```js
+import LocationPicker from "@kiwicom/nitro/lib/components/LocationPicker";
+```
+
+**Types:**
+```js
+type Props = {|
+  value: Location | null,
+  onChange: (loc: Location) => void,
+  label: string,
+  icon?: React.Node,
+  // defaulted
+  environment?: Environment,
+|};
+```
+
+See types:
+* [Location](./records#location)
+
+**Context needs:**
+* [intl](./services#intl)
+
 ### NavBar
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=NavBar).
 
 **Import:**
 ```js
@@ -182,11 +246,35 @@ type Props = {|
 * Open button - `[data-test="NavBar"] [data-test="OpenSideNav"]`
 * Close button - `[data-test="SideNav"] [data-test="Close"]`
 
+### SideBar
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=SideBar).
+
+**Import:**
+```js
+import SideBar from "@kiwicom/nitro/lib/components/SideBar";
+```
+
+**Types:**
+```js
+type Props = {|
+  shown: boolean,
+  inverted?: boolean, // opens from the other side
+  unmasked?: boolean, // removes outer mask and disables onClick
+  onClick: () => void,
+  children: React.Node,
+|};
+```
+
+A container for a sidebar sliding from the _right_ (_left_ in RTL). It is appended to `document.body`.
+
 ## Utilities
 
 Things that help in development.
 
 ### BookingSavingsBanner
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=BookingSavingsBanner).
 
 **Import:**
 ```js
@@ -215,6 +303,8 @@ Throw-away ticket banner indicating savings in €.
 
 ### ClickOutside
 
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=ClickOutside).
+
 **Import:**
 ```js
 import ClickOutside from "@kiwicom/nitro/lib/components/ClickOutside";
@@ -242,6 +332,8 @@ const MyComponent = ({ open, onCloseModal }: Props) => (
 ```
 
 ### ClientOnly
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=ClientOnly).
 
 **Import:**
 ```js
@@ -273,6 +365,8 @@ const MyComponent = () => (
 
 ### CloseByKey
 
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=CloseByKey).
+
 **Import:**
 ```js
 import CloseByKey from "@kiwicom/nitro/lib/components/CloseByKey";
@@ -290,32 +384,9 @@ type Props = {|
 
 Fires a callback whenever a user presses the close button (_Escape_ by default).
 
-### DatePicker
-
-**Import:**
-```js
-import DatePicker from "@kiwicom/nitro/lib/components/DatePicker";
-```
-
-**Types:**
-```js
-type Props = {|
-  value: Date,
-  onChange: (date: Date) => void,
-  label: string,
-  icon?: React.Node,
-  min: Date,
-  max: Date,
-|};
-```
-
-**Context needs:**
-* [intl](./services#intl)
-
-_TODOs_
-- [ ] DI `new Date()` into components for tests
-
 ### Desktop
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Desktop).
 
 **Import:**
 ```js
@@ -345,32 +416,9 @@ const NavBar = () => (
 );
 ```
 
-### LocationPicker
-
-**Import:**
-```js
-import LocationPicker from "@kiwicom/nitro/lib/components/LocationPicker";
-```
-
-**Types:**
-```js
-type Props = {|
-  value: Location | null,
-  onChange: (loc: Location) => void,
-  label: string,
-  icon?: React.Node,
-  // defaulted
-  environment?: Environment,
-|};
-```
-
-See types:
-* [Location](./records#location)
-
-**Context needs:**
-* [intl](./services#intl)
-
 ### Mobile
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Mobile).
 
 **Import:**
 ```js
@@ -401,6 +449,8 @@ const NavBar = () => (
 ```
 
 ### Price
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Price).
 
 **Import:**
 ```js
@@ -433,27 +483,9 @@ const Pay = ({ value }: Props) => (
 );
 ```
 
-### SideBar
-
-**Import:**
-```js
-import SideBar from "@kiwicom/nitro/lib/components/SideBar";
-```
-
-**Types:**
-```js
-type Props = {|
-  shown: boolean,
-  inverted?: boolean, // opens from the other side
-  unmasked?: boolean, // removes outer mask and disables onClick
-  onClick: () => void,
-  children: React.Node,
-|};
-```
-
-A container for a sidebar sliding from the _right_ (_left_ in RTL). It is appended to `document.body`.
-
 ### Text
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Text).
 
 **Import:**
 ```js
@@ -480,6 +512,8 @@ Useful for both translating and making text nicer!
 
 ### TextNode
 
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=TextNode).
+
 **Import:**
 ```js
 import TextNode from "@kiwicom/nitro/lib/components/TextNode";
@@ -503,6 +537,8 @@ Our `TranslateNode` wrapped in _Orbit_'s `Text`. Accepts both our and their prop
 Useful for both translating and making text nicer!
 
 ### Toggle
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Toggle).
 
 **Import:**
 ```js
@@ -541,6 +577,8 @@ const MyComponent = () => (
 
 ### Translate
 
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Translate).
+
 **Import:**
 ```js
 import Translate from "@kiwicom/nitro/lib/components/Translate";
@@ -574,6 +612,8 @@ const Submit = () => (
 ```
 
 ### TranslateNode
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=TranslateNode).
 
 **Import:**
 ```js
@@ -610,6 +650,8 @@ const MyComponent = () => (
 ```
 
 ### Value
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Value).
 
 **Import:**
 ```js
@@ -656,6 +698,8 @@ const AuthModals = ({ query }: Props) => (
 ```
 
 ### ValueBind
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=ValueBind).
 
 **Import:**
 ```js

@@ -33,11 +33,63 @@ const LOCALES = {
   ja: () => import("date-fns/locale/ja"),
 };
 
+const CURRENCIES = [
+  "aed",
+  "amd",
+  "ars",
+  "aud",
+  "bhd",
+  "byn",
+  "cad",
+  "chf",
+  "clp",
+  "cny",
+  "czk",
+  "dkk",
+  "eur",
+  "gbp",
+  "hkd",
+  "huf",
+  "idr",
+  "ils",
+  "inr",
+  "isk",
+  "jod",
+  "jpy",
+  "kgs",
+  "krw",
+  "kwd",
+  "kzt",
+  "mxn",
+  "myr",
+  "nok",
+  "nzd",
+  "omr",
+  "pen",
+  "php",
+  "pln",
+  "qar",
+  "ron",
+  "rsd",
+  "rub",
+  "sar",
+  "sek",
+  "sgd",
+  "thb",
+  "try",
+  "twd",
+  "usd",
+  "uzs",
+  "yer",
+  "zar",
+];
+
 const localeFn = (ID: string) => LOCALES[ID] || LOCALES.enUS; // Fallback to 'en-US'
 
 const withData = (storyFn: () => React.Node) => {
   const brandId = select("Brand", Object.keys(brands), "kiwicom", GROUP_ID);
   const localeId = select("Locale", Object.keys(languages), "en", GROUP_ID);
+  const currencyId = select("Currency", CURRENCIES, "eur", GROUP_ID);
 
   const brand = brands[brandId];
   const language = languages[localeId];
@@ -77,7 +129,12 @@ const withData = (storyFn: () => React.Node) => {
                   onChange={action("Save currency")}
                 >
                   {currency => (
-                    <CurrencyProvider value={currency}>
+                    <CurrencyProvider
+                      value={{
+                        ...currency,
+                        currency: currency.available[currencyId] || currency.currency,
+                      }}
+                    >
                       <Value>
                         {modal => <ModalProvider value={modal}>{storyFn()}</ModalProvider>}
                       </Value>
