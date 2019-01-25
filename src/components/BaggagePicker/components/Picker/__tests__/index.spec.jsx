@@ -10,7 +10,6 @@ const props = {
   pickerType: "handBag",
   onChange: () => {},
   selectedIndex: 5,
-  shouldShowRecheckNote: true,
   context: "booking",
 };
 

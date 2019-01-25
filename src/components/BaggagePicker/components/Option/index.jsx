@@ -19,13 +19,13 @@ import OptionItem from "../OptionItem/index";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import type { Price, Item } from "../../../../records/Baggage";
+import { Consumer } from "../../services/context";
 
 type Props = {
   items: { [key: string]: Item },
   price: Price,
   isChecked: boolean,
   onClick: () => void,
-  shouldShowRecheckNote: boolean,
 };
 
 type OptionWrapperProps = ThemeProps & {
@@ -81,16 +81,6 @@ const getIconFromCategory = category => {
   }
 };
 
-const getAirlinesWithPriorityBoarding = itemsArray => {
-  const airlines = itemsArray.reduce((acc, item) => {
-    if (item.conditions && item.conditions.isPriority) {
-      return [...acc, ...item.conditions.isPriority];
-    }
-    return acc || [];
-  }, []);
-  return R.uniq(airlines);
-};
-
 const IconWrapper = styled.div`
   border-top: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorInput};
   width: 22px;
@@ -133,48 +123,72 @@ const EmptyLabel = () => (
   </Stack>
 );
 
-const Option = ({ items, price, isChecked, onClick, shouldShowRecheckNote }: Props) => {
+const Option = ({ items, price, isChecked, onClick }: Props) => {
   const itemsArr = Object.keys(items).map(key => items[key]);
   const hasSingleItem = itemsArr.length === 1;
   const firstItem = itemsArr[0];
-  const priorityAirlines = getAirlinesWithPriorityBoarding(itemsArr);
+
+  const getAirlinesWithPriorityBoarding = itemsArray => {
+    const airlines = itemsArray.reduce((acc, item) => {
+      if (item.conditions && item.conditions.isPriority) {
+        return [...acc, ...item.conditions.isPriority];
+      }
+      return acc;
+    }, []);
+    return R.uniq(airlines);
+  };
 
   return (
-    <OptionWrapper onClick={onClick} checked={isChecked}>
-      <Stack flex>
-        <RadioWrapper>
-          <Radio checked={isChecked} />
-        </RadioWrapper>
-        <Stack shrink flex spacing="extraTight" direction="column">
-          {itemsArr.length > 0 ? (
-            itemsArr.map((item, index) => (
-              <OptionItem
-                key={index} // eslint-disable-line
-                amount={item.amount}
-                restrictions={item.restrictions}
-                isHoldBag={item.category === "holdBag"}
-                firstItem={item === itemsArr[0]}
-                categoryIcon={getIconFromCategory(item.category)}
-                categoryName={getTextFromCategory(item.category)}
-                price={price}
-              />
-            ))
-          ) : (
-            <EmptyLabel />
-          )}
-          {hasSingleItem && firstItem.category === "cabinBag" && (
-            <Stack flex align="center" spacing="tight">
-              <BaggagePersonalItemNone color={isChecked ? "warning" : "secondary"} />
-              <Text type={isChecked ? "warning" : "secondary"}>No personal item</Text>
+    <Consumer>
+      {({ airlines, shouldShowRecheckNote }) => {
+        const priorityAirlinesKeys = getAirlinesWithPriorityBoarding(itemsArr);
+        const priorityAirlines = priorityAirlinesKeys
+          .map(key => airlines && airlines[key] && airlines[key].name)
+          .filter(Boolean);
+
+        return (
+          <OptionWrapper onClick={onClick} checked={isChecked}>
+            <Stack flex>
+              <RadioWrapper>
+                <Radio checked={isChecked} />
+              </RadioWrapper>
+              <Stack shrink flex spacing="extraTight" direction="column">
+                {itemsArr.length > 0 ? (
+                  itemsArr.map((item, index) => (
+                    <OptionItem
+                      key={index} // eslint-disable-line
+                      amount={item.amount}
+                      restrictions={item.restrictions}
+                      isHoldBag={item.category === "holdBag"}
+                      firstItem={item === itemsArr[0]}
+                      categoryIcon={getIconFromCategory(item.category)}
+                      categoryName={getTextFromCategory(item.category)}
+                      price={price}
+                    />
+                  ))
+                ) : (
+                  <EmptyLabel />
+                )}
+                {hasSingleItem && firstItem.category === "cabinBag" && (
+                  <Stack flex align="center" spacing="tight">
+                    <BaggagePersonalItemNone color={isChecked ? "warning" : "secondary"} />
+                    <Text type={isChecked ? "warning" : "secondary"}>No personal item</Text>
+                  </Stack>
+                )}
+                {priorityAirlines.length > 0 && (
+                  <PriorityBoardingInfo airlines={priorityAirlines} />
+                )}
+              </Stack>
             </Stack>
-          )}
-          {priorityAirlines.length > 0 && <PriorityBoardingInfo airlines={priorityAirlines} />}
-        </Stack>
-      </Stack>
-      {shouldShowRecheckNote && firstItem && firstItem.category === "holdBag" && isChecked && (
-        <Alert>You must collect and recheck your baggage between certain flights.</Alert>
-      )}
-    </OptionWrapper>
+            {shouldShowRecheckNote && firstItem && firstItem.category === "holdBag" && isChecked && (
+              <Alert>
+                <Translate t="common.baggage.alert.collect_and_recheck" />
+              </Alert>
+            )}
+          </OptionWrapper>
+        );
+      }}
+    </Consumer>
   );
 };
 

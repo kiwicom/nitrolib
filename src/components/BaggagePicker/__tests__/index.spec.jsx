@@ -4,6 +4,8 @@ import { shallow } from "enzyme";
 
 import BaggagePicker from "../index";
 import { baggageData } from "../services/data";
+// $FlowFixMe
+import airlines from "../../../../stories/fixtures/airlines.json";
 
 const props = {
   passengerCategory: "adult",
@@ -11,7 +13,7 @@ const props = {
     console.log(type, index); // eslint-disable-line
   },
   baggage: baggageData,
-  airlines: [],
+  airlines,
   context: "booking",
   pickerType: "handBag",
   shouldShowRecheckNote: false,

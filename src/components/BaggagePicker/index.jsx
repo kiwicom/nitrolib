@@ -12,6 +12,8 @@ import type {
   HoldBagDefinition,
   OptionBaggage,
 } from "../../records/Baggage";
+import type { Airline } from "../../records/Airline";
+import { Provider } from "./services/context";
 
 type Props = {
   changeBagCombination: () => void,
@@ -19,7 +21,7 @@ type Props = {
   passengerBaggage: { handBag: number, holdBag: number },
   baggage: BaggageType,
   shouldShowRecheckNote: boolean,
-  airlines: Array<string>, // eslint-disable-line
+  airlines: { [string]: Airline },
   pickerType: BaggageCategory,
   context: "booking" | "mmb",
 };
@@ -78,19 +80,20 @@ class Baggage extends React.Component<Props> {
       passengerBaggage,
       shouldShowRecheckNote,
       context,
-      // airlines,
+      airlines,
     } = this.props;
     const baggageOptions = this.getOptions();
 
     return (
-      <Picker
-        context={context}
-        pickerType={pickerType}
-        options={baggageOptions}
-        selectedIndex={passengerBaggage[pickerType]}
-        onChange={changeBagCombination}
-        shouldShowRecheckNote={shouldShowRecheckNote}
-      />
+      <Provider value={{ airlines, shouldShowRecheckNote }}>
+        <Picker
+          context={context}
+          pickerType={pickerType}
+          options={baggageOptions}
+          selectedIndex={passengerBaggage[pickerType]}
+          onChange={changeBagCombination}
+        />
+      </Provider>
     );
   }
 }

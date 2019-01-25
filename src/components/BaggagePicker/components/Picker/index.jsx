@@ -14,8 +14,8 @@ import Tooltip from "../../../Tooltip/index";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import Flex from "../../../../primitives/Flex";
-import type { OptionBaggage, BaggageCategory } from "../../../../records/Baggage";
 import Option from "../Option/index";
+import type { OptionBaggage, BaggageCategory } from "../../../../records/Baggage";
 
 type State = {
   showedItems: Array<OptionBaggage>,
@@ -24,10 +24,9 @@ type State = {
 
 type Props = {|
   options: Array<OptionBaggage>,
-  pickerType: "handBag" | "holdBag",
+  pickerType: BaggageCategory,
   onChange: (pickerType: BaggageCategory, index: number) => void,
   selectedIndex: number,
-  shouldShowRecheckNote: boolean,
   context: "booking" | "mmb",
 |};
 
@@ -108,14 +107,7 @@ class BaggagePicker extends React.Component<Props, State> {
     );
 
   render() {
-    const {
-      context,
-      pickerType,
-      options,
-      selectedIndex,
-      onChange,
-      shouldShowRecheckNote,
-    } = this.props;
+    const { context, pickerType, options, selectedIndex, onChange } = this.props;
     const { showedItems, hiddenItems } = this.state;
 
     return (
@@ -149,8 +141,7 @@ class BaggagePicker extends React.Component<Props, State> {
               items={item.items}
               price={item.price}
               isChecked={item.originalIndex === selectedIndex}
-              onClick={() => onChange(item.pickerType, item.originalIndex)}
-              shouldShowRecheckNote={shouldShowRecheckNote}
+              onClick={() => onChange(pickerType, item.originalIndex)}
             />
           ))
         ) : (

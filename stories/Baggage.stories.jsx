@@ -4,6 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { withKnobs, select, boolean } from "@storybook/addon-knobs";
 
 import withData from "./decorators/withData";
+import airlines from "./fixtures/airlines";
 import BaggagePicker from "../src/components/BaggagePicker";
 import { baggageData, emptyData } from "../src/components/BaggagePicker/services/data";
 
@@ -31,9 +32,7 @@ const props = {
     console.log(type, index); // eslint-disable-line
   },
   baggage: baggageData,
-  selfTransferEnabled: true,
-  selfTransferTooltip: "SelfTransferTooltip",
-  airlines: [],
+  airlines,
   context: "booking",
 };
 
