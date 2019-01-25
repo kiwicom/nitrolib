@@ -3,7 +3,7 @@ import * as React from "react";
 import type { Props as PropsOrbit } from "@kiwicom/orbit-components/lib/Button";
 
 type Props = {|
-  ...PropsOrbit,
+  ...$Rest<PropsOrbit, {| children: ?React.Node |}>,
   t: string,
   values?: { [key: string]: string | number },
   html?: boolean,

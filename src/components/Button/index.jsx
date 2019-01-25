@@ -8,7 +8,7 @@ import Translate from "../Translate";
 import type { Values } from "../../services/intl/translate";
 
 type Props = {|
-  ...PropsOrbit,
+  ...$Rest<PropsOrbit, {| children: ?React.Node |}>,
   t: string,
   values?: Values,
   html?: boolean,
