@@ -21,11 +21,9 @@ function load() {
 async function checkDocs() {
   const [components, records, services] = await load();
 
-  componentsDocs();
-  recordsDocs();
-  servicesDocs();
-
-  const [components2, records2, services2] = await load();
+  const components2 = componentsDocs();
+  const records2 = recordsDocs();
+  const services2 = servicesDocs();
 
   if (components !== components2) {
     throw new Error("Components docs need a refresh! Run 'yarn docs'.");
@@ -40,4 +38,12 @@ async function checkDocs() {
   }
 }
 
-checkDocs();
+checkDocs()
+  .then(() => {
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err); // eslint-disable-line no-console
+
+    process.exit(1);
+  });

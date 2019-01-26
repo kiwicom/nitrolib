@@ -5,7 +5,6 @@ const path = require("path");
 const utils = require("./utils");
 
 const SRC = path.join(__dirname, "../../src");
-const DOCS = path.join(__dirname, "../../docs");
 const COMPONENTS = path.join(SRC, "components");
 
 function getComponentDoc(component) {
@@ -75,7 +74,7 @@ function componentsDocs() {
     utilitiesDocs,
   ].join("\n");
 
-  fsx.outputFileSync(path.join(DOCS, "components.md"), doc);
+  return doc;
 }
 
 module.exports = componentsDocs;

@@ -107,7 +107,7 @@ function servicesDocs() {
     // utilitiesDocs,
   ].join("\n");
 
-  fsx.outputFileSync(path.join(DOCS, "services.md"), doc);
+  return doc;
 }
 
 module.exports = servicesDocs;

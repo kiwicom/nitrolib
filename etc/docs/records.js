@@ -55,7 +55,7 @@ function getRecordsDocs() {
     recordsDocs,
   ].join("\n");
 
-  fsx.outputFileSync(path.join(DOCS, "records.md"), doc);
+  return doc;
 }
 
 module.exports = getRecordsDocs;
