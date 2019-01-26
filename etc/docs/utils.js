@@ -17,6 +17,10 @@ const getReadme = readme =>
     .trim(); // trim that shit
 
 const getStory = name => {
+  if (name.match(/^Init/)) {
+    return ""; // No story for init components
+  }
+
   if (!fsx.existsSync(path.join(STORIES, `${name}.stories.jsx`))) {
     throw new Error(`Documented features need a '.stories.jsx' in 'stories/'! Missing: ${name}`);
   }
@@ -109,8 +113,6 @@ function getComponentDoc(name, readme) {
     [
       `### ${name}`,
       "",
-      `[Storybook](${story}).`,
-      "",
       "**Import:**",
       "```js",
       `import ${name} from "@kiwicom/nitro/lib/components/${name}";`,
@@ -119,6 +121,7 @@ function getComponentDoc(name, readme) {
       props,
       "",
     ].join("\n"),
+    story && `\n[Storybook](${story}).\n`,
     contexts && `\n**Context needs:**\n${contexts}\n`,
     doc && `\n${doc}\n`,
   ].join("");
