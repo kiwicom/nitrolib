@@ -45,7 +45,6 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/runtime": "^7.1.5",
     "@babel/traverse": "^7.1.6",
-    "@kiwicom/orbit-design-tokens": "^0.3.0",
     "btoa-lite": "^1.0.0",
     "chalk": "^2.4.1",
     "date-fns": "^2.0.0-alpha.21",
@@ -64,6 +63,7 @@
   },
   "peerDependencies": {
     "@kiwicom/orbit-components": "^0.28.1",
+    "@kiwicom/orbit-design-tokens": "^0.3.0",
     "ramda": "^0.26.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -80,6 +80,7 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@kiwicom/orbit-components": "^0.28.1",
+    "@kiwicom/orbit-design-tokens": "^0.3.0",
     "@kiwicom/translations": "^1.79.0",
     "@storybook/addon-actions": "^4.0.9",
     "@storybook/addon-info": "^4.0.9",
