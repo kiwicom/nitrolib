@@ -1,0 +1,11 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {|
+  email: string,
+  pairedWith: "facebook" | "google",
+  onAskSignInLink: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onSocialLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+|};
+
+declare export default React.ComponentType<Props>;

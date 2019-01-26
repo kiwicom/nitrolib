@@ -18,7 +18,7 @@ import { Consumer } from "../../services/intl/context";
 type LoginType = "mmb" | "help" | "refer";
 
 type Props = {|
-  type: LoginType,
+  type?: LoginType,
   email: string,
   brandName: string,
   error?: React.Node,
@@ -49,7 +49,7 @@ const DESC_TKEY = {
 };
 
 const AccountLogin = ({
-  type,
+  type = "mmb",
   email,
   error,
   brandName,
@@ -123,9 +123,5 @@ const AccountLogin = ({
     )}
   </Consumer>
 );
-
-AccountLogin.defaultProps = {
-  type: "mmb",
-};
 
 export default AccountLogin;

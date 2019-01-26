@@ -1,0 +1,9 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {|
+  email: string,
+  reason: "magicLink" | "signUpConfirmation" | "resetPassword",
+|};
+
+declare export default React.ComponentType<Props>;

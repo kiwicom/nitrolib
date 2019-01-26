@@ -1,0 +1,12 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {|
+  brandName: string,
+  onBack: (ev: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLButtonElement>) => void,
+  onRegister: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+|};
+
+declare export default React.ComponentType<Props>;
