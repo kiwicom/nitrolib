@@ -7,7 +7,6 @@ const R = require("ramda");
 const utils = require("./utils");
 
 const SRC = path.join(__dirname, "../../src");
-const DOCS = path.join(__dirname, "../../docs");
 const SERVICES = path.join(SRC, "services");
 const COMPONENTS = path.join(SRC, "components");
 

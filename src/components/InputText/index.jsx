@@ -223,7 +223,8 @@ type RefProps = {
   ref?: (node: HTMLInputElement) => void,
 };
 
-// $FlowExpected: forwardRef is legit
+// TODO find a nicer way to do this
+// eslint-disable-next-line react/no-multi-comp
 const InputTextRef: React.ComponentType<RefProps> = React.forwardRef((props, ref) => (
   <InputText {...props} forwardedRef={ref} />
 ));
