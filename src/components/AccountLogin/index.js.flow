@@ -6,7 +6,6 @@ type LoginType = "mmb" | "help" | "refer";
 type Props = {|
   type?: LoginType,
   email: string,
-  brandName: string,
   error?: React.Node,
   isLoading?: boolean,
   onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,

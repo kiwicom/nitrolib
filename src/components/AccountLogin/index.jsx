@@ -12,14 +12,14 @@ import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
 import Translate from "../Translate";
 import Text from "../Text";
-import { Consumer } from "../../services/intl/context";
+import { Consumer as IntlConsumer } from "../../services/intl/context";
+import { Consumer as BrandConsumer } from "../../services/brand/context";
 
 type LoginType = "mmb" | "help" | "refer";
 
 type Props = {|
   type?: LoginType,
   email: string,
-  brandName: string,
   error?: React.Node,
   isLoading?: boolean,
   onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
@@ -50,68 +50,71 @@ const AccountLogin = ({
   type = "mmb",
   email,
   error,
-  brandName,
   isLoading,
   onGoogleLogin,
   onFacebookLogin,
   onEmailChange,
   onContinue,
 }: Props) => (
-  <Consumer>
+  <IntlConsumer>
     {intl => (
-      <>
-        <Section>
-          <Illustration name={ILLUSTRATION[type]} size="small" spaceAfter="small" />
-          <Heading element="h2" spaceAfter="small">
-            <Translate t={TITLE_TKEY[type]} />
-          </Heading>
-          <Text t={DESC_TKEY[type]} values={{ brandName }} />
-        </Section>
-        <Section dataTest="AccountLogin">
-          <form onSubmit={onContinue}>
-            <Stack>
-              {error && (
-                <Alert type="critical" icon>
-                  {error}
-                </Alert>
-              )}
-              <Text weight="bold" t="account.sign_in_hint" />
-              <Stack spaceAfter="small" spacing="condensed" align="end">
-                <InputField
-                  label={intl.translate(__("account.email"))}
-                  placeholder={intl.translate(__("account.email_placeholder"))}
-                  type="email"
-                  value={email}
-                  onChange={onEmailChange}
-                  dataTest="Email"
-                />
-                <Button submit loading={isLoading}>
-                  <Translate t="account.continue" />
+      <BrandConsumer>
+        {brand => (
+          <>
+            <Section>
+              <Illustration name={ILLUSTRATION[type]} size="small" spaceAfter="small" />
+              <Heading element="h2" spaceAfter="small">
+                <Translate t={TITLE_TKEY[type]} />
+              </Heading>
+              <Text t={DESC_TKEY[type]} values={{ brandName: brand.name }} />
+            </Section>
+            <Section dataTest="AccountLogin">
+              <form onSubmit={onContinue}>
+                <Stack>
+                  {error && (
+                    <Alert type="critical" icon>
+                      {error}
+                    </Alert>
+                  )}
+                  <Text weight="bold" t="account.sign_in_hint" />
+                  <Stack spaceAfter="small" spacing="condensed" align="end">
+                    <InputField
+                      label={intl.translate(__("account.email"))}
+                      placeholder={intl.translate(__("account.email_placeholder"))}
+                      type="email"
+                      value={email}
+                      onChange={onEmailChange}
+                      dataTest="Email"
+                    />
+                    <Button submit loading={isLoading}>
+                      <Translate t="account.continue" />
+                    </Button>
+                  </Stack>
+                </Stack>
+              </form>
+            </Section>
+            <Section suppressed>
+              <Text weight="bold" spaceAfter="medium" t="account.or_social_account" />
+              <Stack spacing="natural" align="end">
+                <Button
+                  type="facebook"
+                  block
+                  bordered
+                  icon={<FacebookIcon />}
+                  onClick={onFacebookLogin}
+                >
+                  <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
+                </Button>
+                <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
+                  <Translate t="account.log_in_with" values={{ provider: "Google" }} />
                 </Button>
               </Stack>
-            </Stack>
-          </form>
-        </Section>
-        <Section suppressed>
-          <Text weight="bold" spaceAfter="medium" t="account.or_social_account" />
-          <Stack spacing="natural" align="end">
-            <Button
-              type="facebook"
-              block
-              bordered
-              icon={<FacebookIcon />}
-              onClick={onFacebookLogin}
-            >
-              <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
-            </Button>
-            <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
-              <Translate t="account.log_in_with" values={{ provider: "Google" }} />
-            </Button>
-          </Stack>
-        </Section>
-      </>
+            </Section>
+          </>
+        )}
+      </BrandConsumer>
     )}
-  </Consumer>
+  </IntlConsumer>
 );
 
 export default AccountLogin;

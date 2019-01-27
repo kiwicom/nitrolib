@@ -12,14 +12,14 @@ import Header from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
 import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import { Consumer } from "../../services/intl/context";
+import { Consumer as IntlConsumer } from "../../services/intl/context";
+import { Consumer as BrandConsumer } from "../../services/brand/context";
 import Translate from "../Translate";
 import Text from "../Text";
 
 type Props = {|
   email: string,
   password: string,
-  brandName: string,
   error?: React.Node,
   isSigningIn?: boolean,
   isSendingEmail?: boolean,
@@ -34,7 +34,6 @@ const AccountPassword = ({
   email,
   password,
   error,
-  brandName,
   isSigningIn,
   isSendingEmail,
   onChangeEmail,
@@ -43,62 +42,66 @@ const AccountPassword = ({
   onForgotPassword,
   onSignIn,
 }: Props) => (
-  <Consumer>
+  <IntlConsumer>
     {intl => (
-      <>
-        <Header>
-          <Illustration name="Login" size="small" />
-          <Heading element="h2">
-            <Translate t="account.manage_your_bookings" />
-          </Heading>
-          <Text t="account.sign_in_description" values={{ brandName }} />
-        </Header>
-        <Section dataTest="AccountPassword">
-          <form onSubmit={onSignIn}>
-            <Stack>
-              {error && (
-                <Alert type="critical" icon>
-                  {error}
-                </Alert>
-              )}
-              <Stack spacing="tight" flex align="center">
-                <OrbitText weight="bold">{email}</OrbitText>
-                <TextLink type="primary" onClick={onChangeEmail}>
-                  <Edit size="small" />
-                </TextLink>
-              </Stack>
-              <Stack align="end" spacing="condensed">
-                <InputField
-                  label={intl.translate(__("account.password_input"))}
-                  type="password"
-                  onChange={onPasswordChange}
-                  value={password}
-                  dataTest="Password"
-                />
-                <Button submit loading={isSigningIn}>
-                  <Translate t="account.sign_in" />
-                </Button>
-              </Stack>
-              <TextLink type="secondary" size="small" onClick={onForgotPassword}>
-                <Translate t="account.forgot_password" />
-              </TextLink>
-            </Stack>
-          </form>
-        </Section>
-        <Section>
-          <Text spaceAfter="normal" t="account.send_link_to" values={{ email }} />
-          <Button
-            type="secondary"
-            onClick={onAskSignInLink}
-            loading={isSendingEmail}
-            dataTest="AskForMagic"
-          >
-            <Translate t="account.ask_sign_in_link" />
-          </Button>
-        </Section>
-      </>
+      <BrandConsumer>
+        {brand => (
+          <>
+            <Header>
+              <Illustration name="Login" size="small" />
+              <Heading element="h2">
+                <Translate t="account.manage_your_bookings" />
+              </Heading>
+              <Text t="account.sign_in_description" values={{ brandName: brand.name }} />
+            </Header>
+            <Section dataTest="AccountPassword">
+              <form onSubmit={onSignIn}>
+                <Stack>
+                  {error && (
+                    <Alert type="critical" icon>
+                      {error}
+                    </Alert>
+                  )}
+                  <Stack spacing="tight" flex align="center">
+                    <OrbitText weight="bold">{email}</OrbitText>
+                    <TextLink type="primary" onClick={onChangeEmail}>
+                      <Edit size="small" />
+                    </TextLink>
+                  </Stack>
+                  <Stack align="end" spacing="condensed">
+                    <InputField
+                      label={intl.translate(__("account.password_input"))}
+                      type="password"
+                      onChange={onPasswordChange}
+                      value={password}
+                      dataTest="Password"
+                    />
+                    <Button submit loading={isSigningIn}>
+                      <Translate t="account.sign_in" />
+                    </Button>
+                  </Stack>
+                  <TextLink type="secondary" size="small" onClick={onForgotPassword}>
+                    <Translate t="account.forgot_password" />
+                  </TextLink>
+                </Stack>
+              </form>
+            </Section>
+            <Section>
+              <Text spaceAfter="normal" t="account.send_link_to" values={{ email }} />
+              <Button
+                type="secondary"
+                onClick={onAskSignInLink}
+                loading={isSendingEmail}
+                dataTest="AskForMagic"
+              >
+                <Translate t="account.ask_sign_in_link" />
+              </Button>
+            </Section>
+          </>
+        )}
+      </BrandConsumer>
     )}
-  </Consumer>
+  </IntlConsumer>
 );
 
 export default AccountPassword;

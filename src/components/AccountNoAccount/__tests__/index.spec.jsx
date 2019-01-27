@@ -4,11 +4,12 @@ import { shallow } from "enzyme";
 
 import AccountNoAccount from "..";
 
+import { brandDefault } from "../../../records/Brand";
+
 describe("#AccountNoAccount", () => {
   test("render", () => {
     const wrapper = shallow(
       <AccountNoAccount
-        brandName="Kiwi.com"
         onBack={() => {}}
         onRegister={() => {}}
         onFacebookLogin={() => {}}
@@ -16,6 +17,6 @@ describe("#AccountNoAccount", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(shallow(<span>{wrapper.prop("children")(brandDefault)}</span>)).toMatchSnapshot();
   });
 });

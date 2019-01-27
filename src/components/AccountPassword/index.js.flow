@@ -4,7 +4,6 @@ import * as React from "react";
 type Props = {|
   email: string,
   password: string,
-  brandName: string,
   error?: React.Node,
   isSigningIn?: boolean,
   isSendingEmail?: boolean,

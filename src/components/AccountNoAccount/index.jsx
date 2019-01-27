@@ -14,6 +14,7 @@ import styled from "styled-components";
 
 import Translate from "../Translate";
 import Text from "../Text";
+import { Consumer as BrandConsumer } from "../../services/brand/context";
 
 // TODO: remove it after nitro update
 const Align = styled.div`
@@ -21,52 +22,55 @@ const Align = styled.div`
 `;
 
 type Props = {|
-  brandName: string,
   onBack: (ev: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLButtonElement>) => void,
   onRegister: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
-const AccountNoAccount = ({
-  brandName,
-  onBack,
-  onRegister,
-  onFacebookLogin,
-  onGoogleLogin,
-}: Props) => (
-  <>
-    <Header>
-      <Illustration name="NoBookings" size="small" />
-      <Heading element="h2">
-        <Translate t="account.no_bookings_or_account" />
-      </Heading>
-      <Text t="account.no_bookings_or_account_description" values={{ brandName }} />
-    </Header>
-    <Section>
-      <Stack spacing="natural" direction="column" desktop={{ direction: "row" }}>
-        <Button onClick={onRegister}>
-          <Translate t="account.register" />
-        </Button>
-        <Align>
-          <ButtonLink type="secondary" iconLeft={<ChevronLeft />} onClick={onBack}>
-            <Translate t="account.back" />
-          </ButtonLink>
-        </Align>
-      </Stack>
-    </Section>
-    <Section suppressed>
-      <Text t="account.or_social_account" weight="bold" spaceAfter="medium" />
-      <Stack spacing="natural" flex>
-        <Button type="facebook" block bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
-          <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
-        </Button>
-        <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
-          <Translate t="account.log_in_with" values={{ provider: "Google" }} />
-        </Button>
-      </Stack>
-    </Section>
-  </>
+const AccountNoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }: Props) => (
+  <BrandConsumer>
+    {brand => (
+      <>
+        <Header>
+          <Illustration name="NoBookings" size="small" />
+          <Heading element="h2">
+            <Translate t="account.no_bookings_or_account" />
+          </Heading>
+          <Text t="account.no_bookings_or_account_description" values={{ brandName: brand.name }} />
+        </Header>
+        <Section>
+          <Stack spacing="natural" direction="column" desktop={{ direction: "row" }}>
+            <Button onClick={onRegister}>
+              <Translate t="account.register" />
+            </Button>
+            <Align>
+              <ButtonLink type="secondary" iconLeft={<ChevronLeft />} onClick={onBack}>
+                <Translate t="account.back" />
+              </ButtonLink>
+            </Align>
+          </Stack>
+        </Section>
+        <Section suppressed>
+          <Text t="account.or_social_account" weight="bold" spaceAfter="medium" />
+          <Stack spacing="natural" flex>
+            <Button
+              type="facebook"
+              block
+              bordered
+              icon={<FacebookIcon />}
+              onClick={onFacebookLogin}
+            >
+              <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
+            </Button>
+            <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
+              <Translate t="account.log_in_with" values={{ provider: "Google" }} />
+            </Button>
+          </Stack>
+        </Section>
+      </>
+    )}
+  </BrandConsumer>
 );
 
 export default AccountNoAccount;

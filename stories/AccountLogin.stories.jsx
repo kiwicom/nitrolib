@@ -9,7 +9,6 @@ import Text from "../src/components/Text";
 const commonProps = {
   email: "",
   error: <Text t="common.api_error" />,
-  brandName: "Kiwi.com",
   onEmailChange: () => {},
   onFacebookLogin: () => {},
   onGoogleLogin: () => {},

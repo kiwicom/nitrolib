@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#AccountNoAccount render 1`] = `
-<Fragment>
+<span>
   <ModalHeader>
     <Illustration
       name="NoBookings"
@@ -117,5 +117,5 @@ exports[`#AccountNoAccount render 1`] = `
       </Button>
     </Stack>
   </ModalSection>
-</Fragment>
+</span>
 `;
