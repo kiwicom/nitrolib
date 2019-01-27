@@ -1,6 +1,8 @@
 // @flow strict
 import * as React from "react";
 
+import { type Context as IntlContext } from "../../services/intl/context";
+
 type Props = {|
   email: string,
   password: string,
@@ -13,5 +15,11 @@ type Props = {|
   onPasswordChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onSignIn: (ev: SyntheticEvent<HTMLFormElement>) => void,
 |};
+
+declare export var AccountPassword: React.ComponentType<{|
+  ...Props,
+  brandName: string,
+  intl: IntlContext,
+|}>;
 
 declare export default React.ComponentType<Props>;
