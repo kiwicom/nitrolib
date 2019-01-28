@@ -312,7 +312,7 @@ import Button from "@kiwicom/nitro/lib/components/Button";
 **Types:**
 ```js
 type Props = {|
-  ...$Rest<PropsOrbit, {| children: ?React.Node |}>,
+  ...$Rest<PropsOrbit, { children: ?React.Node }>,
   t: string,
   values?: { [key: string]: string | number },
   html?: boolean,
