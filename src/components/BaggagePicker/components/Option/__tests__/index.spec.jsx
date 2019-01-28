@@ -1,8 +1,9 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import BaggageOption from "../index";
+import { Provider } from "../../../services/context";
 
 const handBagExample = {
   amount: 1,
@@ -47,29 +48,61 @@ const props = {
   },
   isChecked: false,
   onClick: jest.fn(),
-  shouldShowRecheckNote: false,
+};
+
+const context = {
+  shouldShowRecheckNote: true,
+  airlines: {
+    W6: {
+      id: "W6",
+      lcc: 1,
+      name: "Wizzair",
+    },
+    FR: {
+      id: "FR",
+      lcc: 1,
+      name: "Ryanair",
+    },
+  },
 };
 
 describe("#BaggageOption", () => {
   test("render priority boarding", () => {
-    const wrapper = shallow(<BaggageOption {...props} />);
+    const wrapper = mount(
+      <Provider value={context}>
+        <BaggageOption {...props} />
+      </Provider>,
+    );
     expect(wrapper.find("PriorityBoardingInfo").exists()).toBe(true);
   });
 
   test("render alert", () => {
-    const wrapper = shallow(<BaggageOption {...props} isChecked shouldShowRecheckNote />);
-    expect(wrapper.find("Alert").exists()).toBe(true);
+    const wrapper = mount(
+      <Provider value={context}>
+        <BaggageOption {...props} isChecked />
+      </Provider>,
+    );
+
+    expect(wrapper.find("Alert").exists()).toEqual(true);
   });
 
   test("render checked Radio", () => {
-    const wrapper = shallow(<BaggageOption {...props} isChecked />);
+    const wrapper = mount(
+      <Provider value={context}>
+        <BaggageOption {...props} isChecked />
+      </Provider>,
+    );
     expect(wrapper.find("Radio").exists()).toBe(true);
     const radioProps = wrapper.find("Radio").props() || {};
     expect(radioProps.checked).toBe(true);
   });
 
   test("render no-personal item info", () => {
-    const wrapper = shallow(<BaggageOption {...props} items={{ "1": handBagExample }} />);
+    const wrapper = mount(
+      <Provider value={context}>
+        <BaggageOption {...props} items={{ "1": handBagExample }} />
+      </Provider>,
+    );
     expect(wrapper.find("BaggagePersonalItemNone").exists()).toBe(true);
   });
 });
