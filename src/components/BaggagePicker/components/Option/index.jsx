@@ -41,6 +41,7 @@ const OptionWrapper = styled.div`
       checked ? theme.orbit.colorTextButtonPrimaryBordered : theme.orbit.borderColorCard};
   &:hover {
     border-color: ${({ theme }: ThemeProps) => theme.orbit.borderColorCheckboxRadioHover};
+    cursor: pointer;
   }
   > *:not(:last-child) {
     margin-bottom: 12px;
@@ -156,7 +157,7 @@ const Option = ({ items, price, isChecked, onClick }: Props) => {
           <OptionWrapper onClick={onClick} checked={isChecked}>
             <Stack flex>
               <RadioWrapper>
-                <Radio checked={isChecked} />
+                <Radio checked={isChecked} onChange={onClick} />
               </RadioWrapper>
               <Stack shrink flex spacing="extraTight" direction="column">
                 {itemsArr.length > 0 ? (
