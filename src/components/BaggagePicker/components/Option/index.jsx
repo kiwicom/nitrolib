@@ -20,6 +20,7 @@ import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import type { Price, Item } from "../../../../records/Baggage";
 import { Consumer } from "../../services/context";
+import { Consumer as IntlConsumer } from "../../../../services/intl/context";
 
 type Props = {
   items: { [key: string]: Item },
@@ -92,29 +93,34 @@ IconWrapper.defaultProps = {
   theme: themeDefault,
 };
 
-const arrToHumanString = (arr: Array<string>): string => {
-  if (arr.length === 1) return arr[0];
-  const firsts = arr.slice(0, -1);
-  const last = arr.slice(-1)[0];
-  return `${firsts.join(", ")} and ${last}`;
+const PriorityBoardingInfo = ({ airlines }: { airlines: Array<string> }) => {
+  const arrToHumanString = (arr: Array<string>, conjunction): string => {
+    if (arr.length === 1) return arr[0];
+    const firsts = arr.slice(0, -1);
+    const last = arr.slice(-1)[0];
+    return `${firsts.join(", ")} ${conjunction} ${last}`;
+  };
+  return (
+    <Stack flex direction="row" align="center">
+      <IconWrapper>
+        <PriorityBoarding color="secondary" size="small" />
+      </IconWrapper>
+      <Text size="small" element="p">
+        <IntlConsumer>
+          {({ translate }) => (
+            <Translate
+              t="common.baggage.priority_boarding"
+              values={{ airlines: arrToHumanString(airlines, translate(__("common.baggage.and"))) }}
+            />
+          )}
+        </IntlConsumer>
+        <TextLink external={false} onClick={() => {}} href="https://kiwi.com" type="secondary">
+          <Translate t="common.baggage.learn_more" />
+        </TextLink>
+      </Text>
+    </Stack>
+  );
 };
-
-const PriorityBoardingInfo = ({ airlines }: { airlines: Array<string> }) => (
-  <Stack flex direction="row" align="center">
-    <IconWrapper>
-      <PriorityBoarding color="secondary" size="small" />
-    </IconWrapper>
-    <Text size="small" element="p">
-      <Translate
-        t="common.baggage.priority_boarding"
-        values={{ airlines: arrToHumanString(airlines) }}
-      />
-      <TextLink external={false} onClick={() => {}} href="https://kiwi.com" type="secondary">
-        <Translate t="common.baggage.learn_more" />
-      </TextLink>
-    </Text>
-  </Stack>
-);
 
 const EmptyLabel = () => (
   <Stack spacing="condensed" flex align="center">
