@@ -16,6 +16,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 **Utilities:**
 
 * [BookingSavingsBanner](#bookingsavingsbanner)
+* [Button](#button)
 * [ClickOutside](#clickoutside)
 * [ClientOnly](#clientonly)
 * [CloseByKey](#closebykey)
@@ -300,6 +301,33 @@ Throw-away ticket banner indicating savings in €.
 * Container: `[data-test="BookingSavingsBanner"]`
 * More trips button: `[data-test="MoreTrips"]`
 * Learn more button: `[data-test="LearnMore"]`
+
+### Button
+
+**Import:**
+```js
+import Button from "@kiwicom/nitro/lib/components/Button";
+```
+
+**Types:**
+```js
+type Props = {|
+  ...$Rest<PropsOrbit, {| children: ?React.Node |}>,
+  t: string,
+  values?: { [key: string]: string | number },
+  html?: boolean,
+  transform?: (value: string) => string,
+|};
+```
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Button).
+
+**Context needs:**
+* [intl](./services#intl)
+
+Our `Translate` wrapped in _Orbit_ `Button`. Accepts both our and their props.
+
+Button component shorter and nicer!
 
 ### ClickOutside
 
