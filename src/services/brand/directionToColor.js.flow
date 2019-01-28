@@ -1,0 +1,9 @@
+// @flow strict
+declare export function getColorInfo(branding: any): { id: string, color: string };
+
+export type DirectionToColor = (direction: number) => string;
+
+declare export default function directionToColor(
+  direction: number,
+  brandColorInfo: { id: string, color: string },
+): string;

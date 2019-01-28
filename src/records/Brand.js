@@ -1,4 +1,6 @@
 // @flow strict
+import type { DirectionToColor } from "../services/brand/directionToColor";
+
 export type Brand = {|
   domain: string,
   home_redirect_url: string,
@@ -433,6 +435,7 @@ export type Brand = {|
     |},
   |},
   powered_by_kiwi: boolean,
+  directionToColor: DirectionToColor,
 |};
 
 export type Brands = { [key: string]: Brand };
@@ -1943,4 +1946,5 @@ export const brandDefault: Brand = {
     },
   },
   powered_by_kiwi: false,
+  directionToColor: direction => `#00a99${direction}`,
 };
