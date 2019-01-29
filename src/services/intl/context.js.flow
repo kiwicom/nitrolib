@@ -3,6 +3,11 @@ import * as React from "react";
 
 import type { Intl } from "../../records/Intl";
 
-declare var context: React.Context<Intl>;
+export type Context = {|
+  ...Intl,
+  onDebug: () => void,
+|};
+
+declare var context: React.Context<Context>;
 
 export const { Consumer, Provider } = context;

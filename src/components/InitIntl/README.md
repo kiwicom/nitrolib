@@ -3,13 +3,13 @@
 Useful for initiating the **intl** context from raw intl data.
 
 ```js
-import type { IntlRaw, Intl } from "@kiwicom/nitro/lib/records/Intl";
+import type { IntlRaw } from "@kiwicom/nitro/lib/records/Intl";
 
 const raw: IntlRaw = window.__INTL__; // intl data from the server
 
 const App = () => (
   <InitIntl raw={raw}>
-    {(intl: Intl) => (
+    {intl => (
       <IntlProvider value={intl}>
         <Root />
       </IntlProvider>
@@ -26,7 +26,7 @@ if (node) {
 On the server:
 
 ```js
-import type { IntlRaw, Intl } from "@kiwicom/nitro/lib/records/Intl";
+import type { IntlRaw } from "@kiwicom/nitro/lib/records/Intl";
 
 import { locales } from "./data";
 
@@ -35,7 +35,7 @@ export default function render(locale: string) {
 
   const markup = ReactDOM.renderToString(
     <InitIntl raw={raw}>
-      {(intl: Intl) => (
+      {intl => (
         <IntlProvider value={intl}>
           <Root />
         </IntlProvider>

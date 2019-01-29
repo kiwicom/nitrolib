@@ -4,6 +4,14 @@ import * as React from "react";
 import { intlDefault } from "../../records/Intl";
 import type { Intl } from "../../records/Intl";
 
-const context: React.Context<Intl> = React.createContext(intlDefault);
+export type Context = {|
+  ...Intl,
+  onDebug: () => void,
+|};
+
+const context: React.Context<Context> = React.createContext({
+  ...intlDefault,
+  onDebug: () => {},
+});
 
 export const { Consumer, Provider } = context;

@@ -1,11 +1,12 @@
 // @flow strict
 import * as React from "react";
 
-import type { Intl, IntlRaw } from "../../records/Intl";
+import type { IntlRaw } from "../../records/Intl";
+import type { Context } from "../../services/intl/context";
 
 type Props = {|
   raw: IntlRaw,
-  children: (arg: Intl) => React.Node,
+  children: (arg: Context) => React.Node,
   // defaulted
   getLocale?: Promise<$FlowFixMe>, // resolves en-US by default
 |};

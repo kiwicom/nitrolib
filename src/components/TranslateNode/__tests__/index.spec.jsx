@@ -16,6 +16,7 @@ describe("#TranslateNode", () => {
         value={{
           ...intlDefault,
           translate,
+          onDebug: jest.fn(),
         }}
       >
         <TranslateNode t="lol" values={{ kek: "bur" }} />

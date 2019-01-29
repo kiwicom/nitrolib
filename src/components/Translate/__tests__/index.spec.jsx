@@ -16,6 +16,7 @@ describe("#Translate", () => {
         value={{
           ...intlDefault,
           translate,
+          onDebug: jest.fn(),
         }}
       >
         <Translate t="lol" values={{ kek: "bur" }} />
