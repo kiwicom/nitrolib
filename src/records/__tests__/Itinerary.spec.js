@@ -50,20 +50,29 @@ const segments = [
     code: "segmentizer",
     layover: {
       duration: 1338,
-      isKiwiComGuarantee: true,
+      guarantee: "KIWI_COM",
       isStationChange: false,
       isBaggageRecheck: false,
     },
     carrier: carriers[0],
     operatingCarrier: carriers[0],
     seatInfo: {
-      pitch: 13,
-      width: 37,
-      recline: 420,
+      pitch: {
+        value: "30",
+        unit: "CM",
+      },
+      width: {
+        value: "80",
+        unit: "CM",
+      },
+      recline: {
+        value: "7",
+        unit: "CM",
+      },
       hasPower: true,
       hasAudioVideo: false,
+      hasWifi: true,
     },
-    hasWifi: true,
   },
 ];
 
@@ -95,26 +104,129 @@ const sectors = [
 const itineraryCommon = {
   id: "itinerary1",
   price: {
-    amount: "1337",
-    currencyId: "EUR",
+    amount: "130",
+    currency: {
+      id: "eur",
+      code: "EUR",
+      name: "euro",
+      format: {
+        format: "__price__ €",
+        precision: 2,
+        isUncertain: false,
+      },
+      fallback: null,
+      enabledOnAffilId: "",
+      rate: "1",
+    },
+    formattedValue: "val",
   },
+  duration: 120,
   provider: {
-    id: "lol",
-    name: "kek",
-    code: "bur",
+    id: "kek",
+    name: "bur",
+    code: "da Vinci",
+    hasHighProbabilityOfPriceChange: false,
   },
-  hasNoCheckedBags: false,
+  bagsInfo: {
+    hasNoCheckedBags: false,
+    checkedBag: {
+      height: {
+        value: "60",
+        unit: "CM",
+      },
+      length: {
+        value: "150",
+        unit: "CM",
+      },
+      width: {
+        value: "80",
+        unit: "CM",
+      },
+      weight: {
+        value: "20",
+        unit: "KG",
+      },
+    },
+    handBag: {
+      height: {
+        value: "30",
+        unit: "CM",
+      },
+      length: {
+        value: "60",
+        unit: "CM",
+      },
+      width: {
+        value: "40",
+        unit: "CM",
+      },
+      weight: {
+        value: "10",
+        unit: "KG",
+      },
+    },
+  },
 };
 
 const itineraryDeepOneWay: ItineraryOneWayDeep = {
   ...itineraryCommon,
   type: "oneWay",
+  bookingOptions: {
+    provider: {
+      name: "kek",
+      siteName: "bur",
+    },
+    price: {
+      amount: "130",
+      currency: {
+        id: "eur",
+        code: "EUR",
+        name: "euro",
+        format: {
+          format: "__price__ €",
+          precision: 2,
+          isUncertain: false,
+        },
+        fallback: null,
+        enabledOnAffilId: "",
+        rate: "1",
+      },
+      formattedValue: "val",
+    },
+
+    token: "kek",
+  },
   sector: sectors[0],
 };
 
 const itineraryDeepReturn: ItineraryReturnDeep = {
   ...itineraryCommon,
   type: "return",
+  bookingOptions: {
+    provider: {
+      name: "kek",
+      siteName: "bur",
+    },
+    price: {
+      amount: "130",
+      currency: {
+        id: "eur",
+        code: "EUR",
+        name: "euro",
+        format: {
+          format: "__price__ €",
+          precision: 2,
+          isUncertain: false,
+        },
+        fallback: null,
+        enabledOnAffilId: "",
+        rate: "1",
+      },
+      formattedValue: "val",
+    },
+
+    token: "kek",
+  },
   outbound: sectors[0],
   inbound: sectors[1],
 };

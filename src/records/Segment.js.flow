@@ -2,15 +2,18 @@
 import type { Schema } from "normalizr";
 
 import type { Station } from "./Station";
+import type { ItineraryNormalized } from "./Itinerary";
 
 export type Stop = {|
   station: Station,
   time: Date,
 |};
 
+type Guarantee = "KIWI_COM" | "CARRIER";
+
 export type Layover = {|
   duration: number,
-  isKiwiComGuarantee: boolean,
+  guarantee: Guarantee,
   isStationChange: boolean,
   isBaggageRecheck: boolean,
 |};
@@ -23,12 +26,18 @@ export type Carrier = {|
 
 declare export var carrier: Schema;
 
+type SeatDimenstion = {|
+  value: string,
+  unit: "CM" | "INCH" | "DEGREE",
+|};
+
 export type SeatInfo = {|
-  pitch: number,
-  width: number,
-  recline: number,
+  pitch: SeatDimenstion,
+  width: SeatDimenstion,
+  recline: SeatDimenstion,
   hasPower: boolean,
   hasAudioVideo: boolean,
+  hasWifi: boolean,
 |};
 
 export type Segment = {|
@@ -42,8 +51,8 @@ export type Segment = {|
   carrier: string, // normalized, Carrier
   operatingCarrier: string, // normalized, Carrier
   seatInfo: SeatInfo,
-  hasWifi: boolean,
 |};
+export type Segments = { [key: string]: Segment };
 
 export type SegmentDeep = {|
   ...Segment,
@@ -52,3 +61,5 @@ export type SegmentDeep = {|
 |};
 
 declare export var segment: Schema;
+declare export var getSegment: (obj: ItineraryNormalized, id: string) => Segment;
+declare export var getSegments: (obj: ItineraryNormalized, ids: string[]) => Segment[];

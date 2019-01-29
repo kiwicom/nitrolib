@@ -6,6 +6,7 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [Airline](#airline)
 * [Auth](#auth)
 * [Baggage](#baggage)
+* [BaggageInfo](#baggageinfo)
 * [Brand](#brand)
 * [BrandLanguage](#brandlanguage)
 * [Continents](#continents)
@@ -227,6 +228,46 @@ See types:
 Baggage
 
 - baggages data type according to snake_case-camelCase mapped API response
+
+## BaggageInfo
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/BaggageInfo";
+import type { BaggageInfo } from "@kiwicom/nitro/lib/records/BaggageInfo";
+```
+
+**Types:**
+```js
+type SizeUnit = "CM" | "INCH";
+
+type WeightUnit = "KG" | "POUND";
+
+type SizeValue = {|
+  value: string,
+  unit: SizeUnit,
+|};
+
+type WeightValue = {|
+  value: string,
+  unit: WeightUnit,
+|};
+
+export type BaggageInfo = {|
+  height: SizeValue,
+  length: SizeValue,
+  width: SizeValue,
+  weight: WeightValue,
+|};
+
+export type BagsInfo = {|
+  hasNoCheckedBags: boolean,
+  checkedBag: BaggageInfo,
+  handBag: BaggageInfo,
+|};
+```
+
+_TODO_
 
 ## Brand
 
@@ -977,28 +1018,50 @@ import type { Itinerary } from "@kiwicom/nitro/lib/records/Itinerary";
 
 **Types:**
 ```js
-export type Price = {|
-  amount: string,
-  currencyId: string,
-|};
-
 export type Provider = {|
   id: string,
   name: string,
   code: string,
+  hasHighProbabilityOfPriceChange: boolean,
+|};
+
+type BagsInfo = {|
+  hasNoCheckedBags: boolean,
+  checkedBag: BaggageInfo,
+  handBag: BaggageInfo,
 |};
 
 type Common = {|
   id: string,
-  price: Price,
+  price: Money,
   provider: Provider,
-  hasNoCheckedBags: boolean,
+  duration: number,
+  bagsInfo: BagsInfo,
+|};
+
+type BookingProvider = {|
+  name: string,
+  siteName: string,
+|};
+type BookingOption = {|
+  provider: BookingProvider,
+  price: Money,
+  token: string,
 |};
 
 export type ItineraryOneWay = {|
   ...Common,
   type: "oneWay",
+  bookingOptions: BookingOption,
   sector: string, // normalized, Sector
+|};
+
+export type ItineraryReturn = {|
+  ...Common,
+  type: "return",
+  bookingOptions: BookingOption,
+  outbound: string, //  normalized, Sector
+  inbound: string, //  normalized, Sector
 |};
 
 export type ItineraryOneWayDeep = {|
@@ -1009,13 +1072,6 @@ export type ItineraryOneWayDeep = {|
 declare export var itineraryOneWay: {
   sector: Schema,
 };
-
-export type ItineraryReturn = {|
-  ...Common,
-  type: "return",
-  outbound: string, //  normalized, Sector
-  inbound: string, //  normalized, Sector
-|};
 
 export type ItineraryReturnDeep = {|
   ...ItineraryReturn,
@@ -1081,6 +1137,8 @@ declare export var flatten: (data: ItineraryDeep) => ItineraryNormalized;
 See types:
 * [Sector](./records#sector)
 * [Segment](./records#segment)
+* [Money](./records#money)
+* [BaggageInfo](./records#baggageinfo)
 
 
 
@@ -1337,11 +1395,14 @@ export type SectorDeep = {|
 
 // eslint-disable-next-line import/prefer-default-export
 declare export var sector: Schema;
+declare export var getSector: (obj: ItineraryNormalized, id: string) => Sector;
+declare export var getSectors: (obj: ItineraryNormalized) => Sector[];
 ```
 
 See types:
 * [Station](./records#station)
 * [Segment](./records#segment)
+* [Itinerary](./records#itinerary)
 
 A part of [Itinerary](#Itinerary).
 
@@ -1360,9 +1421,11 @@ export type Stop = {|
   time: Date,
 |};
 
+type Guarantee = "KIWI_COM" | "CARRIER";
+
 export type Layover = {|
   duration: number,
-  isKiwiComGuarantee: boolean,
+  guarantee: Guarantee,
   isStationChange: boolean,
   isBaggageRecheck: boolean,
 |};
@@ -1375,12 +1438,18 @@ export type Carrier = {|
 
 declare export var carrier: Schema;
 
+type SeatDimenstion = {|
+  value: string,
+  unit: "CM" | "INCH" | "DEGREE",
+|};
+
 export type SeatInfo = {|
-  pitch: number,
-  width: number,
-  recline: number,
+  pitch: SeatDimenstion,
+  width: SeatDimenstion,
+  recline: SeatDimenstion,
   hasPower: boolean,
   hasAudioVideo: boolean,
+  hasWifi: boolean,
 |};
 
 export type Segment = {|
@@ -1394,8 +1463,8 @@ export type Segment = {|
   carrier: string, // normalized, Carrier
   operatingCarrier: string, // normalized, Carrier
   seatInfo: SeatInfo,
-  hasWifi: boolean,
 |};
+export type Segments = { [key: string]: Segment };
 
 export type SegmentDeep = {|
   ...Segment,
@@ -1404,10 +1473,13 @@ export type SegmentDeep = {|
 |};
 
 declare export var segment: Schema;
+declare export var getSegment: (obj: ItineraryNormalized, id: string) => Segment;
+declare export var getSegments: (obj: ItineraryNormalized, ids: string[]) => Segment[];
 ```
 
 See types:
 * [Station](./records#station)
+* [Itinerary](./records#itinerary)
 
 A part of [Itinerary](#Itinerary).
 

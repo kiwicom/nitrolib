@@ -31,6 +31,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [InitIntl](#initintl)
 * [InitLog](#initlog)
 * [InitSession](#initsession)
+* [Itinerary](#itinerary)
 * [Mobile](#mobile)
 * [Price](#price)
 * [Text](#text)
@@ -1143,6 +1144,49 @@ See types:
 * [Session](./records#session)
 
 Initializes the [session](./services#session) context.
+
+### Itinerary
+
+**Import:**
+```js
+import Itinerary from "@kiwicom/nitro/lib/components/Itinerary";
+```
+
+**Types:**
+```js
+type Props = {|
+  itinerary: ItineraryDeep,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+See types:
+* [Itinerary](./records#itinerary)
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Itinerary).
+
+**Context needs:**
+* [intl](./services#intl)
+
+- Renders all trip types aka Itineraries (oneWay, return, multicity and nomad)
+- It was made similiar to search graphql date structure
+- Uses flat date structure
+- You can check new structure in these records:
+
+[Itineray](`../records/Itinerary`)
+[Sector](`../records/Sector`)
+[Segment](`../records/Segment`)
+
+To implement `Itinerary` you have to import **_flatten_** function.
+
+**Example:**
+
+```js
+import { flatten } from "@kiwicom/nitro/lib/records/Itinerary";
+
+<Itinerary itinerary={flatten(ItineraryOneWay)} />;
+```
 
 ### Mobile
 
