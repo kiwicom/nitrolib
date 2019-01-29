@@ -1,5 +1,4 @@
 // @flow strict
-/* eslint-disable react/no-danger */
 import * as React from "react";
 import ButtonOrbit from "@kiwicom/orbit-components/lib/Button";
 import type { Props as PropsOrbit } from "@kiwicom/orbit-components/lib/Button";
