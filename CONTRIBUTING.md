@@ -17,7 +17,7 @@ Unit test **everything** testable! Isolate non-testable code as much as possible
 
 **100% coverage**, no mercy. All cases, all branches, any meaningful combination of example cases.
 
-Use **Enzyme** for components. Snapshot test **dumb** components and make sure the snapshot makes sense. Test all methods and callbacks in **smart** components.
+Use **Enzyme** for components. No snapshots! Walk the component tree and assert props and render parts that make sense.
 
 ### ESlint
 

@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import AccountLogin from "..";
 
@@ -18,18 +18,21 @@ const commonProps = {
 
 describe("#AccountLogin", () => {
   test("render", () => {
-    const wrapper = shallow(<AccountLogin {...commonProps} />);
+    const wrapper = mount(<AccountLogin {...commonProps} />);
 
-    // <span /> needed for some reason, but it works
-    const wrapper2 = shallow(<span>{wrapper.prop("children")(intlDefault)}</span>);
-
-    expect(wrapper2.find("Illustration").prop("name")).toBe("Login");
+    expect(wrapper.find("Illustration").prop("name")).toBe("Login");
     expect(
-      wrapper2
+      wrapper
         .find("Heading")
-        .children("Translate")
+        .find("Translate")
         .prop("t"),
     ).toBe("account.manage_your_bookings");
+  });
+
+  test("render error", () => {
+    const wrapper = mount(<AccountLogin {...commonProps} error="Kek" />);
+
+    expect(wrapper.find("Alert").prop("type")).toBe("critical");
   });
 
   [
@@ -53,17 +56,16 @@ describe("#AccountLogin", () => {
     },
   ].forEach(({ type, description, illustration, title }) =>
     test(`type ${type}`, () => {
-      const wrapper = shallow(<AccountLogin {...commonProps} type={type} />);
+      const wrapper = mount(<AccountLogin {...commonProps} type={type} />);
 
-      const component = shallow(<span>{wrapper.prop("children")(intlDefault)}</span>);
-      expect(component.find("Illustration").prop("name")).toBe(illustration);
+      expect(wrapper.find("Illustration").prop("name")).toBe(illustration);
       expect(
-        component
+        wrapper
           .find("Heading")
           .find("Translate")
           .prop("t"),
       ).toBe(title);
-      expect(component.find(`[t="${description}"]`).exists()).toBe(true);
+      expect(wrapper.find(`[t="${description}"]`).exists()).toBe(true);
     }),
   );
 });

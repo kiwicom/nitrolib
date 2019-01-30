@@ -64,11 +64,7 @@ const AccountLogin = ({
     {intl => (
       <>
         <Section>
-          <Illustration
-            name={ILLUSTRATION[type] || ILLUSTRATION.mmb}
-            size="small"
-            spaceAfter="small"
-          />
+          <Illustration name={ILLUSTRATION[type]} size="small" spaceAfter="small" />
           <Heading element="h2" spaceAfter="small">
             <Translate t={TITLE_TKEY[type]} />
           </Heading>

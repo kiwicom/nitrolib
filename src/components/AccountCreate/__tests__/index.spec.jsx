@@ -1,14 +1,12 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import AccountCreate from "..";
 
-import { intlDefault } from "../../../records/Intl";
-
 describe("#AccountCreate", () => {
   test("render", () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <AccountCreate
         email=""
         password=""
@@ -20,11 +18,11 @@ describe("#AccountCreate", () => {
       />,
     );
 
-    expect(wrapper.prop("children")(intlDefault)).toMatchSnapshot();
+    expect(wrapper.find("Alert").exists()).toBe(false);
   });
 
-  test("validation errors", () => {
-    const wrapper = shallow(
+  test("render error", () => {
+    const wrapper = mount(
       <AccountCreate
         email=""
         password=""
@@ -33,12 +31,32 @@ describe("#AccountCreate", () => {
         onPasswordChange={() => {}}
         onPasswordConfirmChange={() => {}}
         onContinue={() => {}}
+        error="Kek"
         emailError="Wrong format of e-mail"
         passwordError="Password should be more complex"
         passwordConfirmError="Passwords do not match"
       />,
     );
 
-    expect(wrapper.prop("children")(intlDefault)).toMatchSnapshot();
+    expect(wrapper.find("Alert").exists()).toBe(true);
+
+    expect(
+      wrapper
+        .find("[data-test='Email']")
+        .first()
+        .prop("error"),
+    ).toBe("Wrong format of e-mail");
+    expect(
+      wrapper
+        .find("[data-test='Password']")
+        .first()
+        .prop("error"),
+    ).toBe("Password should be more complex");
+    expect(
+      wrapper
+        .find("[data-test='PasswordConfirm']")
+        .first()
+        .prop("error"),
+    ).toBe("Passwords do not match");
   });
 });

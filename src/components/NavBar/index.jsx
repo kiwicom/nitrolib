@@ -22,7 +22,7 @@ import marginMixin from "./styles/marginMixin";
 // import Starred from "../Starred"; FIXME add as a full feature
 // TODO: replace z-index with Orbit token after refactoring all front-end indexes
 
-type Inverted = ThemeProps & {|
+type Inverted = {|
   ...ThemeProps,
   inverted: boolean,
 |};
