@@ -49,7 +49,7 @@ const TileContent = ({ handBags, holdBags, orderStatus }: Props) => {
       {!hasPersonalItem && (
         <Stack>
           <Text element="span" type="secondary">
-            <BaggagePersonalItemNone size="small" />{" "}
+            <BaggagePersonalItemNone size="small" />
             <Translate t="common.baggage.no_personal_item" />
           </Text>
         </Stack>
