@@ -100,7 +100,7 @@ const AccountCreate = ({
               <Button submit loading={isLoading}>
                 <Translate t="account.create" />
               </Button>
-              <Text size="small" t="account.terms_and_privacy_policy" html />
+              <Text size="small" t="account.registration_privacy_policy" html />
             </Stack>
           </form>
         </Section>
