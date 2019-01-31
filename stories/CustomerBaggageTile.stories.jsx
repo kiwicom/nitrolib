@@ -16,6 +16,13 @@ const props = {
   baggage: baggageData,
   onClick: () => console.log("clicked"), // eslint-disable-line
   orderStatus: "unpaid",
+  price: {
+    currency: "EUR",
+    amount: 21,
+    base: 21,
+    service: 0,
+    serviceFlat: 0,
+  },
 };
 
 const Wrapper = styled.div`

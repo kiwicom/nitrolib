@@ -1,8 +1,6 @@
 // @flow strict
 import * as React from "react";
 import Tile from "@kiwicom/orbit-components/lib/Tile";
-import GenderMan from "@kiwicom/orbit-components/lib/icons/GenderMan";
-import GenderWoman from "@kiwicom/orbit-components/lib/icons/GenderWoman";
 
 import Title from "./components/Title";
 import TileContent from "./components/TileContent";
@@ -27,6 +25,7 @@ const CustomerBaggageTile = ({
   orderStatus,
   baggage,
   currentBaggage,
+  price,
 }: Props) => {
   const { definitions, combinations } = baggage;
 
@@ -57,8 +56,15 @@ const CustomerBaggageTile = ({
     <Tile
       href="https://www.kiwi.com/"
       onClick={onClick}
-      icon={gender === "male" ? <GenderMan /> : <GenderWoman />}
-      title={<Title firstName={firstName} lastName={lastName} orderStatus={orderStatus} />}
+      title={
+        <Title
+          gender={gender}
+          firstName={firstName}
+          lastName={lastName}
+          orderStatus={orderStatus}
+          price={price}
+        />
+      }
       description={
         <TileContent handBags={handBags} holdBags={holdBags} orderStatus={orderStatus} />
       }
