@@ -5,7 +5,6 @@ import { storiesOf } from "@storybook/react";
 import { withKnobs } from "@storybook/addon-knobs";
 
 import withData from "./decorators/withData";
-import airlines from "./fixtures/airlines";
 import CustomerBaggageTile from "../src/components/CustomerBaggageTile";
 import baggageData from "../src/components/CustomerBaggageTile/services/data";
 

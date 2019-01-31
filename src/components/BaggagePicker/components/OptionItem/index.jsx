@@ -59,6 +59,7 @@ const TitleWrapper = styled.div`
     margin-right: ${({ theme }): ThemeProps => theme.orbit.spaceXSmall};
   }
 `;
+
 TitleWrapper.defaultProps = {
   theme: themeDefault,
 };

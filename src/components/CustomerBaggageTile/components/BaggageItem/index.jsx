@@ -44,19 +44,27 @@ type Props = {
   restrictions: Restrictions,
 };
 
-const BaggageItem = ({ category, amount, restrictions }: Props) => (
-  <Stack flex spacing="condensed" align="center" shrink>
-    <Stack align="center" shrink spacing="condensed">
-      <Text element="span" weight="bold">
-        {getIconFromCategory(category)}
-        {`${amount}x ${restrictions.weight}kg`}
-      </Text>
-      {getTextFromCategory(category)}
+const BaggageItem = ({ category, amount, restrictions }: Props) => {
+  const textWeight = category === "holdBag" ? "bold" : "normal";
+  return (
+    <Stack flex align="center" shrink>
+      <Stack align="center" shrink spacing="tight">
+        <Stack flex spacing="condensed">
+          {getIconFromCategory(category)}
+          <Text element="span" weight={textWeight}>
+            {`${amount}x ${restrictions.weight}kg `}
+            {getTextFromCategory(category)}
+          </Text>
+        </Stack>
+      </Stack>
+
+      <Stack>
+        <Text element="span" weight={textWeight} type="secondary">
+          {getBaggageSize(restrictions)}
+        </Text>
+      </Stack>
     </Stack>
-    <Stack>
-      <Text element="span">{getBaggageSize(restrictions)}</Text>
-    </Stack>
-  </Stack>
-);
+  );
+};
 
 export default BaggageItem;
