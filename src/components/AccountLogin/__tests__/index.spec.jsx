@@ -4,8 +4,6 @@ import { mount } from "enzyme";
 
 import AccountLogin from "..";
 
-import { intlDefault } from "../../../records/Intl";
-
 const commonProps = {
   email: "",
   brandName: "Kiwi.com",

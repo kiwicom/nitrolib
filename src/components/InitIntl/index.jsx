@@ -24,6 +24,10 @@ export default class InitIntl extends React.PureComponent<Props, State> {
     getLocale: Promise.resolve(enUS),
   };
 
+  state = {
+    debug: false,
+  };
+
   handleDebug = () => {
     this.setState(state => ({ debug: !state.debug }));
   };
