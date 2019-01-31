@@ -10,7 +10,6 @@ const commonProps = {
   email: "",
   error: <Text t="common.api_error" />,
   brandName: "Kiwi.com",
-  onNoAccount: () => {},
   onEmailChange: () => {},
   onFacebookLogin: () => {},
   onGoogleLogin: () => {},

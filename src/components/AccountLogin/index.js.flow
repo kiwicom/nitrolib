@@ -9,7 +9,6 @@ type Props = {|
   brandName: string,
   error?: React.Node,
   isLoading?: boolean,
-  onNoAccount: (ev: SyntheticEvent<HTMLLinkElement>) => void,
   onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,

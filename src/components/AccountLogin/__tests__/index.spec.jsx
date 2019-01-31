@@ -7,7 +7,6 @@ import AccountLogin from "..";
 const commonProps = {
   email: "",
   brandName: "Kiwi.com",
-  onNoAccount: () => {},
   onEmailChange: () => {},
   onFacebookLogin: () => {},
   onGoogleLogin: () => {},

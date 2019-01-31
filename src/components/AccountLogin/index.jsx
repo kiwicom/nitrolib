@@ -3,7 +3,6 @@ import * as React from "react";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
-import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
@@ -23,7 +22,6 @@ type Props = {|
   brandName: string,
   error?: React.Node,
   isLoading?: boolean,
-  onNoAccount: (ev: SyntheticEvent<HTMLLinkElement>) => void,
   onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
@@ -54,7 +52,6 @@ const AccountLogin = ({
   error,
   brandName,
   isLoading,
-  onNoAccount,
   onGoogleLogin,
   onFacebookLogin,
   onEmailChange,
@@ -92,9 +89,6 @@ const AccountLogin = ({
                   <Translate t="account.continue" />
                 </Button>
               </Stack>
-              <TextLink size="small" type="secondary" onClick={onNoAccount}>
-                <Translate t="account.i_dont_have_account" />
-              </TextLink>
             </Stack>
           </form>
         </Section>
