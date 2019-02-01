@@ -42,9 +42,7 @@ const CustomPicker = ({ openButton, onChange, children }: Props) => (
     {({ open, onToggle }) => (
       <ClickOutside active={open} onClickOutside={onToggle}>
         <>
-          <OpenButton onClick={onToggle} data-test="Open">
-            {openButton}
-          </OpenButton>
+          <OpenButton onClick={onToggle}>{openButton}</OpenButton>
           {open &&
             children({
               onChange: (input: string) => {

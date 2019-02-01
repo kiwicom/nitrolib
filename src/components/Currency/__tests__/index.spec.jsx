@@ -165,11 +165,14 @@ describe("#Currency", () => {
     );
 
     // Open it up
-    wrapper.find("[data-test='Currency'] button[data-test='Open']").simulate("click");
+    wrapper
+      .find("[data-test='Currency-Open']")
+      .first()
+      .simulate("click");
 
     wrapper
       .find("[data-test='Currency']")
-      .find("[data-test='gbp']")
+      .find("[data-test='Currency-Item-gbp']")
       .first()
       .find("button")
       .simulate("click");
@@ -193,7 +196,10 @@ describe("#Currency", () => {
     );
 
     // Open it up
-    wrapper.find("[data-test='Currency'] button[data-test='Open']").simulate("click");
+    wrapper
+      .find("[data-test='Currency-Open']")
+      .first()
+      .simulate("click");
 
     wrapper
       .find("[data-test='Currency']")
@@ -201,7 +207,7 @@ describe("#Currency", () => {
       .find("Menu__Recommended")
       .find("List")
       .find("List__Item")
-      .filter("[data-test='gbp']")
+      .filter("[data-test='Currency-Item-gbp']")
       .find("button")
       .simulate("click");
 
@@ -224,7 +230,10 @@ describe("#Currency", () => {
     );
 
     // Open it up
-    wrapper.find("[data-test='Currency'] button[data-test='Open']").simulate("click");
+    wrapper
+      .find("[data-test='Currency-Open']")
+      .first()
+      .simulate("click");
 
     wrapper
       .find("[data-test='Currency']")
@@ -232,7 +241,7 @@ describe("#Currency", () => {
       .find("List")
       .at(1)
       .find("List__Item")
-      .filter("[data-test='gbp']")
+      .filter("[data-test='Currency-Item-gbp']")
       .find("button")
       .simulate("click");
 

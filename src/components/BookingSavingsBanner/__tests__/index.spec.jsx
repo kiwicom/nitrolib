@@ -31,8 +31,8 @@ describe("#BookingSavingsBanner", () => {
       />,
     );
 
-    wrapper.find("[dataTest='MoreTrips']").simulate("click");
-    wrapper.find("[dataTest='LearnMore']").simulate("click");
+    wrapper.find("[dataTest='BookingSavingsBanner-MoreTrips']").simulate("click");
+    wrapper.find("[dataTest='BookingSavingsBanner-LearnMore']").simulate("click");
 
     expect(onLearnMoreClick).toHaveBeenCalledTimes(1);
     expect(onMoreTripsClick).toHaveBeenCalledTimes(1);

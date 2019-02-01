@@ -61,7 +61,9 @@ describe("#Currency/List", () => {
   test("render", () => {
     const wrapper = mount(<List active={active} list={list} onSetCurrency={jest.fn()} />);
 
-    const ItemText = wrapper.find(`[data-test='${currencies.gbp.id}']`).find("List__ItemText");
+    const ItemText = wrapper
+      .find(`[data-test='Currency-Item-${currencies.gbp.id}']`)
+      .find("List__ItemText");
     expect(ItemText).toHaveStyleRule("background", "transparent");
     expect(ItemText).toHaveStyleRule("background", themeDefault.orbit.paletteCloudNormal, {
       modifier: ":hover",
@@ -86,7 +88,9 @@ describe("#Currency/List", () => {
   test("render active", () => {
     const wrapper = mount(<List active={active} list={list} onSetCurrency={jest.fn()} />);
 
-    const ItemText = wrapper.find(`[data-test='${active.id}']`).find("List__ItemText");
+    const ItemText = wrapper
+      .find(`[data-test='Currency-Item-${active.id}']`)
+      .find("List__ItemText");
     expect(ItemText).toHaveStyleRule("background", themeDefault.orbit.paletteProductNormal);
     expect(ItemText).toHaveStyleRule("background", themeDefault.orbit.paletteProductNormal, {
       modifier: ":hover",
@@ -114,7 +118,7 @@ describe("#Currency/List", () => {
     expect(wrapper.find("List__ItemText").filter("[active=true]").length).toBe(1);
     expect(
       wrapper
-        .find(`[data-test='${currencies.eur.id}']`)
+        .find(`[data-test='Currency-Item-${currencies.eur.id}']`)
         .find("List__ItemText")
         .prop("active"),
     ).toBe(true);
@@ -125,7 +129,7 @@ describe("#Currency/List", () => {
     const wrapper = shallow(<List active={active} list={list} onSetCurrency={onSetCurrency} />);
 
     wrapper
-      .find(`[data-test='${currencies.gbp.id}']`)
+      .find(`[data-test='Currency-Item-${currencies.gbp.id}']`)
       .find("List__ItemText")
       .simulate("click");
 
