@@ -87,6 +87,7 @@ type Props = {|
 
 **Selectors `data-test`:**
 * ```"Currency"```
+* ```"Currency-Open"```
 * ```{`Currency-Item-${item.id}`}```
 
 A currency picker.
