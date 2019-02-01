@@ -22,7 +22,7 @@ const getIconFromCategory = category => {
     case "holdBag":
       return <BaggageChecked size="small" color="primary" />;
     default:
-      break;
+      return undefined;
   }
 };
 

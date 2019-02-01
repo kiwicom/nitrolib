@@ -26,8 +26,9 @@ const props = {
 };
 
 const Wrapper = styled.div`
+  padding: 5px;
   > * {
-    margin-bottom: 74px;
+    margin-bottom: 24px;
   }
 `;
 
