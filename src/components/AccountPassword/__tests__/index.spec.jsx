@@ -20,14 +20,14 @@ describe("#AccountPassword", () => {
   test("render", () => {
     const wrapper = mount(<AccountPassword {...defaultProps} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find(Alert).exists()).toBe(false);
   });
 
   test("form error", () => {
-    const component = mount(
+    const wrapper = mount(
       <AccountPassword {...defaultProps} error={<Text>Something wrong</Text>} />,
     );
 
-    expect(component.find(Alert).exists()).toBe(true);
+    expect(wrapper.find(Alert).exists()).toBe(true);
   });
 });
