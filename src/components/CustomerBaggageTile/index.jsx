@@ -54,7 +54,6 @@ const CustomerBaggageTile = ({
 
   return (
     <Tile
-      href="https://www.kiwi.com/"
       onClick={onClick}
       title={
         <Title

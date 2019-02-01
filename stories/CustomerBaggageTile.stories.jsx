@@ -26,7 +26,6 @@ const props = {
 };
 
 const Wrapper = styled.div`
-  padding: 25px;
   > * {
     margin-bottom: 74px;
   }

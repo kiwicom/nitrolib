@@ -39,23 +39,34 @@ const getTextFromCategory = category => {
   }
 };
 
-type BaggageSizeTextProps = ThemeProps & {
+const BaggageRestrictionsWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  ${mq.ltBigMobile(css`
+    width: 80%;
+  `)};
+  ${mq.ltMiddleMobile(css`
+    display: none;
+  `)};
+`;
+type BaggageRestrictionsProps = ThemeProps & {
   isMobile: boolean,
 };
-const BaggageSizeText = styled.p`
-  display: ${({ isMobile }: BaggageSizeTextProps) => (isMobile ? "none" : "block")};
-  color: ${({ theme }): ThemeProps => theme.orbit.colorTextSecondary};
-  font-size: ${({ theme, isMobile }: BaggageSizeTextProps) =>
-    isMobile ? theme.orbit.fontSizeTextSmall : theme.orbit.fontSizeTextNormal};
-  font-family: ${({ theme }): ThemeProps => theme.orbit.fontFamily};
-  margin: 0;
 
-  ${mq.ltBigMobile(css`
-    display: ${({ isMobile }: BaggageSizeTextProps) => (isMobile ? "block" : "none")};
+const BaggageRestrictions = styled.span`
+  display: ${({ isMobile }: BaggageRestrictionsProps) => (isMobile ? "none" : "block")};
+  color: ${({ theme }): ThemeProps => theme.orbit.colorTextSecondary};
+  font-size: ${({ theme, isMobile }: BaggageRestrictionsProps) =>
+    isMobile ? theme.orbit.fontSizeTextNormal : "inherit"};
+  font-family: ${({ theme }): ThemeProps => theme.orbit.fontFamily};
+
+  ${mq.ltMiddleMobile(css`
+    display: ${({ isMobile }: BaggageRestrictionsProps) => (isMobile ? "inline-block" : "none")};
+    padding-left: ${({ isMobile }: BaggageRestrictionsProps) => (isMobile ? "24px" : "0px")};
   `)};
 `;
 
-BaggageSizeText.defaultProps = {
+BaggageRestrictions.defaultProps = {
   theme: themeDefault,
   isMobile: false,
 };
@@ -64,6 +75,7 @@ const getBaggageSize = ({ height, length, weight, width }) =>
   `${length} x ${width} x ${height} cm, ${weight} kg`;
 
 const Wrapper = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
 `;
@@ -77,7 +89,7 @@ const BaggageItem = ({ category, amount, restrictions }: Props) => {
   const textWeight = category === "holdBag" ? "bold" : "normal";
   return (
     <Wrapper>
-      <Stack spacing="tight">
+      <Stack shrink spacing="tight" direction="column">
         <Stack grow flex align="center" spacing="condensed">
           {getIconFromCategory(category)}
           <Text element="span" weight={textWeight}>
@@ -85,11 +97,11 @@ const BaggageItem = ({ category, amount, restrictions }: Props) => {
             {getTextFromCategory(category)}
           </Text>
         </Stack>
-        <BaggageSizeText isMobile>{getBaggageSize(restrictions)}</BaggageSizeText>
+        <BaggageRestrictions isMobile>{getBaggageSize(restrictions)}</BaggageRestrictions>
       </Stack>
-      <Stack shrink>
-        <BaggageSizeText>{getBaggageSize(restrictions)}</BaggageSizeText>
-      </Stack>
+      <BaggageRestrictionsWrapper shrink>
+        <BaggageRestrictions>{getBaggageSize(restrictions)}</BaggageRestrictions>
+      </BaggageRestrictionsWrapper>
     </Wrapper>
   );
 };

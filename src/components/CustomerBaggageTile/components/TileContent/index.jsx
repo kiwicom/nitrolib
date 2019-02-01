@@ -18,7 +18,7 @@ type Props = {
 };
 
 const Wrapper = styled.div`
-  padding: 15px 0;
+  padding: 17px 0px 17px 28px;
   > * {
     margin-bottom: ${({ theme }): ThemeProps => theme.orbit.spaceXXXSmall};
   }

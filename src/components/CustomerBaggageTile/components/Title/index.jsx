@@ -7,6 +7,7 @@ import Alert from "@kiwicom/orbit-components/lib/icons/Alert";
 import Reload from "@kiwicom/orbit-components/lib/icons/Reload";
 import GenderMan from "@kiwicom/orbit-components/lib/icons/GenderMan";
 import GenderWoman from "@kiwicom/orbit-components/lib/icons/GenderWoman";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import type { Price } from "../../../../records/Baggage";
 import mq from "../../../../styles/mq";
@@ -23,15 +24,20 @@ type TitleProps = {
 const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  ${mq.ltBigMobile(css`
+    align-items: flex-start;
+
+    flex-direction: column;
+  `)};
   svg {
     margin-right: 6px;
   }
 
   div {
+    margin-left: 10px;
     ${mq.ltBigMobile(css`
-      margin-top: 10px;
-      margin-left: 10px;
+      margin-top: 9px;
+      margin-left: 28px;
     `)};
   }
 `;
@@ -70,8 +76,10 @@ const Title = ({ firstName, lastName, gender, orderStatus, price }: TitleProps) 
   };
   return (
     <TitleWrapper>
-      {gender === "male" ? <GenderMan /> : <GenderWoman />}
-      <PassengerName>{`${firstName} ${lastName}`}</PassengerName>
+      <Stack inline align="center" spacing="condensed">
+        {gender === "male" ? <GenderMan /> : <GenderWoman />}
+        <PassengerName>{`${firstName} ${lastName}`}</PassengerName>
+      </Stack>
       {getBadge()}
     </TitleWrapper>
   );
