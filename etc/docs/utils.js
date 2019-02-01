@@ -35,7 +35,7 @@ const getImports = file =>
     .filter(Boolean)
     .map(match => path.join(COMPONENTS, match[3]));
 
-const getFiles = (folder, files) =>
+const getFilesWithImports = (folder, files) =>
   files
     .filter(file => file.match(/^[a-zA-Z]+(\.jsx?)?$/))
     .map(file => path.join(folder, file))
@@ -43,18 +43,29 @@ const getFiles = (folder, files) =>
       (acc, file) =>
         file.match(/.*\.jsx?$/)
           ? acc.concat(file).concat(
-              // Add contexts from all imports
               getImports(file)
                 .filter(f => fsx.existsSync(f))
-                .map(f => getFiles(f, fsx.readdirSync(f)))
+                .map(f => getFilesWithImports(f, fsx.readdirSync(f)))
                 .reduce((a, next) => a.concat(next), []),
             )
+          : acc.concat(getFilesWithImports(file, fsx.readdirSync(file))),
+      [],
+    );
+
+const getFiles = (folder, files) =>
+  files
+    .filter(file => file.match(/^[a-zA-Z]+(\.jsx?)?$/))
+    .map(file => path.join(folder, file))
+    .reduce(
+      (acc, file) =>
+        file.match(/.*\.jsx?$/)
+          ? acc.concat(file)
           : acc.concat(getFiles(file, fsx.readdirSync(file))),
       [],
     );
 
 const getContextNeeds = folder =>
-  getFiles(folder, fsx.readdirSync(folder)) // eslint-disable-line fp/no-mutating-methods
+  getFilesWithImports(folder, fsx.readdirSync(folder)) // eslint-disable-line fp/no-mutating-methods
     .map(file => String(fsx.readFileSync(file)))
     .join("")
     .split("\n")
@@ -62,7 +73,49 @@ const getContextNeeds = folder =>
     .filter(Boolean)
     .map(match => match[1])
     .sort()
-    .reduce((acc, next) => (acc.includes(next) ? acc : acc.concat(next)), []);
+    .reduce((acc, next) => (acc.includes(next) ? acc : acc.concat(next)), [])
+    .map(context => `* [${context}](./services#${context.toLowerCase()})`)
+    .join("\n");
+
+const getDataTestList = folder =>
+  getFiles(folder, fsx.readdirSync(folder)) // eslint-disable-line fp/no-mutating-methods
+    .map(file => String(fsx.readFileSync(file)))
+    .join("")
+    .split("\n")
+    .map(line => line.match(/(data-test|dataTest)=((\{`|")[\w-_.${}]+(`\}|"))/))
+    .filter(Boolean)
+    .map(match => match[2])
+    .sort();
+
+const dataTestPurify = test =>
+  test
+    .replace(/(^"|"$)/g, "")
+    .replace(/^\{`/, "")
+    .replace(/`\}$/, "");
+
+const getDataTests = (name, folder) => {
+  const list = getDataTestList(folder);
+  const prefix = `${name}-`;
+
+  list.forEach(test => {
+    const pure = dataTestPurify(test);
+    if (pure !== name && pure.indexOf(prefix) !== 0) {
+      throw new Error(
+        `Every ${name}'s "data-test" must be "${name}" or prefixed with "${prefix}", wrong: "${pure}"`,
+      );
+    }
+
+    pure.split("-").forEach(subtest => {
+      if (!subtest.match(/^([A-Z][a-zA-Z]+|\$\{[\w.]+\})$/)) {
+        throw new Error(
+          `Every "data-test" must have '-' joined PascalCase parts, wrong: "${subtest}" in "${pure}"`,
+        );
+      }
+    });
+  });
+
+  return list.map(test => `* \`\`\`${test}\`\`\``).join("\n");
+};
 
 function getFlowRecordImports(file) {
   if (!fsx.existsSync(file)) {
@@ -102,12 +155,13 @@ function getFlowFile(file) {
 }
 
 function getComponentDoc(name, readme) {
+  const folder = path.join(COMPONENTS, name);
+
   const doc = getReadme(readme);
   const story = getStory(name);
   const props = getFlowFile(path.join(COMPONENTS, name, "index.js.flow"));
-  const contexts = getContextNeeds(path.join(COMPONENTS, name))
-    .map(context => `* [${context}](./services#${context.toLowerCase()})`)
-    .join("\n");
+  const contexts = getContextNeeds(folder);
+  const datalist = getDataTests(name, folder);
 
   return [
     [
@@ -123,6 +177,7 @@ function getComponentDoc(name, readme) {
     ].join("\n"),
     story && `\n[Storybook](${story}).\n`,
     contexts && `\n**Context needs:**\n${contexts}\n`,
+    datalist && `\n**Selectors \`data-test\`:**\n${datalist}\n`,
     doc && `\n${doc}\n`,
   ].join("");
 }

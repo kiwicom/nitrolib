@@ -54,10 +54,10 @@ type Props = {|
 **Context needs:**
 * [intl](./services#intl)
 
-Closeable cookies thingie.
+**Selectors `data-test`:**
+* ```"CookiesConsent"```
 
-**Selectors:**
-* Container - `[data-test="CookiesConsent"]`
+Closeable cookies thingie.
 
 ### Currency
 
@@ -85,11 +85,11 @@ type Props = {|
 * [currency](./services#currency)
 * [log](./services#log)
 
-A currency picker.
+**Selectors `data-test`:**
+* ```"Currency"```
+* ```{`Currency-Item-${item.id}`}```
 
-**Selectors:**
-* Open button - `[data-test="Currency"] button[data-test="Open"]`
-* Item - `[data-test="Currency"] [data-test="eur"]:first`
+A currency picker.
 
 ### DatePicker
 
@@ -239,13 +239,12 @@ type Props = {|
 * [log](./services#log)
 * [modal](./services#modal)
 
-**Selectors:**
-* Container - `[data-test="NavBar"]`
-* Side nav - `[data-test="SideNav"]`
-* Logo - `[data-test="NavBar"] [data-test="Logo"]`
-* Help - `[data-test="NavBar"] [data-test="Help"]`
-* Open button - `[data-test="NavBar"] [data-test="OpenSideNav"]`
-* Close button - `[data-test="SideNav"] [data-test="Close"]`
+**Selectors `data-test`:**
+* ```"NavBar"```
+* ```"NavBar-Help"```
+* ```"NavBar-SideNav"```
+* ```"NavBar-SideNav-Close"```
+* ```"NavBar-SideNav-Open"```
 
 ### SideBar
 
@@ -295,12 +294,12 @@ type Props = {|
 **Context needs:**
 * [intl](./services#intl)
 
-Throw-away ticket banner indicating savings in €.
+**Selectors `data-test`:**
+* ```"BookingSavingsBanner"```
+* ```"BookingSavingsBanner-LearnMore"```
+* ```"BookingSavingsBanner-MoreTrips"```
 
-**Selectors:**
-* Container: `[data-test="BookingSavingsBanner"]`
-* More trips button: `[data-test="MoreTrips"]`
-* Learn more button: `[data-test="LearnMore"]`
+Throw-away ticket banner indicating savings in €.
 
 ### Button
 

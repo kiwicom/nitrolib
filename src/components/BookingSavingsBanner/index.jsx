@@ -46,10 +46,20 @@ const BookingSavingsBanner = ({ amount, currency, onLearnMoreClick, onMoreTripsC
             </WrapperText>
           </Stack>
           <Stack shrink wrap>
-            <Button dataTest="MoreTrips" onClick={onMoreTripsClick} type="secondary" size="small">
+            <Button
+              dataTest="BookingSavingsBanner-MoreTrips"
+              onClick={onMoreTripsClick}
+              type="secondary"
+              size="small"
+            >
               <Translate t="booking.savings_banner.find_more_trips" />
             </Button>
-            <Button dataTest="LearnMore" onClick={onLearnMoreClick} size="small" type="secondary">
+            <Button
+              dataTest="BookingSavingsBanner-LearnMore"
+              onClick={onLearnMoreClick}
+              size="small"
+              type="secondary"
+            >
               <Translate t="common.learn_more" />
             </Button>
           </Stack>

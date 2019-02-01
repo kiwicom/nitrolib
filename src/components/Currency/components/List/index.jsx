@@ -102,7 +102,7 @@ const List = ({ active, list, onSetCurrency }: Props) => (
     {separateList(COLUMNS, list).map((items, i) => (
       <Column key={items.reduce((acc, next) => acc + next.id, "")}>
         {items.map(item => (
-          <Item key={item.id} data-test={item.id}>
+          <Item key={item.id} data-test={`Currency-Item-${item.id}`}>
             <Tooltip position={i > 1 ? "left" : "right"} tip={<Tip>{item.name}</Tip>}>
               <Text>
                 <ItemText active={item.id === active.id} onClick={() => onSetCurrency(item.id)}>
