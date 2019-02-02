@@ -18,7 +18,6 @@ type Props = {|
   brandingId: string, // TODO from BrandConsumer?
   brandName: string,
   onSocialLogin: (provider: "google" | "facebook") => Promise<any>,
-  hideSmartFAQ: (hideSmartFAQ: boolean) => void,
   initialScreen: "intro" | "signUp",
   type: LoginType,
   onClose: () => void,
@@ -59,16 +58,6 @@ class MagicLogin extends React.Component<Props, State> {
       isSendingEmail: false,
       magicLinkError: "",
     };
-  }
-
-  componentDidMount() {
-    const { hideSmartFAQ } = this.props;
-    hideSmartFAQ(true);
-  }
-
-  componentWillUnmount() {
-    const { hideSmartFAQ } = this.props;
-    hideSmartFAQ(false);
   }
 
   handleEmailChange = (e: SyntheticInputEvent<HTMLInputElement>) => {
