@@ -2,15 +2,12 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import HeaderLinksWrapped from "..";
+import HeaderLinks from "..";
 
 // TODO test these separately
 import Link from "../components/Link/index";
 import Links from "../components/Links/index";
 import { props, response } from "../__mocks__/api";
-
-// $FlowExpected: It is there
-const HeaderLinks = HeaderLinksWrapped.WrappedComponent;
 
 describe("HeaderLinks", () => {
   test("should render correctly", () => {

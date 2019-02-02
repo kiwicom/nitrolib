@@ -13,3 +13,5 @@ export type Context = {|
 declare var context: React.Context<Context>;
 
 export const { Consumer, Provider } = context;
+
+export default context;

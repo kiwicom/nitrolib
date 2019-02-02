@@ -12,9 +12,8 @@ import Popup from "./primitives/Popup";
 import IconWrapper from "./primitives/IconWrapper";
 import Links from "./components/Links";
 import getNavBarLinks from "./services/api";
-import withLog from "../../services/log/decorator";
 import type { HeaderLink, SearchForm } from "./records/HeaderLink";
-import type { Decorated } from "../../services/log/decorator";
+import LogContext from "../../services/log/context";
 import type { Context } from "../../services/log/context";
 import type { Splitster, Response } from "./services/api";
 
@@ -45,15 +44,15 @@ type Props = {|
   inverted?: boolean,
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO solve using DI
-  // context
-  context: Context<"Header links error", null>, // TODO consts or whatever
 |};
 
 type State = {|
   services: HeaderLink[] | null,
 |};
 
-class HeaderLinks extends React.Component<Props, State> {
+export default class HeaderLinks extends React.Component<Props, State> {
+  static contextType = LogContext;
+
   state = {
     services: null,
   };
@@ -63,15 +62,8 @@ class HeaderLinks extends React.Component<Props, State> {
   }
 
   getNavBarLinks = async () => {
-    const {
-      languageId,
-      currencyId,
-      searchForm,
-      testResponse,
-      splitster,
-      onFetch,
-      context,
-    } = this.props;
+    const { languageId, currencyId, searchForm, testResponse, splitster, onFetch } = this.props;
+    const { log } = this.context;
 
     if (testResponse) {
       this.setState({ services: testResponse.items });
@@ -91,9 +83,11 @@ class HeaderLinks extends React.Component<Props, State> {
         onFetch(services);
       }
     } catch (err) {
-      context.log({ event: "Header links error", data: err });
+      log({ event: "Header links error", data: err });
     }
   };
+
+  context: Context<"Header links error", null>;
 
   render() {
     const { inverted, active } = this.props;
@@ -137,7 +131,3 @@ class HeaderLinks extends React.Component<Props, State> {
     );
   }
 }
-
-const WithLogHeaderLinks: Decorated<Props> = withLog(HeaderLinks);
-
-export default WithLogHeaderLinks;

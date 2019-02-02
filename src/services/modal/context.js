@@ -12,3 +12,5 @@ const context: React.Context<Context> = React.createContext({
 });
 
 export const { Consumer, Provider } = context;
+
+export default context;

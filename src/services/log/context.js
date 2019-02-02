@@ -16,4 +16,6 @@ const contextDefault: Context<any, any> = {
 
 const context: React.Context<Context<any, any>> = React.createContext(contextDefault);
 
-export const { Provider, Consumer } = context;
+export const { Consumer, Provider } = context;
+
+export default context;
