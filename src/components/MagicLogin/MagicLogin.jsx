@@ -13,15 +13,20 @@ import SendMagicLink from "./mutations/SendMagicLink";
 import type { LoginType, Screen } from "./types";
 import { errors } from "./const";
 import type { SignInUser } from "./mutations/__generated__/SignInUser.graphql";
+import { Consumer as BrandConsumer } from "../../services/brand/context";
 
-type Props = {|
-  brandingId: string, // TODO from BrandConsumer?
-  brandName: string,
+type ContainerProps = {|
   onSocialLogin: (provider: "google" | "facebook") => Promise<any>,
   initialScreen: "intro" | "signUp",
   type: LoginType,
   onClose: () => void,
   onSignIn: (graphQLUser: SignInUser) => void,
+|};
+
+type Props = {|
+  ...ContainerProps,
+  brandingId: string,
+  brandName: string,
 |};
 
 type State = {|
@@ -44,7 +49,7 @@ const getReason = (screen: Screen) => {
   return "magicLink";
 };
 
-class MagicLogin extends React.Component<Props, State> {
+class MagicLoginModal extends React.Component<Props, State> {
   static defaultProps = {
     type: "mmb",
   };
@@ -195,5 +200,11 @@ class MagicLogin extends React.Component<Props, State> {
     );
   }
 }
+
+const MagicLogin = (props: ContainerProps) => (
+  <BrandConsumer>
+    {brand => <MagicLoginModal {...props} brandingId={brand.id} brandName={brand.name} />}
+  </BrandConsumer>
+);
 
 export default MagicLogin;
