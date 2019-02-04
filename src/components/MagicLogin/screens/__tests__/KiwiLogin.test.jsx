@@ -13,7 +13,7 @@ jest.mock("../../mutations/SignIn");
 const defaultProps = {
   email: "",
   magicLinkError: "",
-  isSendingEmail: "",
+  isSendingEmail: false,
   brandingId: "",
   resetMagicLinkError: () => {},
   onClose: () => {},

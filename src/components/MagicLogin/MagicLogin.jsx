@@ -143,7 +143,6 @@ class MagicLoginModal extends React.Component<Props, State> {
           <IntroScreen
             email={email}
             brandingId={brandingId}
-            brandName={brandName}
             magicLinkError={magicLinkError}
             type={type}
             onEmailChange={this.handleEmailChange}
