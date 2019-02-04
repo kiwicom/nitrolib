@@ -6,6 +6,7 @@ import AccountLogin from "../../AccountLogin";
 import CheckEmail from "../mutations/CheckEmail";
 import { errors } from "../const";
 import type { LoginType, Screen } from "../types";
+import Text from "../../Text";
 
 type Props = {
   email: string,
@@ -52,6 +53,7 @@ class IntroScreen extends React.Component<Props, State> {
     const result = response && response.checkEmail && response.checkEmail.result;
 
     if (!result) {
+      // TODO log error
       this.setState({ error: errors.general });
       return;
     }
@@ -89,11 +91,12 @@ class IntroScreen extends React.Component<Props, State> {
       onEmailChange,
     } = this.props;
     const { isLoading, error } = this.state;
+    const submitError = error || magicLinkError;
 
     return (
       <AccountLogin
         email={email}
-        error={error || magicLinkError}
+        error={submitError ? <Text t={submitError} /> : ""}
         isLoading={isLoading}
         type={type}
         onEmailChange={onEmailChange}
