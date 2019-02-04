@@ -25,6 +25,7 @@ export const makeCall = (token: string, kwAuthToken: string = "") => (input: Inp
       Accept: "application/json",
       Authorization: token,
       "KW-Auth-Token": kwAuthToken,
+      "X-Client": "nitro",
     },
     body: JSON.stringify(input),
   }).then(res => res.json());
