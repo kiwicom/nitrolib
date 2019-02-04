@@ -6,7 +6,7 @@ import Text from "../../Text";
 import AccountPassword from "../../AccountPassword";
 import SignIn from "../mutations/SignIn";
 import ResetPassword from "../mutations/ResetPassword";
-import { errors } from "../const";
+import errors from "../errors";
 import type { Screen } from "../types";
 import type { SignInUser } from "../mutations/__generated__/SignInUser.graphql";
 
@@ -23,14 +23,14 @@ type Props = {
 };
 
 type State = {|
-  error: string,
+  error: ?string,
   password: string,
   isSigningIn: boolean,
 |};
 
 class KiwiLoginScreen extends React.Component<Props, State> {
   state = {
-    error: "",
+    error: null,
     password: "",
     isSigningIn: false,
   };
@@ -46,21 +46,24 @@ class KiwiLoginScreen extends React.Component<Props, State> {
     const { password } = this.state;
     e.preventDefault();
     resetMagicLinkError();
-    let response = null;
 
     this.setState({ isSigningIn: true }, async () => {
-      try {
-        response = await SignIn(email, password, brandingId);
-      } catch (error) {
-        // TODO log error
-        this.setState({ error: errors.general, isSigningIn: false });
-        return;
-      }
+      const response = await (async () => {
+        try {
+          return await SignIn(email, password, brandingId);
+        } catch (error) {
+          // TODO log error
+          this.setState({ error: errors.general, isSigningIn: false });
+        }
+
+        return null;
+      })();
 
       this.setState({ isSigningIn: false });
+      const user = response?.signIn?.user;
 
-      if (response.signIn && response.signIn.success && response.signIn.user) {
-        onSignIn(response.signIn.user);
+      if (user) {
+        onSignIn(user);
       } else {
         // TODO log error
         this.setState({ error: errors.loginFailed, isSigningIn: false });
@@ -84,20 +87,21 @@ class KiwiLoginScreen extends React.Component<Props, State> {
   handleForgotPassword = () => {
     const { email, brandingId } = this.props;
 
-    this.setState({ error: "" }, () => this.resetPassword(email, brandingId));
+    this.setState({ error: null }, () => this.resetPassword(email, brandingId));
   };
 
   resetPassword = async (email: string, brand: string) => {
     const { onChangeScreen } = this.props;
-    let result = null;
+    const result = await (async () => {
+      try {
+        return await ResetPassword(email, brand);
+      } catch (error) {
+        // TODO log error
+        this.setState({ error: errors.general });
+      }
 
-    try {
-      result = await ResetPassword(email, brand);
-    } catch (error) {
-      // TODO log error
-      this.setState({ error: errors.general });
-      return;
-    }
+      return null;
+    })();
 
     if (result && result.resetPassword && result.resetPassword.success) {
       onChangeScreen("resetPassword");

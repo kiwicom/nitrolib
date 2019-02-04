@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { errors } from "../const";
+import errors from "../errors";
 import { Consumer } from "../../../services/intl/context";
 import * as validators from "../../../services/input/validators";
 import AccountCreate from "../../AccountCreate";
@@ -18,7 +18,7 @@ type Props = {|
 |};
 
 type State = {|
-  error: ?React.Element<typeof Text>,
+  error: ?string,
   password: string,
   passwordConfirm: string,
   isCreatingAccount: boolean,
@@ -34,6 +34,13 @@ const defaultErrors = {
   passwordConfirmError: null,
 };
 
+const submitErrors = {
+  ACCOUNT_EXISTS: errors.accountExists,
+  WEAK_PASSWORD: errors.weakPassword,
+  INVALID_EMAIL: errors.invalidEmail,
+  "%future added value": errors.general,
+};
+
 class CreateAccountScreen extends React.Component<Props, State> {
   state = {
     ...defaultErrors,
@@ -41,7 +48,7 @@ class CreateAccountScreen extends React.Component<Props, State> {
     password: "",
     passwordConfirm: "",
     isCreatingAccount: false,
-    validatePassword: false,
+    validatePassword: false, // eslint-disable-line react/no-unused-state
     validateEmail: false,
   };
 
@@ -54,6 +61,7 @@ class CreateAccountScreen extends React.Component<Props, State> {
   };
 
   handlePasswordBlur = () => {
+    // eslint-disable-next-line react/no-unused-state
     this.setState({ validatePassword: true }, this.checkPasswordValidity);
   };
 
@@ -96,15 +104,9 @@ class CreateAccountScreen extends React.Component<Props, State> {
   };
 
   checkPasswordValidity = () => {
-    this.setState(({ validatePassword, password }) => {
-      let passwordError = null;
-
-      if (validatePassword) {
-        passwordError = validators.password(password);
-      }
-
-      return { password, passwordError };
-    });
+    this.setState(({ validatePassword, password }) => ({
+      passwordError: validatePassword ? validators.password(password) : null,
+    }));
   };
 
   checkPasswordIntegrity = (onlyWhenError: boolean = false) => {
@@ -123,27 +125,9 @@ class CreateAccountScreen extends React.Component<Props, State> {
   };
 
   setSubmitError = (responseError: ?CreateAccountError) => {
-    const { email } = this.props;
-    let error;
-    let values;
+    const error = responseError ? submitErrors[responseError] : errors.general;
 
-    switch (responseError) {
-      case "ACCOUNT_EXISTS":
-        values = { text: email };
-        error = errors.accountExists;
-        break;
-      case "WEAK_PASSWORD":
-        error = errors.weakPassword;
-        break;
-      case "INVALID_EMAIL":
-        error = errors.invalidEmail;
-        break;
-      default:
-        error = errors.general;
-        break;
-    }
-
-    this.setState({ error: <Text t={error} values={values} /> });
+    this.setState({ error });
   };
 
   render() {
@@ -168,7 +152,7 @@ class CreateAccountScreen extends React.Component<Props, State> {
             <AccountCreate
               email={email}
               password={password}
-              error={error}
+              error={error ? <Text t={error} values={{ text: email }} /> : null}
               passwordConfirm={passwordConfirm}
               emailHint=""
               emailError={emailError}
