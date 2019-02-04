@@ -110,3 +110,5 @@ export const fixDateFormat: (format: string) => string = R.compose(
   R.replace(/\bddd\b/g, "eee"),
   R.replace(/\bdd\b/g, "eeeeee"),
 );
+
+export const fixTimeFormat: (format: string) => string = R.replace(/\bLT\b/g, "HH:mm");

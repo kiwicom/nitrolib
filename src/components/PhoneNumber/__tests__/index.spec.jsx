@@ -7,7 +7,6 @@ import PhoneNumber from "..";
 describe("#PhoneNumber", () => {
   it("should format the phone number correctly", () => {
     const wrapper = shallow(<PhoneNumber tel="+34642424242" />);
-
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.text()).toBe("+34 642 42 42 42");
   });
 });

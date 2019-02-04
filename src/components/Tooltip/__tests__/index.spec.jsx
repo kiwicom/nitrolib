@@ -12,9 +12,7 @@ describe("#Tooltip", () => {
       </Tooltip>,
     );
 
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find("Tooltip__Tip").shallow()).toMatchSnapshot();
-    expect(wrapper.find("Tooltip__TipContent").shallow()).toMatchSnapshot();
+    expect(wrapper.find("Tooltip__Tip").prop("position")).toBe("right");
   });
 
   test("render - left", () => {
@@ -24,8 +22,7 @@ describe("#Tooltip", () => {
       </Tooltip>,
     );
 
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find("Tooltip__Tip").shallow()).toMatchSnapshot();
+    expect(wrapper.find("Tooltip__Tip").prop("position")).toBe("left");
   });
 
   test("render - top", () => {
@@ -35,8 +32,7 @@ describe("#Tooltip", () => {
       </Tooltip>,
     );
 
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find("Tooltip__Tip").shallow()).toMatchSnapshot();
+    expect(wrapper.find("Tooltip__Tip").prop("position")).toBe("top");
   });
 
   test("render - bottom", () => {
@@ -46,8 +42,7 @@ describe("#Tooltip", () => {
       </Tooltip>,
     );
 
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find("Tooltip__Tip").shallow()).toMatchSnapshot();
+    expect(wrapper.find("Tooltip__Tip").prop("position")).toBe("bottom");
   });
 
   test("render - inline", () => {
@@ -57,8 +52,7 @@ describe("#Tooltip", () => {
       </Tooltip>,
     );
 
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find("Tooltip__Container").shallow()).toMatchSnapshot();
+    expect(wrapper.find("Tooltip__Container").prop("inline")).toBe(true);
   });
 
   test("render - block", () => {
@@ -68,8 +62,7 @@ describe("#Tooltip", () => {
       </Tooltip>,
     );
 
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find("Tooltip__Container").shallow()).toMatchSnapshot();
+    expect(wrapper.find("Tooltip__Container").prop("inline")).toBe(false);
   });
 
   test("mouse over + out", () => {
@@ -80,15 +73,9 @@ describe("#Tooltip", () => {
     );
 
     wrapper.find("Tooltip__Container").simulate("mouseover");
-    wrapper.update();
-
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find("Tooltip__Tip").shallow()).toMatchSnapshot();
+    expect(wrapper.state().shown).toBe(true);
 
     wrapper.find("Tooltip__Container").simulate("mouseout");
-    wrapper.update();
-
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find("Tooltip__Tip").shallow()).toMatchSnapshot();
+    expect(wrapper.state().shown).toBe(false);
   });
 });

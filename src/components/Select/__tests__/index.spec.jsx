@@ -13,6 +13,6 @@ describe("#Select", () => {
       </Select>,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Select__StyledSelect").prop("value")).toBe("kek");
   });
 });

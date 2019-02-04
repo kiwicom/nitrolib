@@ -7,13 +7,22 @@ import TripsContainer from "..";
 const Children = () => "Children";
 
 describe("#TripsContainer", () => {
-  test("render", () => {
+  test("test all props", () => {
     const wrapper = shallow(
-      <TripsContainer>
+      <TripsContainer
+        header={<div>header</div>}
+        padding
+        width="10px"
+        positionMenuTablet={0}
+        positionMenuDesktop={150}
+      >
         <Children />
       </TripsContainer>,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Header").exists()).toBe(true);
+    expect(wrapper.find("Content").prop("padding")).toBe(true);
+    expect(wrapper.find("Popup").prop("positionMenuTablet")).toEqual(0);
+    expect(wrapper.find("Popup").prop("positionMenuDesktop")).toEqual(150);
   });
 });

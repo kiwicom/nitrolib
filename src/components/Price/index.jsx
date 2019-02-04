@@ -8,8 +8,8 @@ type Props = {|
   value: number,
 |};
 
-const Price = (props: Props) => (
-  <Consumer>{({ currency }) => format(currency, props.value)}</Consumer>
+const Price = ({ value }: Props) => (
+  <Consumer>{({ currency }) => format(currency, value)}</Consumer>
 );
 
 export default Price;

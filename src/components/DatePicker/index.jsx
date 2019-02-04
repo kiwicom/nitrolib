@@ -97,6 +97,7 @@ export default class DatePicker extends React.Component<Props, State> {
                   inlineLabel
                   value={format(value, fixDateFormat(intl.language.dateFormat))}
                   maxLength={0}
+                  readOnly
                   onFocus={this.handleOpen}
                   label={label}
                   prefix={icon}
