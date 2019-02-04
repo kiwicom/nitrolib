@@ -4,7 +4,7 @@ import * as React from "react";
 
 import AccountLogin from "../../AccountLogin";
 import CheckEmail from "../mutations/CheckEmail";
-import { errors } from "../const";
+import errors from "../errors";
 import type { LoginType, Screen } from "../types";
 import Text from "../../Text";
 
@@ -22,13 +22,13 @@ type Props = {|
 
 type State = {|
   isLoading: boolean,
-  error: string,
+  error: ?string,
 |};
 
 class IntroScreen extends React.Component<Props, State> {
   state = {
     isLoading: false,
-    error: "",
+    error: null,
   };
 
   handleCheckEmail = (e: SyntheticEvent<HTMLButtonElement>) => {
@@ -37,20 +37,21 @@ class IntroScreen extends React.Component<Props, State> {
   };
 
   checkEmail = async () => {
-    let response = null;
     const { email, brandingId, onChangeScreen, onSendMagicLink } = this.props;
+    const response = await (async () => {
+      try {
+        return await CheckEmail(email, brandingId);
+      } catch (error) {
+        // TODO log error
+        this.setState({ isLoading: false, error: errors.general });
+      }
 
-    try {
-      response = await CheckEmail(email, brandingId);
-    } catch (error) {
-      // TODO log error
-      this.setState({ isLoading: false, error: errors.general });
-      return;
-    }
+      return null;
+    })();
 
     this.setState({ isLoading: false });
 
-    const result = response && response.checkEmail && response.checkEmail.result;
+    const result = response?.checkEmail?.result;
 
     if (!result) {
       // TODO log error
@@ -96,7 +97,7 @@ class IntroScreen extends React.Component<Props, State> {
     return (
       <AccountLogin
         email={email}
-        error={submitError ? <Text t={submitError} /> : ""}
+        error={submitError ? <Text t={submitError} /> : null}
         isLoading={isLoading}
         type={type}
         onEmailChange={onEmailChange}

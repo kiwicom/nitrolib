@@ -11,7 +11,7 @@ import IntroScreen from "./screens/Intro";
 import CreateAccountScreen from "./screens/CreateAccount";
 import SendMagicLink from "./mutations/SendMagicLink";
 import type { LoginType, Screen } from "./types";
-import { errors } from "./const";
+import errors from "./errors";
 import type { SignInUser } from "./mutations/__generated__/SignInUser.graphql";
 import { Consumer as BrandConsumer } from "../../services/brand/context";
 
@@ -108,16 +108,17 @@ class MagicLoginModal extends React.Component<Props, State> {
   sendMagicLink = () => {
     const { brandingId } = this.props;
     this.setState({ isSendingEmail: true, magicLinkError: "" }, async () => {
-      let response = null;
       const { email } = this.state;
+      const response = await (async () => {
+        try {
+          return await SendMagicLink(email, brandingId);
+        } catch (error) {
+          // TODO log error
+          this.setState({ isSendingEmail: false, magicLinkError: errors.general });
+        }
 
-      try {
-        response = await SendMagicLink(email, brandingId);
-      } catch (error) {
-        // TODO log error
-        this.setState({ isSendingEmail: false, magicLinkError: errors.general });
-        return;
-      }
+        return null;
+      })();
 
       this.setState({ isSendingEmail: false });
 

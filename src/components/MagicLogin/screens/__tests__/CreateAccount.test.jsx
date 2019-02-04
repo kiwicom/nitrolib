@@ -80,7 +80,7 @@ describe("#CreateAccount", () => {
 
     setImmediate(() => {
       expect(onSignUpConfirmation).not.toHaveBeenCalled();
-      expect(mount(wrapper.state("error")).text()).toBe("account.password_too_simple");
+      expect(wrapper.state("error")).toBe("account.password_too_simple");
       done();
     });
   });
