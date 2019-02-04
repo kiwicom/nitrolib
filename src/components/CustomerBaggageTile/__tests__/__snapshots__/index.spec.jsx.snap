@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#CustomerBaggageTile renders 1`] = `
+<Tile
+  description={
+    <TileContent
+      handBags={
+        Object {
+          "0": Object {
+            "amount": 1,
+            "category": "personalItem",
+            "restrictions": Object {
+              "dimensionsSum": null,
+              "height": 20,
+              "length": 20,
+              "weight": 5,
+              "width": 20,
+            },
+          },
+          "1": Object {
+            "amount": 2,
+            "category": "cabinBag",
+            "restrictions": Object {
+              "dimensionsSum": null,
+              "height": 35,
+              "length": 45,
+              "weight": 10,
+              "width": 20,
+            },
+          },
+        }
+      }
+      holdBags={
+        Object {
+          "1": Object {
+            "amount": 2,
+            "category": "holdBag",
+            "restrictions": Object {
+              "dimensionsSum": 156,
+              "height": 52,
+              "length": 78,
+              "weight": 15,
+              "width": 26,
+            },
+          },
+          "2": Object {
+            "amount": 1,
+            "category": "holdBag",
+            "restrictions": Object {
+              "dimensionsSum": 156,
+              "height": 52,
+              "length": 78,
+              "weight": 25,
+              "width": 26,
+            },
+          },
+        }
+      }
+      orderStatus="unpaid"
+    />
+  }
+  onClick={[Function]}
+  title={
+    <Title
+      firstName="Oliver"
+      gender="male"
+      lastName="Dlouhy"
+      orderStatus="unpaid"
+      price={
+        Object {
+          "amount": 21,
+          "base": 21,
+          "currency": "EUR",
+          "service": 0,
+          "serviceFlat": 0,
+        }
+      }
+    />
+  }
+/>
+`;

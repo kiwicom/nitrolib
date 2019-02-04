@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Title renders 1`] = `
+<Title__TitleWrapper>
+  <Stack
+    align="center"
+    inline={true}
+    spacing="condensed"
+  >
+    <GenderMan />
+    <Title__PassengerName>
+      Oliver Dlouhy
+    </Title__PassengerName>
+  </Stack>
+  <TitleBadge
+    orderStatus="unpaid"
+    price={
+      Object {
+        "amount": 21,
+        "base": 21,
+        "currency": "EUR",
+        "service": 0,
+        "serviceFlat": 0,
+      }
+    }
+  />
+</Title__TitleWrapper>
+`;

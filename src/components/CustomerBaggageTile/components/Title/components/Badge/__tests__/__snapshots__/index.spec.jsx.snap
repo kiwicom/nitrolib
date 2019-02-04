@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Badge renders status not available 1`] = `
+<Tooltip
+  inline={false}
+  mobile={false}
+  position="top"
+  tip={
+    <ForwardRef>
+      <Translate
+        html={false}
+        t="common.baggage.tooltip.notAvailable"
+        transform={[Function]}
+        values={Object {}}
+      />
+    </ForwardRef>
+  }
+>
+  <Badge
+    type="dark"
+  >
+    <Alert
+      size="small"
+    />
+    <Translate
+      html={false}
+      t="common.baggage.badge.notAvailable"
+      transform={[Function]}
+      values={Object {}}
+    />
+  </Badge>
+</Tooltip>
+`;
+
+exports[`#Badge renders status processing 1`] = `
+<Tooltip
+  inline={false}
+  mobile={false}
+  position="top"
+  tip={
+    <ForwardRef>
+      <Translate
+        html={false}
+        t="common.baggage.tooltip.processing"
+        transform={[Function]}
+        values={Object {}}
+      />
+    </ForwardRef>
+  }
+>
+  <Badge
+    type="info"
+  >
+    <Reload
+      size="small"
+    />
+    <Translate
+      html={false}
+      t="common.baggage.badge.processing"
+      transform={[Function]}
+      values={Object {}}
+    />
+  </Badge>
+</Tooltip>
+`;
+
+exports[`#Badge renders status unpaid 1`] = `
+<Tooltip
+  inline={false}
+  mobile={false}
+  position="top"
+  tip={
+    <ForwardRef>
+      <Translate
+        html={false}
+        t="common.baggage.tooltip.unpaid"
+        transform={[Function]}
+        values={Object {}}
+      />
+    </ForwardRef>
+  }
+>
+  <Badge
+    type="warning"
+  >
+    <Money
+      size="small"
+    />
+    <Translate
+      html={false}
+      t="common.baggage.badge.unpaid"
+      transform={[Function]}
+      values={
+        Object {
+          "price": "21 EUR",
+        }
+      }
+    />
+  </Badge>
+</Tooltip>
+`;
