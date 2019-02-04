@@ -13,7 +13,7 @@ import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import mq from "../../../../styles/mq";
 
-const getIconFromCategory = category => {
+const getIconFromCategory = (category: BaggageSubCategory) => {
   switch (category) {
     case "personalItem":
       return <BaggagePersonalItem size="small" color="primary" />;
@@ -26,7 +26,7 @@ const getIconFromCategory = category => {
   }
 };
 
-const getTextFromCategory = category => {
+const getTextFromCategory = (category: BaggageSubCategory) => {
   switch (category) {
     case "personalItem":
       return <Translate t="common.baggage.personal_item" />;
@@ -35,7 +35,7 @@ const getTextFromCategory = category => {
     case "holdBag":
       return <Translate t="common.baggage.checked_bag" />;
     default:
-      return <Translate t="common.baggage.no_checked_baggage" />;
+      return undefined;
   }
 };
 
