@@ -5,15 +5,14 @@ import GenderMan from "@kiwicom/orbit-components/lib/icons/GenderMan";
 import GenderWoman from "@kiwicom/orbit-components/lib/icons/GenderWoman";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import type { Price } from "../../../../records/Baggage";
+import type { Price, Gender, OrderStatusType } from "../../../../records/Baggage";
 import mq from "../../../../styles/mq";
 import Badge from "./components/Badge";
 
-type OrderStatusType = "unpaid" | "processing" | "notAvailable";
 type TitleProps = {
   firstName: string,
   lastName: string,
-  gender: "male" | "female",
+  gender: Gender,
   orderStatus: OrderStatusType,
   price?: Price,
 };

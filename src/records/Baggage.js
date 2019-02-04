@@ -57,10 +57,12 @@ export type BaggageType = {
   combinations: Combinations,
 };
 
-export type Item = {
+export type TileItem = {
   amount: number,
   category: BaggageSubCategory,
   restrictions: Restrictions,
+};
+export type Item = TileItem & {
   conditions: {
     isPriority?: Array<string>,
     passengerGroups: Array<PassengerGroup>,
@@ -73,3 +75,7 @@ export type OptionBaggage = {
   price: Price,
   items: { [key: string]: Item },
 };
+
+export type OrderStatusType = "unpaid" | "processing" | "notAvailable";
+
+export type Gender = "male" | "female";

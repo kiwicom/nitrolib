@@ -6,7 +6,7 @@ import Money from "@kiwicom/orbit-components/lib/icons/Money";
 import Alert from "@kiwicom/orbit-components/lib/icons/Alert";
 import Reload from "@kiwicom/orbit-components/lib/icons/Reload";
 
-import type { Price } from "../../../../../../records/Baggage";
+import type { Price, OrderStatusType } from "../../../../../../records/Baggage";
 import Tooltip from "../../../../../Tooltip/index";
 import Translate from "../../../../../Translate/index";
 
@@ -19,7 +19,7 @@ const TooltipContent = styled.p`
   padding: 9px 11px;
 `;
 
-const getTooltipText = status => {
+const getTooltipText = (status: OrderStatusType) => {
   switch (status) {
     case "unpaid":
       return <Translate t="common.baggage.tooltip.unpaid" />;
@@ -32,7 +32,7 @@ const getTooltipText = status => {
   }
 };
 
-const getBadge = (status, price) => {
+const getBadge = (status: OrderStatusType, price?: Price) => {
   switch (status) {
     case "unpaid":
       return (
@@ -65,7 +65,7 @@ const getBadge = (status, price) => {
 
 type TitleBadgeProps = {
   orderStatus: "unpaid" | "processing" | "notAvailable",
-  price: Price,
+  price?: Price,
 };
 
 const TitleBadge = ({ orderStatus, price }: TitleBadgeProps) => (

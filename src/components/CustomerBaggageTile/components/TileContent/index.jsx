@@ -7,13 +7,14 @@ import Text from "@kiwicom/orbit-components/lib/Text";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 
 import BaggageItem from "../BaggageItem";
+import type { TileItem } from "../../../../records/Baggage";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import Translate from "../../../Translate/index";
 
 type Props = {
-  handBags: {},
-  holdBags: {},
+  handBags: { [key: string]: TileItem },
+  holdBags: { [key: string]: TileItem },
   orderStatus: "unpaid" | "processing" | "notAvailable",
 };
 
@@ -39,8 +40,8 @@ ContactUsText.defaultProps = {
 };
 
 const TileContent = ({ handBags, holdBags, orderStatus }: Props) => {
-  const handBagsArr = Object.keys(handBags).map(key => ({ key, ...handBags[key] }));
-  const holdBagsArr = Object.keys(holdBags).map(key => ({ key, ...holdBags[key] }));
+  const handBagsArr = Object.keys(handBags).map(key => handBags[key]);
+  const holdBagsArr = Object.keys(holdBags).map(key => holdBags[key]);
 
   const hasPersonalItem = Boolean(handBagsArr.find(bag => bag.category === "personalItem"));
 
@@ -54,17 +55,17 @@ const TileContent = ({ handBags, holdBags, orderStatus }: Props) => {
           </Text>
         </Stack>
       )}
-      {handBagsArr.map(bag => (
+      {handBagsArr.map((bag, index) => (
         <BaggageItem
-          key={bag.key}
+          key={index} // eslint-disable-line
           amount={bag.amount}
           restrictions={bag.restrictions}
           category={bag.category}
         />
       ))}
-      {holdBagsArr.map(bag => (
+      {holdBagsArr.map((bag, index) => (
         <BaggageItem
-          key={bag.key}
+          key={index} // eslint-disable-line
           amount={bag.amount}
           restrictions={bag.restrictions}
           category={bag.category}

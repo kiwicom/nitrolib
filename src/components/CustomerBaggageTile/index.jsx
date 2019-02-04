@@ -4,16 +4,16 @@ import Tile from "@kiwicom/orbit-components/lib/Tile";
 
 import Title from "./components/Title";
 import TileContent from "./components/TileContent";
-import type { BaggageType, Price } from "../../records/Baggage";
+import type { BaggageType, Gender, Price, OrderStatusType } from "../../records/Baggage";
 
 type Props = {
   firstName: string,
   lastName: string,
-  gender: "male" | "female",
+  gender: Gender,
   currentBaggage: { handBag: number, holdBag: number },
   baggage: BaggageType,
   onClick: () => void,
-  orderStatus: "unpaid" | "processing" | "notAvailable",
+  orderStatus: OrderStatusType,
   price?: Price,
 };
 
