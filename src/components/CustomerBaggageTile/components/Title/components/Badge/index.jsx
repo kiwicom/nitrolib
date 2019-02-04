@@ -8,6 +8,7 @@ import Reload from "@kiwicom/orbit-components/lib/icons/Reload";
 
 import type { Price } from "../../../../../../records/Baggage";
 import Tooltip from "../../../../../Tooltip/index";
+import Translate from "../../../../../Translate/index";
 
 const TooltipContent = styled.p`
   width: 240px;
@@ -21,12 +22,11 @@ const TooltipContent = styled.p`
 const getTooltipText = status => {
   switch (status) {
     case "unpaid":
-      return "This passenger's baggage bundle will be updated when you finish the payment.";
+      return <Translate t="common.baggage.tooltip.unpaid" />;
     case "processing":
-      return "We're currently processing your baggage order. You'll be able to add more when we finish.";
-
+      return <Translate t="common.baggage.tooltip.processing" />;
     case "notAvailable":
-      return "We are sorry, but something went wrong. To add a baggage to your trip, please contact our customer service. ";
+      return <Translate t="common.baggage.tooltip.notAvailable" />;
     default:
       return undefined;
   }
@@ -38,21 +38,24 @@ const getBadge = (status, price) => {
       return (
         <Badge type="warning">
           <Money size="small" />
-          Unpaid changes for {price && `${price.amount} ${price.currency}`}
+          <Translate
+            t="common.baggage.badge.unpaid"
+            values={{ price: price ? `${price.amount} ${price.currency}` : "" }}
+          />
         </Badge>
       );
     case "processing":
       return (
         <Badge type="info">
           <Reload size="small" />
-          Processing changes
+          <Translate t="common.baggage.badge.processing" />
         </Badge>
       );
     case "notAvailable":
       return (
         <Badge type="dark">
           <Alert size="small" />
-          Online ordering not available
+          <Translate t="common.baggage.badge.notAvailable" />
         </Badge>
       );
     default:

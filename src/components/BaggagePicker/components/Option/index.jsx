@@ -179,7 +179,9 @@ const Option = ({ items, price, isChecked, onClick }: Props) => {
                 {hasSingleItem && firstItem.category === "cabinBag" && (
                   <Stack flex align="center" spacing="tight">
                     <BaggagePersonalItemNone color={isChecked ? "warning" : "secondary"} />
-                    <Text type={isChecked ? "warning" : "secondary"}>No personal item</Text>
+                    <Text type={isChecked ? "warning" : "secondary"}>
+                      <Translate t="common.baggage.no_personal_item" />
+                    </Text>
                   </Stack>
                 )}
                 {priorityAirlines.length > 0 && (
