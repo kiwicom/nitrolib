@@ -8,7 +8,7 @@ import { errors } from "../const";
 import type { LoginType, Screen } from "../types";
 import Text from "../../Text";
 
-type Props = {
+type Props = {|
   email: string,
   brandingId: string,
   type: LoginType,
@@ -18,12 +18,12 @@ type Props = {
   onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onChangeScreen: (screen: Screen) => void,
   onSendMagicLink: () => void,
-};
+|};
 
-type State = {
+type State = {|
   isLoading: boolean,
   error: string,
-};
+|};
 
 class IntroScreen extends React.Component<Props, State> {
   state = {
