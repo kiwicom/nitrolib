@@ -14,6 +14,10 @@ import type { LoginType, Screen } from "./types";
 import errors from "./errors";
 import type { SignInUser } from "./mutations/__generated__/SignInUser.graphql";
 import { Consumer as BrandConsumer } from "../../services/brand/context";
+import {
+  Consumer as CuckooConsumer,
+  type Context as TrackerContext,
+} from "../../services/cuckoo/context";
 
 type ContainerProps = {|
   onSocialLogin: (provider: "google" | "facebook") => Promise<any>,
@@ -27,6 +31,7 @@ type Props = {|
   ...ContainerProps,
   brandingId: string,
   brandName: string,
+  tracker: TrackerContext,
 |};
 
 type State = {|
@@ -106,14 +111,14 @@ class MagicLoginModal extends React.Component<Props, State> {
   };
 
   sendMagicLink = () => {
-    const { brandingId } = this.props;
+    const { brandingId, tracker } = this.props;
     this.setState({ isSendingEmail: true, magicLinkError: "" }, async () => {
       const { email } = this.state;
       const response = await (async () => {
         try {
           return await SendMagicLink(email, brandingId);
         } catch (error) {
-          // TODO log error
+          tracker.error("GraphQL network", error);
           this.setState({ isSendingEmail: false, magicLinkError: errors.general });
         }
 
@@ -125,6 +130,7 @@ class MagicLoginModal extends React.Component<Props, State> {
       const success = response && response.sendMagicLink && response.sendMagicLink.success;
 
       if (success) {
+        tracker.track("MagicLogin", "magicLinkSent");
         this.setState({ screen: "magicLink" });
         return;
       }
@@ -202,9 +208,20 @@ class MagicLoginModal extends React.Component<Props, State> {
 }
 
 const MagicLogin = (props: ContainerProps) => (
-  <BrandConsumer>
-    {brand => <MagicLoginModal {...props} brandingId={brand.id} brandName={brand.name} />}
-  </BrandConsumer>
+  <CuckooConsumer>
+    {tracker => (
+      <BrandConsumer>
+        {brand => (
+          <MagicLoginModal
+            {...props}
+            brandingId={brand.id}
+            brandName={brand.name}
+            tracker={tracker}
+          />
+        )}
+      </BrandConsumer>
+    )}
+  </CuckooConsumer>
 );
 
 export default MagicLogin;

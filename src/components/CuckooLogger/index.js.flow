@@ -1,0 +1,35 @@
+// @flow
+
+import * as React from "react";
+
+import type {
+  CuckooAction,
+  CuckooError,
+  CuckooProps,
+  Subcategory,
+} from "../../services/cuckoo/context";
+
+type CuckooEvent = {|
+  category: "nitro",
+  subcategory: Subcategory,
+  action: CuckooAction,
+  destinations: {| logmole: boolean, exponea: boolean, ga: boolean |},
+|};
+
+type CuckooErrorEvent = {
+  category: "nitro",
+  subcategory: "Error",
+  action: CuckooError,
+  destinations: {| logmole: boolean, exponea: boolean, ga: boolean |},
+};
+
+type Props = {|
+  children: React.Node,
+  tracker: {|
+    track: (CuckooEvent, CuckooProps) => void,
+    error: (CuckooErrorEvent, CuckooProps) => void,
+  |},
+  bid: ?number,
+|};
+
+declare export default React.ComponentType<Props>;
