@@ -2,7 +2,6 @@
 import * as React from "react";
 import styled from "styled-components";
 import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
-import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 
@@ -39,22 +38,22 @@ ContactUsText.defaultProps = {
   theme: themeDefault,
 };
 
+const NoPersonalItemWrapper = styled.div`
+  svg {
+    margin-right: ${({ theme }): ThemeProps => theme.orbit.spaceXSmall};
+  }
+`;
+NoPersonalItemWrapper.defaultProps = {
+  theme: themeDefault,
+};
+
 const TileContent = ({ handBags, holdBags, orderStatus }: Props) => {
   const handBagsArr = Object.keys(handBags).map(key => handBags[key]);
   const holdBagsArr = Object.keys(holdBags).map(key => holdBags[key]);
 
   const hasPersonalItem = Boolean(handBagsArr.find(bag => bag.category === "personalItem"));
-
   return (
     <Wrapper>
-      {!hasPersonalItem && (
-        <Stack>
-          <Text element="span" type="secondary">
-            <BaggagePersonalItemNone size="small" />
-            <Translate t="common.baggage.no_personal_item" />
-          </Text>
-        </Stack>
-      )}
       {handBagsArr.map((bag, index) => (
         <BaggageItem
           key={index} // eslint-disable-line
@@ -71,6 +70,14 @@ const TileContent = ({ handBags, holdBags, orderStatus }: Props) => {
           category={bag.category}
         />
       ))}
+      {!hasPersonalItem && (
+        <NoPersonalItemWrapper>
+          <Text element="span" type="secondary">
+            <BaggagePersonalItemNone size="small" />
+            <Translate t="common.baggage.no_personal_item" />
+          </Text>
+        </NoPersonalItemWrapper>
+      )}
       {orderStatus === "notAvailable" && (
         <ContactUsText>
           To add a baggage to your trip, please <TextLink>contact us</TextLink>
