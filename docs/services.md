@@ -49,6 +49,8 @@ export type Context = {|
 declare var context: React.Context<Context>;
 
 export const { Consumer, Provider } = context;
+
+export default context;
 ```
 
 See types:
@@ -121,6 +123,8 @@ import { Consumer, Provider } from "@kiwicom/nitro/lib/services/brand/context";
 declare var context: React.Context<Brand>;
 
 export const { Consumer, Provider } = context;
+
+export default context;
 ```
 
 See types:
@@ -147,6 +151,8 @@ export type Context = {|
 declare var context: React.Context<Context>;
 
 export const { Consumer, Provider } = context;
+
+export default context;
 ```
 
 See types:
@@ -206,6 +212,8 @@ import { Consumer, Provider } from "@kiwicom/nitro/lib/services/fetched/context"
 declare var context: React.Context<Fetched>;
 
 export const { Consumer, Provider } = context;
+
+export default context;
 ```
 
 See types:
@@ -230,6 +238,8 @@ export type Context = {|
 declare var context: React.Context<Context>;
 
 export const { Consumer, Provider } = context;
+
+export default context;
 ```
 
 See types:
@@ -375,6 +385,8 @@ export type Context<E, D> = {|
 declare var context: React.Context<Context<any, any>>;
 
 export const { Provider, Consumer } = context;
+
+export default context;
 ```
 
 See types:
@@ -399,6 +411,8 @@ export type Context = {|
 declare var context: React.Context<Context>;
 
 export const { Consumer, Provider } = context;
+
+export default context;
 ```
 
 Holds an information about which modal is currently open. Only supports one modal **on purpose**.
