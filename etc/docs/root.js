@@ -5,11 +5,12 @@ const path = require("path");
 
 const ROOT = path.join(__dirname, "../..");
 
-const INDEX = `## Setup
+const BEGIN = `## Setup
 
 * \`yarn add @kiwicom/nitro\`
+`;
 
-## Documentation
+const END = `## Documentation
 
 * [CLI](./cli.md) - Nitro's CLI
 * [Components](./components.md) - well... components 🤷
@@ -27,11 +28,11 @@ function root() {
     .map(dep => `* \`${dep}: ${pkg.peerDependencies[dep]}\``)
     .join("\n");
 
-  return `${INDEX}
-## Peer dependencies
-
+  return `${BEGIN}
+**Peer dependencies:**
 ${peerdeps};
-`;
+
+${END}`;
 }
 
 module.exports = root;
