@@ -42,6 +42,7 @@ const Info = styled.div`
   width: 80px;
   margin-right: 5px;
   flex-direction: column;
+
   ${mq.ltBigMobile(css`
     margin-top: 10px;
   `)};
@@ -124,7 +125,6 @@ const StarredItinerary = ({
   passengerMulty,
 }: Props) => {
   const getPriceUpdated = () => {
-    console.log(isValid);
     if (!isValid) {
       return (
         <>
@@ -135,6 +135,7 @@ const StarredItinerary = ({
         </>
       );
     }
+
     if (price !== getBestPrice(journey)) {
       return (
         <TranslateNode
@@ -145,6 +146,7 @@ const StarredItinerary = ({
         />
       );
     }
+
     return priceUpdatedAt ? (
       <TranslateNode
         t="starred.price_update"

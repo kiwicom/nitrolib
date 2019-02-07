@@ -55,7 +55,6 @@ const TripList = ({ list, onSelect }: Props) => {
             return <MulticityTrips key={item.id} item={item} onSelect={onSelect} />;
           }
           /* eslint-enable no-underscore-danble */
-
           return null;
         })}
     </>

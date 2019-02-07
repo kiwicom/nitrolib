@@ -1,22 +1,22 @@
 // @flow strict
 import * as React from "react";
 import formatDistance from "date-fns/formatDistance";
-import * as locales from "date-fns/locale";
 
+import DateFnsLocale from "../DateFnsLocale";
 import { Consumer } from "../../services/intl/context";
 
 type Props = {|
-  to: Date | string,
+  to: Date,
   from?: Date,
 |};
 
-const DistanceInWords = (props: Props) => (
+const DistanceInWords = ({ from = new Date(), to }: Props) => (
   <Consumer>
-    {intl =>
-      formatDistance(props.from || Date.now(), props.to, {
-        locale: locales[intl.language.locations] || locales.enUS,
-      })
-    }
+    {({ getLocale }) => (
+      <DateFnsLocale getLocale={getLocale}>
+        {locale => formatDistance(from, to, { locale })}
+      </DateFnsLocale>
+    )}
   </Consumer>
 );
 
