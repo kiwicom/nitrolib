@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import * as React from "react";
 
@@ -6,7 +6,7 @@ import Text from "../../Text";
 import AccountPassword from "../../AccountPassword";
 import SignIn from "../mutations/SignIn";
 import ResetPassword from "../mutations/ResetPassword";
-import errors from "../errors";
+import errors from "../../../consts/errors";
 import type { Screen } from "../types";
 import type { SignInUser } from "../mutations/__generated__/SignInUser.graphql";
 

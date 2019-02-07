@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import * as React from "react";
 import Modal from "@kiwicom/orbit-components/lib/Modal";
@@ -11,22 +11,16 @@ import IntroScreen from "./screens/Intro";
 import CreateAccountScreen from "./screens/CreateAccount";
 import SendMagicLink from "./mutations/SendMagicLink";
 import type { LoginType, Screen } from "./types";
-import errors from "./errors";
+import errors from "../../consts/errors";
 import type { SignInUser } from "./mutations/__generated__/SignInUser.graphql";
 import { Consumer as BrandConsumer } from "../../services/brand/context";
 
-type ContainerProps = {|
-  onSocialLogin: (provider: "google" | "facebook") => Promise<any>,
+type Props = {|
+  onSocialLogin: (provider: "google" | "facebook") => Promise<void>,
   initialScreen: "intro" | "signUp",
   type: LoginType,
   onClose: () => void,
   onSignIn: (graphQLUser: SignInUser) => void,
-|};
-
-type Props = {|
-  ...ContainerProps,
-  brandingId: string,
-  brandName: string,
 |};
 
 type State = {|
@@ -49,10 +43,12 @@ const getReason = (screen: Screen) => {
   return "magicLink";
 };
 
-class MagicLoginModal extends React.Component<Props, State> {
+class MagicLogin extends React.Component<Props, State> {
   static defaultProps = {
     type: "mmb",
   };
+
+  static contextType = BrandConsumer;
 
   constructor(props: Props) {
     super(props);
@@ -106,12 +102,12 @@ class MagicLoginModal extends React.Component<Props, State> {
   };
 
   sendMagicLink = () => {
-    const { brandingId } = this.props;
+    const { brand } = this.context;
     this.setState({ isSendingEmail: true, magicLinkError: "" }, async () => {
       const { email } = this.state;
       const response = await (async () => {
         try {
-          return await SendMagicLink(email, brandingId);
+          return await SendMagicLink(email, brand.id);
         } catch (error) {
           // TODO log error
           this.setState({ isSendingEmail: false, magicLinkError: errors.general });
@@ -134,16 +130,17 @@ class MagicLoginModal extends React.Component<Props, State> {
   };
 
   render() {
-    const { brandingId, brandName, type, onClose, onSignIn } = this.props;
+    const { type, onClose, onSignIn } = this.props;
+    const { brand } = this.context;
     const { screen, email, isSendingEmail, magicLinkError } = this.state;
 
     return (
       // $FlowExpected: Fails because Modal doesn't allow <Consumer /> as child
-      <Modal size="small" onClose={onClose} dataTest="magicLoginModal">
+      <Modal size="small" onClose={onClose} dataTest="MagicLogin">
         {screen === "intro" ? (
           <IntroScreen
             email={email}
-            brandingId={brandingId}
+            brandingId={brand.id}
             magicLinkError={magicLinkError}
             type={type}
             onEmailChange={this.handleEmailChange}
@@ -164,7 +161,7 @@ class MagicLoginModal extends React.Component<Props, State> {
         {screen === "signUp" ? (
           <CreateAccountScreen
             email={email}
-            brandingId={brandingId}
+            brandingId={brand.id}
             onEmailChange={this.handleEmailChange}
             onSignUpConfirmation={this.handleSignUpConfirmation}
           />
@@ -174,8 +171,8 @@ class MagicLoginModal extends React.Component<Props, State> {
             email={email}
             resetMagicLinkError={this.resetMagicLinkError}
             magicLinkError={magicLinkError}
-            brandingId={brandingId}
-            brandName={brandName}
+            brandingId={brand.id}
+            brandName={brand.name}
             isSendingEmail={isSendingEmail}
             onChangeScreen={this.handleChangeScreen}
             onAskSignInLink={this.handleMagicLink}
@@ -200,11 +197,5 @@ class MagicLoginModal extends React.Component<Props, State> {
     );
   }
 }
-
-const MagicLogin = (props: ContainerProps) => (
-  <BrandConsumer>
-    {brand => <MagicLoginModal {...props} brandingId={brand.id} brandName={brand.name} />}
-  </BrandConsumer>
-);
 
 export default MagicLogin;

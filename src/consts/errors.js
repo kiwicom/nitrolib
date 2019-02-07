@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 const errors = {
   accountExists: __("account.login_already_exists"),

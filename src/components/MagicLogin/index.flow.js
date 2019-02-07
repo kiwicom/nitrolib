@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import * as React from "react";
 
@@ -10,7 +10,7 @@ export type Screen = Screen_;
 export type SignInUser = SignInUser_;
 
 type Props = {|
-  onSocialLogin: (provider: "google" | "facebook") => Promise<any>,
+  onSocialLogin: (provider: "google" | "facebook") => Promise<void>,
   initialScreen: "intro" | "signUp",
   type: LoginType,
   onClose: () => void,

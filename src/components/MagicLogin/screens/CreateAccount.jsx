@@ -1,8 +1,8 @@
-// @flow
+// @flow strict
 
 import * as React from "react";
 
-import errors from "../errors";
+import errors from "../../../consts/errors";
 import { Consumer } from "../../../services/intl/context";
 import * as validators from "../../../services/input/validators";
 import AccountCreate from "../../AccountCreate";

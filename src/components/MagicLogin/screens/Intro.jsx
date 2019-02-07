@@ -1,10 +1,10 @@
-// @flow
+// @flow strict
 
 import * as React from "react";
 
 import AccountLogin from "../../AccountLogin";
 import CheckEmail from "../mutations/CheckEmail";
-import errors from "../errors";
+import errors from "../../../consts/errors";
 import type { LoginType, Screen } from "../types";
 import Text from "../../Text";
 
