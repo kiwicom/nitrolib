@@ -3,6 +3,7 @@ import * as React from "react";
 import RouteOneStop from "@kiwicom/orbit-components/lib/icons/RouteOneStop";
 import RouteTwoStops from "@kiwicom/orbit-components/lib/icons/RouteTwoStops";
 import styled, { css } from "styled-components";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import ItemWrapper from "../../primitives/ItemWrapper";
 import TripInfo from "../../primitives/TripInfo";
@@ -10,7 +11,6 @@ import Column from "../../primitives/Column";
 import TripInfoLine from "../../primitives/TripInfoLine";
 import Translate from "../../../../../Translate";
 import Day from "../../../../../Day";
-import mq from "../../../../../../styles/mq";
 
 type Props = {|
   bid: string,
@@ -29,10 +29,10 @@ const Img = styled.img`
   display: flex;
   justify-content: center;
   overflow: hidden;
-  height: 180px;
+  height: 120px;
 
-  ${mq.ltMiddleMobile(css`
-    height: 120px;
+  ${mq.mediumMobile(css`
+    height: 180px;
   `)};
 `;
 

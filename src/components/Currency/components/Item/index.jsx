@@ -1,10 +1,10 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import { getCode, getSymbol } from "../../../../records/Currency";
 import type { Currency } from "../../../../records/Currency";
-import mq from "../../../../styles/mq";
 import Code from "../../primitives/Code";
 import Sign from "../../primitives/Sign";
 import Name from "../../primitives/Name";
@@ -12,7 +12,7 @@ import Name from "../../primitives/Name";
 const NameSeparator = styled.span`
   margin: 0 5px;
 
-  ${mq.gtTablet(css`
+  ${mq.largeMobile(css`
     display: none;
   `)};
 `;

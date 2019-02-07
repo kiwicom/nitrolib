@@ -2,9 +2,9 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import type { Currency } from "../../../../records/Currency";
-import mq from "../../../../styles/mq";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import * as MODALS from "../../../../consts/modals";
@@ -25,7 +25,7 @@ const Container = styled.div`
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
 
-  ${mq.gtTablet(css`
+  ${mq.largeMobile(css`
     width: 500px;
     padding: 20px;
     margin: 0;
@@ -35,7 +35,7 @@ const Container = styled.div`
     ${/* sc-custom "right" */ right}: ${({ positionMenuTablet }) => positionMenuTablet}px;
   `)}
 
-  ${mq.gtDesktop(css`
+  ${mq.desktop(css`
     ${/* sc-custom "right" */ right}: ${({ positionMenuDesktop }) => positionMenuDesktop}px;
   `)}
 `;

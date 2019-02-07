@@ -1,13 +1,13 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import Tab from "../../../Tab/index";
 import Flex from "../../../../primitives/Flex";
 import Translate from "../../../Translate/index";
 import { Consumer as BrandConsumer } from "../../../../services/brand/context";
 import * as MODALS from "../../../../consts/modals";
-import mq from "../../../../styles/mq";
 
 type Props = {|
   value: string,
@@ -16,15 +16,15 @@ type Props = {|
 
 const GtMiddleMobile = styled.div`
   display: none;
-  ${mq.gtMiddleMobile(css`
+  ${mq.mediumMobile(css`
     display: block;
   `)};
 `;
 
 const LtMiddleMobile = styled.div`
-  display: none;
-  ${mq.ltMiddleMobile(css`
-    display: block;
+  display: block;
+  ${mq.mediumMobile(css`
+    display: none;
   `)};
 `;
 

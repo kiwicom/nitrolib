@@ -1,9 +1,11 @@
 // @flow
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
 
+// TODO: change z-index value after z-index ranges will be set for all modules
 const Popup = styled.div`
   z-index: 1000;
   position: absolute;
@@ -22,6 +24,9 @@ const Popup = styled.div`
   background-color: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   user-select: none;
   min-height: 100px;
+  ${mq.tablet(css`
+    width: 350px;
+  `)}
 `;
 
 Popup.defaultProps = {

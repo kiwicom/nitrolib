@@ -2,11 +2,11 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import { rtlSpacing, borderRadius } from "@kiwicom/orbit-components/lib/utils/rtl";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import { border } from "../../styles";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
-import mq from "../../styles/mq";
 
 const shadowMixin = css`
   box-shadow: 0 0 3px 0 ${({ theme }: ThemeProps) => theme.orbit.paletteInkLighter} inset;
@@ -42,7 +42,7 @@ const Container = styled.button`
   ${({ active }: ContainerProps) => !active && hoverMixin};
   transition: background ${({ theme }: ContainerProps) => theme.orbit.durationNormal};
   margin-bottom: ${({ theme }) => theme.orbit.spaceXXSmall};
-  ${mq.gtTablet(css`
+  ${mq.largeMobile(css`
     border-width: ${rtlSpacing(`${border.size}px ${border.size}px ${border.size}px 0`)};
   `)};
   &:first-child {

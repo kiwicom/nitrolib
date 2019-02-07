@@ -3,13 +3,13 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import Text from "@kiwicom/orbit-components/lib/Text";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import type { Currency } from "../../../../records/Currency";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import separateList from "../../services/separateList";
 import Flex from "../../../../primitives/Flex";
-import mq from "../../../../styles/mq";
 import button from "../../../../styles/mixins/button";
 import Tooltip from "../../../Tooltip/index";
 import CurrencyItem from "../Item/index";
@@ -27,13 +27,13 @@ const COLUMNS = 4;
 const Column = styled.div`
   width: 100%;
 
-  ${mq.gtTablet(css`
+  ${mq.largeMobile(css`
     width: ${100 / COLUMNS}%;
   `)};
 `;
 
 const Item = styled.div`
-  ${mq.gtTablet(css`
+  ${mq.largeMobile(css`
     padding-${/* sc-custom "right" */ right}: 25px;
   `)};
 `;
@@ -76,7 +76,7 @@ const ItemText = styled.button`
       theme.orbit[active ? "paletteWhite" : "paletteInkNormal"]};
   }
 
-  ${mq.gtTablet(css`
+  ${mq.largeMobile(css`
     ${Name} {
       display: none;
     }

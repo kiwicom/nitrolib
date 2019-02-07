@@ -2,12 +2,12 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
 import { getByContinent } from "../../../records/Languages";
 import type { Language } from "../../../records/Languages";
-import mq from "../../../styles/mq";
 import buttonMixin from "../../../styles/mixins/button";
 import Translate from "../../Translate";
 import * as MODALS from "../../../consts/modals";
@@ -40,7 +40,7 @@ const MenuWrapper = styled.div`
     `)};
   ${({ flat }: FlatProps) =>
     !flat &&
-    mq.gtDesktop(css`
+    mq.desktop(css`
       ${({ positionMenuDesktop }: FlatProps) =>
         css`
           ${/* sc-custom "right" */ right}: ${positionMenuDesktop}px;
@@ -56,10 +56,13 @@ const ContinentList = styled.div`
   min-width: 200px;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
+  display: none;
 
-  ${mq.ltTablet(css`
-    display: none;
-  `)};
+  ${mq.tablet(
+    css`
+      display: block;
+    `,
+  )};
 `;
 
 ContinentList.defaultProps = {
@@ -101,10 +104,10 @@ const LanguageList = styled.div`
   max-height: calc(100vh - 60px);
   ${({ flat }: FlatProps) =>
     !flat &&
-    mq.gtTablet(css`
+    mq.tablet(css`
       width: 560px;
     `)};
-  ${mq.ltTablet(css`
+  ${mq.largeMobile(css`
     padding: 15px 12px;
   `)};
 `;
@@ -118,7 +121,7 @@ const LanguageListWrapper = styled.div`
   width: ${({ width }: SizeProps) => width}px;
   height: ${({ height }: SizeProps) => height}px;
   max-height: 682px;
-  ${mq.gtTablet(css`
+  ${mq.tablet(css`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -129,7 +132,7 @@ const LanguageItem = styled.div`
   background-color: ${({ theme, active }: ActiveProps) =>
     active && theme.orbit.paletteProductNormal};
   color: ${({ theme, active }: ActiveProps) => active && theme.orbit.paletteWhite};
-  width: 180px;
+  width: 100%;
   height: 26px;
   display: inline-flex;
   align-items: center;
@@ -148,8 +151,8 @@ const LanguageItem = styled.div`
       }
     `}
 
-  ${mq.ltTablet(css`
-    width: 100%;
+  ${mq.tablet(css`
+    width: 180px;
   `)};
 `;
 

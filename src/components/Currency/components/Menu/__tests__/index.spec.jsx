@@ -4,8 +4,6 @@ import { shallow, mount } from "enzyme";
 
 import Menu from "..";
 
-import { BREAKPOINTS } from "../../../../../consts/device";
-
 const currencies = {
   gbp: {
     id: "gbp",
@@ -71,13 +69,11 @@ describe("#Currency/Menu", () => {
     );
 
     expect(wrapper.find("Menu__Container")).toHaveStyleRule("left", "inherit", {
-      media: `(min-width: ${BREAKPOINTS.TABLET}px)`,
+      media: `(min-width: ${600}px)`,
     });
-    expect(wrapper.find("Menu__Container")).toHaveStyleRule("right", `${tablet}px`, {
-      media: `(min-width: ${BREAKPOINTS.TABLET}px)`,
-    });
+
     expect(wrapper.find("Menu__Container")).toHaveStyleRule("right", `${desktop}px`, {
-      media: `(min-width: ${BREAKPOINTS.DESKTOP}px)`,
+      media: `(min-width: ${1200}px)`,
     });
   });
 

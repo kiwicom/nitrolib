@@ -1,19 +1,19 @@
 // @flow strict
 import React from "react";
 import styled, { css } from "styled-components";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
-import mq from "../../styles/mq";
 
 const LtMiddleMobile = styled.div`
-  display: none;
+  display: block;
   svg {
     display: block;
   }
 
-  ${mq.ltSmallMobile(css`
-    display: block;
+  ${mq.mediumMobile(css`
+    display: none;
   `)};
 `;
 
@@ -23,7 +23,7 @@ const GtMiddleMobile = styled.div`
     display: block;
   }
 
-  ${mq.gtSmallMobile(css`
+  ${mq.mediumMobile(css`
     display: block;
   `)};
 `;

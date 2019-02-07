@@ -4,7 +4,6 @@ import { shallow, mount } from "enzyme";
 
 import CookiesBanner from "..";
 
-import { BREAKPOINTS } from "../../../../../consts/device";
 import { themeDefault } from "../../../../../records/Theme";
 
 describe("#CookiesBanner", () => {
@@ -19,7 +18,7 @@ describe("#CookiesBanner", () => {
       "background",
       themeDefault.orbit.paletteWhite,
       {
-        media: `(min-width:${BREAKPOINTS.TABLET}px)`,
+        media: `(min-width:${600}px)`,
       },
     );
   });

@@ -2,8 +2,8 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import { left, right } from "@kiwicom/orbit-components/lib/utils/rtl";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import mq from "../../styles/mq";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 
@@ -69,7 +69,7 @@ const Tip = styled.span`
         transform: translateX(-50%);
       `};
 
-  ${mq.gtTablet(css`
+  ${mq.tablet(css`
     display: block;
   `)} &:before {
     display: block;

@@ -3,8 +3,8 @@ import * as React from "react";
 import ReactDOM from "react-dom";
 import styled, { css } from "styled-components";
 import { right, left, translate3d } from "@kiwicom/orbit-components/lib/utils/rtl";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import mq from "../../../../styles/mq";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 
@@ -47,7 +47,6 @@ const leftCSS = css`
 
 const Wrapper = styled.div`
   ${({ inverted }: InvertedProps) => (!inverted ? rightCSS : leftCSS)};
-  width: 480px;
   position: absolute;
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
@@ -56,10 +55,11 @@ const Wrapper = styled.div`
   height: 100%;
   transition: transform ${({ theme }: ThemeProps) => theme.orbit.durationNormal} ease-in-out;
   box-shadow: 0 6px 16px rgba(46, 53, 59, 0.22), 0 1px 3px rgba(0, 0, 0, 0.09);
+  max-width: 320px;
+  width: 100%;
 
-  ${mq.ltTablet(css`
-    max-width: 320px;
-    width: 100%;
+  ${mq.tablet(css`
+    width: 480px;
   `)};
 `;
 

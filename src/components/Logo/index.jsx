@@ -2,20 +2,21 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import { logo } from "../../styles";
 import type { ThemeProps } from "../../records/Theme";
 import { themeDefault } from "../../records/Theme";
 import SvgLogo from "./SvgLogo";
-import mq from "../../styles/mq";
 
 const PoweredByKiwi = styled.span`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
   position: relative;
-  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
-  margin-${/* sc-custom "left" */ left}: 10px;
-  padding-${/* sc-custom "left" */ left}: 10px;
-  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
+  font-size: 10px;
+  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
+  margin-${/* sc-custom "left" */ left}: 7px;
+  padding-${/* sc-custom "left" */ left}: 7px;
+
   &:before {
     content: "";
     top: 0;
@@ -28,11 +29,11 @@ const PoweredByKiwi = styled.span`
     height: 30px;
   }
 
-  ${mq.ltTablet(css`
-    font-size: 10px;
-    font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};;
-    margin-${/* sc-custom "left" */ left}: 7px;
-    padding-${/* sc-custom "left" */ left}: 7px;
+  ${mq.largeMobile(css`
+    font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
+    margin-${/* sc-custom "left" */ left}: 10px;
+    padding-${/* sc-custom "left" */ left}: 10px;
+    font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
   `)};
 `;
 
@@ -45,22 +46,22 @@ const LogoLinkStyled = styled.a`
 `;
 
 const LogoStyled = styled.img`
-  max-height: 35px;
-  max-width: 140px;
-  align-self: center;
-  ${mq.ltTablet(css`
-    display: none;
+  display: none;
+  ${mq.largeMobile(css`
+    display: block;
+    max-height: 35px;
+    max-width: 140px;
+    align-self: center;
   `)};
 `;
 
 const LogoStyledMobile = styled.img`
-  display: none;
   max-height: 40px;
   max-width: 40px;
   align-self: center;
 
-  ${mq.ltTablet(css`
-    display: block;
+  ${mq.largeMobile(css`
+    display: none;
   `)};
 `;
 

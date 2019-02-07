@@ -1,8 +1,8 @@
 // @flow
 import React from "react";
 import styled, { css } from "styled-components";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import mq from "../../../../../../styles/mq";
 import ItemWrapper from "../../primitives/ItemWrapper";
 
 const handleSelect = (id: string, language: string) => {
@@ -19,11 +19,11 @@ const Img = styled.img`
   display: flex;
   justify-content: center;
   overflow: hidden;
-  height: 50px;
-  width: 45px;
-  ${mq.ltMiddleMobile(css`
-    height: 30px;
-    width: auto;
+  height: 30px;
+  width: auto;
+  ${mq.mediumMobile(css`
+    height: 50px;
+    width: 45px;
   `)};
 `;
 

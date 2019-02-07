@@ -3,8 +3,8 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import MdClose from "react-icons/lib/md/close";
 import { rtlSpacing, right } from "@kiwicom/orbit-components/lib/utils/rtl";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import mq from "../../../../styles/mq";
 import linkMixin from "../../../../styles/mixins/link";
 import Translate from "../../../Translate";
 import { themeDefault } from "../../../../records/Theme";
@@ -26,7 +26,7 @@ const Container = styled.div`
   transition: bottom 0.25s ease-in;
   box-shadow: 0 -1px 6px 0 rgba(0, 0, 0, 0.2);
 
-  ${mq.gtTablet(css`
+  ${mq.largeMobile(css`
     padding: ${rtlSpacing("20px 50px 20px 20px")};
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormalActive};
     background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
@@ -41,7 +41,7 @@ const Message = styled.p`
   ${linkMixin};
   line-height: 16px;
 
-  ${mq.gtTablet(css`
+  ${mq.largeMobile(css`
     line-height: 20px;
   `)};
 `;

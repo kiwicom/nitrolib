@@ -1,12 +1,12 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import ItemWrapper from "../../primitives/ItemWrapper";
 import Translate from "../../../../../Translate";
 import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
 import ButtonLink from "../../../../primitives/ButtonLink";
-import mq from "../../../../../../styles/mq";
 import Flex from "../../../../../../primitives/Flex";
 
 type Props = {|
@@ -15,9 +15,9 @@ type Props = {|
 
 const TripsBottomWrapper = styled.div`
   display: flex;
-  width: 180px;
-  ${mq.ltMiddleMobile(css`
-    width: 120px;
+  width: 120px;
+  ${mq.mediumMobile(css`
+    width: 180px;
   `)};
 `;
 
