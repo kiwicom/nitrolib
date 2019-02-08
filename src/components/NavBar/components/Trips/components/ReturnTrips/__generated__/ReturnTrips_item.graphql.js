@@ -7,7 +7,7 @@
 'use strict';
 
 /*::
-import type { ConcreteFragment } from 'relay-runtime';
+import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type ReturnTrips_item$ref: FragmentReference;
 export type ReturnTrips_item = {|
@@ -56,7 +56,7 @@ export type ReturnTrips_item = {|
 */
 
 
-const node/*: ConcreteFragment*/ = (function(){
+const node/*: ReaderFragment*/ = (function(){
 var v0 = [
   {
     "kind": "ScalarField",
@@ -103,7 +103,7 @@ v1 = {
   "args": null,
   "concreteType": "RouteStop",
   "plural": false,
-  "selections": v0
+  "selections": (v0/*: any*/)
 },
 v2 = {
   "kind": "LinkedField",
@@ -113,7 +113,7 @@ v2 = {
   "args": null,
   "concreteType": "RouteStop",
   "plural": false,
-  "selections": v0
+  "selections": (v0/*: any*/)
 };
 return {
   "kind": "Fragment",
@@ -159,8 +159,8 @@ return {
       "concreteType": "Trip",
       "plural": false,
       "selections": [
-        v1,
-        v2
+        (v1/*: any*/),
+        (v2/*: any*/)
       ]
     },
     {
@@ -172,8 +172,8 @@ return {
       "concreteType": "Trip",
       "plural": false,
       "selections": [
-        v2,
-        v1
+        (v2/*: any*/),
+        (v1/*: any*/)
       ]
     }
   ]

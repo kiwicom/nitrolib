@@ -7,7 +7,7 @@
 'use strict';
 
 /*::
-import type { ConcreteFragment } from 'relay-runtime';
+import type { ReaderFragment } from 'relay-runtime';
 type MulticityTrips_item$ref = any;
 type OneWayTrips_item$ref = any;
 type ReturnTrips_item$ref = any;
@@ -28,7 +28,7 @@ export type TripList_list = {|
 */
 
 
-const node/*: ConcreteFragment*/ = {
+const node/*: ReaderFragment*/ = {
   "kind": "Fragment",
   "name": "TripList_list",
   "type": "BookingInterfaceConnection",

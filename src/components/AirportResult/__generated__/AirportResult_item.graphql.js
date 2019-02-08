@@ -7,7 +7,7 @@
 'use strict';
 
 /*::
-import type { ConcreteFragment } from 'relay-runtime';
+import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type AirportResult_item$ref: FragmentReference;
 export type AirportResult_item = {|
@@ -25,7 +25,7 @@ export type AirportResult_item = {|
 */
 
 
-const node/*: ConcreteFragment*/ = (function(){
+const node/*: ReaderFragment*/ = (function(){
 var v0 = {
   "kind": "ScalarField",
   "alias": null,
@@ -47,8 +47,8 @@ return {
   "metadata": null,
   "argumentDefinitions": [],
   "selections": [
-    v0,
-    v1,
+    (v0/*: any*/),
+    (v1/*: any*/),
     {
       "kind": "ScalarField",
       "alias": null,
@@ -65,7 +65,7 @@ return {
       "concreteType": "LocationArea",
       "plural": false,
       "selections": [
-        v1
+        (v1/*: any*/)
       ]
     },
     {
@@ -77,7 +77,7 @@ return {
       "concreteType": "LocationArea",
       "plural": false,
       "selections": [
-        v0
+        (v0/*: any*/)
       ]
     }
   ]

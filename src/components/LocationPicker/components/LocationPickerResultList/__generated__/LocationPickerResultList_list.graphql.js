@@ -7,7 +7,7 @@
 'use strict';
 
 /*::
-import type { ConcreteFragment } from 'relay-runtime';
+import type { ReaderFragment } from 'relay-runtime';
 type LocationPickerRow_item$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type LocationPickerResultList_list$ref: FragmentReference;
@@ -30,7 +30,7 @@ export type LocationPickerResultList_list = {|
 */
 
 
-const node/*: ConcreteFragment*/ = (function(){
+const node/*: ReaderFragment*/ = (function(){
 var v0 = {
   "kind": "ScalarField",
   "alias": null,
@@ -84,8 +84,8 @@ return {
               "args": null,
               "storageKey": null
             },
-            v0,
-            v1,
+            (v0/*: any*/),
+            (v1/*: any*/),
             {
               "kind": "LinkedField",
               "alias": null,
@@ -95,8 +95,8 @@ return {
               "concreteType": "LocationArea",
               "plural": false,
               "selections": [
-                v0,
-                v1
+                (v0/*: any*/),
+                (v1/*: any*/)
               ]
             },
             {

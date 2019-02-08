@@ -7,7 +7,7 @@
 'use strict';
 
 /*::
-import type { ConcreteFragment } from 'relay-runtime';
+import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type LocationPickerRow_item$ref: FragmentReference;
 export type LocationPickerRow_item = {|
@@ -43,7 +43,7 @@ export type LocationPickerRow_item = {|
 */
 
 
-const node/*: ConcreteFragment*/ = (function(){
+const node/*: ReaderFragment*/ = (function(){
 var v0 = {
   "kind": "ScalarField",
   "alias": null,
@@ -73,10 +73,10 @@ v3 = {
   "storageKey": null
 },
 v4 = [
-  v0,
-  v1,
-  v3,
-  v2
+  (v0/*: any*/),
+  (v1/*: any*/),
+  (v3/*: any*/),
+  (v2/*: any*/)
 ];
 return {
   "kind": "Fragment",
@@ -85,7 +85,7 @@ return {
   "metadata": null,
   "argumentDefinitions": [],
   "selections": [
-    v0,
+    (v0/*: any*/),
     {
       "kind": "ScalarField",
       "alias": null,
@@ -93,9 +93,9 @@ return {
       "args": null,
       "storageKey": null
     },
-    v1,
-    v2,
-    v3,
+    (v1/*: any*/),
+    (v2/*: any*/),
+    (v3/*: any*/),
     {
       "kind": "LinkedField",
       "alias": null,
@@ -129,7 +129,7 @@ return {
       "args": null,
       "concreteType": "LocationArea",
       "plural": false,
-      "selections": v4
+      "selections": (v4/*: any*/)
     },
     {
       "kind": "LinkedField",
@@ -139,7 +139,7 @@ return {
       "args": null,
       "concreteType": "LocationArea",
       "plural": false,
-      "selections": v4
+      "selections": (v4/*: any*/)
     },
     {
       "kind": "LinkedField",
@@ -149,7 +149,7 @@ return {
       "args": null,
       "concreteType": "LocationArea",
       "plural": false,
-      "selections": v4
+      "selections": (v4/*: any*/)
     }
   ]
 };

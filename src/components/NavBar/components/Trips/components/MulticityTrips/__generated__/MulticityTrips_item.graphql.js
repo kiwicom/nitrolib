@@ -7,7 +7,7 @@
 'use strict';
 
 /*::
-import type { ConcreteFragment } from 'relay-runtime';
+import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type MulticityTrips_item$ref: FragmentReference;
 export type MulticityTrips_item = {|
@@ -52,7 +52,7 @@ export type MulticityTrips_item = {|
 */
 
 
-const node/*: ConcreteFragment*/ = (function(){
+const node/*: ReaderFragment*/ = (function(){
 var v0 = {
   "kind": "LinkedField",
   "alias": null,
@@ -90,10 +90,10 @@ v1 = [
     "args": null,
     "storageKey": null
   },
-  v0
+  (v0/*: any*/)
 ],
 v2 = [
-  v0
+  (v0/*: any*/)
 ];
 return {
   "kind": "Fragment",
@@ -138,7 +138,7 @@ return {
       "args": null,
       "concreteType": "RouteStop",
       "plural": false,
-      "selections": v1
+      "selections": (v1/*: any*/)
     },
     {
       "kind": "LinkedField",
@@ -148,7 +148,7 @@ return {
       "args": null,
       "concreteType": "RouteStop",
       "plural": false,
-      "selections": v1
+      "selections": (v1/*: any*/)
     },
     {
       "kind": "LinkedField",
@@ -167,7 +167,7 @@ return {
           "args": null,
           "concreteType": "RouteStop",
           "plural": false,
-          "selections": v2
+          "selections": (v2/*: any*/)
         },
         {
           "kind": "LinkedField",
@@ -177,7 +177,7 @@ return {
           "args": null,
           "concreteType": "RouteStop",
           "plural": false,
-          "selections": v2
+          "selections": (v2/*: any*/)
         }
       ]
     }

@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash ef0991ac7e02fa5f928b369606e67040
+ * @relayHash 8efa50ba030bc3ae6935b687bdc2f659
  */
 
 /* eslint-disable */
@@ -223,7 +223,7 @@ v3 = {
         }
       ]
     },
-    v0
+    (v0/*: any*/)
   ]
 },
 v4 = [
@@ -234,7 +234,7 @@ v4 = [
     "args": null,
     "storageKey": null
   },
-  v3
+  (v3/*: any*/)
 ],
 v5 = {
   "kind": "LinkedField",
@@ -244,7 +244,7 @@ v5 = {
   "args": null,
   "concreteType": "RouteStop",
   "plural": false,
-  "selections": v4
+  "selections": (v4/*: any*/)
 },
 v6 = {
   "kind": "LinkedField",
@@ -254,22 +254,17 @@ v6 = {
   "args": null,
   "concreteType": "RouteStop",
   "plural": false,
-  "selections": v4
+  "selections": (v4/*: any*/)
 },
 v7 = [
-  v5,
-  v6
+  (v5/*: any*/),
+  (v6/*: any*/)
 ],
 v8 = [
-  v3
+  (v3/*: any*/)
 ];
 return {
   "kind": "Request",
-  "operationKind": "query",
-  "name": "TripDataListQuery",
-  "id": null,
-  "text": "query TripDataListQuery {\n  customerBookings {\n    ...TripList_list\n    ...TripHeader_trips\n  }\n}\n\nfragment TripList_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      id\n      isPastBooking\n      destinationImageUrl\n      ...OneWayTrips_item\n      ...MulticityTrips_item\n      ...ReturnTrips_item\n    }\n  }\n}\n\nfragment TripHeader_trips on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      isPastBooking\n      id\n    }\n  }\n}\n\nfragment OneWayTrips_item on BookingOneWay {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  trip {\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n\nfragment MulticityTrips_item on BookingMulticity {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  start {\n    localTime\n    airport {\n      city {\n        name\n      }\n      id\n    }\n  }\n  end {\n    localTime\n    airport {\n      city {\n        name\n      }\n      id\n    }\n  }\n  trips {\n    departure {\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n\nfragment ReturnTrips_item on BookingReturn {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  outbound {\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n  inbound {\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n",
-  "metadata": {},
   "fragment": {
     "kind": "Fragment",
     "name": "TripDataListQuery",
@@ -339,7 +334,7 @@ return {
                     "args": null,
                     "storageKey": null
                   },
-                  v0,
+                  (v0/*: any*/),
                   {
                     "kind": "ScalarField",
                     "alias": null,
@@ -358,8 +353,8 @@ return {
                     "kind": "InlineFragment",
                     "type": "BookingReturn",
                     "selections": [
-                      v1,
-                      v2,
+                      (v1/*: any*/),
+                      (v2/*: any*/),
                       {
                         "kind": "LinkedField",
                         "alias": null,
@@ -368,7 +363,7 @@ return {
                         "args": null,
                         "concreteType": "Trip",
                         "plural": false,
-                        "selections": v7
+                        "selections": (v7/*: any*/)
                       },
                       {
                         "kind": "LinkedField",
@@ -379,8 +374,8 @@ return {
                         "concreteType": "Trip",
                         "plural": false,
                         "selections": [
-                          v6,
-                          v5
+                          (v6/*: any*/),
+                          (v5/*: any*/)
                         ]
                       }
                     ]
@@ -389,8 +384,8 @@ return {
                     "kind": "InlineFragment",
                     "type": "BookingMulticity",
                     "selections": [
-                      v1,
-                      v2,
+                      (v1/*: any*/),
+                      (v2/*: any*/),
                       {
                         "kind": "LinkedField",
                         "alias": null,
@@ -399,7 +394,7 @@ return {
                         "args": null,
                         "concreteType": "RouteStop",
                         "plural": false,
-                        "selections": v4
+                        "selections": (v4/*: any*/)
                       },
                       {
                         "kind": "LinkedField",
@@ -409,7 +404,7 @@ return {
                         "args": null,
                         "concreteType": "RouteStop",
                         "plural": false,
-                        "selections": v4
+                        "selections": (v4/*: any*/)
                       },
                       {
                         "kind": "LinkedField",
@@ -428,7 +423,7 @@ return {
                             "args": null,
                             "concreteType": "RouteStop",
                             "plural": false,
-                            "selections": v8
+                            "selections": (v8/*: any*/)
                           },
                           {
                             "kind": "LinkedField",
@@ -438,7 +433,7 @@ return {
                             "args": null,
                             "concreteType": "RouteStop",
                             "plural": false,
-                            "selections": v8
+                            "selections": (v8/*: any*/)
                           }
                         ]
                       }
@@ -448,8 +443,8 @@ return {
                     "kind": "InlineFragment",
                     "type": "BookingOneWay",
                     "selections": [
-                      v1,
-                      v2,
+                      (v1/*: any*/),
+                      (v2/*: any*/),
                       {
                         "kind": "LinkedField",
                         "alias": null,
@@ -458,7 +453,7 @@ return {
                         "args": null,
                         "concreteType": "Trip",
                         "plural": false,
-                        "selections": v7
+                        "selections": (v7/*: any*/)
                       }
                     ]
                   }
@@ -469,6 +464,13 @@ return {
         ]
       }
     ]
+  },
+  "params": {
+    "operationKind": "query",
+    "name": "TripDataListQuery",
+    "id": null,
+    "text": "query TripDataListQuery {\n  customerBookings {\n    ...TripList_list\n    ...TripHeader_trips\n  }\n}\n\nfragment TripList_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      id\n      isPastBooking\n      destinationImageUrl\n      ...OneWayTrips_item\n      ...MulticityTrips_item\n      ...ReturnTrips_item\n    }\n  }\n}\n\nfragment TripHeader_trips on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      isPastBooking\n      id\n    }\n  }\n}\n\nfragment OneWayTrips_item on BookingOneWay {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  trip {\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n\nfragment MulticityTrips_item on BookingMulticity {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  start {\n    localTime\n    airport {\n      city {\n        name\n      }\n      id\n    }\n  }\n  end {\n    localTime\n    airport {\n      city {\n        name\n      }\n      id\n    }\n  }\n  trips {\n    departure {\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n\nfragment ReturnTrips_item on BookingReturn {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  outbound {\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n  inbound {\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n",
+    "metadata": {}
   }
 };
 })();

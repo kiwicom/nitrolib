@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 24e11739cb8a59715b0db9a5dbc1691c
+ * @relayHash e4bf314a70ddba91a28da64606966d72
  */
 
 /* eslint-disable */
@@ -98,24 +98,19 @@ v3 = {
 };
 return {
   "kind": "Request",
-  "operationKind": "query",
-  "name": "AirportListDataQuery",
-  "id": null,
-  "text": "query AirportListDataQuery(\n  $input: String!\n) {\n  allLocations(search: $input, options: {locationType: airport}) {\n    ...AirportList_list\n  }\n}\n\nfragment AirportList_list on LocationConnection {\n  edges {\n    node {\n      locationId\n      ...AirportResult_item\n      id\n    }\n  }\n}\n\nfragment AirportResult_item on Location {\n  locationId\n  name\n  type\n  city {\n    name\n  }\n  country {\n    locationId\n  }\n}\n",
-  "metadata": {},
   "fragment": {
     "kind": "Fragment",
     "name": "AirportListDataQuery",
     "type": "RootQuery",
     "metadata": null,
-    "argumentDefinitions": v0,
+    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
         "kind": "LinkedField",
         "alias": null,
         "name": "allLocations",
         "storageKey": null,
-        "args": v1,
+        "args": (v1/*: any*/),
         "concreteType": "LocationConnection",
         "plural": false,
         "selections": [
@@ -131,14 +126,14 @@ return {
   "operation": {
     "kind": "Operation",
     "name": "AirportListDataQuery",
-    "argumentDefinitions": v0,
+    "argumentDefinitions": (v0/*: any*/),
     "selections": [
       {
         "kind": "LinkedField",
         "alias": null,
         "name": "allLocations",
         "storageKey": null,
-        "args": v1,
+        "args": (v1/*: any*/),
         "concreteType": "LocationConnection",
         "plural": false,
         "selections": [
@@ -160,8 +155,8 @@ return {
                 "concreteType": "Location",
                 "plural": false,
                 "selections": [
-                  v2,
-                  v3,
+                  (v2/*: any*/),
+                  (v3/*: any*/),
                   {
                     "kind": "ScalarField",
                     "alias": null,
@@ -178,7 +173,7 @@ return {
                     "concreteType": "LocationArea",
                     "plural": false,
                     "selections": [
-                      v3
+                      (v3/*: any*/)
                     ]
                   },
                   {
@@ -190,7 +185,7 @@ return {
                     "concreteType": "LocationArea",
                     "plural": false,
                     "selections": [
-                      v2
+                      (v2/*: any*/)
                     ]
                   },
                   {
@@ -207,6 +202,13 @@ return {
         ]
       }
     ]
+  },
+  "params": {
+    "operationKind": "query",
+    "name": "AirportListDataQuery",
+    "id": null,
+    "text": "query AirportListDataQuery(\n  $input: String!\n) {\n  allLocations(search: $input, options: {locationType: airport}) {\n    ...AirportList_list\n  }\n}\n\nfragment AirportList_list on LocationConnection {\n  edges {\n    node {\n      locationId\n      ...AirportResult_item\n      id\n    }\n  }\n}\n\nfragment AirportResult_item on Location {\n  locationId\n  name\n  type\n  city {\n    name\n  }\n  country {\n    locationId\n  }\n}\n",
+    "metadata": {}
   }
 };
 })();
