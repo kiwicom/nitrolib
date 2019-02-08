@@ -5,9 +5,21 @@ import BaggagePersonalItem from "@kiwicom/orbit-components/lib/icons/BaggagePers
 import BaggageCabin from "@kiwicom/orbit-components/lib/icons/BaggageCabin";
 import Close from "@kiwicom/orbit-components/lib/icons/Close";
 
+import type { BaggageSubCategory } from "../../records/Baggage";
 import Translate from "../../components/Translate/index";
 
-export const getTextFromCategory = category => {
+type IconSize = "small" | "medium" | "large";
+type IconColor =
+  | "attention"
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "info"
+  | "success"
+  | "warning"
+  | "critical";
+
+export const getTextFromCategory = (category: BaggageSubCategory) => {
   switch (category) {
     case "personalItem":
       return <Translate t="common.baggage.personal_item" />;
@@ -20,7 +32,11 @@ export const getTextFromCategory = category => {
   }
 };
 
-export const getIconFromCategory = (category, size, color) => {
+export const getIconFromCategory = (
+  category: BaggageSubCategory,
+  size: IconSize,
+  color: IconColor,
+) => {
   switch (category) {
     case "personalItem":
       return <BaggagePersonalItem size={size} color={color} />;

@@ -3,10 +3,12 @@ import * as React from "react";
 import R from "ramda";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
 
 import type { BaggageType } from "../../records/Baggage";
 import BaggageItem from "./components/BaggageItem";
 import { getIconFromCategory } from "../../services/baggage/utils";
+import Translate from "../Translate/index";
 
 type Passenger = {
   id: number,
@@ -26,12 +28,15 @@ type Props = {
 const BaggageSummary = ({ baggage, passengers }: Props) => {
   const { combinations } = baggage;
 
-  const getPassengersFromId = ids =>
+  const getPassengersFromId = (
+    ids: Array<number>,
+  ): Array<{ lastName: string, firstName: string, id: number }> =>
     R.uniq(ids).map(id => {
-      const pass = passengers.find(p => p.id === id);
+      // $FlowFixMe
+      const pass: Passenger = passengers.find(p => p.id === id);
       return {
-        firstName: pass.firstName,
-        lastName: pass.lastName,
+        firstName: pass && pass.firstName,
+        lastName: pass && pass.lastName,
         id,
       };
     });
@@ -78,14 +83,19 @@ const BaggageSummary = ({ baggage, passengers }: Props) => {
   return (
     <Stack>
       <Text>Baggage</Text>
-      {!handBags.find(bag => bag.category === "personalItem") && <span>No personal item</span>}
+      {!handBags.find(bag => bag.category === "personalItem") && (
+        <span>
+          <BaggagePersonalItemNone />
+          <Translate t="common.baggage.no_personal_item" />
+        </span>
+      )}
       {handBags.map((bag, index) => (
         <BaggageItem
           key={index} // eslint-disable-line
           amount={bag.passengers.length}
           category={bag.category}
-          passengers={getPassengersFromId(bag.passengers)}
-          icon={getIconFromCategory(bag.category)}
+          passengers={getPassengersFromId(bag && bag.passengers)}
+          icon={getIconFromCategory(bag.category, "medium", "primary")}
           restrictions={bag.restrictions}
         />
       ))}
@@ -94,8 +104,8 @@ const BaggageSummary = ({ baggage, passengers }: Props) => {
           key={index} // eslint-disable-line
           amount={bag.passengers.length}
           category={bag.category}
-          passengers={getPassengersFromId(bag.passengers)}
-          icon={getIconFromCategory(bag.category)}
+          passengers={getPassengersFromId(bag && bag.passengers)}
+          icon={getIconFromCategory(bag.category, "medium", "primary")}
           restrictions={bag.restrictions}
         />
       ))}

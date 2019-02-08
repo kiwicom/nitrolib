@@ -8,7 +8,7 @@ import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
 import mq from "../../../../styles/mq";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import type { Restrictions } from "../../../../records/Baggage";
+import type { BaggageSubCategory, Restrictions } from "../../../../records/Baggage";
 import { getTextFromCategory } from "../../../../services/baggage/utils";
 
 const TitleWrapper = styled.div`
@@ -41,8 +41,7 @@ type BaggageSizeTextProps = ThemeProps & {
 const BaggageSizeText = styled.p`
   display: ${({ isMobile }: BaggageSizeTextProps) => (isMobile ? "none" : "block")};
   color: ${({ theme }): ThemeProps => theme.orbit.colorTextSecondary};
-  font-size: ${({ theme, isMobile }: BaggageSizeTextProps) =>
-    isMobile ? theme.orbit.fontSizeTextSmall : theme.orbit.fontSizeTextNormal};
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   font-family: ${({ theme }): ThemeProps => theme.orbit.fontFamily};
   margin: 0;
 
@@ -74,11 +73,9 @@ type Props = {
   passengers: Array<{ lastName: string, firstName: string, id: number }>,
   icon: React$Node,
   restrictions: Restrictions,
-  category: string,
+  category: BaggageSubCategory,
   amount: number,
 };
-
-const PassengersWrapper = styled.div``;
 
 const BaggageItem = ({ passengers, category, amount, icon, restrictions }: Props) => {
   const getBaggageSize = ({ height, length, weight, width }) =>
@@ -99,19 +96,19 @@ const BaggageItem = ({ passengers, category, amount, icon, restrictions }: Props
               </Text>
               {category === "holdBag" && `${restrictions.weight}kg  `}
               {getTextFromCategory(category)}
+              <BaggageSizeText isMobile>{getBaggageSize(restrictions)}</BaggageSizeText>
             </Title>
           </Text>
-          <BaggageSizeText isMobile>{getBaggageSize(restrictions)}</BaggageSizeText>
         </TitleWrapper>
+        <BaggageSizeText>{getBaggageSize(restrictions)}</BaggageSizeText>
       </Stack>
       <BaggageInfoWrapper>
-        <BaggageSizeText>{getBaggageSize(restrictions)}</BaggageSizeText>
-        <PassengersWrapper>
+        <div>
           <AccountCircle size="small" color="secondary" />
           <Text element="span" type="secondary">
             {getPassengersText(passengers)}
           </Text>
-        </PassengersWrapper>
+        </div>
       </BaggageInfoWrapper>
     </Stack>
   );
