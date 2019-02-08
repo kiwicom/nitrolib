@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { withKnobs } from "@storybook/addon-knobs";
 
 import withData from "./decorators/withData";
-import BaggageSummary from "../src/components/BaggageSummary";
+import BaggageOverview from "../src/components/BaggageOverview";
 import { baggageData } from "../src/components/BaggagePicker/services/data";
 
 const passengers = [
@@ -26,6 +26,15 @@ const passengers = [
       handBag: 3,
     },
   },
+  {
+    id: 3,
+    firstName: "George",
+    lastName: "Bush",
+    baggage: {
+      holdBag: 0,
+      handBag: 1,
+    },
+  },
 ];
 
 const props = {
@@ -33,11 +42,11 @@ const props = {
   baggage: baggageData,
 };
 
-storiesOf("BaggageSummary", module)
+storiesOf("BaggageOverview", module)
   .addDecorator(withData)
   .addDecorator(withKnobs)
   .add("default", () => (
     <div style={{ padding: "24px" }}>
-      <BaggageSummary {...props} />
+      <BaggageOverview {...props} />
     </div>
   ));

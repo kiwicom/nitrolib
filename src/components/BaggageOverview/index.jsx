@@ -25,7 +25,7 @@ type Props = {
   baggage: BaggageType,
 };
 
-const BaggageSummary = ({ baggage, passengers }: Props) => {
+const BaggageOverview = ({ baggage, passengers }: Props) => {
   const { combinations } = baggage;
 
   const getPassengersFromId = (
@@ -112,4 +112,4 @@ const BaggageSummary = ({ baggage, passengers }: Props) => {
     </Stack>
   );
 };
-export default BaggageSummary;
+export default BaggageOverview;
