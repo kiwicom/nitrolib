@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import { TripHeaderUnwrapped as TripHeader } from "..";
 
@@ -14,10 +14,28 @@ const trips: any = {
   ],
 };
 
-describe("#TripHeader", () => {
-  test("render", () => {
-    const wrapper = shallow(<TripHeader trips={trips} />);
+const wrapper = mount(<TripHeader trips={trips} />);
 
-    expect(wrapper).toMatchSnapshot();
+describe("#TripHeader", () => {
+  it("should render with trips prop", () => {
+    expect(wrapper.prop("trips")).toBe(trips);
+  });
+
+  it("should return Translate for upcoming trip", () => {
+    expect(
+      wrapper
+        .find("Translate")
+        .first()
+        .prop("values"),
+    ).toEqual({ trips: 1 });
+  });
+
+  it("should has Translate for past trips", () => {
+    expect(
+      wrapper
+        .find("Translate")
+        .at(1)
+        .exists(),
+    ).toBe(true);
   });
 });

@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import { OneWayTripsUnwrapped as OneWayTrips } from "..";
 
@@ -28,11 +28,16 @@ const item: any = {
     },
   },
 };
-
 describe("#OneWayTrips", () => {
   test("render", () => {
-    const wrapper = shallow(<OneWayTrips item={item} onSelect={jest.fn()} />);
+    const wrapper = mount(<OneWayTrips item={item} onSelect={jest.fn()} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.prop("item")).toBe(item);
+
+    expect(wrapper.find("TripItem").prop("bid")).toBe("Qm9va2luZ09uZVdheTozNzA1ODU5");
+    expect(wrapper.find("TripItem").prop("img")).toBe("url");
+    expect(wrapper.find("TripItem").prop("passengerCount")).toBe(2);
+    expect(wrapper.find("TripItem").prop("departureCity")).toBe("Prague");
+    expect(wrapper.find("TripItem").prop("arrivalCity")).toBe("Moscow");
   });
 });

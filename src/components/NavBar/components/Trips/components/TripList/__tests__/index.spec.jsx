@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import { TripListUnwrapped as TripList } from "..";
 
@@ -18,8 +18,8 @@ const list: any = {
 
 describe("#TripList", () => {
   test("render", () => {
-    const wrapper = shallow(<TripList list={list} onSelect={jest.fn()} />);
+    const wrapper = mount(<TripList list={list} onSelect={jest.fn()} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("TripList").prop("list")).toBe(list);
   });
 });

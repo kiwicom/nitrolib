@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import { MulticityTripsUnwrapped as MulticityTrips } from "..";
 
@@ -95,8 +95,14 @@ const item: any = {
 
 describe("#MulticityTrips", () => {
   test("render", () => {
-    const wrapper = shallow(<MulticityTrips item={item} onSelect={jest.fn()} />);
+    const wrapper = mount(<MulticityTrips item={item} onSelect={jest.fn()} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.prop("item")).toBe(item);
+
+    expect(wrapper.find("TripItem").prop("bid")).toBe("Qm9va2luZ011bHRpY2l0eTo1MzI1MjQ4");
+    expect(wrapper.find("TripItem").prop("img")).toBe("url");
+    expect(wrapper.find("TripItem").prop("passengerCount")).toBe(1);
+    expect(wrapper.find("TripItem").prop("departureCity")).toBe("Wroclaw");
+    expect(wrapper.find("TripItem").prop("arrivalCity")).toBe("Phoenix");
   });
 });

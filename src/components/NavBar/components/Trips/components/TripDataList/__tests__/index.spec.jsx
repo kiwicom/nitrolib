@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import { makeEnvironment } from "../../../../../../../services/utils/relay";
 
@@ -47,14 +47,40 @@ const res = {
 };
 
 describe("#TripDataList", () => {
-  test("render", async () => {
+  test("test #loading", async () => {
     const promise = Promise.resolve(res);
     const environment = makeEnvironment(() => promise);
 
-    const wrapper = shallow(<TripDataList env={environment} onSelect={jest.fn()} />);
+    const wrapper = mount(<TripDataList env={environment} onSelect={jest.fn()} />);
 
     await promise;
 
-    expect(wrapper.dive()).toMatchSnapshot();
+    expect(wrapper.find("Translate").prop("t")).toBe("common.loading");
+  });
+
+  test("test #render", async () => {
+    const promise = Promise.resolve(res);
+    const environment = makeEnvironment(() => promise);
+
+    const wrapper = mount(<TripDataList env={environment} onSelect={jest.fn()} />);
+
+    await promise;
+
+    wrapper.update();
+
+    expect(wrapper.find("TripList").exists()).toBe(true);
+  });
+
+  test("test #error", async () => {
+    const promise = Promise.reject(new Error("error"));
+    const environment = makeEnvironment(() => promise);
+
+    const wrapper = mount(<TripDataList env={environment} onSelect={jest.fn()} />);
+
+    await promise.catch(() => null);
+
+    wrapper.update();
+
+    expect(wrapper.find("Alert").text()).toBe("Error: error");
   });
 });

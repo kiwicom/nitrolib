@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import { ReturnTripsUnwrapped as ReturnTrips } from "..";
 
@@ -49,8 +49,14 @@ const item: any = {
 
 describe("#ReturnTrips", () => {
   test("render", () => {
-    const wrapper = shallow(<ReturnTrips item={item} onSelect={jest.fn()} />);
+    const wrapper = mount(<ReturnTrips item={item} onSelect={jest.fn()} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.prop("item")).toBe(item);
+
+    expect(wrapper.find("TripItem").prop("bid")).toBe("Qm9va2luZ1JldHVybjo1NTk2Mjk0");
+    expect(wrapper.find("TripItem").prop("img")).toBe("url");
+    expect(wrapper.find("TripItem").prop("passengerCount")).toBe(1);
+    expect(wrapper.find("TripItem").prop("departureCity")).toBe("Johor Bahru");
+    expect(wrapper.find("TripItem").prop("arrivalCity")).toBe("Kuala Lumpur");
   });
 });

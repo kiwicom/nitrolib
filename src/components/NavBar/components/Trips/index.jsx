@@ -16,6 +16,8 @@ import type { ThemeProps } from "../../../../records/Theme";
 import Toggle from "../../../Toggle";
 import TripDataList from "./components/TripDataList";
 import Flex from "../../../../primitives/Flex";
+import SingleTripData from "./components/SingleTripData";
+import userType from "./services/userType";
 
 type Props = {|
   auth: Auth,
@@ -58,52 +60,50 @@ HideOnLower.defaultProps = {
   theme: themeDefault,
 };
 
-const Trips = ({ auth, env, onSelect }: Props) => {
-  const usernameShort = auth.type === "user" ? auth.user.firstname : auth.email;
-  const username =
-    auth.type === "user" ? `${auth.user.firstname} ${auth.user.lastname}` : auth.email;
-
-  return (
-    <Toggle>
-      {({ open, onToggle }) => (
-        <div>
-          {open && (
-            <ClickOutside
-              onClickOutside={ev => {
-                ev.stopPropagation();
-                onToggle();
-              }}
-            >
+const Trips = ({ auth, env, onSelect }: Props) => (
+  <Toggle>
+    {({ open, onToggle }) => (
+      <div>
+        {open && (
+          <ClickOutside
+            onClickOutside={ev => {
+              ev.stopPropagation();
+              onToggle();
+            }}
+          >
+            {auth.type === "token" ? (
+              <SingleTripData singleBid={auth.bid} env={env} onSelect={onSelect} />
+            ) : (
               <TripDataList env={env} onSelect={onSelect} />
-            </ClickOutside>
-          )}
-          <Desktop display="flex">
-            <Flex y="center">
-              <Passenger size="small" />
-              <Button onClick={onToggle} color="secondary">
-                <HideOnLower>
-                  <Translate t="account.my_bookings_action" />
-                </HideOnLower>
-                <UserWrapper>
-                  <span>(</span>
-                  <UserName>{`${usernameShort}...`}</UserName>
-                  <span>)</span>
-                </UserWrapper>
-              </Button>
-            </Flex>
-          </Desktop>
-          <Mobile display="flex">
+            )}
+          </ClickOutside>
+        )}
+        <Desktop display="flex">
+          <Flex y="center">
+            <Passenger size="small" />
             <Button onClick={onToggle} color="secondary">
-              <Passenger size="small" />
+              <HideOnLower>
+                <Translate t="account.my_bookings_action" />
+              </HideOnLower>
               <UserWrapper>
-                <UserName>{username}</UserName>
+                <span>(</span>
+                <UserName>{`${userType(auth)}...`}</UserName>
+                <span>)</span>
               </UserWrapper>
             </Button>
-          </Mobile>
-        </div>
-      )}
-    </Toggle>
-  );
-};
+          </Flex>
+        </Desktop>
+        <Mobile display="flex">
+          <Button onClick={onToggle} color="secondary">
+            <Passenger size="small" />
+            <UserWrapper>
+              <UserName>{userType(auth)}</UserName>
+            </UserWrapper>
+          </Button>
+        </Mobile>
+      </div>
+    )}
+  </Toggle>
+);
 
 export default Trips;

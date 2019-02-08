@@ -13,7 +13,13 @@ export type AuthMagic = {|
   token: string,
 |};
 
-export type Auth = AuthUser | AuthMagic;
+export type AuthToken = {|
+  type: "token",
+  bid: number,
+  token: string,
+|};
+
+export type Auth = AuthUser | AuthMagic | AuthToken;
 
 export type SocialProvider = "facebook" | "google";
 
