@@ -3,6 +3,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 
 import TravelArrangement from "../src/components/TravelArrangement";
+import withData from "./decorators/withData";
 
 const props = {
   data: {
@@ -22,4 +23,6 @@ const props = {
   columnLayout: false,
 };
 
-storiesOf("TravelArrangement", module).add("default", () => <TravelArrangement {...props} />);
+storiesOf("TravelArrangement", module)
+  .addDecorator(withData)
+  .add("default", () => <TravelArrangement {...props} />);
