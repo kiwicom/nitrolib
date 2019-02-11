@@ -13,7 +13,7 @@ import SendMagicLink from "./mutations/SendMagicLink";
 import type { LoginType, Screen } from "./types";
 import errors from "../../consts/errors";
 import type { SignInUser } from "./mutations/__generated__/SignInUser.graphql";
-import { Consumer as BrandConsumer } from "../../services/brand/context";
+import brandContext from "../../services/brand/context";
 
 type Props = {|
   onSocialLogin: (provider: "google" | "facebook") => Promise<void>,
@@ -48,7 +48,7 @@ class MagicLogin extends React.Component<Props, State> {
     type: "mmb",
   };
 
-  static contextType = BrandConsumer;
+  static contextType = brandContext;
 
   constructor(props: Props) {
     super(props);
@@ -102,7 +102,7 @@ class MagicLogin extends React.Component<Props, State> {
   };
 
   sendMagicLink = () => {
-    const { brand } = this.context;
+    const brand = this.context;
     this.setState({ isSendingEmail: true, magicLinkError: "" }, async () => {
       const { email } = this.state;
       const response = await (async () => {
@@ -131,7 +131,7 @@ class MagicLogin extends React.Component<Props, State> {
 
   render() {
     const { type, onClose, onSignIn } = this.props;
-    const { brand } = this.context;
+    const brand = this.context;
     const { screen, email, isSendingEmail, magicLinkError } = this.state;
 
     return (

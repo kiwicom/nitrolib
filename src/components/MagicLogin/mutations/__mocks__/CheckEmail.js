@@ -12,7 +12,7 @@ const CheckEmail = jest.fn(email => {
     hasBooking: false,
   };
 
-  if (email === "withBooking@example.com") {
+  if (["withBooking@example.com", "withBookingError@example.com"].includes(email)) {
     return Promise.resolve({
       checkEmail: {
         result: { ...result, hasBooking: true },
