@@ -36,13 +36,22 @@ type OptionWrapperProps = ThemeProps & {
 const OptionWrapper = styled.div`
   padding: ${({ theme }) => theme.orbit.spaceSmall};
   border-radius: ${({ theme }) => theme.orbit.borderRadiusNormal};
-  border: 1px solid
+  box-shadow: 0 1px 2px 0 ${({ theme }: ThemeProps) => theme.orbit.paletteWhiteHover};
+  border: solid
     ${({ theme, checked }: OptionWrapperProps) =>
-      checked ? theme.orbit.colorTextButtonPrimaryBordered : theme.orbit.borderColorCard};
+      checked
+        ? `2px ${theme.orbit.colorTextButtonPrimaryBordered}`
+        : `1px ${theme.orbit.borderColorCard}`};
   &:hover {
+    border-width: 2px;
     border-color: ${({ theme }: ThemeProps) => theme.orbit.borderColorCheckboxRadioHover};
     cursor: pointer;
+    span {
+      border-width: 4px;
+      border-color: ${({ theme }: ThemeProps) => theme.orbit.borderColorCheckboxRadioHover};
+    }
   }
+
   > *:not(:last-child) {
     margin-bottom: 12px;
   }
@@ -55,6 +64,9 @@ OptionWrapper.defaultProps = {
 
 const RadioWrapper = styled.div`
   width: 20px;
+  div {
+    margin-top: 2px;
+  }
 `;
 
 const getTextFromCategory = category => {
@@ -87,7 +99,6 @@ const IconWrapper = styled.div`
   border-top: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorInput};
   width: 22px;
   text-align: center;
-  margin-right: ${({ theme }: ThemeProps) => theme.orbit.spaceXSmall};
 `;
 
 IconWrapper.defaultProps = {
@@ -102,7 +113,7 @@ const PriorityBoardingInfo = ({ airlines }: { airlines: Array<string> }) => {
     return `${firsts.join(", ")} ${conjunction} ${last}`;
   };
   return (
-    <Stack flex direction="row" align="center">
+    <Stack flex direction="row" spacing="condensed" align="center">
       <IconWrapper>
         <PriorityBoarding color="secondary" size="small" />
       </IconWrapper>
