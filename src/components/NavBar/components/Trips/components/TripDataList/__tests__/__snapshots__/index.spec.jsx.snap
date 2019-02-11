@@ -1,27 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#TripDataList render 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "environment": "RelayModernEnvironment()",
-      "variables": Object {},
-    }
-  }
+<TripContainer
+  padding={true}
+  positionMenuDesktop={50}
+  positionMenuTablet={0}
 >
-  <TripContainer
-    padding={true}
-    positionMenuDesktop={50}
-    positionMenuTablet={0}
-  >
-    <TripDataList__StateContainer>
-      <Translate
-        html={false}
-        t="common.loading"
-        transform={[Function]}
-        values={Object {}}
-      />
-    </TripDataList__StateContainer>
-  </TripContainer>
-</ContextProvider>
+  <TripDataList__StateContainer>
+    <Translate
+      html={false}
+      t="common.loading"
+      transform={[Function]}
+      values={Object {}}
+    />
+  </TripDataList__StateContainer>
+</TripContainer>
 `;

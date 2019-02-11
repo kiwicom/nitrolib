@@ -75,7 +75,6 @@ Wrapper.defaultProps = {
 
 type Props = {|
   starred: React.Node,
-  chat: React.Node,
   subscription: React.Node,
   debug: React.Node,
   portal: string,
@@ -93,7 +92,6 @@ type Props = {|
 const NavBar = ({
   headerLinks,
   starred,
-  chat,
   subscription,
   debug,
   portal,
@@ -146,7 +144,6 @@ const NavBar = ({
           </WrapperChild>
         </Mobile>
         <Menu
-          chat={chat}
           subscription={subscription}
           debug={debug}
           onSetModal={onSetModal}

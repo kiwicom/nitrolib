@@ -5,7 +5,6 @@ import type { Modal } from "../../consts/modals";
 
 type Props = {|
   starred: React.Node,
-  chat: React.Node,
   subscription: React.Node,
   portal: string,
   onOpenFaq: ?() => void,

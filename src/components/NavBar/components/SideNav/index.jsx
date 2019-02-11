@@ -17,8 +17,6 @@ import { Consumer as AuthConsumer } from "../../../../services/auth/context";
 import type { ThemeProps } from "../../../../records/Theme";
 import { themeDefault } from "../../../../records/Theme";
 import Currency from "../../../Currency";
-import LogMount from "../../../LogMount";
-import { OPEN_CHAT } from "../../../../consts/events";
 import SideBar from "../../../SideBar";
 import MenuGroup from "./MenuGroup";
 import MenuItem from "./MenuItem";
@@ -136,7 +134,6 @@ type State = {|
 |};
 
 type Props = {|
-  chat: React.Node,
   subscription: React.Node,
   debug?: React.Node,
   portal: string,
@@ -182,13 +179,6 @@ export default class SideNav extends React.Component<Props, State> {
     this.setState({ modalOpen: MODALS.NONE });
   };
 
-  handleOpenChat = () => {
-    const { onSetModal } = this.props;
-    onSetModal(MODALS.CHAT);
-
-    this.setState({ modalOpen: MODALS.CHAT });
-  };
-
   handleOpenSubscription = () => {
     const { onSetModal } = this.props;
     onSetModal(MODALS.SUBSCRIPTION);
@@ -211,7 +201,7 @@ export default class SideNav extends React.Component<Props, State> {
   };
 
   render = () => {
-    const { chat, subscription, debug, onSaveLanguage, portal, inverted } = this.props;
+    const { subscription, debug, onSaveLanguage, portal, inverted } = this.props;
     const { modalOpen } = this.state;
 
     return (
@@ -316,15 +306,6 @@ export default class SideNav extends React.Component<Props, State> {
                               title={company.stories.title}
                               Icon={company.stories.Icon}
                               link={company.stories.link}
-                            />
-                          )}
-
-                          {/* Chat */}
-                          {brand.contacts.chat.enabled && (
-                            <MenuItem
-                              Icon={icons.Chat}
-                              onClick={this.handleOpenChat}
-                              text={<Translate t="booking.abandonment.help.chat_action" />}
                             />
                           )}
 
@@ -445,17 +426,6 @@ export default class SideNav extends React.Component<Props, State> {
         </ClientOnly>
 
         {/* MODALS */}
-        {modalOpen === MODALS.CHAT && (
-          <Portal element={portal}>
-            <Modal onClose={this.handleCloseModal}>
-              <ModalSection>
-                <LogMount event={{ event: OPEN_CHAT, data: null }} />
-                {chat}
-              </ModalSection>
-            </Modal>
-          </Portal>
-        )}
-
         {modalOpen === MODALS.SUBSCRIPTION && (
           <Portal element={portal}>
             <Modal onClose={this.handleCloseModal}>

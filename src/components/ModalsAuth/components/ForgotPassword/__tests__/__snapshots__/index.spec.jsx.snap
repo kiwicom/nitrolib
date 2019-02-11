@@ -441,13 +441,22 @@ exports[`#SideBar/ForgotPassword render 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <LogMount
+    <Core
       event={
         Object {
-          "data": Object {
-            "modal": "forgotPassword",
+          "action": "Open",
+          "category": "Nitro",
+          "destinations": Object {
+            "exponea": false,
+            "ga": false,
+            "logmole": true,
           },
-          "event": "OPEN_MODAL",
+          "subCategory": "Modal",
+        }
+      }
+      props={
+        Object {
+          "modal": "forgotPassword",
         }
       }
     />
@@ -945,13 +954,22 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <LogMount
+    <Core
       event={
         Object {
-          "data": Object {
-            "modal": "forgotPassword",
+          "action": "Open",
+          "category": "Nitro",
+          "destinations": Object {
+            "exponea": false,
+            "ga": false,
+            "logmole": true,
           },
-          "event": "OPEN_MODAL",
+          "subCategory": "Modal",
+        }
+      }
+      props={
+        Object {
+          "modal": "forgotPassword",
         }
       }
     />
@@ -1476,13 +1494,22 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <LogMount
+    <Core
       event={
         Object {
-          "data": Object {
-            "modal": "forgotPassword",
+          "action": "Open",
+          "category": "Nitro",
+          "destinations": Object {
+            "exponea": false,
+            "ga": false,
+            "logmole": true,
           },
-          "event": "OPEN_MODAL",
+          "subCategory": "Modal",
+        }
+      }
+      props={
+        Object {
+          "modal": "forgotPassword",
         }
       }
     />

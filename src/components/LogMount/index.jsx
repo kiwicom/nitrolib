@@ -1,16 +1,33 @@
 // @flow strict
 import * as React from "react";
 
-import type { Event } from "../../records/Event";
-import { Consumer } from "../../services/log/context";
-import Core from "./components/Core";
+import type { Event, Props as EventProps } from "../../records/Event";
+import logContext from "../../services/log/context";
+import type { Context } from "../../services/log/context";
 
-type Props<E, D> = {|
-  event: Event<E, D>,
+type Props = {|
+  event: Event,
+  // defaulted
+  props: EventProps,
 |};
 
-const LogMount = <E, D>({ event }: Props<E, D>) => (
-  <Consumer>{({ log }) => <Core event={event} onLog={log} />}</Consumer>
-);
+export default class Core extends React.Component<Props> {
+  static defaultProps = {
+    props: {},
+  };
 
-export default LogMount;
+  static contextType = logContext;
+
+  componentDidMount() {
+    const { event, props } = this.props;
+    const { log } = this.context;
+
+    log(event, props);
+  }
+
+  context: Context;
+
+  render() {
+    return null;
+  }
+}

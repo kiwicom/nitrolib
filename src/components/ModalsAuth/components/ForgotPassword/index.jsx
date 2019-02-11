@@ -20,7 +20,7 @@ import compose from "../../../../services/input/composeValidator";
 import * as normalizers from "../../../../services/input/normalizers";
 import emailCorrector from "../../../../services/input/emailCorrector";
 import * as api from "../../../../services/auth/api";
-import { OPEN_MODAL } from "../../../../consts/events";
+import { MODAL_OPEN } from "../../../../records/Event";
 
 const emailValidator = compose(
   validators.email,
@@ -131,7 +131,7 @@ export default class ForgotPassword extends React.PureComponent<Props, State> {
     return (
       <Container>
         <form onSubmit={this.handleSubmit}>
-          <LogMount event={{ event: OPEN_MODAL, data: { modal: "forgotPassword" } }} />
+          <LogMount event={MODAL_OPEN} props={{ modal: "forgotPassword" }} />
           {error && (
             <FieldWrap>
               <Alert type="critical">

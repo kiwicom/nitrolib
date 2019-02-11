@@ -25,7 +25,7 @@ import * as normalizers from "../../../../services/input/normalizers";
 import * as validators from "../../../../services/input/validators";
 import isEmptish from "../../../../services/utils/isEmptish";
 import type { MyBookingInput } from "../../../../services/auth/api";
-import { OPEN_MODAL } from "../../../../consts/events";
+import { MODAL_OPEN } from "../../../../records/Event";
 
 const FieldWrap = styled.div`
   position: relative;
@@ -213,7 +213,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
           {intl => (
             <>
               <Query onMount={this.handleMount} />
-              <LogMount event={{ event: OPEN_MODAL, data: { modal: "myBooking" } }} />
+              <LogMount event={MODAL_OPEN} props={{ modal: "myBooking" }} />
 
               <FieldWrap>
                 <IconText icon={<Ticket color="primary" size="small" />}>

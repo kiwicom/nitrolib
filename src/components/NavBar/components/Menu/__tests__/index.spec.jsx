@@ -8,7 +8,6 @@ describe("#Menu", () => {
   test("render", () => {
     const wrapper = shallow(
       <Menu
-        chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         debug={<div>debug</div>}
         portal=""

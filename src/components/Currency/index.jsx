@@ -8,7 +8,7 @@ import { currencyDefault, getAvailableList } from "../../records/Currency";
 import Current from "./components/Current";
 import Menu from "./components/Menu";
 import LogMount from "../LogMount";
-import { OPEN_CURRENCY } from "../../consts/events";
+import { CURRENCY_OPEN } from "../../records/Event";
 import type { Modal as ModalType } from "../../consts/modals";
 
 type Props = {|
@@ -52,7 +52,7 @@ const Currency = ({
             >
               {render => (
                 <>
-                  <LogMount event={{ event: OPEN_CURRENCY, data: null }} />
+                  <LogMount event={CURRENCY_OPEN} />
                   <Menu
                     onChange={render.onChange}
                     current={currency}

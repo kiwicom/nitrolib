@@ -16,6 +16,7 @@ import type { HeaderLink, SearchForm } from "./records/HeaderLink";
 import LogContext from "../../services/log/context";
 import type { Context } from "../../services/log/context";
 import type { Splitster, Response } from "./services/api";
+import { HEADER_LINKS_ERROR } from "../../records/Event";
 
 // Different size than the existing component
 const Mobile = styled.div`
@@ -83,11 +84,11 @@ export default class HeaderLinks extends React.Component<Props, State> {
         onFetch(services);
       }
     } catch (err) {
-      log({ event: "Header links error", data: err });
+      log(HEADER_LINKS_ERROR, { error: String(err) });
     }
   };
 
-  context: Context<"Header links error", null>;
+  context: Context;
 
   render() {
     const { inverted, active } = this.props;

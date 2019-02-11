@@ -25,7 +25,7 @@ import isEmptish from "../../../../services/utils/isEmptish";
 import linkMixin from "../../../../styles/mixins/link";
 import { themeDefault } from "../../../../records/Theme";
 import type { RegisterInput } from "../../../../services/auth/api";
-import { OPEN_MODAL } from "../../../../consts/events";
+import { MODAL_OPEN } from "../../../../records/Event";
 
 const ZXCVBN_URL = "https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js";
 
@@ -179,7 +179,7 @@ export default class Register extends React.PureComponent<Props, State> {
     return (
       <form onSubmit={this.handleSubmit}>
         <Query onMount={this.handleMount} />
-        <LogMount event={{ event: OPEN_MODAL, data: { modal: "register" } }} />
+        <LogMount event={MODAL_OPEN} props={{ modal: "register" }} />
 
         <FieldWrap>
           <IconText icon={<User color="primary" size="small" />}>

@@ -21,7 +21,6 @@ const Wrapper = styled.div`
 `;
 
 type Props = {|
-  chat: React.Node,
   subscription: React.Node,
   debug?: React.Node,
   portal: string,
@@ -32,7 +31,6 @@ type Props = {|
 |};
 
 const Menu = ({
-  chat,
   subscription,
   debug,
   portal,
@@ -73,7 +71,6 @@ const Menu = ({
 
         <Wrapper>
           <SideNav
-            chat={chat}
             subscription={subscription}
             debug={debug}
             inverted={inverted}

@@ -24,7 +24,7 @@ import emailCorrector from "../../../../services/input/emailCorrector";
 import isEmptish from "../../../../services/utils/isEmptish";
 import IconText from "../../../IconText";
 import Query from "../../../Query";
-import { OPEN_MODAL } from "../../../../consts/events";
+import { MODAL_OPEN } from "../../../../records/Event";
 
 const ERRORS = {
   "Login failed.": __("account.login_failed"),
@@ -144,7 +144,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
     return (
       <form onSubmit={this.handleSubmit}>
         <Query onMount={this.handleMount} />
-        <LogMount event={{ event: OPEN_MODAL, data: { modal: "signIn" } }} />
+        <LogMount event={MODAL_OPEN} props={{ modal: "signIn" }} />
 
         <FieldWrap>
           <IconText icon={<Envelope color="primary" size="small" />}>

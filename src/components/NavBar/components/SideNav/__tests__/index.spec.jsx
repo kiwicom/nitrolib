@@ -10,7 +10,6 @@ describe("#SideNav", () => {
   test("render", () => {
     const wrapper = shallow(
       <SideNav
-        chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         portal=""
         inverted={false}
@@ -27,7 +26,6 @@ describe("#SideNav", () => {
   test("opens when clicked", () => {
     const wrapper = shallow(
       <SideNav
-        chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         portal=""
         inverted={false}
@@ -41,32 +39,10 @@ describe("#SideNav", () => {
     expect(wrapper.state("modalOpen")).toEqual(MODALS.SIDE_NAV);
   });
 
-  test("opens chat", () => {
-    const setModal = jest.fn();
-    const wrapper = shallow(
-      <SideNav
-        chat={<div>chat</div>}
-        subscription={<div>subscription</div>}
-        portal=""
-        inverted={false}
-        onOpenModal={jest.fn()}
-        onSaveLanguage={jest.fn()}
-        onSetModal={setModal}
-      />,
-    );
-
-    wrapper.instance().handleOpenChat();
-
-    expect(wrapper.state("modalOpen")).toBe("chat");
-    expect(setModal).toBeCalledTimes(1);
-    expect(setModal).toBeCalledWith("chat");
-  });
-
   test("opens subscription", () => {
     const setModal = jest.fn();
     const wrapper = shallow(
       <SideNav
-        chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         portal=""
         inverted={false}
@@ -87,7 +63,6 @@ describe("#SideNav", () => {
     const setModal = jest.fn();
     const wrapper = shallow(
       <SideNav
-        chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         portal=""
         inverted={false}
@@ -109,7 +84,6 @@ describe("#SideNav", () => {
     const setModal = jest.fn();
     const wrapper = shallow(
       <SideNav
-        chat={<div>chat</div>}
         subscription={<div>subscription</div>}
         portal=""
         inverted={false}
