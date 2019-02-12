@@ -378,8 +378,8 @@ import { Consumer, Provider } from "@kiwicom/nitro/lib/services/log/context";
 
 **Types:**
 ```js
-export type Context<E, D> = {|
-  log: (event: Event<E, D>) => void,
+export type Context = {|
+  log: (event: Event, props: Props) => void,
 |};
 
 declare var context: React.Context<Context<any, any>>;

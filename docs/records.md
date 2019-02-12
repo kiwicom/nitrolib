@@ -695,13 +695,56 @@ import type { Event } from "@kiwicom/nitro/lib/records/Event";
 
 **Types:**
 ```js
-export type Event<E: string, D: Object | null = null> = {|
-  event: E,
-  data: D,
+export type Category =
+  | "Account"
+  | "Auth"
+  | "Booking"
+  | "Content"
+  | "Cookies"
+  | "General"
+  | "Holidays"
+  | "Manage"
+  | "Netverify"
+  | "Nitro"
+  | "Payment"
+  | "Refund"
+  | "Search"
+  | "SmartFAQ"
+  | "Watchdog";
+
+export type Event = {|
+  category: Category,
+  subCategory?: string,
+  action: string,
+  detail?: string,
+  destinations: {|
+    exponea: boolean,
+    ga: boolean,
+    logmole: boolean,
+  |},
 |};
+
+export type Props = { [key: string]: string | number | boolean };
+
+export type EventPayload = {|
+  ...Event,
+  timestamp: number,
+  props: Props,
+|};
+
+declare export var make: (event: Event, props: Props, now?: number) => EventPayload;
+
+declare export var MODAL_OPEN: Event;
+declare export var CURRENCY_OPEN: Event;
+declare export var HEADER_LINKS_ERROR: Event;
+declare export var API_REQUEST: Event;
+declare export var API_ERROR: Event;
+declare export var API_SUCCESS: Event;
 ```
 
-_TODO_
+A data type for our [Loglady](https://loglady.skypicker.com/api-docs/) tracking system.
+
+> Every event tracked must be located in this record's file for easy lookup.
 
 ## Fetched
 
