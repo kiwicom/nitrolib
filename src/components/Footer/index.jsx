@@ -5,8 +5,8 @@ import Linkedin from "@kiwicom/orbit-components/lib/icons/Linkedin";
 import Twitter from "@kiwicom/orbit-components/lib/icons/Twitter";
 import Instagram from "@kiwicom/orbit-components/lib/icons/Instagram";
 import Facebook from "@kiwicom/orbit-components/lib/icons/Facebook";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import mq from "../../styles/mq";
 import Text from "../Text";
 import { Consumer as IntlConsumer } from "../../services/intl/context";
 import type { ThemeProps } from "../../records/Theme";
@@ -46,7 +46,7 @@ const Wrapper = styled.div`
     border-top: 2px solid ${theme.orbit.paletteCloudLight};
     padding: ${theme.orbit.spaceLarge};
 
-    ${mq.gtTablet(css`
+    ${mq.tablet(css`
       flex-direction: row;
       padding: 40px 50px;
     `)};
@@ -59,7 +59,7 @@ Wrapper.defaultProps = {
 const LogoWrapper = styled.div`
   margin: 0 0 40px 0;
 
-  ${mq.gtTablet(css`
+  ${mq.tablet(css`
     margin: 0 50px 0 0;
   `)};
 `;
@@ -72,13 +72,14 @@ const LinksAndIconsWrapper = styled.div`
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
 
-  ${mq.gtDesktop(css`
-    flex-direction: row;
-    align-items: center;
+  ${mq.tablet(css`
+    align-items: flex-end;
   `)};
-  ${mq.ltTablet(css`
+
+  ${mq.desktop(css`
+    flex-direction: row;
     align-items: center;
   `)};
 `;
@@ -88,14 +89,15 @@ const LinksWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 40px;
+  margin-top: 24px;
 
-  ${mq.gtTablet(css`
+  ${mq.tablet(css`
     margin: 0;
     flex-direction: row;
+  `)};
 
-    ${mq.ltDesktop(css`
-      margin-top: 24px;
-    `)};
+  ${mq.desktop(css`
+    margin-top: 0;
   `)};
 `;
 
@@ -103,29 +105,20 @@ const Link = styled.a`
   text-decoration: none;
 
   &:not(:last-child) {
-    ${mq.ltTablet(
-      css`
-        margin-bottom: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
-      `,
-    )};
-    ${mq.gtTablet(
-      css`
-        margin-right: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
-      `,
-    )};
+    margin-bottom: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
   }
 `;
+
 Link.defaultProps = {
   theme: themeDefault,
 };
 
 const Icons = styled.div`
   margin-left: auto;
+  order: -1;
 
-  ${mq.gtTablet(css`
-    ${mq.ltDesktop(css`
-      order: -1;
-    `)};
+  ${mq.desktop(css`
+    order: initial;
   `)};
 `;
 

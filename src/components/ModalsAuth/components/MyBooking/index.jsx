@@ -25,7 +25,7 @@ import * as normalizers from "../../../../services/input/normalizers";
 import * as validators from "../../../../services/input/validators";
 import isEmptish from "../../../../services/utils/isEmptish";
 import type { MyBookingInput } from "../../../../services/auth/api";
-import { MODAL_OPEN } from "../../../../records/Event";
+import { MODAL_OPEN } from "../../../../consts/events";
 
 const FieldWrap = styled.div`
   position: relative;

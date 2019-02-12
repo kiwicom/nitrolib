@@ -24,7 +24,7 @@ import emailCorrector from "../../../../services/input/emailCorrector";
 import isEmptish from "../../../../services/utils/isEmptish";
 import IconText from "../../../IconText";
 import Query from "../../../Query";
-import { MODAL_OPEN } from "../../../../records/Event";
+import { MODAL_OPEN } from "../../../../consts/events";
 
 const ERRORS = {
   "Login failed.": __("account.login_failed"),

@@ -25,7 +25,7 @@ import isEmptish from "../../../../services/utils/isEmptish";
 import linkMixin from "../../../../styles/mixins/link";
 import { themeDefault } from "../../../../records/Theme";
 import type { RegisterInput } from "../../../../services/auth/api";
-import { MODAL_OPEN } from "../../../../records/Event";
+import { MODAL_OPEN } from "../../../../consts/events";
 
 const ZXCVBN_URL = "https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js";
 

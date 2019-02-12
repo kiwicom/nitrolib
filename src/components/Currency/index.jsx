@@ -8,8 +8,8 @@ import { currencyDefault, getAvailableList } from "../../records/Currency";
 import Current from "./components/Current";
 import Menu from "./components/Menu";
 import LogMount from "../LogMount";
-import { CURRENCY_OPEN } from "../../records/Event";
 import type { Modal as ModalType } from "../../consts/modals";
+import { CURRENCY_OPEN } from "./consts/events";
 
 type Props = {|
   positionMenuTablet?: number,

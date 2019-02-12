@@ -36,75 +36,9 @@ export type EventPayload = {|
   props: Props,
 |};
 
+// eslint-disable-next-line import/prefer-default-export
 export const make = (event: Event, props: Props, now: number = Date.now()): EventPayload => ({
   ...event,
   timestamp: now,
   props,
 });
-
-// TODO move these to consts
-export const MODAL_OPEN: Event = {
-  category: "Nitro",
-  subCategory: "Modal",
-  action: "Open",
-  destinations: {
-    exponea: false,
-    ga: false,
-    logmole: true,
-  },
-};
-
-export const CURRENCY_OPEN: Event = {
-  category: "Nitro",
-  subCategory: "Currency",
-  action: "Open",
-  destinations: {
-    exponea: false,
-    ga: false,
-    logmole: true,
-  },
-};
-
-export const HEADER_LINKS_ERROR: Event = {
-  category: "Nitro",
-  subCategory: "Header links",
-  action: "Error",
-  destinations: {
-    exponea: false,
-    ga: false,
-    logmole: true,
-  },
-};
-
-export const API_REQUEST: Event = {
-  category: "Nitro",
-  subCategory: "API",
-  action: "Request",
-  destinations: {
-    exponea: false,
-    ga: false,
-    logmole: true,
-  },
-};
-
-export const API_ERROR: Event = {
-  category: "Nitro",
-  subCategory: "API",
-  action: "Error",
-  destinations: {
-    exponea: false,
-    ga: false,
-    logmole: true,
-  },
-};
-
-export const API_SUCCESS: Event = {
-  category: "Nitro",
-  subCategory: "API",
-  action: "Success",
-  destinations: {
-    exponea: false,
-    ga: false,
-    logmole: true,
-  },
-};

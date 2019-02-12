@@ -20,7 +20,7 @@ import compose from "../../../../services/input/composeValidator";
 import * as normalizers from "../../../../services/input/normalizers";
 import emailCorrector from "../../../../services/input/emailCorrector";
 import * as api from "../../../../services/auth/api";
-import { MODAL_OPEN } from "../../../../records/Event";
+import { MODAL_OPEN } from "../../../../consts/events";
 
 const emailValidator = compose(
   validators.email,

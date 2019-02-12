@@ -16,7 +16,7 @@ import type { HeaderLink, SearchForm } from "./records/HeaderLink";
 import LogContext from "../../services/log/context";
 import type { Context } from "../../services/log/context";
 import type { Splitster, Response } from "./services/api";
-import { HEADER_LINKS_ERROR } from "../../records/Event";
+import { HEADER_LINKS_ERROR } from "./consts/events";
 
 // Different size than the existing component
 const Mobile = styled.div`
