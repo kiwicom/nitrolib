@@ -49,4 +49,22 @@ storiesOf("BaggageOverview", module)
     <div style={{ padding: "24px" }}>
       <BaggageOverview {...props} />
     </div>
+  ))
+  .add("without personal item", () => (
+    <div style={{ padding: "24px" }}>
+      <BaggageOverview
+        {...props}
+        passengers={[
+          {
+            id: 1,
+            firstName: "Bill",
+            lastName: "Clinton",
+            baggage: {
+              holdBag: 3,
+              handBag: 1,
+            },
+          },
+        ]}
+      />
+    </div>
   ));

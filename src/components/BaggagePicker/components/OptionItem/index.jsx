@@ -7,16 +7,15 @@ import styled, { css } from "styled-components";
 import mq from "../../../../styles/mq";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import type { Price, Restrictions } from "../../../../records/Baggage";
+import type { Price, Restrictions, BaggageSubCategory } from "../../../../records/Baggage";
+import { getIconFromCategory, getTextFromCategory } from "../../../../services/baggage/utils";
 
 type Props = {|
-  isHoldBag: boolean,
   amount: number,
   restrictions: Restrictions,
   firstItem: boolean,
   price: Price,
-  categoryIcon: React$Element<any>,
-  categoryName: React$Node,
+  category: BaggageSubCategory,
 |};
 
 type BaggageSizeTextProps = ThemeProps & {
@@ -78,22 +77,14 @@ const BaggageInfoWrapper = styled.div`
   `)};
 `;
 
-const OptionItem = ({
-  firstItem,
-  amount,
-  restrictions,
-  isHoldBag,
-  price,
-  categoryIcon,
-  categoryName,
-}: Props) => {
+const OptionItem = ({ firstItem, amount, restrictions, category, price }: Props) => {
   const getBaggageSize = ({ height, length, weight, width }) =>
     `${length} x ${width} x ${height} cm, ${weight} kg`;
-
+  const isHoldBag = category === "holdBag";
   return (
     <Stack shrink align="center">
       <Stack shrink spacing="condensed">
-        {categoryIcon}
+        {getIconFromCategory(category, "medium", "primary")}
         <TitleWrapper>
           <Text>
             <Title>
@@ -102,7 +93,8 @@ const OptionItem = ({
                   {`${amount}x `}
                 </Text>
               )}
-              {isHoldBag && `${restrictions.weight}kg`} {categoryName}
+              {isHoldBag && `${restrictions.weight}kg`}{" "}
+              {getTextFromCategory(category, x => x.toLowerCase())}
             </Title>
           </Text>
           <BaggageSizeText isMobile>{getBaggageSize(restrictions)}</BaggageSizeText>

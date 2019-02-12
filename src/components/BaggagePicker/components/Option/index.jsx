@@ -2,16 +2,13 @@
 import * as React from "react";
 import styled from "styled-components";
 import R from "ramda";
-import BaggageChecked from "@kiwicom/orbit-components/lib/icons/BaggageChecked";
-import BaggagePersonalItem from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItem";
 import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
-import BaggageCabin from "@kiwicom/orbit-components/lib/icons/BaggageCabin";
 import PriorityBoarding from "@kiwicom/orbit-components/lib/icons/PriorityBoarding";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
-import Close from "@kiwicom/orbit-components/lib/icons/Close";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Radio from "@kiwicom/orbit-components/lib/Radio";
+import Close from "@kiwicom/orbit-components/lib/icons/Close";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 
 import Translate from "../../../Translate/index";
@@ -69,32 +66,6 @@ const RadioWrapper = styled.div`
   }
 `;
 
-const getTextFromCategory = category => {
-  switch (category) {
-    case "personalItem":
-      return <Translate t="common.baggage.personal_item" />;
-    case "cabinBag":
-      return <Translate t="common.baggage.cabin_bag" />;
-    case "holdBag":
-      return <Translate t="common.baggage.checked_bag" />;
-    default:
-      return <Translate t="common.baggage.no_checked_baggage" />;
-  }
-};
-
-const getIconFromCategory = category => {
-  switch (category) {
-    case "personalItem":
-      return <BaggagePersonalItem size="medium" color="primary" />;
-    case "cabinBag":
-      return <BaggageCabin size="medium" color="primary" />;
-    case "holdBag":
-      return <BaggageChecked size="medium" color="primary" />;
-    default:
-      return <Close size="medium" color="primary" />;
-  }
-};
-
 const IconWrapper = styled.div`
   border-top: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorInput};
   width: 22px;
@@ -136,8 +107,10 @@ const PriorityBoardingInfo = ({ airlines }: { airlines: Array<string> }) => {
 
 const EmptyLabel = () => (
   <Stack spacing="condensed" flex align="center">
-    {getIconFromCategory()}
-    <Text>{getTextFromCategory()}</Text>
+    <Close size="medium" color="danger" />
+    <Text>
+      <Translate t="common.baggage.no_checked_baggage" />
+    </Text>
   </Stack>
 );
 
@@ -177,10 +150,8 @@ const Option = ({ items, price, isChecked, onClick }: Props) => {
                       key={index} // eslint-disable-line
                       amount={item.amount}
                       restrictions={item.restrictions}
-                      isHoldBag={item.category === "holdBag"}
+                      category={item.category}
                       firstItem={item === itemsArr[0]}
-                      categoryIcon={getIconFromCategory(item.category)}
-                      categoryName={getTextFromCategory(item.category)}
                       price={price}
                     />
                   ))

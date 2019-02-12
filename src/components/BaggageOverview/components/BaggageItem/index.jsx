@@ -9,9 +9,9 @@ import mq from "../../../../styles/mq";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import type { BaggageSubCategory, Restrictions } from "../../../../records/Baggage";
-import { getTextFromCategory } from "../../../../services/baggage/utils";
+import { getTextFromCategory, getIconFromCategory } from "../../../../services/baggage/utils";
 
-const BaggWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -31,7 +31,7 @@ const BaggWrapper = styled.div`
   }
 `;
 
-BaggWrapper.defaultProps = {
+Wrapper.defaultProps = {
   theme: themeDefault,
 };
 
@@ -48,13 +48,12 @@ PassengersWrapper.defaultProps = {
 
 type Props = {
   passengers: Array<{ lastName: string, firstName: string, id: number }>,
-  icon: React$Node,
   restrictions: Restrictions,
   category: BaggageSubCategory,
   amount: number,
 };
 
-const BaggageItem = ({ passengers, category, amount, icon, restrictions }: Props) => {
+const BaggageItem = ({ passengers, category, amount, restrictions }: Props) => {
   const getBaggageSize = ({ height, length, weight, width }) =>
     `${length} x ${width} x ${height} cm, ${weight} kg`;
 
@@ -64,20 +63,18 @@ const BaggageItem = ({ passengers, category, amount, icon, restrictions }: Props
   return (
     <Stack shrink>
       <Stack shrink spacing="condensed" align="center">
-        {icon}
-        <BaggWrapper>
+        {getIconFromCategory(category, "medium", "primary")}
+        <Wrapper>
           <Text element="span">
             {`${amount}x `}
             {category === "holdBag" && `${restrictions.weight}kg  `}
-            {getTextFromCategory(category)}
+            {getTextFromCategory(category, x => x.toLowerCase())}
           </Text>
           <Text element="span" type="secondary" size="small">
             {getBaggageSize(restrictions)}
           </Text>
-        </BaggWrapper>
-        <div />
+        </Wrapper>
       </Stack>
-
       <PassengersWrapper>
         <AccountCircle size="small" color="secondary" />
         <Text element="span" type="secondary">

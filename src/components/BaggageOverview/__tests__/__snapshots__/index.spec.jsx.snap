@@ -1,19 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#BaggageOverview render  1`] = `
-<Stack>
+<Stack
+  spacing="tight"
+>
   <Text>
     Baggage
   </Text>
   <BaggageItem
     amount={2}
     category="personalItem"
-    icon={
-      <BaggagePersonalItem
-        color="primary"
-        size="medium"
-      />
-    }
     key="0"
     passengers={
       Array [
@@ -42,12 +38,6 @@ exports[`#BaggageOverview render  1`] = `
   <BaggageItem
     amount={4}
     category="cabinBag"
-    icon={
-      <BaggageCabin
-        color="primary"
-        size="medium"
-      />
-    }
     key="1"
     passengers={
       Array [
@@ -81,12 +71,6 @@ exports[`#BaggageOverview render  1`] = `
   <BaggageItem
     amount={2}
     category="holdBag"
-    icon={
-      <BaggageChecked
-        color="primary"
-        size="medium"
-      />
-    }
     key="0"
     passengers={
       Array [

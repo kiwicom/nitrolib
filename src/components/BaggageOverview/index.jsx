@@ -7,7 +7,6 @@ import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/Baggage
 
 import type { BaggageType } from "../../records/Baggage";
 import BaggageItem from "./components/BaggageItem";
-import { getIconFromCategory } from "../../services/baggage/utils";
 import Translate from "../Translate/index";
 
 type Passenger = {
@@ -81,13 +80,15 @@ const BaggageOverview = ({ baggage, passengers }: Props) => {
   const holdBags = getBaggageRowData("holdBag");
 
   return (
-    <Stack>
+    <Stack spacing="tight">
       <Text>Baggage</Text>
       {!handBags.find(bag => bag.category === "personalItem") && (
-        <span>
-          <BaggagePersonalItemNone />
-          <Translate t="common.baggage.no_personal_item" />
-        </span>
+        <Stack shrink spacing="condensed" align="center">
+          <BaggagePersonalItemNone size="medium" color="primary" />
+          <Text>
+            <Translate t="common.baggage.no_personal_item" />
+          </Text>
+        </Stack>
       )}
       {handBags.map((bag, index) => (
         <BaggageItem
@@ -95,7 +96,6 @@ const BaggageOverview = ({ baggage, passengers }: Props) => {
           amount={bag.passengers.length}
           category={bag.category}
           passengers={getPassengersFromId(bag && bag.passengers)}
-          icon={getIconFromCategory(bag.category, "medium", "primary")}
           restrictions={bag.restrictions}
         />
       ))}
@@ -105,7 +105,6 @@ const BaggageOverview = ({ baggage, passengers }: Props) => {
           amount={bag.passengers.length}
           category={bag.category}
           passengers={getPassengersFromId(bag && bag.passengers)}
-          icon={getIconFromCategory(bag.category, "medium", "primary")}
           restrictions={bag.restrictions}
         />
       ))}
