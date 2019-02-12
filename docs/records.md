@@ -733,13 +733,6 @@ export type EventPayload = {|
 |};
 
 declare export var make: (event: Event, props: Props, now?: number) => EventPayload;
-
-declare export var MODAL_OPEN: Event;
-declare export var CURRENCY_OPEN: Event;
-declare export var HEADER_LINKS_ERROR: Event;
-declare export var API_REQUEST: Event;
-declare export var API_ERROR: Event;
-declare export var API_SUCCESS: Event;
 ```
 
 A data type for our [Loglady](https://loglady.skypicker.com/api-docs/) tracking system.
