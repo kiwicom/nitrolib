@@ -1,0 +1,4 @@
+// @flow strict
+import type { Loglady } from "../../records/Loglady";
+
+declare export default function log(payload: Loglady): Promise<void>;

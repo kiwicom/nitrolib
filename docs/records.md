@@ -15,6 +15,7 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [LangInfo](#langinfo)
 * [Languages](#languages)
 * [Location](#location)
+* [Loglady](#loglady)
 * [Theme](#theme)
 * [User](#user)
 
@@ -737,8 +738,6 @@ declare export var make: (event: Event, props: Props, now?: number) => EventPayl
 
 A data type for our [Loglady](https://loglady.skypicker.com/api-docs/) tracking system.
 
-> Every event tracked must be located in this record's file for easy lookup.
-
 ## Fetched
 
 **Imports:**
@@ -956,6 +955,44 @@ export type Location = LocationCountry | LocationSubdivision | LocationCity | Lo
 ```
 
 
+
+## Loglady
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/Loglady";
+import type { Loglady } from "@kiwicom/nitro/lib/records/Loglady";
+```
+
+**Types:**
+```js
+export type Globals = {|
+  userId: string,
+  affilId: string,
+  brandingId: string,
+  url: string,
+  langId?: string,
+  sessionId?: string,
+  project?: string,
+  module?: string,
+  pageName?: string,
+  deeplinkId?: string,
+  pageViewId?: string,
+  bid?: number,
+  splitster?: { [key: string]: string },
+  UTMs: { [key: string]: string },
+|};
+
+export type Loglady = {|
+  events: EventPayload[],
+  global: Globals,
+|};
+```
+
+See types:
+* [Event](./records#event)
+
+A data type for our [Loglady](https://loglady.skypicker.com/api-docs/) tracking system.
 
 ## Theme
 

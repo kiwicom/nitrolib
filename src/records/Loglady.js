@@ -1,0 +1,24 @@
+// @flow strict
+import type { EventPayload } from "./Event";
+
+export type Globals = {|
+  userId: string,
+  affilId: string,
+  brandingId: string,
+  url: string,
+  langId?: string,
+  sessionId?: string,
+  project?: string,
+  module?: string,
+  pageName?: string,
+  deeplinkId?: string,
+  pageViewId?: string,
+  bid?: number,
+  splitster?: { [key: string]: string },
+  UTMs: { [key: string]: string },
+|};
+
+export type Loglady = {|
+  events: EventPayload[],
+  global: Globals,
+|};

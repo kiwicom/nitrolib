@@ -1,0 +1,14 @@
+// @flow strict
+import * as React from "react";
+
+import type { Context } from "../../services/intl/context";
+import type { EventPayload } from "../../records/Event";
+import type { Globals } from "../../records/Loglady";
+
+type Props = {|
+  globals: Globals,
+  onLog: (ev: EventPayload, globals: Globals) => void,
+  children: (ctx: Context) => React.Node,
+|};
+
+declare export default React.ComponentType<Props>;
