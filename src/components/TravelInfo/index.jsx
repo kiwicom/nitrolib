@@ -3,12 +3,12 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import CalendarIcon from "@kiwicom/orbit-components/lib/icons/Calendar";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import SectionHeading from "../SectionHeading";
 import TravelDates from "../TravelDates";
 import TravelArrangement from "../TravelArrangement";
 import Passengers from "./components/Passengers";
-import mq from "../../styles/mq";
 import { themeDefault } from "../../records/Theme";
 import type { TravelArrangement as TravelArrangementType } from "../../records/TravelArrangement";
 import type { TravelDates as TravelDatesType } from "../../records/TravelDates";
@@ -32,7 +32,7 @@ const Wrapper = styled.div`
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
 
-  ${mq.gtBigMobile(css`
+  ${mq.largeMobile(css`
     padding: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
   `)};
 `;
@@ -44,7 +44,7 @@ Wrapper.defaultProps = {
 // Used custom `Separator` instead of orbit’s one
 // because of the responsivity
 const Separator = styled.div`
-  ${mq.gtBigMobile(css`
+  ${mq.largeMobile(css`
     margin-bottom: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
     border-bottom-width: ${({ theme }: ThemeProps) => theme.orbit.heightSeparator};
     border-bottom-style: solid;
@@ -57,7 +57,7 @@ Separator.defaultProps = {
 };
 
 const Row = styled.div`
-  ${mq.gtBigMobile(css`
+  ${mq.largeMobile(css`
     display: flex;
   `)};
 `;
@@ -76,7 +76,7 @@ Column.defaultProps = {
 };
 
 const TravelDatesWrapper = styled.div`
-  ${mq.gtBigMobile(css`
+  ${mq.largeMobile(css`
     margin-bottom: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
   `)};
 `;
