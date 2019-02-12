@@ -1,8 +1,10 @@
 // @flow
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import Sector from "..";
+
+import { themeDefault } from "../../../../../records/Theme";
 
 describe("#Sector", () => {
   test("render - landing", () => {
@@ -12,9 +14,37 @@ describe("#Sector", () => {
       stops: "0",
       note: "Transfer to hotel NOT included",
     };
-    const wrapper = shallow(<Sector data={data} direction="landing" />);
 
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<Sector data={data} direction="landing" />);
+
+    expect(wrapper.find("Sector__Wrapper")).toHaveStyleRule(
+      "margin-bottom",
+      themeDefault.orbit.spaceSmall,
+    );
+    expect(wrapper.find("Sector__Wrapper")).toHaveStyleRule(
+      "padding-top",
+      themeDefault.orbit.spaceSmall,
+    );
+    expect(wrapper.find("Sector__Wrapper")).toHaveStyleRule(
+      "padding-right",
+      themeDefault.orbit.spaceLarge,
+    );
+    expect(wrapper.find("Sector__Wrapper")).toHaveStyleRule(
+      "padding-bottom",
+      themeDefault.orbit.spaceMedium,
+    );
+    expect(wrapper.find("Sector__Wrapper")).toHaveStyleRule(
+      "padding-left",
+      themeDefault.orbit.spaceLarge,
+    );
+    expect(wrapper.find("Sector__Wrapper")).toHaveStyleRule(
+      "background",
+      themeDefault.orbit.backgroundBody,
+    );
+    expect(wrapper.find("Sector__RouteIcon")).toHaveStyleRule(
+      "margin-right",
+      themeDefault.orbit.spaceLarge,
+    );
   });
 
   test("render - takeOff", () => {
@@ -24,8 +54,36 @@ describe("#Sector", () => {
       stops: "0",
       note: "Transfer to hotel NOT included",
     };
-    const wrapper = shallow(<Sector data={data} direction="takeOff" />);
 
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<Sector data={data} direction="takeOff" />);
+
+    expect(wrapper.find("Sector__Wrapper")).toHaveStyleRule(
+      "margin-bottom",
+      themeDefault.orbit.spaceSmall,
+    );
+    expect(wrapper.find("Sector__Wrapper")).toHaveStyleRule(
+      "padding-top",
+      themeDefault.orbit.spaceSmall,
+    );
+    expect(wrapper.find("Sector__Wrapper")).toHaveStyleRule(
+      "padding-right",
+      themeDefault.orbit.spaceLarge,
+    );
+    expect(wrapper.find("Sector__Wrapper")).toHaveStyleRule(
+      "padding-bottom",
+      themeDefault.orbit.spaceMedium,
+    );
+    expect(wrapper.find("Sector__Wrapper")).toHaveStyleRule(
+      "padding-left",
+      themeDefault.orbit.spaceLarge,
+    );
+    expect(wrapper.find("Sector__Wrapper")).toHaveStyleRule(
+      "background",
+      themeDefault.orbit.backgroundBody,
+    );
+    expect(wrapper.find("Sector__RouteIcon")).toHaveStyleRule(
+      "margin-right",
+      themeDefault.orbit.spaceLarge,
+    );
   });
 });
