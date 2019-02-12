@@ -1,14 +1,19 @@
 // @flow
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import Passengers from "..";
+
+import { themeDefault } from "../../../../../records/Theme";
 
 describe("#Passengers", () => {
   test("render", () => {
     // eslint-disable-next-line
-    const wrapper = shallow(<Passengers adults={2} children={1} />);
+    const wrapper = mount(<Passengers adults={2} children={1} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Passengers__StyledPassengersIcon")).toHaveStyleRule(
+      "margin-right",
+      themeDefault.orbit.spaceSmall,
+    );
   });
 });
