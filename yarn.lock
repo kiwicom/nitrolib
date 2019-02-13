@@ -1051,9 +1051,9 @@
     ramda "^0.25.0"
 
 "@kiwicom/translations@^1.132.0":
-  version "1.148.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.148.0.tgz#69296546495641c4cdbe617c6f619ed874cf37f0"
-  integrity sha512-vLX9eSTOaqxpRbOx7IU3vmaP8E3XD4YaGnDQf0iRBd4cn7+XudmmNoMKmYhtleFLzsgfODi4oLXEGGYfu6VccA==
+  version "1.156.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.156.0.tgz#285b0ae156fb97d76bcde461007217f1567f4c9b"
+  integrity sha512-uoh4SkSPYOiJ9wLczBUHWu6JwrKafvifMox/wWDxjJQAw3EydzBUBc/VUgP54cKRcIYD/EKTUnzSwXlEqErl7w==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"

@@ -504,6 +504,11 @@
     "lcc": 1,
     "name": "African Express"
   },
+  "B4": {
+    "id": "B4",
+    "lcc": 0,
+    "name": "ZanAir"
+  },
   "CD": {
     "id": "CD",
     "lcc": 0,
@@ -648,11 +653,6 @@
     "id": "TE",
     "lcc": 0,
     "name": "FlyLal"
-  },
-  "B4": {
-    "id": "B4",
-    "lcc": 0,
-    "name": "ZanAir"
   },
   "FZ": {
     "id": "FZ",
@@ -1994,6 +1994,11 @@
     "lcc": 0,
     "name": "Germania Flug"
   },
+  "G4": {
+    "id": "G4",
+    "lcc": 1,
+    "name": "Allegiant Air"
+  },
   "EK": {
     "id": "EK",
     "lcc": 0,
@@ -2053,11 +2058,6 @@
     "id": "8F",
     "lcc": 0,
     "name": "STP Airways"
-  },
-  "G4": {
-    "id": "G4",
-    "lcc": 1,
-    "name": "Allegiant Air"
   },
   "QQ": {
     "id": "QQ",
@@ -2278,11 +2278,6 @@
     "id": "4Q",
     "lcc": 0,
     "name": "Safi Airlines"
-  },
-  "K5": {
-    "id": "K5",
-    "lcc": 0,
-    "name": "SeaPort Airlines"
   },
   "7Q": {
     "id": "7Q",
@@ -2794,11 +2789,6 @@
     "lcc": 0,
     "name": "Homer Air"
   },
-  "WU": {
-    "id": "WU",
-    "lcc": 0,
-    "name": "Wizz Air Ukraine"
-  },
   "WQ": {
     "id": "WQ",
     "lcc": 0,
@@ -2808,6 +2798,11 @@
     "id": "YR",
     "lcc": 0,
     "name": "SENIC AIRLINES"
+  },
+  "WU": {
+    "id": "WU",
+    "lcc": 0,
+    "name": "Jetways Airlines Limited"
   },
   "M7": {
     "id": "M7",
@@ -3529,6 +3524,11 @@
     "lcc": 0,
     "name": "Thai Airways International"
   },
+  "VN": {
+    "id": "VN",
+    "lcc": 0,
+    "name": "Vietnam Airlines"
+  },
   "SW": {
     "id": "SW",
     "lcc": 0,
@@ -3568,11 +3568,6 @@
     "id": "RO",
     "lcc": 0,
     "name": "Tarom"
-  },
-  "VN": {
-    "id": "VN",
-    "lcc": 0,
-    "name": "Vietnam Airlines"
   },
   "A1": {
     "id": "A1",
@@ -3909,6 +3904,21 @@
     "lcc": null,
     "name": "Marozzi"
   },
+  "RRV": {
+    "id": "RRV",
+    "lcc": null,
+    "name": "Mombasa Air Safari"
+  },
+  "OW": {
+    "id": "OW",
+    "lcc": null,
+    "name": "Skyward Express Limited"
+  },
+  "ASSALAAM": {
+    "id": "ASSALAAM",
+    "lcc": null,
+    "name": "As Salaam Air"
+  },
   "GLOBTOUR": {
     "id": "GLOBTOUR",
     "lcc": null,
@@ -3944,6 +3954,11 @@
     "lcc": null,
     "name": "Skanetrafiken"
   },
+  "FLYTRISTAR": {
+    "id": "FLYTRISTAR",
+    "lcc": null,
+    "name": "Fly Tristar Services"
+  },
   "NSB": {
     "id": "NSB",
     "lcc": null,
@@ -3963,6 +3978,16 @@
     "id": "LTKRONOBUS",
     "lcc": null,
     "name": "LT Kronoberg"
+  },
+  "GCS": {
+    "id": "GCS",
+    "lcc": null,
+    "name": "Skyway CR"
+  },
+  "ULENDO": {
+    "id": "ULENDO",
+    "lcc": null,
+    "name": "Fly Ulendo"
   },
   "8A": {
     "id": "8A",
@@ -4064,6 +4089,26 @@
     "lcc": null,
     "name": "LT Kronoberg"
   },
+  "K5": {
+    "id": "K5",
+    "lcc": 0,
+    "name": "Silverstone Air"
+  },
+  "A8": {
+    "id": "A8",
+    "lcc": null,
+    "name": "Aerolink Uganda"
+  },
+  "Y6": {
+    "id": "Y6",
+    "lcc": null,
+    "name": "AB Aviation"
+  },
+  "AIREXCEL": {
+    "id": "AIREXCEL",
+    "lcc": null,
+    "name": "Air Excel Limited"
+  },
   "J2": {
     "id": "J2",
     "lcc": 0,
@@ -4108,6 +4153,16 @@
     "id": "SMSFLUG",
     "lcc": null,
     "name": "SMS Flughafen"
+  },
+  "FLZ": {
+    "id": "FLZ",
+    "lcc": null,
+    "name": "Flightlink"
+  },
+  "7D": {
+    "id": "7D",
+    "lcc": null,
+    "name": "Madagasikara Airways"
   },
   "U3": {
     "id": "U3",
