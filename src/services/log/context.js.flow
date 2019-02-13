@@ -7,7 +7,7 @@ export type Context = {|
   log: (event: Event, props: Props) => void,
 |};
 
-declare var context: React.Context<Context<any, any>>;
+declare var context: React.Context<Context>;
 
 export const { Provider, Consumer } = context;
 
