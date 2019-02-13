@@ -23,20 +23,27 @@ exports[`#TravelDates render 1`] = `
     />
     <Text>
       <Translate
-        html={true}
-        t="holidays.from_x_till_x_"
+        html={false}
+        t="holidays.detail.travel_dates.from"
         transform={[Function]}
-        values={
-          Object {
-            "from": "Fri 20 Nov",
-            "to": "Sun 4 Dec",
-          }
-        }
+        values={Object {}}
       />
+      <strong>
+         Fri 20 Nov 
+      </strong>
+      <Translate
+        html={false}
+        t="holidays.detail.travel_dates.till"
+        transform={[Function]}
+        values={Object {}}
+      />
+      <strong>
+         Sun 4 Dec 
+      </strong>
       <br />
       <Translate
         html={false}
-        t="holidays.x_nights_in_restort"
+        t="holidays.detail.travel_dates.x_nights_in_resort"
         transform={[Function]}
         values={
           Object {
