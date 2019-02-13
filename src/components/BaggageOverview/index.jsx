@@ -1,10 +1,12 @@
 // @flow
 import * as React from "react";
+import styled, { css } from "styled-components";
 import R from "ramda";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
 
+import mq from "../../styles/mq";
 import type { BaggageType } from "../../records/Baggage";
 import BaggageItem from "./components/BaggageItem";
 import Translate from "../Translate/index";
@@ -19,12 +21,22 @@ type Passenger = {
   },
 };
 
+const Wrapper = styled.div`
+  width: 100% > * {
+    margin-bottom: 4px;
+    ${mq.ltMiddleMobile(css`
+      margin-bottom: 10px;
+    `)};
+  }
+`;
+
 type Props = {
   passengers: Array<Passenger>,
   baggage: BaggageType,
+  currentPassengerId: ?number,
 };
 
-const BaggageOverview = ({ baggage, passengers }: Props) => {
+const BaggageOverview = ({ baggage, passengers, currentPassengerId }: Props) => {
   const { combinations } = baggage;
 
   const getPassengersFromId = (
@@ -48,6 +60,13 @@ const BaggageOverview = ({ baggage, passengers }: Props) => {
     },
   }));
 
+  const getPassengersBaggage = (passengersArray, passengerId) => {
+    if (passengerId) {
+      return passengersArray.filter(id => id === passengerId);
+    }
+    return passengersArray;
+  };
+
   const getBaggageRowData = bagType => {
     const definitions = baggage.definitions[bagType];
     const baggageData = passengersWithBagDefinitionsIndices.reduce(
@@ -68,7 +87,7 @@ const BaggageOverview = ({ baggage, passengers }: Props) => {
       acc[bag.originalIndex] = {
         originalIndex: bag.originalIndex,
         category: bag.category,
-        passengers: [...bagPassengers, bag.passengerId],
+        passengers: getPassengersBaggage([...bagPassengers, bag.passengerId], currentPassengerId),
         restrictions: bag.restrictions,
       };
       return acc;
@@ -80,7 +99,7 @@ const BaggageOverview = ({ baggage, passengers }: Props) => {
   const holdBags = getBaggageRowData("holdBag");
 
   return (
-    <Stack spacing="tight">
+    <Wrapper spacing="tight">
       <Text>Baggage</Text>
       {!handBags.find(bag => bag.category === "personalItem") && (
         <Stack shrink spacing="condensed" align="center">
@@ -97,6 +116,7 @@ const BaggageOverview = ({ baggage, passengers }: Props) => {
           category={bag.category}
           passengers={getPassengersFromId(bag && bag.passengers)}
           restrictions={bag.restrictions}
+          isPassengersShowed={!currentPassengerId}
         />
       ))}
       {holdBags.map((bag, index) => (
@@ -106,9 +126,10 @@ const BaggageOverview = ({ baggage, passengers }: Props) => {
           category={bag.category}
           passengers={getPassengersFromId(bag && bag.passengers)}
           restrictions={bag.restrictions}
+          isPassengersShowed={!currentPassengerId}
         />
       ))}
-    </Stack>
+    </Wrapper>
   );
 };
 export default BaggageOverview;

@@ -40,6 +40,7 @@ const passengers = [
 const props = {
   passengers,
   baggage: baggageData,
+  currentPassengerId: undefined,
 };
 
 storiesOf("BaggageOverview", module)
@@ -48,6 +49,11 @@ storiesOf("BaggageOverview", module)
   .add("default", () => (
     <div style={{ padding: "24px" }}>
       <BaggageOverview {...props} />
+    </div>
+  ))
+  .add("with one passenger data", () => (
+    <div style={{ padding: "24px" }}>
+      <BaggageOverview {...props} currentPassengerId={1} />
     </div>
   ))
   .add("without personal item", () => (
