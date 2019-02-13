@@ -1,8 +1,10 @@
 // @flow
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import TravelInfo from "..";
+
+import { themeDefault } from "../../../records/Theme";
 
 describe("#TravelInfo", () => {
   test("render", () => {
@@ -31,8 +33,26 @@ describe("#TravelInfo", () => {
       },
     };
 
-    const wrapper = shallow(<TravelInfo {...props} />);
+    const wrapper = mount(<TravelInfo {...props} />);
 
-    expect(wrapper).toMatchSnapshot();
+    wrapper.find("TravelInfo__Separator").forEach(node => {
+      expect(node).toHaveStyleRule("margin-bottom", themeDefault.orbit.spaceLarge, {
+        media: `(min-width:${600}px)`,
+      });
+      expect(node).toHaveStyleRule("border-bottom-width", themeDefault.orbit.heightSeparator, {
+        media: `(min-width:${600}px)`,
+      });
+      expect(node).toHaveStyleRule("border-bottom-color", themeDefault.orbit.backgroundSeparator, {
+        media: `(min-width:${600}px)`,
+      });
+    });
+
+    expect(wrapper.find("TravelInfo__TravelDatesWrapper")).toHaveStyleRule(
+      "margin-bottom",
+      themeDefault.orbit.spaceLarge,
+      {
+        media: `(min-width:${600}px)`,
+      },
+    );
   });
 });
