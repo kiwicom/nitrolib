@@ -107,7 +107,7 @@ const PriorityBoardingInfo = ({ airlines }: { airlines: Array<string> }) => {
 
 const EmptyLabel = () => (
   <Stack spacing="condensed" flex align="center">
-    <Close size="medium" color="danger" />
+    <Close size="medium" color="critical" />
     <Text>
       <Translate t="common.baggage.no_checked_baggage" />
     </Text>

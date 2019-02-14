@@ -38,12 +38,13 @@ const passengers = [
 const props = {
   passengers,
   baggage: baggageData,
+  currentPassengerId: undefined,
 };
 
 describe("#BaggageOverview", () => {
   test("render ", () => {
     const wrapper = shallow(<BaggageOverview {...props} />);
-    expect(wrapper.find("Stack").exists()).toBe(true);
+    expect(wrapper.find("BaggageOverview__Wrapper").exists()).toBe(true);
     expect(wrapper).toMatchSnapshot();
   });
 });

@@ -5,7 +5,6 @@ import { shallow } from "enzyme";
 import OptionItem from "../index";
 
 const props = {
-  isHoldBag: true,
   amount: 1,
   restrictions: {
     dimensionsSum: 156,
@@ -23,8 +22,7 @@ const props = {
     service: 0,
     serviceFlat: 0,
   },
-  categoryIcon: <span>Icon</span>,
-  categoryName: <span>Category</span>,
+  category: "cabinBag",
 };
 
 describe("#OptionItem", () => {

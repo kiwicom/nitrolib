@@ -22,7 +22,8 @@ type Passenger = {
 };
 
 const Wrapper = styled.div`
-  width: 100% > * {
+  width: 100%;
+  > * {
     margin-bottom: 4px;
     ${mq.ltMiddleMobile(css`
       margin-bottom: 10px;
