@@ -25,6 +25,7 @@ const FEATURES = {
   HeaderLinks: true,
   Languages: true,
   LocationPicker: true,
+  MagicLogin: true,
   NavBar: true,
   SideBar: true,
 };

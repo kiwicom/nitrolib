@@ -10,6 +10,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [Footer](#footer)
 * [HeaderLinks](#headerlinks)
 * [LocationPicker](#locationpicker)
+* [MagicLogin](#magiclogin)
 * [NavBar](#navbar)
 * [SideBar](#sidebar)
 
@@ -21,7 +22,6 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [ClientOnly](#clientonly)
 * [CloseByKey](#closebykey)
 * [Desktop](#desktop)
-* [MagicLogin](#magiclogin)
 * [Mobile](#mobile)
 * [Price](#price)
 * [Text](#text)
@@ -203,6 +203,38 @@ See types:
 
 **Context needs:**
 * [intl](./services#intl)
+
+### MagicLogin
+
+**Import:**
+```js
+import MagicLogin from "@kiwicom/nitro/lib/components/MagicLogin";
+```
+
+**Types:**
+```js
+type Props = {|
+  initialScreen: "intro" | "signUp",
+  type: "mmb" | "help" | "refer",
+  onClose: () => void,
+  onSignIn: (user: AuthUser) => void,
+  onSocialLogin: (provider: SocialProvider) => Promise<void>,
+|};
+```
+
+See types:
+* [Auth](./records#auth)
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=MagicLogin).
+
+**Context needs:**
+* [brand](./services#brand)
+* [intl](./services#intl)
+
+**Selectors `data-test`:**
+* ```"MagicLogin"```
+
+Our new login component.
 
 ### NavBar
 
@@ -443,38 +475,6 @@ const NavBar = () => (
   </>
 );
 ```
-
-### MagicLogin
-
-**Import:**
-```js
-import MagicLogin from "@kiwicom/nitro/lib/components/MagicLogin";
-```
-
-**Types:**
-```js
-type Props = {|
-  initialScreen: "intro" | "signUp",
-  type: "mmb" | "help" | "refer",
-  onClose: () => void,
-  onSignIn: (user: AuthUser) => void,
-  onSocialLogin: (provider: SocialProvider) => Promise<void>,
-|};
-```
-
-See types:
-* [Auth](./records#auth)
-
-[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=MagicLogin).
-
-**Context needs:**
-* [brand](./services#brand)
-* [intl](./services#intl)
-
-**Selectors `data-test`:**
-* ```"MagicLogin"```
-
-Our new login component.
 
 ### Mobile
 
