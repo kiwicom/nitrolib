@@ -16,8 +16,8 @@ type Passenger = {
   firstName: string,
   lastName: string,
   baggage: {
-    holdBag: number, // indices of baggage combination
-    handBag: number, // indices of baggage combination
+    holdBag: number, // index of baggage combination
+    handBag: number, // index of baggage combination
   },
 };
 

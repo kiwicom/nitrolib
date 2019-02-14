@@ -26,8 +26,7 @@ const holdBagOptions = {
 };
 
 const props = {
-  passengerIndex: 0,
-  passengerCategory: "adult",
+  passengerCategory: "infant",
   changeBagCombination: (type, index) => {
     console.log(type, index); // eslint-disable-line
   },
