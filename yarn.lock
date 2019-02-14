@@ -1051,9 +1051,10 @@
   dependencies:
     ramda "^0.25.0"
 
-"@kiwicom/translations@^1.132.0":
-  version "1.132.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.132.0.tgz#a41a6711acbcaba6049c680faaa2676db5814377"
+"@kiwicom/translations@^1.158.0":
+  version "1.158.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.158.0.tgz#2de1f958f26f4a534403a92745d90c2808ef8db0"
+  integrity sha512-shHpwsVSVxl6PX+Vf3HkfrDafhuWST1/X6kyEuP/ysVtZyuPC/vnz+l+MXjooGwA/4kXXcgha941PPokP8yXzQ==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"

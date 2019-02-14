@@ -1,7 +1,7 @@
 // @flow strict
 
 import * as React from "react";
-import Modal, { ModalSection } from "@kiwicom/orbit-components/lib/Modal";
+import Modal from "@kiwicom/orbit-components/lib/Modal";
 
 import AccountNoAccount from "../AccountNoAccount";
 import AccountSocialLogin from "../AccountSocialLogin";
@@ -10,14 +10,14 @@ import KiwiLoginScreen from "./components/KiwiLogin/index";
 import IntroScreen from "./components/Intro/index";
 import CreateAccountScreen from "./components/CreateAccount/index";
 import SendMagicLink from "./mutations/SendMagicLink";
-import type { LoginType, Screen } from "./consts/types";
+import type { Screen } from "./consts/types";
 import errors from "../../consts/errors";
 import brandContext from "../../services/brand/context";
 import type { AuthUser, SocialProvider } from "../../records/Auth";
 
 type Props = {|
   initialScreen: "intro" | "signUp",
-  type: LoginType,
+  type: "mmb" | "help" | "refer",
   onClose: () => void,
   onSignIn: (user: AuthUser) => void,
   onSocialLogin: (provider: SocialProvider) => Promise<void>,
@@ -113,77 +113,76 @@ class MagicLogin extends React.Component<Props, State> {
     const { screen, email, isSendingEmail, error } = this.state;
 
     return (
+      // $FlowExpected: Broken modal section handling, fix here or in Orbit
       <Modal size="small" onClose={onClose} dataTest="MagicLogin">
-        <ModalSection>
-          {screen === "intro" && (
-            <IntroScreen
-              email={email}
-              brandId={brand.id}
-              magicLinkError={error}
-              type={type}
-              onEmailChange={this.handleEmailChange}
-              onGoogleLogin={this.handleGoogleLogin}
-              onFacebookLogin={this.handleFacebookLogin}
-              onSendMagicLink={this.handleMagicLink}
-              onChangeScreen={this.handleChangeScreen}
-            />
-          )}
+        {screen === "intro" && (
+          <IntroScreen
+            email={email}
+            brandId={brand.id}
+            magicLinkError={error}
+            type={type}
+            onEmailChange={this.handleEmailChange}
+            onGoogleLogin={this.handleGoogleLogin}
+            onFacebookLogin={this.handleFacebookLogin}
+            onSendMagicLink={this.handleMagicLink}
+            onChangeScreen={this.handleChangeScreen}
+          />
+        )}
 
-          {screen === "noAccount" && (
-            <AccountNoAccount
-              onBack={this.handleToIntro}
-              onRegister={this.handleToSignUp}
-              onGoogleLogin={this.handleGoogleLogin}
-              onFacebookLogin={this.handleFacebookLogin}
-            />
-          )}
+        {screen === "noAccount" && (
+          <AccountNoAccount
+            onBack={this.handleToIntro}
+            onRegister={this.handleToSignUp}
+            onGoogleLogin={this.handleGoogleLogin}
+            onFacebookLogin={this.handleFacebookLogin}
+          />
+        )}
 
-          {screen === "signUp" && (
-            <CreateAccountScreen
-              email={email}
-              brandId={brand.id}
-              onEmailChange={this.handleEmailChange}
-              onSignUpConfirmation={this.handleSignUpConfirmation}
-            />
-          )}
+        {screen === "signUp" && (
+          <CreateAccountScreen
+            email={email}
+            brandId={brand.id}
+            onEmailChange={this.handleEmailChange}
+            onSignUpConfirmation={this.handleSignUpConfirmation}
+          />
+        )}
 
-          {screen === "kiwiLogin" && (
-            <KiwiLoginScreen
-              email={email}
-              onResetMagicLinkError={this.handleResetMagicLinkError}
-              magicLinkError={error}
-              brandId={brand.id}
-              brandName={brand.name}
-              isSendingEmail={isSendingEmail}
-              onChangeScreen={this.handleChangeScreen}
-              onAskSignInLink={this.handleMagicLink}
-              onClose={onClose}
-              onSignIn={onSignIn}
-            />
-          )}
+        {screen === "kiwiLogin" && (
+          <KiwiLoginScreen
+            email={email}
+            onResetMagicLinkError={this.handleResetMagicLinkError}
+            magicLinkError={error}
+            brandId={brand.id}
+            brandName={brand.name}
+            isSendingEmail={isSendingEmail}
+            onChangeScreen={this.handleChangeScreen}
+            onAskSignInLink={this.handleMagicLink}
+            onClose={onClose}
+            onSignIn={onSignIn}
+          />
+        )}
 
-          {screen === "googleLogin" && (
-            <AccountSocialLogin
-              email={email}
-              pairedWith="google"
-              onAskSignInLink={this.handleMagicLink}
-              onSocialLogin={this.handleGoogleLogin}
-            />
-          )}
+        {screen === "googleLogin" && (
+          <AccountSocialLogin
+            email={email}
+            pairedWith="google"
+            onAskSignInLink={this.handleMagicLink}
+            onSocialLogin={this.handleGoogleLogin}
+          />
+        )}
 
-          {screen === "facebookLogin" && (
-            <AccountSocialLogin
-              email={email}
-              pairedWith="facebook"
-              onAskSignInLink={this.handleMagicLink}
-              onSocialLogin={this.handleFacebookLogin}
-            />
-          )}
+        {screen === "facebookLogin" && (
+          <AccountSocialLogin
+            email={email}
+            pairedWith="facebook"
+            onAskSignInLink={this.handleMagicLink}
+            onSocialLogin={this.handleFacebookLogin}
+          />
+        )}
 
-          {(screen === "signUpConfirmation" ||
-            screen === "magicLink" ||
-            screen === "resetPassword") && <AccountCheckEmail reason={screen} email={email} />}
-        </ModalSection>
+        {(screen === "signUpConfirmation" ||
+          screen === "magicLink" ||
+          screen === "resetPassword") && <AccountCheckEmail reason={screen} email={email} />}
       </Modal>
     );
   }

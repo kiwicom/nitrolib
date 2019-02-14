@@ -11,7 +11,7 @@ import Text from "../../../Text/index";
 type Props = {|
   email: string,
   brandId: string,
-  type: LoginType,
+  type: "mmb" | "help" | "refer",
   magicLinkError: string,
   onGoogleLogin: () => void,
   onFacebookLogin: () => void,

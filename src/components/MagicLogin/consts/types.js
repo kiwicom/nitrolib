@@ -10,5 +10,3 @@ export type Screen =
   | "magicLink"
   | "signUpConfirmation"
   | "resetPassword";
-
-export type LoginType = "mmb" | "help" | "refer";

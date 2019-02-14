@@ -1,0 +1,14 @@
+// @flow strict
+import * as React from "react";
+
+import type { AuthUser, SocialProvider } from "../../records/Auth";
+
+type Props = {|
+  initialScreen: "intro" | "signUp",
+  type: "mmb" | "help" | "refer",
+  onClose: () => void,
+  onSignIn: (user: AuthUser) => void,
+  onSocialLogin: (provider: SocialProvider) => Promise<void>,
+|};
+
+declare export default React.ComponentType<Props>;
