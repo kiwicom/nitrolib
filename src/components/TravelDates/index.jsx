@@ -24,10 +24,7 @@ const TravelDates = ({ data }: Props) => {
         <Calendar color="primary" />
         <Text>
           {/* TODO Finalise based on data from API */}
-          <Translate t="holidays.detail.travel_dates.from" />
-          <strong>{` ${from} `}</strong>
-          <Translate t="holidays.detail.travel_dates.till" />
-          <strong>{` ${to} `}</strong>
+          <Translate t="holidays.hotel_tags.from_x_till_x_" values={{ from, to }} html />
           <br />
           <Translate t="holidays.detail.travel_dates.x_nights_in_resort" values={{ num: 11 }} />
         </Text>
