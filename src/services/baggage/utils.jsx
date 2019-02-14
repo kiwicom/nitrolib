@@ -4,7 +4,7 @@ import BaggageChecked from "@kiwicom/orbit-components/lib/icons/BaggageChecked";
 import BaggagePersonalItem from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItem";
 import BaggageCabin from "@kiwicom/orbit-components/lib/icons/BaggageCabin";
 
-import type { BaggageSubCategory } from "../../records/Baggage";
+import type { BaggageSubCategory, Combinations } from "../../records/Baggage";
 import Translate from "../../components/Translate/index";
 
 type IconSize = "small" | "medium" | "large";
@@ -49,4 +49,24 @@ export const getIconFromCategory = (
     default:
       return undefined;
   }
+};
+type SummaryPriceArgs = {
+  combinationIndices: {
+    holdBag: Array<number>,
+    handBag: Array<number>,
+  },
+  combinations: Combinations,
+};
+
+export const getTotalPrice = ({ combinationIndices, combinations }: SummaryPriceArgs): number => {
+  const { handBag, holdBag } = combinations;
+  const holdBagsTotalPrice = combinationIndices.holdBag.reduce(
+    (acc, index) => acc + holdBag[index].price.amount,
+    0,
+  );
+  const handBagsTotalPrice = combinationIndices.handBag.reduce(
+    (acc, index) => acc + handBag[index].price.amount,
+    0,
+  );
+  return holdBagsTotalPrice + handBagsTotalPrice;
 };
