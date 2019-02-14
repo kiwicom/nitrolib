@@ -4,14 +4,14 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import CreateAccount from "../CreateAccount";
-import AccountCreate from "../../../AccountCreate";
+import CreateAccount from "../index";
+import AccountCreate from "../../../../AccountCreate/index";
 
-jest.mock("../../mutations/CreateAccount");
+jest.mock("../../../mutations/CreateAccount");
 
 const defaultProps = {
   email: "",
-  brandingId: "kiwicom",
+  brandId: "kiwicom",
   onEmailChange: jest.fn(),
   onSignUpConfirmation: jest.fn(),
 };

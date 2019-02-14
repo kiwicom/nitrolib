@@ -22,7 +22,7 @@ const Align = styled.div`
 `;
 
 type Props = {|
-  onBack: (ev: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLButtonElement>) => void,
+  onBack: (SyntheticEvent<HTMLButtonElement>) => void,
   onRegister: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,

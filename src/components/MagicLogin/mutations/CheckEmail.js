@@ -1,12 +1,12 @@
-// @flow
+// @flow strict
 
-import { graphql } from "react-relay";
+import { commitMutation, graphql } from "react-relay";
 
-import { executeMutation } from "../../../services/utils/relay";
 import type {
   CheckEmailMutationVariables,
   CheckEmailMutationResponse,
 } from "./__generated__/CheckEmailMutation.graphql";
+import environment from "../../../services/environment";
 
 const checkEmail = graphql`
   mutation CheckEmailMutation($email: String!, $brand: Brand!) {
@@ -22,7 +22,17 @@ const checkEmail = graphql`
 `;
 
 export default (email: string, brand: string): Promise<CheckEmailMutationResponse> =>
-  executeMutation<CheckEmailMutationVariables, CheckEmailMutationResponse>(checkEmail, {
-    email,
-    brand,
+  new Promise((resolve, reject) => {
+    const variables: CheckEmailMutationVariables = {
+      email,
+      brand,
+    };
+
+    commitMutation(environment, {
+      mutation: checkEmail,
+      // $FlowExpected: Broken definition
+      variables,
+      onCompleted: resolve,
+      onError: reject,
+    });
   });

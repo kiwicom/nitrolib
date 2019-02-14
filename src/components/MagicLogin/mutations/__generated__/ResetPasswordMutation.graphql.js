@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 884e04a7fde369b56f87c62aa5a9d01b
+ * @relayHash cd73289ae621b792dce6ea31f2f4ccda
  */
 
 /* eslint-disable */
@@ -86,24 +86,26 @@ v1 = [
 ];
 return {
   "kind": "Request",
-  "operationKind": "mutation",
-  "name": "ResetPasswordMutation",
-  "id": null,
-  "text": "mutation ResetPasswordMutation(\n  $email: String!\n  $brand: String!\n) {\n  resetPassword(email: $email, brand: $brand) {\n    success\n  }\n}\n",
-  "metadata": {},
   "fragment": {
     "kind": "Fragment",
     "name": "ResetPasswordMutation",
     "type": "RootMutation",
     "metadata": null,
-    "argumentDefinitions": v0,
-    "selections": v1
+    "argumentDefinitions": (v0/*: any*/),
+    "selections": (v1/*: any*/)
   },
   "operation": {
     "kind": "Operation",
     "name": "ResetPasswordMutation",
-    "argumentDefinitions": v0,
-    "selections": v1
+    "argumentDefinitions": (v0/*: any*/),
+    "selections": (v1/*: any*/)
+  },
+  "params": {
+    "operationKind": "mutation",
+    "name": "ResetPasswordMutation",
+    "id": null,
+    "text": "mutation ResetPasswordMutation(\n  $email: String!\n  $brand: String!\n) {\n  resetPassword(email: $email, brand: $brand) {\n    success\n  }\n}\n",
+    "metadata": {}
   }
 };
 })();

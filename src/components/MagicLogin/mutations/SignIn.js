@@ -1,41 +1,45 @@
-// @flow
+// @flow strict
+import { graphql, commitMutation } from "react-relay";
 
-import { graphql } from "react-relay";
-
-import { executeMutation } from "../../../services/utils/relay";
 import type {
   SignInMutationVariables,
   SignInMutationResponse,
 } from "./__generated__/SignInMutation.graphql";
+import environment from "../../../services/environment";
 
 const checkEmail = graphql`
   mutation SignInMutation($email: String!, $password: String!, $brand: Brand!) {
     signIn(email: $email, password: $password, brand: $brand) {
       success
       user {
-        ...SignInUser @relay(mask: false)
+        token
+        identity {
+          id(opaque: false)
+          email
+          firstName
+          lastName
+          emailVerified
+        }
       }
     }
   }
 `;
 
-// eslint-disable-next-line no-unused-vars
-const userIndentity = graphql`
-  fragment SignInUser on User @relay(mask: false) {
-    token
-    identity {
-      id(opaque: false)
-      email
-      firstName
-      lastName
-      emailVerified
-    }
-  }
-`;
+const SignIn = (email: string, password: string, brand: string): Promise<SignInMutationResponse> =>
+  new Promise((resolve, reject) => {
+    const variables: SignInMutationVariables = {
+      email,
+      password,
+      brand,
+    };
 
-export default (email: string, password: string, brand: string): Promise<SignInMutationResponse> =>
-  executeMutation<SignInMutationVariables, SignInMutationResponse>(checkEmail, {
-    email,
-    password,
-    brand,
+    commitMutation(environment, {
+      mutation: checkEmail,
+      // $FlowExpected: Broken definition
+      variables,
+      onCompleted: resolve,
+      onError: reject,
+    });
   });
+
+export default SignIn;

@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 92aec9293468a0c7d3b754bc5f94d2b0
+ * @relayHash b8c5a2832bff9c7f4601443300efee10
  */
 
 /* eslint-disable */
@@ -128,24 +128,26 @@ v1 = [
 ];
 return {
   "kind": "Request",
-  "operationKind": "mutation",
-  "name": "CheckEmailMutation",
-  "id": null,
-  "text": "mutation CheckEmailMutation(\n  $email: String!\n  $brand: Brand!\n) {\n  checkEmail(email: $email, brand: $brand) {\n    result {\n      hasKiwiAccount\n      hasFacebook\n      hasGoogle\n      hasBooking\n    }\n  }\n}\n",
-  "metadata": {},
   "fragment": {
     "kind": "Fragment",
     "name": "CheckEmailMutation",
     "type": "RootMutation",
     "metadata": null,
-    "argumentDefinitions": v0,
-    "selections": v1
+    "argumentDefinitions": (v0/*: any*/),
+    "selections": (v1/*: any*/)
   },
   "operation": {
     "kind": "Operation",
     "name": "CheckEmailMutation",
-    "argumentDefinitions": v0,
-    "selections": v1
+    "argumentDefinitions": (v0/*: any*/),
+    "selections": (v1/*: any*/)
+  },
+  "params": {
+    "operationKind": "mutation",
+    "name": "CheckEmailMutation",
+    "id": null,
+    "text": "mutation CheckEmailMutation(\n  $email: String!\n  $brand: Brand!\n) {\n  checkEmail(email: $email, brand: $brand) {\n    result {\n      hasKiwiAccount\n      hasFacebook\n      hasGoogle\n      hasBooking\n    }\n  }\n}\n",
+    "metadata": {}
   }
 };
 })();

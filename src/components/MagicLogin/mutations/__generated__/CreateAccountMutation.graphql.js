@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 0e52bcb3d7ada99c4cbfbb41a430e626
+ * @relayHash 52233c602fb91f0a97249b3cda8583ef
  */
 
 /* eslint-disable */
@@ -10,13 +10,13 @@
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type CreateAccountError = "ACCOUNT_EXISTS" | "INVALID_EMAIL" | "WEAK_PASSWORD" | "%future added value";
-export type CreateAccountInput = {
+export type CreateAccountInput = {|
   email: string,
   password: string,
   login?: ?string,
   firstName?: ?string,
   lastName?: ?string,
-};
+|};
 export type CreateAccountMutationVariables = {|
   brand: any,
   credentials: CreateAccountInput,
@@ -103,24 +103,26 @@ v1 = [
 ];
 return {
   "kind": "Request",
-  "operationKind": "mutation",
-  "name": "CreateAccountMutation",
-  "id": null,
-  "text": "mutation CreateAccountMutation(\n  $brand: Brand!\n  $credentials: CreateAccountInput!\n) {\n  createAccount(brand: $brand, credentials: $credentials) {\n    success\n    error\n  }\n}\n",
-  "metadata": {},
   "fragment": {
     "kind": "Fragment",
     "name": "CreateAccountMutation",
     "type": "RootMutation",
     "metadata": null,
-    "argumentDefinitions": v0,
-    "selections": v1
+    "argumentDefinitions": (v0/*: any*/),
+    "selections": (v1/*: any*/)
   },
   "operation": {
     "kind": "Operation",
     "name": "CreateAccountMutation",
-    "argumentDefinitions": v0,
-    "selections": v1
+    "argumentDefinitions": (v0/*: any*/),
+    "selections": (v1/*: any*/)
+  },
+  "params": {
+    "operationKind": "mutation",
+    "name": "CreateAccountMutation",
+    "id": null,
+    "text": "mutation CreateAccountMutation(\n  $brand: Brand!\n  $credentials: CreateAccountInput!\n) {\n  createAccount(brand: $brand, credentials: $credentials) {\n    success\n    error\n  }\n}\n",
+    "metadata": {}
   }
 };
 })();

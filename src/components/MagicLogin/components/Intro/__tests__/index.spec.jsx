@@ -4,14 +4,14 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import Intro from "../Intro";
-import AccountLogin from "../../../AccountLogin";
+import Intro from "../index";
+import AccountLogin from "../../../../AccountLogin/index";
 
-jest.mock("../../mutations/CheckEmail");
+jest.mock("../../../mutations/CheckEmail");
 
 const defaultProps = {
   email: "",
-  brandingId: "",
+  brandId: "",
   type: "mmb",
   magicLinkError: "",
   onGoogleLogin: () => {},

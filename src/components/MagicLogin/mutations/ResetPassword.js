@@ -1,12 +1,12 @@
-// @flow
+// @flow strict
 
-import { graphql } from "react-relay";
+import { graphql, commitMutation } from "react-relay";
 
-import { executeMutation } from "../../../services/utils/relay";
 import type {
   ResetPasswordMutationVariables,
   ResetPasswordMutationResponse,
 } from "./__generated__/ResetPasswordMutation.graphql";
+import environment from "../../../services/environment";
 
 const resetPassword = graphql`
   mutation ResetPasswordMutation($email: String!, $brand: String!) {
@@ -16,8 +16,20 @@ const resetPassword = graphql`
   }
 `;
 
-export default (email: string, brand: string): Promise<ResetPasswordMutationResponse> =>
-  executeMutation<ResetPasswordMutationVariables, ResetPasswordMutationResponse>(resetPassword, {
-    email,
-    brand,
+const ResetPassword = (email: string, brand: string): Promise<ResetPasswordMutationResponse> =>
+  new Promise((resolve, reject) => {
+    const variables: ResetPasswordMutationVariables = {
+      email,
+      brand,
+    };
+
+    commitMutation(environment, {
+      mutation: resetPassword,
+      // $FlowExpected: Broken definition
+      variables,
+      onCompleted: resolve,
+      onError: reject,
+    });
   });
+
+export default ResetPassword;

@@ -7,6 +7,7 @@ import { makeEnvironment } from "../../../../../../../services/utils/relay";
 import SingleTripData from "..";
 
 const res = {
+  // TODO @viktr fix console errors
   data: {
     singleBooking: {
       id: "Qm9va2luZ1JldHVybjoyODU5NTI1OQ==",
@@ -28,7 +29,7 @@ const res = {
 };
 
 describe("#TripDataList", () => {
-  test("testing render #loading", async () => {
+  test("testing render loading", async () => {
     const promise = Promise.resolve(res);
     const environment = makeEnvironment(() => promise);
     const wrapper = mount(<SingleTripData singleBid={0} env={environment} onSelect={jest.fn()} />);
@@ -38,7 +39,7 @@ describe("#TripDataList", () => {
     expect(wrapper.find("Translate").prop("t")).toBe("common.loading");
   });
 
-  test("testing render #error", async () => {
+  test("testing render error", async () => {
     const promise = Promise.reject(new Error("error"));
     const environment = makeEnvironment(() => promise);
     const wrapper = mount(<SingleTripData singleBid={0} env={environment} onSelect={jest.fn()} />);
@@ -50,7 +51,7 @@ describe("#TripDataList", () => {
     expect(wrapper.find("Alert").text()).toBe("Error: error");
   });
 
-  test("testing render #respond", async () => {
+  test("testing render respond", async () => {
     const promise = Promise.resolve(res);
     const environment = makeEnvironment(() => promise);
     const wrapper = mount(<SingleTripData singleBid={0} env={environment} onSelect={jest.fn()} />);

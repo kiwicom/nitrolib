@@ -1,6 +1,5 @@
 // @flow strict
-import { Environment, GraphQLTaggedNode, Network, RecordSource, Store } from "relay-runtime";
-import { commitMutation } from "react-relay";
+import { Environment, Network, RecordSource, Store } from "relay-runtime";
 
 export type Input = {
   query: string,
@@ -35,18 +34,3 @@ export const makeEnvironment = (call: Call) =>
     network: Network.create(makeFetchQuery(call)),
     store,
   });
-
-export const executeMutation = <Variables, Result>(
-  mutation: GraphQLTaggedNode,
-  variables: Variables,
-  environment: Environment = makeEnvironment(makeCall("")),
-): Promise<Result> =>
-  new Promise((resolve, reject) =>
-    // $FlowExpected: Function with generics > default type that is too general
-    commitMutation(environment, {
-      mutation,
-      variables,
-      onCompleted: (result: Result) => resolve(result),
-      onError: reject,
-    }),
-  );

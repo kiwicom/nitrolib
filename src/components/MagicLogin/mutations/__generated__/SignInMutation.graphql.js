@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash ac40e0e2a86777f957c0d33bc0bf05bf
+ * @relayHash 1143e48f1eaf6fd0aa6d17efa3308265
  */
 
 /* eslint-disable */
@@ -191,27 +191,29 @@ v1 = [
 ];
 return {
   "kind": "Request",
-  "operationKind": "mutation",
-  "name": "SignInMutation",
-  "id": null,
-  "text": "mutation SignInMutation(\n  $email: String!\n  $password: String!\n  $brand: Brand!\n) {\n  signIn(email: $email, password: $password, brand: $brand) {\n    success\n    user {\n      token\n      identity {\n        id(opaque: false)\n        email\n        firstName\n        lastName\n        emailVerified\n      }\n    }\n  }\n}\n",
-  "metadata": {},
   "fragment": {
     "kind": "Fragment",
     "name": "SignInMutation",
     "type": "RootMutation",
     "metadata": null,
-    "argumentDefinitions": v0,
-    "selections": v1
+    "argumentDefinitions": (v0/*: any*/),
+    "selections": (v1/*: any*/)
   },
   "operation": {
     "kind": "Operation",
     "name": "SignInMutation",
-    "argumentDefinitions": v0,
-    "selections": v1
+    "argumentDefinitions": (v0/*: any*/),
+    "selections": (v1/*: any*/)
+  },
+  "params": {
+    "operationKind": "mutation",
+    "name": "SignInMutation",
+    "id": null,
+    "text": "mutation SignInMutation(\n  $email: String!\n  $password: String!\n  $brand: Brand!\n) {\n  signIn(email: $email, password: $password, brand: $brand) {\n    success\n    user {\n      token\n      identity {\n        id(opaque: false)\n        email\n        firstName\n        lastName\n        emailVerified\n      }\n    }\n  }\n}\n",
+    "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '7b02f2ac4960ceae61c63e4e2c02053d';
+(node/*: any*/).hash = '468dac6cfcd0566ff21f823acdc5ce9e';
 module.exports = node;

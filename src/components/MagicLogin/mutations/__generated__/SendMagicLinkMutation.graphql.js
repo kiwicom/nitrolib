@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash d86d5d27ac9d11c74eb0f2c5fab82916
+ * @relayHash f9dd4537fa47ddf927a4459ef9fd006a
  */
 
 /* eslint-disable */
@@ -86,24 +86,26 @@ v1 = [
 ];
 return {
   "kind": "Request",
-  "operationKind": "mutation",
-  "name": "SendMagicLinkMutation",
-  "id": null,
-  "text": "mutation SendMagicLinkMutation(\n  $email: String!\n  $brand: Brand!\n) {\n  sendMagicLink(email: $email, brand: $brand) {\n    success\n  }\n}\n",
-  "metadata": {},
   "fragment": {
     "kind": "Fragment",
     "name": "SendMagicLinkMutation",
     "type": "RootMutation",
     "metadata": null,
-    "argumentDefinitions": v0,
-    "selections": v1
+    "argumentDefinitions": (v0/*: any*/),
+    "selections": (v1/*: any*/)
   },
   "operation": {
     "kind": "Operation",
     "name": "SendMagicLinkMutation",
-    "argumentDefinitions": v0,
-    "selections": v1
+    "argumentDefinitions": (v0/*: any*/),
+    "selections": (v1/*: any*/)
+  },
+  "params": {
+    "operationKind": "mutation",
+    "name": "SendMagicLinkMutation",
+    "id": null,
+    "text": "mutation SendMagicLinkMutation(\n  $email: String!\n  $brand: Brand!\n) {\n  sendMagicLink(email: $email, brand: $brand) {\n    success\n  }\n}\n",
+    "metadata": {}
   }
 };
 })();

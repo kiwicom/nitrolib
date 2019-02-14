@@ -1038,9 +1038,10 @@
     request-promise "^4.1.1"
     yargs "^8.0.2"
 
-"@kiwicom/orbit-components@^0.28.1":
-  version "0.28.2"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.28.2.tgz#4a17085d62b68ab756d066847c464e777ca2ccd7"
+"@kiwicom/orbit-components@^0.30.0":
+  version "0.30.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.30.0.tgz#33093d51e1702d3510946db56df5d365e7dda648"
+  integrity sha512-7CpRIzshZ+njLY7sFlb+yqm2HBGyB48JJil+jZ+jm0ODSPZvXt1K7Z6Wt6DzznjzRjuCzh5fjLj8gzQHtPNrUw==
   dependencies:
     "@kiwicom/orbit-design-tokens" "^0.3.0"
 

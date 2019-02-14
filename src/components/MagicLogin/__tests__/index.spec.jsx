@@ -4,8 +4,8 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import MagicLogin from "../MagicLogin";
-import IntroScreen from "../screens/Intro";
+import MagicLogin from "../index";
+import IntroScreen from "../components/Intro/index";
 import { brandDefault } from "../../../records/Brand";
 import { Provider as BrandProvider } from "../../../services/brand/context";
 
@@ -62,7 +62,7 @@ describe("#MagicLogin", () => {
     wrapper.find("form").simulate("submit");
 
     setImmediate(() => {
-      expect(wrapper.state("magicLinkError")).toBe("common.api_error");
+      expect(wrapper.state("error")).toBe("common.api_error");
       expect(wrapper.state("screen")).toBe("intro");
       done();
     });

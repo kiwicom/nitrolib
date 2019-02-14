@@ -1,13 +1,13 @@
-// @flow
+// @flow strict
 
-import { graphql } from "react-relay";
+import { commitMutation, graphql } from "react-relay";
 
-import { executeMutation } from "../../../services/utils/relay";
 import type {
   CreateAccountMutationVariables,
   CreateAccountMutationResponse,
   CreateAccountInput,
 } from "./__generated__/CreateAccountMutation.graphql";
+import environment from "../../../services/environment";
 
 const createAccount = graphql`
   mutation CreateAccountMutation($brand: Brand!, $credentials: CreateAccountInput!) {
@@ -18,11 +18,23 @@ const createAccount = graphql`
   }
 `;
 
-export default (
+const CreateAccount = (
   brand: string,
   credentials: CreateAccountInput,
 ): Promise<CreateAccountMutationResponse> =>
-  executeMutation<CreateAccountMutationVariables, CreateAccountMutationResponse>(createAccount, {
-    brand,
-    credentials,
+  new Promise((resolve, reject) => {
+    const variables: CreateAccountMutationVariables = {
+      brand,
+      credentials,
+    };
+
+    commitMutation(environment, {
+      mutation: createAccount,
+      // $FlowExpected: Broken definition
+      variables,
+      onCompleted: resolve,
+      onError: reject,
+    });
   });
+
+export default CreateAccount;

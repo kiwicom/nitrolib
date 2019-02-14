@@ -2,17 +2,17 @@
 
 import * as React from "react";
 
-import errors from "../../../consts/errors";
-import { Consumer } from "../../../services/intl/context";
-import * as validators from "../../../services/input/validators";
-import AccountCreate from "../../AccountCreate";
-import Text from "../../Text";
-import CreateAccount from "../mutations/CreateAccount";
-import type { CreateAccountError } from "../mutations/__generated__/CreateAccountMutation.graphql";
+import errors from "../../../../consts/errors";
+import { Consumer } from "../../../../services/intl/context";
+import * as validators from "../../../../services/input/validators";
+import AccountCreate from "../../../AccountCreate/index";
+import Text from "../../../Text/index";
+import CreateAccount from "../../mutations/CreateAccount";
+import type { CreateAccountError } from "../../mutations/__generated__/CreateAccountMutation.graphql";
 
 type Props = {|
   email: string,
-  brandingId: string,
+  brandId: string,
   onEmailChange: (e: SyntheticInputEvent<HTMLInputElement>) => void,
   onSignUpConfirmation: () => void,
 |};
@@ -41,7 +41,7 @@ const submitErrors = {
   "%future added value": errors.general,
 };
 
-class CreateAccountScreen extends React.Component<Props, State> {
+export default class CreateAccountScreen extends React.PureComponent<Props, State> {
   state = {
     ...defaultErrors,
     error: null,
@@ -66,53 +66,9 @@ class CreateAccountScreen extends React.Component<Props, State> {
   };
 
   handlePasswordConfirmChange = (e: SyntheticInputEvent<HTMLInputElement>) => {
-    this.setState({ passwordConfirm: e.target.value }, () => {
-      this.checkPasswordIntegrity(true);
-    });
-  };
-
-  handlePasswordConfirmBlur = () => {
-    this.checkPasswordIntegrity();
-  };
-
-  handleContinue = (e: SyntheticEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    this.setState({ isCreatingAccount: true, error: null, ...defaultErrors }, async () => {
-      const { email, brandingId, onSignUpConfirmation } = this.props;
-      const { password } = this.state;
-      const credentials = {
-        email,
-        password,
-      };
-
-      try {
-        const response = await CreateAccount(brandingId, credentials);
-
-        if (response.createAccount && response.createAccount.success) {
-          onSignUpConfirmation();
-          return;
-        }
-
-        this.setSubmitError(response.createAccount && response.createAccount.error);
-      } catch (error) {
-        // TODO log error
-        this.setSubmitError(null);
-      }
-
-      this.setState({ isCreatingAccount: false });
-    });
-  };
-
-  checkPasswordValidity = () => {
-    this.setState(({ validatePassword, password }) => ({
-      passwordError: validatePassword ? validators.password(password) : null,
-    }));
-  };
-
-  checkPasswordIntegrity = (onlyWhenError: boolean = false) => {
+    this.setState({ passwordConfirm: e.target.value });
     this.setState(({ password, passwordConfirm, passwordConfirmError }) => {
-      // do not perform check if any error hasn't been set yet
-      if (onlyWhenError && passwordConfirmError === null) {
+      if (passwordConfirmError === null) {
         return null;
       }
 
@@ -122,6 +78,49 @@ class CreateAccountScreen extends React.Component<Props, State> {
 
       return { passwordConfirmError: "" };
     });
+  };
+
+  handlePasswordConfirmBlur = () => {
+    this.setState(({ password, passwordConfirm }) => {
+      if (password !== passwordConfirm) {
+        return { passwordConfirmError: errors.passwordMismatch };
+      }
+
+      return { passwordConfirmError: "" };
+    });
+  };
+
+  handleContinue = (e: SyntheticEvent<HTMLFormElement>) => {
+    const { email, brandId, onSignUpConfirmation } = this.props;
+    const { password } = this.state;
+
+    e.preventDefault();
+
+    this.setState({ isCreatingAccount: true, error: null, ...defaultErrors });
+
+    CreateAccount(brandId, { email, password })
+      .then(res => {
+        this.setState({ isCreatingAccount: false });
+
+        if (!res.createAccount?.success) {
+          this.setSubmitError(res.createAccount?.error);
+          return;
+        }
+
+        onSignUpConfirmation();
+      })
+      .catch(() => {
+        this.setState({ isCreatingAccount: false });
+
+        // TODO log error
+        this.setSubmitError(null);
+      });
+  };
+
+  checkPasswordValidity = () => {
+    this.setState(({ validatePassword, password }) => ({
+      passwordError: validatePassword ? validators.password(password) : null,
+    }));
   };
 
   setSubmitError = (responseError: ?CreateAccountError) => {
@@ -173,5 +172,3 @@ class CreateAccountScreen extends React.Component<Props, State> {
     );
   }
 }
-
-export default CreateAccountScreen;

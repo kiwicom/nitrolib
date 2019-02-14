@@ -4,18 +4,18 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import KiwiLogin from "../KiwiLogin";
-import AccountPassword from "../../../AccountPassword";
+import KiwiLogin from "../index";
+import AccountPassword from "../../../../AccountPassword/index";
 
-jest.mock("../../mutations/ResetPassword");
-jest.mock("../../mutations/SignIn");
+jest.mock("../../../mutations/ResetPassword");
+jest.mock("../../../mutations/SignIn");
 
 const defaultProps = {
   email: "",
   magicLinkError: "",
   isSendingEmail: false,
-  brandingId: "",
-  resetMagicLinkError: () => {},
+  brandId: "",
+  onResetMagicLinkError: () => {},
   onClose: () => {},
   onChangeScreen: () => {},
   onAskSignInLink: () => {},
