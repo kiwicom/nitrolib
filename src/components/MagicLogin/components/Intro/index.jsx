@@ -5,7 +5,7 @@ import * as React from "react";
 import AccountLogin from "../../../AccountLogin/index";
 import CheckEmail from "../../mutations/CheckEmail";
 import errors from "../../../../consts/errors";
-import type { LoginType, Screen } from "../../consts/types";
+import type { Screen } from "../../consts/types";
 import Text from "../../../Text/index";
 
 type Props = {|
