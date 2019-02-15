@@ -44,11 +44,12 @@ Wrapper.defaultProps = {
 // Used custom `Separator` instead of orbit’s one
 // because of the responsivity
 const Separator = styled.div`
+  margin-bottom: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
+  border-bottom-width: ${({ theme }: ThemeProps) => theme.orbit.heightSeparator};
+  border-bottom-style: solid;
+  border-bottom-color: ${({ theme }: ThemeProps) => theme.orbit.backgroundSeparator};
   ${mq.largeMobile(css`
-    margin-bottom: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
-    border-bottom-width: ${({ theme }: ThemeProps) => theme.orbit.heightSeparator};
-    border-bottom-style: solid;
-    border-bottom-color: ${({ theme }: ThemeProps) => theme.orbit.backgroundSeparator};
+    display: none;
   `)};
 `;
 
@@ -76,8 +77,9 @@ Column.defaultProps = {
 };
 
 const TravelDatesWrapper = styled.div`
+  margin-bottom: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
   ${mq.largeMobile(css`
-    margin-bottom: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
+    margin-bottom: 0;
   `)};
 `;
 
