@@ -26,7 +26,7 @@ const holdBagOptions = {
 };
 
 const props = {
-  passengerCategory: "infant",
+  passengerCategory: "adult",
   changeBagCombination: (type, index) => {
     console.log(type, index); // eslint-disable-line
   },
@@ -57,6 +57,30 @@ storiesOf("BaggagePicker", module)
         }}
         shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}
+      />
+    </div>
+  ))
+  .add("both infant", () => (
+    <div style={{ padding: "24px" }}>
+      <BaggagePicker
+        pickerType="handBag"
+        passengerBaggage={{
+          handBag: select("Handbag", handBagOptions, 1, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
+        }}
+        shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
+        {...props}
+        passengerCategory="infant"
+      />
+      <BaggagePicker
+        pickerType="holdBag"
+        passengerBaggage={{
+          handBag: select("Handbag", handBagOptions, 1, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
+        }}
+        shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
+        {...props}
+        passengerCategory="infant"
       />
     </div>
   ))
