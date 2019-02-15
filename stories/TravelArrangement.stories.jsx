@@ -20,7 +20,6 @@ const props = {
       note: "Transfer to hotel NOT included",
     },
   },
-  columnLayout: false,
 };
 
 storiesOf("TravelArrangement", module)
