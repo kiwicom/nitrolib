@@ -1038,10 +1038,9 @@
     request-promise "^4.1.1"
     yargs "^8.0.2"
 
-"@kiwicom/orbit-components@^0.30.0":
-  version "0.30.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.30.0.tgz#33093d51e1702d3510946db56df5d365e7dda648"
-  integrity sha512-7CpRIzshZ+njLY7sFlb+yqm2HBGyB48JJil+jZ+jm0ODSPZvXt1K7Z6Wt6DzznjzRjuCzh5fjLj8gzQHtPNrUw==
+"@kiwicom/orbit-components@^0.31.0":
+  version "0.31.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.31.0.tgz#8de4d669f531574aa2bab277cfa4504dbf604250"
   dependencies:
     "@kiwicom/orbit-design-tokens" "^0.3.0"
 
@@ -1054,7 +1053,6 @@
 "@kiwicom/translations@^1.158.0":
   version "1.158.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.158.0.tgz#2de1f958f26f4a534403a92745d90c2808ef8db0"
-  integrity sha512-shHpwsVSVxl6PX+Vf3HkfrDafhuWST1/X6kyEuP/ysVtZyuPC/vnz+l+MXjooGwA/4kXXcgha941PPokP8yXzQ==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -1768,7 +1766,6 @@ anymatch@^2.0.0:
 apollo-codegen-core@^0.20.0:
   version "0.20.1"
   resolved "https://registry.yarnpkg.com/apollo-codegen-core/-/apollo-codegen-core-0.20.1.tgz#56b6dd740f54b3f04e5db853ba1e1598388724c7"
-  integrity sha512-sanUIqXWyyDpxY3fYOVU+Hsxwxdj5fmn3Zcy6CcMGnWmh9o7tautQAuod2a63wrDs1jcNQcFq3EKIpeB+2xECw==
   dependencies:
     "@babel/generator" "7.0.0-beta.38"
     "@babel/types" "7.0.0-beta.38"
@@ -1779,14 +1776,12 @@ apollo-codegen-core@^0.20.0:
 apollo-codegen-flow-legacy@^0.20.0:
   version "0.20.0"
   resolved "https://registry.yarnpkg.com/apollo-codegen-flow-legacy/-/apollo-codegen-flow-legacy-0.20.0.tgz#a9f1a0bb16c0fbde22b7dc7509b835d822861c67"
-  integrity sha512-kGjJNkkkob9gGYSIhwfdgOzkj0PuN4/QPhng4ckSaSCE+8E4Awyvk0P8LiYPKauHzHVjmJzxWLSG6kI0PQTNgA==
   dependencies:
     apollo-codegen-core "^0.20.0"
 
 apollo-codegen-flow@^0.20.0:
   version "0.20.0"
   resolved "https://registry.yarnpkg.com/apollo-codegen-flow/-/apollo-codegen-flow-0.20.0.tgz#6d6219150235efd74620d421f42d96216292070d"
-  integrity sha512-XgKE19B0Q74PBLVqHP/77NcCFrcvrN9wi3CcotH+FV8BeHTjvpHlilTsQMmd2STPt19cCvY2Qtz0EOeLXTUQ2Q==
   dependencies:
     apollo-codegen-core "^0.20.0"
     change-case "^3.0.1"
@@ -1795,7 +1790,6 @@ apollo-codegen-flow@^0.20.0:
 apollo-codegen-scala@^0.20.0:
   version "0.20.0"
   resolved "https://registry.yarnpkg.com/apollo-codegen-scala/-/apollo-codegen-scala-0.20.0.tgz#3ce29057cbb72f47806b27e6b780252dfa4fc349"
-  integrity sha512-NbnMOfUXXovlTGRj4mIZGXB9HvidQhwKfAmdYHox5peHPkjjsqEzxGCIuWCSnubWiCF2uHZnQoIkg4sXWf0KLw==
   dependencies:
     apollo-codegen-core "^0.20.0"
     change-case "^3.0.1"
@@ -1804,7 +1798,6 @@ apollo-codegen-scala@^0.20.0:
 apollo-codegen-swift@^0.20.0:
   version "0.20.0"
   resolved "https://registry.yarnpkg.com/apollo-codegen-swift/-/apollo-codegen-swift-0.20.0.tgz#84a3f7b8d2c0f99fc65fb57acbe0abf9a9932f45"
-  integrity sha512-L9Y4StbXw0t/nuF+miz0ybSt/io6tsLc063Yeh1A8GCvhFFQyXE/yK0Rf3nO1Bl5Z9UZ5o8Aae9kK4GSWYIGNQ==
   dependencies:
     apollo-codegen-core "^0.20.0"
     change-case "^3.0.1"
@@ -1813,14 +1806,12 @@ apollo-codegen-swift@^0.20.0:
 apollo-codegen-typescript-legacy@^0.20.0:
   version "0.20.0"
   resolved "https://registry.yarnpkg.com/apollo-codegen-typescript-legacy/-/apollo-codegen-typescript-legacy-0.20.0.tgz#e3dab94e6b8f0136f30d92a517c5dfd172452240"
-  integrity sha512-0/h5hce2FIGn6Y4+EHMeMINQxFwcgjw1vU+xV3KGaaEgyEAEQ3/n9pyz43M8mOm/JVgg8Eb4CtM1AtCkRQuFGw==
   dependencies:
     apollo-codegen-core "^0.20.0"
 
 apollo-codegen-typescript@^0.20.0:
   version "0.20.0"
   resolved "https://registry.yarnpkg.com/apollo-codegen-typescript/-/apollo-codegen-typescript-0.20.0.tgz#a77eea6a68c0d09b29855667371bcd836cadfa78"
-  integrity sha512-mzlIJXz+5WPwzeALqRHHR9aPPEf6IlhSrjCawpUHmFU1NK9hgwbguYCEYZv9mKkYBUUgDY+9cGFK1cafJX70AQ==
   dependencies:
     apollo-codegen-core "^0.20.0"
     change-case "^3.0.1"
@@ -1829,7 +1820,6 @@ apollo-codegen-typescript@^0.20.0:
 apollo-codegen@^0.20.2:
   version "0.20.2"
   resolved "https://registry.yarnpkg.com/apollo-codegen/-/apollo-codegen-0.20.2.tgz#960972828651de74e043f8f92f6f819025a50f49"
-  integrity sha512-f95fPGoQoj+XcR7JWgR35mUYrD7RWT4kHbtSLs3aHeRFOKUHEWW2nHUNTOtQbbIdLulRuxPQCTvSddT7fFwhrA==
   dependencies:
     apollo-codegen-core "^0.20.0"
     apollo-codegen-flow "^0.20.0"
@@ -3592,7 +3582,6 @@ create-react-class@^15.6.2:
 creato@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/creato/-/creato-1.0.3.tgz#ec923e8d44e93fe252fb1d52e59ca8291c42cb7c"
-  integrity sha512-i33ANluSZq742lqjQZRQJCOSuRvx8P9u5756sZheDcCqOvDsiTQd3eZx5GkPpQMhFrLIveslAKaK0M+OHgmu/g==
   dependencies:
     chalk "^2.4.1"
     inquirer "^6.2.0"
@@ -5510,7 +5499,6 @@ graphql-cli-prepare@1.4.19:
 graphql-cli@^3.0.9:
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/graphql-cli/-/graphql-cli-3.0.9.tgz#5f4a7a6b5358b786f24e9165d5d2f5a53c5d43ec"
-  integrity sha512-V0lI0WlRk7U437NNT5WojjLxz8eYfKO/7cftQBPHU/feD1KjCevCQ5qLnDr/lL/sscBBcyk+YpNH8rBZ2CiHig==
   dependencies:
     apollo-codegen "^0.20.2"
     chalk "^2.4.1"
@@ -5584,12 +5572,10 @@ graphql-import@^0.7.1:
 graphql-playground-html@1.6.12:
   version "1.6.12"
   resolved "https://registry.yarnpkg.com/graphql-playground-html/-/graphql-playground-html-1.6.12.tgz#8b3b34ab6013e2c877f0ceaae478fafc8ca91b85"
-  integrity sha512-yOYFwwSMBL0MwufeL8bkrNDgRE7eF/kTHiwrqn9FiR9KLcNIl1xw9l9a+6yIRZM56JReQOHpbQFXTZn1IuSKRg==
 
 graphql-playground-middleware-express@1.7.11:
   version "1.7.11"
   resolved "https://registry.yarnpkg.com/graphql-playground-middleware-express/-/graphql-playground-middleware-express-1.7.11.tgz#bbffd784a37133bfa7165bdd8f429081dbf4bcf6"
-  integrity sha512-sKItB4s3FxqlwCgXdMfwRAfssSoo31bcFsGAAg/HzaZLicY6CDlofKXP8G5iPDerB6NaoAcAaBLutLzl9sd4fQ==
   dependencies:
     graphql-playground-html "1.6.12"
 
@@ -5602,7 +5588,6 @@ graphql-request@^1.5.0:
 graphql-schema-linter@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/graphql-schema-linter/-/graphql-schema-linter-0.2.0.tgz#deacc9e1a887d49c63ee2b7b742ef17a575e7447"
-  integrity sha512-IXldy6nCmzAZgweBzQUGPLVO1aRLRy/n/jEm8h8pQHmMYoHv2hQgUcRQRaCbjcdNKYKToN1cfHvdgtGJ+DWSNQ==
   dependencies:
     chalk "^2.0.1"
     columnify "^1.5.4"
@@ -8303,7 +8288,6 @@ optionator@^0.8.1, optionator@^0.8.2:
 ora@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ora/-/ora-3.0.0.tgz#8179e3525b9aafd99242d63cc206fd64732741d0"
-  integrity sha512-LBS97LFe2RV6GJmXBi6OKcETKyklHNMV0xw7BtsVn2MlsgsydyZetSCbCANr+PFLmDyv4KV88nn0eCKza665Mg==
   dependencies:
     chalk "^2.3.1"
     cli-cursor "^2.1.0"
@@ -11772,7 +11756,6 @@ yargs-parser@^9.0.2:
 yargs@12.0.5, yargs@^12.0.5:
   version "12.0.5"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-12.0.5.tgz#05f5997b609647b64f66b81e3b4b10a368e7ad13"
-  integrity sha512-Lhz8TLaYnxq/2ObqHDql8dX8CJi97oHxrjUcYtzKbbykPtVW9WB+poxI+NM2UIzsMgNCZTIf0AQwsjK5yMAqZw==
   dependencies:
     cliui "^4.0.0"
     decamelize "^1.2.0"
