@@ -3019,11 +3019,6 @@
     "lcc": 0,
     "name": "Air Norway"
   },
-  "BZ": {
-    "id": "BZ",
-    "lcc": 0,
-    "name": "Black Stallion Airways"
-  },
   "EZ": {
     "id": "EZ",
     "lcc": 0,
@@ -3988,6 +3983,16 @@
     "id": "ULENDO",
     "lcc": null,
     "name": "Fly Ulendo"
+  },
+  "GOVERNORS": {
+    "id": "GOVERNORS",
+    "lcc": null,
+    "name": "Governors Aviation"
+  },
+  "BZ": {
+    "id": "BZ",
+    "lcc": 0,
+    "name": "Blue Bird Airways"
   },
   "8A": {
     "id": "8A",
