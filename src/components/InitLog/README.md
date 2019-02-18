@@ -10,7 +10,7 @@ import { Provider as LogProvider } from "@kiwicom/nitro/lib/services/log/context
 import InitLog from "@kiwicom/nitro/lib/components/InitLog";
 
 const globals: Globals = {
-  userId: window.__SESSION__.USER_ID,
+  userId: window.__SESSION__.userId,
   langId: window.__INTL__.id,
   // ...etc
 };
