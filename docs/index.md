@@ -18,4 +18,4 @@
 * [Services](./services.md) - i18n, branding, production data...
 * [Translations](./translations.md) - process of adding new translations
 
-Follow applicable guidelines from [Reactizer](https://oreqizer.github.io/reactizer/), too!
+Follow applicable guidelines from **Reactizer**'s [styleguide](https://oreqizer.github.io/reactizer/styleguide/), too!
