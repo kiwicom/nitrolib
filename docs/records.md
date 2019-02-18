@@ -868,6 +868,7 @@ export type LangInfos = { [id: string]: LangInfo };
 declare export var langInfoDefault: LangInfo;
 
 declare export var fixDateFormat: (date: string) => string;
+declare export var fixTimeFormat: (time: string) => string;
 ```
 
 _TODO_
