@@ -7,14 +7,15 @@ import styled, { css } from "styled-components";
 import mq from "../../../../styles/mq";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import type { Price, Restrictions, BaggageSubCategory } from "../../../../records/Baggage";
+import type { PriceType, Restrictions, BaggageSubCategory } from "../../../../records/Baggage";
 import { getIconFromCategory, getTextFromCategory } from "../../../../services/baggage/utils";
+import Price from "../../../Price";
 
 type Props = {|
   amount: number,
   restrictions: Restrictions,
   firstItem: boolean,
-  price: Price,
+  price: PriceType,
   category: BaggageSubCategory,
 |};
 
@@ -103,7 +104,9 @@ const OptionItem = ({ firstItem, amount, restrictions, category, price }: Props)
       <BaggageInfoWrapper>
         <BaggageSizeText>{getBaggageSize(restrictions)}</BaggageSizeText>
         {firstItem ? (
-          <Text element="span" weight="bold">{`${price.amount} ${price.currency}`}</Text>
+          <Text element="span" weight="bold">
+            <Price value={price.amount} />
+          </Text>
         ) : (
           <span />
         )}

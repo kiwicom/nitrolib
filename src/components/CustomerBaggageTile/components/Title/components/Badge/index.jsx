@@ -6,7 +6,9 @@ import Money from "@kiwicom/orbit-components/lib/icons/Money";
 import Alert from "@kiwicom/orbit-components/lib/icons/Alert";
 import Reload from "@kiwicom/orbit-components/lib/icons/Reload";
 
-import type { Price, OrderStatusType } from "../../../../../../records/Baggage";
+import { Consumer } from "../../../../../../services/currency/context";
+import { format } from "../../../../../../records/Currency";
+import type { PriceType, OrderStatusType } from "../../../../../../records/Baggage";
 import Tooltip from "../../../../../Tooltip/index";
 import Translate from "../../../../../Translate/index";
 
@@ -32,16 +34,20 @@ const getTooltipText = (status: OrderStatusType) => {
   }
 };
 
-const getBadge = (status: OrderStatusType, price?: Price) => {
+const getBadge = (status: OrderStatusType, price?: PriceType) => {
   switch (status) {
     case "unpaid":
       return (
         <Badge type="warning">
           <Money size="small" />
-          <Translate
-            t="common.baggage.badge.unpaid"
-            values={{ price: price ? `${price.amount} ${price.currency}` : "" }}
-          />
+          <Consumer>
+            {({ currency }) => (
+              <Translate
+                t="common.baggage.badge.unpaid"
+                values={{ price: price ? format(currency, price.amount) : "" }}
+              />
+            )}
+          </Consumer>
         </Badge>
       );
     case "processing":
@@ -65,7 +71,7 @@ const getBadge = (status: OrderStatusType, price?: Price) => {
 
 type TitleBadgeProps = {
   orderStatus: "unpaid" | "processing" | "notAvailable",
-  price?: Price,
+  price?: PriceType,
 };
 
 const TitleBadge = ({ orderStatus, price }: TitleBadgeProps) => (

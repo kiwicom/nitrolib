@@ -15,13 +15,13 @@ import Translate from "../../../Translate/index";
 import OptionItem from "../OptionItem/index";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import type { Price, Item } from "../../../../records/Baggage";
+import type { PriceType, Item } from "../../../../records/Baggage";
 import { Consumer } from "../../services/context";
 import { Consumer as IntlConsumer } from "../../../../services/intl/context";
 
 type Props = {
   items: { [key: string]: Item },
-  price: Price,
+  price: PriceType,
   isChecked: boolean,
   onClick: () => void,
 };

@@ -5,7 +5,7 @@ import GenderMan from "@kiwicom/orbit-components/lib/icons/GenderMan";
 import GenderWoman from "@kiwicom/orbit-components/lib/icons/GenderWoman";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import type { Price, Gender, OrderStatusType } from "../../../../records/Baggage";
+import type { PriceType, Gender, OrderStatusType } from "../../../../records/Baggage";
 import mq from "../../../../styles/mq";
 import Badge from "./components/Badge";
 
@@ -14,7 +14,7 @@ type TitleProps = {
   lastName: string,
   gender: Gender,
   orderStatus: OrderStatusType,
-  price?: Price,
+  price?: PriceType,
 };
 
 const TitleWrapper = styled.div`

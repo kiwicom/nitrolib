@@ -86,16 +86,9 @@ exports[`#Badge renders status unpaid 1`] = `
     <Money
       size="small"
     />
-    <Translate
-      html={false}
-      t="common.baggage.badge.unpaid"
-      transform={[Function]}
-      values={
-        Object {
-          "price": "21 EUR",
-        }
-      }
-    />
+    <ContextConsumer>
+      <Component />
+    </ContextConsumer>
   </Badge>
 </Tooltip>
 `;

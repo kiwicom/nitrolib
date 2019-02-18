@@ -4,7 +4,7 @@ export type BaggageCategory = "holdBag" | "handBag";
 export type BaggageSubCategory = "holdBag" | "personalItem" | "cabinBag";
 export type PassengerGroup = "adult" | "child" | "infant";
 
-export type Price = {
+export type PriceType = {
   currency: string,
   amount: number,
   base: number,
@@ -23,7 +23,7 @@ export type Restrictions = {|
 
 export type Definition<C: BaggageSubCategory> = {
   category: C,
-  price: Price,
+  price: PriceType,
   restrictions: Restrictions,
   conditions: {
     isPriority?: Array<string>,
@@ -41,7 +41,7 @@ export type Definitions = {|
 
 export type Combination = {|
   indices: Array<number>,
-  price: Price,
+  price: PriceType,
   conditions: {
     passengerGroups: Array<PassengerGroup>,
   },

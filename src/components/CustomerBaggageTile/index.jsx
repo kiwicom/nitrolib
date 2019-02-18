@@ -4,7 +4,7 @@ import Tile from "@kiwicom/orbit-components/lib/Tile";
 
 import Title from "./components/Title";
 import TileContent from "./components/TileContent";
-import type { BaggageType, Gender, Price, OrderStatusType } from "../../records/Baggage";
+import type { BaggageType, Gender, PriceType, OrderStatusType } from "../../records/Baggage";
 
 type Props = {
   firstName: string,
@@ -14,7 +14,7 @@ type Props = {
   baggage: BaggageType,
   onClick: () => void,
   orderStatus: OrderStatusType,
-  price?: Price,
+  price?: PriceType,
 };
 
 const CustomerBaggageTile = ({
