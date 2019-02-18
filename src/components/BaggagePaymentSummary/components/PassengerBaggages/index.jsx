@@ -5,14 +5,14 @@ import Text from "@kiwicom/orbit-components/lib/Text";
 
 import Price from "../../../Price";
 import { getTextFromCategory } from "../../../../services/baggage/utils";
-import type { Item } from "../../../../records/Baggage";
+import type { ItemType } from "../../../../records/Baggage";
 
 type Props = {
   firstName: string,
   lastName: string,
   baggage: {
-    handBag: Array<Item>,
-    holdBag: Array<Item>,
+    handBag: Array<ItemType>,
+    holdBag: Array<ItemType>,
   },
   price: number,
 };

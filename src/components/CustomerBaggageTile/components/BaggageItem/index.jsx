@@ -8,36 +8,11 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 
 import type { Restrictions, BaggageSubCategory } from "../../../../records/Baggage";
+import { getIconFromCategory, getTextFromCategory } from "../../../../services/baggage/utils";
 import Translate from "../../../Translate/index";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import mq from "../../../../styles/mq";
-
-const getIconFromCategory = (category: BaggageSubCategory) => {
-  switch (category) {
-    case "personalItem":
-      return <BaggagePersonalItem size="small" color="primary" />;
-    case "cabinBag":
-      return <BaggageCabin size="small" color="primary" />;
-    case "holdBag":
-      return <BaggageChecked size="small" color="primary" />;
-    default:
-      return undefined;
-  }
-};
-
-const getTextFromCategory = (category: BaggageSubCategory) => {
-  switch (category) {
-    case "personalItem":
-      return <Translate t="common.baggage.personal_item" />;
-    case "cabinBag":
-      return <Translate t="common.baggage.cabin_bag" />;
-    case "holdBag":
-      return <Translate t="common.baggage.checked_bag" />;
-    default:
-      return undefined;
-  }
-};
 
 const BaggageRestrictionsWrapper = styled.div`
   display: flex;
@@ -91,7 +66,7 @@ const BaggageItem = ({ category, amount, restrictions }: Props) => {
     <Wrapper>
       <Stack shrink spacing="tight" direction="column">
         <Stack grow flex align="center" spacing="condensed">
-          {getIconFromCategory(category)}
+          {getIconFromCategory(category, "small", "primary")}
           <Text element="span" weight={textWeight}>
             {`${amount}x ${restrictions.weight}kg `}
             {getTextFromCategory(category)}

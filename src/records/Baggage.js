@@ -62,7 +62,7 @@ export type TileItem = {
   category: BaggageSubCategory,
   restrictions: Restrictions,
 };
-export type Item = TileItem & {
+export type ItemType = TileItem & {
   conditions: {
     isPriority?: Array<string>,
     passengerGroups: Array<PassengerGroup>,
@@ -72,8 +72,8 @@ export type Item = TileItem & {
 export type OptionBaggage = {
   originalIndex: number,
   pickerType: BaggageCategory,
-  price: Price,
-  items: { [key: string]: Item },
+  price: PriceType,
+  items: { [key: string]: ItemType },
 };
 
 export type OrderStatusType = "unpaid" | "processing" | "notAvailable";

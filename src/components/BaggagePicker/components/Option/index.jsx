@@ -15,12 +15,12 @@ import Translate from "../../../Translate/index";
 import OptionItem from "../OptionItem/index";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import type { PriceType, Item } from "../../../../records/Baggage";
+import type { PriceType, ItemType } from "../../../../records/Baggage";
 import { Consumer } from "../../services/context";
 import { Consumer as IntlConsumer } from "../../../../services/intl/context";
 
 type Props = {
-  items: { [key: string]: Item },
+  items: { [key: string]: ItemType },
   price: PriceType,
   isChecked: boolean,
   onClick: () => void,
