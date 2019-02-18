@@ -5,9 +5,8 @@ exports[`#CustomerBaggageTile renders 1`] = `
   description={
     <TileContent
       handBags={
-        Object {
-          "0": Object {
-            "amount": 1,
+        Array [
+          Object {
             "category": "personalItem",
             "restrictions": Object {
               "dimensionsSum": null,
@@ -17,8 +16,7 @@ exports[`#CustomerBaggageTile renders 1`] = `
               "width": 20,
             },
           },
-          "1": Object {
-            "amount": 2,
+          Object {
             "category": "cabinBag",
             "restrictions": Object {
               "dimensionsSum": null,
@@ -28,12 +26,21 @@ exports[`#CustomerBaggageTile renders 1`] = `
               "width": 20,
             },
           },
-        }
+          Object {
+            "category": "cabinBag",
+            "restrictions": Object {
+              "dimensionsSum": null,
+              "height": 35,
+              "length": 45,
+              "weight": 10,
+              "width": 20,
+            },
+          },
+        ]
       }
       holdBags={
-        Object {
-          "1": Object {
-            "amount": 2,
+        Array [
+          Object {
             "category": "holdBag",
             "restrictions": Object {
               "dimensionsSum": 156,
@@ -43,8 +50,17 @@ exports[`#CustomerBaggageTile renders 1`] = `
               "width": 26,
             },
           },
-          "2": Object {
-            "amount": 1,
+          Object {
+            "category": "holdBag",
+            "restrictions": Object {
+              "dimensionsSum": 156,
+              "height": 52,
+              "length": 78,
+              "weight": 15,
+              "width": 26,
+            },
+          },
+          Object {
             "category": "holdBag",
             "restrictions": Object {
               "dimensionsSum": 156,
@@ -54,7 +70,7 @@ exports[`#CustomerBaggageTile renders 1`] = `
               "width": 26,
             },
           },
-        }
+        ]
       }
       orderStatus="unpaid"
     />

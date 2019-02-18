@@ -32,25 +32,16 @@ const CustomerBaggageTile = ({
   const currentHandBag = combinations.handBag[currentBaggage.handBag];
   const currentHoldBag = combinations.holdBag[currentBaggage.holdBag];
 
-  const getGroupedBaggages = (baggageCategory, indices: Array<number>) => {
+  const getTileItems = (baggageCategory, indices: Array<number>) => {
     const def = definitions[baggageCategory];
-    return indices.reduce((acc, optionIndex) => {
-      const key = optionIndex.toString();
-      if (acc[key]) {
-        acc[key].amount += 1;
-      } else {
-        acc[key] = {
-          amount: 1,
-          category: def[optionIndex].category,
-          restrictions: def[optionIndex].restrictions,
-        };
-      }
-      return acc;
-    }, {});
+    return indices.map(optionIndex => ({
+      category: def[optionIndex].category,
+      restrictions: def[optionIndex].restrictions,
+    }));
   };
 
-  const handBags = getGroupedBaggages("handBag", currentHandBag.indices);
-  const holdBags = getGroupedBaggages("holdBag", currentHoldBag.indices);
+  const handBags = getTileItems("handBag", currentHandBag.indices);
+  const holdBags = getTileItems("holdBag", currentHoldBag.indices);
 
   return (
     <Tile

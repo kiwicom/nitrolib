@@ -12,8 +12,8 @@ import type { ThemeProps } from "../../../../records/Theme";
 import Translate from "../../../Translate/index";
 
 type Props = {
-  handBags: { [key: string]: TileItem },
-  holdBags: { [key: string]: TileItem },
+  handBags: Array<TileItem>,
+  holdBags: Array<TileItem>,
   orderStatus: "unpaid" | "processing" | "notAvailable",
 };
 
@@ -48,24 +48,19 @@ NoPersonalItemWrapper.defaultProps = {
 };
 
 const TileContent = ({ handBags, holdBags, orderStatus }: Props) => {
-  const handBagsArr = Object.keys(handBags).map(key => handBags[key]);
-  const holdBagsArr = Object.keys(holdBags).map(key => holdBags[key]);
-
-  const hasPersonalItem = Boolean(handBagsArr.find(bag => bag.category === "personalItem"));
+  const hasPersonalItem = Boolean(handBags.find(bag => bag.category === "personalItem"));
   return (
     <Wrapper>
-      {handBagsArr.map((bag, index) => (
+      {handBags.map((bag, index) => (
         <BaggageItem
           key={index} // eslint-disable-line
-          amount={bag.amount}
           restrictions={bag.restrictions}
           category={bag.category}
         />
       ))}
-      {holdBagsArr.map((bag, index) => (
+      {holdBags.map((bag, index) => (
         <BaggageItem
           key={index} // eslint-disable-line
-          amount={bag.amount}
           restrictions={bag.restrictions}
           category={bag.category}
         />

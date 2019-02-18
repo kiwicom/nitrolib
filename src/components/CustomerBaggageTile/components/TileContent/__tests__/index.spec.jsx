@@ -5,9 +5,8 @@ import { shallow } from "enzyme";
 import TileContent from "../index";
 
 const props = {
-  handBags: {
-    "1": {
-      amount: 2,
+  handBags: [
+    {
       category: "cabinBag",
       restrictions: {
         weight: 5,
@@ -17,10 +16,9 @@ const props = {
         dimensionsSum: null,
       },
     },
-  },
-  holdBags: {
-    "2": {
-      amount: 2,
+  ],
+  holdBags: [
+    {
       category: "holdBag",
       restrictions: {
         weight: 25,
@@ -30,7 +28,7 @@ const props = {
         dimensionsSum: null,
       },
     },
-  },
+  ],
   orderStatus: "notAvailable",
 };
 

@@ -1,15 +1,11 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
-import BaggageChecked from "@kiwicom/orbit-components/lib/icons/BaggageChecked";
-import BaggagePersonalItem from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItem";
-import BaggageCabin from "@kiwicom/orbit-components/lib/icons/BaggageCabin";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 
-import type { Restrictions, BaggageSubCategory } from "../../../../records/Baggage";
+import type { TileItem } from "../../../../records/Baggage";
 import { getIconFromCategory, getTextFromCategory } from "../../../../services/baggage/utils";
-import Translate from "../../../Translate/index";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import mq from "../../../../styles/mq";
@@ -54,13 +50,8 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
 `;
-type Props = {
-  category: BaggageSubCategory,
-  amount: number,
-  restrictions: Restrictions,
-};
 
-const BaggageItem = ({ category, amount, restrictions }: Props) => {
+const BaggageItem = ({ category, restrictions }: TileItem) => {
   const textWeight = category === "holdBag" ? "bold" : "normal";
   return (
     <Wrapper>
@@ -68,7 +59,7 @@ const BaggageItem = ({ category, amount, restrictions }: Props) => {
         <Stack grow flex align="center" spacing="condensed">
           {getIconFromCategory(category, "small", "primary")}
           <Text element="span" weight={textWeight}>
-            {`${amount}x ${restrictions.weight}kg `}
+            {`${restrictions.weight}kg `}
             {getTextFromCategory(category)}
           </Text>
         </Stack>

@@ -58,11 +58,11 @@ export type BaggageType = {
 };
 
 export type TileItem = {
-  amount: number,
   category: BaggageSubCategory,
   restrictions: Restrictions,
 };
 export type ItemType = TileItem & {
+  amount: number,
   conditions: {
     isPriority?: Array<string>,
     passengerGroups: Array<PassengerGroup>,
