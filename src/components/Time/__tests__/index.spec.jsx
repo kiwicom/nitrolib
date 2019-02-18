@@ -1,16 +1,17 @@
 // @flow strict
 import * as React from "react";
 import { mount } from "enzyme";
+import format from "date-fns/format";
 
 import Time from "..";
 
+jest.mock("date-fns/format"); // I don't like this, but better than dates
+
 describe("#Time", () => {
   test("format", () => {
-    const time = new Date(Date.UTC(2019, 2, 8, 11, 30));
-    const wrapper = mount(<Time time={time} />);
+    format.mockImplementation(() => "11:30");
+    const wrapper = mount(<Time time={new Date()} />);
 
-    console.log(time);
-
-    expect(wrapper.contains("12:30")).toBe(true);
+    expect(wrapper.contains("11:30")).toBe(true);
   });
 });
