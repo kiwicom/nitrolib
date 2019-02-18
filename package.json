@@ -20,7 +20,7 @@
     "fetch": "node ./bin/nitro.js fetch",
     "fixtures": "node ./bin/nitro.js keys 'src/**/*.{js,jsx}' && yarn fetch && node ./etc/fetchFixtures.js",
     "storybook": "start-storybook -p 6006",
-    "storybook:build": "NODE_OPTIONS='--max-old-space-size=4096' build-storybook -o dist-storybook",
+    "storybook:build": "build-storybook -o dist-storybook",
     "prepare": "rimraf lib && run-p test lint lint:css && yarn build && yarn typecheck",
     "localsync": "rimraf lib && yarn build && yalc push"
   },
