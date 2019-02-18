@@ -6,6 +6,7 @@ import InformationCircle from "@kiwicom/orbit-components/lib/icons/InformationCi
 
 import Price from "../../../Price";
 import { Consumer } from "../../../../services/currency/context";
+import Translate from "../../../Translate";
 
 type Props = {
   totalPrice: number,
@@ -14,7 +15,7 @@ type Props = {
 const TotalPayment = ({ totalPrice }: Props) => (
   <Stack justify="between">
     <Text>
-      Total
+      <Translate t="common.baggage.payment.total" />
       <Consumer>{({ currency }) => ` (${currency.name}) `}</Consumer>
       <InformationCircle size="small" color="secondary" />
     </Text>

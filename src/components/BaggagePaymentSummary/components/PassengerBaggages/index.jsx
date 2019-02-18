@@ -6,6 +6,7 @@ import Text from "@kiwicom/orbit-components/lib/Text";
 import Price from "../../../Price";
 import { getTextFromCategory } from "../../../../services/baggage/utils";
 import type { ItemType } from "../../../../records/Baggage";
+import Translate from "../../../Translate";
 
 type Props = {
   firstName: string,
@@ -21,8 +22,7 @@ const PassengerBaggages = ({ firstName, lastName, baggage, price }: Props) => (
   <Stack spaceAfter="medium" spacing="tight">
     <Stack flex justify="between">
       <Text>
-        Baggage for
-        {` ${firstName} ${lastName}`}
+        <Translate t="common.baggage.baggage_for" values={{ firstName, lastName }} />
       </Text>
       <Text>
         <Price value={price} />
@@ -32,7 +32,7 @@ const PassengerBaggages = ({ firstName, lastName, baggage, price }: Props) => (
       {baggage.handBag.map((bag, index) => (
         <Stack key={index} /* eslint-disable-line */>
           <Text type="secondary" element="span">
-            {`${bag.amount}x `}
+            {`${bag.amount}× `}
             {getTextFromCategory(bag.category)}
           </Text>
         </Stack>

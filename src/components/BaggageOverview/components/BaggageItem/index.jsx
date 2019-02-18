@@ -95,7 +95,7 @@ const BaggageItem = ({ passengers, category, amount, restrictions, isPassengersS
         <TextWrapper>
           <Text element="p">
             <Title>
-              {`${amount}x `}
+              {`${amount}× `}
               {category === "holdBag" && `${restrictions.weight}kg  `}
               {getTextFromCategory(category, x => x.toLowerCase())}
             </Title>

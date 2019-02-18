@@ -91,7 +91,7 @@ const OptionItem = ({ firstItem, amount, restrictions, category, price }: Props)
             <Title>
               {amount > 1 && (
                 <Text element="span" weight="bold">
-                  {`${amount}x `}
+                  {`${amount}× `}
                 </Text>
               )}
               {isHoldBag && `${restrictions.weight}kg`}{" "}
