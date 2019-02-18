@@ -1038,6 +1038,11 @@
     request-promise "^4.1.1"
     yargs "^8.0.2"
 
+"@kiwicom/eslint-config-nitro@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/eslint-config-nitro/-/eslint-config-nitro-1.0.0.tgz#3daab60afb167ae0e9bd3b388494cd52082d962f"
+  integrity sha512-dneZYAEKprFyG0iAKucBGZyXICJxKuAvd7fCurQ716b+GogEeCZA0Mq8d6libCHYAu/RegPMYy5xJwcfRg85YA==
+
 "@kiwicom/orbit-components@^0.30.0":
   version "0.30.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.30.0.tgz#33093d51e1702d3510946db56df5d365e7dda648"
@@ -4485,6 +4490,13 @@ eslint-plugin-react@^7.11.1:
     object.fromentries "^2.0.0"
     prop-types "^15.6.2"
     resolve "^1.9.0"
+
+eslint-plugin-relay@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-relay/-/eslint-plugin-relay-1.0.0.tgz#5188d698aeb359be4f988c2b6c78154530039cc6"
+  integrity sha512-Cp/qpdIzryvxnKnCQE4wAbW9z5ix08deOwOx+EAMwkPfGoyyrMitnTAWS6zOmWXlibr2JKEhASlLfCNjyl0E3g==
+  dependencies:
+    graphql "^14.0.0"
 
 eslint-restricted-globals@^0.1.1:
   version "0.1.1"
