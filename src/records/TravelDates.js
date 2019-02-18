@@ -1,6 +1,6 @@
-// @flow
+// @flow strict
 
 export type TravelDates = {|
-  +from: string,
-  +to: string,
+  from: string,
+  to: string,
 |};
