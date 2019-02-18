@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import * as React from "react";
 import Text from "@kiwicom/orbit-components/lib/Text";
