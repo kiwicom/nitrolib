@@ -1039,6 +1039,11 @@
     "lcc": 0,
     "name": "Wizz Air UK"
   },
+  "7E": {
+    "id": "7E",
+    "lcc": 0,
+    "name": "Sylt Air"
+  },
   "CT": {
     "id": "CT",
     "lcc": 0,
@@ -1093,11 +1098,6 @@
     "id": "B9",
     "lcc": 0,
     "name": "Air Bangladesh"
-  },
-  "7E": {
-    "id": "7E",
-    "lcc": 0,
-    "name": "Aeroline GmbH"
   },
   "5Y": {
     "id": "5Y",
@@ -2499,6 +2499,11 @@
     "lcc": 0,
     "name": "NetJets"
   },
+  "9Q": {
+    "id": "9Q",
+    "lcc": 0,
+    "name": "PB Air"
+  },
   "SB": {
     "id": "SB",
     "lcc": 0,
@@ -2558,11 +2563,6 @@
     "id": "QJ",
     "lcc": 0,
     "name": "Jet Airways"
-  },
-  "9Q": {
-    "id": "9Q",
-    "lcc": 0,
-    "name": "PB Air"
   },
   "EV": {
     "id": "EV",
@@ -3018,11 +3018,6 @@
     "id": "M3",
     "lcc": 0,
     "name": "Air Norway"
-  },
-  "BZ": {
-    "id": "BZ",
-    "lcc": 0,
-    "name": "Black Stallion Airways"
   },
   "EZ": {
     "id": "EZ",
@@ -3994,6 +3989,21 @@
     "lcc": null,
     "name": "Governors Aviation"
   },
+  "BZ": {
+    "id": "BZ",
+    "lcc": 0,
+    "name": "Blue Bird Airways"
+  },
+  "F4": {
+    "id": "F4",
+    "lcc": null,
+    "name": "Air Flamenco"
+  },
+  "STEWISLAND": {
+    "id": "STEWISLAND",
+    "lcc": null,
+    "name": "Stewart Island Flights"
+  },
   "8A": {
     "id": "8A",
     "lcc": 0,
@@ -4114,6 +4124,11 @@
     "lcc": null,
     "name": "Air Excel Limited"
   },
+  "UNIAIR": {
+    "id": "UNIAIR",
+    "lcc": null,
+    "name": "Unity Air"
+  },
   "J2": {
     "id": "J2",
     "lcc": 0,
@@ -4168,6 +4183,11 @@
     "id": "7D",
     "lcc": null,
     "name": "Madagasikara Airways"
+  },
+  "GRENADINE": {
+    "id": "GRENADINE",
+    "lcc": null,
+    "name": "Grenadine Airways"
   },
   "U3": {
     "id": "U3",
