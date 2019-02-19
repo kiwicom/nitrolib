@@ -10,6 +10,7 @@ import type { ThemeProps } from "../../../../records/Theme";
 import type { PriceType, Restrictions, BaggageSubCategory } from "../../../../records/Baggage";
 import { getIconFromCategory, getTextFromCategory } from "../../../../services/baggage/utils";
 import Price from "../../../Price";
+import Translate from "../../../Translate";
 
 type Props = {|
   amount: number,
@@ -17,6 +18,7 @@ type Props = {|
   firstItem: boolean,
   price: PriceType,
   category: BaggageSubCategory,
+  isCurrentCombination: boolean,
 |};
 
 type BaggageSizeTextProps = ThemeProps & {
@@ -78,10 +80,28 @@ const BaggageInfoWrapper = styled.div`
   `)};
 `;
 
-const OptionItem = ({ firstItem, amount, restrictions, category, price }: Props) => {
+const OptionItem = ({
+  firstItem,
+  amount,
+  restrictions,
+  category,
+  price,
+  isCurrentCombination,
+}: Props) => {
   const getBaggageSize = ({ height, length, weight, width }) =>
     `${length} x ${width} x ${height} cm, ${weight} kg`;
   const isHoldBag = category === "holdBag";
+
+  const getFirstItemInfo = (isCurrent, priceValue) =>
+    isCurrent ? (
+      <Text element="span" weight="bold" type="secondary">
+        <Translate t="common.baggage.current" />
+      </Text>
+    ) : (
+      <Text element="span" weight="bold">
+        <Price value={priceValue} />
+      </Text>
+    );
   return (
     <Stack shrink align="center">
       <Stack shrink spacing="condensed">
@@ -103,13 +123,7 @@ const OptionItem = ({ firstItem, amount, restrictions, category, price }: Props)
       </Stack>
       <BaggageInfoWrapper>
         <BaggageSizeText>{getBaggageSize(restrictions)}</BaggageSizeText>
-        {firstItem ? (
-          <Text element="span" weight="bold">
-            <Price value={price.amount} />
-          </Text>
-        ) : (
-          <span />
-        )}
+        {firstItem ? getFirstItemInfo(isCurrentCombination, price.amount) : <span />}
       </BaggageInfoWrapper>
     </Stack>
   );

@@ -27,6 +27,7 @@ type Props = {|
   onChange: (pickerType: BaggageCategory, index: number) => void,
   selectedIndex: number,
   context: "booking" | "mmb",
+  currentCombination?: number,
 |};
 
 const TooltipContent = styled.p`
@@ -117,7 +118,14 @@ class BaggagePicker extends React.Component<Props, State> {
     );
 
   render() {
-    const { context, pickerType, options, selectedIndex, onChange } = this.props;
+    const {
+      context,
+      pickerType,
+      options,
+      selectedIndex,
+      onChange,
+      currentCombination,
+    } = this.props;
     const { showedItems, hiddenItems } = this.state;
 
     return (
@@ -151,6 +159,7 @@ class BaggagePicker extends React.Component<Props, State> {
               items={item.items}
               price={item.price}
               isChecked={item.originalIndex === selectedIndex}
+              isCurrentCombination={item.originalIndex === currentCombination}
               onClick={() => onChange(pickerType, item.originalIndex)}
             />
           ))

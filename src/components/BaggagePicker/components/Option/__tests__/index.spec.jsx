@@ -48,6 +48,7 @@ const props = {
   },
   isChecked: false,
   onClick: jest.fn(),
+  isCurrentCombination: false,
 };
 
 const context = {

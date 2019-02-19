@@ -11,6 +11,7 @@ const props = {
   onChange: () => {},
   selectedIndex: 5,
   context: "booking",
+  currentCombination: undefined,
 };
 
 describe("#BaggagePicker", () => {

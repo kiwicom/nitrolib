@@ -21,6 +21,7 @@ const props = {
     handBag: 1,
     holdBag: 6,
   },
+  currentCombination: undefined,
 };
 
 describe("#BaggagePicker", () => {

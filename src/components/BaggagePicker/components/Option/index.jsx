@@ -23,6 +23,7 @@ type Props = {
   items: { [key: string]: ItemType },
   price: PriceType,
   isChecked: boolean,
+  isCurrentCombination: boolean,
   onClick: () => void,
 };
 
@@ -114,7 +115,7 @@ const EmptyLabel = () => (
   </Stack>
 );
 
-const Option = ({ items, price, isChecked, onClick }: Props) => {
+const Option = ({ items, price, isChecked, onClick, isCurrentCombination }: Props) => {
   const itemsArr = Object.keys(items).map(key => items[key]);
   const hasSingleItem = itemsArr.length === 1;
   const firstItem = itemsArr[0];
@@ -153,6 +154,7 @@ const Option = ({ items, price, isChecked, onClick }: Props) => {
                       category={item.category}
                       firstItem={item === itemsArr[0]}
                       price={price}
+                      isCurrentCombination={isCurrentCombination}
                     />
                   ))
                 ) : (

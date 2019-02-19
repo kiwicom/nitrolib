@@ -33,6 +33,7 @@ const props = {
   baggage: baggageData,
   airlines,
   context: "booking",
+  currentCombination: undefined,
 };
 
 storiesOf("BaggagePicker", module)
@@ -57,6 +58,32 @@ storiesOf("BaggagePicker", module)
         }}
         shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}
+      />
+    </div>
+  ))
+  .add("mmb", () => (
+    <div style={{ padding: "24px" }}>
+      <BaggagePicker
+        pickerType="handBag"
+        passengerBaggage={{
+          handBag: select("Handbag", handBagOptions, 1, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
+        }}
+        shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
+        {...props}
+        context="mmb"
+        currentCombination={0}
+      />
+      <BaggagePicker
+        pickerType="holdBag"
+        passengerBaggage={{
+          handBag: select("Handbag", handBagOptions, 1, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
+        }}
+        shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
+        {...props}
+        context="mmb"
+        currentCombination={1}
       />
     </div>
   ))

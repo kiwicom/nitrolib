@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 
 import OptionItem from "../index";
 
@@ -23,11 +23,19 @@ const props = {
     serviceFlat: 0,
   },
   category: "cabinBag",
+  isCurrentCombination: false,
 };
 
 describe("#OptionItem", () => {
   test("render ", () => {
     const wrapper = shallow(<OptionItem {...props} />);
     expect(wrapper.find("Stack").exists()).toBe(true);
+  });
+  test("render current info", () => {
+    const wrapper = mount(<OptionItem {...props} isCurrentCombination />);
+    expect(wrapper.find("OptionItem__BaggageInfoWrapper").exists()).toBe(true);
+    expect(wrapper.find("OptionItem__BaggageInfoWrapper span").text()).toEqual(
+      "common.baggage.current",
+    );
   });
 });

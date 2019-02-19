@@ -24,6 +24,7 @@ type Props = {
   airlines: { [string]: Airline },
   pickerType: BaggageCategory,
   context: "booking" | "mmb",
+  currentCombination?: number,
 };
 
 class Baggage extends React.Component<Props> {
@@ -81,6 +82,7 @@ class Baggage extends React.Component<Props> {
       shouldShowRecheckNote,
       context,
       airlines,
+      currentCombination,
     } = this.props;
     const baggageOptions = this.getOptions();
 
@@ -92,6 +94,7 @@ class Baggage extends React.Component<Props> {
           options={baggageOptions}
           selectedIndex={passengerBaggage[pickerType]}
           onChange={changeBagCombination}
+          currentCombination={currentCombination}
         />
       </Provider>
     );
