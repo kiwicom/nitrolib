@@ -3,7 +3,6 @@ import * as React from "react";
 import styled from "styled-components";
 import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
 import Text from "@kiwicom/orbit-components/lib/Text";
-import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 
 import BaggageItem from "../BaggageItem";
 import type { TileItem } from "../../../../records/Baggage";
