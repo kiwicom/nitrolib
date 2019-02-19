@@ -30,8 +30,16 @@ Wrapper.defaultProps = {
 const ContactUsText = styled.p`
   color: ${({ theme }): ThemeProps => theme.orbit.colorTextPrimary};
   font-size: ${({ theme }) => theme.orbit.fontSizeTextNormal};
+  font-weight: ${({ theme }) => theme.orbit.fontWeightMedium};
   font-family: ${({ theme }): ThemeProps => theme.orbit.fontFamily};
   margin-right: ${({ theme }): ThemeProps => theme.orbit.spaceMedium};
+  a {
+    color: ${({ theme }) => theme.orbit.colorTextPrimary};
+
+    &:hover {
+      color: ${({ theme }) => theme.orbit.colorTextLinkPrimaryHover};
+    }
+  }
 `;
 
 ContactUsText.defaultProps = {
@@ -75,7 +83,7 @@ const TileContent = ({ handBags, holdBags, orderStatus }: Props) => {
       )}
       {orderStatus === "notAvailable" && (
         <ContactUsText>
-          To add a baggage to your trip, please <TextLink>contact us</TextLink>
+          <Translate t="common.baggage.contact_support" values={{ link: "www.kiwi.com" }} html />
         </ContactUsText>
       )}
     </Wrapper>
