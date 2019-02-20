@@ -12,13 +12,11 @@ const DatePickerWrapper = styled.div`
   z-index: 2;
   width: 100%;
   padding: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
-  margin-top: 10px;
+  margin: ${({ theme }: ThemeProps) => `-${theme.orbit.spaceSmall}`};
   border-radius: 4px;
+  
   position: absolute;
   ${({ active }: ActiveProps) => active && `box-shadow: 0 20px 60px 0 rgba(23, 27, 30, 0.4)`};
-  ${media.largeMobile(css`
-    width: 400px;
-  `)}
 `;
 
 DatePickerWrapper.defaultProps = {

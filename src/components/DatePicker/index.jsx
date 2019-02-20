@@ -88,8 +88,8 @@ export default class DatePicker extends React.Component<Props, State> {
     const { active, viewing } = this.state;
 
     return (
-      <ClickOutside active={active} onClickOutside={this.handleClose}>
-        <DatePickerWrapper active={active}>
+      <DatePickerWrapper active={active}>
+        <ClickOutside active={active} onClickOutside={this.handleClose}>
           <IntlConsumer>
             {intl => (
               <>
@@ -115,8 +115,8 @@ export default class DatePicker extends React.Component<Props, State> {
               </>
             )}
           </IntlConsumer>
-        </DatePickerWrapper>
-      </ClickOutside>
+        </ClickOutside>
+      </DatePickerWrapper>
     );
   }
 }
