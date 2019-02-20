@@ -3,7 +3,6 @@ import * as React from "react";
 import { graphql, QueryRenderer } from "react-relay";
 import type { Environment } from "react-relay";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
-import styled from "styled-components";
 
 import Translate from "../../../../../Translate";
 import TripHeader from "../TripHeader";
@@ -15,10 +14,6 @@ type Props = {|
   // DI
   env: Environment,
 |};
-
-const StateContainer = styled.div`
-  padding: 10px;
-`;
 
 const TripDataList = ({ env, onSelect }: Props) => (
   <QueryRenderer
@@ -36,9 +31,7 @@ const TripDataList = ({ env, onSelect }: Props) => (
       if (res.error) {
         return (
           <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
-            <StateContainer>
-              <Alert type="critical">{String(res.error)}</Alert>
-            </StateContainer>
+            <Alert type="critical">{String(res.error)}</Alert>
           </TripContainer>
         );
       }
@@ -46,9 +39,7 @@ const TripDataList = ({ env, onSelect }: Props) => (
       if (!res.props) {
         return (
           <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
-            <StateContainer>
-              <Translate t="common.loading" />
-            </StateContainer>
+            <Translate t="common.loading" />
           </TripContainer>
         );
       }
@@ -57,11 +48,9 @@ const TripDataList = ({ env, onSelect }: Props) => (
       if (!customerBookings) {
         return (
           <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
-            <StateContainer>
-              <Alert>
-                <Translate t="account.no_trips" />
-              </Alert>
-            </StateContainer>
+            <Alert>
+              <Translate t="account.no_trips" />
+            </Alert>
           </TripContainer>
         );
       }
