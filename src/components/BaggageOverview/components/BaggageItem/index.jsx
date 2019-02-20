@@ -4,8 +4,8 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import styled, { css } from "styled-components";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import mq from "../../../../styles/mq";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import type { BaggageSubCategory, Restrictions } from "../../../../records/Baggage";
@@ -13,31 +13,33 @@ import { getTextFromCategory, getIconFromCategory } from "../../../../services/b
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
 
-  ${mq.ltMiddleMobile(css`
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 20px;
+  ${mq.mediumMobile(css`
+    flex-direction: row;
+    margin-bottom: 0px;
   `)};
 `;
 
 const TextWrapper = styled.div`
   display: flex;
   width: 100%;
-  flex-direction: row;
   flex-wrap: nowrap;
   flex-grow: 1;
   flex-shrink: 1;
   justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
 
-  ${mq.ltBigMobile(css`
+  ${mq.mediumMobile(css`
     flex-direction: column;
     align-items: flex-start;
   `)};
-  ${mq.ltMiddleMobile(css`
+  ${mq.largeMobile(css`
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
   `)};
 
   > * {
@@ -56,16 +58,18 @@ const Title = styled.span`
 const PassengersWrapper = styled.div`
   display: flex;
   width: 100%;
-  line-height: 24px;
   align-items: center;
-  svg {
-    margin-right: ${({ theme }): ThemeProps => theme.orbit.spaceXSmall};
+  span {
+    line-height: 1;
   }
-  ${mq.ltMiddleMobile(css`
+  svg {
+    /* fix of different icon sizing */
+    margin-left: 3px;
+    margin-right: 11px;
+  }
+  ${mq.mediumMobile(css`
     svg {
-      /* fix of different icon sizing */
-      margin-left: 3px;
-      margin-right: 11px;
+      margin-right: ${({ theme }): ThemeProps => theme.orbit.spaceXSmall};
     }
   `)};
 `;

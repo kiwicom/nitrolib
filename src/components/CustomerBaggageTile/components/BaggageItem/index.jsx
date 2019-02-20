@@ -3,21 +3,23 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import type { TileItem } from "../../../../records/Baggage";
 import { getIconFromCategory, getTextFromCategory } from "../../../../services/baggage/utils";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import mq from "../../../../styles/mq";
 
 const BaggageRestrictionsWrapper = styled.div`
-  display: flex;
-  width: 100%;
-  ${mq.ltBigMobile(css`
+  display: none;
+
+  ${mq.mediumMobile(css`
+    display: flex;
     width: 80%;
   `)};
-  ${mq.ltMiddleMobile(css`
-    display: none;
+  ${mq.largeMobile(css`
+    display: flex;
+    width: 100%;
   `)};
 `;
 type BaggageRestrictionsProps = ThemeProps & {
@@ -25,15 +27,15 @@ type BaggageRestrictionsProps = ThemeProps & {
 };
 
 const BaggageRestrictions = styled.span`
-  display: ${({ isMobile }: BaggageRestrictionsProps) => (isMobile ? "none" : "block")};
+  display: ${({ isMobile }: BaggageRestrictionsProps) => (isMobile ? "inline-block" : "none")};
+  padding-left: ${({ isMobile }: BaggageRestrictionsProps) => (isMobile ? "24px" : "0px")};
   color: ${({ theme }): ThemeProps => theme.orbit.colorTextSecondary};
   font-size: ${({ theme, isMobile }: BaggageRestrictionsProps) =>
     isMobile ? theme.orbit.fontSizeTextNormal : "inherit"};
   font-family: ${({ theme }): ThemeProps => theme.orbit.fontFamily};
 
-  ${mq.ltMiddleMobile(css`
-    display: ${({ isMobile }: BaggageRestrictionsProps) => (isMobile ? "inline-block" : "none")};
-    padding-left: ${({ isMobile }: BaggageRestrictionsProps) => (isMobile ? "24px" : "0px")};
+  ${mq.mediumMobile(css`
+    display: ${({ isMobile }: BaggageRestrictionsProps) => (isMobile ? "none" : "block")};
   `)};
 `;
 
@@ -41,9 +43,6 @@ BaggageRestrictions.defaultProps = {
   theme: themeDefault,
   isMobile: false,
 };
-
-const getBaggageSize = ({ height, length, weight, width }) =>
-  `${length} x ${width} x ${height} cm, ${weight} kg`;
 
 const Wrapper = styled.div`
   width: 100%;
@@ -53,6 +52,9 @@ const Wrapper = styled.div`
 
 const BaggageItem = ({ category, restrictions }: TileItem) => {
   const textWeight = category === "holdBag" ? "bold" : "normal";
+  const getBaggageSize = ({ height, length, weight, width }) =>
+    `${length} x ${width} x ${height} cm, ${weight} kg`;
+
   return (
     <Wrapper>
       <Stack shrink spacing="tight" direction="column">

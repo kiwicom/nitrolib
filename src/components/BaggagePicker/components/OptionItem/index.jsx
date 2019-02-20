@@ -3,8 +3,8 @@ import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import styled, { css } from "styled-components";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import mq from "../../../../styles/mq";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import type { PriceType, Restrictions, BaggageSubCategory } from "../../../../records/Baggage";
@@ -26,15 +26,15 @@ type BaggageSizeTextProps = ThemeProps & {
 };
 
 const BaggageSizeText = styled.p`
-  display: ${({ isMobile }: BaggageSizeTextProps) => (isMobile ? "none" : "block")};
+  display: ${({ isMobile }: BaggageSizeTextProps) => (isMobile ? "block" : "none")};
   color: ${({ theme }): ThemeProps => theme.orbit.colorTextSecondary};
   font-size: ${({ theme, isMobile }: BaggageSizeTextProps) =>
     isMobile ? theme.orbit.fontSizeTextSmall : theme.orbit.fontSizeTextNormal};
   font-family: ${({ theme }): ThemeProps => theme.orbit.fontFamily};
   margin: 0;
 
-  ${mq.ltBigMobile(css`
-    display: ${({ isMobile }: BaggageSizeTextProps) => (isMobile ? "block" : "none")};
+  ${mq.largeMobile(css`
+    display: ${({ isMobile }: BaggageSizeTextProps) => (isMobile ? "none" : "block")};
   `)};
 `;
 
@@ -53,10 +53,6 @@ const TitleWrapper = styled.div`
   justify-content: flex-start;
   align-content: center;
 
-  ${mq.ltBigMobile(css`
-    display: flex;
-  `)};
-
   > * {
     margin-right: ${({ theme }): ThemeProps => theme.orbit.spaceXSmall};
   }
@@ -72,11 +68,11 @@ const Title = styled.span`
 
 const BaggageInfoWrapper = styled.div`
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  ${mq.ltBigMobile(css`
-    justify-content: flex-end;
-    width: 50%;
+  justify-content: flex-end;
+  width: 50%;
+  ${mq.largeMobile(css`
+    width: 100%;
+    justify-content: space-between;
   `)};
 `;
 
