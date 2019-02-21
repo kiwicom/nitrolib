@@ -105,6 +105,7 @@
     "enzyme-adapter-react-16": "^1.7.0",
     "enzyme-to-json": "^3.3.4",
     "eslint": "^5.14.0",
+    "eslint-plugin-prettier": "^3.0.1",
     "fetch-mock": "^7.3.0",
     "flow-bin": "^0.87.0",
     "graphql": "^14.1.1",
