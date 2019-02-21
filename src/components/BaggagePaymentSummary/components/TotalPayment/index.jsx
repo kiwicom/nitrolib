@@ -1,19 +1,33 @@
 // @flow
 import * as React from "react";
-import Stack from "@kiwicom/orbit-components/lib/Stack";
+import styled from "styled-components";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import InformationCircle from "@kiwicom/orbit-components/lib/icons/InformationCircle";
 
 import Price from "../../../Price";
 import { Consumer } from "../../../../services/currency/context";
 import Translate from "../../../Translate";
+import type { ThemeProps } from "../../../../records/Theme";
+import { themeDefault } from "../../../../records/Theme";
 
 type Props = {
   totalPrice: number,
 };
 
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  svg {
+    margin-left: ${({ theme }: ThemeProps) => theme.orbit.spaceXXSmall};
+  }
+`;
+
+Wrapper.defaultProps = {
+  theme: themeDefault,
+};
+
 const TotalPayment = ({ totalPrice }: Props) => (
-  <Stack justify="between">
+  <Wrapper>
     <Text>
       <Consumer>
         {({ currency }) => (
@@ -25,7 +39,7 @@ const TotalPayment = ({ totalPrice }: Props) => (
     <Text>
       <Price value={totalPrice} />
     </Text>
-  </Stack>
+  </Wrapper>
 );
 
 export default TotalPayment;

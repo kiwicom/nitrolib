@@ -33,19 +33,18 @@ type OptionWrapperProps = ThemeProps & {
 
 const OptionWrapper = styled.div`
   padding: ${({ theme }) => theme.orbit.spaceSmall};
-  border-radius: ${({ theme }) => theme.orbit.borderRadiusNormal};
   box-shadow: 0 1px 2px 0 ${({ theme }: ThemeProps) => theme.orbit.paletteWhiteHover};
-  border: solid
+  border: solid 2px
     ${({ theme, checked }: OptionWrapperProps) =>
-      checked
-        ? `2px ${theme.orbit.colorTextButtonPrimaryBordered}`
-        : `1px ${theme.orbit.borderColorCard}`};
+      checked ? `${theme.orbit.colorTextButtonPrimaryBordered}` : `${theme.orbit.borderColorCard}`};
+  border-radius: ${({ theme }) => theme.orbit.borderRadiusNormal};
+  outline: solid 1px white;
+  outline-offset: ${({ checked }) => (checked ? "-3px" : "-2px")};
   &:hover {
-    border-width: 2px;
-    border-color: ${({ theme }: ThemeProps) => theme.orbit.borderColorCheckboxRadioHover};
     cursor: pointer;
-    span {
-      border-width: 4px;
+    border-color: ${({ theme }: ThemeProps) => theme.orbit.borderColorCheckboxRadioHover};
+    outline-offset: -3px;
+    label div {
       border-color: ${({ theme }: ThemeProps) => theme.orbit.borderColorCheckboxRadioHover};
     }
   }
