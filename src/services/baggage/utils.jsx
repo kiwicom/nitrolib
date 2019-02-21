@@ -24,11 +24,11 @@ export const getTextFromCategory = (
 ) => {
   switch (category) {
     case "personalItem":
-      return <Translate t="common.baggage.personal_item" />;
+      return <Translate t="baggage_modal.select.personal_item" />;
     case "cabinBag":
-      return <Translate t="common.baggage.cabin_bag" />;
+      return <Translate t="baggage_modal.select.cabin_bag" />;
     case "holdBag":
-      return <Translate t="common.baggage.checked_bag" transform={transform} />;
+      return <Translate t="baggage_modal.select.checked_bag" transform={transform} />;
     default:
       return undefined;
   }

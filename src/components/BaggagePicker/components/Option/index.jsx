@@ -78,28 +78,15 @@ IconWrapper.defaultProps = {
 };
 
 const PriorityBoardingInfo = ({ airlines }: { airlines: Array<string> }) => {
-  const arrToHumanString = (arr: Array<string>, conjunction): string => {
-    if (arr.length === 1) return arr[0];
-    const firsts = arr.slice(0, -1);
-    const last = arr.slice(-1)[0];
-    return `${firsts.join(", ")} ${conjunction} ${last}`;
-  };
   return (
     <Stack flex direction="row" spacing="condensed" align="center">
       <IconWrapper>
         <PriorityBoarding color="secondary" size="small" />
       </IconWrapper>
       <Text size="small" element="p">
-        <IntlConsumer>
-          {({ translate }) => (
-            <Translate
-              t="common.baggage.priority_boarding"
-              values={{ airlines: arrToHumanString(airlines, translate(__("common.baggage.and"))) }}
-            />
-          )}
-        </IntlConsumer>
+        <Translate t="baggage_modal.priority_boarding" values={{ airlines: airlines.join(", ") }} />{" "}
         <TextLink external={false} onClick={() => {}} href="https://kiwi.com" type="secondary">
-          <Translate t="common.baggage.learn_more" />
+          <Translate t="baggage_modal.learn_more" />
         </TextLink>
       </Text>
     </Stack>
@@ -110,7 +97,7 @@ const EmptyLabel = () => (
   <Stack spacing="condensed" flex align="center">
     <Close size="medium" />
     <Text>
-      <Translate t="common.baggage.no_checked_baggage" />
+      <Translate t="baggage_modal.select.no_checked_baggage" />
     </Text>
   </Stack>
 );
@@ -164,7 +151,7 @@ const Option = ({ items, price, isChecked, onClick, isCurrentCombination }: Prop
                   <Stack flex align="center" spacing="tight">
                     <BaggagePersonalItemNone color={isChecked ? "warning" : "secondary"} />
                     <Text type={isChecked ? "warning" : "secondary"}>
-                      <Translate t="common.baggage.no_personal_item" />
+                      <Translate t="baggage_modal.select.no_personal_item" />
                     </Text>
                   </Stack>
                 )}
@@ -175,7 +162,7 @@ const Option = ({ items, price, isChecked, onClick, isCurrentCombination }: Prop
             </Stack>
             {shouldShowRecheckNote && firstItem && firstItem.category === "holdBag" && isChecked && (
               <Alert>
-                <Translate t="common.baggage.alert.collect_and_recheck" />
+                <Translate t="baggage_modal.alert.collect_and_recheck" />
               </Alert>
             )}
           </OptionWrapper>

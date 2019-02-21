@@ -15,8 +15,11 @@ type Props = {
 const TotalPayment = ({ totalPrice }: Props) => (
   <Stack justify="between">
     <Text>
-      <Translate t="common.baggage.payment.total" />
-      <Consumer>{({ currency }) => ` (${currency.name}) `}</Consumer>
+      <Consumer>
+        {({ currency }) => (
+          <Translate t="baggage_modal.payment.total" values={{ currency: currency.name }} />
+        )}
+      </Consumer>
       <InformationCircle size="small" color="secondary" />
     </Text>
     <Text>

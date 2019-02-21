@@ -76,13 +76,13 @@ const TileContent = ({ handBags, holdBags, orderStatus }: Props) => {
         <NoPersonalItemWrapper>
           <Text element="span" type="secondary">
             <BaggagePersonalItemNone size="small" />
-            <Translate t="common.baggage.no_personal_item" />
+            <Translate t="baggage_modal.select.no_personal_item" />
           </Text>
         </NoPersonalItemWrapper>
       )}
       {orderStatus === "notAvailable" && (
         <ContactUsText>
-          <Translate t="common.baggage.contact_support" values={{ link: "www.kiwi.com" }} html />
+          <Translate t="baggage_modal.contact_support" values={{ link: "/support" }} html />
         </ContactUsText>
       )}
     </Wrapper>

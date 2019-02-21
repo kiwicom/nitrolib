@@ -91,7 +91,7 @@ const OptionItem = ({
   const getFirstItemInfo = (isCurrent, priceValue) =>
     isCurrent ? (
       <Text element="span" weight="bold" type="secondary">
-        <Translate t="common.baggage.current" />
+        <Translate t="baggage_modal.select.current" />
       </Text>
     ) : (
       <Text element="span" weight="bold">

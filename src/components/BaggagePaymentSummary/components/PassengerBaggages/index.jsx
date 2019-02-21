@@ -22,7 +22,7 @@ const PassengerBaggages = ({ firstName, lastName, baggage, price }: Props) => (
   <Stack spaceAfter="medium" spacing="tight">
     <Stack flex justify="between">
       <Text>
-        <Translate t="common.baggage.baggage_for" values={{ firstName, lastName }} />
+        <Translate t="baggage_modal.summary.baggage_for" values={{ firstName, lastName }} />
       </Text>
       <Text>
         <Price value={price} />

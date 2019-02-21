@@ -106,7 +106,7 @@ const BaggageOverview = ({ baggage, passengers, currentPassengerId }: Props) => 
         <Stack shrink spacing="condensed" align="center">
           <BaggagePersonalItemNone size="medium" color="primary" />
           <Text>
-            <Translate t="common.baggage.no_personal_item" />
+            <Translate t="baggage_modal.select.no_personal_item" />
           </Text>
         </Stack>
       )}

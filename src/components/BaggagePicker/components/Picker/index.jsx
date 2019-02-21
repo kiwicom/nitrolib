@@ -98,23 +98,23 @@ class BaggagePicker extends React.Component<Props, State> {
 
   getTitle = (type: string): React$Node =>
     type === "handBag" ? (
-      <Translate t="common.baggage.cabin_baggage" />
+      <Translate t="baggage_modal.subheader.cabin_baggage" />
     ) : (
-      <Translate t="common.baggage.checked_baggage" />
+      <Translate t="baggage_modal.subheader.checked_baggage" />
     );
 
   getTooltip = (type: string): React$Node =>
     type === "handBag" ? (
-      <Translate t="common.baggage.tooltip.cabin_baggage" />
+      <Translate t="baggage_modal.tooltip.cabin_baggage" />
     ) : (
-      <Translate t="common.baggage.tooltip.checked_baggage" />
+      <Translate t="baggage_modal.tooltip.checked_baggage" />
     );
 
   getEmptyOptionText = (type: string): React$Node =>
     type === "handBag" ? (
-      <Translate t="common.baggage.cabin_baggage_not_available" />
+      <Translate t="baggage_modal.error.cabin_baggage_not_available" />
     ) : (
-      <Translate t="common.baggage.checked_baggage_not_available" />
+      <Translate t="baggage_modal.error.checked_baggage_not_available" />
     );
 
   render() {
@@ -145,9 +145,9 @@ class BaggagePicker extends React.Component<Props, State> {
         {options.length > 0 && (
           <Text>
             {context === "booking" ? (
-              <Translate t="common.baggage.select_option" />
+              <Translate t="baggage_modal.subheader.select_option" />
             ) : (
-              <Translate t="common.baggage.switch_option" />
+              <Translate t="baggage_modal.subheader.switch_option" />
             )}
             :
           </Text>
@@ -177,7 +177,7 @@ class BaggagePicker extends React.Component<Props, State> {
               type="secondary"
               icon={<ChevronDown />}
             >
-              <Translate t="common.baggage.show_more" values={{ number: hiddenItems }} />
+              <Translate t="baggage_modal.select.show_more" values={{ number: hiddenItems }} />
             </Button>
           </Flex>
         )}

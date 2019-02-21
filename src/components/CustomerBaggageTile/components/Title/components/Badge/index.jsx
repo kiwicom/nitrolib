@@ -24,11 +24,11 @@ const TooltipContent = styled.p`
 const getTooltipText = (status: OrderStatusType) => {
   switch (status) {
     case "unpaid":
-      return <Translate t="common.baggage.tooltip.unpaid" />;
+      return <Translate t="baggage_modal.tooltip.unpaid" />;
     case "processing":
-      return <Translate t="common.baggage.tooltip.processing" />;
+      return <Translate t="baggage_modal.tooltip.processing" />;
     case "notAvailable":
-      return <Translate t="common.baggage.tooltip.notAvailable" />;
+      return <Translate t="baggage_modal.tooltip.not_available" />;
     default:
       return undefined;
   }
@@ -43,7 +43,7 @@ const getBadge = (status: OrderStatusType, price?: PriceType) => {
           <Consumer>
             {({ currency }) => (
               <Translate
-                t="common.baggage.badge.unpaid"
+                t="baggage_modal.badge.unpaid"
                 values={{ price: price ? format(currency, price.amount) : "" }}
               />
             )}
@@ -54,14 +54,14 @@ const getBadge = (status: OrderStatusType, price?: PriceType) => {
       return (
         <Badge type="info">
           <Reload size="small" />
-          <Translate t="common.baggage.badge.processing" />
+          <Translate t="baggage_modal.badge.processing" />
         </Badge>
       );
     case "notAvailable":
       return (
         <Badge type="dark">
           <Alert size="small" />
-          <Translate t="common.baggage.badge.notAvailable" />
+          <Translate t="baggage_modal.badge.not_available" />
         </Badge>
       );
     default:
