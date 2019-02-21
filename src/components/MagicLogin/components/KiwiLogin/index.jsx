@@ -10,6 +10,9 @@ import errors from "../../../../consts/errors";
 import type { Screen } from "../../consts/types";
 import type { AuthUser } from "../../../../records/Auth";
 import toUser from "../../services/toUser";
+import LogContext from "../../../../services/log/context";
+import { API_REQUEST_FAILED, API_ERROR } from "../../../../consts/events";
+import { ASK_FOR_MAGIC_LINK, CHANGE_EMAIL } from "../../consts/events";
 
 type Props = {
   email: string,
@@ -17,7 +20,7 @@ type Props = {
   isSendingEmail: boolean,
   brandId: string,
   onResetMagicLinkError: () => void,
-  onClose: () => void,
+  onClose: boolean => void,
   onChangeScreen: Screen => void,
   onAskSignInLink: () => void,
   onSignIn: (user: AuthUser) => void,
@@ -30,6 +33,8 @@ type State = {|
 |};
 
 export default class KiwiLoginScreen extends React.Component<Props, State> {
+  static contextType = LogContext;
+
   state = {
     error: null,
     password: "",
@@ -45,6 +50,7 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
   handleSignIn = (e: SyntheticEvent<HTMLFormElement>) => {
     const { email, brandId, onResetMagicLinkError, onSignIn, onClose } = this.props;
     const { password } = this.state;
+    const { log } = this.context;
 
     e.preventDefault();
     onResetMagicLinkError();
@@ -57,22 +63,34 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
 
         const user = res.signIn?.user;
         if (!user) {
-          // TODO log error
+          log(API_REQUEST_FAILED, { operation: "signIn" });
           this.setState({ error: errors.loginFailed });
           return;
         }
 
         onSignIn(toUser(user));
-        onClose();
+        onClose(true);
       })
-      .catch(() => {
-        // TODO log error
+      .catch(err => {
+        log(API_ERROR, { error: String(err), operation: "signIn" });
         this.setState({ error: errors.general, isSigningIn: false });
       });
   };
 
+  handleSignInLink = () => {
+    const { onAskSignInLink } = this.props;
+    const { log } = this.context;
+
+    log(ASK_FOR_MAGIC_LINK);
+
+    onAskSignInLink();
+  };
+
   handleChangeEmail = () => {
     const { onChangeScreen } = this.props;
+    const { log } = this.context;
+
+    log(CHANGE_EMAIL);
 
     onChangeScreen("intro");
   };
@@ -83,27 +101,28 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
 
   handleForgotPassword = () => {
     const { email, brandId, onChangeScreen } = this.props;
+    const { log } = this.context;
 
     this.setState({ error: null });
 
     ResetPassword(email, brandId)
       .then(res => {
         if (!res.resetPassword?.success) {
-          // TODO log no success
+          log(API_REQUEST_FAILED, { operation: "resetPassword" });
           this.setState({ error: errors.general });
           return;
         }
 
         onChangeScreen("resetPassword");
       })
-      .catch(() => {
-        // TODO log error
+      .catch(err => {
+        log(API_ERROR, { error: String(err), operation: "resetPassword" });
         this.setState({ error: errors.general });
       });
   };
 
   render() {
-    const { email, magicLinkError, onAskSignInLink, isSendingEmail } = this.props;
+    const { email, magicLinkError, isSendingEmail } = this.props;
     const { error, password, isSigningIn } = this.state;
 
     const formError = error || magicLinkError;
@@ -116,7 +135,7 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
         isSendingEmail={isSendingEmail}
         password={password}
         onChangeEmail={this.handleChangeEmail}
-        onAskSignInLink={onAskSignInLink}
+        onAskSignInLink={this.handleSignInLink}
         onForgotPassword={this.handleForgotPassword}
         onPasswordChange={this.handlePasswordChange}
         onSignIn={this.handleSignIn}

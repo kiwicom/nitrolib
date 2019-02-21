@@ -34,6 +34,17 @@ export const API_SUCCESS: Event = {
   },
 };
 
+export const API_REQUEST_FAILED: Event = {
+  category: "Nitro",
+  subCategory: "API",
+  action: "Failed",
+  destinations: {
+    exponea: false,
+    ga: false,
+    logmole: true,
+  },
+};
+
 export const MODAL_OPEN: Event = {
   category: "Nitro",
   subCategory: "Modal",

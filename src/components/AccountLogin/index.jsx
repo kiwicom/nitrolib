@@ -8,7 +8,7 @@ import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
-import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
+import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
 import Translate from "../Translate";
 import Text from "../Text";
@@ -61,14 +61,14 @@ const AccountLogin = ({
       <BrandConsumer>
         {brand => (
           <>
-            <Section>
+            <ModalSection>
               <Illustration name={ILLUSTRATION[type]} size="small" spaceAfter="small" />
               <Heading element="h2" spaceAfter="small">
                 <Translate t={TITLE_TKEY[type]} />
               </Heading>
               <Text t={DESC_TKEY[type]} values={{ brandName: brand.name }} />
-            </Section>
-            <Section dataTest="AccountLogin">
+            </ModalSection>
+            <ModalSection dataTest="AccountLogin">
               <form onSubmit={onContinue}>
                 <Stack>
                   {error && (
@@ -92,8 +92,8 @@ const AccountLogin = ({
                   </Stack>
                 </Stack>
               </form>
-            </Section>
-            <Section suppressed>
+            </ModalSection>
+            <ModalSection suppressed>
               <Text weight="bold" spaceAfter="medium" t="account.or_social_account" />
               <Stack spacing="natural" align="end">
                 <Button
@@ -109,7 +109,7 @@ const AccountLogin = ({
                   <Translate t="account.log_in_with" values={{ provider: "Google" }} />
                 </Button>
               </Stack>
-            </Section>
+            </ModalSection>
           </>
         )}
       </BrandConsumer>

@@ -230,11 +230,14 @@ See types:
 **Context needs:**
 * [brand](./services#brand)
 * [intl](./services#intl)
+* [log](./services#log)
 
 **Selectors `data-test`:**
 * ```"MagicLogin"```
 
-Our new login component.
+**User login flow**
+
+[WIKI - New login flow with magic link](https://kiwi.wiki/frontend/wiki/#/general/magic-link-login)
 
 ### NavBar
 

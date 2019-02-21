@@ -7,6 +7,8 @@ import CheckEmail from "../../mutations/CheckEmail";
 import errors from "../../../../consts/errors";
 import type { Screen } from "../../consts/types";
 import Text from "../../../Text/index";
+import * as events from "../../../../consts/events";
+import LogContext from "../../../../services/log/context";
 
 type Props = {|
   email: string,
@@ -26,6 +28,8 @@ type State = {|
 |};
 
 export default class IntroScreen extends React.Component<Props, State> {
+  static contextType = LogContext;
+
   state = {
     isLoading: false,
     error: null,
@@ -33,9 +37,12 @@ export default class IntroScreen extends React.Component<Props, State> {
 
   handleCheckEmail = (e: SyntheticEvent<HTMLButtonElement>) => {
     const { email, brandId, onChangeScreen, onSendMagicLink } = this.props;
+    const { log } = this.context;
 
     e.preventDefault();
     this.setState({ isLoading: true, error: "" });
+
+    log(events.API_REQUEST, { operation: "checkEmail" });
 
     CheckEmail(email, brandId)
       .then(res => {
@@ -44,10 +51,12 @@ export default class IntroScreen extends React.Component<Props, State> {
         const result = res.checkEmail?.result;
 
         if (!result) {
-          // TODO log error
+          log(events.API_REQUEST_FAILED, { operation: "checkEmail" });
           this.setState({ error: errors.general });
           return;
         }
+
+        log(events.API_SUCCESS, { operation: "checkEmail" });
 
         if (result.hasFacebook) {
           onChangeScreen("facebookLogin");
@@ -71,8 +80,8 @@ export default class IntroScreen extends React.Component<Props, State> {
 
         onChangeScreen("noAccount");
       })
-      .catch(() => {
-        // TODO log error
+      .catch(err => {
+        log(events.API_ERROR, { error: String(err), operation: "checkEmail" });
         this.setState({ isLoading: false, error: errors.general });
       });
   };

@@ -4,4 +4,5 @@ import type { Event } from "../records/Event";
 declare export var API_ERROR: Event;
 declare export var API_REQUEST: Event;
 declare export var API_SUCCESS: Event;
+declare export var API_REQUEST_FAILED: Event;
 declare export var MODAL_OPEN: Event;

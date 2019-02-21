@@ -9,6 +9,8 @@ import AccountCreate from "../../../AccountCreate/index";
 import Text from "../../../Text/index";
 import CreateAccount from "../../mutations/CreateAccount";
 import type { CreateAccountError } from "../../mutations/__generated__/CreateAccountMutation.graphql";
+import LogContext from "../../../../services/log/context";
+import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
 
 type Props = {|
   email: string,
@@ -42,6 +44,8 @@ const submitErrors = {
 };
 
 export default class CreateAccountScreen extends React.PureComponent<Props, State> {
+  static contextType = LogContext;
+
   state = {
     ...defaultErrors,
     error: null,
@@ -93,6 +97,7 @@ export default class CreateAccountScreen extends React.PureComponent<Props, Stat
   handleContinue = (e: SyntheticEvent<HTMLFormElement>) => {
     const { email, brandId, onSignUpConfirmation } = this.props;
     const { password } = this.state;
+    const { log } = this.context;
 
     e.preventDefault();
 
@@ -103,16 +108,17 @@ export default class CreateAccountScreen extends React.PureComponent<Props, Stat
         this.setState({ isCreatingAccount: false });
 
         if (!res.createAccount?.success) {
+          log(API_REQUEST_FAILED, { operation: "createAccount", error: res.createAccount?.error });
           this.setSubmitError(res.createAccount?.error);
           return;
         }
 
         onSignUpConfirmation();
       })
-      .catch(() => {
+      .catch(err => {
         this.setState({ isCreatingAccount: false });
 
-        // TODO log error
+        log(API_ERROR, { error: String(err), operation: "createAccount" });
         this.setSubmitError(null);
       });
   };

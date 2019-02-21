@@ -1,5 +1,5 @@
 // @flow strict
-// TODO test
+
 import type { AuthUser } from "../../../records/Auth";
 
 type RelayInput = {|
