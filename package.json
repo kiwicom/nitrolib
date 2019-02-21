@@ -1,10 +1,10 @@
 {
-  "name": "@kiwicom/nitro",
-  "version": "0.93.0",
+  "name": "tmp-zbycz-nitro",
+  "version": "0.93.0-dev10",
   "description": "Nitro's components.",
   "scripts": {
     "start": "yarn storybook",
-    "build": "run-p babel types keys",
+    "build": "run-p babel types ",
     "babel": "babel src -d lib --ignore '**/__tests__/*'",
     "modules": "cross-env BABEL_ENV=modules babel src -d lib --ignore '**/__tests__/*' && renamer --find .js --replace .mjs 'lib/**'",
     "types": "copyfiles -u 1 'src/**/*.js.flow' lib",
@@ -21,7 +21,7 @@
     "fixtures": "node ./bin/nitro.js keys 'src/**/*.{js,jsx}' && yarn fetch && node ./etc/fetchFixtures.js",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -o dist-storybook",
-    "prepare": "rimraf lib && run-p test lint lint:css && yarn build && yarn typecheck",
+    "prepare": "yarn build",
     "localsync": "rimraf lib && yarn build && yalc push"
   },
   "keywords": [
