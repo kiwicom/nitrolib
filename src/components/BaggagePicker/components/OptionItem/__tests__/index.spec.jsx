@@ -35,7 +35,7 @@ describe("#OptionItem", () => {
     const wrapper = mount(<OptionItem {...props} isCurrentCombination />);
     expect(wrapper.find("OptionItem__BaggageInfoWrapper").exists()).toBe(true);
     expect(wrapper.find("OptionItem__BaggageInfoWrapper span").text()).toEqual(
-      "common.baggage.current",
+      "baggage_modal.select.current",
     );
   });
 });

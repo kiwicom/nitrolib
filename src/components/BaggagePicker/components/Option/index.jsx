@@ -17,7 +17,6 @@ import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import type { PriceType, ItemType } from "../../../../records/Baggage";
 import { Consumer } from "../../services/context";
-import { Consumer as IntlConsumer } from "../../../../services/intl/context";
 
 type Props = {
   items: { [key: string]: ItemType },
@@ -44,9 +43,9 @@ const OptionWrapper = styled.div`
     cursor: pointer;
     border-color: ${({ theme }: ThemeProps) => theme.orbit.borderColorCheckboxRadioHover};
     outline-offset: -3px;
-    label div {
+    /* div { slylelint no-descending-specificity
       border-color: ${({ theme }: ThemeProps) => theme.orbit.borderColorCheckboxRadioHover};
-    }
+    } */
   }
 
   > *:not(:last-child) {

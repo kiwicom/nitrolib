@@ -9,7 +9,7 @@ exports[`#Badge renders status not available 1`] = `
     <ForwardRef>
       <Translate
         html={false}
-        t="common.baggage.tooltip.notAvailable"
+        t="baggage_modal.tooltip.not_available"
         transform={[Function]}
         values={Object {}}
       />
@@ -24,7 +24,7 @@ exports[`#Badge renders status not available 1`] = `
     />
     <Translate
       html={false}
-      t="common.baggage.badge.notAvailable"
+      t="baggage_modal.badge.not_available"
       transform={[Function]}
       values={Object {}}
     />
@@ -41,7 +41,7 @@ exports[`#Badge renders status processing 1`] = `
     <ForwardRef>
       <Translate
         html={false}
-        t="common.baggage.tooltip.processing"
+        t="baggage_modal.tooltip.processing"
         transform={[Function]}
         values={Object {}}
       />
@@ -56,7 +56,7 @@ exports[`#Badge renders status processing 1`] = `
     />
     <Translate
       html={false}
-      t="common.baggage.badge.processing"
+      t="baggage_modal.badge.processing"
       transform={[Function]}
       values={Object {}}
     />
@@ -73,7 +73,7 @@ exports[`#Badge renders status unpaid 1`] = `
     <ForwardRef>
       <Translate
         html={false}
-        t="common.baggage.tooltip.unpaid"
+        t="baggage_modal.tooltip.unpaid"
         transform={[Function]}
         values={Object {}}
       />
