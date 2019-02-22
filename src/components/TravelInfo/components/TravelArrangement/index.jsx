@@ -6,11 +6,11 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import Translate from "../Translate";
-import Sector from "./components/Sector";
-import { themeDefault } from "../../records/Theme";
+import Translate from "../../../Translate/index";
+import Sector from "./components/Sector/index";
+import { themeDefault } from "../../../../records/Theme";
 import type { TravelArrangement as TravelArrangementType } from "../../records/TravelArrangement";
-import type { ThemeProps } from "../../records/Theme";
+import type { ThemeProps } from "../../../../records/Theme";
 
 type Props = {|
   data: TravelArrangementType,

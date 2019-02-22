@@ -5,13 +5,13 @@ import styled, { css } from "styled-components";
 import CalendarIcon from "@kiwicom/orbit-components/lib/icons/Calendar";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import SectionHeading from "../SectionHeading";
-import TravelDates from "../TravelDates";
-import TravelArrangement from "../TravelArrangement";
+import SectionHeading from "./components/SectionHeading";
+import TravelDates from "./components/TravelDates";
+import TravelArrangement from "./components/TravelArrangement";
 import Passengers from "./components/Passengers";
 import { themeDefault } from "../../records/Theme";
-import type { TravelArrangement as TravelArrangementType } from "../../records/TravelArrangement";
-import type { TravelDates as TravelDatesType } from "../../records/TravelDates";
+import type { TravelArrangement as TravelArrangementType } from "./records/TravelArrangement";
+import type { TravelDates as TravelDatesType } from "./records/TravelDates";
 import type { Passengers as PassengersType } from "../../records/TravelInfo";
 import type { ThemeProps } from "../../records/Theme";
 

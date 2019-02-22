@@ -2,9 +2,8 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import Sector from "..";
-
-import { themeDefault } from "../../../../../records/Theme";
+import Sector from "../index";
+import { themeDefault } from "../../../../../../../records/Theme";
 
 describe("#Sector", () => {
   test("render - landing", () => {

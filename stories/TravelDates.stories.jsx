@@ -2,7 +2,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 
-import TravelDates from "../src/components/TravelDates";
+import TravelDates from "../src/components/TravelInfo/components/TravelDates";
 import withData from "./decorators/withData";
 
 const props = {

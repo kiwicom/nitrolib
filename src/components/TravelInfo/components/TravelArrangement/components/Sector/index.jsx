@@ -8,9 +8,9 @@ import AirplaneLanding from "@kiwicom/orbit-components/lib/icons/AirplaneLanding
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import StopoverArrow from "@kiwicom/orbit-components/lib/StopoverArrow";
 
-import { themeDefault } from "../../../../records/Theme";
+import { themeDefault } from "../../../../../../records/Theme";
 import type { Sector as SectorType } from "../../../../records/TravelArrangement";
-import type { ThemeProps } from "../../../../records/Theme";
+import type { ThemeProps } from "../../../../../../records/Theme";
 
 type Props = {|
   data: SectorType,
