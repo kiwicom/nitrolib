@@ -6,7 +6,8 @@ import GenderWoman from "@kiwicom/orbit-components/lib/icons/GenderWoman";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import type { PriceType, Gender, OrderStatusType } from "../../../../records/Baggage";
+import type { Gender, OrderStatusType } from "../../../../records/Baggage";
+import type { PriceType } from "../../../../records/Price";
 import Badge from "./components/Badge";
 
 type TitleProps = {

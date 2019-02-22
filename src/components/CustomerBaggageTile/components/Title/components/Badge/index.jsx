@@ -1,25 +1,16 @@
 // @flow
 import * as React from "react";
-import styled from "styled-components";
 import Badge from "@kiwicom/orbit-components/lib/Badge";
 import Money from "@kiwicom/orbit-components/lib/icons/Money";
 import Alert from "@kiwicom/orbit-components/lib/icons/Alert";
 import Reload from "@kiwicom/orbit-components/lib/icons/Reload";
+import Tooltip from "@kiwicom/orbit-components/lib/Tooltip";
 
 import { Consumer } from "../../../../../../services/currency/context";
 import { format } from "../../../../../../records/Currency";
-import type { PriceType, OrderStatusType } from "../../../../../../records/Baggage";
-import Tooltip from "../../../../../Tooltip/index";
+import type { OrderStatusType } from "../../../../../../records/Baggage";
+import type { PriceType } from "../../../../../../records/Price";
 import Translate from "../../../../../Translate/index";
-
-const TooltipContent = styled.p`
-  width: 240px;
-  border-radius: 3px;
-  box-shadow: 0 4px 12px 0 rgba(23, 27, 30, 0.3);
-  line-height: 1.33;
-  font-size: 12px;
-  padding: 9px 11px;
-`;
 
 const getTooltipText = (status: OrderStatusType) => {
   switch (status) {
@@ -27,10 +18,8 @@ const getTooltipText = (status: OrderStatusType) => {
       return <Translate t="baggage_modal.tooltip.unpaid" />;
     case "processing":
       return <Translate t="baggage_modal.tooltip.processing" />;
-    case "notAvailable":
-      return <Translate t="baggage_modal.tooltip.not_available" />;
     default:
-      return undefined;
+      return <Translate t="baggage_modal.tooltip.not_available" />;
   }
 };
 
@@ -75,7 +64,7 @@ type TitleBadgeProps = {
 };
 
 const TitleBadge = ({ orderStatus, price }: TitleBadgeProps) => (
-  <Tooltip tip={<TooltipContent>{getTooltipText(orderStatus)}</TooltipContent>} position="top">
+  <Tooltip content={getTooltipText(orderStatus)} preferredPosition="top" size="small">
     <>{getBadge(orderStatus, price)}</>
   </Tooltip>
 );

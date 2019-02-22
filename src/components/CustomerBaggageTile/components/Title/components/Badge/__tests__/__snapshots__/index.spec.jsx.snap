@@ -2,19 +2,16 @@
 
 exports[`#Badge renders status not available 1`] = `
 <Tooltip
-  inline={false}
-  mobile={false}
-  position="top"
-  tip={
-    <ForwardRef>
-      <Translate
-        html={false}
-        t="baggage_modal.tooltip.not_available"
-        transform={[Function]}
-        values={Object {}}
-      />
-    </ForwardRef>
+  content={
+    <Translate
+      html={false}
+      t="baggage_modal.tooltip.not_available"
+      transform={[Function]}
+      values={Object {}}
+    />
   }
+  preferredPosition="top"
+  size="small"
 >
   <Badge
     type="dark"
@@ -34,19 +31,16 @@ exports[`#Badge renders status not available 1`] = `
 
 exports[`#Badge renders status processing 1`] = `
 <Tooltip
-  inline={false}
-  mobile={false}
-  position="top"
-  tip={
-    <ForwardRef>
-      <Translate
-        html={false}
-        t="baggage_modal.tooltip.processing"
-        transform={[Function]}
-        values={Object {}}
-      />
-    </ForwardRef>
+  content={
+    <Translate
+      html={false}
+      t="baggage_modal.tooltip.processing"
+      transform={[Function]}
+      values={Object {}}
+    />
   }
+  preferredPosition="top"
+  size="small"
 >
   <Badge
     type="info"
@@ -66,19 +60,16 @@ exports[`#Badge renders status processing 1`] = `
 
 exports[`#Badge renders status unpaid 1`] = `
 <Tooltip
-  inline={false}
-  mobile={false}
-  position="top"
-  tip={
-    <ForwardRef>
-      <Translate
-        html={false}
-        t="baggage_modal.tooltip.unpaid"
-        transform={[Function]}
-        values={Object {}}
-      />
-    </ForwardRef>
+  content={
+    <Translate
+      html={false}
+      t="baggage_modal.tooltip.unpaid"
+      transform={[Function]}
+      values={Object {}}
+    />
   }
+  preferredPosition="top"
+  size="small"
 >
   <Badge
     type="warning"

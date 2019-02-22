@@ -14,11 +14,12 @@ import { getTextFromCategory, getIconFromCategory } from "../../../../services/b
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 20px;
 
   ${mq.mediumMobile(css`
     flex-direction: row;
+    align-items: flex-start;
     margin-bottom: 0px;
   `)};
 `;
@@ -60,7 +61,7 @@ const PassengersWrapper = styled.div`
   width: 100%;
   align-items: center;
   span {
-    line-height: 1;
+    line-height: 24px;
   }
   svg {
     /* fix of different icon sizing */

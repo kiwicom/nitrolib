@@ -4,7 +4,8 @@ import Tile from "@kiwicom/orbit-components/lib/Tile";
 
 import Title from "./components/Title";
 import TileContent from "./components/TileContent";
-import type { BaggageType, Gender, PriceType, OrderStatusType } from "../../records/Baggage";
+import type { BaggageType, Gender, OrderStatusType } from "../../records/Baggage";
+import type { PriceType } from "../../records/Price";
 
 type Props = {
   firstName: string,

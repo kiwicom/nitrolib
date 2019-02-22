@@ -1,17 +1,9 @@
 // @flow
+import type { PriceType } from "./Price";
 
 export type BaggageCategory = "holdBag" | "handBag";
 export type BaggageSubCategory = "holdBag" | "personalItem" | "cabinBag";
 export type PassengerGroup = "adult" | "child" | "infant";
-
-export type PriceType = {
-  currency: string,
-  amount: number,
-  base: number,
-  merchant?: ?string,
-  service: number,
-  serviceFlat: number,
-};
 
 export type Restrictions = {|
   weight: number,

@@ -7,7 +7,8 @@ import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import type { PriceType, Restrictions, BaggageSubCategory } from "../../../../records/Baggage";
+import type { Restrictions, BaggageSubCategory } from "../../../../records/Baggage";
+import type { PriceType } from "../../../../records/Price";
 import { getIconFromCategory, getTextFromCategory } from "../../../../services/baggage/utils";
 import Price from "../../../Price";
 import Translate from "../../../Translate";

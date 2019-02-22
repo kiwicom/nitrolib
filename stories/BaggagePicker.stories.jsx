@@ -25,8 +25,13 @@ const holdBagOptions = {
   sixth: 5,
 };
 
+const passengerCategoryOptions = {
+  adult: "adult",
+  child: "child",
+  infant: "infant",
+};
+
 const props = {
-  passengerCategory: "adult",
   changeBagCombination: (type, index) => {
     console.log(type, index); // eslint-disable-line
   },
@@ -43,6 +48,12 @@ storiesOf("BaggagePicker", module)
     <div style={{ padding: "24px" }}>
       <BaggagePicker
         pickerType="handBag"
+        passengerCategory={select(
+          "Passenger category",
+          passengerCategoryOptions,
+          "adult",
+          "Baggage",
+        )}
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
           holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
@@ -52,6 +63,12 @@ storiesOf("BaggagePicker", module)
       />
       <BaggagePicker
         pickerType="holdBag"
+        passengerCategory={select(
+          "Passenger category",
+          passengerCategoryOptions,
+          "adult",
+          "Baggage",
+        )}
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
           holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
@@ -65,6 +82,12 @@ storiesOf("BaggagePicker", module)
     <div style={{ padding: "24px" }}>
       <BaggagePicker
         pickerType="handBag"
+        passengerCategory={select(
+          "Passenger category",
+          passengerCategoryOptions,
+          "adult",
+          "Baggage",
+        )}
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
           holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
@@ -76,6 +99,12 @@ storiesOf("BaggagePicker", module)
       />
       <BaggagePicker
         pickerType="holdBag"
+        passengerCategory={select(
+          "Passenger category",
+          passengerCategoryOptions,
+          "adult",
+          "Baggage",
+        )}
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
           holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
@@ -87,33 +116,15 @@ storiesOf("BaggagePicker", module)
       />
     </div>
   ))
-  .add("both infant", () => (
-    <div style={{ padding: "24px" }}>
-      <BaggagePicker
-        pickerType="handBag"
-        passengerBaggage={{
-          handBag: select("Handbag", handBagOptions, 1, "Baggage"),
-          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
-        }}
-        shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
-        {...props}
-        passengerCategory="infant"
-      />
-      <BaggagePicker
-        pickerType="holdBag"
-        passengerBaggage={{
-          handBag: select("Handbag", handBagOptions, 1, "Baggage"),
-          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
-        }}
-        shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
-        {...props}
-        passengerCategory="infant"
-      />
-    </div>
-  ))
   .add("both empty", () => (
     <div style={{ padding: "24px" }}>
       <BaggagePicker
+        passengerCategory={select(
+          "Passenger category",
+          passengerCategoryOptions,
+          "adult",
+          "Baggage",
+        )}
         pickerType="handBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
@@ -125,6 +136,12 @@ storiesOf("BaggagePicker", module)
       />
       <BaggagePicker
         pickerType="holdBag"
+        passengerCategory={select(
+          "Passenger category",
+          passengerCategoryOptions,
+          "adult",
+          "Baggage",
+        )}
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
           holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
@@ -138,6 +155,12 @@ storiesOf("BaggagePicker", module)
   .add("handBag", () => (
     <div style={{ padding: "24px" }}>
       <BaggagePicker
+        passengerCategory={select(
+          "Passenger category",
+          passengerCategoryOptions,
+          "adult",
+          "Baggage",
+        )}
         pickerType="handBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),
@@ -151,6 +174,12 @@ storiesOf("BaggagePicker", module)
   .add("holdBag", () => (
     <div style={{ padding: "24px" }}>
       <BaggagePicker
+        passengerCategory={select(
+          "Passenger category",
+          passengerCategoryOptions,
+          "adult",
+          "Baggage",
+        )}
         pickerType="holdBag"
         passengerBaggage={{
           handBag: select("Handbag", handBagOptions, 1, "Baggage"),

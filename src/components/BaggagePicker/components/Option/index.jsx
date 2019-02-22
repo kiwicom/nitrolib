@@ -15,7 +15,8 @@ import Translate from "../../../Translate/index";
 import OptionItem from "../OptionItem/index";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import type { PriceType, ItemType } from "../../../../records/Baggage";
+import type { ItemType } from "../../../../records/Baggage";
+import type { PriceType } from "../../../../records/Price";
 import { Consumer } from "../../services/context";
 
 type Props = {
