@@ -21013,7 +21013,7 @@
         "at_the_airport_address": "at.the.airport@kiwi.com",
         "guarantee_address": "guarantee@kiwi.com",
         "privacy_address": "privacy@kiwi.com",
-        "sender_name": "Travel gate | Kiwi.com",
+        "sender_name": "Travel Gate | Kiwi.com",
         "filter_out": [],
         "enabled": true,
         "help_request_address": "help-request@kiwi.com",
@@ -22411,8 +22411,8 @@
       },
       "_is_endconfig": false
     },
-    "web_title": "Travel gate",
-    "name": "Travel gate",
+    "web_title": "Travel Gate",
+    "name": "Travel Gate",
     "_is_endconfig": false,
     "web_link": "https://travelgate.kiwi.com",
     "payments": {
