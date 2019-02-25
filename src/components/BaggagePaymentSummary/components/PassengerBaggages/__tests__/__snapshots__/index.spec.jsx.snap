@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#BaggagePaymentSummary renders 1`] = `
+<Stack
+  spaceAfter="medium"
+  spacing="tight"
+>
+  <Stack
+    flex={true}
+    justify="between"
+  >
+    <Text>
+      <Translate
+        html={false}
+        t="baggage_modal.summary.baggage_for"
+        transform={[Function]}
+        values={
+          Object {
+            "firstName": "Barrack",
+            "lastName": "Obama",
+          }
+        }
+      />
+    </Text>
+    <Text>
+      <Price
+        value={40}
+      />
+    </Text>
+  </Stack>
+  <Stack
+    spacing="tight"
+  >
+    <Stack
+      key="0"
+    >
+      <Text
+        element="span"
+        type="secondary"
+      >
+        1× 
+        <Translate
+          html={false}
+          t="baggage_modal.select.checked_bag"
+          transform={[Function]}
+          values={Object {}}
+        />
+      </Text>
+    </Stack>
+    <Stack
+      key="1"
+    >
+      <Text
+        element="span"
+        type="secondary"
+      >
+        2× 
+        <Translate
+          html={false}
+          t="baggage_modal.select.checked_bag"
+          transform={[Function]}
+          values={Object {}}
+        />
+      </Text>
+    </Stack>
+  </Stack>
+</Stack>
+`;
