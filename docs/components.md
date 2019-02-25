@@ -220,6 +220,7 @@ import MagicLogin from "@kiwicom/nitro/lib/components/MagicLogin";
 type Props = {|
   initialScreen: "intro" | "signUp",
   type: "mmb" | "help" | "refer",
+  disableSocialLogin?: boolean,
   onClose: () => void,
   onSignIn: (user: AuthUser) => void,
   onSocialLogin: (provider: SocialProvider) => Promise<void>,

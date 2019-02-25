@@ -23,6 +23,7 @@ import type { Brand } from "../../records/Brand";
 type ContainerProps = {|
   initialScreen: "intro" | "signUp",
   type: "mmb" | "help" | "refer",
+  disableSocialLogin: boolean,
   onClose: () => void,
   onSignIn: (user: AuthUser) => void,
   onSocialLogin: (provider: SocialProvider) => Promise<void>,
@@ -45,6 +46,7 @@ type State = {|
 class MagicLoginWithoutContext extends React.Component<Props, State> {
   static defaultProps = {
     type: "mmb",
+    disableSocialLogin: false,
   };
 
   constructor(props: Props) {
@@ -150,7 +152,7 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
   };
 
   render() {
-    const { type, onSignIn, brand } = this.props;
+    const { type, onSignIn, brand, disableSocialLogin } = this.props;
     const { screen, email, isSendingEmail, error } = this.state;
 
     return (
@@ -162,6 +164,7 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
             brandId={brand.id}
             magicLinkError={error}
             type={type}
+            disableSocialLogin={disableSocialLogin}
             onEmailChange={this.handleEmailChange}
             onGoogleLogin={this.handleGoogleLogin}
             onFacebookLogin={this.handleFacebookLogin}

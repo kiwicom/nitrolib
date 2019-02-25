@@ -14,6 +14,7 @@ type Props = {|
   email: string,
   brandId: string,
   type: "mmb" | "help" | "refer",
+  disableSocialLogin?: boolean,
   magicLinkError: string,
   onGoogleLogin: () => void,
   onFacebookLogin: () => void,
@@ -90,6 +91,7 @@ export default class IntroScreen extends React.Component<Props, State> {
     const {
       email,
       type,
+      disableSocialLogin,
       magicLinkError,
       onGoogleLogin,
       onFacebookLogin,
@@ -105,6 +107,7 @@ export default class IntroScreen extends React.Component<Props, State> {
         error={submitError ? <Text t={submitError} /> : null}
         isLoading={isLoading}
         type={type}
+        disableSocialLogin={disableSocialLogin}
         onEmailChange={onEmailChange}
         onGoogleLogin={onGoogleLogin}
         onFacebookLogin={onFacebookLogin}
