@@ -53,14 +53,17 @@ Document any functions that work with the record and its main use case.
 
 ### Services
 
-Every public _context service_ has to have a:
+Every documented _service_ needs a:
 * `README.md` file
+
+Every public _context service_ has to have a:
+* `context.md` file
 * `context.js.flow` file
 
 Any existing `Init<Service>` components will get referenced automatically.
 
 Other public services need a:
-* `README.md` file
+* `<file>.md` file
 * `<file>.js.flow` file
 
 Document what problem does a service solve, how to use it.

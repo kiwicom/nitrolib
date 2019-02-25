@@ -35,19 +35,20 @@ function getServiceInitDoc(service) {
     throw new Error(`Every service's 'Init' component must have a README.md! Missing: ${name}`);
   }
 
-  const readme = String(fsx.readFileSync(README));
-  return utils.getComponentDoc(name, readme);
+  return `See [${name}](./components#${name.toLowerCase()}) for initializing the service.`;
 }
 
-function getContextDoc(service) {
-  const PATH = path.join(SERVICES, service, "README.md");
+function getWhatDoc(service, what) {
+  const PATH = path.join(SERVICES, service, `${what}.md`);
   if (!fsx.existsSync(PATH)) {
-    throw new Error(`Every service must have a 'README.md'! Missing: ${service}`);
+    return ""; // A private service
   }
 
-  const TYPES = path.join(SERVICES, service, "context.js.flow");
+  const TYPES = path.join(SERVICES, service, `${what}.js.flow`);
   if (!fsx.existsSync(TYPES)) {
-    throw new Error(`Every service must have a 'context.js.flow'! Missing: ${service}`);
+    throw new Error(
+      `Every documented service must have a '${what}.js.flow'! Missing: ${what} in ${service}`,
+    );
   }
 
   const maybeInit = getServiceInitDoc(service);
@@ -57,37 +58,47 @@ function getContextDoc(service) {
   const doc = utils.getReadme(readme);
 
   return [
-    `## ${capitalize(service)}`,
+    `### ${capitalize(what)}`,
     "",
     "**Import:**",
     "```js",
-    `import { Consumer, Provider } from "@kiwicom/nitro/lib/services/${service}/context";`,
+    `import * as ${what} from "@kiwicom/nitro/lib/services/${service}/${what}";`,
     "```",
     "",
     types,
-    "",
+    maybeInit ? NL + maybeInit + NL : "",
     doc,
-    maybeInit ? NL + maybeInit : "",
+    "",
   ].join("\n");
 }
 
-const getList = component => `* [${component}](#${component.toLowerCase()})`;
+function getServiceDoc(service) {
+  const PATH = path.join(SERVICES, service);
+
+  const readme = String(fsx.readFileSync(path.join(PATH, "README.md")));
+  const docs = fsx
+    .readdirSync(PATH)
+    .map(what => what.match(/^(\w+)\.js$/)) // only .js files
+    .filter(Boolean)
+    .map(match => getWhatDoc(service, match[1]))
+    .filter(Boolean)
+    .join("\n");
+
+  return [`## ${capitalize(service)}`, "", utils.getReadme(readme), "", docs].join("\n");
+}
+
+const getList = service => `* [${capitalize(service)}](#${service.toLowerCase()})`;
 
 function servicesDocs() {
-  const services = fsx.readdirSync(SERVICES);
+  const services = fsx
+    .readdirSync(SERVICES)
+    .filter(service => fsx.existsSync(path.join(SERVICES, service, "README.md")));
 
-  const contexts = services.filter(service =>
-    fsx.existsSync(path.join(SERVICES, service, "context.js")),
-  );
-  const contextsList = contexts.map(getList).join("\n");
-  const contextsDocs = contexts.map(getContextDoc).join("\n");
-
-  // FIXME add also these
-  // const utilities = services.filter(
-  //   service => !fsx.existsSync(path.join(COMPONENTS, service, "context.js")),
-  // );
-  // const utilitiesList = utilities.map(getList).join("\n");
-  // const utilitiesDocs = utilities.map(getContextDoc).join("\n");
+  const docs = services
+    .map(getServiceDoc)
+    .filter(Boolean)
+    .join("\n");
+  const list = services.map(getList).join("\n");
 
   const doc = [
     "# Services",
@@ -96,14 +107,9 @@ function servicesDocs() {
     "",
     "**List:**",
     "",
-    contextsList,
+    list,
     "",
-    // "**Utilities:**",
-    // "",
-    // utilitiesList,
-    // "",
-    contextsDocs,
-    // utilitiesDocs,
+    docs,
   ].join("\n");
 
   return doc;

@@ -22,6 +22,10 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [ClientOnly](#clientonly)
 * [CloseByKey](#closebykey)
 * [Desktop](#desktop)
+* [InitAuth](#initauth)
+* [InitCurrency](#initcurrency)
+* [InitIntl](#initintl)
+* [InitLog](#initlog)
 * [Mobile](#mobile)
 * [Price](#price)
 * [Text](#text)
@@ -476,6 +480,224 @@ const NavBar = () => (
     </Desktop>
     <Menu />
   </>
+);
+```
+
+### InitAuth
+
+**Import:**
+```js
+import InitAuth from "@kiwicom/nitro/lib/components/InitAuth";
+```
+
+**Types:**
+```js
+type MyBookingInput = {|
+  bid: string,
+  email: string,
+  iata: string,
+  departure: Date,
+|};
+
+type RegisterInput = {|
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string,
+|};
+
+type Arg = {|
+  auth: Auth | null,
+  loading: boolean,
+  environment: Environment,
+  onMyBooking: (input: MyBookingInput) => Promise<void>,
+  onRegister: (input: RegisterInput) => Promise<void>,
+  onSocialAuth: (provider: SocialProvider) => Promise<void>,
+  onSignIn: (email: string, password: string) => Promise<void>,
+  onSignOut: () => void,
+|};
+
+type Props = {|
+  token: string | null,
+  brand: Brand,
+  redirectURL: string,
+  onMyBooking: (token: string) => void,
+  onRegister: () => void,
+  onSocialAuth: (authURL: string) => void,
+  onSignIn: (token: string) => void,
+  onSignOut: () => void,
+  children: (arg: Arg) => React.Node,
+|};
+```
+
+See types:
+* [Auth](./records#auth)
+* [Brand](./records#brand)
+
+_TODO_
+
+### InitCurrency
+
+**Import:**
+```js
+import InitCurrency from "@kiwicom/nitro/lib/components/InitCurrency";
+```
+
+**Types:**
+```js
+type Arg = {|
+  currency: Currency,
+  available: Currencies,
+  recommended: Currency[],
+  onChange: (code: string) => void,
+|};
+
+type Props = {|
+  brand: Brand,
+  countries: Countries,
+  affiliate: string,
+  ip: string,
+  initialCurrency: string,
+  langCurrency: string,
+  children: (arg: Arg) => React.Node,
+  onChange: (currency: string) => void,
+  // defaulted
+  mostUsed?: string[],
+  // DI
+  getCurrencies?: () => Promise<Currencies>,
+  getGeoCountry?: (ip: string) => Promise<string>,
+|};
+```
+
+See types:
+* [Brand](./records#brand)
+* [Currency](./records#currency)
+* [Country](./records#country)
+
+_TODO_
+
+### InitIntl
+
+**Import:**
+```js
+import InitIntl from "@kiwicom/nitro/lib/components/InitIntl";
+```
+
+**Types:**
+```js
+type Props = {|
+  raw: IntlRaw,
+  children: (arg: Context) => React.Node,
+  // defaulted
+  getLocale?: Promise<$FlowFixMe>, // resolves en-US by default
+|};
+```
+
+See types:
+* [Intl](./records#intl)
+
+**Context needs:**
+* [intl](./services#intl)
+
+Useful for initiating the **intl** context from raw intl data.
+
+```js
+import type { IntlRaw } from "@kiwicom/nitro/lib/records/Intl";
+
+const raw: IntlRaw = window.__INTL__; // intl data from the server
+
+const App = () => (
+  <InitIntl raw={raw}>
+    {intl => (
+      <IntlProvider value={intl}>
+        <Root />
+      </IntlProvider>
+    )}
+  </InitIntl>
+)
+
+const node = document.getElementById("root");
+if (node) {
+  ReactDOM.hydrate(<App />, node);
+}
+```
+
+On the server:
+
+```js
+import type { IntlRaw } from "@kiwicom/nitro/lib/records/Intl";
+
+import { locales } from "./data";
+
+export default function render(locale: string) {
+  const raw: IntlRaw = locales[locale];
+
+  const markup = ReactDOM.renderToString(
+    <InitIntl raw={raw}>
+      {intl => (
+        <IntlProvider value={intl}>
+          <Root />
+        </IntlProvider>
+      )}
+    </InitIntl>
+  );
+
+  // <Html /> puts the raw intl data into window.__INTL__
+  return ReactDOM.renderToStaticNodeStream(<Html intl={raw} />);
+}
+```
+
+### InitLog
+
+**Import:**
+```js
+import InitLog from "@kiwicom/nitro/lib/components/InitLog";
+```
+
+**Types:**
+```js
+type Props = {|
+  globals: Globals,
+  onLog: (ev: EventPayload, globals: Globals) => void,
+  children: (ctx: Context) => React.Node,
+|};
+```
+
+See types:
+* [Event](./records#event)
+* [Loglady](./records#loglady)
+
+**Context needs:**
+* [log](./services#log)
+
+Initializes the [log](./services#log) context.
+
+**Example:**
+```js
+import type { EventPayload } from "@kiwicom/nitro/lib/records/Event";
+import type { Globals } from "@kiwicom/nitro/lib/records/Loglady";
+import { Provider as LogProvider } from "@kiwicom/nitro/lib/services/log/context";
+import InitLog from "@kiwicom/nitro/lib/components/InitLog";
+
+const globals: Globals = {
+  userId: window.__SESSION__.userId,
+  langId: window.__INTL__.id,
+  // ...etc
+};
+
+function log(ev: EventPayload, globals: Globals) {
+  // do side effects
+}
+
+ReactDOM.render(
+  <InitLog globals={globals} onLog={log}>
+    {ctx => (
+      <LogProvider value={ctx}>
+        <App />
+      </LogProvider>
+    )}
+  </InitLog>,
+  node,
 );
 ```
 
