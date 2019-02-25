@@ -1038,10 +1038,10 @@
     request-promise "^4.1.1"
     yargs "^8.0.2"
 
-"@kiwicom/eslint-config-nitro@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@kiwicom/eslint-config-nitro/-/eslint-config-nitro-1.1.2.tgz#719f202d6219b1dcaa8e371eee356e3e46133314"
-  integrity sha512-+PyINY01FYSKz5e03HH54qrpH/DHYv8dlh5JjLnIFTlu0ZGjiTuvKt6m4RtIjKzJWUgwwIsmXRLiWBVKgDHQgA==
+"@kiwicom/eslint-config-nitro@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/eslint-config-nitro/-/eslint-config-nitro-2.0.0.tgz#7e057c9896f64e6717bccd3e17a965e3ba2c7c09"
+  integrity sha512-mHb895Pcj/1c5ZFayOv0BDPrPnldlTNdpL10wA10GSdwm8TNU70tRMs8+ISETanktAJCjsi9oaTHpu/KBU1Kzg==
   dependencies:
     babel-eslint "^10.0.1"
     eslint-config-airbnb "^17.1.0"
@@ -1052,6 +1052,7 @@
     eslint-plugin-jsx-a11y "^6.2.1"
     eslint-plugin-prettier "^3.0.1"
     eslint-plugin-react "^7.12.4"
+    eslint-plugin-react-hooks "^1.2.0"
     eslint-plugin-relay "^1.0.0"
     prettier "^1.16.4"
 
@@ -4521,6 +4522,11 @@ eslint-plugin-prettier@^3.0.1:
   integrity sha512-/PMttrarPAY78PLvV3xfWibMOdMDl57hmlQ2XqFeA37wd+CJ7WSxV7txqjVPHi/AAFKd2lX0ZqfsOc/i5yFCSQ==
   dependencies:
     prettier-linter-helpers "^1.0.0"
+
+eslint-plugin-react-hooks@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-1.2.0.tgz#a1c78e792b8d7d3e9c2a2aad28df80b9b5cd1101"
+  integrity sha512-pb/pwyHg0K3Ss/8loSwCGRSXIsvPBHWfzcP/6jeei0SgWBOyXRbcKFpGxolg0xSmph0jQKLyM27B74clbZM/YQ==
 
 eslint-plugin-react@^7.12.4:
   version "7.12.4"
