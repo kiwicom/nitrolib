@@ -7,7 +7,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import type { BaggageType } from "../../records/Baggage";
+import type { BaggageType, SupportLinksType } from "../../records/Baggage";
 import BaggageItem from "./components/BaggageItem";
 import Translate from "../Translate/index";
 
@@ -35,9 +35,10 @@ type Props = {
   passengers: Array<Passenger>,
   baggage: BaggageType,
   currentPassengerId: ?number,
+  supportLinks?: SupportLinksType,
 };
 
-const BaggageOverview = ({ baggage, passengers, currentPassengerId }: Props) => {
+const BaggageOverview = ({ baggage, passengers, currentPassengerId, supportLinks }: Props) => {
   const { combinations } = baggage;
 
   const getPassengersFromId = (
@@ -117,7 +118,8 @@ const BaggageOverview = ({ baggage, passengers, currentPassengerId }: Props) => 
           category={bag.category}
           passengers={getPassengersFromId(bag && bag.passengers)}
           restrictions={bag.restrictions}
-          isPassengersShowed={!currentPassengerId}
+          hasAllPassengersData={!currentPassengerId}
+          supportLink={supportLinks && supportLinks[bag.category]}
         />
       ))}
       {holdBags.map((bag, index) => (
@@ -127,7 +129,8 @@ const BaggageOverview = ({ baggage, passengers, currentPassengerId }: Props) => 
           category={bag.category}
           passengers={getPassengersFromId(bag && bag.passengers)}
           restrictions={bag.restrictions}
-          isPassengersShowed={!currentPassengerId}
+          hasAllPassengersData={!currentPassengerId}
+          supportLink={supportLinks && supportLinks[bag.category]}
         />
       ))}
     </Wrapper>

@@ -2,10 +2,12 @@
 import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
+import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import styled, { css } from "styled-components";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
+import Translate from "../../../Translate";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import type { BaggageSubCategory, Restrictions } from "../../../../records/Baggage";
@@ -56,12 +58,20 @@ const Title = styled.span`
   line-height: 24px;
 `;
 
-const PassengersWrapper = styled.div`
+type OptionalColumnWrapperType = ThemeProps & {
+  hasLink: boolean,
+};
+
+const OptionalColumnWrapper = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
-  span {
+  span,
+  a {
     line-height: 24px;
+  }
+  a {
+    margin-left: 28px;
   }
   svg {
     /* fix of different icon sizing */
@@ -69,13 +79,15 @@ const PassengersWrapper = styled.div`
     margin-right: 11px;
   }
   ${mq.mediumMobile(css`
+    justify-content: ${({ hasLink }) => (hasLink ? "flex-end" : "flex-start")};
     svg {
-      margin-right: ${({ theme }): ThemeProps => theme.orbit.spaceXSmall};
+      margin-right: ${({ theme }): OptionalColumnWrapperType => theme.orbit.spaceXSmall};
     }
   `)};
 `;
-PassengersWrapper.defaultProps = {
+OptionalColumnWrapper.defaultProps = {
   theme: themeDefault,
+  hasLink: false,
 };
 
 type Props = {
@@ -83,10 +95,18 @@ type Props = {
   restrictions: Restrictions,
   category: BaggageSubCategory,
   amount: number,
-  isPassengersShowed: boolean,
+  hasAllPassengersData: boolean,
+  supportLink?: string,
 };
 
-const BaggageItem = ({ passengers, category, amount, restrictions, isPassengersShowed }: Props) => {
+const BaggageItem = ({
+  passengers,
+  category,
+  amount,
+  restrictions,
+  hasAllPassengersData,
+  supportLink,
+}: Props) => {
   const getBaggageSize = ({ height, length, weight, width }) =>
     `${length} x ${width} x ${height} cm, ${weight} kg`;
 
@@ -112,13 +132,21 @@ const BaggageItem = ({ passengers, category, amount, restrictions, isPassengersS
           </Title>
         </TextWrapper>
       </Stack>
-      {isPassengersShowed && (
-        <PassengersWrapper>
-          <AccountCircle size="small" color="secondary" />
-          <Text element="span" type="secondary">
-            {getPassengerNames(passengers)}
-          </Text>
-        </PassengersWrapper>
+      {hasAllPassengersData && (
+        <OptionalColumnWrapper hasLink={!!supportLink}>
+          {supportLink ? (
+            <TextLink size="small" href={supportLink}>
+              <Translate t="baggage_modal.summary.more_info" />
+            </TextLink>
+          ) : (
+            <>
+              <AccountCircle size="small" color="secondary" />
+              <Text element="span" type="secondary">
+                {getPassengerNames(passengers)}
+              </Text>
+            </>
+          )}
+        </OptionalColumnWrapper>
       )}
     </Wrapper>
   );

@@ -46,9 +46,21 @@ const props = {
 storiesOf("BaggageOverview", module)
   .addDecorator(withData)
   .addDecorator(withKnobs)
-  .add("default", () => (
+  .add("with all passengers and their info", () => (
     <div style={{ padding: "24px" }}>
       <BaggageOverview {...props} />
+    </div>
+  ))
+  .add("with all passengers and support links", () => (
+    <div style={{ padding: "24px" }}>
+      <BaggageOverview
+        {...props}
+        supportLinks={{
+          holdBag: "/support/hold-bag",
+          personalItem: "support/personal-item",
+          cabinBag: "/support/cabin-bag",
+        }}
+      />
     </div>
   ))
   .add("with one passenger data", () => (

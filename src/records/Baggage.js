@@ -71,3 +71,7 @@ export type OptionBaggage = {
 export type OrderStatusType = "unpaid" | "processing" | "notAvailable";
 
 export type Gender = "male" | "female";
+
+export type SupportLinksType = {
+  [key: BaggageSubCategory]: string,
+};

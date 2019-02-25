@@ -10,7 +10,7 @@ exports[`#BaggageOverview render  1`] = `
   <BaggageItem
     amount={2}
     category="personalItem"
-    isPassengersShowed={true}
+    hasAllPassengersData={true}
     key="0"
     passengers={
       Array [
@@ -39,7 +39,7 @@ exports[`#BaggageOverview render  1`] = `
   <BaggageItem
     amount={4}
     category="cabinBag"
-    isPassengersShowed={true}
+    hasAllPassengersData={true}
     key="1"
     passengers={
       Array [
@@ -73,7 +73,7 @@ exports[`#BaggageOverview render  1`] = `
   <BaggageItem
     amount={2}
     category="holdBag"
-    isPassengersShowed={true}
+    hasAllPassengersData={true}
     key="0"
     passengers={
       Array [
