@@ -22,6 +22,7 @@ type Props = {|
   email: string,
   error?: React.Node,
   isLoading?: boolean,
+  disableSocialLogin?: boolean,
   onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
@@ -51,6 +52,7 @@ const AccountLogin = ({
   email,
   error,
   isLoading,
+  disableSocialLogin,
   onGoogleLogin,
   onFacebookLogin,
   onEmailChange,
@@ -93,23 +95,31 @@ const AccountLogin = ({
                 </Stack>
               </form>
             </ModalSection>
-            <ModalSection suppressed>
-              <Text weight="bold" spaceAfter="medium" t="account.or_social_account" />
-              <Stack spacing="natural" align="end">
-                <Button
-                  type="facebook"
-                  block
-                  bordered
-                  icon={<FacebookIcon />}
-                  onClick={onFacebookLogin}
-                >
-                  <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
-                </Button>
-                <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
-                  <Translate t="account.log_in_with" values={{ provider: "Google" }} />
-                </Button>
-              </Stack>
-            </ModalSection>
+            {!disableSocialLogin && (
+              <ModalSection suppressed>
+                <Text weight="bold" spaceAfter="medium" t="account.or_social_account" />
+                <Stack spacing="natural" align="end">
+                  <Button
+                    type="facebook"
+                    block
+                    bordered
+                    icon={<FacebookIcon />}
+                    onClick={onFacebookLogin}
+                  >
+                    <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
+                  </Button>
+                  <Button
+                    type="google"
+                    block
+                    bordered
+                    icon={<GoogleIcon />}
+                    onClick={onGoogleLogin}
+                  >
+                    <Translate t="account.log_in_with" values={{ provider: "Google" }} />
+                  </Button>
+                </Stack>
+              </ModalSection>
+            )}
           </>
         )}
       </BrandConsumer>

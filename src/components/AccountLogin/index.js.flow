@@ -8,6 +8,7 @@ type Props = {|
   email: string,
   error?: React.Node,
   isLoading?: boolean,
+  disableSocialLogin?: boolean,
   onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,

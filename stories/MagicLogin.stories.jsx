@@ -35,4 +35,14 @@ storiesOf("MagicLogin", module)
       onSignIn={action("Sign in")}
       onSocialLogin={action("Social login")}
     />
+  ))
+  .add("without socials", () => (
+    <MagicLogin
+      disableSocialLogin
+      initialScreen="intro"
+      type={select("Type", type, "mmb", GROUP_ID)}
+      onClose={action("Close")}
+      onSignIn={action("Sign in")}
+      onSocialLogin={action("Social login")}
+    />
   ));
