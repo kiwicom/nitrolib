@@ -22,6 +22,7 @@ export type HotelType = {|
     +fullAddress: ?string,
   |},
   +rating: ?number,
+  +isMMB: ?boolean,
 |};
 
 export type Props = {
@@ -85,6 +86,7 @@ const HotelInfo = ({ hotel, onShownOnMapClick }: Props) => {
   const name = hotel?.name;
   const rating = hotel?.rating;
   const fullAddress = hotel?.address?.fullAddress;
+  const isMMB = hotel?.isMMB;
   return (
     <Wrapper>
       <Address>
@@ -109,11 +111,13 @@ const HotelInfo = ({ hotel, onShownOnMapClick }: Props) => {
           </Stack>
         )}
       </Address>
-      <ButtonWrapper>
-        <Button onClick={onShownOnMapClick} size="small" type="secondary" block>
-          <Translate t="holidays.accommodation.show_map" />
-        </Button>
-      </ButtonWrapper>
+      {isMMB && (
+        <ButtonWrapper>
+          <Button onClick={onShownOnMapClick} size="small" type="secondary" block>
+            <Translate t="holidays.accommodation.show_map" />
+          </Button>
+        </ButtonWrapper>
+      )}
     </Wrapper>
   );
 };

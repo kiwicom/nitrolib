@@ -16,6 +16,7 @@ const props: Props = {
     address: {
       fullAddress: "Golden Rock Coast Hotel, City centre of Ubud 23",
     },
+    isMMB: false,
   },
   onShownOnMapClick: jest.fn(),
 };

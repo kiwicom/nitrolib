@@ -20,7 +20,7 @@ export const DummyRoom = ({ id, description }: { id: string, description: string
     </HeadingWrapper>
     <Description>
       {description.split(";").map(d => (
-        <Text key="d">{d}</Text>
+        <Text key={d}>{d}</Text>
       ))}
     </Description>
   </>
@@ -36,6 +36,8 @@ export type Props = {|
 |};
 
 const RoomsList = styled.div`
+  display: flex;
+  flex-direction: column;
   ${mq.largeMobile(css`
     display: flex;
     flex-wrap: wrap;
@@ -50,16 +52,11 @@ RoomsList.defaultProps = {
 const RoomWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  flex-basis: calc(50% - 12px);
   align-items: flex-start;
   margin-bottom: ${({ theme }) => theme.orbit.spaceMedium};
   flex-wrap: wrap;
   :last-child {
     margin-bottom: 0;
-  }
-
-  :nth-child(odd) {
-    margin-right: ${({ theme }) => theme.orbit.spaceLarge};
   }
 
   ${mq.largeMobile(css`
