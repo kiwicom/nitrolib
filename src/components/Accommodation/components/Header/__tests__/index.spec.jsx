@@ -8,9 +8,7 @@ import Header from "..";
 
 describe("#Header", () => {
   test("render", () => {
-    const wrapper = mount(
-      <Header icon={<AccommodationIcon />} t="holidays.accommodation.title" />
-    );
+    const wrapper = mount(<Header icon={<AccommodationIcon />} t="holidays.accommodation.title" />);
     expect(wrapper.contains("holidays.accommodation.title")).toBe(true);
   });
 });

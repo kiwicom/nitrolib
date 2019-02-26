@@ -10,7 +10,7 @@ import { themeDefault } from "../../../../../../records/Theme";
 const TRIANGLE_SIZE = 8;
 
 type Props = {
-  children: React.Node
+  children: React.Node,
 };
 
 const Marker = styled.div`
@@ -29,7 +29,7 @@ const Label = styled.div`
 `;
 
 Label.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const Triangle = styled.svg`
@@ -44,11 +44,7 @@ const Pin = ({ children }: Props) => (
         {children}
       </Text>
     </Label>
-    <Triangle
-      width={TRIANGLE_SIZE}
-      height={TRIANGLE_SIZE / 2}
-      viewBox="0 0 8 4"
-    >
+    <Triangle width={TRIANGLE_SIZE} height={TRIANGLE_SIZE / 2} viewBox="0 0 8 4">
       <path d="M0,0H8L4,4z" fill={defaultTokens.paletteProductNormal} />
     </Triangle>
   </Marker>

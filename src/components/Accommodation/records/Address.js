@@ -1,5 +1,5 @@
 // @flow strict
 
 export type AddressType = ?{|
-  +fullAddress: ?string
+  +fullAddress: ?string,
 |};

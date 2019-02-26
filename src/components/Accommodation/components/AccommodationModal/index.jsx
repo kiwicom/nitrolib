@@ -8,9 +8,9 @@ import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import ModalFooter from "@kiwicom/orbit-components/lib/Modal/ModalFooter";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Text from "@kiwicom/orbit-components/lib/Text";
+
 import Translate from "../../../Translate";
 import { themeDefault } from "../../../../records/Theme";
-
 import type { AddressType } from "../../records/Address";
 import type { LocationType } from "../../records/LocationMap";
 import LocationMap from "../LocationMap";
@@ -18,7 +18,7 @@ import LocationMap from "../LocationMap";
 export type Props = {|
   +address: AddressType,
   location: LocationType,
-  onClose: Function
+  onClose: Function,
 |};
 
 const Address = styled.div`
@@ -27,7 +27,7 @@ const Address = styled.div`
 `;
 
 Address.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const ButtonWrapper = styled.div`
@@ -39,9 +39,7 @@ const AccommodationModal = ({ address, location, onClose }: Props) => {
   const fullAddress = address?.fullAddress;
   return (
     <Modal onClose={onClose} fixedFooter>
-      <ModalHeader
-        title={<Translate t="holidays.accommodation_modal.title" />}
-      />
+      <ModalHeader title={<Translate t="holidays.accommodation_modal.title" />} />
       <ModalSection>
         {fullAddress && (
           <Address>

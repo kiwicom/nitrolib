@@ -16,16 +16,16 @@ type Viewport = {|
   latitude: number,
   longitude: number,
   zoom: number,
-  width: number
+  width: number,
 |};
 
 type State = {
-  viewport: Viewport
+  viewport: Viewport,
 };
 
 class LocationMap extends React.Component<Props, State> {
   static defaultProps = {
-    zoom: 10
+    zoom: 10,
   };
 
   state = {
@@ -33,8 +33,8 @@ class LocationMap extends React.Component<Props, State> {
       latitude: this.props.center.latitude,
       longitude: this.props.center.longitude,
       zoom: this.props.zoom,
-      width: this.props.desktopWidth
-    }
+      width: this.props.desktopWidth,
+    },
   };
 
   updateViewport = (viewport: Viewport) => {

@@ -6,24 +6,24 @@ import AccommodationIcon from "@kiwicom/orbit-components/lib/icons/Accommodation
 import Separator from "@kiwicom/orbit-components/lib/Separator";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import HotelInfo from "../HotelInfo/";
-import Rooms from "../Rooms/";
+import HotelInfo from "../HotelInfo";
+import Rooms from "../Rooms";
 import Header from "./components/Header";
 import AccommodationModal from "./components/AccommodationModal";
 import { themeDefault } from "../../records/Theme";
-import type { LocationType } from "./records/LocationMap.js";
-import type { RoomType } from "../Rooms/";
-import type { HotelType } from "../HotelInfo/";
+import type { LocationType } from "./records/LocationMap";
+import type { RoomType } from "../Rooms";
+import type { HotelType } from "../HotelInfo";
 import type { ThemeProps } from "../../records/Theme";
 
 export type Props = {|
   hotel: HotelType,
   rooms: Array<RoomType>,
-  location: LocationType
+  location: LocationType,
 |};
 
 type State = {
-  isModalOpen: boolean
+  isModalOpen: boolean,
 };
 
 const Wrapper = styled.div`
@@ -43,7 +43,7 @@ const Wrapper = styled.div`
 `;
 
 Wrapper.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const ContentWrapper = styled.div`
@@ -69,7 +69,7 @@ const Photo = styled.div`
 `;
 
 Photo.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const Img = styled.img`
@@ -83,7 +83,7 @@ const Img = styled.img`
 
 export default class Accommodation extends React.Component<Props, State> {
   state = {
-    isModalOpen: false
+    isModalOpen: false,
   };
 
   openAccommodationModal = () => {
@@ -105,10 +105,7 @@ export default class Accommodation extends React.Component<Props, State> {
             <Img src={hotel.photoUrl} alt="hotel" />
           </Photo>
           <div>
-            <HotelInfo
-              hotel={hotel}
-              onShownOnMapClick={this.openAccommodationModal}
-            />
+            <HotelInfo hotel={hotel} onShownOnMapClick={this.openAccommodationModal} />
             <Separator />
             <Rooms rooms={rooms} />
           </div>

@@ -1,11 +1,11 @@
+// @flow
 import * as React from "react";
 import { shallow, mount } from "enzyme";
 
 import Accommodation from "..";
-import mockedData from "../mockedData.js";
-import { themeDefault } from "../../../records/Theme";
 
-const props = {};
+import mockedData from "../mockedData";
+import { themeDefault } from "../../../records/Theme";
 
 describe("#Accommodation", () => {
   test("render", () => {
@@ -13,14 +13,13 @@ describe("#Accommodation", () => {
 
     expect(wrapper.find("Accommodation__Wrapper")).toHaveStyleRule(
       "background",
-      themeDefault.orbit.paletteWhite
+      themeDefault.orbit.paletteWhite,
     );
   });
 
   test("isModalOpen", () => {
     const wrapper = shallow(<Accommodation {...mockedData} />);
 
-    console.log(wrapper.debug());
     expect(wrapper.state().isModalOpen).toBe(false);
     wrapper.instance().openAccommodationModal();
     expect(wrapper.state().isModalOpen).toBe(true);

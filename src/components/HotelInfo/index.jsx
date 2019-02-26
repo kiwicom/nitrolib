@@ -9,6 +9,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import RatingStars from "@kiwicom/orbit-components/lib/RatingStars";
+
 import Translate from "../Translate";
 import { themeDefault } from "../../records/Theme";
 
@@ -18,14 +19,14 @@ export type HotelType = {|
   +name: ?string,
   +photoUrl: ?string,
   +address: ?{|
-    +fullAddress: ?string
+    +fullAddress: ?string,
   |},
-  +rating: ?number
+  +rating: ?number,
 |};
 
 export type Props = {
   hotel: ?HotelType,
-  onShownOnMapClick: Function
+  onShownOnMapClick: Function,
 };
 
 const Wrapper = styled.div`
@@ -42,7 +43,7 @@ const Address = styled.div`
 `;
 
 Address.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const HeadingWrapper = styled.div`
@@ -52,7 +53,7 @@ const HeadingWrapper = styled.div`
 `;
 
 HeadingWrapper.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const HotelName = styled.div`
@@ -69,7 +70,7 @@ const RatingStarsWrapper = styled.div`
 `;
 
 RatingStarsWrapper.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const ButtonWrapper = styled.div`
@@ -77,7 +78,7 @@ const ButtonWrapper = styled.div`
 `;
 
 ButtonWrapper.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const HotelInfo = ({ hotel, onShownOnMapClick }: Props) => {

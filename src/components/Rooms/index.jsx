@@ -1,25 +1,16 @@
-// @flow
+// @flow strict
 
 import * as React from "react";
 import styled, { css } from "styled-components";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import Text from "@kiwicom/orbit-components/lib/Text";
-import Translate from "../Translate";
-// For DummRoomComponent
 import AccommodationIcon from "@kiwicom/orbit-components/lib/icons/Accommodation";
-// End For DummRoomComponent
+
+import Translate from "../Translate";
 import { themeDefault } from "../../records/Theme";
 
-// import type { RoomType } from "./types";
-
-export const DummyRoom = ({
-  id,
-  description
-}: {
-  id: string,
-  description: string
-}) => (
+export const DummyRoom = ({ id, description }: { id: string, description: string }) => (
   <>
     <HeadingWrapper>
       <AccommodationIcon color="primary" />
@@ -28,8 +19,8 @@ export const DummyRoom = ({
       </Heading>
     </HeadingWrapper>
     <Description>
-      {description.split(";").map((d, index) => (
-        <Text key={index}>{d}</Text>
+      {description.split(";").map(d => (
+        <Text key="d">{d}</Text>
       ))}
     </Description>
   </>
@@ -37,11 +28,11 @@ export const DummyRoom = ({
 
 export type RoomType = {|
   +id: string,
-  +description: string
+  +description: string,
 |};
 
 export type Props = {|
-  rooms: ?(RoomType[])
+  rooms: Array<RoomType>,
 |};
 
 const RoomsList = styled.div`
@@ -53,7 +44,7 @@ const RoomsList = styled.div`
 `;
 
 RoomsList.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const RoomWrapper = styled.div`
@@ -79,7 +70,7 @@ const RoomWrapper = styled.div`
 `;
 
 RoomWrapper.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const HeadingWrapper = styled.div`
@@ -94,7 +85,7 @@ const HeadingWrapper = styled.div`
 `;
 
 HeadingWrapper.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const Description = styled.div`
@@ -102,7 +93,7 @@ const Description = styled.div`
 `;
 
 Description.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const Rooms = ({ rooms }: Props) => (
@@ -112,7 +103,7 @@ const Rooms = ({ rooms }: Props) => (
     </Heading>
     {rooms && (
       <RoomsList>
-        {rooms.map(({ id, description }: RoomType) => (
+        {rooms.map(({ id, description }) => (
           <RoomWrapper key={id}>
             <DummyRoom description={description} id={id} />
           </RoomWrapper>
