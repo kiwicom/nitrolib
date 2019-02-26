@@ -1,0 +1,40 @@
+// @flow strict
+import type { User } from "../../records/User";
+import type { AuthUser } from "../../records/Auth";
+
+declare export function getTokenUser(token: string): Promise<User>;
+
+export type MyBookingInput = {|
+  bid: string,
+  email: string,
+  iata: string,
+  departure: Date,
+|};
+
+// eslint-disable-next-line import/prefer-default-export
+declare export function getMyBookingToken(input: MyBookingInput): Promise<string>;
+
+type LoginInput = {|
+  email: string,
+  password: string,
+  brand: string,
+|};
+
+declare export function signIn(input: LoginInput): Promise<AuthUser>;
+
+declare export function logout(token: string): Promise<void>;
+
+export type RegisterInput = {|
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string,
+|};
+
+declare export function register(brand: string, input: RegisterInput): Promise<void>;
+
+type SocialAuthProvider = "facebook" | "google";
+
+declare export function socialAuth(provider: SocialAuthProvider, url: string): Promise<string>;
+
+declare export function resetPassword(email: string, brandId: string): Promise<void>;
