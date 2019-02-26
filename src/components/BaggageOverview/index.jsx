@@ -44,15 +44,11 @@ const BaggageOverview = ({ baggage, passengers, currentPassengerId, supportLinks
   const getPassengersFromId = (
     ids: Array<number>,
   ): Array<{ lastName: string, firstName: string, id: number }> =>
-    R.uniq(ids).map(id => {
-      // $FlowFixMe
-      const pass: Passenger = passengers.find(p => p.id === id);
-      return {
-        firstName: pass && pass.firstName,
-        lastName: pass && pass.lastName,
-        id,
-      };
-    });
+    R.innerJoin((passenger, id) => passenger.id === id, passengers, ids).map(p => ({
+      firstName: p.firstName,
+      lastName: p.lastName,
+      id: p.id,
+    }));
 
   const passengersWithBagDefinitionsIndices = passengers.map(passenger => ({
     id: passenger.id,
@@ -62,7 +58,7 @@ const BaggageOverview = ({ baggage, passengers, currentPassengerId, supportLinks
     },
   }));
 
-  const getPassengersBaggage = (passengersArray, passengerId) => {
+  const getCurrentPassengers = (passengersArray, passengerId) => {
     if (passengerId) {
       return passengersArray.filter(id => id === passengerId);
     }
@@ -89,7 +85,7 @@ const BaggageOverview = ({ baggage, passengers, currentPassengerId, supportLinks
       acc[bag.originalIndex] = {
         originalIndex: bag.originalIndex,
         category: bag.category,
-        passengers: getPassengersBaggage([...bagPassengers, bag.passengerId], currentPassengerId),
+        passengers: getCurrentPassengers([...bagPassengers, bag.passengerId], currentPassengerId),
         restrictions: bag.restrictions,
       };
       return acc;

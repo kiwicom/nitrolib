@@ -68,7 +68,7 @@ class BaggagePicker extends React.Component<Props, State> {
     hiddenItems: 0,
   };
 
-  componentDidMount() {
+  componentWillMount() {
     this.handleDefaultStateValues(this.props);
   }
 

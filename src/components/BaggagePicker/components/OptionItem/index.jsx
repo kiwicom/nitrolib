@@ -120,7 +120,7 @@ const OptionItem = ({
       </Stack>
       <BaggageInfoWrapper>
         <BaggageSizeText>{getBaggageSize(restrictions)}</BaggageSizeText>
-        {firstItem ? getFirstItemInfo(isCurrentCombination, price.amount) : <span />}
+        {firstItem && getFirstItemInfo(isCurrentCombination, price.amount)}
       </BaggageInfoWrapper>
     </Stack>
   );

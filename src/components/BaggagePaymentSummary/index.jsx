@@ -67,14 +67,11 @@ const BaggagePaymentSummary = ({ baggage, passengers }: Props) => {
       combinations.holdBag[passenger.baggage.holdBag].price.amount,
   }));
 
-  const passengersCombinationsIndices = passengers.reduce(
-    (acc, passenger) => {
-      acc.handBag = acc.handBag.concat(passenger.baggage.handBag);
-      acc.holdBag = acc.holdBag.concat(passenger.baggage.holdBag);
-      return acc;
-    },
-    { holdBag: [], handBag: [] },
-  );
+  const passengersCombinationsIndices = {
+    holdBag: passengers.map(passenger => passenger.baggage.handBag),
+    handBag: passengers.map(passenger => passenger.baggage.holdBag),
+  };
+
   return (
     <Card>
       <CardSection>

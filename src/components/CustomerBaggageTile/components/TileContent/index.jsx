@@ -55,7 +55,7 @@ NoPersonalItemWrapper.defaultProps = {
 };
 
 const TileContent = ({ handBags, holdBags, orderStatus }: Props) => {
-  const hasPersonalItem = Boolean(handBags.find(bag => bag.category === "personalItem"));
+  const hasPersonalItem = handBags.some(bag => bag.category === "personalItem");
   return (
     <Wrapper>
       {handBags.map((bag, index) => (
