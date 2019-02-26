@@ -1,5 +1,6 @@
 // @flow strict
 import * as React from "react";
+import R from "ramda";
 import styled from "styled-components";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Button from "@kiwicom/orbit-components/lib/Button";
@@ -68,12 +69,14 @@ class BaggagePicker extends React.Component<Props, State> {
     hiddenItems: 0,
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.handleDefaultStateValues(this.props);
   }
 
-  componentWillReceiveProps(nextProps: Props) {
-    this.handleDefaultStateValues(nextProps);
+  componentDidUpdate(prevProps: Props) {
+    if (!R.equals(this.props, prevProps)) {
+      this.handleDefaultStateValues(this.props);
+    }
   }
 
   handleDefaultStateValues = (props: Props) => {
