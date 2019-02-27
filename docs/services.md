@@ -26,7 +26,6 @@ A fresh setup might look something like:
 // ...
 import InitAuth from "@kiwicom/nitro/lib/components/InitAuth";
 import { Provider as AuthProvider } from "@kiwicom/nitro/lib/services/auth/context";
-import * as api from "@kiwicom/nitro/lib/services/auth/api";
 import type { Brand } from "@kiwicom/nitro/lib/records/Brand";
 // ...
 
