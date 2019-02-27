@@ -61,6 +61,13 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
     };
   }
 
+  componentDidMount() {
+    const { log } = this.props;
+    const { screen } = this.state;
+
+    log(loginEvents.MAGIC_LOGIN_MODAL_SHOWN, { screen });
+  }
+
   componentWillUnmount() {
     const { log } = this.props;
     const { successfulClose, screen } = this.state;
@@ -92,6 +99,8 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
   };
 
   handleToSignUp = () => {
+    const { log } = this.props;
+    log(loginEvents.CONTINUE_WITH_REGISTER);
     this.handleChangeScreen("signUp");
   };
 
@@ -129,6 +138,7 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
           return;
         }
 
+        log(loginEvents.MAGIC_LINK_SENT);
         this.handleChangeScreen("magicLink");
       })
       .catch(err => {

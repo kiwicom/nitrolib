@@ -10,6 +10,7 @@ import Text from "../../../Text/index";
 import CreateAccount from "../../mutations/CreateAccount";
 import type { CreateAccountError } from "../../mutations/__generated__/CreateAccountMutation.graphql";
 import LogContext from "../../../../services/log/context";
+import * as loginEvents from "../../consts/events";
 import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
 
 type Props = {|
@@ -113,6 +114,7 @@ export default class CreateAccountScreen extends React.PureComponent<Props, Stat
           return;
         }
 
+        log(loginEvents.REGISTRATION_SENT);
         onSignUpConfirmation();
       })
       .catch(err => {
