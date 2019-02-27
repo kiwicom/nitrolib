@@ -1,0 +1,6 @@
+// @flow strict
+// Use when you need to handle common API errors, but want the raw response
+declare export function handleError(res: Response): Promise<Response>;
+
+// Use when you need to handle common API errors, and the response is a JSON
+declare export function handleJSON<T>(res: Response): Promise<T>;

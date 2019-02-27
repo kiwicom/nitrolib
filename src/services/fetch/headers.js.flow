@@ -1,0 +1,13 @@
+// @flow strict
+declare export var JSON_GET: {|
+  Accept: string,
+|};
+
+declare export var JSON_SEND: {|
+  "Content-Type": string,
+|};
+
+declare export var JSON_BOTH: {|
+  Accept: string,
+  "Content-Type": string,
+|};

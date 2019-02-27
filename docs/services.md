@@ -174,11 +174,15 @@ export default context;
 See types:
 * [Auth](./records#auth)
 
-_TODO_
+Contains:
+* auth information including the API token
+* API token-infused _Relay_ environment
+* information whether the user is in some kind of process of signing in
+* callbacks for different operations regarding authentication
 
 ## Brand
 
-_TODO_
+Has all the necessary information regarding branding.
 
 ### Context
 
@@ -199,11 +203,11 @@ export default context;
 See types:
 * [Brand](./records#brand)
 
-_TODO_
+Contains the brand configuration object. It is static.
 
 ## Currency
 
-_TODO_
+Has all the necessary information and operations regarding currency.
 
 See [InitCurrency](./components#initcurrency) for initializing the service.
 
@@ -233,12 +237,58 @@ export default context;
 See types:
 * [Currency](./records#currency)
 
-_TODO_
+Contains:
+* currently selected currency
+* available currencies
+* recommended currencies
+* callback for changing the currency
 
 ## Fetch
 
-_TODO_
+Contains utilities to be used with the `fetch` function.
 
+### Handlers
+
+**Import:**
+```js
+import * as handlers from "@kiwicom/nitro/lib/services/fetch/handlers";
+```
+
+**Types:**
+```js
+// Use when you need to handle common API errors, but want the raw response
+declare export function handleError(res: Response): Promise<Response>;
+
+// Use when you need to handle common API errors, and the response is a JSON
+declare export function handleJSON<T>(res: Response): Promise<T>;
+```
+
+Utility functions for handling `fetch` responses.
+
+### Headers
+
+**Import:**
+```js
+import * as headers from "@kiwicom/nitro/lib/services/fetch/headers";
+```
+
+**Types:**
+```js
+declare export var JSON_GET: {|
+  Accept: string,
+|};
+
+declare export var JSON_SEND: {|
+  "Content-Type": string,
+|};
+
+declare export var JSON_BOTH: {|
+  Accept: string,
+  "Content-Type": string,
+|};
+```
+
+Just utility objects to be used in the `headers` option when using `fetch`.
 
 ## Input
 
