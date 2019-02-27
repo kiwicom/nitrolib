@@ -121,15 +121,9 @@ class BaggagePicker extends React.Component<Props, State> {
 
   handleOptionClick = (pickerType: BaggageCategory, originalIndex: number) =>
     this.props.onChange(pickerType, originalIndex); // eslint-disable-line
+
   render() {
-    const {
-      context,
-      pickerType,
-      options,
-      selectedIndex,
-      onChange,
-      currentCombination,
-    } = this.props;
+    const { context, pickerType, options, selectedIndex, currentCombination } = this.props;
     const { showedItems, hiddenItems } = this.state;
 
     return (
