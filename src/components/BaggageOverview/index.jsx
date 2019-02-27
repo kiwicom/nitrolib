@@ -7,14 +7,11 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import type { BaggageType, SupportLinksType } from "../../records/Baggage";
+import type { BaggageType, SupportLinksType, BaggagePassengerType } from "../../records/Baggage";
 import BaggageItem from "./components/BaggageItem";
 import Translate from "../Translate/index";
 
-type Passenger = {
-  id: number,
-  firstName: string,
-  lastName: string,
+type Passenger = BaggagePassengerType & {
   baggage: {
     holdBag: number, // index of baggage combination
     handBag: number, // index of baggage combination
@@ -41,9 +38,7 @@ type Props = {
 const BaggageOverview = ({ baggage, passengers, currentPassengerId, supportLinks }: Props) => {
   const { combinations } = baggage;
 
-  const getPassengersFromId = (
-    ids: Array<number>,
-  ): Array<{ lastName: string, firstName: string, id: number }> =>
+  const getPassengersFromId = (ids: Array<number>): Array<BaggagePassengerType> =>
     R.innerJoin((passenger, id) => passenger.id === id, passengers, ids).map(p => ({
       firstName: p.firstName,
       lastName: p.lastName,

@@ -10,7 +10,11 @@ import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Translate from "../../../Translate";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import type { BaggageSubCategory, Restrictions } from "../../../../records/Baggage";
+import type {
+  BaggageSubCategory,
+  Restrictions,
+  BaggagePassengerType,
+} from "../../../../records/Baggage";
 import { getTextFromCategory, getIconFromCategory } from "../../../../services/baggage/utils";
 
 const Wrapper = styled.div`
@@ -91,7 +95,7 @@ OptionalColumnWrapper.defaultProps = {
 };
 
 type Props = {
-  passengers: Array<{ lastName: string, firstName: string, id: number }>,
+  passengers: Array<BaggagePassengerType>,
   restrictions: Restrictions,
   category: BaggageSubCategory,
   amount: number,

@@ -6,7 +6,12 @@ import Separator from "@kiwicom/orbit-components/lib/Separator";
 
 import PassengerBaggages from "./components/PassengerBaggages";
 import TotalPayment from "./components/TotalPayment";
-import type { BaggageType, HoldBagDefinition, HandBagDefinition } from "../../records/Baggage";
+import type {
+  BaggageType,
+  HoldBagDefinition,
+  HandBagDefinition,
+  ItemType,
+} from "../../records/Baggage";
 import { getTotalPrice } from "../../services/baggage/utils";
 
 type Passenger = {
@@ -30,7 +35,7 @@ const BaggagePaymentSummary = ({ baggage, passengers }: Props) => {
   const getDefinitions = (
     def: Array<HoldBagDefinition> | Array<HandBagDefinition>,
     indices: Array<number>,
-  ) => {
+  ): Array<ItemType> => {
     const data = indices.reduce((acc, optionIndex) => {
       const key = optionIndex.toString();
       if (acc[key]) {

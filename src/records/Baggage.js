@@ -75,3 +75,9 @@ export type Gender = "male" | "female";
 export type SupportLinksType = {
   [key: BaggageSubCategory]: string,
 };
+
+export type BaggagePassengerType = {
+  id: number,
+  firstName: string,
+  lastName: string,
+};

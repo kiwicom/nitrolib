@@ -30,7 +30,7 @@ export const getTextFromCategory = (
     case "holdBag":
       return <Translate t="baggage_modal.select.checked_bag" transform={transform} />;
     default:
-      return undefined;
+      return null;
   }
 };
 
@@ -47,7 +47,7 @@ export const getIconFromCategory = (
     case "holdBag":
       return <BaggageChecked size={size} color={color} />;
     default:
-      return undefined;
+      return null;
   }
 };
 type SummaryPriceArgs = {

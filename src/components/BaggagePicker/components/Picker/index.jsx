@@ -119,6 +119,8 @@ class BaggagePicker extends React.Component<Props, State> {
       <Translate t="baggage_modal.error.checked_baggage_not_available" />
     );
 
+  handleOptionClick = (pickerType: BaggageCategory, originalIndex: number) =>
+    this.props.onChange(pickerType, originalIndex); // eslint-disable-line
   render() {
     const {
       context,
@@ -158,7 +160,7 @@ class BaggagePicker extends React.Component<Props, State> {
               price={item.price}
               isChecked={item.originalIndex === selectedIndex}
               isCurrentCombination={item.originalIndex === currentCombination}
-              onClick={() => onChange(pickerType, item.originalIndex)}
+              onClick={() => this.handleOptionClick(pickerType, item.originalIndex)}
             />
           ))
         ) : (
