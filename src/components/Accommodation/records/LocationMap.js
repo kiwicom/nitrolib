@@ -8,4 +8,5 @@ export type LocationType = {|
   label: string,
   zoom: number,
   desktopWidth: number,
+  mapboxToken: string,
 |};

@@ -1,6 +1,6 @@
-// @flow
+// @flow strict
 import * as React from "react";
-import { shallow, mount } from "enzyme";
+import { mount } from "enzyme";
 
 import Accommodation from "..";
 
@@ -15,16 +15,5 @@ describe("#Accommodation", () => {
       "background",
       themeDefault.orbit.paletteWhite,
     );
-  });
-
-  test("isModalOpen", () => {
-    const wrapper = shallow(<Accommodation {...mockedData} />);
-
-    expect(wrapper.state().isModalOpen).toBe(false);
-    wrapper.instance().openAccommodationModal();
-    expect(wrapper.state().isModalOpen).toBe(true);
-
-    wrapper.instance().closeAccommodationModal();
-    expect(wrapper.state().isModalOpen).toBe(false);
   });
 });

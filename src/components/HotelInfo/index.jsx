@@ -13,16 +13,14 @@ import RatingStars from "@kiwicom/orbit-components/lib/RatingStars";
 import Translate from "../Translate";
 import { themeDefault } from "../../records/Theme";
 
-// import type { HotelType } from "./types";
-
 export type HotelType = {|
-  +name: ?string,
-  +photoUrl: ?string,
-  +address: ?{|
-    +fullAddress: ?string,
+  name: ?string,
+  photoUrl: ?string,
+  address: ?{|
+    fullAddress: ?string,
   |},
-  +rating: ?number,
-  +isMMB: ?boolean,
+  rating: ?number,
+  isMMB: ?boolean,
 |};
 
 export type Props = {
@@ -98,7 +96,7 @@ const HotelInfo = ({ hotel, onShownOnMapClick }: Props) => {
               </Heading>
             </HeadingWrapper>
           )}
-          {rating !== null && rating !== undefined && (
+          {!!rating && (
             <RatingStarsWrapper>
               <RatingStars rating={rating} color="secondary" />
             </RatingStarsWrapper>
@@ -113,7 +111,7 @@ const HotelInfo = ({ hotel, onShownOnMapClick }: Props) => {
       </Address>
       {isMMB && (
         <ButtonWrapper>
-          <Button onClick={onShownOnMapClick} size="small" type="secondary" block>
+          <Button onClick={onShownOnMapClick(true)} size="small" type="secondary" block>
             <Translate t="holidays.accommodation.show_map" />
           </Button>
         </ButtonWrapper>

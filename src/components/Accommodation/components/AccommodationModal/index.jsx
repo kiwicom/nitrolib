@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import * as React from "react";
 import styled from "styled-components";
@@ -16,7 +16,7 @@ import type { LocationType } from "../../records/LocationMap";
 import LocationMap from "../LocationMap";
 
 export type Props = {|
-  +address: AddressType,
+  address: AddressType,
   location: LocationType,
   onClose: Function,
 |};
@@ -38,7 +38,7 @@ const ButtonWrapper = styled.div`
 const AccommodationModal = ({ address, location, onClose }: Props) => {
   const fullAddress = address?.fullAddress;
   return (
-    <Modal onClose={onClose} fixedFooter>
+    <Modal onClose={onClose(false)} fixedFooter>
       <ModalHeader title={<Translate t="holidays.accommodation_modal.title" />} />
       <ModalSection>
         {fullAddress && (
@@ -50,7 +50,7 @@ const AccommodationModal = ({ address, location, onClose }: Props) => {
       </ModalSection>
       <ModalFooter flex="1 1 100%">
         <ButtonWrapper>
-          <Button onClick={onClose}>
+          <Button onClick={onClose(false)}>
             <Translate t="holidays.accommodation_modal.close" />
           </Button>
         </ButtonWrapper>

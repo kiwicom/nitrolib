@@ -1,14 +1,10 @@
-// @flow
-/* eslint-disable react/destructuring-assignment */
+// @flow strict
 
 import * as React from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
 
 import Pin from "./components/Pin";
 import type { LocationType } from "../../records/LocationMap";
-
-const MAPXBOX_TOKEN =
-  "pk.eyJ1IjoibWljaGFlbGtpd2kiLCJhIjoiY2l3aHRiN2ZqMDAycjJ6cXduNDU5djkweCJ9.XuamwcGDtyovJEMaSWtFkg";
 
 type Props = LocationType;
 
@@ -28,21 +24,21 @@ class LocationMap extends React.Component<Props, State> {
     zoom: 10,
   };
 
-  state = {
-    viewport: {
-      latitude: this.props.center.latitude,
-      longitude: this.props.center.longitude,
-      zoom: this.props.zoom,
-      width: this.props.desktopWidth,
-    },
-  };
+  constructor(props: Props) {
+    super(props);
+    const { center, zoom, desktopWidth } = props;
+
+    this.state = {
+      viewport: { zoom, width: desktopWidth, ...center },
+    };
+  }
 
   updateViewport = (viewport: Viewport) => {
     this.setState({ viewport });
   };
 
   render() {
-    const { center, label } = this.props;
+    const { center, label, mapboxToken } = this.props;
     const { viewport } = this.state;
 
     return (
@@ -50,7 +46,7 @@ class LocationMap extends React.Component<Props, State> {
         mapStyle="mapbox://styles/mapbox/streets-v10"
         onViewportChange={this.updateViewport}
         height={434}
-        mapboxApiAccessToken={MAPXBOX_TOKEN}
+        mapboxApiAccessToken={mapboxToken}
         {...viewport}
       >
         <Marker latitude={center.latitude} longitude={center.longitude}>

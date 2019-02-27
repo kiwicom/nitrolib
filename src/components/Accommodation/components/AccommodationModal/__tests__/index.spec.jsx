@@ -21,6 +21,8 @@ const props: Props = {
     label: "Golden Coast Hotel",
     zoom: 10,
     desktopWidth: 377,
+    mapboxToken:
+      "pk.eyJ1IjoibWljaGFlbGtpd2kiLCJhIjoiY2l3aHRiN2ZqMDAycjJ6cXduNDU5djkweCJ9.XuamwcGDtyovJEMaSWtFkg",
   },
   onClose: jest.fn(),
 };

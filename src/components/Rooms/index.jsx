@@ -4,40 +4,17 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
-import Text from "@kiwicom/orbit-components/lib/Text";
-import AccommodationIcon from "@kiwicom/orbit-components/lib/icons/Accommodation";
 
+import SingleRoom from "./SingleRoom";
 import Translate from "../Translate";
 import { themeDefault } from "../../records/Theme";
-
-export const DummyRoom = ({ id, description }: { id: string, description: string }) => (
-  <>
-    <HeadingWrapper>
-      <AccommodationIcon color="primary" />
-      <Heading element="h5" type="title4">
-        <Translate t="holidays.accommodation.room_x" values={{ id }} />
-      </Heading>
-    </HeadingWrapper>
-    <Description>
-      {description.split(";").map(d => (
-        <Text key={d}>{d}</Text>
-      ))}
-    </Description>
-  </>
-);
-
-export type RoomType = {|
-  +id: string,
-  +description: string,
-|};
+import type { RoomType } from "./SingleRoom";
 
 export type Props = {|
   rooms: Array<RoomType>,
 |};
 
 const RoomsList = styled.div`
-  display: flex;
-  flex-direction: column;
   ${mq.largeMobile(css`
     display: flex;
     flex-wrap: wrap;
@@ -50,13 +27,14 @@ RoomsList.defaultProps = {
 };
 
 const RoomWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-basis: calc(50% - 12px);
   margin-bottom: ${({ theme }) => theme.orbit.spaceMedium};
-  flex-wrap: wrap;
   :last-child {
     margin-bottom: 0;
+  }
+
+  :nth-child(odd) {
+    margin-right: ${({ theme }) => theme.orbit.spaceLarge};
   }
 
   ${mq.largeMobile(css`
@@ -70,29 +48,6 @@ RoomWrapper.defaultProps = {
   theme: themeDefault,
 };
 
-const HeadingWrapper = styled.div`
-  display: flex;
-  align-items: center;
-
-  > * {
-    :last-child {
-      margin-left: ${({ theme }) => theme.orbit.spaceXXSmall};
-    }
-  }
-`;
-
-HeadingWrapper.defaultProps = {
-  theme: themeDefault,
-};
-
-const Description = styled.div`
-  margin-top: ${({ theme }) => theme.orbit.spaceXXSmall};
-`;
-
-Description.defaultProps = {
-  theme: themeDefault,
-};
-
 const Rooms = ({ rooms }: Props) => (
   <>
     <Heading element="h4" type="title3" spaceAfter="medium">
@@ -102,7 +57,7 @@ const Rooms = ({ rooms }: Props) => (
       <RoomsList>
         {rooms.map(({ id, description }) => (
           <RoomWrapper key={id}>
-            <DummyRoom description={description} id={id} />
+            <SingleRoom description={description} id={id} />
           </RoomWrapper>
         ))}
       </RoomsList>

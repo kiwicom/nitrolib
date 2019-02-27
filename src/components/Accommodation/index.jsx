@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import * as React from "react";
 import styled, { css } from "styled-components";
@@ -12,7 +12,7 @@ import Header from "./components/Header";
 import AccommodationModal from "./components/AccommodationModal";
 import { themeDefault } from "../../records/Theme";
 import type { LocationType } from "./records/LocationMap";
-import type { RoomType } from "../Rooms";
+import type { RoomType } from "../Rooms/SingleRoom";
 import type { HotelType } from "../HotelInfo";
 import type { ThemeProps } from "../../records/Theme";
 
@@ -21,10 +21,6 @@ export type Props = {|
   rooms: Array<RoomType>,
   location: LocationType,
 |};
-
-type State = {
-  isModalOpen: boolean,
-};
 
 const Wrapper = styled.div`
   margin-bottom: ${({ theme }: ThemeProps) => theme.orbit.spaceMedium};
@@ -81,43 +77,33 @@ const Img = styled.img`
   `)};
 `;
 
-export default class Accommodation extends React.Component<Props, State> {
-  state = {
-    isModalOpen: false,
-  };
-
-  openAccommodationModal = () => {
-    this.setState({ isModalOpen: true });
-  };
-
-  closeAccommodationModal = () => {
-    this.setState({ isModalOpen: false });
-  };
-
-  render() {
-    const { hotel, rooms, location } = this.props;
-    const { isModalOpen } = this.state;
-    return (
-      <Wrapper>
-        <Header icon={<AccommodationIcon />} t="holidays.accommodation.title" />
-        <ContentWrapper>
-          <Photo>
-            <Img src={hotel.photoUrl} alt="hotel" />
-          </Photo>
-          <div>
-            <HotelInfo hotel={hotel} onShownOnMapClick={this.openAccommodationModal} />
-            <Separator />
-            <Rooms rooms={rooms} />
-          </div>
-        </ContentWrapper>
-        {isModalOpen && (
-          <AccommodationModal
-            address={hotel.address}
-            location={location}
-            onClose={this.closeAccommodationModal}
-          />
-        )}
-      </Wrapper>
-    );
-  }
+function Accommodation(props: Props) {
+  // not sure how to flow-type hooks yet, feel free to suggest
+  const [isModalOpen, toggleModal] = React.useState(false);
+  const toggleAccommodationModal = openState => () => toggleModal(openState);
+  const { hotel, rooms, location } = props;
+  return (
+    <Wrapper>
+      <Header icon={<AccommodationIcon />} t="holidays.accommodation.title" />
+      <ContentWrapper>
+        <Photo>
+          <Img src={hotel.photoUrl} alt="hotel" />
+        </Photo>
+        <div>
+          <HotelInfo hotel={hotel} onShownOnMapClick={toggleAccommodationModal} />
+          <Separator />
+          <Rooms rooms={rooms} />
+        </div>
+      </ContentWrapper>
+      {isModalOpen && (
+        <AccommodationModal
+          address={hotel.address}
+          location={location}
+          onClose={toggleAccommodationModal}
+        />
+      )}
+    </Wrapper>
+  );
 }
+
+export default Accommodation;

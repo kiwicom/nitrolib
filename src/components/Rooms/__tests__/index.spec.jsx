@@ -1,9 +1,9 @@
 // @flow strict
 
 import * as React from "react";
-import { mount, shallow } from "enzyme";
+import { mount } from "enzyme";
 
-import Rooms, { DummyRoom } from "..";
+import Rooms from "..";
 
 import { themeDefault } from "../../../records/Theme";
 
@@ -37,17 +37,5 @@ describe("#Rooms", () => {
         media: `(min-width:${600}px)`,
       },
     );
-  });
-
-  test("render single room", () => {
-    const wrapper = shallow(<Rooms {...props} />);
-    expect(
-      wrapper.contains(
-        <DummyRoom
-          id="1"
-          description="1x Deluxe Room with Free Daily Activities; 2x Adult, 1x Child; Half board"
-        />,
-      ),
-    ).toBe(true);
   });
 });
