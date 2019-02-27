@@ -76,6 +76,8 @@ const NitroProvider = () => (
 
 You can of course not use the `InitAuth` component and hook the provider up to your existing setup.
 
+See [InitAuth](./components#initauth) for initializing the service.
+
 ### Api
 
 **Import:**
@@ -126,8 +128,6 @@ See types:
 * [User](./records#user)
 * [Auth](./records#auth)
 
-See [InitAuth](./components#initauth) for initializing the service.
-
 
 
 ### Context
@@ -174,8 +174,6 @@ export default context;
 See types:
 * [Auth](./records#auth)
 
-See [InitAuth](./components#initauth) for initializing the service.
-
 _TODO_
 
 ## Brand
@@ -207,6 +205,8 @@ _TODO_
 
 _TODO_
 
+See [InitCurrency](./components#initcurrency) for initializing the service.
+
 ### Context
 
 **Import:**
@@ -233,8 +233,6 @@ export default context;
 See types:
 * [Currency](./records#currency)
 
-See [InitCurrency](./components#initcurrency) for initializing the service.
-
 _TODO_
 
 ## Fetch
@@ -250,6 +248,8 @@ _TODO_
 ## Intl
 
 _TODO_
+
+See [InitIntl](./components#initintl) for initializing the service.
 
 ### Context
 
@@ -274,8 +274,6 @@ export default context;
 
 See types:
 * [Intl](./records#intl)
-
-See [InitIntl](./components#initintl) for initializing the service.
 
 Contains all necessary information regarding **i18n**:
 * **[LangInfo](./records#langinfo)** - a record from the `data/languages.json` file
@@ -334,6 +332,8 @@ const localeFn = LOCALES[ID] || LOCALES.enUS; // Fallback to 'en-US'
 
 _TODO_
 
+See [InitLog](./components#initlog) for initializing the service.
+
 ### Context
 
 **Import:**
@@ -356,8 +356,6 @@ export default context;
 
 See types:
 * [Event](./records#event)
-
-See [InitLog](./components#initlog) for initializing the service.
 
 _TODO_
 

@@ -51,7 +51,6 @@ function getWhatDoc(service, what) {
     );
   }
 
-  const maybeInit = getServiceInitDoc(service);
   const readme = String(fsx.readFileSync(PATH));
 
   const types = utils.getFlowFile(TYPES);
@@ -66,7 +65,7 @@ function getWhatDoc(service, what) {
     "```",
     "",
     types,
-    maybeInit ? NL + maybeInit + NL : "",
+    "",
     doc,
     "",
   ].join("\n");
@@ -84,7 +83,15 @@ function getServiceDoc(service) {
     .filter(Boolean)
     .join("\n");
 
-  return [`## ${capitalize(service)}`, "", utils.getReadme(readme), "", docs].join("\n");
+  const maybeInit = getServiceInitDoc(service);
+
+  return [
+    `## ${capitalize(service)}`,
+    "",
+    utils.getReadme(readme),
+    maybeInit ? NL + maybeInit + NL : "",
+    docs,
+  ].join("\n");
 }
 
 const getList = service => `* [${capitalize(service)}](#${service.toLowerCase()})`;
