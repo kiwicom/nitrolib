@@ -15,7 +15,7 @@ import Translate from "../../../Translate/index";
 import OptionItem from "../OptionItem/index";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import type { ItemType } from "../../../../records/Baggage";
+import type { ItemType, BaggageCategory } from "../../../../records/Baggage";
 import type { PriceType } from "../../../../records/Price";
 import { Consumer } from "../../services/context";
 
@@ -25,6 +25,7 @@ type Props = {
   isChecked: boolean,
   isCurrentCombination: boolean,
   onClick: () => void,
+  pickerType: BaggageCategory,
 };
 
 type OptionWrapperProps = ThemeProps & {
@@ -92,16 +93,22 @@ const PriorityBoardingInfo = ({ airlines }: { airlines: Array<string> }) => {
   );
 };
 
-const EmptyLabel = () => (
+const EmptyLabel = ({ pickerType }: { pickerType: BaggageCategory }) => (
   <Stack spacing="condensed" flex align="center">
     <Close size="medium" />
     <Text>
-      <Translate t="baggage_modal.select.no_checked_baggage" />
+      <Translate
+        t={
+          pickerType === "handBag"
+            ? "baggage_modal.select.no_cabin_baggage"
+            : "baggage_modal.select.no_checked_baggage"
+        }
+      />
     </Text>
   </Stack>
 );
 
-const Option = ({ items, price, isChecked, onClick, isCurrentCombination }: Props) => {
+const Option = ({ items, price, isChecked, onClick, isCurrentCombination, pickerType }: Props) => {
   const itemsArr = Object.keys(items).map(key => items[key]);
   const hasSingleItem = itemsArr.length === 1;
   const firstItem = itemsArr[0];
@@ -144,7 +151,7 @@ const Option = ({ items, price, isChecked, onClick, isCurrentCombination }: Prop
                     />
                   ))
                 ) : (
-                  <EmptyLabel />
+                  <EmptyLabel pickerType={pickerType} />
                 )}
                 {hasSingleItem && firstItem.category === "cabinBag" && (
                   <Stack flex align="center" spacing="tight">

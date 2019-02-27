@@ -150,6 +150,7 @@ class BaggagePicker extends React.Component<Props, State> {
           showedItems.map(item => (
             <Option
               key={item.originalIndex}
+              pickerType={pickerType}
               items={item.items}
               price={item.price}
               isChecked={item.originalIndex === selectedIndex}
