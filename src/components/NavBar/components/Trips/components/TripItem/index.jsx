@@ -4,6 +4,7 @@ import RouteOneStop from "@kiwicom/orbit-components/lib/icons/RouteOneStop";
 import RouteTwoStops from "@kiwicom/orbit-components/lib/icons/RouteTwoStops";
 import styled, { css } from "styled-components";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import parseISO from "date-fns/fp/parseISO";
 
 import ItemWrapper from "../../primitives/ItemWrapper";
 import TripInfo from "../../primitives/TripInfo";
@@ -69,7 +70,7 @@ const TripItem = ({
       </Column>
       <Column>
         <TripInfoLine>
-          <Day date={departureTime} /> - <Day date={arrivalTime} />
+          <Day date={parseISO(departureTime)} /> - <Day date={parseISO(arrivalTime)} />
         </TripInfoLine>
         <TripInfoLine>
           <Translate t="account.trips_passengers" values={{ passengers: passengerCount }} />
