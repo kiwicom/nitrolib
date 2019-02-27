@@ -100,13 +100,14 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
 
   handleToSignUp = () => {
     const { log } = this.props;
-    log(loginEvents.CONTINUE_WITH_REGISTER);
+    log(loginEvents.CONTINUE_WITH_REGISTER, {});
     this.handleChangeScreen("signUp");
   };
 
   handleGoogleLogin = () => {
     const { onSocialLogin, log } = this.props;
-    log(loginEvents.LOGIN_VIA_SOCIAL, { provider: "google" });
+    const { screen } = this.state;
+    log(loginEvents.LOGIN_VIA_SOCIAL, { provider: "google", screen });
 
     this.setState({ successfulClose: true }, () => {
       onSocialLogin("google");
@@ -115,7 +116,8 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
 
   handleFacebookLogin = () => {
     const { onSocialLogin, log } = this.props;
-    log(loginEvents.LOGIN_VIA_SOCIAL, { provider: "facebook" });
+    const { screen } = this.state;
+    log(loginEvents.LOGIN_VIA_SOCIAL, { provider: "facebook", screen });
 
     this.setState({ successfulClose: true }, () => {
       onSocialLogin("facebook");
@@ -138,7 +140,7 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
           return;
         }
 
-        log(loginEvents.MAGIC_LINK_SENT);
+        log(loginEvents.MAGIC_LINK_SENT, {});
         this.handleChangeScreen("magicLink");
       })
       .catch(err => {

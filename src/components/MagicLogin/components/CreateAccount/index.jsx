@@ -114,7 +114,7 @@ export default class CreateAccountScreen extends React.PureComponent<Props, Stat
           return;
         }
 
-        log(loginEvents.REGISTRATION_SENT);
+        log(loginEvents.REGISTRATION_SENT, {});
         onSignUpConfirmation();
       })
       .catch(err => {

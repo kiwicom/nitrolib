@@ -70,7 +70,7 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
 
         onSignIn(toUser(user));
         onClose(true);
-        log(loginEvents.LOGGED_WITH_ACCOUNT);
+        log(loginEvents.LOGGED_WITH_ACCOUNT, {});
       })
       .catch(err => {
         log(API_ERROR, { error: String(err), operation: "signIn" });
@@ -82,7 +82,7 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
     const { onAskSignInLink } = this.props;
     const { log } = this.context;
 
-    log(loginEvents.ASK_FOR_MAGIC_LINK);
+    log(loginEvents.ASK_FOR_MAGIC_LINK, {});
 
     onAskSignInLink();
   };
@@ -91,7 +91,7 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
     const { onChangeScreen } = this.props;
     const { log } = this.context;
 
-    log(loginEvents.CHANGE_EMAIL);
+    log(loginEvents.CHANGE_EMAIL, {});
 
     onChangeScreen("intro");
   };
