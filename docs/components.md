@@ -541,6 +541,8 @@ Calls APIs for you, handles loading state and supplies context with _Relay_ envi
 * popping a note to check email on **register**
 * redirecting the user to MMB on **my booking**
 
+It also logs the user in on mount if you supply the `token` prop.
+
 ### InitCurrency
 
 **Import:**
