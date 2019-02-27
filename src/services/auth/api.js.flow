@@ -11,7 +11,6 @@ export type MyBookingInput = {|
   departure: Date,
 |};
 
-// eslint-disable-next-line import/prefer-default-export
 declare export function getMyBookingToken(input: MyBookingInput): Promise<string>;
 
 type LoginInput = {|
