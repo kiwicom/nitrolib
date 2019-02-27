@@ -12,7 +12,7 @@ const passengers = [
     lastName: "Obama",
     baggage: {
       holdBag: 1,
-      handBag: 2,
+      handBag: 3,
     },
   },
   {
@@ -21,7 +21,7 @@ const passengers = [
     lastName: "Trump",
     baggage: {
       holdBag: 1,
-      handBag: 3,
+      handBag: 4,
     },
   },
   {
@@ -30,7 +30,7 @@ const passengers = [
     lastName: "Bush",
     baggage: {
       holdBag: 0,
-      handBag: 1,
+      handBag: 2,
     },
   },
 ];

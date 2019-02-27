@@ -49,6 +49,8 @@ const props = {
   isChecked: false,
   onClick: jest.fn(),
   isCurrentCombination: false,
+  isPersonalItemPresent: false,
+  pickerType: "handBag",
 };
 
 const context = {
@@ -101,9 +103,37 @@ describe("#BaggageOption", () => {
   test("render no-personal item info", () => {
     const wrapper = mount(
       <Provider value={context}>
-        <BaggageOption {...props} items={{ "1": handBagExample }} />
+        <BaggageOption {...props} items={{ "1": handBagExample }} isPersonalItemPresent />
       </Provider>,
     );
     expect(wrapper.find("BaggagePersonalItemNone").exists()).toBe(true);
+  });
+
+  test("render empty option for handBag", () => {
+    const wrapper = mount(
+      <Provider value={context}>
+        <BaggageOption {...props} items={{}} />
+      </Provider>,
+    );
+    expect(
+      wrapper
+        .find("Text")
+        .first()
+        .text(),
+    ).toEqual("baggage_modal.select.no_cabin_baggage");
+  });
+
+  test("render empty option for handBag", () => {
+    const wrapper = mount(
+      <Provider value={context}>
+        <BaggageOption {...props} items={{}} pickerType="holdBag" />
+      </Provider>,
+    );
+    expect(
+      wrapper
+        .find("Text")
+        .first()
+        .text(),
+    ).toEqual("baggage_modal.select.no_checked_baggage");
   });
 });

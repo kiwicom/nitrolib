@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from "react";
-import R from "ramda";
 import styled from "styled-components";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Button from "@kiwicom/orbit-components/lib/Button";
@@ -74,7 +73,8 @@ class BaggagePicker extends React.Component<Props, State> {
   }
 
   componentDidUpdate(prevProps: Props) {
-    if (!R.equals(this.props, prevProps)) {
+    // eslint-disable-next-line
+    if (this.props.options.length !== prevProps.options.length) {
       this.handleDefaultStateValues(this.props);
     }
   }
@@ -122,9 +122,23 @@ class BaggagePicker extends React.Component<Props, State> {
   handleOptionClick = (pickerType: BaggageCategory, originalIndex: number) =>
     this.props.onChange(pickerType, originalIndex); // eslint-disable-line
 
+  // get info about presence of personal item in all options
+  // to validate if "no personal item" should be showed
+  getPersonalItemPresence = (): boolean => {
+    const { pickerType, options } = this.props;
+    if (pickerType === "holdBag") return false;
+    return options
+      .reduce((acc, option) => {
+        const items = Object.keys(option.items).map(key => option.items[key].category);
+        return [...acc, ...items];
+      }, [])
+      .some(i => i === "personalItem");
+  };
+
   render() {
     const { context, pickerType, options, selectedIndex, currentCombination } = this.props;
     const { showedItems, hiddenItems } = this.state;
+    const isPersonalItemPresent = this.getPersonalItemPresence();
 
     return (
       <Stack spacing="condensed" spaceAfter="largest">
@@ -156,6 +170,7 @@ class BaggagePicker extends React.Component<Props, State> {
               isChecked={item.originalIndex === selectedIndex}
               isCurrentCombination={item.originalIndex === currentCombination}
               onClick={() => this.handleOptionClick(pickerType, item.originalIndex)}
+              isPersonalItemPresent={isPersonalItemPresent}
             />
           ))
         ) : (

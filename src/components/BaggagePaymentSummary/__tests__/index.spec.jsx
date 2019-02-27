@@ -12,7 +12,7 @@ const passengers = [
     lastName: "Obama",
     baggage: {
       holdBag: 1, // index of baggage combination
-      handBag: 0, // index of baggage combination
+      handBag: 1, // index of baggage combination
     },
   },
   {
@@ -21,7 +21,7 @@ const passengers = [
     lastName: "Trump",
     baggage: {
       holdBag: 2, // index of baggage combination
-      handBag: 1, // index of baggage combination
+      handBag: 2, // index of baggage combination
     },
   },
 ];

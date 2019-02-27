@@ -14,6 +14,8 @@ const handBagOptions = {
   third: 2,
   fourth: 3,
   fifth: 4,
+  sixth: 5,
+  seventh: 6,
 };
 
 const holdBagOptions = {

@@ -116,7 +116,21 @@ export const baggageData = {
     handBag: [
       {
         conditions: {
-          passengerGroups: ["adult"],
+          passengerGroups: ["adult", "infant"],
+        },
+        indices: [],
+        price: {
+          currency: "EUR",
+          amount: 0,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
+        },
+      },
+      {
+        conditions: {
+          passengerGroups: ["adult", "infant"],
         },
         indices: [0],
         price: {
@@ -130,7 +144,7 @@ export const baggageData = {
       },
       {
         conditions: {
-          passengerGroups: ["adult"],
+          passengerGroups: ["adult", "child"],
         },
         indices: [1],
         price: {
@@ -175,6 +189,20 @@ export const baggageData = {
           passengerGroups: ["adult"],
         },
         indices: [0, 1, 1, 1],
+        price: {
+          currency: "EUR",
+          amount: 30,
+          base: 0,
+          merchant: null,
+          service: 0,
+          serviceFlat: 0,
+        },
+      },
+      {
+        conditions: {
+          passengerGroups: ["adult"],
+        },
+        indices: [1, 1, 1],
         price: {
           currency: "EUR",
           amount: 30,

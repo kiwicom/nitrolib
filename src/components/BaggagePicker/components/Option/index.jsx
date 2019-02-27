@@ -26,6 +26,7 @@ type Props = {
   isCurrentCombination: boolean,
   onClick: () => void,
   pickerType: BaggageCategory,
+  isPersonalItemPresent: boolean,
 };
 
 type OptionWrapperProps = ThemeProps & {
@@ -108,9 +109,16 @@ const EmptyLabel = ({ pickerType }: { pickerType: BaggageCategory }) => (
   </Stack>
 );
 
-const Option = ({ items, price, isChecked, onClick, isCurrentCombination, pickerType }: Props) => {
+const Option = ({
+  items,
+  price,
+  isChecked,
+  onClick,
+  isCurrentCombination,
+  pickerType,
+  isPersonalItemPresent,
+}: Props) => {
   const itemsArr = Object.keys(items).map(key => items[key]);
-  const hasSingleItem = itemsArr.length === 1;
   const firstItem = itemsArr[0];
 
   const getAirlinesWithPriorityBoarding = itemsArray => {
@@ -153,7 +161,7 @@ const Option = ({ items, price, isChecked, onClick, isCurrentCombination, picker
                 ) : (
                   <EmptyLabel pickerType={pickerType} />
                 )}
-                {hasSingleItem && firstItem.category === "cabinBag" && (
+                {firstItem && firstItem.category === "cabinBag" && isPersonalItemPresent && (
                   <Stack flex align="center" spacing="tight">
                     <BaggagePersonalItemNone color={isChecked ? "warning" : "secondary"} />
                     <Text type={isChecked ? "warning" : "secondary"}>
