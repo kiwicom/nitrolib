@@ -1186,31 +1186,6 @@
     eslint-plugin-relay "^1.0.0"
     prettier "^1.16.4"
 
-"@kiwicom/nitro@^0.93.0":
-  version "0.93.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/nitro/-/nitro-0.93.0.tgz#d1ed29d33494bf7270b809f514ee818e4c85fe79"
-  integrity sha512-iPVyYxuj3bEnahL0VUVN6rkkgO+atl4XTiqZeiGOy4ErlliNU/FimXodm21Dmy23yaq14jj0jy3x+huFzm4Vpw==
-  dependencies:
-    "@babel/parser" "^7.1.6"
-    "@babel/plugin-syntax-dynamic-import" "^7.2.0"
-    "@babel/runtime" "^7.1.5"
-    "@babel/traverse" "^7.1.6"
-    btoa-lite "^1.0.0"
-    chalk "^2.4.1"
-    date-fns "^2.0.0-alpha.21"
-    fs-extra "^7.0.1"
-    glob "^7.1.3"
-    i18n-extract "^0.6.3"
-    isomorphic-fetch "^2.2.1"
-    libphonenumber-js "^1.6.8"
-    mailcheck "^1.1.1"
-    react-icons "^2.2.7"
-    react-relay "^2.0.0"
-    react-transition-group "^2.5.0"
-    relay-runtime "^2.0.0"
-    validator "^10.9.0"
-    yargs "^12.0.5"
-
 "@kiwicom/orbit-components@^0.30.0":
   version "0.30.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.30.0.tgz#33093d51e1702d3510946db56df5d365e7dda648"
