@@ -2,8 +2,8 @@
 
 export type LocationType = {|
   center: {|
-    +latitude: number,
-    +longitude: number,
+    latitude: number,
+    longitude: number,
   |},
   label: string,
   zoom: number,
