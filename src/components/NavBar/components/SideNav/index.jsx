@@ -206,7 +206,7 @@ export default class SideNav extends React.Component<Props, State> {
 
     return (
       <>
-        <MenuOpen data-test="NavBar-SideNav-Open" onClick={this.handleToggle} inverted={inverted}>
+        <MenuOpen data-test="OpenSideNav" onClick={this.handleToggle} inverted={inverted}>
           <MenuHamburger />
         </MenuOpen>
 
