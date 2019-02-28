@@ -63,6 +63,22 @@ exports[`#BaggagePaymentSummary renders 1`] = `
         />
       </Text>
     </Stack>
+    <Stack
+      key="0"
+    >
+      <Text
+        element="span"
+        type="secondary"
+      >
+        1× 
+        <Translate
+          html={false}
+          t="baggage_modal.select.personal_item"
+          transform={[Function]}
+          values={Object {}}
+        />
+      </Text>
+    </Stack>
   </Stack>
 </Stack>
 `;

@@ -37,6 +37,14 @@ const PassengerBaggages = ({ firstName, lastName, baggage, price }: Props) => (
           </Text>
         </Stack>
       ))}
+      {baggage.holdBag.map((bag, index) => (
+        <Stack key={index} /* eslint-disable-line */>
+          <Text type="secondary" element="span">
+            {`${bag.amount}× `}
+            {getTextFromCategory(bag.category)}
+          </Text>
+        </Stack>
+      ))}
     </Stack>
   </Stack>
 );
