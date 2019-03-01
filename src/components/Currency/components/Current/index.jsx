@@ -19,6 +19,7 @@ const Separator = styled.span`
 `;
 
 const Wrapper = styled.div`
+  display: flex;
   color: ${({ theme, inverted }: InvertedProps) =>
     inverted ? theme.orbit.paletteWhite : theme.orbit.paletteInkNormal};
 

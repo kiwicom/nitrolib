@@ -103,7 +103,7 @@ const NavBar = ({
   onLogoClick,
 }: Props) => (
   <Container x="space-between" y="center" data-test="NavBar" inverted={inverted}>
-    <Stack flex shrink align="center">
+    <Stack flex shrink inline align="center">
       <Logo inverted={inverted} onClick={onLogoClick} />
       {headerLinks && (
         <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
