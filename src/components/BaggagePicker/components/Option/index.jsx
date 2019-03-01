@@ -136,7 +136,7 @@ const Option = ({
       {({ airlines, shouldShowRecheckNote }) => {
         const priorityAirlinesKeys = getAirlinesWithPriorityBoarding(itemsArr);
         const priorityAirlines = priorityAirlinesKeys
-          .map(key => airlines && airlines[key] && airlines[key].name)
+          .map((key: string) => airlines?.[key].name)
           .filter(Boolean);
 
         return (
