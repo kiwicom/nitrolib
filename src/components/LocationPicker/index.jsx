@@ -1,9 +1,9 @@
 // @flow strict
 import * as React from "react";
+import type { Environment } from "react-relay";
 import { graphql, QueryRenderer } from "react-relay";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
-import type { Environment } from "react-relay";
 
 import environmentReal from "../../services/environment";
 import PickerDropDown from "./primitives/PickerDropDown";
@@ -32,7 +32,15 @@ type Props = {|
   label: string,
   icon?: React.Node,
   // defaulted
-  environment: Environment,
+  environment?: Environment,
+  queryName?: "allLocations" | "holidaysLocations",
+  locationType?:
+    | "airport"
+    | "autonomous_territory"
+    | "city"
+    | "country"
+    | "station"
+    | "subdivision",
 |};
 
 type State = {|
@@ -40,9 +48,28 @@ type State = {|
   input: string,
 |};
 
+const queries = { // TODO make query with IFs
+  allLocations: graphql`
+    query LocationPickerQuery($input: String!, $options: LocationsOptionsInput) {
+      allLocations(last: 50, search: $input, options: $options) {
+        ...LocationPickerResultList_list
+      }
+    }
+  `,
+  holidaysLocations: graphql`
+    query LocationPickerHolidaysQuery($input: String!) {
+      holidaysLocations(last: 50, search: $input) {
+        ...LocationPickerResultList_list
+      }
+    }
+  `,
+};
+
 class LocationPicker extends React.Component<Props, State> {
   static defaultProps = {
     environment: environmentReal,
+    queryName: "allLocations",
+    locationType: false,
   };
 
   state = {
@@ -74,11 +101,20 @@ class LocationPicker extends React.Component<Props, State> {
     });
   };
 
+  handleFocus = (ev: SyntheticInputEvent<HTMLInputElement>) => {
+    this.setState({
+      input: "",
+      active: true,
+    });
+  };
+
   render() {
-    const { value, label, icon, environment } = this.props;
+    const { value, label, icon, environment, queryName, locationType } = this.props;
     const { active, input } = this.state;
 
     const placeholder = value ? getPlaceholder(value) : "";
+    const options = locationType ? { locationType } : {};
+    const inputValue = active ? input : placeholder; // TODO Warning: A component is changing an uncontrolled input of type text to be controlled. Input elements should not switch from uncontrolled to controlled (or vice versa). Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://fb.me/react-controlled-components
 
     return (
       <ClickOutside active={active} onClickOutside={this.handleClose}>
@@ -86,22 +122,16 @@ class LocationPicker extends React.Component<Props, State> {
           <InputField
             inlineLabel
             label={label}
-            placeholder={placeholder}
+            onFocus={this.handleFocus}
             onChange={this.handleChange}
             prefix={icon}
-            value={active ? input : ""}
+            value={inputValue}
           />
           {input && active && (
             <QueryRenderer
               environment={environment}
-              query={graphql`
-                query LocationPickerQuery($input: String!) {
-                  allLocations(last: 50, search: $input) {
-                    ...LocationPickerResultList_list
-                  }
-                }
-              `}
-              variables={{ input }}
+              query={queries[queryName]}
+              variables={{ input, options }}
               render={res => {
                 if (res.error) {
                   return (
@@ -115,7 +145,7 @@ class LocationPicker extends React.Component<Props, State> {
                   return null;
                 }
 
-                if (!res.props.allLocations) {
+                if (!res.props[queryName]) {
                   // TODO render this in the list if length is 0
                   return (
                     <NoResult>
@@ -127,7 +157,7 @@ class LocationPicker extends React.Component<Props, State> {
                 return (
                   <PickerDropDown ref={this.node}>
                     <LocationPickerResultList
-                      list={res.props.allLocations}
+                      list={res.props[queryName]}
                       selectedId={value && value.id}
                       onSelect={this.handleSelect}
                     />

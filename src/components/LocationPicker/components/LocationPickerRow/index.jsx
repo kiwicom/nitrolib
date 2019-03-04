@@ -26,7 +26,7 @@ const LocationPickerRow = ({ item, selected, onSelect }: Props) => {
     <PickerRow onClick={() => onSelect(toLocation(item))} selected={selected}>
       <Stack spacing="condensed" flex align="center">
         {/* $FlowExpected: TODO describe */}
-        {type === "country" && <CountryFlag code={code.toLowerCase()} />}
+        {type === "country" && code && <CountryFlag code={code.toLowerCase()} />}
         <TextWrapper weight="bold">
           {name} {slug}
         </TextWrapper>

@@ -11,6 +11,14 @@ type Props = {|
   icon?: React.Node,
   // defaulted
   environment?: Environment,
+  queryName?: "allLocations" | "holidaysLocations",
+  locationType?:
+    | "airport"
+    | "autonomous_territory"
+    | "city"
+    | "country"
+    | "station"
+    | "subdivision",
 |};
 
 declare export default React.ComponentType<Props>;

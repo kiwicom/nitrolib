@@ -135,5 +135,8 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-custom-processor-loader": "^0.6.0",
     "stylelint-processor-styled-components": "^1.5.1"
+  },
+  "resolutions": {
+    "graphql": "14.0.2"
   }
 }

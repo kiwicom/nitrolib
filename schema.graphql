@@ -2061,6 +2061,41 @@ type RootQuery {
   ): LocationConnection
 
   """
+  Search for airports, cities, countries. You can search by location name,
+  radius on the map or rectangle on the map. If you do not specify one of these
+  search inputs then the alphabetical dump of all locations is returned.
+  """
+  holidaysLocations(
+    """Search location by name."""
+    search: String
+
+    """Search location by radius."""
+    radius: RadiusInput
+
+    """Search location by area."""
+    area: AreaInput
+
+    """Combination of slug and radius. e.g. bratislava-slovakia-169km"""
+    slugRadius: String
+    options: LocationsOptionsInput
+    after: String
+    first: Int
+    before: String
+    last: Int
+  ): LocationConnection
+
+  """All locations in certain location. For example all airports in London"""
+  allSubLocations(
+    """Location ID"""
+    id: String!
+    options: LocationsOptionsInput
+    after: String
+    first: Int
+    before: String
+    last: Int
+  ): LocationConnection
+
+  """
   Search for single available hotel by its ID. It's necessary to send checkin
   and checkout dates as well as rooms configuration to get availability info.
   """
