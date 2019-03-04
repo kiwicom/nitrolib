@@ -5,14 +5,13 @@ import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/Baggage
 import Text from "@kiwicom/orbit-components/lib/Text";
 
 import BaggageItem from "../BaggageItem";
-import type { TileItem } from "../../../../records/Baggage";
+import type { TileItem, HoldBagDefinition, HandBagDefinition } from "../../../../records/Baggage";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import Translate from "../../../Translate/index";
 
 type Props = {
-  handBags: Array<TileItem>,
-  holdBags: Array<TileItem>,
+  definitions: Array<HandBagDefinition | HoldBagDefinition>,
   orderStatus: "unpaid" | "processing" | "notAvailable",
 };
 
@@ -54,24 +53,18 @@ NoPersonalItemWrapper.defaultProps = {
   theme: themeDefault,
 };
 
-const TileContent = ({ handBags, holdBags, orderStatus }: Props) => {
-  const hasPersonalItem = handBags.some(bag => bag.category === "personalItem");
+const TileContent = ({ definitions, orderStatus }: Props) => {
+  const hasPersonalItem = definitions.some(bag => bag.category === "personalItem");
   return (
     <Wrapper>
-      {handBags.map((bag, index) => (
-        <BaggageItem
-          key={index} // eslint-disable-line
-          restrictions={bag.restrictions}
-          category={bag.category}
-        />
-      ))}
-      {holdBags.map((bag, index) => (
-        <BaggageItem
-          key={index} // eslint-disable-line
-          restrictions={bag.restrictions}
-          category={bag.category}
-        />
-      ))}
+      {definitions &&
+        definitions.map((bag, index) => (
+          <BaggageItem
+            key={index} // eslint-disable-line
+            restrictions={bag.restrictions}
+            category={bag.category}
+          />
+        ))}
       {!hasPersonalItem && (
         <NoPersonalItemWrapper>
           <Text element="span" type="secondary">

@@ -9,7 +9,6 @@ import Tooltip from "@kiwicom/orbit-components/lib/Tooltip";
 import { Consumer } from "../../../../../../services/currency/context";
 import { format } from "../../../../../../records/Currency";
 import type { OrderStatusType } from "../../../../../../records/Baggage";
-import type { PriceType } from "../../../../../../records/Price";
 import Translate from "../../../../../Translate/index";
 
 const getTooltipText = (status: OrderStatusType) => {
@@ -18,12 +17,14 @@ const getTooltipText = (status: OrderStatusType) => {
       return <Translate t="baggage_modal.tooltip.unpaid" />;
     case "processing":
       return <Translate t="baggage_modal.tooltip.processing" />;
-    default:
+    case "notAvailable":
       return <Translate t="baggage_modal.tooltip.not_available" />;
+    default:
+      return null;
   }
 };
 
-const getBadge = (status: OrderStatusType, price?: PriceType) => {
+const getBadge = (status: OrderStatusType, price?: number) => {
   switch (status) {
     case "unpaid":
       return (
@@ -33,7 +34,7 @@ const getBadge = (status: OrderStatusType, price?: PriceType) => {
             {({ currency }) => (
               <Translate
                 t="baggage_modal.badge.unpaid"
-                values={{ price: price ? format(currency, price.amount) : "" }}
+                values={{ price: price && format(currency, price) }}
               />
             )}
           </Consumer>
@@ -54,13 +55,13 @@ const getBadge = (status: OrderStatusType, price?: PriceType) => {
         </Badge>
       );
     default:
-      return undefined;
+      return null;
   }
 };
 
 type TitleBadgeProps = {
   orderStatus: "unpaid" | "processing" | "notAvailable",
-  price?: PriceType,
+  price?: number,
 };
 
 const TitleBadge = ({ orderStatus, price }: TitleBadgeProps) => (

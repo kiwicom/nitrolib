@@ -4,61 +4,104 @@ import Tile from "@kiwicom/orbit-components/lib/Tile";
 
 import Title from "./components/Title";
 import TileContent from "./components/TileContent";
-import type { BaggageType, Gender, OrderStatusType } from "../../records/Baggage";
-import type { PriceType } from "../../records/Price";
+import { getTotalPrice } from "../../services/baggage/utils";
+import type {
+  BaggageType,
+  Gender,
+  HandBagDefinition,
+  HoldBagDefinition,
+} from "../../records/Baggage";
 
 type Props = {
   firstName: string,
+  middleName?: string, // what to show? initial or whole middleName?
   lastName: string,
   gender: Gender,
-  currentBaggage: { handBag: number, holdBag: number },
+  dayOfBirth?: string, // format it with date fns
+  isProcessing: boolean,
+  current?: {
+    handBag: number,
+    holdBag: number,
+  },
+  selected?: {
+    handBag: number,
+    holdBag: number,
+  },
+  definitions?: Array<HandBagDefinition | HoldBagDefinition>,
+  onClick?: () => void,
   baggage: BaggageType,
-  onClick: () => void,
-  orderStatus: OrderStatusType,
-  price?: PriceType,
 };
 
 const CustomerBaggageTile = ({
   firstName,
+  middleName,
   lastName,
-  onClick,
   gender,
-  orderStatus,
+  dayOfBirth,
+  isProcessing,
+  current,
+  selected,
+  definitions: newDefinitions,
+  onClick,
   baggage,
-  currentBaggage,
-  price,
 }: Props) => {
   const { definitions, combinations } = baggage;
 
-  const currentHandBag = combinations.handBag[currentBaggage.handBag];
-  const currentHoldBag = combinations.holdBag[currentBaggage.holdBag];
+  const getDefinitions = (): Array<HandBagDefinition | HoldBagDefinition> => {
+    if (newDefinitions) {
+      return newDefinitions;
+    }
+    const selectedHandBag =
+      selected &&
+      combinations.handBag[selected.handBag].indices.map(index => definitions.handBag[index]);
+    const selectedHoldBag =
+      selected &&
+      combinations.holdBag[selected.holdBag].indices.map(index => definitions.holdBag[index]);
 
-  const getTileItems = (baggageCategory, indices: Array<number>) => {
-    const def = definitions[baggageCategory];
-    return indices.map(optionIndex => ({
-      category: def[optionIndex].category,
-      restrictions: def[optionIndex].restrictions,
-    }));
+    return [...selectedHandBag, ...selectedHoldBag];
   };
 
-  const handBags = getTileItems("handBag", currentHandBag.indices);
-  const holdBags = getTileItems("holdBag", currentHoldBag.indices);
+  const calculatePrice = (): number | null => {
+    if (selected && current) {
+      return (
+        getTotalPrice({
+          combinationIndices: { handBag: [selected.handBag], holdBag: [selected.holdBag] },
+          combinations,
+        }) -
+        getTotalPrice({
+          combinationIndices: { handBag: [current.handBag], holdBag: [current.holdBag] },
+          combinations,
+        })
+      );
+    }
+    return null;
+  };
+
+  const getStatus = () => {
+    if (isProcessing) {
+      return "processing";
+    }
+    if (current && selected) {
+      return "unpaid";
+    }
+    return "notAvailable";
+  };
 
   return (
     <Tile
-      onClick={onClick}
+      onClick={onClick && onClick}
       title={
         <Title
           gender={gender}
           firstName={firstName}
+          middleName={middleName}
           lastName={lastName}
-          orderStatus={orderStatus}
-          price={price}
+          orderStatus={getStatus()}
+          price={calculatePrice()}
+          dayOfBirth={dayOfBirth}
         />
       }
-      description={
-        <TileContent handBags={handBags} holdBags={holdBags} orderStatus={orderStatus} />
-      }
+      description={<TileContent definitions={getDefinitions()} orderStatus={getStatus()} />}
     />
   );
 };

@@ -6,16 +6,12 @@ import Title from "../index";
 
 const props = {
   firstName: "Oliver",
+  middleName: "John",
   lastName: "Dlouhy",
   gender: "male",
   orderStatus: "unpaid",
-  price: {
-    currency: "EUR",
-    amount: 21,
-    base: 21,
-    service: 0,
-    serviceFlat: 0,
-  },
+  dayOfBirth: undefined,
+  price: 21,
 };
 
 describe("#Title", () => {
