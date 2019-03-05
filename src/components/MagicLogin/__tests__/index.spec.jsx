@@ -5,8 +5,9 @@ import * as React from "react";
 import { mount } from "enzyme";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
-import MagicLogin from "../index";
-import IntroScreen from "../components/Intro/index";
+import MagicLogin from "..";
+
+import IntroScreen from "../components/Intro";
 import { brandDefault } from "../../../records/Brand";
 import { Provider as BrandProvider } from "../../../services/brand/context";
 import { Provider as LogProvider } from "../../../services/log/context";

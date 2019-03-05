@@ -2,12 +2,12 @@
 
 import * as React from "react";
 
-import Text from "../../../Text/index";
-import AccountPassword from "../../../AccountPassword/index";
+import Text from "../../../Text";
+import AccountPassword from "../../../AccountPassword";
 import SignIn from "../../mutations/SignIn";
 import ResetPassword from "../../mutations/ResetPassword";
 import errors from "../../../../consts/errors";
-import type { Screen } from "../../consts/types";
+import type { Screen } from "../../records/Screen";
 import type { AuthUser } from "../../../../records/Auth";
 import toUser from "../../services/toUser";
 import LogContext from "../../../../services/log/context";

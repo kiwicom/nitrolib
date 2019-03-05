@@ -2,11 +2,11 @@
 
 import * as React from "react";
 
-import AccountLogin from "../../../AccountLogin/index";
+import AccountLogin from "../../../AccountLogin";
 import CheckEmail from "../../mutations/CheckEmail";
 import errors from "../../../../consts/errors";
-import type { Screen } from "../../consts/types";
-import Text from "../../../Text/index";
+import type { Screen } from "../../records/Screen";
+import Text from "../../../Text";
 import * as events from "../../../../consts/events";
 import LogContext from "../../../../services/log/context";
 

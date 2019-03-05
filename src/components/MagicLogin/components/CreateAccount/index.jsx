@@ -5,8 +5,8 @@ import * as React from "react";
 import errors from "../../../../consts/errors";
 import { Consumer } from "../../../../services/intl/context";
 import * as validators from "../../../../services/input/validators";
-import AccountCreate from "../../../AccountCreate/index";
-import Text from "../../../Text/index";
+import AccountCreate from "../../../AccountCreate";
+import Text from "../../../Text";
 import CreateAccount from "../../mutations/CreateAccount";
 import type { CreateAccountError } from "../../mutations/__generated__/CreateAccountMutation.graphql";
 import LogContext from "../../../../services/log/context";
@@ -161,7 +161,6 @@ export default class CreateAccountScreen extends React.PureComponent<Props, Stat
               password={password}
               error={error ? <Text t={error} values={{ text: email }} /> : null}
               passwordConfirm={passwordConfirm}
-              emailHint=""
               emailError={emailError}
               passwordError={passError}
               passwordConfirmError={passConfirmError}
