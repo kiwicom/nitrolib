@@ -6,8 +6,7 @@ import { mount } from "enzyme";
 import SingleRoom from "..";
 
 import { themeDefault } from "../../../../records/Theme";
-
-import type { RoomType } from "..";
+import type { RoomType } from "../../../../records/Room";
 
 const props: RoomType = {
   id: "1",

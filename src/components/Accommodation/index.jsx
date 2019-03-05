@@ -12,8 +12,8 @@ import Header from "./components/Header";
 import AccommodationModal from "./components/AccommodationModal";
 import { themeDefault } from "../../records/Theme";
 import type { LocationType } from "./records/LocationMap";
-import type { RoomType } from "../Rooms/SingleRoom";
-import type { HotelType } from "../HotelInfo";
+import type { RoomType } from "../../records/Room";
+import type { HotelType } from "../../records/HotelInfo";
 import type { ThemeProps } from "../../records/Theme";
 
 export type Props = {|

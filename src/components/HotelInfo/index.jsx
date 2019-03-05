@@ -12,16 +12,7 @@ import RatingStars from "@kiwicom/orbit-components/lib/RatingStars";
 
 import Translate from "../Translate";
 import { themeDefault } from "../../records/Theme";
-
-export type HotelType = {|
-  name: ?string,
-  photoUrl: ?string,
-  address: ?{|
-    fullAddress: ?string,
-  |},
-  rating: ?number,
-  isMMB: ?boolean,
-|};
+import type { HotelType } from "../../records/HotelInfo";
 
 export type Props = {
   hotel: ?HotelType,

@@ -22,7 +22,7 @@ export type Props = {|
 |};
 
 const Address = styled.div`
-  margin-top: -20px;
+  margin-top: -${({ theme }) => theme.orbit.spaceMedium};
   margin-bottom: ${({ theme }) => theme.orbit.spaceSmall};
 `;
 
@@ -34,6 +34,14 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
+
+const FooterWrapper = styled.div`
+  margin-top: -${({ theme }) => theme.orbit.spaceXXLarge};
+`;
+
+FooterWrapper.defaultProps = {
+  theme: themeDefault,
+};
 
 const AccommodationModal = ({ address, location, onClose }: Props) => {
   const fullAddress = address?.fullAddress;
@@ -48,13 +56,15 @@ const AccommodationModal = ({ address, location, onClose }: Props) => {
         )}
         <LocationMap {...location} desktopWidth={660} />
       </ModalSection>
-      <ModalFooter flex="1 1 100%">
-        <ButtonWrapper>
-          <Button onClick={onClose(false)}>
-            <Translate t="holidays.accommodation_modal.close" />
-          </Button>
-        </ButtonWrapper>
-      </ModalFooter>
+      <FooterWrapper>
+        <ModalFooter flex="1 1 100%">
+          <ButtonWrapper>
+            <Button onClick={onClose(false)}>
+              <Translate t="holidays.accommodation_modal.close" />
+            </Button>
+          </ButtonWrapper>
+        </ModalFooter>
+      </FooterWrapper>
     </Modal>
   );
 };

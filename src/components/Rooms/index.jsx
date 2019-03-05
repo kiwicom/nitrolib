@@ -8,7 +8,7 @@ import Heading from "@kiwicom/orbit-components/lib/Heading";
 import SingleRoom from "./SingleRoom";
 import Translate from "../Translate";
 import { themeDefault } from "../../records/Theme";
-import type { RoomType } from "./SingleRoom";
+import type { RoomType } from "../../records/Room";
 
 export type Props = {|
   rooms: Array<RoomType>,

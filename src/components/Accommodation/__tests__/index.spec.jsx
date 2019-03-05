@@ -15,5 +15,11 @@ describe("#Accommodation", () => {
       "background",
       themeDefault.orbit.paletteWhite,
     );
+
+    const button = wrapper.find("Button").filterWhere(b => b.prop("type") === "secondary");
+
+    expect(wrapper.find("AccommodationModal").exists()).toBe(false);
+    button.simulate("click");
+    expect(wrapper.find("AccommodationModal").exists()).toBe(true);
   });
 });

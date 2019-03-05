@@ -8,11 +8,7 @@ import Text from "@kiwicom/orbit-components/lib/Text";
 
 import Translate from "../../Translate";
 import { themeDefault } from "../../../records/Theme";
-
-export type RoomType = {
-  id: string,
-  description: string,
-};
+import type { RoomType } from "../../../records/Room";
 
 const HeadingWrapper = styled.div`
   display: flex;
