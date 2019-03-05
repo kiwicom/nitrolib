@@ -2,6 +2,7 @@
 
 Located in `@kiwicom/nitro/lib/records/<record>`.
 
+* [Affiliate](#affiliate)
 * [Airline](#airline)
 * [Auth](#auth)
 * [Brand](#brand)
@@ -18,6 +19,31 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [Loglady](#loglady)
 * [Theme](#theme)
 * [User](#user)
+
+## Affiliate
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/Affiliate";
+import type { Affiliate } from "@kiwicom/nitro/lib/records/Affiliate";
+```
+
+**Types:**
+```js
+export type ChineseAN = {|
+  id: "ChineseAN",
+  txId: string,
+|};
+
+export type Other = {|
+  id: "other",
+  value: string,
+|};
+
+export type Affiliate = ChineseAN | Other;
+```
+
+Holds information specific for the given affiliate.
 
 ## Airline
 
