@@ -309,6 +309,11 @@
     "lcc": 0,
     "name": "People's Viennaline PE"
   },
+  "CHIHUAHUEN": {
+    "id": "CHIHUAHUEN",
+    "lcc": null,
+    "name": "Transportes Chihuahuenses"
+  },
   "S9": {
     "id": "S9",
     "lcc": 0,
@@ -638,11 +643,6 @@
     "id": "FL",
     "lcc": 0,
     "name": "AirTran Airways"
-  },
-  "BA": {
-    "id": "BA",
-    "lcc": 0,
-    "name": "British Airways"
   },
   "7F": {
     "id": "7F",
@@ -1804,10 +1804,10 @@
     "lcc": null,
     "name": "Slovak Lines "
   },
-  "CG": {
-    "id": "CG",
+  "5G": {
+    "id": "5G",
     "lcc": 0,
-    "name": "Airlines PNG"
+    "name": "MAYAir"
   },
   "PH": {
     "id": "PH",
@@ -1853,6 +1853,11 @@
     "id": "7B",
     "lcc": 0,
     "name": "Fly Blue Crane"
+  },
+  "CG": {
+    "id": "CG",
+    "lcc": 0,
+    "name": "PNG Air"
   },
   "EJ": {
     "id": "EJ",
@@ -1928,11 +1933,6 @@
     "id": "FT",
     "lcc": 0,
     "name": "FlyEgypt FT"
-  },
-  "5G": {
-    "id": "5G",
-    "lcc": 0,
-    "name": "Skyservice Airlines"
   },
   "FS": {
     "id": "FS",
@@ -2519,6 +2519,11 @@
     "lcc": 0,
     "name": "TransHolding System"
   },
+  "WJ": {
+    "id": "WJ",
+    "lcc": 0,
+    "name": "JetSMART Argentina"
+  },
   "MB": {
     "id": "MB",
     "lcc": 0,
@@ -2698,11 +2703,6 @@
     "id": "ZG",
     "lcc": 0,
     "name": "Grozny Avia"
-  },
-  "WJ": {
-    "id": "WJ",
-    "lcc": 0,
-    "name": "Air Labrador"
   },
   "8Z": {
     "id": "8Z",
@@ -3834,11 +3834,6 @@
     "lcc": 0,
     "name": "Trenitalia"
   },
-  "2C": {
-    "id": "2C",
-    "lcc": 0,
-    "name": "SNCF"
-  },
   "2J": {
     "id": "2J",
     "lcc": 0,
@@ -4034,10 +4029,50 @@
     "lcc": null,
     "name": "Grumeti Air"
   },
+  "EMETEBE": {
+    "id": "EMETEBE",
+    "lcc": null,
+    "name": "Emetebe Airlines"
+  },
   "THALYS": {
     "id": "THALYS",
     "lcc": null,
     "name": "Thalys"
+  },
+  "O4": {
+    "id": "O4",
+    "lcc": null,
+    "name": "Orange2Fly"
+  },
+  "SKYPASADA": {
+    "id": "SKYPASADA",
+    "lcc": null,
+    "name": "Sky Pasada"
+  },
+  "NSI": {
+    "id": "NSI",
+    "lcc": null,
+    "name": "NS"
+  },
+  "2C": {
+    "id": "2C",
+    "lcc": 0,
+    "name": "SNCF"
+  },
+  "AMTRAK": {
+    "id": "AMTRAK",
+    "lcc": null,
+    "name": "Amtrak"
+  },
+  "RZD": {
+    "id": "RZD",
+    "lcc": null,
+    "name": "Russian Railways "
+  },
+  "BA": {
+    "id": "BA",
+    "lcc": 0,
+    "name": "British Airways"
   },
   "8A": {
     "id": "8A",
@@ -4154,11 +4189,6 @@
     "lcc": null,
     "name": "AB Aviation"
   },
-  "AIREXCEL": {
-    "id": "AIREXCEL",
-    "lcc": null,
-    "name": "Air Excel Limited"
-  },
   "UNIAIR": {
     "id": "UNIAIR",
     "lcc": null,
@@ -4178,6 +4208,16 @@
     "id": "FLYSAFARI",
     "lcc": null,
     "name": "Fly Safari Airlink"
+  },
+  "XLL": {
+    "id": "XLL",
+    "lcc": null,
+    "name": "Air Excel Limited"
+  },
+  "RHONEXP": {
+    "id": "RHONEXP",
+    "lcc": null,
+    "name": "Rhônexpress"
   },
   "J2": {
     "id": "J2",
@@ -4249,6 +4289,16 @@
     "lcc": null,
     "name": "SBB"
   },
+  "CFLB": {
+    "id": "CFLB",
+    "lcc": null,
+    "name": "CFL"
+  },
+  "COMBOIOS": {
+    "id": "COMBOIOS",
+    "lcc": null,
+    "name": "Comboios de Portugal"
+  },
   "U3": {
     "id": "U3",
     "lcc": 0,
@@ -4288,6 +4338,11 @@
     "id": "SC",
     "lcc": 0,
     "name": "Shandong Airlines"
+  },
+  "CFLT": {
+    "id": "CFLT",
+    "lcc": null,
+    "name": "CFL"
   },
   "R6": {
     "id": "R6",
@@ -4599,6 +4654,11 @@
     "lcc": 0,
     "name": "Viva Air"
   },
+  "PKP": {
+    "id": "PKP",
+    "lcc": null,
+    "name": "PKP Intercity"
+  },
   "ST": {
     "id": "ST",
     "lcc": 1,
@@ -4618,6 +4678,11 @@
     "id": "DB",
     "lcc": 0,
     "name": "Brit Air"
+  },
+  "ZSSK": {
+    "id": "ZSSK",
+    "lcc": null,
+    "name": "Slovak rail"
   },
   "JU": {
     "id": "JU",
@@ -4894,6 +4959,11 @@
     "lcc": 1,
     "name": "SkyWise"
   },
+  "JEFFERSON": {
+    "id": "JEFFERSON",
+    "lcc": null,
+    "name": "Jefferson Lines"
+  },
   "XN": {
     "id": "XN",
     "lcc": 0,
@@ -5164,6 +5234,11 @@
     "lcc": 0,
     "name": "Sky Bahamas"
   },
+  "IB": {
+    "id": "IB",
+    "lcc": 0,
+    "name": "Iberia Airlines"
+  },
   "AF": {
     "id": "AF",
     "lcc": 0,
@@ -5178,6 +5253,11 @@
     "id": "AI",
     "lcc": 0,
     "name": "Air India Limited"
+  },
+  "7M": {
+    "id": "7M",
+    "lcc": 0,
+    "name": "MAP Linhas Aéreas"
   },
   "3S": {
     "id": "3S",
@@ -5228,11 +5308,6 @@
     "id": "QW",
     "lcc": 0,
     "name": "Qingdao Airlines"
-  },
-  "7M": {
-    "id": "7M",
-    "lcc": 0,
-    "name": "MAYAir"
   },
   "WP": {
     "id": "WP",
@@ -5299,11 +5374,6 @@
     "lcc": 0,
     "name": "Aws express"
   },
-  "IB": {
-    "id": "IB",
-    "lcc": 0,
-    "name": "Iberia Airlines"
-  },
   "3M": {
     "id": "3M",
     "lcc": 1,
@@ -5329,11 +5399,6 @@
     "lcc": 1,
     "name": "tuifly.be"
   },
-  "FC": {
-    "id": "FC",
-    "lcc": 1,
-    "name": "Viva Air"
-  },
   "W6": {
     "id": "W6",
     "lcc": 1,
@@ -5354,6 +5419,11 @@
     "lcc": 1,
     "name": "Flybondi"
   },
+  "FC": {
+    "id": "FC",
+    "lcc": 1,
+    "name": "Fly Corporate"
+  },
   "UO": {
     "id": "UO",
     "lcc": 1,
@@ -5363,6 +5433,16 @@
     "id": "UK",
     "lcc": 0,
     "name": "Air Vistara"
+  },
+  "FD": {
+    "id": "FD",
+    "lcc": 0,
+    "name": "Thai AirAsia"
+  },
+  "BURLINGTON": {
+    "id": "BURLINGTON",
+    "lcc": null,
+    "name": "Burlington Trailways"
   },
   "2Z": {
     "id": "2Z",
@@ -5513,11 +5593,6 @@
     "id": "H2",
     "lcc": 1,
     "name": "Sky Airline"
-  },
-  "FD": {
-    "id": "FD",
-    "lcc": 0,
-    "name": "Thai AirAsia"
   },
   "UN": {
     "id": "UN",
