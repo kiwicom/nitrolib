@@ -51,14 +51,16 @@ const CustomerBaggageTile = ({
     if (newDefinitions) {
       return newDefinitions;
     }
-    const selectedHandBag =
-      selected &&
-      combinations.handBag[selected.handBag].indices.map(index => definitions.handBag[index]);
-    const selectedHoldBag =
-      selected &&
-      combinations.holdBag[selected.holdBag].indices.map(index => definitions.holdBag[index]);
-
-    return [...selectedHandBag, ...selectedHoldBag];
+    if (selected && current) {
+      const selectedHandBag = combinations.handBag[selected.handBag].indices.map(
+        index => definitions.handBag[index],
+      );
+      const selectedHoldBag = combinations.holdBag[selected.holdBag].indices.map(
+        index => definitions.holdBag[index],
+      );
+      return [...selectedHandBag, ...selectedHoldBag];
+    }
+    return [];
   };
 
   const calculatePrice = (): number | null => {

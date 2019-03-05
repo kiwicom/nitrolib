@@ -5,14 +5,18 @@ import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/Baggage
 import Text from "@kiwicom/orbit-components/lib/Text";
 
 import BaggageItem from "../BaggageItem";
-import type { TileItem, HoldBagDefinition, HandBagDefinition } from "../../../../records/Baggage";
+import type {
+  HoldBagDefinition,
+  HandBagDefinition,
+  OrderStatusType,
+} from "../../../../records/Baggage";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import Translate from "../../../Translate/index";
 
 type Props = {
   definitions: Array<HandBagDefinition | HoldBagDefinition>,
-  orderStatus: "unpaid" | "processing" | "notAvailable",
+  orderStatus: OrderStatusType,
 };
 
 const Wrapper = styled.div`
@@ -49,6 +53,7 @@ const NoPersonalItemWrapper = styled.div`
     margin-right: ${({ theme }): ThemeProps => theme.orbit.spaceXSmall};
   }
 `;
+
 NoPersonalItemWrapper.defaultProps = {
   theme: themeDefault,
 };

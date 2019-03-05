@@ -7,19 +7,16 @@ import data from "../services/data";
 
 const props = {
   firstName: "Oliver",
+  middleName: undefined,
   lastName: "Dlouhy",
   gender: "male",
-  currentBaggage: { handBag: 3, holdBag: 4 },
-  baggage: data,
+  dayOfBirth: undefined,
+  isProcessing: false,
+  current: { handBag: 1, holdBag: 1 },
+  selected: { handBag: 3, holdBag: 4 },
+  definitions: undefined,
   onClick: () => console.log("clicked"), // eslint-disable-line
-  orderStatus: "unpaid",
-  price: {
-    currency: "EUR",
-    amount: 21,
-    base: 21,
-    service: 0,
-    serviceFlat: 0,
-  },
+  baggage: data,
 };
 
 describe("#CustomerBaggageTile", () => {

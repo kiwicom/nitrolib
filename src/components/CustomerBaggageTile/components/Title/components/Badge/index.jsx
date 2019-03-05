@@ -24,19 +24,21 @@ const getTooltipText = (status: OrderStatusType) => {
   }
 };
 
-const getBadge = (status: OrderStatusType, price?: number) => {
+const getBadge = (status: OrderStatusType, price: ?number) => {
   switch (status) {
     case "unpaid":
       return (
         <Badge type="warning">
           <Money size="small" />
           <Consumer>
-            {({ currency }) => (
-              <Translate
-                t="baggage_modal.badge.unpaid"
-                values={{ price: price && format(currency, price) }}
-              />
-            )}
+            {({ currency }) =>
+              typeof price === "number" && (
+                <Translate
+                  t="baggage_modal.badge.unpaid"
+                  values={{ price: format(currency, price) }}
+                />
+              )
+            }
           </Consumer>
         </Badge>
       );
@@ -60,8 +62,8 @@ const getBadge = (status: OrderStatusType, price?: number) => {
 };
 
 type TitleBadgeProps = {
-  orderStatus: "unpaid" | "processing" | "notAvailable",
-  price?: number,
+  orderStatus: OrderStatusType,
+  price: ?number,
 };
 
 const TitleBadge = ({ orderStatus, price }: TitleBadgeProps) => (

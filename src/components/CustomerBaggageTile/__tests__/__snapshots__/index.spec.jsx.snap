@@ -4,10 +4,23 @@ exports[`#CustomerBaggageTile renders 1`] = `
 <Tile
   description={
     <TileContent
-      handBags={
+      definitions={
         Array [
           Object {
             "category": "personalItem",
+            "conditions": Object {
+              "passengerGroups": Array [
+                "adult",
+              ],
+            },
+            "price": Object {
+              "amount": 0,
+              "base": 0,
+              "currency": "EUR",
+              "merchant": null,
+              "service": 0,
+              "serviceFlat": 0,
+            },
             "restrictions": Object {
               "dimensionsSum": null,
               "height": 20,
@@ -18,6 +31,19 @@ exports[`#CustomerBaggageTile renders 1`] = `
           },
           Object {
             "category": "cabinBag",
+            "conditions": Object {
+              "passengerGroups": Array [
+                "adult",
+              ],
+            },
+            "price": Object {
+              "amount": 10,
+              "base": 0,
+              "currency": "EUR",
+              "merchant": null,
+              "service": 0,
+              "serviceFlat": 0,
+            },
             "restrictions": Object {
               "dimensionsSum": null,
               "height": 35,
@@ -28,6 +54,19 @@ exports[`#CustomerBaggageTile renders 1`] = `
           },
           Object {
             "category": "cabinBag",
+            "conditions": Object {
+              "passengerGroups": Array [
+                "adult",
+              ],
+            },
+            "price": Object {
+              "amount": 10,
+              "base": 0,
+              "currency": "EUR",
+              "merchant": null,
+              "service": 0,
+              "serviceFlat": 0,
+            },
             "restrictions": Object {
               "dimensionsSum": null,
               "height": 35,
@@ -36,12 +75,21 @@ exports[`#CustomerBaggageTile renders 1`] = `
               "width": 20,
             },
           },
-        ]
-      }
-      holdBags={
-        Array [
           Object {
             "category": "holdBag",
+            "conditions": Object {
+              "passengerGroups": Array [
+                "adult",
+              ],
+            },
+            "price": Object {
+              "amount": 20,
+              "base": 20,
+              "currency": "EUR",
+              "merchant": null,
+              "service": 5,
+              "serviceFlat": 0,
+            },
             "restrictions": Object {
               "dimensionsSum": 156,
               "height": 52,
@@ -52,6 +100,19 @@ exports[`#CustomerBaggageTile renders 1`] = `
           },
           Object {
             "category": "holdBag",
+            "conditions": Object {
+              "passengerGroups": Array [
+                "adult",
+              ],
+            },
+            "price": Object {
+              "amount": 20,
+              "base": 20,
+              "currency": "EUR",
+              "merchant": null,
+              "service": 5,
+              "serviceFlat": 0,
+            },
             "restrictions": Object {
               "dimensionsSum": 156,
               "height": 52,
@@ -62,6 +123,23 @@ exports[`#CustomerBaggageTile renders 1`] = `
           },
           Object {
             "category": "holdBag",
+            "conditions": Object {
+              "isPriority": Array [
+                "FR",
+                "W6",
+              ],
+              "passengerGroups": Array [
+                "adult",
+              ],
+            },
+            "price": Object {
+              "amount": 30,
+              "base": 0,
+              "currency": "EUR",
+              "merchant": null,
+              "service": 0,
+              "serviceFlat": 0,
+            },
             "restrictions": Object {
               "dimensionsSum": 156,
               "height": 52,
@@ -82,15 +160,7 @@ exports[`#CustomerBaggageTile renders 1`] = `
       gender="male"
       lastName="Dlouhy"
       orderStatus="unpaid"
-      price={
-        Object {
-          "amount": 21,
-          "base": 21,
-          "currency": "EUR",
-          "service": 0,
-          "serviceFlat": 0,
-        }
-      }
+      price={70}
     />
   }
 />

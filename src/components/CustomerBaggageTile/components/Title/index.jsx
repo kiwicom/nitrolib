@@ -3,7 +3,6 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import GenderMan from "@kiwicom/orbit-components/lib/icons/GenderMan";
 import GenderWoman from "@kiwicom/orbit-components/lib/icons/GenderWoman";
-import Text from "@kiwicom/orbit-components/lib/Text";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
@@ -17,7 +16,7 @@ type TitleProps = {
   gender: Gender,
   dayOfBirth?: string,
   orderStatus: OrderStatusType,
-  price?: number,
+  price: ?number,
 };
 
 const TitleWrapper = styled.div`
@@ -58,18 +57,11 @@ const Title = ({
   <TitleWrapper>
     <Stack inline align="center" spacing="condensed">
       {gender === "male" ? <GenderMan /> : <GenderWoman />}
-      <PassengerName>{`${firstName} ${
-        middleName ? `${middleName[0]}.` : ""
-      } ${lastName}`}</PassengerName>
+      <PassengerName>{`${firstName}
+        ${middleName ? `${middleName}` : ""}
+        ${lastName}${dayOfBirth ? ` ${dayOfBirth}` : ""}`}</PassengerName>
     </Stack>
     <Badge orderStatus={orderStatus} price={price} />
-    {dayOfBirth && (
-      <Stack inline align="center" spacing="condensed">
-        <Text size="small" type="secondary" element="span">
-          {dayOfBirth}
-        </Text>
-      </Stack>
-    )}
   </TitleWrapper>
 );
 

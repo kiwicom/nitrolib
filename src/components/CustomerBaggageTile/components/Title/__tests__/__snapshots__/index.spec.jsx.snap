@@ -9,20 +9,14 @@ exports[`#Title renders 1`] = `
   >
     <GenderMan />
     <Title__PassengerName>
-      Oliver Dlouhy
+      Oliver
+        Olix
+        Dlouhy
     </Title__PassengerName>
   </Stack>
   <TitleBadge
     orderStatus="unpaid"
-    price={
-      Object {
-        "amount": 21,
-        "base": 21,
-        "currency": "EUR",
-        "service": 0,
-        "serviceFlat": 0,
-      }
-    }
+    price={21}
   />
 </Title__TitleWrapper>
 `;

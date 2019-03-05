@@ -5,8 +5,19 @@ import { shallow } from "enzyme";
 import TileContent from "../index";
 
 const props = {
-  handBags: [
+  definitions: [
     {
+      conditions: {
+        passengerGroups: ["adult"],
+      },
+      price: {
+        currency: "EUR",
+        amount: 0,
+        base: 0,
+        merchant: null,
+        service: 0,
+        serviceFlat: 0,
+      },
       category: "cabinBag",
       restrictions: {
         weight: 5,
@@ -16,20 +27,29 @@ const props = {
         dimensionsSum: null,
       },
     },
-  ],
-  holdBags: [
     {
+      conditions: {
+        passengerGroups: ["adult"],
+      },
+      price: {
+        currency: "EUR",
+        amount: 10,
+        base: 0,
+        merchant: null,
+        service: 0,
+        serviceFlat: 0,
+      },
       category: "holdBag",
       restrictions: {
-        weight: 25,
-        height: 60,
-        width: 30,
-        length: 70,
-        dimensionsSum: null,
+        weight: 10,
+        height: 52,
+        width: 26,
+        length: 78,
+        dimensionsSum: 156,
       },
     },
   ],
-  orderStatus: "notAvailable",
+  orderStatus: "unpaid",
 };
 
 describe("#TileContent", () => {
@@ -38,7 +58,7 @@ describe("#TileContent", () => {
     expect(wrapper.find("BaggagePersonalItemNone").exists()).toBe(true);
   });
   test("renders contact us text", () => {
-    const wrapper = shallow(<TileContent {...props} />);
+    const wrapper = shallow(<TileContent {...props} orderStatus="notAvailable" />);
     expect(wrapper.find("TileContent__ContactUsText").exists()).toBe(true);
   });
 });

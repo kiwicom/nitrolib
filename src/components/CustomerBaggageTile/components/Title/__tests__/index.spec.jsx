@@ -6,7 +6,7 @@ import Title from "../index";
 
 const props = {
   firstName: "Oliver",
-  middleName: "John",
+  middleName: "Olix",
   lastName: "Dlouhy",
   gender: "male",
   orderStatus: "unpaid",
