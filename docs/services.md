@@ -12,6 +12,7 @@ Located in `@kiwicom/nitro/lib/services/<service>`.
 * [Intl](#intl)
 * [Log](#log)
 * [Modal](#modal)
+* [Session](#session)
 * [Utils](#utils)
 
 ## Auth
@@ -437,6 +438,52 @@ export default context;
 Holds an information about which modal is currently open. Only supports one modal **on purpose**.
 
 > Initialize using the [Value](./components#value) component, it has no associated `InitModal` component.
+
+## Session
+
+Contains everything regarding session data:
+* **user** and **request** specific context data
+* **cookies**
+* **local storage**
+
+### Context
+
+**Import:**
+```js
+import * as context from "@kiwicom/nitro/lib/services/session/context";
+```
+
+**Types:**
+```js
+declare var context: React.Context<Session>;
+
+export const { Consumer, Provider } = context;
+
+export default context;
+```
+
+See types:
+* [Session](./records#session)
+
+Contains session data. It is static.
+
+### Cookies
+
+**Import:**
+```js
+import * as cookies from "@kiwicom/nitro/lib/services/session/cookies";
+```
+
+**Types:**
+```js
+declare export var load: (key: Cookie) => ?string;
+
+declare export var save: (key: Cookie, value: string) => void;
+
+declare export var remove: (key: Cookie) => void;
+```
+
+Centralized medium for manipulating cookies.
 
 ## Utils
 

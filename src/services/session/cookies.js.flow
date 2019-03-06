@@ -1,0 +1,8 @@
+// @flow strict
+import type { Cookie } from "../../consts/cookies";
+
+declare export var load: (key: Cookie) => ?string;
+
+declare export var save: (key: Cookie, value: string) => void;
+
+declare export var remove: (key: Cookie) => void;

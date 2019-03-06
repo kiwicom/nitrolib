@@ -1,4 +1,4 @@
-// flow-typed signature: 77a260c58ac535a70cd8b64ca2efcb4f
+// flow-typed signature: da2a461c748c4407ae73020d9db01f49
 // flow-typed version: <<STUB>>/@babel/runtime_v^7.1.5/flow_v0.87.0
 
 /**
@@ -83,6 +83,14 @@ declare module '@babel/runtime/helpers/classPrivateFieldLooseKey' {
 }
 
 declare module '@babel/runtime/helpers/classPrivateFieldSet' {
+  declare module.exports: any;
+}
+
+declare module '@babel/runtime/helpers/classPrivateMethodGet' {
+  declare module.exports: any;
+}
+
+declare module '@babel/runtime/helpers/classPrivateMethodSet' {
   declare module.exports: any;
 }
 
@@ -179,6 +187,14 @@ declare module '@babel/runtime/helpers/esm/classPrivateFieldLooseKey' {
 }
 
 declare module '@babel/runtime/helpers/esm/classPrivateFieldSet' {
+  declare module.exports: any;
+}
+
+declare module '@babel/runtime/helpers/esm/classPrivateMethodGet' {
+  declare module.exports: any;
+}
+
+declare module '@babel/runtime/helpers/esm/classPrivateMethodSet' {
   declare module.exports: any;
 }
 
@@ -378,6 +394,10 @@ declare module '@babel/runtime/helpers/esm/wrapNativeSuper' {
   declare module.exports: any;
 }
 
+declare module '@babel/runtime/helpers/esm/wrapRegExp' {
+  declare module.exports: any;
+}
+
 declare module '@babel/runtime/helpers/extends' {
   declare module.exports: any;
 }
@@ -542,6 +562,10 @@ declare module '@babel/runtime/helpers/wrapNativeSuper' {
   declare module.exports: any;
 }
 
+declare module '@babel/runtime/helpers/wrapRegExp' {
+  declare module.exports: any;
+}
+
 declare module '@babel/runtime/regenerator/index' {
   declare module.exports: any;
 }
@@ -594,6 +618,12 @@ declare module '@babel/runtime/helpers/classPrivateFieldLooseKey.js' {
 }
 declare module '@babel/runtime/helpers/classPrivateFieldSet.js' {
   declare module.exports: $Exports<'@babel/runtime/helpers/classPrivateFieldSet'>;
+}
+declare module '@babel/runtime/helpers/classPrivateMethodGet.js' {
+  declare module.exports: $Exports<'@babel/runtime/helpers/classPrivateMethodGet'>;
+}
+declare module '@babel/runtime/helpers/classPrivateMethodSet.js' {
+  declare module.exports: $Exports<'@babel/runtime/helpers/classPrivateMethodSet'>;
 }
 declare module '@babel/runtime/helpers/classStaticPrivateFieldSpecGet.js' {
   declare module.exports: $Exports<'@babel/runtime/helpers/classStaticPrivateFieldSpecGet'>;
@@ -666,6 +696,12 @@ declare module '@babel/runtime/helpers/esm/classPrivateFieldLooseKey.js' {
 }
 declare module '@babel/runtime/helpers/esm/classPrivateFieldSet.js' {
   declare module.exports: $Exports<'@babel/runtime/helpers/esm/classPrivateFieldSet'>;
+}
+declare module '@babel/runtime/helpers/esm/classPrivateMethodGet.js' {
+  declare module.exports: $Exports<'@babel/runtime/helpers/esm/classPrivateMethodGet'>;
+}
+declare module '@babel/runtime/helpers/esm/classPrivateMethodSet.js' {
+  declare module.exports: $Exports<'@babel/runtime/helpers/esm/classPrivateMethodSet'>;
 }
 declare module '@babel/runtime/helpers/esm/classStaticPrivateFieldSpecGet.js' {
   declare module.exports: $Exports<'@babel/runtime/helpers/esm/classStaticPrivateFieldSpecGet'>;
@@ -814,6 +850,9 @@ declare module '@babel/runtime/helpers/esm/wrapAsyncGenerator.js' {
 declare module '@babel/runtime/helpers/esm/wrapNativeSuper.js' {
   declare module.exports: $Exports<'@babel/runtime/helpers/esm/wrapNativeSuper'>;
 }
+declare module '@babel/runtime/helpers/esm/wrapRegExp.js' {
+  declare module.exports: $Exports<'@babel/runtime/helpers/esm/wrapRegExp'>;
+}
 declare module '@babel/runtime/helpers/extends.js' {
   declare module.exports: $Exports<'@babel/runtime/helpers/extends'>;
 }
@@ -936,6 +975,9 @@ declare module '@babel/runtime/helpers/wrapAsyncGenerator.js' {
 }
 declare module '@babel/runtime/helpers/wrapNativeSuper.js' {
   declare module.exports: $Exports<'@babel/runtime/helpers/wrapNativeSuper'>;
+}
+declare module '@babel/runtime/helpers/wrapRegExp.js' {
+  declare module.exports: $Exports<'@babel/runtime/helpers/wrapRegExp'>;
 }
 declare module '@babel/runtime/regenerator/index.js' {
   declare module.exports: $Exports<'@babel/runtime/regenerator/index'>;

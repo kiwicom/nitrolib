@@ -1,0 +1,6 @@
+// @flow strict
+// All our cookies are meant to be centralized in this file for consistency
+declare export var COOKIES_CONSENT: "cookiesConsent";
+declare export var USER_ID: "userId";
+
+export type Cookie = "cookiesConsent" | "userId";

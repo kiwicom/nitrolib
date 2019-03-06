@@ -17,6 +17,7 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [Languages](#languages)
 * [Location](#location)
 * [Loglady](#loglady)
+* [Session](#session)
 * [Theme](#theme)
 * [User](#user)
 
@@ -1019,6 +1020,31 @@ See types:
 * [Event](./records#event)
 
 A data type for our [Loglady](https://loglady.skypicker.com/api-docs/) tracking system.
+
+## Session
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/Session";
+import type { Session } from "@kiwicom/nitro/lib/records/Session";
+```
+
+**Types:**
+```js
+export type Session = {|
+  userId: string,
+  sessionId: string,
+  affiliate: Affiliate | null,
+  UTMs: { [key: string]: string },
+|};
+
+declare export var sessionDefault: Session;
+```
+
+See types:
+* [Affiliate](./records#affiliate)
+
+Contains **user** and **request** specific information.
 
 ## Theme
 

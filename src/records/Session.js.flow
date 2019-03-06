@@ -1,0 +1,11 @@
+// @flow strict
+import type { Affiliate } from "./Affiliate";
+
+export type Session = {|
+  userId: string,
+  sessionId: string,
+  affiliate: Affiliate | null,
+  UTMs: { [key: string]: string },
+|};
+
+declare export var sessionDefault: Session;

@@ -4,6 +4,7 @@ Located in `@kiwicom/nitro/lib/consts/<const>`.
 
 **List:**
 * [Config](#config)
+* [Cookies](#cookies)
 * [Events](#events)
 * [Modals](#modals)
 
@@ -89,6 +90,22 @@ declare export default {|
   priceUpdatesStat: string,
   graphQLUrl: string,
 |};
+```
+
+## Cookies
+
+**Import:**
+```js
+import * as cookies from "@kiwicom/nitro/lib/consts/cookies";
+```
+
+**Types:**
+```js
+// All our cookies are meant to be centralized in this file for consistency
+declare export var COOKIES_CONSENT: "cookiesConsent";
+declare export var USER_ID: "userId";
+
+export type Cookie = "cookiesConsent" | "userId";
 ```
 
 ## Events

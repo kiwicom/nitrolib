@@ -1,4 +1,4 @@
-// flow-typed signature: d4db78843f1949b77586e47044f1e118
+// flow-typed signature: cc0f61c84a35963cc0e9d853d098f798
 // flow-typed version: <<STUB>>/libphonenumber-js_v^1.6.8/flow_v0.87.0
 
 /**
@@ -30,7 +30,15 @@ declare module 'libphonenumber-js/build/AsYouType' {
   declare module.exports: any;
 }
 
-declare module 'libphonenumber-js/build/common' {
+declare module 'libphonenumber-js/build/constants' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/build/extension' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/build/findNumbers_' {
   declare module.exports: any;
 }
 
@@ -62,7 +70,15 @@ declare module 'libphonenumber-js/build/findNumbers/util' {
   declare module.exports: any;
 }
 
+declare module 'libphonenumber-js/build/findPhoneNumbers_' {
+  declare module.exports: any;
+}
+
 declare module 'libphonenumber-js/build/findPhoneNumbers' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/build/format_' {
   declare module.exports: any;
 }
 
@@ -86,6 +102,10 @@ declare module 'libphonenumber-js/build/getExampleNumber' {
   declare module.exports: any;
 }
 
+declare module 'libphonenumber-js/build/getNumberType_' {
+  declare module.exports: any;
+}
+
 declare module 'libphonenumber-js/build/getNumberType' {
   declare module.exports: any;
 }
@@ -94,7 +114,15 @@ declare module 'libphonenumber-js/build/IDD' {
   declare module.exports: any;
 }
 
+declare module 'libphonenumber-js/build/isPossibleNumber_' {
+  declare module.exports: any;
+}
+
 declare module 'libphonenumber-js/build/isPossibleNumber' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/build/isValidNumberForRegion_' {
   declare module.exports: any;
 }
 
@@ -102,7 +130,15 @@ declare module 'libphonenumber-js/build/isValidNumberForRegion' {
   declare module.exports: any;
 }
 
+declare module 'libphonenumber-js/build/isViablePhoneNumber' {
+  declare module.exports: any;
+}
+
 declare module 'libphonenumber-js/build/metadata' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/build/parse_' {
   declare module.exports: any;
 }
 
@@ -110,11 +146,31 @@ declare module 'libphonenumber-js/build/parse' {
   declare module.exports: any;
 }
 
+declare module 'libphonenumber-js/build/parseDigits' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/build/ParseError' {
+  declare module.exports: any;
+}
+
 declare module 'libphonenumber-js/build/parseIncompletePhoneNumber' {
   declare module.exports: any;
 }
 
+declare module 'libphonenumber-js/build/parsePhoneNumber_' {
+  declare module.exports: any;
+}
+
 declare module 'libphonenumber-js/build/parsePhoneNumber' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/build/parsePhoneNumberFromString_' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/build/parsePhoneNumberFromString' {
   declare module.exports: any;
 }
 
@@ -146,11 +202,51 @@ declare module 'libphonenumber-js/build/tools/generate' {
   declare module.exports: any;
 }
 
+declare module 'libphonenumber-js/build/util' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/build/validate_' {
+  declare module.exports: any;
+}
+
 declare module 'libphonenumber-js/build/validate' {
   declare module.exports: any;
 }
 
 declare module 'libphonenumber-js/bundle/libphonenumber-js.min' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/bundle/libphonenumber-max' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/bundle/libphonenumber-max.js' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/bundle/libphonenumber-min' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/bundle/libphonenumber-min.js' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/bundle/libphonenumber-mobile' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/bundle/libphonenumber-mobile.js' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/core/index.commonjs' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/core/index' {
   declare module.exports: any;
 }
 
@@ -162,7 +258,15 @@ declare module 'libphonenumber-js/es6/AsYouType' {
   declare module.exports: any;
 }
 
-declare module 'libphonenumber-js/es6/common' {
+declare module 'libphonenumber-js/es6/constants' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/es6/extension' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/es6/findNumbers_' {
   declare module.exports: any;
 }
 
@@ -194,7 +298,15 @@ declare module 'libphonenumber-js/es6/findNumbers/util' {
   declare module.exports: any;
 }
 
+declare module 'libphonenumber-js/es6/findPhoneNumbers_' {
+  declare module.exports: any;
+}
+
 declare module 'libphonenumber-js/es6/findPhoneNumbers' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/es6/format_' {
   declare module.exports: any;
 }
 
@@ -218,6 +330,10 @@ declare module 'libphonenumber-js/es6/getExampleNumber' {
   declare module.exports: any;
 }
 
+declare module 'libphonenumber-js/es6/getNumberType_' {
+  declare module.exports: any;
+}
+
 declare module 'libphonenumber-js/es6/getNumberType' {
   declare module.exports: any;
 }
@@ -226,7 +342,15 @@ declare module 'libphonenumber-js/es6/IDD' {
   declare module.exports: any;
 }
 
+declare module 'libphonenumber-js/es6/isPossibleNumber_' {
+  declare module.exports: any;
+}
+
 declare module 'libphonenumber-js/es6/isPossibleNumber' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/es6/isValidNumberForRegion_' {
   declare module.exports: any;
 }
 
@@ -234,7 +358,15 @@ declare module 'libphonenumber-js/es6/isValidNumberForRegion' {
   declare module.exports: any;
 }
 
+declare module 'libphonenumber-js/es6/isViablePhoneNumber' {
+  declare module.exports: any;
+}
+
 declare module 'libphonenumber-js/es6/metadata' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/es6/parse_' {
   declare module.exports: any;
 }
 
@@ -242,11 +374,31 @@ declare module 'libphonenumber-js/es6/parse' {
   declare module.exports: any;
 }
 
+declare module 'libphonenumber-js/es6/parseDigits' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/es6/ParseError' {
+  declare module.exports: any;
+}
+
 declare module 'libphonenumber-js/es6/parseIncompletePhoneNumber' {
   declare module.exports: any;
 }
 
+declare module 'libphonenumber-js/es6/parsePhoneNumber_' {
+  declare module.exports: any;
+}
+
 declare module 'libphonenumber-js/es6/parsePhoneNumber' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/es6/parsePhoneNumberFromString_' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/es6/parsePhoneNumberFromString' {
   declare module.exports: any;
 }
 
@@ -278,6 +430,14 @@ declare module 'libphonenumber-js/es6/tools/generate' {
   declare module.exports: any;
 }
 
+declare module 'libphonenumber-js/es6/util' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/es6/validate_' {
+  declare module.exports: any;
+}
+
 declare module 'libphonenumber-js/es6/validate' {
   declare module.exports: any;
 }
@@ -287,6 +447,30 @@ declare module 'libphonenumber-js/index.common' {
 }
 
 declare module 'libphonenumber-js/index.es6' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/max/index.commonjs' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/max/index' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/min/index.commonjs' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/min/index' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/mobile/index.commonjs' {
+  declare module.exports: any;
+}
+
+declare module 'libphonenumber-js/mobile/index' {
   declare module.exports: any;
 }
 
@@ -333,8 +517,14 @@ declare module 'libphonenumber-js/bin/update-metadata.js' {
 declare module 'libphonenumber-js/build/AsYouType.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/AsYouType'>;
 }
-declare module 'libphonenumber-js/build/common.js' {
-  declare module.exports: $Exports<'libphonenumber-js/build/common'>;
+declare module 'libphonenumber-js/build/constants.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/constants'>;
+}
+declare module 'libphonenumber-js/build/extension.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/extension'>;
+}
+declare module 'libphonenumber-js/build/findNumbers_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/findNumbers_'>;
 }
 declare module 'libphonenumber-js/build/findNumbers.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/findNumbers'>;
@@ -357,8 +547,14 @@ declare module 'libphonenumber-js/build/findNumbers/utf-8.js' {
 declare module 'libphonenumber-js/build/findNumbers/util.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/findNumbers/util'>;
 }
+declare module 'libphonenumber-js/build/findPhoneNumbers_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/findPhoneNumbers_'>;
+}
 declare module 'libphonenumber-js/build/findPhoneNumbers.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/findPhoneNumbers'>;
+}
+declare module 'libphonenumber-js/build/format_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/format_'>;
 }
 declare module 'libphonenumber-js/build/format.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/format'>;
@@ -375,29 +571,59 @@ declare module 'libphonenumber-js/build/getCountryCallingCode.js' {
 declare module 'libphonenumber-js/build/getExampleNumber.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/getExampleNumber'>;
 }
+declare module 'libphonenumber-js/build/getNumberType_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/getNumberType_'>;
+}
 declare module 'libphonenumber-js/build/getNumberType.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/getNumberType'>;
 }
 declare module 'libphonenumber-js/build/IDD.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/IDD'>;
 }
+declare module 'libphonenumber-js/build/isPossibleNumber_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/isPossibleNumber_'>;
+}
 declare module 'libphonenumber-js/build/isPossibleNumber.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/isPossibleNumber'>;
+}
+declare module 'libphonenumber-js/build/isValidNumberForRegion_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/isValidNumberForRegion_'>;
 }
 declare module 'libphonenumber-js/build/isValidNumberForRegion.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/isValidNumberForRegion'>;
 }
+declare module 'libphonenumber-js/build/isViablePhoneNumber.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/isViablePhoneNumber'>;
+}
 declare module 'libphonenumber-js/build/metadata.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/metadata'>;
+}
+declare module 'libphonenumber-js/build/parse_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/parse_'>;
 }
 declare module 'libphonenumber-js/build/parse.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/parse'>;
 }
+declare module 'libphonenumber-js/build/parseDigits.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/parseDigits'>;
+}
+declare module 'libphonenumber-js/build/ParseError.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/ParseError'>;
+}
 declare module 'libphonenumber-js/build/parseIncompletePhoneNumber.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/parseIncompletePhoneNumber'>;
 }
+declare module 'libphonenumber-js/build/parsePhoneNumber_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/parsePhoneNumber_'>;
+}
 declare module 'libphonenumber-js/build/parsePhoneNumber.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/parsePhoneNumber'>;
+}
+declare module 'libphonenumber-js/build/parsePhoneNumberFromString_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/parsePhoneNumberFromString_'>;
+}
+declare module 'libphonenumber-js/build/parsePhoneNumberFromString.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/parsePhoneNumberFromString'>;
 }
 declare module 'libphonenumber-js/build/PhoneNumber.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/PhoneNumber'>;
@@ -420,11 +646,41 @@ declare module 'libphonenumber-js/build/tools/download.js' {
 declare module 'libphonenumber-js/build/tools/generate.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/tools/generate'>;
 }
+declare module 'libphonenumber-js/build/util.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/util'>;
+}
+declare module 'libphonenumber-js/build/validate_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/build/validate_'>;
+}
 declare module 'libphonenumber-js/build/validate.js' {
   declare module.exports: $Exports<'libphonenumber-js/build/validate'>;
 }
 declare module 'libphonenumber-js/bundle/libphonenumber-js.min.js' {
   declare module.exports: $Exports<'libphonenumber-js/bundle/libphonenumber-js.min'>;
+}
+declare module 'libphonenumber-js/bundle/libphonenumber-max.js' {
+  declare module.exports: $Exports<'libphonenumber-js/bundle/libphonenumber-max'>;
+}
+declare module 'libphonenumber-js/bundle/libphonenumber-max.js.js' {
+  declare module.exports: $Exports<'libphonenumber-js/bundle/libphonenumber-max.js'>;
+}
+declare module 'libphonenumber-js/bundle/libphonenumber-min.js' {
+  declare module.exports: $Exports<'libphonenumber-js/bundle/libphonenumber-min'>;
+}
+declare module 'libphonenumber-js/bundle/libphonenumber-min.js.js' {
+  declare module.exports: $Exports<'libphonenumber-js/bundle/libphonenumber-min.js'>;
+}
+declare module 'libphonenumber-js/bundle/libphonenumber-mobile.js' {
+  declare module.exports: $Exports<'libphonenumber-js/bundle/libphonenumber-mobile'>;
+}
+declare module 'libphonenumber-js/bundle/libphonenumber-mobile.js.js' {
+  declare module.exports: $Exports<'libphonenumber-js/bundle/libphonenumber-mobile.js'>;
+}
+declare module 'libphonenumber-js/core/index.commonjs.js' {
+  declare module.exports: $Exports<'libphonenumber-js/core/index.commonjs'>;
+}
+declare module 'libphonenumber-js/core/index.js' {
+  declare module.exports: $Exports<'libphonenumber-js/core/index'>;
 }
 declare module 'libphonenumber-js/custom.js' {
   declare module.exports: $Exports<'libphonenumber-js/custom'>;
@@ -432,8 +688,14 @@ declare module 'libphonenumber-js/custom.js' {
 declare module 'libphonenumber-js/es6/AsYouType.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/AsYouType'>;
 }
-declare module 'libphonenumber-js/es6/common.js' {
-  declare module.exports: $Exports<'libphonenumber-js/es6/common'>;
+declare module 'libphonenumber-js/es6/constants.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/constants'>;
+}
+declare module 'libphonenumber-js/es6/extension.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/extension'>;
+}
+declare module 'libphonenumber-js/es6/findNumbers_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/findNumbers_'>;
 }
 declare module 'libphonenumber-js/es6/findNumbers.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/findNumbers'>;
@@ -456,8 +718,14 @@ declare module 'libphonenumber-js/es6/findNumbers/utf-8.js' {
 declare module 'libphonenumber-js/es6/findNumbers/util.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/findNumbers/util'>;
 }
+declare module 'libphonenumber-js/es6/findPhoneNumbers_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/findPhoneNumbers_'>;
+}
 declare module 'libphonenumber-js/es6/findPhoneNumbers.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/findPhoneNumbers'>;
+}
+declare module 'libphonenumber-js/es6/format_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/format_'>;
 }
 declare module 'libphonenumber-js/es6/format.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/format'>;
@@ -474,29 +742,59 @@ declare module 'libphonenumber-js/es6/getCountryCallingCode.js' {
 declare module 'libphonenumber-js/es6/getExampleNumber.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/getExampleNumber'>;
 }
+declare module 'libphonenumber-js/es6/getNumberType_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/getNumberType_'>;
+}
 declare module 'libphonenumber-js/es6/getNumberType.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/getNumberType'>;
 }
 declare module 'libphonenumber-js/es6/IDD.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/IDD'>;
 }
+declare module 'libphonenumber-js/es6/isPossibleNumber_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/isPossibleNumber_'>;
+}
 declare module 'libphonenumber-js/es6/isPossibleNumber.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/isPossibleNumber'>;
+}
+declare module 'libphonenumber-js/es6/isValidNumberForRegion_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/isValidNumberForRegion_'>;
 }
 declare module 'libphonenumber-js/es6/isValidNumberForRegion.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/isValidNumberForRegion'>;
 }
+declare module 'libphonenumber-js/es6/isViablePhoneNumber.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/isViablePhoneNumber'>;
+}
 declare module 'libphonenumber-js/es6/metadata.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/metadata'>;
+}
+declare module 'libphonenumber-js/es6/parse_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/parse_'>;
 }
 declare module 'libphonenumber-js/es6/parse.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/parse'>;
 }
+declare module 'libphonenumber-js/es6/parseDigits.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/parseDigits'>;
+}
+declare module 'libphonenumber-js/es6/ParseError.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/ParseError'>;
+}
 declare module 'libphonenumber-js/es6/parseIncompletePhoneNumber.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/parseIncompletePhoneNumber'>;
 }
+declare module 'libphonenumber-js/es6/parsePhoneNumber_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/parsePhoneNumber_'>;
+}
 declare module 'libphonenumber-js/es6/parsePhoneNumber.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/parsePhoneNumber'>;
+}
+declare module 'libphonenumber-js/es6/parsePhoneNumberFromString_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/parsePhoneNumberFromString_'>;
+}
+declare module 'libphonenumber-js/es6/parsePhoneNumberFromString.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/parsePhoneNumberFromString'>;
 }
 declare module 'libphonenumber-js/es6/PhoneNumber.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/PhoneNumber'>;
@@ -519,6 +817,12 @@ declare module 'libphonenumber-js/es6/tools/download.js' {
 declare module 'libphonenumber-js/es6/tools/generate.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/tools/generate'>;
 }
+declare module 'libphonenumber-js/es6/util.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/util'>;
+}
+declare module 'libphonenumber-js/es6/validate_.js' {
+  declare module.exports: $Exports<'libphonenumber-js/es6/validate_'>;
+}
 declare module 'libphonenumber-js/es6/validate.js' {
   declare module.exports: $Exports<'libphonenumber-js/es6/validate'>;
 }
@@ -527,6 +831,24 @@ declare module 'libphonenumber-js/index.common.js' {
 }
 declare module 'libphonenumber-js/index.es6.js' {
   declare module.exports: $Exports<'libphonenumber-js/index.es6'>;
+}
+declare module 'libphonenumber-js/max/index.commonjs.js' {
+  declare module.exports: $Exports<'libphonenumber-js/max/index.commonjs'>;
+}
+declare module 'libphonenumber-js/max/index.js' {
+  declare module.exports: $Exports<'libphonenumber-js/max/index'>;
+}
+declare module 'libphonenumber-js/min/index.commonjs.js' {
+  declare module.exports: $Exports<'libphonenumber-js/min/index.commonjs'>;
+}
+declare module 'libphonenumber-js/min/index.js' {
+  declare module.exports: $Exports<'libphonenumber-js/min/index'>;
+}
+declare module 'libphonenumber-js/mobile/index.commonjs.js' {
+  declare module.exports: $Exports<'libphonenumber-js/mobile/index.commonjs'>;
+}
+declare module 'libphonenumber-js/mobile/index.js' {
+  declare module.exports: $Exports<'libphonenumber-js/mobile/index'>;
 }
 declare module 'libphonenumber-js/runnable/download.js' {
   declare module.exports: $Exports<'libphonenumber-js/runnable/download'>;
