@@ -30,17 +30,10 @@ import type { Affiliate } from "@kiwicom/nitro/lib/records/Affiliate";
 
 **Types:**
 ```js
-export type ChineseAN = {|
-  id: "ChineseAN",
-  txId: string,
+export type Affiliate = {|
+  id: string,
+  params: { [key: string]: string },
 |};
-
-export type Other = {|
-  id: "other",
-  value: string,
-|};
-
-export type Affiliate = ChineseAN | Other;
 ```
 
 Holds information specific for the given affiliate.

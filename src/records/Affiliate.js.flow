@@ -1,12 +1,5 @@
 // @flow strict
-export type ChineseAN = {|
-  id: "ChineseAN",
-  txId: string,
+export type Affiliate = {|
+  id: string,
+  params: { [key: string]: string },
 |};
-
-export type Other = {|
-  id: "other",
-  value: string,
-|};
-
-export type Affiliate = ChineseAN | Other;
