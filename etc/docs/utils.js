@@ -127,7 +127,6 @@ function getFlowRecordImports(file) {
     .map(line => line.match(/^import .* from "(.*\/(records|consts)|\.)\/(\w+)";$/))
     .filter(Boolean)
     .map(match => [match[2] || "records", match[3]]) // Fallback from within the 'records' folder
-    .map(a => console.log(a) || a)
     .map(([what, name]) => `* [${name}](./${what}#${name.toLowerCase()})`);
 
   if (imports.length === 0) {

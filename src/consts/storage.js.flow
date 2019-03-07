@@ -1,0 +1,4 @@
+// @flow strict
+declare export var SESSION: "session";
+
+export type Storage = "session";

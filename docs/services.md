@@ -486,7 +486,28 @@ declare export var remove: (key: Cookie) => void;
 See types:
 * [cookies](./consts#cookies)
 
-Centralized medium for manipulating cookies.
+Centralized medium for manipulating _cookies_.
+
+### Storage
+
+**Import:**
+```js
+import * as storage from "@kiwicom/nitro/lib/services/session/storage";
+```
+
+**Types:**
+```js
+declare export var load: (key: Storage) => ?string;
+
+declare export var save: (key: Storage, value: string) => void;
+
+declare export var remove: (key: Storage) => void;
+```
+
+See types:
+* [storage](./consts#storage)
+
+Centralized medium for manipulating `localStorage`.
 
 ## Utils
 

@@ -7,6 +7,7 @@ Located in `@kiwicom/nitro/lib/consts/<const>`.
 * [Cookies](#cookies)
 * [Events](#events)
 * [Modals](#modals)
+* [Storage](#storage)
 
 ## Config
 
@@ -158,4 +159,18 @@ export type Modal =
   | "debug"
   | "currencyMenu"
   | "languageMenu";
+```
+
+## Storage
+
+**Import:**
+```js
+import * as storage from "@kiwicom/nitro/lib/consts/storage";
+```
+
+**Types:**
+```js
+declare export var SESSION: "session";
+
+export type Storage = "session";
 ```

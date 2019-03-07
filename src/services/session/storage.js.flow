@@ -1,0 +1,8 @@
+// @flow strict
+import type { Storage } from "../../consts/storage";
+
+declare export var load: (key: Storage) => ?string;
+
+declare export var save: (key: Storage, value: string) => void;
+
+declare export var remove: (key: Storage) => void;

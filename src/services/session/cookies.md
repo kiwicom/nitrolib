@@ -1,3 +1,3 @@
 # Cookies
 
-Centralized medium for manipulating cookies.
+Centralized medium for manipulating _cookies_.
