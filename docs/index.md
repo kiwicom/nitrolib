@@ -14,6 +14,7 @@
 
 * [CLI](./cli.md) - Nitro's CLI
 * [Components](./components.md) - well... components 🤷
+* [Constants](./consts.md)
 * [Records](./records.md) - data structures
 * [Services](./services.md) - i18n, branding, production data...
 * [Translations](./translations.md) - process of adding new translations

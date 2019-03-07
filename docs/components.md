@@ -84,6 +84,9 @@ type Props = {|
 |};
 ```
 
+See types:
+* [modals](./consts#modals)
+
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Currency).
 
 **Context needs:**
@@ -268,6 +271,9 @@ type Props = {|
   inverted?: boolean, // false
 |};
 ```
+
+See types:
+* [modals](./consts#modals)
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=NavBar).
 

@@ -483,6 +483,9 @@ declare export var save: (key: Cookie, value: string) => void;
 declare export var remove: (key: Cookie) => void;
 ```
 
+See types:
+* [cookies](./consts#cookies)
+
 Centralized medium for manipulating cookies.
 
 ## Utils
