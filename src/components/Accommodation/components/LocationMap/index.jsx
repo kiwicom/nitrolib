@@ -19,8 +19,6 @@ type State = {
   viewport: Viewport,
 };
 
-const MapWrapper = styled.div``;
-
 class LocationMap extends React.Component<Props, State> {
   static defaultProps = {
     zoom: 10,
@@ -48,7 +46,7 @@ class LocationMap extends React.Component<Props, State> {
     const { viewport } = this.state;
 
     return (
-      <MapWrapper>
+      <div>
         <ReactMapGL
           mapStyle="mapbox://styles/mapbox/streets-v10"
           onViewportChange={this.updateViewport}
@@ -61,7 +59,7 @@ class LocationMap extends React.Component<Props, State> {
             <Pin>{hotelName}</Pin>
           </Marker>
         </ReactMapGL>
-      </MapWrapper>
+      </div>
     );
   }
 }
