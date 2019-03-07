@@ -1,8 +1,8 @@
 // @flow strict
 
-import type { Props } from ".";
+import type { AccommodationType } from "./records/Accommodation";
 
-const accommodation: Props = {
+const accommodation: AccommodationType = {
   hotelName: "Golden Rock Coast Hotel",
   rating: 5,
   location: {

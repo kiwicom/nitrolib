@@ -6,7 +6,7 @@ import { shallow } from "enzyme";
 import LocationMap from "..";
 
 import Pin from "../components/Pin";
-import type { LocationType } from "../../../records/LocationMap";
+import type { LocationType } from "../../../records/Location";
 
 const location: LocationType = {
   latitude: 38.104542,

@@ -4,7 +4,7 @@ import * as React from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
 
 import Pin from "./components/Pin";
-import type { LocationType } from "../../records/LocationMap";
+import type { LocationType } from "../../records/Location";
 
 type Props = LocationType;
 

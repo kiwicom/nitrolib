@@ -11,7 +11,7 @@ import Text from "@kiwicom/orbit-components/lib/Text";
 
 import Translate from "../../../Translate";
 import { themeDefault } from "../../../../records/Theme";
-import type { LocationType } from "../../records/LocationMap";
+import type { LocationType } from "../../records/Location";
 import LocationMap from "../LocationMap";
 
 export type Props = {|

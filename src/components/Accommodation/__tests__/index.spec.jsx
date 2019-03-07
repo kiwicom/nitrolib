@@ -9,7 +9,7 @@ import { themeDefault } from "../../../records/Theme";
 
 describe("#Accommodation", () => {
   test("render", () => {
-    const wrapper = mount(<Accommodation {...mockedData} />);
+    const wrapper = mount(<Accommodation accommodation={mockedData} />);
 
     expect(wrapper.find("Accommodation__Wrapper")).toHaveStyleRule(
       "background",

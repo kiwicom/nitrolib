@@ -11,23 +11,14 @@ import Rooms from "../Rooms";
 import Header from "./components/Header";
 import AccommodationModal from "./components/AccommodationModal";
 import { themeDefault } from "../../records/Theme";
-import type { RoomType } from "../../records/Room";
 import type { ThemeProps } from "../../records/Theme";
+import type { AccommodationType } from "./records/Accommodation";
 
 export type Props = {|
-  hotelName: string,
-  rating: number,
-  location: {|
-    latitude: number,
-    longitude: number,
-  |},
-  address: string,
-  photoUrl: string,
-  rooms: Array<RoomType>,
-  mapboxToken: string,
-  zoom?: number,
-  isMMB: boolean,
+  accommodation: AccommodationType,
 |};
+
+type State = boolean;
 
 const Wrapper = styled.div`
   margin-bottom: ${({ theme }: ThemeProps) => theme.orbit.spaceMedium};
@@ -86,10 +77,24 @@ const Img = styled.img`
 
 function Accommodation(props: Props) {
   // not sure how to flow-type hooks yet, feel free to suggest
-  const [isModalOpen, toggleModal] = React.useState(false);
+  const [isModalOpen, toggleModal]: [State, (State | (State => State)) => void] = React.useState(
+    false,
+  );
   const toggleAccommodationModal = openState => () => toggleModal(openState);
 
-  const { photoUrl, hotelName, rating, address, location, rooms, isMMB, mapboxToken, zoom } = props;
+  const {
+    accommodation: {
+      photoUrl,
+      hotelName,
+      rating,
+      address,
+      location,
+      rooms,
+      isMMB,
+      mapboxToken,
+      zoom,
+    },
+  } = props;
   return (
     <Wrapper>
       <Header icon={<AccommodationIcon />} t="holidays.accommodation.title" />
