@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from "react";
-import styled from "styled-components";
 import ReactMapGL, { Marker } from "react-map-gl";
 
 import Pin from "./components/Pin";
