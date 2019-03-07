@@ -22,6 +22,7 @@ import { Consumer } from "../../services/context";
 type Props = {
   items: { [key: string]: ItemType },
   price: PriceType,
+  dataTest?: string,
   isChecked: boolean,
   isCurrentCombination: boolean,
   onClick: () => void,
@@ -31,9 +32,12 @@ type Props = {
 
 type OptionWrapperProps = ThemeProps & {
   checked: boolean,
+  dataTest: string,
 };
 
-const OptionWrapper = styled.div`
+const OptionWrapper = styled.div.attrs({
+  "data-test": ({ dataTest }) => dataTest,
+})`
   padding: ${({ theme }) => theme.orbit.spaceSmall};
   box-shadow: 0 1px 2px 0 ${({ theme }: ThemeProps) => theme.orbit.paletteWhiteHover};
   border: solid 2px
@@ -57,6 +61,7 @@ const OptionWrapper = styled.div`
 `;
 
 OptionWrapper.defaultProps = {
+  dataTest: "BaggagePicker-Option",
   theme: themeDefault,
   checked: false,
 };
@@ -80,7 +85,13 @@ IconWrapper.defaultProps = {
 
 const PriorityBoardingInfo = ({ airlines }: { airlines: Array<string> }) => {
   return (
-    <Stack flex direction="row" spacing="condensed" align="center">
+    <Stack
+      flex
+      direction="row"
+      spacing="condensed"
+      align="center"
+      dataTest="BaggagePicker-PriorityBoardingInfo"
+    >
       <IconWrapper>
         <PriorityBoarding color="secondary" size="small" />
       </IconWrapper>
@@ -95,7 +106,7 @@ const PriorityBoardingInfo = ({ airlines }: { airlines: Array<string> }) => {
 };
 
 const EmptyLabel = ({ pickerType }: { pickerType: BaggageCategory }) => (
-  <Stack spacing="condensed" flex align="center">
+  <Stack spacing="condensed" flex align="center" dataTest="BaggagePicker-EmptyLabel">
     <Close size="medium" />
     <Text>
       <Translate
@@ -112,6 +123,7 @@ const EmptyLabel = ({ pickerType }: { pickerType: BaggageCategory }) => (
 const Option = ({
   items,
   price,
+  dataTest,
   isChecked,
   onClick,
   isCurrentCombination,
@@ -140,7 +152,7 @@ const Option = ({
           .filter(Boolean);
 
         return (
-          <OptionWrapper onClick={onClick} checked={isChecked}>
+          <OptionWrapper onClick={onClick} checked={isChecked} dataTest={dataTest}>
             <Stack flex>
               <RadioWrapper>
                 <Radio checked={isChecked} onChange={onClick} />
@@ -162,7 +174,12 @@ const Option = ({
                   <EmptyLabel pickerType={pickerType} />
                 )}
                 {firstItem && firstItem.category === "cabinBag" && isPersonalItemPresent && (
-                  <Stack flex align="center" spacing="tight">
+                  <Stack
+                    flex
+                    align="center"
+                    spacing="tight"
+                    dataTest="BaggagePicker-NoPersonalItemLabel"
+                  >
                     <BaggagePersonalItemNone color={isChecked ? "warning" : "secondary"} />
                     <Text type={isChecked ? "warning" : "secondary"}>
                       <Translate t="baggage_modal.select.no_personal_item" />
@@ -175,7 +192,7 @@ const Option = ({
               </Stack>
             </Stack>
             {shouldShowRecheckNote && firstItem && firstItem.category === "holdBag" && isChecked && (
-              <Alert>
+              <Alert dataTest="BaggagePicker-RecheckAlert">
                 <Translate t="baggage_modal.alert.collect_and_recheck" />
               </Alert>
             )}

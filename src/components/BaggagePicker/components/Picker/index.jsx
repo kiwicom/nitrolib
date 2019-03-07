@@ -30,7 +30,9 @@ type Props = {|
   currentCombination?: number,
 |};
 
-const EmptyOption = styled.div`
+const EmptyOption = styled.div.attrs({
+  "data-test": "BaggagePicker-EmptyOption",
+})`
   display: flex;
   align-items: center;
   padding: ${({ theme }) => theme.orbit.spaceSmall};
@@ -141,7 +143,7 @@ class BaggagePicker extends React.Component<Props, State> {
     const isPersonalItemPresent = this.getPersonalItemPresence();
 
     return (
-      <Stack spacing="condensed" spaceAfter="largest">
+      <Stack spacing="condensed" spaceAfter="largest" dataTest={`BaggagePicker-${pickerType}`}>
         <Title>
           <Text weight="bold" uppercase element="p">
             {this.getTitle(pickerType)}
@@ -161,9 +163,10 @@ class BaggagePicker extends React.Component<Props, State> {
           </Text>
         )}
         {options.length > 0 ? (
-          showedItems.map(item => (
+          showedItems.map((item, index) => (
             <Option
               key={item.originalIndex}
+              dataTest={`BaggagePicker-Option-${index}`}
               pickerType={pickerType}
               items={item.items}
               price={item.price}
@@ -182,6 +185,7 @@ class BaggagePicker extends React.Component<Props, State> {
         {hiddenItems > 0 && (
           <Flex x="center">
             <Button
+              dataTest="BaggagePicker-ShowButton"
               onClick={this.handleShowOptions}
               size="small"
               type="secondary"

@@ -100,7 +100,7 @@ const OptionItem = ({
       </Text>
     );
   return (
-    <Stack shrink align="center">
+    <Stack shrink align="center" dataTest={`BaggagePicker-OptionItem-${category}`}>
       <Stack shrink spacing="condensed">
         {getIconFromCategory(category, "medium", "primary")}
         <TitleWrapper>
