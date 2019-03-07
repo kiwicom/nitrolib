@@ -11,12 +11,10 @@ import Text from "@kiwicom/orbit-components/lib/Text";
 
 import Translate from "../../../Translate";
 import { themeDefault } from "../../../../records/Theme";
-import type { AddressType } from "../../records/Address";
 import type { LocationType } from "../../records/LocationMap";
 import LocationMap from "../LocationMap";
 
 export type Props = {|
-  address: AddressType,
   location: LocationType,
   onClose: Function,
 |};
@@ -35,36 +33,25 @@ const ButtonWrapper = styled.div`
   justify-content: flex-end;
 `;
 
-const FooterWrapper = styled.div`
-  margin-top: -${({ theme }) => theme.orbit.spaceXXLarge};
-`;
-
-FooterWrapper.defaultProps = {
-  theme: themeDefault,
-};
-
-const AccommodationModal = ({ address, location, onClose }: Props) => {
-  const fullAddress = address?.fullAddress;
+const AccommodationModal = ({ location, onClose }: Props) => {
   return (
     <Modal onClose={onClose(false)} fixedFooter>
       <ModalHeader title={<Translate t="holidays.accommodation_modal.title" />} />
       <ModalSection>
-        {fullAddress && (
+        {location.address && (
           <Address>
-            <Text size="large">{fullAddress}</Text>
+            <Text size="large">{location.address}</Text>
           </Address>
         )}
-        <LocationMap {...location} desktopWidth={660} />
+        <LocationMap {...location} />
       </ModalSection>
-      <FooterWrapper>
-        <ModalFooter flex="1 1 100%">
-          <ButtonWrapper>
-            <Button onClick={onClose(false)}>
-              <Translate t="holidays.accommodation_modal.close" />
-            </Button>
-          </ButtonWrapper>
-        </ModalFooter>
-      </FooterWrapper>
+      <ModalFooter flex="1 1 100%">
+        <ButtonWrapper>
+          <Button onClick={onClose(false)}>
+            <Translate t="holidays.accommodation_modal.close" />
+          </Button>
+        </ButtonWrapper>
+      </ModalFooter>
     </Modal>
   );
 };

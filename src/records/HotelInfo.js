@@ -1,10 +1,7 @@
 // @flow strict
 export type HotelType = {|
-  name: ?string,
-  photoUrl: ?string,
-  address: ?{|
-    fullAddress: ?string,
-  |},
+  hotelName: ?string,
+  address: ?string,
   rating: ?number,
   isMMB: ?boolean,
 |};

@@ -8,4 +8,5 @@ import mockedData from "../src/components/Accommodation/mockedData";
 
 storiesOf("Accommodation", module)
   .addDecorator(withData)
-  .add("default", () => <Accommodation {...mockedData} />);
+  .add("default", () => <Accommodation {...mockedData} isMMB={false} />)
+  .add("with show map button", () => <Accommodation {...mockedData} />);

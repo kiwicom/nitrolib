@@ -9,15 +9,19 @@ const props = {
   rooms: [
     {
       id: "1",
-      description: "1x Deluxe Room with Free Daily Activities; 2x Adult, 1x Child; Half board",
+      roomType: "1x Deluxe Room with Free Daily Activities",
+      occupancy: "2x Adult, 1x Child",
+      boardType: "Half board",
     },
     {
       id: "2",
-      description: "1x Deluxe Pool View Room with Free Daily Activities; 1x Adult",
+      roomType: "1x Deluxe Pool View Room with Free Daily Activities",
+      occupancy: "1x Adult",
     },
     {
       id: "3",
-      description: "1x Deluxe Pool View Room with Free Daily Activities; 1x Adult",
+      roomType: "1x Deluxe Pool View Room with Free Daily Activities",
+      occupancy: "1x Adult",
     },
   ],
 };

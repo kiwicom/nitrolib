@@ -72,9 +72,9 @@ ButtonWrapper.defaultProps = {
 };
 
 const HotelInfo = ({ hotel, onShownOnMapClick }: Props) => {
-  const name = hotel?.name;
+  const name = hotel?.hotelName;
   const rating = hotel?.rating;
-  const fullAddress = hotel?.address?.fullAddress;
+  const fullAddress = hotel?.address;
   const isMMB = hotel?.isMMB;
   return (
     <Wrapper>

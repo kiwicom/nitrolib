@@ -55,9 +55,9 @@ const Rooms = ({ rooms }: Props) => (
     </Heading>
     {rooms && (
       <RoomsList>
-        {rooms.map(({ id, description }) => (
-          <RoomWrapper key={id}>
-            <SingleRoom description={description} id={id} />
+        {rooms.map(room => (
+          <RoomWrapper key={room.id}>
+            <SingleRoom {...room} />
           </RoomWrapper>
         ))}
       </RoomsList>

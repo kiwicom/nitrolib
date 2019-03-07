@@ -11,15 +11,22 @@ import Rooms from "../Rooms";
 import Header from "./components/Header";
 import AccommodationModal from "./components/AccommodationModal";
 import { themeDefault } from "../../records/Theme";
-import type { LocationType } from "./records/LocationMap";
 import type { RoomType } from "../../records/Room";
-import type { HotelType } from "../../records/HotelInfo";
 import type { ThemeProps } from "../../records/Theme";
 
 export type Props = {|
-  hotel: HotelType,
+  hotelName: string,
+  rating: number,
+  location: {|
+    latitude: number,
+    longitude: number,
+  |},
+  address: string,
+  photoUrl: string,
   rooms: Array<RoomType>,
-  location: LocationType,
+  mapboxToken: string,
+  zoom?: number,
+  isMMB: boolean,
 |};
 
 const Wrapper = styled.div`
@@ -81,24 +88,27 @@ function Accommodation(props: Props) {
   // not sure how to flow-type hooks yet, feel free to suggest
   const [isModalOpen, toggleModal] = React.useState(false);
   const toggleAccommodationModal = openState => () => toggleModal(openState);
-  const { hotel, rooms, location } = props;
+
+  const { photoUrl, hotelName, rating, address, location, rooms, isMMB, mapboxToken, zoom } = props;
   return (
     <Wrapper>
       <Header icon={<AccommodationIcon />} t="holidays.accommodation.title" />
       <ContentWrapper>
         <Photo>
-          <Img src={hotel.photoUrl} alt="hotel" />
+          <Img src={photoUrl} alt="hotel" />
         </Photo>
         <div>
-          <HotelInfo hotel={hotel} onShownOnMapClick={toggleAccommodationModal} />
+          <HotelInfo
+            hotel={{ hotelName, rating, address, isMMB }}
+            onShownOnMapClick={toggleAccommodationModal}
+          />
           <Separator />
           <Rooms rooms={rooms} />
         </div>
       </ContentWrapper>
       {isModalOpen && (
         <AccommodationModal
-          address={hotel.address}
-          location={location}
+          location={{ ...location, hotelName, mapboxToken, address, zoom }}
           onClose={toggleAccommodationModal}
         />
       )}

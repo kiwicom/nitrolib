@@ -1,6 +1,7 @@
 // @flow strict
 
 import * as React from "react";
+import styled from "styled-components";
 import ReactMapGL, { Marker } from "react-map-gl";
 
 import Pin from "./components/Pin";
@@ -11,13 +12,14 @@ type Props = LocationType;
 type Viewport = {|
   latitude: number,
   longitude: number,
-  zoom: number,
-  width: number,
+  zoom?: number,
 |};
 
 type State = {
   viewport: Viewport,
 };
+
+const MapWrapper = styled.div``;
 
 class LocationMap extends React.Component<Props, State> {
   static defaultProps = {
@@ -26,10 +28,14 @@ class LocationMap extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    const { center, zoom, desktopWidth } = props;
+    const { longitude, latitude, zoom } = props;
 
     this.state = {
-      viewport: { zoom, width: desktopWidth, ...center },
+      viewport: {
+        zoom,
+        longitude,
+        latitude,
+      },
     };
   }
 
@@ -38,21 +44,24 @@ class LocationMap extends React.Component<Props, State> {
   };
 
   render() {
-    const { center, label, mapboxToken } = this.props;
+    const { longitude, latitude, hotelName, mapboxToken } = this.props;
     const { viewport } = this.state;
 
     return (
-      <ReactMapGL
-        mapStyle="mapbox://styles/mapbox/streets-v10"
-        onViewportChange={this.updateViewport}
-        height={434}
-        mapboxApiAccessToken={mapboxToken}
-        {...viewport}
-      >
-        <Marker latitude={center.latitude} longitude={center.longitude}>
-          <Pin>{label}</Pin>
-        </Marker>
-      </ReactMapGL>
+      <MapWrapper>
+        <ReactMapGL
+          mapStyle="mapbox://styles/mapbox/streets-v10"
+          onViewportChange={this.updateViewport}
+          mapboxApiAccessToken={mapboxToken}
+          {...viewport}
+          width="100%"
+          height={434}
+        >
+          <Marker latitude={latitude} longitude={longitude}>
+            <Pin>{hotelName}</Pin>
+          </Marker>
+        </ReactMapGL>
+      </MapWrapper>
     );
   }
 }

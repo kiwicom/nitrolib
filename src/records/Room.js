@@ -1,5 +1,7 @@
 // @flow strict
-export type RoomType = {
+export type RoomType = {|
   id: string,
-  description: string,
-};
+  roomType?: string,
+  occupancy?: string,
+  boardType?: string,
+|};

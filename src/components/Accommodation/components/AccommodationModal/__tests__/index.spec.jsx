@@ -10,17 +10,11 @@ import { themeDefault } from "../../../../../records/Theme";
 import type { Props } from "..";
 
 const props: Props = {
-  address: {
-    fullAddress: "Golden Rock Coast Hotel, City centre of Ubud 23",
-  },
   location: {
-    center: {
-      latitude: 38.104542,
-      longitude: 23.980237,
-    },
-    label: "Golden Coast Hotel",
-    zoom: 10,
-    desktopWidth: 377,
+    latitude: 38.104542,
+    longitude: 23.980237,
+    hotelName: "Golden Rock Coast Hotel",
+    address: "Bali - Ubud, City centre of Ubud",
     mapboxToken:
       "pk.eyJ1IjoibWljaGFlbGtpd2kiLCJhIjoiY2l3aHRiN2ZqMDAycjJ6cXduNDU5djkweCJ9.XuamwcGDtyovJEMaSWtFkg",
   },

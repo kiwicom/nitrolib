@@ -1,12 +1,11 @@
 // @flow strict
 
 export type LocationType = {|
-  center: {|
-    latitude: number,
-    longitude: number,
-  |},
-  label: string,
-  zoom: number,
-  desktopWidth: number,
+  longitude: number,
+  latitude: number,
+  address: string,
+  hotelName: string,
   mapboxToken: string,
+  desktopWidth?: number,
+  zoom?: number,
 |};

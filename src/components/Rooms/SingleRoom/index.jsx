@@ -33,7 +33,7 @@ Description.defaultProps = {
   theme: themeDefault,
 };
 
-const SingleRoom = ({ id, description }: RoomType) => (
+const SingleRoom = ({ id, roomType, occupancy, boardType }: RoomType) => (
   <>
     <HeadingWrapper>
       <AccommodationIcon color="primary" />
@@ -42,9 +42,9 @@ const SingleRoom = ({ id, description }: RoomType) => (
       </Heading>
     </HeadingWrapper>
     <Description>
-      {description.split(";").map(d => (
-        <Text key={d}>{d}</Text>
-      ))}
+      {roomType && <Text>{roomType}</Text>}
+      {occupancy && <Text>{occupancy}</Text>}
+      {boardType && <Text>{boardType}</Text>}
     </Description>
   </>
 );

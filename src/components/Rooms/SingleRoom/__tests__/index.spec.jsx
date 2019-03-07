@@ -10,7 +10,9 @@ import type { RoomType } from "../../../../records/Room";
 
 const props: RoomType = {
   id: "1",
-  description: "1x Deluxe Room with Free Daily Activities; 2x Adult, 1x Child; Half board",
+  roomType: "1x Deluxe Room with Free Daily Activities",
+  occupancy: "2x Adult, 1x Child",
+  boardType: "Half board",
 };
 
 describe("#Rooms", () => {
