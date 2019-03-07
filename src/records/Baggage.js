@@ -13,7 +13,7 @@ export type Restrictions = {|
   dimensionsSum: ?number,
 |};
 
-export type Definition<C: BaggageSubCategory> = {
+export type Definition<C: BaggageSubCategory> = {|
   category: C,
   price: PriceType,
   restrictions: Restrictions,
@@ -21,15 +21,18 @@ export type Definition<C: BaggageSubCategory> = {
     isPriority?: Array<string>,
     passengerGroups: Array<PassengerGroup>,
   },
-};
+|};
 
 export type HandBagDefinition = Definition<"personalItem" | "cabinBag">;
 export type HoldBagDefinition = Definition<"holdBag">;
 
-export type Definitions = {|
+export type HandBagDefinitionWithId = {| ...HandBagDefinition, id: number |};
+export type HoldBagDefinitionWithId = {| ...HoldBagDefinition, id: number |};
+
+export type Definitions = {
   handBag: Array<HandBagDefinition>,
   holdBag: Array<HoldBagDefinition>,
-|};
+};
 
 export type Combination = {|
   indices: Array<number>,
@@ -72,12 +75,25 @@ export type OrderStatusType = "unpaid" | "processing" | "notAvailable";
 
 export type Gender = "male" | "female";
 
-export type SupportLinksType = {
-  [key: BaggageSubCategory]: string,
-};
+export type FAQLinksHandlerType = BaggageSubCategory => void;
 
-export type BaggagePassengerType = {
-  id: number,
+export type BaggagePassengerType = {|
+  paxId: number,
   firstName: string,
+  middleName?: string,
   lastName: string,
-};
+|};
+export type Passenger = {|
+  ...BaggagePassengerType,
+  baggage: {
+    holdBag: number, // index of baggage combination
+    handBag: number, // index of baggage combination
+  },
+|};
+
+export type DefinitionWithPassenger = {|
+  originalIndex: number,
+  category: BaggageSubCategory,
+  restrictions: Restrictions,
+  passengers: Array<BaggagePassengerType>,
+|};

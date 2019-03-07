@@ -7,25 +7,14 @@ exports[`#BaggageOverview render  1`] = `
   <Text>
     Baggage
   </Text>
+  <NoPersonalItem />
   <BaggageItem
+    FAQLinksHandler={[Function]}
     amount={2}
     category="personalItem"
-    hasAllPassengersData={true}
+    context="MMB-PassengerCard"
+    hasAllPassengersData={false}
     key="0"
-    passengers={
-      Array [
-        Object {
-          "firstName": "Barrack",
-          "id": 1,
-          "lastName": "Obama",
-        },
-        Object {
-          "firstName": "Donald",
-          "id": 2,
-          "lastName": "Trump",
-        },
-      ]
-    }
     restrictions={
       Object {
         "dimensionsSum": null,
@@ -37,58 +26,12 @@ exports[`#BaggageOverview render  1`] = `
     }
   />
   <BaggageItem
-    amount={4}
-    category="cabinBag"
-    hasAllPassengersData={true}
-    key="1"
-    passengers={
-      Array [
-        Object {
-          "firstName": "Barrack",
-          "id": 1,
-          "lastName": "Obama",
-        },
-        Object {
-          "firstName": "Donald",
-          "id": 2,
-          "lastName": "Trump",
-        },
-        Object {
-          "firstName": "George",
-          "id": 3,
-          "lastName": "Bush",
-        },
-      ]
-    }
-    restrictions={
-      Object {
-        "dimensionsSum": null,
-        "height": 35,
-        "length": 45,
-        "weight": 10,
-        "width": 20,
-      }
-    }
-  />
-  <BaggageItem
-    amount={2}
+    FAQLinksHandler={[Function]}
+    amount={1}
     category="holdBag"
-    hasAllPassengersData={true}
-    key="0"
-    passengers={
-      Array [
-        Object {
-          "firstName": "Barrack",
-          "id": 1,
-          "lastName": "Obama",
-        },
-        Object {
-          "firstName": "Donald",
-          "id": 2,
-          "lastName": "Trump",
-        },
-      ]
-    }
+    context="MMB-PassengerCard"
+    hasAllPassengersData={false}
+    key="1"
     restrictions={
       Object {
         "dimensionsSum": 156,

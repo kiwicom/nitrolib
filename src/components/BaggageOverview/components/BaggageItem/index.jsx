@@ -2,7 +2,7 @@
 import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
-import TextLink from "@kiwicom/orbit-components/lib/TextLink";
+import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 import styled, { css } from "styled-components";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
@@ -14,6 +14,7 @@ import type {
   BaggageSubCategory,
   Restrictions,
   BaggagePassengerType,
+  FAQLinksHandlerType,
 } from "../../../../records/Baggage";
 import { getTextFromCategory, getIconFromCategory } from "../../../../services/baggage/utils";
 
@@ -95,12 +96,12 @@ OptionalColumnWrapper.defaultProps = {
 };
 
 type Props = {
-  passengers: Array<BaggagePassengerType>,
   restrictions: Restrictions,
   category: BaggageSubCategory,
   amount: number,
-  hasAllPassengersData: boolean,
-  supportLink?: string,
+  passengers?: Array<BaggagePassengerType>,
+  hasAllPassengersData?: boolean,
+  FAQLinksHandler?: FAQLinksHandlerType,
 };
 
 const BaggageItem = ({
@@ -109,14 +110,15 @@ const BaggageItem = ({
   amount,
   restrictions,
   hasAllPassengersData,
-  supportLink,
+  FAQLinksHandler,
 }: Props) => {
   const getBaggageSize = ({ height, length, weight, width }) =>
     `${length} x ${width} x ${height} cm, ${weight} kg`;
 
   const getPassengerNames = passengersArr =>
-    passengersArr.map(p => `${p.firstName[0]}. ${p.lastName}`).join(", ");
-
+    passengersArr
+      .map(p => `${p.firstName[0]}. ${p.middleName ? `${p.middleName[0]}.` : ""} ${p.lastName}`)
+      .join(", ");
   return (
     <Wrapper>
       <Stack shrink spacing="condensed">
@@ -136,12 +138,12 @@ const BaggageItem = ({
           </Title>
         </TextWrapper>
       </Stack>
-      {hasAllPassengersData && (
-        <OptionalColumnWrapper hasLink={!!supportLink}>
-          {supportLink ? (
-            <TextLink size="small" href={supportLink}>
+      {!!hasAllPassengersData && passengers && (
+        <OptionalColumnWrapper hasLink={!!FAQLinksHandler}>
+          {FAQLinksHandler ? (
+            <ButtonLink size="small" onClick={() => FAQLinksHandler(category)}>
               <Translate t="baggage_modal.summary.more_info" />
-            </TextLink>
+            </ButtonLink>
           ) : (
             <>
               <AccountCircle size="small" color="secondary" />
