@@ -97,3 +97,5 @@ export type DefinitionWithPassenger = {|
   restrictions: Restrictions,
   passengers: Array<BaggagePassengerType>,
 |};
+
+export type OverviewContextType = "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking";

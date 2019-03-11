@@ -135,29 +135,9 @@ storiesOf("BaggageOverview", module)
     <div style={{ padding: "24px" }}>
       <BaggageOverview {...propsWithDefinitions} />
     </div>
-  ));
-/*
-  .add("with one passenger data", () => (
-    <div style={{ padding: "24px" }}>
-      <BaggageOverview {...props} currentPaxId={1} />
-    </div>
   ))
-  .add("without personal item", () => (
+  .add("with context MMB-PassengersSummary", () => (
     <div style={{ padding: "24px" }}>
-      <BaggageOverview
-        {...props}
-        passengers={[
-          {
-            id: 1,
-            firstName: "Bill",
-            lastName: "Clinton",
-            baggage: {
-              holdBag: 3,
-              handBag: 1,
-            },
-          },
-        ]}
-      />
+      <BaggageOverview {...propsWithDefinitions} context="MMB-PassengersSummary" />
     </div>
   ));
-  */

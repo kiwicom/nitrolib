@@ -14,6 +14,7 @@ import type {
   BaggageSubCategory,
   Restrictions,
   BaggagePassengerType,
+  OverviewContextType,
   FAQLinksHandlerType,
 } from "../../../../records/Baggage";
 import { getTextFromCategory, getIconFromCategory } from "../../../../services/baggage/utils";
@@ -101,9 +102,17 @@ type Props = {
   amount: number,
   passengers?: Array<BaggagePassengerType>,
   FAQLinksHandler?: FAQLinksHandlerType,
+  context: OverviewContextType,
 };
 
-const BaggageItem = ({ passengers, category, amount, restrictions, FAQLinksHandler }: Props) => {
+const BaggageItem = ({
+  passengers,
+  category,
+  context,
+  amount,
+  restrictions,
+  FAQLinksHandler,
+}: Props) => {
   const getBaggageSize = ({ height, length, weight, width }) =>
     `${length} x ${width} x ${height} cm, ${weight} kg`;
 
@@ -116,7 +125,11 @@ const BaggageItem = ({ passengers, category, amount, restrictions, FAQLinksHandl
       <Stack shrink spacing="condensed">
         {getIconFromCategory(category, "medium", "primary")}
         <TextWrapper>
-          <Text element="p">
+          <Text
+            element="p"
+            weight={context === "MMB-PassengersSummary" ? "bold" : "normal"}
+            size={context === "MMB-PassengersSummary" ? "large" : "normal"}
+          >
             <Title>
               {`${amount}× `}
               {category === "holdBag" && `${restrictions.weight}kg  `}
@@ -124,7 +137,11 @@ const BaggageItem = ({ passengers, category, amount, restrictions, FAQLinksHandl
             </Title>
           </Text>
           <Title>
-            <Text element="span" type="secondary" size="small">
+            <Text
+              element="span"
+              type="secondary"
+              size={context === "MMB-PassengersSummary" ? "normal" : "small"}
+            >
               {getBaggageSize(restrictions)}
             </Text>
           </Title>

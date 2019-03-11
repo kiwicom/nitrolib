@@ -7,11 +7,14 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
+import { themeDefault } from "../../records/Theme";
+import type { ThemeProps } from "../../records/Theme";
 import type {
   FAQLinksHandlerType,
   DefinitionWithPassenger,
   HoldBagDefinitionWithId,
   HandBagDefinitionWithId,
+  OverviewContextType,
 } from "../../records/Baggage";
 import BaggageItem from "./components/BaggageItem";
 import Translate from "../Translate/index";
@@ -20,18 +23,26 @@ type Props = {
   definitions?: Array<HandBagDefinitionWithId | HoldBagDefinitionWithId>,
   definitionWithPassengers?: Array<DefinitionWithPassenger>,
   FAQLinksHandler?: FAQLinksHandlerType,
-  context: "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking",
+  context: OverviewContextType,
 };
 
+type WrapperProps = ThemeProps & {
+  context: OverviewContextType,
+};
 const Wrapper = styled.div`
   width: 100%;
   > * {
     margin-bottom: 10px;
     ${mq.mediumMobile(css`
-      margin-bottom: 4px;
+      margin-bottom: ${({ theme, context }: WrapperProps) =>
+        context === "MMB-PassengersSummary" ? theme.orbit.spaceXSmall : theme.orbit.spaceXXSmall};
     `)};
   }
 `;
+Wrapper.defaultProps = {
+  theme: themeDefault,
+  context: "booking",
+};
 
 const NoPersonalItem = () => (
   <Stack shrink spacing="condensed" align="center">
@@ -70,7 +81,7 @@ const BaggageOverview = ({
   };
   const baggages = getDefinitions();
   return (
-    <Wrapper spacing="tight">
+    <Wrapper context={context}>
       <Text>Baggage</Text>
       {baggages && baggages.some(bag => bag.category === "personalItem") && <NoPersonalItem />}
       {baggages &&
