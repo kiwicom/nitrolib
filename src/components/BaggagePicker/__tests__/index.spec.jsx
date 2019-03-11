@@ -22,6 +22,7 @@ const props = {
     holdBag: 6,
   },
   currentCombination: undefined,
+  prioBoardingLinkHandler: () => {},
 };
 
 describe("#BaggagePicker", () => {

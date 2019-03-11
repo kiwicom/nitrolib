@@ -41,6 +41,7 @@ const props = {
   airlines,
   context: "booking",
   currentCombination: undefined,
+  prioBoardingLinkHandler: airlines => console.log("prioAirlines", airlines), // eslint-disable-line
 };
 
 storiesOf("BaggagePicker", module)

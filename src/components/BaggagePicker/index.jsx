@@ -25,6 +25,7 @@ type Props = {
   pickerType: BaggageCategory,
   context: "booking" | "mmb",
   currentCombination?: number,
+  prioBoardingLinkHandler: (Array<Airline>) => void,
 };
 
 class Baggage extends React.Component<Props> {
@@ -80,6 +81,7 @@ class Baggage extends React.Component<Props> {
       pickerType,
       passengerBaggage,
       shouldShowRecheckNote,
+      prioBoardingLinkHandler,
       context,
       airlines,
       currentCombination,
@@ -87,7 +89,7 @@ class Baggage extends React.Component<Props> {
     const baggageOptions = this.getOptions();
 
     return (
-      <Provider value={{ airlines, shouldShowRecheckNote }}>
+      <Provider value={{ airlines, shouldShowRecheckNote, prioBoardingLinkHandler }}>
         <Picker
           context={context}
           pickerType={pickerType}

@@ -17,6 +17,7 @@ import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import type { ItemType, BaggageCategory } from "../../../../records/Baggage";
 import type { PriceType } from "../../../../records/Price";
+import type { Airline } from "../../../../records/Airline";
 import { Consumer } from "../../services/context";
 
 type Props = {
@@ -83,7 +84,19 @@ IconWrapper.defaultProps = {
   theme: themeDefault,
 };
 
-const PriorityBoardingInfo = ({ airlines }: { airlines: Array<string> }) => {
+const PriorityBoardingInfo = ({
+  airlines,
+  prioBoardingLinkHandler,
+}: {
+  airlines: Array<Airline>,
+  prioBoardingLinkHandler?: (Array<Airline>) => void,
+}) => {
+  const handleClick = e => {
+    if (prioBoardingLinkHandler) {
+      prioBoardingLinkHandler(airlines);
+      e.stopPropagation();
+    }
+  };
   return (
     <Stack
       flex
@@ -96,8 +109,11 @@ const PriorityBoardingInfo = ({ airlines }: { airlines: Array<string> }) => {
         <PriorityBoarding color="secondary" size="small" />
       </IconWrapper>
       <Text size="small" element="p">
-        <Translate t="baggage_modal.priority_boarding" values={{ airlines: airlines.join(", ") }} />{" "}
-        <TextLink external={false} onClick={() => {}} href="https://kiwi.com" type="secondary">
+        <Translate
+          t="baggage_modal.priority_boarding"
+          values={{ airlines: airlines.map(a => a.name).join(", ") }}
+        />{" "}
+        <TextLink external={false} onClick={handleClick} type="secondary">
           <Translate t="baggage_modal.learn_more" />
         </TextLink>
       </Text>
@@ -145,10 +161,10 @@ const Option = ({
 
   return (
     <Consumer>
-      {({ airlines, shouldShowRecheckNote }) => {
+      {({ airlines, shouldShowRecheckNote, prioBoardingLinkHandler }) => {
         const priorityAirlinesKeys = getAirlinesWithPriorityBoarding(itemsArr);
         const priorityAirlines = priorityAirlinesKeys
-          .map((key: string) => airlines?.[key].name)
+          .map((key: string) => airlines?.[key])
           .filter(Boolean);
 
         return (
@@ -187,7 +203,10 @@ const Option = ({
                   </Stack>
                 )}
                 {priorityAirlines.length > 0 && (
-                  <PriorityBoardingInfo airlines={priorityAirlines} />
+                  <PriorityBoardingInfo
+                    airlines={priorityAirlines}
+                    prioBoardingLinkHandler={prioBoardingLinkHandler}
+                  />
                 )}
               </Stack>
             </Stack>

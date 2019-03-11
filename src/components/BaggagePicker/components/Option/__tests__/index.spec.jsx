@@ -67,6 +67,7 @@ const context = {
       name: "Ryanair",
     },
   },
+  prioBoardingLinkHandler: () => {},
 };
 
 describe("#BaggageOption", () => {
