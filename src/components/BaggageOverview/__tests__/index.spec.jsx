@@ -1,9 +1,10 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import { baggageData } from "../../BaggagePicker/services/data";
 import BaggageOverview from "../index";
+import Container from "../components/Container";
 
 const passengers = [
   {
@@ -121,9 +122,14 @@ const propsWithDefinitions = {
 };
 
 describe("#BaggageOverview", () => {
-  test("render ", () => {
-    const wrapper = shallow(<BaggageOverview {...propsWithDefinitions} />);
+  test("render component using propsWithDefinitions", () => {
+    const wrapper = mount(<BaggageOverview {...propsWithDefinitions} />);
     expect(wrapper.find("BaggageOverview__Wrapper").exists()).toBe(true);
-    expect(wrapper).toMatchSnapshot();
+  });
+  test("render component using propsWithCombinations", () => {
+    const wrapper = mount(
+      <Container {...propsWithCombinations}>{props => <BaggageOverview {...props} />}</Container>,
+    );
+    expect(wrapper.find("BaggageOverview__Wrapper").exists()).toBe(true);
   });
 });
