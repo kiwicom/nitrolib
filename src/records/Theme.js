@@ -1,20 +1,12 @@
 // @flow strict
-import { defaultTokens, fromPlainObject } from "@kiwicom/orbit-design-tokens";
-import type { Tokens } from "@kiwicom/orbit-design-tokens";
+import defaultTokens, { type Theme } from "@kiwicom/orbit-components/lib/defaultTokens";
+import fromPlainObject from "@kiwicom/orbit-components/lib/fromPlainObject";
 
 import type { Brand } from "./Brand";
 
-export type Theme = {|
-  orbit: Tokens,
-  rtl: boolean,
-|};
-
 export type ThemeProps = {| theme: Theme |};
 
-export const themeDefault: Theme = {
-  orbit: defaultTokens,
-  rtl: false,
-};
+export const themeDefault: Theme = defaultTokens;
 
 export const getBrandTheme = (brand: Brand, rtl: boolean = false): Theme => ({
   orbit: fromPlainObject(brand.theme.palette),

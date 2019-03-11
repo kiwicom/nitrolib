@@ -1056,11 +1056,6 @@ import type { Theme } from "@kiwicom/nitro/lib/records/Theme";
 
 **Types:**
 ```js
-export type Theme = {|
-  orbit: Tokens,
-  rtl: boolean,
-|};
-
 export type ThemeProps = {| theme: Theme |};
 
 declare export var themeDefault: Theme;

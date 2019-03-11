@@ -1,6 +1,7 @@
 // @flow strict
 import * as React from "react";
 import { shallow, mount } from "enzyme";
+import { breakpoints } from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import Menu from "..";
 
@@ -69,11 +70,11 @@ describe("#Currency/Menu", () => {
     );
 
     expect(wrapper.find("Menu__Container")).toHaveStyleRule("left", "inherit", {
-      media: `(min-width: ${600}px)`,
+      media: breakpoints.largeMobile,
     });
 
     expect(wrapper.find("Menu__Container")).toHaveStyleRule("right", `${desktop}px`, {
-      media: `(min-width: ${1200}px)`,
+      media: breakpoints.desktop,
     });
   });
 

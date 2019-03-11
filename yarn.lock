@@ -1055,17 +1055,19 @@
     eslint-plugin-relay "^1.0.0"
     prettier "^1.16.4"
 
-"@kiwicom/orbit-components@^0.30.0":
-  version "0.30.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.30.0.tgz#33093d51e1702d3510946db56df5d365e7dda648"
+"@kiwicom/orbit-components@^0.34.1":
+  version "0.34.1"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.34.1.tgz#e1dca2447d95add9585583e8ce88616b11bd8a13"
+  integrity sha512-GYXZow/sJWxI3NXh13RTougJo9go2OxQjPMXXW6v+fyIuxumOmu+RrJ+XkU0YpUI2Egl+79lYESBJLUHMpK+qQ==
   dependencies:
-    "@kiwicom/orbit-design-tokens" "^0.3.0"
+    "@kiwicom/orbit-design-tokens" "^0.4.0"
 
-"@kiwicom/orbit-design-tokens@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-design-tokens/-/orbit-design-tokens-0.3.0.tgz#5cfc1b5d9a9e4e8f84c9b09769880ebbb9078516"
+"@kiwicom/orbit-design-tokens@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-design-tokens/-/orbit-design-tokens-0.4.0.tgz#b8d286dea59ea5f6d17a476991d4b4fa33598e40"
+  integrity sha512-vMmCbkMLTiKEs6FA8fp0vZmS9tjJ77lvjT3PYODJA6AB1FpeF/H7HafEZhu2tGTc5qZPbSPLT2ByXUSRJEdmDA==
   dependencies:
-    ramda "^0.25.0"
+    ramda "^0.26.1"
 
 "@kiwicom/translations@^1.158.0":
   version "1.171.0"
@@ -9142,10 +9144,6 @@ ramda@0.x, ramda@^0.26.1:
 ramda@^0.21.0:
   version "0.21.0"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.21.0.tgz#a001abedb3ff61077d4ff1d577d44de77e8d0a35"
-
-ramda@^0.25.0:
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.25.0.tgz#8fdf68231cffa90bc2f9460390a0cb74a29b29a9"
 
 randexp@0.4.6:
   version "0.4.6"
