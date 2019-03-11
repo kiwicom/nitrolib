@@ -9,19 +9,19 @@ type State = {|
 |};
 
 type Args = {|
-  starred: Array<StarredItem>,
+  starredList: Array<StarredItem>,
   onRemoveStarred: (arg: number, e: SyntheticMouseEvent<HTMLDivElement>) => void,
   onAddStarred: (arg: StarredItem) => void,
+  lang: string,
   onClearStarred: (e: SyntheticMouseEvent<HTMLDivElement>) => void,
 |};
-
 type Props = {|
   children: (args: Args) => React.Node,
 |};
 
 class StarredProvider extends React.Component<Props, State> {
   state = {
-    starred: JSON.parse(getItem("starred")),
+    starred: getItem("starred") ? JSON.parse(getItem("starred")) : [],
   };
 
   onAddStarred = (trip: StarredItem) => {
@@ -61,8 +61,9 @@ class StarredProvider extends React.Component<Props, State> {
     const { starred } = this.state;
 
     return children({
-      starred,
+      starredList: starred,
       onRemoveStarred: this.onRemoveStarred,
+      lang: "en",
       onAddStarred: this.onAddStarred,
       onClearStarred: this.onClearStarred,
     });

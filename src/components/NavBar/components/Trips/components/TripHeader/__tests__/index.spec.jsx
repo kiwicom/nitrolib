@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { mount } from "enzyme";
+import { shallow } from "enzyme";
 
 import { TripHeaderUnwrapped as TripHeader } from "..";
 
@@ -14,7 +14,7 @@ const trips: any = {
   ],
 };
 
-const wrapper = mount(<TripHeader trips={trips} />);
+const wrapper = mount(<TripHeader list={trips} />);
 
 describe("#TripHeader", () => {
   test("render", () => {

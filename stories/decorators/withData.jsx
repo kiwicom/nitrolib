@@ -5,13 +5,16 @@ import { addDecorator } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, select } from "@storybook/addon-knobs/react";
 
+// TODO: rewrite properly
 import { Provider as BrandProvider } from "../../src/services/brand/context";
 import { Provider as IntlProvider } from "../../src/services/intl/context";
 import { Provider as FetchedProvider } from "../../src/services/fetched/context";
 import { Provider as CurrencyProvider } from "../../src/services/currency/context";
 import { Provider as ModalProvider } from "../../src/services/modal/context";
+import { Provider as StarredProvider } from "../../src/services/starred/context";
 import InitIntl from "../../src/components/InitIntl";
 import InitCurrency from "../../src/components/InitCurrency";
+import InitStarred from "../../src/components/InitStarred";
 import Value from "../../src/components/Value";
 import brandLanguages from "../fixtures/brandLanguages";
 import brands from "../fixtures/brands";
@@ -20,6 +23,7 @@ import continents from "../fixtures/continents";
 import countries from "../fixtures/countries";
 import languages from "../fixtures/languages";
 import translations from "../fixtures/translations";
+import itineraries from "../fixtures/itineraries";
 import { getBrandTheme } from "../../src/records/Theme";
 
 const GROUP_ID = "Context";
@@ -135,9 +139,24 @@ const withData = (storyFn: () => React.Node) => {
                         currency: currency.available[currencyId] || currency.currency,
                       }}
                     >
-                      <Value>
-                        {modal => <ModalProvider value={modal}>{storyFn()}</ModalProvider>}
-                      </Value>
+                      <InitStarred>
+                        {starred => (
+                          <StarredProvider
+                            value={{
+                              starredList: itineraries,
+                              ShareDialog: console.log("share"),
+                              goToJourneyNitro: console.log("nitro"),
+                              isMobile: false,
+                              setNotice: console.log("notice"),
+                              shareUrl: console.log("shareUrl"),
+                            }}
+                          >
+                            <Value>
+                              {modal => <ModalProvider value={modal}>{storyFn()}</ModalProvider>}
+                            </Value>
+                          </StarredProvider>
+                        )}
+                      </InitStarred>
                     </CurrencyProvider>
                   )}
                 </InitCurrency>

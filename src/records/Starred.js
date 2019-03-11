@@ -29,14 +29,14 @@ export type StarredItem = {|
   id: string,
   form: StarredFormData,
   lastPrice: number,
-  journey: Itinerary,
+  itinerary: Itinerary,
   priceUpdatedAt: ?Date,
   createdAt: Date,
   updatedAt: Date,
 |};
 
 export type ShareDialog = {|
-  journey: Itinerary,
+  itinerary: Itinerary,
   shareUrl: string,
   passengers: PassengersCount,
   cabinClass: CabinClass,

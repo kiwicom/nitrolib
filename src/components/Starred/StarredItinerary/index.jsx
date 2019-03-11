@@ -5,24 +5,30 @@ import Star from "@kiwicom/orbit-components/lib/icons/StarFull";
 import Share from "@kiwicom/orbit-components/lib/icons/Share";
 import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import TimeInWords from "../../DistanceInWords";
 import Price from "../../Price";
 import Text from "../../Text";
 import TranslateNode from "../../TranslateNode";
 import StarredSegment from "../StarredSegment";
-import { getBestPrice, getTransKey } from "../helpers";
+import getBestPrice from "../services/getBestPrice";
+import getTransKey from "../services/getTransKey";
 import type { ThemeProps } from "../../../records/Theme";
 import type { Itinerary } from "../../../records/Itinerary";
 import type { PassengersCount, CabinClass } from "../../../records/Starred";
 import { themeDefault } from "../../../records/Theme";
-import { PASSENGERS_COUNT } from "../consts";
 import Toggle from "../../Toggle";
 import { Consumer as StarredConsumer } from "../../../services/starred/context";
 
+const PASSENGERS_COUNT = {
+  infants: __("result.infants_count"),
+  adults: __("result.adults_count"),
+};
+
 type Props = {|
   updated: Date,
-  journey: Itinerary,
+  itinerary: Itinerary,
   passengerCount: number,
   passengers: PassengersCount,
   passengerMulty: boolean,
@@ -41,10 +47,11 @@ const Info = styled.div`
   min-width: 80px;
   width: 80px;
   margin-right: 5px;
+  margin-top: 10px;
   flex-direction: column;
 
-  ${mq.ltBigMobile(css`
-    margin-top: 10px;
+  ${mq.largeMobile(css`
+    margin-top: 0;
   `)};
 `;
 
@@ -74,11 +81,12 @@ Wrapper.defaultProps = {
 
 const WrapperInner = styled.div`
   display: flex;
-  margin-top: 15px;
-  align-items: center;
-  ${mq.ltBigMobile(css`
-    flex-direction: column-reverse;
-    align-items: flex-start;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  ${mq.largeMobile(css`
+    margin-top: 15px;
+    flex-direction: row;
+    align-items: center;
   `)};
 `;
 
@@ -103,15 +111,9 @@ ShareIcon.defaultProps = {
   theme: themeDefault,
 };
 
-const Flights = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-
 const StarredItinerary = ({
   updated,
-  journey,
+  itinerary,
   price,
   shareUrl,
   onRemove,
@@ -128,15 +130,15 @@ const StarredItinerary = ({
     if (!isValid) {
       return (
         <>
-          <Text size="small" type="secondary" t={__("starred.flight_not_available")} />
+          <Text size="small" type="secondary" t="starred.flight_not_available" />
           <ActionButton onClick={onRemove}>
-            <Text size="small" type="secondary" t={__("starred.remove_starred")} />
+            <Text size="small" type="secondary" t="starred.remove_starred" />
           </ActionButton>
         </>
       );
     }
 
-    if (price !== getBestPrice(journey)) {
+    if (price !== getBestPrice(itinerary)) {
       return (
         <TranslateNode
           t="starred.price_update_changed"
@@ -167,7 +169,7 @@ const StarredItinerary = ({
           <WrapperInner>
             <Info>
               <TextWrapper weight="bold" size="large">
-                <Price value={getBestPrice(journey)} />
+                <Price value={getBestPrice(itinerary)} />
               </TextWrapper>
               <PriceInfo>
                 {passengerCount > 1 &&
@@ -200,7 +202,7 @@ const StarredItinerary = ({
                       {open && (
                         <ShareDialog
                           shareUrl={shareUrl}
-                          journey={journey}
+                          itinerary={itinerary}
                           passengers={passengers}
                           cabinClass={cabinClass}
                           isMobile={isMobile}
@@ -214,15 +216,15 @@ const StarredItinerary = ({
                 </Toggle>
               </ActionButtonsWrapper>
             </Info>
-            <Flights>
-              {journey.trips.map(trip => (
+            <Stack flex inline direction="column">
+              {itinerary.trips.map(trip => (
                 <StarredSegment
                   key={trip.flights[0].id}
                   departure={trip.flights[0].departure}
                   arrival={trip.flights[trip.flights.length - 1].arrival}
                 />
               ))}
-            </Flights>
+            </Stack>
           </WrapperInner>
         </Wrapper>
       )}

@@ -10,7 +10,7 @@ type AllProps = ThemeProps & {
 
 const Content = styled.div`
   max-height: calc(100vh - 140px);
-  padding: ${({ padding }: AllProps) => (padding ? `12px` : `0`)};
+  padding: ${({ padding, theme }: AllProps) => (padding ? theme.orbit.spaceSmall : `0`)};
   overflow-y: auto;
   overflow-x: hidden;
 `;

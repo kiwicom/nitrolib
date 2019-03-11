@@ -13,10 +13,12 @@ import TripsContainer from "../TripsContainer";
 import StarredHeader from "./StarredHeader";
 import StarredList from "./StarredList";
 import StarredFooter from "./StarredFooter";
-import { BADGE_MAX, MAX_TRIPS } from "./consts";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 import { Consumer as StarredConsumer } from "../../services/starred/context";
+
+const MAX_TRIPS = 3;
+const BADGE_MAX = 9;
 
 const StarredBadge = styled.div`
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteOrangeLight};
@@ -48,6 +50,7 @@ const Starred = ({ positionMenuDesktop, positionMenuTablet, inverted }: Props) =
       const starredFooter = starredCount >= 1 && <StarredFooter tripsCount={starredCount} />;
       const buttonColor = inverted ? null : "secondary";
       const StarIcon = inverted ? <StarFull customColor="#fff" /> : <StarFull color="primary" />;
+      console.log("starredShow", starredShow);
 
       return (
         <Toggle>
@@ -75,7 +78,7 @@ const Starred = ({ positionMenuDesktop, positionMenuTablet, inverted }: Props) =
               )}
               <Desktop>
                 <Button onClick={onToggle} color={buttonColor}>
-                  <Translate t={__("starred.starred")} />
+                  <Translate t="starred.starred" />
                 </Button>
               </Desktop>
               <Mobile>

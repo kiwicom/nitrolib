@@ -5,9 +5,10 @@ import type { StarredItem } from "../../records/Starred";
 
 type Args = {|
   starredList: Array<StarredItem>,
-  onRemoveStarred: (arg: number) => void,
+  onRemoveStarred: (arg: number, e: SyntheticMouseEvent<HTMLDivElement>) => void,
   onAddStarred: (arg: StarredItem) => void,
-  onClearStarred: () => void,
+  lang: string,
+  onClearStarred: (e: SyntheticMouseEvent<HTMLDivElement>) => void,
 |};
 
 type Props = {|
