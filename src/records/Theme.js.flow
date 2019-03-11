@@ -1,12 +1,7 @@
 // @flow strict
-import type { Tokens } from "@kiwicom/orbit-design-tokens";
+import type { Theme } from "@kiwicom/orbit-components/lib/defaultTokens";
 
 import type { Brand } from "./Brand";
-
-export type Theme = {|
-  orbit: Tokens,
-  rtl: boolean,
-|};
 
 export type ThemeProps = {| theme: Theme |};
 

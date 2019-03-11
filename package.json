@@ -64,8 +64,7 @@
     "yargs": "^12.0.5"
   },
   "peerDependencies": {
-    "@kiwicom/orbit-components": "^0.28.1",
-    "@kiwicom/orbit-design-tokens": "^0.3.0",
+    "@kiwicom/orbit-components": "^0.34.1",
     "ramda": "^0.26.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
@@ -82,8 +81,7 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@kiwicom/eslint-config-nitro": "^2.0.0",
-    "@kiwicom/orbit-components": "^0.30.0",
-    "@kiwicom/orbit-design-tokens": "^0.3.0",
+    "@kiwicom/orbit-components": "^0.34.1",
     "@kiwicom/translations": "^1.158.0",
     "@storybook/addon-actions": "^4.0.9",
     "@storybook/addon-info": "^4.0.9",

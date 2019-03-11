@@ -1,6 +1,7 @@
 // @flow strict
 import * as React from "react";
 import { shallow, mount } from "enzyme";
+import { breakpoints } from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import CookiesBanner from "..";
 
@@ -18,7 +19,7 @@ describe("#CookiesBanner", () => {
       "background",
       themeDefault.orbit.paletteWhite,
       {
-        media: `(min-width:${600}px)`,
+        media: breakpoints.largeMobile,
       },
     );
   });

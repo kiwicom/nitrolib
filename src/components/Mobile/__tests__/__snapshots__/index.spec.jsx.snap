@@ -15,7 +15,7 @@ exports[`#Mobile render 1`] = `
           [Function],
           ";",
           "@media ",
-          "(min-width: 992px)",
+          "(min-width: 768px)",
           "{",
           "display:none;",
           ";}",
