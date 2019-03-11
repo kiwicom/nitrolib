@@ -2,7 +2,7 @@
 import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
-import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
+import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import styled, { css } from "styled-components";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
@@ -100,18 +100,10 @@ type Props = {
   category: BaggageSubCategory,
   amount: number,
   passengers?: Array<BaggagePassengerType>,
-  hasAllPassengersData?: boolean,
   FAQLinksHandler?: FAQLinksHandlerType,
 };
 
-const BaggageItem = ({
-  passengers,
-  category,
-  amount,
-  restrictions,
-  hasAllPassengersData,
-  FAQLinksHandler,
-}: Props) => {
+const BaggageItem = ({ passengers, category, amount, restrictions, FAQLinksHandler }: Props) => {
   const getBaggageSize = ({ height, length, weight, width }) =>
     `${length} x ${width} x ${height} cm, ${weight} kg`;
 
@@ -138,22 +130,22 @@ const BaggageItem = ({
           </Title>
         </TextWrapper>
       </Stack>
-      {!!hasAllPassengersData && passengers && (
-        <OptionalColumnWrapper hasLink={!!FAQLinksHandler}>
-          {FAQLinksHandler ? (
-            <ButtonLink size="small" onClick={() => FAQLinksHandler(category)}>
-              <Translate t="baggage_modal.summary.more_info" />
-            </ButtonLink>
-          ) : (
-            <>
-              <AccountCircle size="small" color="secondary" />
-              <Text element="span" type="secondary">
-                {getPassengerNames(passengers)}
-              </Text>
-            </>
-          )}
-        </OptionalColumnWrapper>
-      )}
+
+      <OptionalColumnWrapper hasLink={!!FAQLinksHandler}>
+        {passengers && (
+          <>
+            <AccountCircle size="small" color="secondary" />
+            <Text element="span" type="secondary">
+              {getPassengerNames(passengers)}
+            </Text>
+          </>
+        )}
+        {FAQLinksHandler && (
+          <TextLink size="small" onClick={() => FAQLinksHandler(category)}>
+            <Translate t="baggage_modal.summary.more_info" />
+          </TextLink>
+        )}
+      </OptionalColumnWrapper>
     </Wrapper>
   );
 };

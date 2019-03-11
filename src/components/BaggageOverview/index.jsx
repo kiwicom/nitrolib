@@ -81,7 +81,6 @@ const BaggageOverview = ({
             passengers={bag.passengers}
             category={bag.category}
             restrictions={bag.restrictions}
-            hasAllPassengersData={!!bag.passengers}
             FAQLinksHandler={FAQLinksHandler}
             context={context}
           />
