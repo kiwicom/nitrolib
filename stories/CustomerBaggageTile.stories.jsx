@@ -80,11 +80,12 @@ storiesOf("CustomerBaggageTile", module)
   .add("all statuses", () => (
     <Wrapper>
       <CustomerBaggageTile {...props} />
-      <CustomerBaggageTile {...props} isProcessing />
+      <CustomerBaggageTile {...props} onClick={undefined} isProcessing />
       <CustomerBaggageTile
         {...props}
         current={undefined}
         selected={undefined}
+        onClick={undefined}
         definitions={exampleDefinitions}
       />
     </Wrapper>

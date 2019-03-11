@@ -1,5 +1,6 @@
 // @flow strict
 import * as React from "react";
+import styled from "styled-components";
 import Tile from "@kiwicom/orbit-components/lib/Tile";
 
 import Title from "./components/Title";
@@ -11,6 +12,12 @@ import type {
   HandBagDefinition,
   HoldBagDefinition,
 } from "../../records/Baggage";
+
+const Wrapper = styled.div`
+  svg:last-child {
+    display: ${({ isIconShown }: { isIconShown: boolean }) => (isIconShown ? "inline" : "none")};
+  }
+`;
 
 type Props = {
   firstName: string,
@@ -105,6 +112,23 @@ const CustomerBaggageTile = ({
       }
       description={<TileContent definitions={getDefinitions()} orderStatus={getStatus()} />}
     />
+    <Wrapper isIconShown={!!onClick}>
+      <Tile
+        onClick={onClick && onClick}
+        title={
+          <Title
+            gender={gender}
+            firstName={firstName}
+            middleName={middleName}
+            lastName={lastName}
+            orderStatus={getStatus()}
+            price={calculatePrice()}
+            dayOfBirth={dayOfBirth}
+          />
+        }
+        description={<TileContent definitions={getDefinitions()} orderStatus={getStatus()} />}
+      />
+    </Wrapper>
   );
 };
 
