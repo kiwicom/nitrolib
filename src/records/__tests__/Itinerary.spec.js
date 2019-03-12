@@ -1,5 +1,11 @@
 // @flow strict
 import * as fns from "../Itinerary";
+import type {
+  ItineraryReturnDeep,
+  ItineraryOneWayDeep,
+  ItineraryMulticityDeep,
+  ItineraryNomadDeep,
+} from "../Itinerary";
 
 const station = {
   id: "station1",
@@ -100,26 +106,26 @@ const itineraryCommon = {
   hasNoCheckedBags: false,
 };
 
-const itineraryDeepOneWay = {
+const itineraryDeepOneWay: ItineraryOneWayDeep = {
   ...itineraryCommon,
   type: "oneWay",
   sector: sectors[0],
 };
 
-const itineraryDeepReturn = {
+const itineraryDeepReturn: ItineraryReturnDeep = {
   ...itineraryCommon,
   type: "return",
   outbound: sectors[0],
   inbound: sectors[1],
 };
 
-const itineraryDeepMulticity = {
+const itineraryDeepMulticity: ItineraryMulticityDeep = {
   ...itineraryCommon,
   type: "multicity",
   sectors,
 };
 
-const itineraryDeepNomad = {
+const itineraryDeepNomad: ItineraryNomadDeep = {
   ...itineraryCommon,
   type: "nomad",
   sectors,

@@ -1,0 +1,28 @@
+// @flow strict
+import type { Schema } from "normalizr";
+
+import type { Station } from "./Station";
+import type { SegmentDeep, Carrier } from "./Segment";
+
+export type Stopover = {|
+  nightsCount: number,
+  arrival: Station,
+  departure: Station,
+|};
+
+export type Sector = {|
+  id: string,
+  segments: string[], // normalized, Segments
+  carriers: string[], // normalized, Carriers
+  duration: number,
+  stopover: Stopover,
+|};
+
+export type SectorDeep = {|
+  ...Sector,
+  segments: SegmentDeep[],
+  carriers: Carrier[],
+|};
+
+// eslint-disable-next-line import/prefer-default-export
+declare export var sector: Schema;

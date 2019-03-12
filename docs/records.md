@@ -18,7 +18,10 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [Languages](#languages)
 * [Location](#location)
 * [Loglady](#loglady)
+* [Sector](#sector)
+* [Segment](#segment)
 * [Session](#session)
+* [Station](#station)
 * [Theme](#theme)
 * [User](#user)
 
@@ -1139,6 +1142,111 @@ See types:
 
 A data type for our [Loglady](https://loglady.skypicker.com/api-docs/) tracking system.
 
+## Sector
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/Sector";
+import type { Sector } from "@kiwicom/nitro/lib/records/Sector";
+```
+
+**Types:**
+```js
+export type Stopover = {|
+  nightsCount: number,
+  arrival: Station,
+  departure: Station,
+|};
+
+export type Sector = {|
+  id: string,
+  segments: string[], // normalized, Segments
+  carriers: string[], // normalized, Carriers
+  duration: number,
+  stopover: Stopover,
+|};
+
+export type SectorDeep = {|
+  ...Sector,
+  segments: SegmentDeep[],
+  carriers: Carrier[],
+|};
+
+// eslint-disable-next-line import/prefer-default-export
+declare export var sector: Schema;
+```
+
+See types:
+* [Station](./records#station)
+* [Segment](./records#segment)
+
+
+
+## Segment
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/Segment";
+import type { Segment } from "@kiwicom/nitro/lib/records/Segment";
+```
+
+**Types:**
+```js
+export type Stop = {|
+  station: Station,
+  time: Date,
+|};
+
+export type Layover = {|
+  duration: number,
+  isKiwiComGuarantee: boolean,
+  isStationChange: boolean,
+  isBaggageRecheck: boolean,
+|};
+
+export type Carrier = {|
+  id: string,
+  name: string,
+  code: string,
+|};
+
+export type SeatInfo = {|
+  pitch: number,
+  width: number,
+  recline: number,
+  hasPower: boolean,
+  hasAudioVideo: boolean,
+|};
+
+export type Segment = {|
+  id: string,
+  source: Stop,
+  destination: Stop,
+  duration: number,
+  type: "BUS" | "FLIGHT" | "TRAIN",
+  code: string,
+  layover: Layover,
+  carrier: string, // normalized, Carrier
+  operatingCarrier: string, // normalized, Carrier
+  seatInfo: SeatInfo,
+  hasWifi: boolean,
+|};
+
+export type SegmentDeep = {|
+  ...Segment,
+  carrier: Carrier,
+  operatingCarrier: Carrier,
+|};
+
+declare export var segment: Schema;
+declare export var carrier: Schema;
+```
+
+See types:
+* [Station](./records#station)
+
+
+
 ## Session
 
 **Imports:**
@@ -1163,6 +1271,35 @@ See types:
 * [Affiliate](./records#affiliate)
 
 Contains **user** and **request** specific information.
+
+## Station
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/Station";
+import type { Station } from "@kiwicom/nitro/lib/records/Station";
+```
+
+**Types:**
+```js
+export type LocationArea = {|
+  id: string,
+  name: string,
+  code: string,
+  slug: string,
+|};
+
+export type Station = {|
+  id: string,
+  name: string,
+  code: string,
+  city: LocationArea,
+  country: LocationArea,
+  type: "AIRPORT" | "BUS_STATION" | "TRAIN_STATION",
+|};
+```
+
+
 
 ## Theme
 
