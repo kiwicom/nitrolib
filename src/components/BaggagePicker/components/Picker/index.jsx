@@ -140,6 +140,7 @@ class BaggagePicker extends React.Component<Props, State> {
 
   render() {
     const { context, pickerType, options, selectedIndex, currentCombination } = this.props;
+    const hasOnlyEmptyOption = options.length === 1 && R.isEmpty(options[0].items);
     const { showedItems, hiddenItems } = this.state;
     const isPersonalItemPresent = this.getPersonalItemPresence();
 
@@ -163,7 +164,7 @@ class BaggagePicker extends React.Component<Props, State> {
             :
           </Text>
         )}
-        {options.length > 0 ? (
+        {options.length > 0 && !hasOnlyEmptyOption ? (
           showedItems.map((item, index) => (
             <Option
               key={item.originalIndex}

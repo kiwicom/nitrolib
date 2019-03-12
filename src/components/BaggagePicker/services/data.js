@@ -116,7 +116,7 @@ export const baggageData = {
     handBag: [
       {
         conditions: {
-          passengerGroups: ["adult", "infant"],
+          passengerGroups: ["adult", "child", "infant"],
         },
         indices: [],
         price: {
@@ -216,7 +216,7 @@ export const baggageData = {
     holdBag: [
       {
         conditions: {
-          passengerGroups: ["adult", "infant"],
+          passengerGroups: ["adult", "child", "infant"],
         },
         indices: [],
         price: {
