@@ -4,8 +4,9 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import KiwiLogin from "../index";
-import AccountPassword from "../../../../AccountPassword/index";
+import KiwiLogin from "..";
+
+import AccountPassword from "../../../../AccountPassword";
 
 jest.mock("../../../mutations/ResetPassword");
 jest.mock("../../../mutations/SignIn");

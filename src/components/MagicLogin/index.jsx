@@ -6,11 +6,11 @@ import Modal from "@kiwicom/orbit-components/lib/Modal";
 import AccountNoAccount from "../AccountNoAccount";
 import AccountSocialLogin from "../AccountSocialLogin";
 import AccountCheckEmail from "../AccountCheckEmail";
-import KiwiLoginScreen from "./components/KiwiLogin/index";
-import IntroScreen from "./components/Intro/index";
-import CreateAccountScreen from "./components/CreateAccount/index";
+import KiwiLoginScreen from "./components/KiwiLogin";
+import IntroScreen from "./components/Intro";
+import CreateAccountScreen from "./components/CreateAccount";
 import SendMagicLink from "./mutations/SendMagicLink";
-import type { Screen } from "./consts/types";
+import type { Screen } from "./records/Screen";
 import errors from "../../consts/errors";
 import { Consumer as BrandConsumer } from "../../services/brand/context";
 import { Consumer as LogConsumer } from "../../services/log/context";
@@ -61,6 +61,13 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
     };
   }
 
+  componentDidMount() {
+    const { log } = this.props;
+    const { screen } = this.state;
+
+    log(loginEvents.MAGIC_LOGIN_MODAL_SHOWN, { screen });
+  }
+
   componentWillUnmount() {
     const { log } = this.props;
     const { successfulClose, screen } = this.state;
@@ -92,12 +99,15 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
   };
 
   handleToSignUp = () => {
+    const { log } = this.props;
+    log(loginEvents.CONTINUE_WITH_REGISTER, {});
     this.handleChangeScreen("signUp");
   };
 
   handleGoogleLogin = () => {
     const { onSocialLogin, log } = this.props;
-    log(loginEvents.LOGIN_VIA_SOCIAL, { provider: "google" });
+    const { screen } = this.state;
+    log(loginEvents.LOGIN_VIA_SOCIAL, { provider: "google", screen });
 
     this.setState({ successfulClose: true }, () => {
       onSocialLogin("google");
@@ -106,7 +116,8 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
 
   handleFacebookLogin = () => {
     const { onSocialLogin, log } = this.props;
-    log(loginEvents.LOGIN_VIA_SOCIAL, { provider: "facebook" });
+    const { screen } = this.state;
+    log(loginEvents.LOGIN_VIA_SOCIAL, { provider: "facebook", screen });
 
     this.setState({ successfulClose: true }, () => {
       onSocialLogin("facebook");
@@ -129,6 +140,7 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
           return;
         }
 
+        log(loginEvents.MAGIC_LINK_SENT, {});
         this.handleChangeScreen("magicLink");
       })
       .catch(err => {

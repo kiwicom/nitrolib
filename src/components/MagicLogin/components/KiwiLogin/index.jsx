@@ -2,17 +2,17 @@
 
 import * as React from "react";
 
-import Text from "../../../Text/index";
-import AccountPassword from "../../../AccountPassword/index";
+import Text from "../../../Text";
+import AccountPassword from "../../../AccountPassword";
 import SignIn from "../../mutations/SignIn";
 import ResetPassword from "../../mutations/ResetPassword";
 import errors from "../../../../consts/errors";
-import type { Screen } from "../../consts/types";
+import type { Screen } from "../../records/Screen";
 import type { AuthUser } from "../../../../records/Auth";
 import toUser from "../../services/toUser";
 import LogContext from "../../../../services/log/context";
+import * as loginEvents from "../../consts/events";
 import { API_REQUEST_FAILED, API_ERROR } from "../../../../consts/events";
-import { ASK_FOR_MAGIC_LINK, CHANGE_EMAIL } from "../../consts/events";
 
 type Props = {
   email: string,
@@ -70,6 +70,7 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
 
         onSignIn(toUser(user));
         onClose(true);
+        log(loginEvents.LOGGED_WITH_ACCOUNT, {});
       })
       .catch(err => {
         log(API_ERROR, { error: String(err), operation: "signIn" });
@@ -81,7 +82,7 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
     const { onAskSignInLink } = this.props;
     const { log } = this.context;
 
-    log(ASK_FOR_MAGIC_LINK);
+    log(loginEvents.ASK_FOR_MAGIC_LINK, {});
 
     onAskSignInLink();
   };
@@ -90,7 +91,7 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
     const { onChangeScreen } = this.props;
     const { log } = this.context;
 
-    log(CHANGE_EMAIL);
+    log(loginEvents.CHANGE_EMAIL, {});
 
     onChangeScreen("intro");
   };
