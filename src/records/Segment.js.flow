@@ -21,6 +21,8 @@ export type Carrier = {|
   code: string,
 |};
 
+declare export var carrier: Schema;
+
 export type SeatInfo = {|
   pitch: number,
   width: number,
@@ -50,4 +52,3 @@ export type SegmentDeep = {|
 |};
 
 declare export var segment: Schema;
-declare export var carrier: Schema;

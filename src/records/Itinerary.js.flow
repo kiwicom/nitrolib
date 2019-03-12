@@ -67,7 +67,7 @@ export type ItineraryMulticityDeep = {|
 |};
 
 declare export var itineraryMulticity: {
-  sectors: Schema[],
+  sectors: Schema,
 };
 
 export type ItineraryNomad = {|
@@ -82,7 +82,7 @@ export type ItineraryNomadDeep = {|
 |};
 
 declare export var itineraryNomad: {
-  sectors: Schema[],
+  sectors: Schema,
 };
 
 export type Itinerary = ItineraryOneWay | ItineraryReturn | ItineraryMulticity | ItineraryNomad;

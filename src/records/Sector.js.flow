@@ -12,8 +12,8 @@ export type Stopover = {|
 
 export type Sector = {|
   id: string,
-  segments: string[], // normalized, Segments
-  carriers: string[], // normalized, Carriers
+  segments: string[], // normalized, Segment[]
+  carriers: string[], // normalized, Carrier[]
   duration: number,
   stopover: Stopover,
 |};

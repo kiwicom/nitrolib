@@ -901,7 +901,7 @@ export type ItineraryMulticityDeep = {|
 |};
 
 declare export var itineraryMulticity: {
-  sectors: Schema[],
+  sectors: Schema,
 };
 
 export type ItineraryNomad = {|
@@ -916,7 +916,7 @@ export type ItineraryNomadDeep = {|
 |};
 
 declare export var itineraryNomad: {
-  sectors: Schema[],
+  sectors: Schema,
 };
 
 export type Itinerary = ItineraryOneWay | ItineraryReturn | ItineraryMulticity | ItineraryNomad;
@@ -1160,8 +1160,8 @@ export type Stopover = {|
 
 export type Sector = {|
   id: string,
-  segments: string[], // normalized, Segments
-  carriers: string[], // normalized, Carriers
+  segments: string[], // normalized, Segment[]
+  carriers: string[], // normalized, Carrier[]
   duration: number,
   stopover: Stopover,
 |};
@@ -1210,6 +1210,8 @@ export type Carrier = {|
   code: string,
 |};
 
+declare export var carrier: Schema;
+
 export type SeatInfo = {|
   pitch: number,
   width: number,
@@ -1239,7 +1241,6 @@ export type SegmentDeep = {|
 |};
 
 declare export var segment: Schema;
-declare export var carrier: Schema;
 ```
 
 See types:
