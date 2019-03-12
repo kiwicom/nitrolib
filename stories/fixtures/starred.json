@@ -1,0 +1,174 @@
+[
+  {
+    "id": "kek",
+    "form": {
+      "origin": "bur",
+      "destination": "Mordor",
+      "outboundDate": "13-10-2018",
+      "inboudDate": "12-10-2018",
+      "multicity": "cheburek",
+      "salesman": "pelmeni",
+      "passengers": {
+        "adults": 1,
+        "infants": 0,
+        "children": 0
+      },
+      "cabinClass": "first",
+      "lang": "en",
+      "places": [
+        {
+          "id": "vienna_au",
+          "slug": "vienna_au"
+        },
+        {
+          "id": "vienna_au",
+          "slug": "vienna_au"
+        }
+      ],
+      "returnUrl": "url",
+      "starType": "star"
+    },
+    "lastPrice": 123,
+    "itinerary": {
+      "id": "itinerary1",
+      "price": {
+        "amount": "1337",
+        "currencyId": "EUR"
+      },
+      "provider": {
+        "id": "lol",
+        "name": "kek",
+        "code": "bur"
+      },
+      "hasNoCheckedBags": false,
+      "type": "oneWay",
+      "sector": {
+        "id": "sector1",
+        "segments": [
+          {
+            "id": "segment1",
+            "source": {
+              "station": {
+                "id": "station1",
+                "name": "The Station",
+                "code": "stationizer",
+                "city": {
+                  "id": "vienna",
+                  "name": "Vienna",
+                  "code": "VIE",
+                  "slug": "vienna"
+                },
+                "country": {
+                  "id": "austria",
+                  "name": "Austria",
+                  "code": "AU",
+                  "slug": "austria"
+                },
+                "type": "AIRPORT"
+              },
+              "time": "213"
+            },
+            "destination": {
+              "station": {
+                "id": "station1",
+                "name": "The Station",
+                "code": "stationizer",
+                "city": {
+                  "id": "vienna",
+                  "name": "Vienna",
+                  "code": "VIE",
+                  "slug": "vienna"
+                },
+                "country": {
+                  "id": "austria",
+                  "name": "Austria",
+                  "code": "AU",
+                  "slug": "austria"
+                },
+                "type": "AIRPORT"
+              },
+              "time": "213"
+            },
+            "duration": 1336,
+            "type": "FLIGHT",
+            "code": "segmentizer",
+            "layover": {
+              "duration": 1338,
+              "isKiwiComGuarantee": true,
+              "isStationChange": false,
+              "isBaggageRecheck": false
+            },
+            "carrier": {
+              "id": "kek",
+              "name": "Kekistan",
+              "code": "KEK"
+            },
+            "operatingCarrier": {
+              "id": "kek",
+              "name": "Kekistan",
+              "code": "KEK"
+            },
+            "seatInfo": {
+              "pitch": 13,
+              "width": 37,
+              "recline": 420,
+              "hasPower": true,
+              "hasAudioVideo": false
+            },
+            "hasWifi": true
+          }
+        ],
+        "carriers": [
+          {
+            "id": "kek",
+            "name": "Kekistan",
+            "code": "KEK"
+          }
+        ],
+        "duration": 420,
+        "stopover": {
+          "nightsCount": 0,
+          "arrival": {
+            "id": "station1",
+            "name": "The Station",
+            "code": "stationizer",
+            "city": {
+              "id": "vienna",
+              "name": "Vienna",
+              "code": "VIE",
+              "slug": "vienna"
+            },
+            "country": {
+              "id": "austria",
+              "name": "Austria",
+              "code": "AU",
+              "slug": "austria"
+            },
+            "type": "AIRPORT"
+          },
+          "departure": {
+            "id": "station1",
+            "name": "The Station",
+            "code": "stationizer",
+            "city": {
+              "id": "vienna",
+              "name": "Vienna",
+              "code": "VIE",
+              "slug": "vienna"
+            },
+            "country": {
+              "id": "austria",
+              "name": "Austria",
+              "code": "AU",
+              "slug": "austria"
+            },
+            "type": "AIRPORT"
+          }
+        }
+      }
+    },
+    "priceUpdatedAt": "1551607200",
+    "createdAt": "1551484800",
+    "updatedAt": "1551484800"
+  }
+]

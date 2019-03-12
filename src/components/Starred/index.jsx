@@ -50,7 +50,6 @@ const Starred = ({ positionMenuDesktop, positionMenuTablet, inverted }: Props) =
       const starredFooter = starredCount >= 1 && <StarredFooter tripsCount={starredCount} />;
       const buttonColor = inverted ? null : "secondary";
       const StarIcon = inverted ? <StarFull customColor="#fff" /> : <StarFull color="primary" />;
-      console.log("starredShow", starredShow);
 
       return (
         <Toggle>
