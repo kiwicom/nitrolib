@@ -14,6 +14,7 @@ const props = {
     length: 20,
     dimensionsSum: null,
   },
+  orderStatus: "unpaid",
 };
 
 describe("#BaggageItem", () => {

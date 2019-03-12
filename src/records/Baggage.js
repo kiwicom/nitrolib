@@ -29,6 +29,17 @@ export type HoldBagDefinition = Definition<"holdBag">;
 export type HandBagDefinitionWithId = {| ...HandBagDefinition, id: number |};
 export type HoldBagDefinitionWithId = {| ...HoldBagDefinition, id: number |};
 
+export type HandBagTileDefinition = {|
+  ...HandBagDefinition,
+  originalIndex?: number,
+  isCurrent?: boolean,
+|};
+export type HoldBagTileDefinition = {|
+  ...HoldBagDefinition,
+  originalIndex?: number,
+  isCurrent?: boolean,
+|};
+
 export type Definitions = {
   handBag: Array<HandBagDefinition>,
   holdBag: Array<HoldBagDefinition>,

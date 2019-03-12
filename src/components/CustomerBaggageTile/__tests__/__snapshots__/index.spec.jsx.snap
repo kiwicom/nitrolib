@@ -1,167 +1,183 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#CustomerBaggageTile renders 1`] = `
-<Tile
-  description={
-    <TileContent
-      definitions={
-        Array [
-          Object {
-            "category": "personalItem",
-            "conditions": Object {
-              "passengerGroups": Array [
-                "adult",
-              ],
+<CustomerBaggageTile__Wrapper
+  isIconShown={true}
+>
+  <Tile
+    description={
+      <TileContent
+        definitions={
+          Array [
+            Object {
+              "category": "personalItem",
+              "conditions": Object {
+                "passengerGroups": Array [
+                  "adult",
+                ],
+              },
+              "isCurrent": false,
+              "originalIndex": 0,
+              "price": Object {
+                "amount": 0,
+                "base": 0,
+                "currency": "EUR",
+                "merchant": null,
+                "service": 0,
+                "serviceFlat": 0,
+              },
+              "restrictions": Object {
+                "dimensionsSum": null,
+                "height": 20,
+                "length": 20,
+                "weight": 5,
+                "width": 20,
+              },
             },
-            "price": Object {
-              "amount": 0,
-              "base": 0,
-              "currency": "EUR",
-              "merchant": null,
-              "service": 0,
-              "serviceFlat": 0,
+            Object {
+              "category": "cabinBag",
+              "conditions": Object {
+                "passengerGroups": Array [
+                  "adult",
+                ],
+              },
+              "isCurrent": true,
+              "originalIndex": 1,
+              "price": Object {
+                "amount": 10,
+                "base": 0,
+                "currency": "EUR",
+                "merchant": null,
+                "service": 0,
+                "serviceFlat": 0,
+              },
+              "restrictions": Object {
+                "dimensionsSum": null,
+                "height": 35,
+                "length": 45,
+                "weight": 10,
+                "width": 20,
+              },
             },
-            "restrictions": Object {
-              "dimensionsSum": null,
-              "height": 20,
-              "length": 20,
-              "weight": 5,
-              "width": 20,
+            Object {
+              "category": "cabinBag",
+              "conditions": Object {
+                "passengerGroups": Array [
+                  "adult",
+                ],
+              },
+              "isCurrent": false,
+              "originalIndex": 1,
+              "price": Object {
+                "amount": 10,
+                "base": 0,
+                "currency": "EUR",
+                "merchant": null,
+                "service": 0,
+                "serviceFlat": 0,
+              },
+              "restrictions": Object {
+                "dimensionsSum": null,
+                "height": 35,
+                "length": 45,
+                "weight": 10,
+                "width": 20,
+              },
             },
-          },
-          Object {
-            "category": "cabinBag",
-            "conditions": Object {
-              "passengerGroups": Array [
-                "adult",
-              ],
+            Object {
+              "category": "holdBag",
+              "conditions": Object {
+                "passengerGroups": Array [
+                  "adult",
+                ],
+              },
+              "isCurrent": false,
+              "originalIndex": 1,
+              "price": Object {
+                "amount": 20,
+                "base": 20,
+                "currency": "EUR",
+                "merchant": null,
+                "service": 5,
+                "serviceFlat": 0,
+              },
+              "restrictions": Object {
+                "dimensionsSum": 156,
+                "height": 52,
+                "length": 78,
+                "weight": 15,
+                "width": 26,
+              },
             },
-            "price": Object {
-              "amount": 10,
-              "base": 0,
-              "currency": "EUR",
-              "merchant": null,
-              "service": 0,
-              "serviceFlat": 0,
+            Object {
+              "category": "holdBag",
+              "conditions": Object {
+                "passengerGroups": Array [
+                  "adult",
+                ],
+              },
+              "isCurrent": false,
+              "originalIndex": 1,
+              "price": Object {
+                "amount": 20,
+                "base": 20,
+                "currency": "EUR",
+                "merchant": null,
+                "service": 5,
+                "serviceFlat": 0,
+              },
+              "restrictions": Object {
+                "dimensionsSum": 156,
+                "height": 52,
+                "length": 78,
+                "weight": 15,
+                "width": 26,
+              },
             },
-            "restrictions": Object {
-              "dimensionsSum": null,
-              "height": 35,
-              "length": 45,
-              "weight": 10,
-              "width": 20,
+            Object {
+              "category": "holdBag",
+              "conditions": Object {
+                "isPriority": Array [
+                  "FR",
+                  "W6",
+                ],
+                "passengerGroups": Array [
+                  "adult",
+                ],
+              },
+              "isCurrent": false,
+              "originalIndex": 2,
+              "price": Object {
+                "amount": 30,
+                "base": 0,
+                "currency": "EUR",
+                "merchant": null,
+                "service": 0,
+                "serviceFlat": 0,
+              },
+              "restrictions": Object {
+                "dimensionsSum": 156,
+                "height": 52,
+                "length": 78,
+                "weight": 25,
+                "width": 26,
+              },
             },
-          },
-          Object {
-            "category": "cabinBag",
-            "conditions": Object {
-              "passengerGroups": Array [
-                "adult",
-              ],
-            },
-            "price": Object {
-              "amount": 10,
-              "base": 0,
-              "currency": "EUR",
-              "merchant": null,
-              "service": 0,
-              "serviceFlat": 0,
-            },
-            "restrictions": Object {
-              "dimensionsSum": null,
-              "height": 35,
-              "length": 45,
-              "weight": 10,
-              "width": 20,
-            },
-          },
-          Object {
-            "category": "holdBag",
-            "conditions": Object {
-              "passengerGroups": Array [
-                "adult",
-              ],
-            },
-            "price": Object {
-              "amount": 20,
-              "base": 20,
-              "currency": "EUR",
-              "merchant": null,
-              "service": 5,
-              "serviceFlat": 0,
-            },
-            "restrictions": Object {
-              "dimensionsSum": 156,
-              "height": 52,
-              "length": 78,
-              "weight": 15,
-              "width": 26,
-            },
-          },
-          Object {
-            "category": "holdBag",
-            "conditions": Object {
-              "passengerGroups": Array [
-                "adult",
-              ],
-            },
-            "price": Object {
-              "amount": 20,
-              "base": 20,
-              "currency": "EUR",
-              "merchant": null,
-              "service": 5,
-              "serviceFlat": 0,
-            },
-            "restrictions": Object {
-              "dimensionsSum": 156,
-              "height": 52,
-              "length": 78,
-              "weight": 15,
-              "width": 26,
-            },
-          },
-          Object {
-            "category": "holdBag",
-            "conditions": Object {
-              "isPriority": Array [
-                "FR",
-                "W6",
-              ],
-              "passengerGroups": Array [
-                "adult",
-              ],
-            },
-            "price": Object {
-              "amount": 30,
-              "base": 0,
-              "currency": "EUR",
-              "merchant": null,
-              "service": 0,
-              "serviceFlat": 0,
-            },
-            "restrictions": Object {
-              "dimensionsSum": 156,
-              "height": 52,
-              "length": 78,
-              "weight": 25,
-              "width": 26,
-            },
-          },
-        ]
-      }
-      orderStatus="unpaid"
-    />
-  }
-  onClick={[Function]}
-  title={
-    <Title
-      firstName="Oliver"
-      gender="male"
-      lastName="Dlouhy"
-      orderStatus="unpaid"
-      price={70}
-    />
-  }
-/>
+          ]
+        }
+        orderStatus="unpaid"
+      />
+    }
+    onClick={[Function]}
+    title={
+      <Title
+        firstName="Oliver"
+        gender="male"
+        lastName="Dlouhy"
+        orderStatus="unpaid"
+        price={70}
+      />
+    }
+  />
+</CustomerBaggageTile__Wrapper>
 `;

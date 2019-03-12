@@ -6,8 +6,8 @@ import Text from "@kiwicom/orbit-components/lib/Text";
 
 import BaggageItem from "../BaggageItem";
 import type {
-  HoldBagDefinition,
-  HandBagDefinition,
+  HoldBagTileDefinition,
+  HandBagTileDefinition,
   OrderStatusType,
 } from "../../../../records/Baggage";
 import { themeDefault } from "../../../../records/Theme";
@@ -15,7 +15,7 @@ import type { ThemeProps } from "../../../../records/Theme";
 import Translate from "../../../Translate/index";
 
 type Props = {
-  definitions: Array<HandBagDefinition | HoldBagDefinition>,
+  definitions: Array<HoldBagTileDefinition | HandBagTileDefinition>,
   orderStatus: OrderStatusType,
 };
 
@@ -68,6 +68,8 @@ const TileContent = ({ definitions, orderStatus }: Props) => {
             key={index} // eslint-disable-line
             restrictions={bag.restrictions}
             category={bag.category}
+            isCurrent={bag.isCurrent}
+            orderStatus={orderStatus}
           />
         ))}
       {!hasPersonalItem && (

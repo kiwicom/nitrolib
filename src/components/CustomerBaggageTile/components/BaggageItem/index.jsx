@@ -5,7 +5,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import type { TileItem } from "../../../../records/Baggage";
+import type { TileItem, OrderStatusType } from "../../../../records/Baggage";
 import { getIconFromCategory, getTextFromCategory } from "../../../../services/baggage/utils";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
@@ -50,8 +50,13 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const BaggageItem = ({ category, restrictions }: TileItem) => {
-  const textWeight = category === "holdBag" ? "bold" : "normal";
+type BaggageItemType = TileItem & {
+  isCurrent?: boolean,
+  orderStatus: OrderStatusType,
+};
+
+const BaggageItem = ({ category, restrictions, isCurrent, orderStatus }: BaggageItemType) => {
+  const textWeight = isCurrent || orderStatus === "notAvailable" ? "normal" : "bold";
   const getBaggageSize = ({ height, length, weight, width }) =>
     `${length} x ${width} x ${height} cm, ${weight} kg`;
 
