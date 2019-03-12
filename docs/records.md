@@ -13,6 +13,7 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [Event](#event)
 * [Fetched](#fetched)
 * [Intl](#intl)
+* [Itinerary](#itinerary)
 * [LangInfo](#langinfo)
 * [Languages](#languages)
 * [Location](#location)
@@ -823,6 +824,123 @@ See types:
 * [LangInfo](./records#langinfo)
 
 Holds all necessary **i18n** data & functions.
+
+## Itinerary
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/Itinerary";
+import type { Itinerary } from "@kiwicom/nitro/lib/records/Itinerary";
+```
+
+**Types:**
+```js
+export type Price = {|
+  amount: string,
+  currencyId: string,
+|};
+
+export type Provider = {|
+  id: string,
+  name: string,
+  code: string,
+|};
+
+type Common = {|
+  id: string,
+  price: Price,
+  provider: Provider,
+  hasNoCheckedBags: boolean,
+|};
+
+export type ItineraryOneWay = {|
+  ...Common,
+  type: "oneWay",
+  sector: string, // normalized, Sector
+|};
+
+export type ItineraryOneWayDeep = {|
+  ...ItineraryOneWay,
+  sector: SectorDeep,
+|};
+
+declare export var itineraryOneWay: {
+  sector: Schema,
+};
+
+export type ItineraryReturn = {|
+  ...Common,
+  type: "return",
+  outbound: string, //  normalized, Sector
+  inbound: string, //  normalized, Sector
+|};
+
+export type ItineraryReturnDeep = {|
+  ...ItineraryReturn,
+  outbound: SectorDeep,
+  inbound: SectorDeep,
+|};
+
+declare export var itineraryReturn: {
+  outbound: Schema,
+  inbound: Schema,
+};
+
+export type ItineraryMulticity = {|
+  ...Common,
+  type: "multicity",
+  sectors: string[], // normalized, Sector[]
+|};
+
+export type ItineraryMulticityDeep = {|
+  ...ItineraryMulticityDeep,
+  sectors: SectorDeep[],
+|};
+
+declare export var itineraryMulticity: {
+  sectors: Schema[],
+};
+
+export type ItineraryNomad = {|
+  ...Common,
+  type: "nomad",
+  sectors: string[], // normalized, Sector[]
+|};
+
+export type ItineraryNomadDeep = {|
+  ...ItineraryNomad,
+  sectors: SectorDeep[],
+|};
+
+declare export var itineraryNomad: {
+  sectors: Schema[],
+};
+
+export type Itinerary = ItineraryOneWay | ItineraryReturn | ItineraryMulticity | ItineraryNomad;
+
+export type ItineraryDeep =
+  | ItineraryOneWayDeep
+  | ItineraryReturnDeep
+  | ItineraryMulticityDeep
+  | ItineraryNomadDeep;
+
+export type ItineraryNormalized = {|
+  result: Itinerary,
+  entities: {|
+    sector: { [id: string]: Sector },
+    segment: { [id: string]: Segment },
+    carrier: { [id: string]: Carrier },
+  |},
+|};
+
+declare export var flatten: (data: ItineraryDeep) => ItineraryNormalized;
+```
+
+See types:
+* [Sector](./records#sector)
+* [Segment](./records#segment)
+
+
 
 ## LangInfo
 

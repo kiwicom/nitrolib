@@ -45,6 +45,12 @@ export type Segment = {|
   hasWifi: boolean,
 |};
 
+export type SegmentDeep = {|
+  ...Segment,
+  carrier: Carrier,
+  operatingCarrier: Carrier,
+|};
+
 export const segment = new schema.Entity("segment", {
   carrier,
   operatingCarrier: carrier,

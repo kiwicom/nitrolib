@@ -1,9 +1,8 @@
 // @flow strict
-import { normalize } from "normalizr";
+import type { Schema } from "normalizr";
 
 import type { Sector, SectorDeep } from "./Sector";
 import type { Carrier, Segment } from "./Segment";
-import { sector } from "./Sector";
 
 export type Price = {|
   amount: string,
@@ -34,8 +33,8 @@ export type ItineraryOneWayDeep = {|
   sector: SectorDeep,
 |};
 
-export const itineraryOneWay = {
-  sector,
+declare export var itineraryOneWay: {
+  sector: Schema,
 };
 
 export type ItineraryReturn = {|
@@ -51,9 +50,9 @@ export type ItineraryReturnDeep = {|
   inbound: SectorDeep,
 |};
 
-export const itineraryReturn = {
-  outbound: sector,
-  inbound: sector,
+declare export var itineraryReturn: {
+  outbound: Schema,
+  inbound: Schema,
 };
 
 export type ItineraryMulticity = {|
@@ -67,8 +66,8 @@ export type ItineraryMulticityDeep = {|
   sectors: SectorDeep[],
 |};
 
-export const itineraryMulticity = {
-  sectors: [sector],
+declare export var itineraryMulticity: {
+  sectors: Schema[],
 };
 
 export type ItineraryNomad = {|
@@ -82,8 +81,8 @@ export type ItineraryNomadDeep = {|
   sectors: SectorDeep[],
 |};
 
-export const itineraryNomad = {
-  sectors: [sector],
+declare export var itineraryNomad: {
+  sectors: Schema[],
 };
 
 export type Itinerary = ItineraryOneWay | ItineraryReturn | ItineraryMulticity | ItineraryNomad;
@@ -103,18 +102,4 @@ export type ItineraryNormalized = {|
   |},
 |};
 
-export const flatten = (data: ItineraryDeep): ItineraryNormalized => {
-  if (data.type === "oneWay") {
-    return normalize(data, itineraryOneWay);
-  }
-
-  if (data.type === "return") {
-    return normalize(data, itineraryReturn);
-  }
-
-  if (data.type === "multicity") {
-    return normalize(data, itineraryMulticity);
-  }
-
-  return normalize(data, itineraryNomad);
-};
+declare export var flatten: (data: ItineraryDeep) => ItineraryNormalized;
