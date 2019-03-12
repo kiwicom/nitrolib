@@ -74,6 +74,7 @@ const AccountPassword = ({
                       type="password"
                       onChange={onPasswordChange}
                       value={password}
+                      name="password"
                       dataTest="Password"
                     />
                     <Button submit loading={isSigningIn}>

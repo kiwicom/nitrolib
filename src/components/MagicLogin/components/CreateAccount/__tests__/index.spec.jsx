@@ -11,7 +11,7 @@ import AccountCreate from "../../../../AccountCreate";
 jest.mock("../../../mutations/CreateAccount");
 
 const defaultProps = {
-  email: "",
+  email: "joe.doe@example.com",
   brandId: "kiwicom",
   onEmailChange: jest.fn(),
   onSignUpConfirmation: jest.fn(),
@@ -64,6 +64,9 @@ describe("#CreateAccount", () => {
     wrapper
       .find(`input[data-test="Password"]`)
       .simulate("change", { target: { value: "qwertyuiop123" } });
+    wrapper
+      .find(`input[data-test="PasswordConfirm"]`)
+      .simulate("change", { target: { value: "qwertyuiop123" } });
     wrapper.find("form").simulate("submit");
 
     setImmediate(() => {
@@ -77,11 +80,36 @@ describe("#CreateAccount", () => {
     const wrapper = mount(
       <CreateAccount {...defaultProps} onSignUpConfirmation={onSignUpConfirmation} />,
     );
+    wrapper.find(`input[data-test="Password"]`).simulate("change", { target: { value: "qwerty" } });
     wrapper.find("form").simulate("submit");
 
     setImmediate(() => {
       expect(onSignUpConfirmation).not.toHaveBeenCalled();
-      expect(wrapper.state("error")).toBe("account.password_too_simple");
+      expect(wrapper.state("error")).toBe("account.password_too_short");
+      done();
+    });
+  });
+
+  it("handles errors in response after submit", done => {
+    const onSignUpConfirmation = jest.fn();
+    const wrapper = mount(
+      <CreateAccount
+        {...defaultProps}
+        email="error@example.com"
+        onSignUpConfirmation={onSignUpConfirmation}
+      />,
+    );
+    wrapper
+      .find(`input[data-test="Password"]`)
+      .simulate("change", { target: { value: "qwertyuiop123" } });
+    wrapper
+      .find(`input[data-test="PasswordConfirm"]`)
+      .simulate("change", { target: { value: "qwertyuiop123" } });
+    wrapper.find("form").simulate("submit");
+
+    setImmediate(() => {
+      expect(onSignUpConfirmation).not.toHaveBeenCalled();
+      expect(wrapper.state("error")).toBe("account.wrong_format_email");
       done();
     });
   });

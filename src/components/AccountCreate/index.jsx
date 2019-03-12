@@ -73,16 +73,17 @@ const AccountCreate = ({
                 placeholder={intl.translate(__("account.email_placeholder"))}
                 error={emailError}
                 help={emailHint}
-                type="email"
                 value={email}
                 onChange={onEmailChange}
                 onBlur={onEmailBlur}
+                name="email"
                 dataTest="Email"
               />
               <InputField
                 label={intl.translate(__("account.password"))}
                 error={passwordError}
                 type="password"
+                name="password_new"
                 value={password}
                 onChange={onPasswordChange}
                 onBlur={onPasswordBlur}
@@ -92,6 +93,7 @@ const AccountCreate = ({
                 label={intl.translate(__("account.password_confirmaiton"))}
                 error={passwordConfirmError}
                 type="password"
+                name="password_repeat"
                 value={passwordConfirm}
                 onChange={onPasswordConfirmChange}
                 onBlur={onPasswordConfirmBlur}

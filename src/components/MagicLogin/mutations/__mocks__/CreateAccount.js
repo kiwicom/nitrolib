@@ -1,11 +1,11 @@
 // @noflow
 
 const CreateAccount = jest.fn((brand, credentials) => {
-  if (credentials.password.length < 8) {
+  if (credentials.email === "error@example.com") {
     return Promise.resolve({
       createAccount: {
         success: false,
-        error: "WEAK_PASSWORD",
+        error: "INVALID_EMAIL",
       },
     });
   }

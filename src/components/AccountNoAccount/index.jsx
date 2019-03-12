@@ -10,16 +10,10 @@ import ChevronLeft from "@kiwicom/orbit-components/lib/icons/ChevronLeft";
 import Header from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
 import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
-import styled from "styled-components";
 
 import Translate from "../Translate";
 import Text from "../Text";
 import { Consumer as BrandConsumer } from "../../services/brand/context";
-
-// TODO: remove it after nitro update
-const Align = styled.div`
-  align-self: flex-start;
-`;
 
 type Props = {|
   onBack: (SyntheticEvent<HTMLButtonElement>) => void,
@@ -33,22 +27,20 @@ const AccountNoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }
     {brand => (
       <>
         <Header>
-          <Illustration name="NoBookings" size="small" />
+          <Illustration name="NoResults" size="small" />
           <Heading element="h2">
             <Translate t="account.no_bookings_or_account" />
           </Heading>
           <Text t="account.no_bookings_or_account_description" values={{ brandName: brand.name }} />
         </Header>
         <Section>
-          <Stack spacing="natural" direction="column" desktop={{ direction: "row" }}>
+          <Stack spacing="natural" direction="column">
             <Button onClick={onRegister}>
               <Translate t="account.register" />
             </Button>
-            <Align>
-              <ButtonLink type="secondary" iconLeft={<ChevronLeft />} onClick={onBack}>
-                <Translate t="account.back" />
-              </ButtonLink>
-            </Align>
+            <ButtonLink type="secondary" iconLeft={<ChevronLeft />} onClick={onBack}>
+              <Translate t="account.back" />
+            </ButtonLink>
           </Stack>
         </Section>
         <Section suppressed>

@@ -10,6 +10,7 @@ const commonProps = {
   email: "",
   error: <Text t="common.api_error" />,
   onEmailChange: () => {},
+  onEmailBlur: () => {},
   onFacebookLogin: () => {},
   onGoogleLogin: () => {},
   onContinue: () => {},

@@ -11,7 +11,7 @@ import AccountLogin from "../../../../AccountLogin";
 jest.mock("../../../mutations/CheckEmail");
 
 const defaultProps = {
-  email: "",
+  email: "joe.doe@example.com",
   brandId: "",
   type: "mmb",
   magicLinkError: "",
@@ -43,7 +43,7 @@ describe("#Intro", () => {
   });
 
   it("handles network error on submit", done => {
-    const wrapper = mount(<Intro {...defaultProps} email="error" />);
+    const wrapper = mount(<Intro {...defaultProps} email="error@example.com" />);
 
     wrapper.find("form").simulate("submit");
     expect(wrapper.state("isLoading")).toBe(true);

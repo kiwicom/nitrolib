@@ -7,6 +7,7 @@ import AccountLogin from "..";
 const commonProps = {
   email: "",
   onEmailChange: () => {},
+  onEmailBlur: () => {},
   onFacebookLogin: () => {},
   onGoogleLogin: () => {},
   onContinue: () => {},

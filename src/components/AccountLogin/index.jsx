@@ -21,11 +21,13 @@ type Props = {|
   type?: LoginType,
   email: string,
   error?: React.Node,
+  emailError?: string,
   isLoading?: boolean,
   disableSocialLogin?: boolean,
   onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onEmailBlur: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onContinue: (ev: SyntheticEvent<HTMLButtonElement>) => void,
 |};
 
@@ -52,10 +54,12 @@ const AccountLogin = ({
   email,
   error,
   isLoading,
+  emailError,
   disableSocialLogin,
   onGoogleLogin,
   onFacebookLogin,
   onEmailChange,
+  onEmailBlur,
   onContinue,
 }: Props) => (
   <IntlConsumer>
@@ -83,9 +87,11 @@ const AccountLogin = ({
                     <InputField
                       label={intl.translate(__("account.email"))}
                       placeholder={intl.translate(__("account.email_placeholder"))}
-                      type="email"
                       value={email}
+                      error={emailError && intl.translate(emailError)}
                       onChange={onEmailChange}
+                      onBlur={onEmailBlur}
+                      name="email"
                       dataTest="Email"
                     />
                     <Button submit loading={isLoading}>

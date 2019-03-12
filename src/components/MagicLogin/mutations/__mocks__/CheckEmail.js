@@ -1,7 +1,7 @@
 // @noflow
 
 const CheckEmail = jest.fn(email => {
-  if (email === "error") {
+  if (email === "error@example.com") {
     return Promise.reject(new Error("Network issue"));
   }
 

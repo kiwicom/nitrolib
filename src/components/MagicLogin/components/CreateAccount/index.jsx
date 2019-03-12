@@ -102,6 +102,10 @@ export default class CreateAccountScreen extends React.PureComponent<Props, Stat
 
     e.preventDefault();
 
+    if (this.validateInput()) {
+      return;
+    }
+
     this.setState({ isCreatingAccount: true, error: null, ...defaultErrors });
 
     CreateAccount(brandId, { email, password })
@@ -123,6 +127,34 @@ export default class CreateAccountScreen extends React.PureComponent<Props, Stat
         log(API_ERROR, { error: String(err), operation: "createAccount" });
         this.setSubmitError(null);
       });
+  };
+
+  getPasswordConfirmError = () => {
+    const { password, passwordConfirm } = this.state;
+
+    if (!passwordConfirm) {
+      return errors.requiredField;
+    }
+
+    return password === passwordConfirm ? "" : errors.passwordMismatch;
+  };
+
+  validateInput = () => {
+    const { email } = this.props;
+    const { password } = this.state;
+    const emailError = email ? validators.email(email) : errors.requiredField;
+    const passwordError = password ? validators.password(password) : errors.requiredField;
+    const passwordConfirmError = this.getPasswordConfirmError();
+
+    this.setState({
+      validateEmail: true,
+      validatePassword: true, // eslint-disable-line react/no-unused-state
+      passwordError,
+      passwordConfirmError,
+      error: emailError || passwordError || passwordConfirmError,
+    });
+
+    return emailError || passwordError || passwordConfirmError;
   };
 
   checkPasswordValidity = () => {

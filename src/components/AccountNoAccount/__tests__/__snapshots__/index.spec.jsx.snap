@@ -4,7 +4,7 @@ exports[`#AccountNoAccount render 1`] = `
 <span>
   <ModalHeader>
     <Illustration
-      name="NoBookings"
+      name="NoResults"
       size="small"
     />
     <Heading
@@ -28,11 +28,6 @@ exports[`#AccountNoAccount render 1`] = `
   </ModalHeader>
   <ModalSection>
     <Stack
-      desktop={
-        Object {
-          "direction": "row",
-        }
-      }
       direction="column"
       spacing="natural"
     >
@@ -46,25 +41,23 @@ exports[`#AccountNoAccount render 1`] = `
           values={Object {}}
         />
       </Button>
-      <AccountNoAccount__Align>
-        <ButtonLink
-          component="button"
-          external={false}
-          iconLeft={<ChevronLeft />}
-          onClick={[Function]}
-          size="normal"
-          transparent={false}
-          type="secondary"
-          width={0}
-        >
-          <Translate
-            html={false}
-            t="account.back"
-            transform={[Function]}
-            values={Object {}}
-          />
-        </ButtonLink>
-      </AccountNoAccount__Align>
+      <ButtonLink
+        component="button"
+        external={false}
+        iconLeft={<ChevronLeft />}
+        onClick={[Function]}
+        size="normal"
+        transparent={false}
+        type="secondary"
+        width={0}
+      >
+        <Translate
+          html={false}
+          t="account.back"
+          transform={[Function]}
+          values={Object {}}
+        />
+      </ButtonLink>
     </Stack>
   </ModalSection>
   <ModalSection

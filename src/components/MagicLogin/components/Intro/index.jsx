@@ -9,6 +9,7 @@ import type { Screen } from "../../records/Screen";
 import Text from "../../../Text";
 import * as events from "../../../../consts/events";
 import LogContext from "../../../../services/log/context";
+import * as validators from "../../../../services/input/validators";
 
 type Props = {|
   email: string,
@@ -26,14 +27,20 @@ type Props = {|
 type State = {|
   isLoading: boolean,
   error: ?string,
+  validateEmail: boolean,
 |};
 
 export default class IntroScreen extends React.Component<Props, State> {
   static contextType = LogContext;
 
   state = {
-    isLoading: false,
     error: null,
+    isLoading: false,
+    validateEmail: false,
+  };
+
+  handleEmailBlur = () => {
+    this.setState({ validateEmail: true });
   };
 
   handleCheckEmail = (e: SyntheticEvent<HTMLButtonElement>) => {
@@ -41,6 +48,11 @@ export default class IntroScreen extends React.Component<Props, State> {
     const { log } = this.context;
 
     e.preventDefault();
+
+    if (this.validateInput()) {
+      return;
+    }
+
     this.setState({ isLoading: true, error: "" });
 
     log(events.API_REQUEST, { operation: "checkEmail" });
@@ -87,6 +99,26 @@ export default class IntroScreen extends React.Component<Props, State> {
       });
   };
 
+  validateInput = () => {
+    const { email } = this.props;
+    const error = email ? validators.email(email) : errors.requiredField;
+
+    this.setState({ error, validateEmail: true });
+
+    return Boolean(error);
+  };
+
+  getEmailError = () => {
+    const { email } = this.props;
+    const { validateEmail } = this.state;
+
+    if (!validateEmail) {
+      return "";
+    }
+
+    return email ? validators.email(email) : errors.requiredField;
+  };
+
   render() {
     const {
       email,
@@ -105,10 +137,12 @@ export default class IntroScreen extends React.Component<Props, State> {
       <AccountLogin
         email={email}
         error={submitError ? <Text t={submitError} /> : null}
+        emailError={this.getEmailError()}
         isLoading={isLoading}
         type={type}
         disableSocialLogin={disableSocialLogin}
         onEmailChange={onEmailChange}
+        onEmailBlur={this.handleEmailBlur}
         onGoogleLogin={onGoogleLogin}
         onFacebookLogin={onFacebookLogin}
         onContinue={this.handleCheckEmail}
