@@ -1,1 +1,3 @@
-# A part of [Itinerary](#Itinerary)
+# Sector
+
+A part of [Itinerary](#Itinerary).

@@ -1,1 +1,3 @@
-# A part of [Segment](#segment) and [Sector](#sector)
+# Station
+
+A part of [Segment](#segment) and [Sector](#sector).

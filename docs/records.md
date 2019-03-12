@@ -1180,7 +1180,7 @@ See types:
 * [Station](./records#station)
 * [Segment](./records#segment)
 
-
+A part of [Itinerary](#Itinerary).
 
 ## Segment
 
@@ -1245,7 +1245,7 @@ declare export var carrier: Schema;
 See types:
 * [Station](./records#station)
 
-
+A part of [Itinerary](#Itinerary).
 
 ## Session
 
@@ -1299,7 +1299,7 @@ export type Station = {|
 |};
 ```
 
-
+A part of [Segment](#segment) and [Sector](#sector).
 
 ## Theme
 

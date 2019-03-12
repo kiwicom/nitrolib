@@ -1,1 +1,3 @@
-# A part of [Itinerary](#Itinerary)
+# Segment
+
+A part of [Itinerary](#Itinerary).
