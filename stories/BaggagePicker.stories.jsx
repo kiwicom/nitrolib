@@ -47,7 +47,7 @@ const props = {
 storiesOf("BaggagePicker", module)
   .addDecorator(withData)
   .addDecorator(withKnobs)
-  .add("both", () => (
+  .add("booking", () => (
     <div style={{ padding: "24px" }}>
       <BaggagePicker
         pickerType="handBag"

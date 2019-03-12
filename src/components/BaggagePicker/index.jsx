@@ -48,8 +48,10 @@ class Baggage extends React.Component<Props> {
       return acc;
     }, {});
 
-  getOptions = () => {
+  getOptions = (): Array<OptionBaggage> => {
     const {
+      context,
+      currentCombination,
       baggage: { combinations, definitions },
       passengerCategory,
       pickerType,
@@ -71,6 +73,12 @@ class Baggage extends React.Component<Props> {
       price: c.price,
       items: this.getOptionItems(bagDefinitions, c.indices),
     }));
+
+    if (context === "mmb" && typeof currentCombination === "number") {
+      return options.filter(
+        o => o.price.amount > combinations[pickerType][currentCombination].price.amount,
+      );
+    }
 
     return options;
   };
