@@ -82,7 +82,6 @@ const BaggageOverview = ({
   const baggages = getDefinitions();
   return (
     <Wrapper context={context}>
-      <Text>Baggage</Text>
       {baggages && baggages.some(bag => bag.category === "personalItem") && <NoPersonalItem />}
       {baggages &&
         baggages.map((bag, index) => (

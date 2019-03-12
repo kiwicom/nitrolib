@@ -1,5 +1,6 @@
 // @flow strict
 import * as React from "react";
+import R from "ramda";
 import styled from "styled-components";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Button from "@kiwicom/orbit-components/lib/Button";
@@ -76,7 +77,7 @@ class BaggagePicker extends React.Component<Props, State> {
 
   componentDidUpdate(prevProps: Props) {
     // eslint-disable-next-line
-    if (this.props.options.length !== prevProps.options.length) {
+    if (this.props.options !== prevProps.options) {
       this.handleDefaultStateValues(this.props);
     }
   }
@@ -131,7 +132,7 @@ class BaggagePicker extends React.Component<Props, State> {
     if (pickerType === "holdBag") return false;
     return options
       .reduce((acc, option) => {
-        const items = Object.keys(option.items).map(key => option.items[key].category);
+        const items = R.values(option.items).map(item => item.category);
         return [...acc, ...items];
       }, [])
       .some(i => i === "personalItem");

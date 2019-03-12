@@ -39,6 +39,7 @@ type OptionWrapperProps = ThemeProps & {
 const OptionWrapper = styled.div.attrs({
   "data-test": ({ dataTest }) => dataTest,
 })`
+  background-color: ${({ theme }) => theme.orbit.paletteWhite};
   padding: ${({ theme }) => theme.orbit.spaceSmall};
   box-shadow: 0 1px 2px 0 ${({ theme }: ThemeProps) => theme.orbit.paletteWhiteHover};
   border: solid 2px

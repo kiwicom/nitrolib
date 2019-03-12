@@ -34,11 +34,10 @@ class Baggage extends React.Component<Props> {
     indices: Array<number>,
   ) =>
     indices.reduce((acc, optionIndex) => {
-      const key = optionIndex.toString();
-      if (acc[key]) {
-        acc[key].amount += 1;
+      if (acc[optionIndex]) {
+        acc[optionIndex].amount += 1;
       } else {
-        acc[key] = {
+        acc[optionIndex] = {
           amount: 1,
           category: definitions[optionIndex].category,
           restrictions: definitions[optionIndex].restrictions,
