@@ -14,7 +14,6 @@ import { Provider as ModalProvider } from "../../src/services/modal/context";
 import { Provider as StarredProvider } from "../../src/services/starred/context";
 import InitIntl from "../../src/components/InitIntl";
 import InitCurrency from "../../src/components/InitCurrency";
-import InitStarred from "../../src/components/InitStarred";
 import Value from "../../src/components/Value";
 import brandLanguages from "../fixtures/brandLanguages";
 import brands from "../fixtures/brands";
@@ -23,7 +22,7 @@ import continents from "../fixtures/continents";
 import countries from "../fixtures/countries";
 import languages from "../fixtures/languages";
 import translations from "../fixtures/translations";
-import itineraries from "../fixtures/itineraries";
+import starred from "../fixtures/starred";
 import { getBrandTheme } from "../../src/records/Theme";
 
 const GROUP_ID = "Context";
@@ -139,24 +138,26 @@ const withData = (storyFn: () => React.Node) => {
                         currency: currency.available[currencyId] || currency.currency,
                       }}
                     >
-                      <InitStarred>
-                        {starred => (
-                          <StarredProvider
-                            value={{
-                              starredList: itineraries,
-                              ShareDialog: console.log("share"),
-                              goToJourneyNitro: console.log("nitro"),
-                              isMobile: false,
-                              setNotice: console.log("notice"),
-                              shareUrl: console.log("shareUrl"),
-                            }}
-                          >
-                            <Value>
-                              {modal => <ModalProvider value={modal}>{storyFn()}</ModalProvider>}
-                            </Value>
-                          </StarredProvider>
-                        )}
-                      </InitStarred>
+                      <StarredProvider
+                        value={{
+                          starredList: starred,
+                          // $FlowExpected: TODO
+                          ShareDialog: () => console.log("shareDialog"),
+                          goToJourneyNitro: () => console.log("nitro"),
+                          isMobile: false,
+                          onClearStarred: () => console.log("clear starred"),
+                          onRemoveStarred: () => console.log("remove starred"),
+                          lang: "en",
+                          onAddStarred: () => console.log("add starred"),
+                          setNotice: () => console.log("notice"),
+                          // $FlowExpected: TODO
+                          shareUrl: () => console.log("shareUrl"),
+                        }}
+                      >
+                        <Value>
+                          {modal => <ModalProvider value={modal}>{storyFn()}</ModalProvider>}
+                        </Value>
+                      </StarredProvider>
                     </CurrencyProvider>
                   )}
                 </InitCurrency>

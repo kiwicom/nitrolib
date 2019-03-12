@@ -2,6 +2,7 @@
 import * as React from "react";
 import StarFull from "@kiwicom/orbit-components/lib/icons/StarFull";
 import styled from "styled-components";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import Button from "../NavBar/primitives/Button";
 import Toggle from "../Toggle";
@@ -24,6 +25,7 @@ const StarredBadge = styled.div`
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteOrangeLight};
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteOrangeNormal};
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusCircle};
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightBold};
   text-align: center;
   line-height: 7.5px;
@@ -75,21 +77,24 @@ const Starred = ({ positionMenuDesktop, positionMenuTablet, inverted }: Props) =
                   </TripsContainer>
                 </ClickOutside>
               )}
-              <Desktop>
-                <Button onClick={onToggle} color={buttonColor}>
-                  <Translate t="starred.starred" />
-                </Button>
-              </Desktop>
-              <Mobile>
-                <Button onClick={onToggle} color={buttonColor}>
-                  {StarIcon}
-                </Button>
-              </Mobile>
-              {starredCount > 0 && (
-                <StarredBadge>
-                  {starredCount > BADGE_MAX ? `${BADGE_MAX}+` : starredCount}
-                </StarredBadge>
-              )}
+
+              <Stack inline spacing="tight" align="center">
+                <Desktop>
+                  <Button onClick={onToggle} color={buttonColor}>
+                    <Translate t="starred.starred" />
+                  </Button>
+                </Desktop>
+                <Mobile>
+                  <Button onClick={onToggle} color={buttonColor}>
+                    {StarIcon}
+                  </Button>
+                </Mobile>
+                {starredCount > 0 && (
+                  <StarredBadge>
+                    {starredCount > BADGE_MAX ? `${BADGE_MAX}+` : starredCount}
+                  </StarredBadge>
+                )}
+              </Stack>
             </>
           )}
         </Toggle>

@@ -18,7 +18,8 @@ const Popup = styled.div`
   flex-direction: column;
   top: 50px;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
-  min-width: ${({ width }: Width) => width || `550px`};
+  max-width: ${({ width }: Width) => width || `550px`};
+  width: 100%;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   cursor: default;

@@ -1,8 +1,6 @@
 // @flow strict
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
-import { withKnobs, boolean } from "@storybook/addon-knobs/react";
 
 import withData from "./decorators/withData";
 import Starred from "../src/components/Starred";

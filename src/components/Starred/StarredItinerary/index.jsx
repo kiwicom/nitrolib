@@ -5,21 +5,19 @@ import Star from "@kiwicom/orbit-components/lib/icons/StarFull";
 import Share from "@kiwicom/orbit-components/lib/icons/Share";
 import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
-import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import TimeInWords from "../../DistanceInWords";
 import Price from "../../Price";
 import Text from "../../Text";
 import TranslateNode from "../../TranslateNode";
-import StarredSegment from "../StarredSegment";
-import getBestPrice from "../services/getBestPrice";
 import getTransKey from "../services/getTransKey";
 import type { ThemeProps } from "../../../records/Theme";
-import type { Itinerary } from "../../../records/Itinerary";
+import type { ItineraryDeep } from "../../../records/Itinerary";
 import type { PassengersCount, CabinClass } from "../../../records/Starred";
 import { themeDefault } from "../../../records/Theme";
 import Toggle from "../../Toggle";
 import { Consumer as StarredConsumer } from "../../../services/starred/context";
+import ItineraryVariants from "./ItineraryVariants";
 
 const PASSENGERS_COUNT = {
   infants: __("result.infants_count"),
@@ -28,17 +26,15 @@ const PASSENGERS_COUNT = {
 
 type Props = {|
   updated: Date,
-  itinerary: Itinerary,
+  itinerary: ItineraryDeep,
   passengerCount: number,
   passengers: PassengersCount,
   passengerMulty: boolean,
   cabinClass: CabinClass,
   goToJourneyNitro: () => void,
-  price: number,
   onRemove: () => void,
   priceUpdatedAt: ?Date,
   shareUrl: string,
-  isValid: boolean,
   created: Date,
 |};
 
@@ -69,7 +65,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   box-shadow: rgb(232, 237, 241) 0px -1px inset;
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
-  ${({ valid }) => !valid && `opacity: .5`}
+  /* ${({ valid }) => !valid && `opacity: .5`} */
   &:hover {
     background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhiteHover};
   }
@@ -114,10 +110,8 @@ ShareIcon.defaultProps = {
 const StarredItinerary = ({
   updated,
   itinerary,
-  price,
   shareUrl,
   onRemove,
-  isValid,
   created,
   passengers,
   goToJourneyNitro,
@@ -127,28 +121,6 @@ const StarredItinerary = ({
   passengerMulty,
 }: Props) => {
   const getPriceUpdated = () => {
-    if (!isValid) {
-      return (
-        <>
-          <Text size="small" type="secondary" t="starred.flight_not_available" />
-          <ActionButton onClick={onRemove}>
-            <Text size="small" type="secondary" t="starred.remove_starred" />
-          </ActionButton>
-        </>
-      );
-    }
-
-    if (price !== getBestPrice(itinerary)) {
-      return (
-        <TranslateNode
-          t="starred.price_update_changed"
-          values={{
-            lastUpdate: <TimeInWords to={updated} />,
-          }}
-        />
-      );
-    }
-
     return priceUpdatedAt ? (
       <TranslateNode
         t="starred.price_update"
@@ -162,14 +134,14 @@ const StarredItinerary = ({
   return (
     <StarredConsumer>
       {({ isMobile, lang, setNotice, ShareDialog }) => (
-        <Wrapper onClick={() => goToJourneyNitro()} valid={isValid}>
+        <Wrapper onClick={() => goToJourneyNitro()}>
           <TextWrapper type="secondary" size="small">
             {getPriceUpdated()}
           </TextWrapper>
           <WrapperInner>
             <Info>
               <TextWrapper weight="bold" size="large">
-                <Price value={getBestPrice(itinerary)} />
+                <Price value={Number(itinerary.price.amount)} />
               </TextWrapper>
               <PriceInfo>
                 {passengerCount > 1 &&
@@ -216,15 +188,7 @@ const StarredItinerary = ({
                 </Toggle>
               </ActionButtonsWrapper>
             </Info>
-            <Stack flex inline direction="column">
-              {itinerary.trips.map(trip => (
-                <StarredSegment
-                  key={trip.flights[0].id}
-                  departure={trip.flights[0].departure}
-                  arrival={trip.flights[trip.flights.length - 1].arrival}
-                />
-              ))}
-            </Stack>
+            <ItineraryVariants itinerary={itinerary} />
           </WrapperInner>
         </Wrapper>
       )}

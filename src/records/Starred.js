@@ -1,5 +1,5 @@
 // @flow strict
-import type { Itinerary } from "./Itinerary";
+import type { ItineraryDeep } from "./Itinerary";
 
 export type CabinClass = "economy" | "business" | "first" | "premium";
 
@@ -29,14 +29,14 @@ export type StarredItem = {|
   id: string,
   form: StarredFormData,
   lastPrice: number,
-  itinerary: Itinerary,
-  priceUpdatedAt: ?Date,
+  itinerary: ItineraryDeep,
+  priceUpdatedAt: Date,
   createdAt: Date,
   updatedAt: Date,
 |};
 
 export type ShareDialog = {|
-  itinerary: Itinerary,
+  itinerary: ItineraryDeep,
   shareUrl: string,
   passengers: PassengersCount,
   cabinClass: CabinClass,

@@ -5,13 +5,13 @@ import FlightDirect from "@kiwicom/orbit-components/lib/icons/FlightDirect";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 
-import type { DepartureArrival } from "../../../records/Flight";
+import type { Stop } from "../../../records/Segment";
 import Day from "../../Day";
 import Duration from "../../Duration";
 
 type Props = {|
-  departure: DepartureArrival,
-  arrival: DepartureArrival,
+  destination: Stop,
+  source: Stop,
 |};
 
 const Flight = styled.div`
@@ -39,7 +39,7 @@ const WrapperTime = styled.div`
   min-width: 80px;
 `;
 
-const StarredTripSegment = ({ departure, arrival }: Props) => (
+const StarredTripSegment = ({ source, destination }: Props) => (
   <Stack spacing="tight" spaceAfter="small">
     <Stack shrink justify="between" align="center" spacing="tight">
       <Flight>
@@ -47,28 +47,28 @@ const StarredTripSegment = ({ departure, arrival }: Props) => (
           <Stack shrink align="center" spacing="tight">
             <TextWrapper weight="bold">
               <TextOverflow>
-                {departure.where.name} ({departure.where.code})
+                {source.station.name} ({source.station.code})
               </TextOverflow>
               <FlightDirect />
               <TextOverflow>
-                {arrival.where.name} ({arrival.where.code})
+                {destination.station.name} ({destination.station.code})
               </TextOverflow>
             </TextWrapper>
           </Stack>
           <TextWrapper type="secondary" size="small">
-            <Day date={departure.when.local} />
+            <Day date={new Date(destination.time)} />
           </TextWrapper>
         </LongText>
       </Flight>
       <WrapperTime>
         <Stack direction="column" align="end" shrink spacing="tight">
           <TextWrapper weight="bold">
-            <Duration from={departure.when.local} to={arrival.when.local} format="HH:mm" />
+            <Duration from={new Date(source.time)} to={new Date(destination.time)} format="HH:mm" />
           </TextWrapper>
           <TextWrapper type="secondary" size="small">
-            <Day date={departure.when.local} format="HH:mm" />
+            <Day date={new Date(source.time)} format="HH:mm" />
             {" - "}
-            <Day date={arrival.when.local} format="HH:mm" />
+            <Day date={new Date(destination.time)} format="HH:mm" />
           </TextWrapper>
         </Stack>
       </WrapperTime>

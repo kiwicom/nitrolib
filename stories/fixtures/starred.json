@@ -43,70 +43,366 @@
       "hasNoCheckedBags": false,
       "type": "oneWay",
       "sector": {
-        "id": "sector1",
+        "id": "sectorOneWay",
         "segments": [
           {
             "id": "segment1",
             "source": {
               "station": {
-                "id": "station1",
-                "name": "The Station",
-                "code": "stationizer",
+                "id": "VKO",
+                "name": "Moscow VKO",
+                "code": "VKO",
                 "city": {
-                  "id": "vienna",
-                  "name": "Vienna",
-                  "code": "VIE",
-                  "slug": "vienna"
+                  "id": "vko",
+                  "name": "moscow",
+                  "code": "VKO",
+                  "slug": "moscow"
                 },
                 "country": {
-                  "id": "austria",
-                  "name": "Austria",
-                  "code": "AU",
-                  "slug": "austria"
+                  "id": "russia",
+                  "name": "Russia",
+                  "code": "RU",
+                  "slug": "russia"
                 },
                 "type": "AIRPORT"
               },
-              "time": "213"
+              "time": "2019-04-05T14:15:00.000Z"
             },
             "destination": {
               "station": {
-                "id": "station1",
-                "name": "The Station",
-                "code": "stationizer",
+                "id": "station2",
+                "name": "Prague ",
+                "code": "PRG",
                 "city": {
-                  "id": "vienna",
-                  "name": "Vienna",
-                  "code": "VIE",
-                  "slug": "vienna"
+                  "id": "prague",
+                  "name": "Prague",
+                  "code": "PRG",
+                  "slug": "prague"
                 },
                 "country": {
-                  "id": "austria",
-                  "name": "Austria",
-                  "code": "AU",
-                  "slug": "austria"
+                  "id": "czechia",
+                  "name": "Czechia",
+                  "code": "CZ",
+                  "slug": "czechia"
                 },
                 "type": "AIRPORT"
               },
-              "time": "213"
+              "time": "2019-04-05T16:15:00.000Z"
             },
-            "duration": 1336,
+            "duration": 180,
             "type": "FLIGHT",
             "code": "segmentizer",
             "layover": {
-              "duration": 1338,
+              "duration": 60,
               "isKiwiComGuarantee": true,
               "isStationChange": false,
               "isBaggageRecheck": false
             },
             "carrier": {
-              "id": "kek",
-              "name": "Kekistan",
-              "code": "KEK"
+              "id": "pobeda",
+              "name": "Pobeda",
+              "code": "DP"
             },
             "operatingCarrier": {
-              "id": "kek",
-              "name": "Kekistan",
-              "code": "KEK"
+              "id": "pobeda",
+              "name": "Pobeda",
+              "code": "DP"
+            },
+            "seatInfo": {
+              "pitch": 13,
+              "width": 37,
+              "recline": 420,
+              "hasPower": true,
+              "hasAudioVideo": false
+            },
+            "hasWifi": true
+          }
+        ],
+        "carriers": [
+          {
+            "id": "pobeda",
+            "name": "Pobeda",
+            "code": "DP"
+          }
+        ],
+        "duration": 420,
+        "stopover": {
+          "nightsCount": 0,
+          "arrival": {
+            "id": "station1",
+            "name": "The Station",
+            "code": "stationizer",
+            "city": {
+              "id": "vienna",
+              "name": "Vienna",
+              "code": "VIE",
+              "slug": "vienna"
+            },
+            "country": {
+              "id": "austria",
+              "name": "Austria",
+              "code": "AU",
+              "slug": "austria"
+            },
+            "type": "AIRPORT"
+          },
+          "departure": {
+            "id": "station1",
+            "name": "The Station",
+            "code": "stationizer",
+            "city": {
+              "id": "vienna",
+              "name": "Vienna",
+              "code": "VIE",
+              "slug": "vienna"
+            },
+            "country": {
+              "id": "austria",
+              "name": "Austria",
+              "code": "AU",
+              "slug": "austria"
+            },
+            "type": "AIRPORT"
+          }
+        }
+      }
+    },
+    "priceUpdatedAt": "1551607200",
+    "createdAt": "1551484800",
+    "updatedAt": "1551484800"
+  },
+  {
+    "id": "kek 2",
+    "form": {
+      "origin": "bur",
+      "destination": "Mordor",
+      "outboundDate": "13-10-2018",
+      "inboudDate": "12-10-2018",
+      "multicity": "cheburek",
+      "salesman": "pelmeni",
+      "passengers": {
+        "adults": 1,
+        "infants": 0,
+        "children": 0
+      },
+      "cabinClass": "first",
+      "lang": "en",
+      "places": [
+        {
+          "id": "vienna_au",
+          "slug": "vienna_au"
+        },
+        {
+          "id": "vienna_au",
+          "slug": "vienna_au"
+        }
+      ],
+      "returnUrl": "url",
+      "starType": "star"
+    },
+    "lastPrice": 123,
+    "itinerary": {
+      "id": "itinerary2",
+      "price": {
+        "amount": "900",
+        "currencyId": "EUR"
+      },
+      "provider": {
+        "id": "lol",
+        "name": "kek",
+        "code": "bur"
+      },
+      "hasNoCheckedBags": false,
+      "type": "return",
+      "outbound": {
+        "id": "sector2",
+        "segments": [
+          {
+            "id": "segment1",
+            "source": {
+              "station": {
+                "id": "VKO",
+                "name": "Moscow VKO",
+                "code": "VKO",
+                "city": {
+                  "id": "vko",
+                  "name": "moscow",
+                  "code": "VKO",
+                  "slug": "moscow"
+                },
+                "country": {
+                  "id": "russia",
+                  "name": "Russia",
+                  "code": "RU",
+                  "slug": "russia"
+                },
+                "type": "AIRPORT"
+              },
+              "time": "2019-04-05T14:15:00.000Z"
+            },
+            "destination": {
+              "station": {
+                "id": "station2",
+                "name": "Prague ",
+                "code": "PRG",
+                "city": {
+                  "id": "prague",
+                  "name": "Prague",
+                  "code": "PRG",
+                  "slug": "prague"
+                },
+                "country": {
+                  "id": "czechia",
+                  "name": "Czechia",
+                  "code": "CZ",
+                  "slug": "czechia"
+                },
+                "type": "AIRPORT"
+              },
+              "time": "2019-04-05T15:15:00.000Z"
+            },
+            "duration": 180,
+            "type": "FLIGHT",
+            "code": "segmentizer",
+            "layover": {
+              "duration": 60,
+              "isKiwiComGuarantee": true,
+              "isStationChange": false,
+              "isBaggageRecheck": false
+            },
+            "carrier": {
+              "id": "pobeda",
+              "name": "Pobeda",
+              "code": "DP"
+            },
+            "operatingCarrier": {
+              "id": "pobeda",
+              "name": "Pobeda",
+              "code": "DP"
+            },
+            "seatInfo": {
+              "pitch": 13,
+              "width": 37,
+              "recline": 420,
+              "hasPower": true,
+              "hasAudioVideo": false
+            },
+            "hasWifi": true
+          }
+        ],
+        "carriers": [
+          {
+            "id": "kek",
+            "name": "Kekistan",
+            "code": "KEK"
+          }
+        ],
+        "duration": 420,
+        "stopover": {
+          "nightsCount": 0,
+          "arrival": {
+            "id": "station1",
+            "name": "The Station",
+            "code": "stationizer",
+            "city": {
+              "id": "vienna",
+              "name": "Vienna",
+              "code": "VIE",
+              "slug": "vienna"
+            },
+            "country": {
+              "id": "austria",
+              "name": "Austria",
+              "code": "AU",
+              "slug": "austria"
+            },
+            "type": "AIRPORT"
+          },
+          "departure": {
+            "id": "station1",
+            "name": "The Station",
+            "code": "stationizer",
+            "city": {
+              "id": "vienna",
+              "name": "Vienna",
+              "code": "VIE",
+              "slug": "vienna"
+            },
+            "country": {
+              "id": "austria",
+              "name": "Austria",
+              "code": "AU",
+              "slug": "austria"
+            },
+            "type": "AIRPORT"
+          }
+        }
+      },
+      "inbound": {
+        "id": "sector2",
+        "segments": [
+          {
+            "id": "segment1",
+            "source": {
+              "station": {
+                "id": "station2",
+                "name": "Prague ",
+                "code": "PRG",
+                "city": {
+                  "id": "prague",
+                  "name": "Prague",
+                  "code": "PRG",
+                  "slug": "prague"
+                },
+                "country": {
+                  "id": "czechia",
+                  "name": "Czechia",
+                  "code": "CZ",
+                  "slug": "czechia"
+                },
+                "type": "AIRPORT"
+              },
+              "time": "2019-04-16T18:15:00.000Z"
+            },
+            "destination": {
+              "station": {
+                "id": "VKO",
+                "name": "Moscow VKO",
+                "code": "VKO",
+                "city": {
+                  "id": "vko",
+                  "name": "moscow",
+                  "code": "VKO",
+                  "slug": "moscow"
+                },
+                "country": {
+                  "id": "russia",
+                  "name": "Russia",
+                  "code": "RU",
+                  "slug": "russia"
+                },
+                "type": "AIRPORT"
+              },
+              "time": "2019-04-16T20:15:00.000Z"
+            },
+            "duration": 180,
+            "type": "FLIGHT",
+            "code": "segmentizer",
+            "layover": {
+              "duration": 60,
+              "isKiwiComGuarantee": true,
+              "isStationChange": false,
+              "isBaggageRecheck": false
+            },
+            "carrier": {
+              "id": "pobeda",
+              "name": "Pobeda",
+              "code": "DP"
+            },
+            "operatingCarrier": {
+              "id": "pobeda",
+              "name": "Pobeda",
+              "code": "DP"
             },
             "seatInfo": {
               "pitch": 13,
@@ -166,6 +462,571 @@
           }
         }
       }
+    },
+    "priceUpdatedAt": "1551607200",
+    "createdAt": "1551484800",
+    "updatedAt": "1551484800"
+  },
+  {
+    "id": "kek 3",
+    "form": {
+      "origin": "bur",
+      "destination": "Mordor",
+      "outboundDate": "13-10-2018",
+      "inboudDate": "12-10-2018",
+      "multicity": "cheburek",
+      "salesman": "pelmeni",
+      "passengers": {
+        "adults": 1,
+        "infants": 0,
+        "children": 0
+      },
+      "cabinClass": "first",
+      "lang": "en",
+      "places": [
+        {
+          "id": "vienna_au",
+          "slug": "vienna_au"
+        },
+        {
+          "id": "vienna_au",
+          "slug": "vienna_au"
+        }
+      ],
+      "returnUrl": "url",
+      "starType": "star"
+    },
+    "lastPrice": 123,
+    "itinerary": {
+      "id": "itinerary3",
+      "price": {
+        "amount": "900",
+        "currencyId": "EUR"
+      },
+      "provider": {
+        "id": "lol",
+        "name": "kek",
+        "code": "bur"
+      },
+      "hasNoCheckedBags": false,
+      "type": "multicity",
+      "sectors": [
+        {
+          "id": "sector1",
+          "duration": 420,
+          "segments": [
+            {
+              "id": "segment1",
+              "source": {
+                "station": {
+                  "id": "VKO",
+                  "name": "Moscow VKO",
+                  "code": "VKO",
+                  "city": {
+                    "id": "vko",
+                    "name": "moscow",
+                    "code": "VKO",
+                    "slug": "moscow"
+                  },
+                  "country": {
+                    "id": "russia",
+                    "name": "Russia",
+                    "code": "RU",
+                    "slug": "russia"
+                  },
+                  "type": "AIRPORT"
+                },
+                "time": "2019-04-05T14:15:00.000Z"
+              },
+              "destination": {
+                "station": {
+                  "id": "station2",
+                  "name": "Prague ",
+                  "code": "PRG",
+                  "city": {
+                    "id": "prague",
+                    "name": "Prague",
+                    "code": "PRG",
+                    "slug": "prague"
+                  },
+                  "country": {
+                    "id": "czechia",
+                    "name": "Czechia",
+                    "code": "CZ",
+                    "slug": "czechia"
+                  },
+                  "type": "AIRPORT"
+                },
+                "time": "2019-04-16:15:00.000Z"
+              },
+              "duration": 180,
+              "type": "FLIGHT",
+              "code": "segmentizer",
+              "layover": {
+                "duration": 60,
+                "isKiwiComGuarantee": true,
+                "isStationChange": false,
+                "isBaggageRecheck": false
+              },
+              "carrier": {
+                "id": "pobeda",
+                "name": "Pobeda",
+                "code": "DP"
+              },
+              "operatingCarrier": {
+                "id": "pobeda",
+                "name": "Pobeda",
+                "code": "DP"
+              },
+              "seatInfo": {
+                "pitch": 13,
+                "width": 37,
+                "recline": 420,
+                "hasPower": true,
+                "hasAudioVideo": false
+              },
+              "hasWifi": true
+            },
+            {
+              "id": "segment2",
+              "destination": {
+                "station": {
+                  "id": "PRG",
+                  "name": "Prague PRG",
+                  "code": "PRG",
+                  "city": {
+                    "id": "PRG",
+                    "name": "Prague",
+                    "code": "PRG",
+                    "slug": "prague"
+                  },
+                  "country": {
+                    "id": "Czech Republic",
+                    "name": "Czechia",
+                    "code": "CZ",
+                    "slug": "czechia"
+                  },
+                  "type": "AIRPORT"
+                },
+                "time": "2019-04-05T18:15:00.000Z"
+              },
+              "source": {
+                "station": {
+                  "id": "station2",
+                  "name": "Prague ",
+                  "code": "PRG",
+                  "city": {
+                    "id": "prague",
+                    "name": "Prague",
+                    "code": "PRG",
+                    "slug": "prague"
+                  },
+                  "country": {
+                    "id": "czechia",
+                    "name": "Czechia",
+                    "code": "CZ",
+                    "slug": "czechia"
+                  },
+                  "type": "AIRPORT"
+                },
+                "time": "2019-04-16:15:00.000Z"
+              },
+              "duration": 180,
+              "type": "FLIGHT",
+              "code": "segmentizer",
+              "layover": {
+                "duration": 60,
+                "isKiwiComGuarantee": true,
+                "isStationChange": false,
+                "isBaggageRecheck": false
+              },
+              "carrier": {
+                "id": "pobeda",
+                "name": "Pobeda",
+                "code": "DP"
+              },
+              "operatingCarrier": {
+                "id": "pobeda",
+                "name": "Pobeda",
+                "code": "DP"
+              },
+              "seatInfo": {
+                "pitch": 13,
+                "width": 37,
+                "recline": 420,
+                "hasPower": true,
+                "hasAudioVideo": false
+              },
+              "hasWifi": true
+            }
+          ],
+          "stopover": {
+            "nightsCount": 0,
+            "arrival": 1,
+            "departure": 1
+          }
+        },
+        {
+          "id": "sector2",
+          "duration": 420,
+          "segments": [
+            {
+              "id": "segment3",
+              "source": {
+                "station": {
+                  "id": "PRG",
+                  "name": "Prague PRG",
+                  "code": "PRG",
+                  "city": {
+                    "id": "PRG",
+                    "name": "Prague",
+                    "code": "PRG",
+                    "slug": "prague"
+                  },
+                  "country": {
+                    "id": "Czech Republic",
+                    "name": "Czechia",
+                    "code": "CZ",
+                    "slug": "czechia"
+                  },
+                  "type": "AIRPORT"
+                },
+                "time": "2019-04-05T18:15:00.000Z"
+              },
+              "destination": {
+                "station": {
+                  "id": "station2",
+                  "name": "Prague ",
+                  "code": "PRG",
+                  "city": {
+                    "id": "prague",
+                    "name": "Prague",
+                    "code": "PRG",
+                    "slug": "prague"
+                  },
+                  "country": {
+                    "id": "czechia",
+                    "name": "Czechia",
+                    "code": "CZ",
+                    "slug": "czechia"
+                  },
+                  "type": "AIRPORT"
+                },
+                "time": "2019-04-20:15:00.000Z"
+              },
+              "duration": 180,
+              "type": "FLIGHT",
+              "code": "segmentizer",
+              "layover": {
+                "duration": 60,
+                "isKiwiComGuarantee": true,
+                "isStationChange": false,
+                "isBaggageRecheck": false
+              },
+              "carrier": {
+                "id": "pobeda",
+                "name": "Pobeda",
+                "code": "DP"
+              },
+              "operatingCarrier": {
+                "id": "pobeda",
+                "name": "Pobeda",
+                "code": "DP"
+              },
+              "seatInfo": {
+                "pitch": 13,
+                "width": 37,
+                "recline": 420,
+                "hasPower": true,
+                "hasAudioVideo": false
+              },
+              "hasWifi": true
+            },
+            {
+              "id": "segment4",
+              "source": {
+                "station": {
+                  "id": "station2",
+                  "name": "Prague ",
+                  "code": "PRG",
+                  "city": {
+                    "id": "prague",
+                    "name": "Prague",
+                    "code": "PRG",
+                    "slug": "prague"
+                  },
+                  "country": {
+                    "id": "czechia",
+                    "name": "Czechia",
+                    "code": "CZ",
+                    "slug": "czechia"
+                  },
+                  "type": "AIRPORT"
+                },
+                "time": "2019-04-16:15:00.000Z"
+              },
+              "destination": {
+                "station": {
+                  "id": "LTN",
+                  "name": "London LTN",
+                  "code": "LTN",
+                  "city": {
+                    "id": "ltn",
+                    "name": "London",
+                    "code": "LTN",
+                    "slug": "london"
+                  },
+                  "country": {
+                    "id": "UK",
+                    "name": "United Kingdom",
+                    "code": "UK",
+                    "slug": "united-kingdom"
+                  },
+                  "type": "AIRPORT"
+                },
+                "time": "2019-04-05T20:15:00.000Z"
+              },
+              "duration": 180,
+              "type": "FLIGHT",
+              "code": "segmentizer",
+              "layover": {
+                "duration": 60,
+                "isKiwiComGuarantee": true,
+                "isStationChange": false,
+                "isBaggageRecheck": false
+              },
+              "carrier": {
+                "id": "pobeda",
+                "name": "Pobeda",
+                "code": "DP"
+              },
+              "operatingCarrier": {
+                "id": "pobeda",
+                "name": "Pobeda",
+                "code": "DP"
+              },
+              "seatInfo": {
+                "pitch": 13,
+                "width": 37,
+                "recline": 420,
+                "hasPower": true,
+                "hasAudioVideo": false
+              },
+              "hasWifi": true
+            }
+          ],
+          "stopover": {
+            "nightsCount": 0,
+            "arrival": 1,
+            "departure": 1
+          }
+        }
+      ]
+    },
+    "priceUpdatedAt": "1551607200",
+    "createdAt": "1551484800",
+    "updatedAt": "1551484800"
+  },
+  {
+    "id": "kek",
+    "form": {
+      "origin": "bur",
+      "destination": "Mordor",
+      "outboundDate": "13-10-2018",
+      "inboudDate": "12-10-2018",
+      "multicity": "cheburek",
+      "salesman": "pelmeni",
+      "passengers": {
+        "adults": 1,
+        "infants": 0,
+        "children": 0
+      },
+      "cabinClass": "first",
+      "lang": "en",
+      "places": [
+        {
+          "id": "vienna_au",
+          "slug": "vienna_au"
+        },
+        {
+          "id": "vienna_au",
+          "slug": "vienna_au"
+        }
+      ],
+      "returnUrl": "url",
+      "starType": "star"
+    },
+    "lastPrice": 123,
+    "itinerary": {
+      "id": "itinerary4",
+      "price": {
+        "amount": "900",
+        "currencyId": "EUR"
+      },
+      "provider": {
+        "id": "lol",
+        "name": "kek",
+        "code": "bur"
+      },
+      "hasNoCheckedBags": false,
+      "type": "nomad",
+      "sectors": [
+        {
+          "id": "sector1",
+          "duration": 420,
+          "segments": [
+            {
+              "id": "segment1",
+              "source": {
+                "station": {
+                  "id": "VKO",
+                  "name": "Moscow VKO",
+                  "code": "VKO",
+                  "city": {
+                    "id": "vko",
+                    "name": "moscow",
+                    "code": "VKO",
+                    "slug": "moscow"
+                  },
+                  "country": {
+                    "id": "russia",
+                    "name": "Russia",
+                    "code": "RU",
+                    "slug": "russia"
+                  },
+                  "type": "AIRPORT"
+                },
+                "time": "2019-04-05T14:15:00.000Z"
+              },
+              "destination": {
+                "station": {
+                  "id": "station2",
+                  "name": "Prague ",
+                  "code": "PRG",
+                  "city": {
+                    "id": "prague",
+                    "name": "Prague",
+                    "code": "PRG",
+                    "slug": "prague"
+                  },
+                  "country": {
+                    "id": "czechia",
+                    "name": "Czechia",
+                    "code": "CZ",
+                    "slug": "czechia"
+                  },
+                  "type": "AIRPORT"
+                },
+                "time": "2019-04-16:15:00.000Z"
+              },
+              "duration": 180,
+              "type": "FLIGHT",
+              "code": "segmentizer",
+              "layover": {
+                "duration": 60,
+                "isKiwiComGuarantee": true,
+                "isStationChange": false,
+                "isBaggageRecheck": false
+              },
+              "carrier": {
+                "id": "pobeda",
+                "name": "Pobeda",
+                "code": "DP"
+              },
+              "operatingCarrier": {
+                "id": "pobeda",
+                "name": "Pobeda",
+                "code": "DP"
+              },
+              "seatInfo": {
+                "pitch": 13,
+                "width": 37,
+                "recline": 420,
+                "hasPower": true,
+                "hasAudioVideo": false
+              },
+              "hasWifi": true
+            },
+            {
+              "id": "segment1",
+              "destination": {
+                "station": {
+                  "id": "VKO",
+                  "name": "Moscow VKO",
+                  "code": "VKO",
+                  "city": {
+                    "id": "vko",
+                    "name": "moscow",
+                    "code": "VKO",
+                    "slug": "moscow"
+                  },
+                  "country": {
+                    "id": "russia",
+                    "name": "Russia",
+                    "code": "RU",
+                    "slug": "russia"
+                  },
+                  "type": "AIRPORT"
+                },
+                "time": "2019-04-05T18:15:00.000Z"
+              },
+              "source": {
+                "station": {
+                  "id": "station2",
+                  "name": "Prague ",
+                  "code": "PRG",
+                  "city": {
+                    "id": "prague",
+                    "name": "Prague",
+                    "code": "PRG",
+                    "slug": "prague"
+                  },
+                  "country": {
+                    "id": "czechia",
+                    "name": "Czechia",
+                    "code": "CZ",
+                    "slug": "czechia"
+                  },
+                  "type": "AIRPORT"
+                },
+                "time": "2019-04-16:15:00.000Z"
+              },
+              "duration": 180,
+              "type": "FLIGHT",
+              "code": "segmentizer",
+              "layover": {
+                "duration": 60,
+                "isKiwiComGuarantee": true,
+                "isStationChange": false,
+                "isBaggageRecheck": false
+              },
+              "carrier": {
+                "id": "pobeda",
+                "name": "Pobeda",
+                "code": "DP"
+              },
+              "operatingCarrier": {
+                "id": "pobeda",
+                "name": "Pobeda",
+                "code": "DP"
+              },
+              "seatInfo": {
+                "pitch": 13,
+                "width": 37,
+                "recline": 420,
+                "hasPower": true,
+                "hasAudioVideo": false
+              },
+              "hasWifi": true
+            }
+          ],
+          "stopover": {
+            "nightsCount": 0,
+            "arrival": 1,
+            "departure": 1
+          }
+        }
+      ]
     },
     "priceUpdatedAt": "1551607200",
     "createdAt": "1551484800",

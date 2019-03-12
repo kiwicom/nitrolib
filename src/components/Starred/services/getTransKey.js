@@ -1,5 +1,4 @@
 // @flow strict
-import * as R from 'ramda';
 import type { PassengersCount } from "../../../records/Starred";
 
 const TRANS_KEY_SINGLE = {
