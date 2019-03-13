@@ -10,6 +10,7 @@ import Text from "../../../Text";
 import CreateAccount from "../../mutations/CreateAccount";
 import type { CreateAccountError } from "../../mutations/__generated__/CreateAccountMutation.graphql";
 import LogContext from "../../../../services/log/context";
+import type { Context as LogContextType } from "../../../../services/log/context";
 import * as loginEvents from "../../consts/events";
 import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
 
@@ -113,7 +114,10 @@ export default class CreateAccountScreen extends React.PureComponent<Props, Stat
         this.setState({ isCreatingAccount: false });
 
         if (!res.createAccount?.success) {
-          log(API_REQUEST_FAILED, { operation: "createAccount", error: res.createAccount?.error });
+          log(API_REQUEST_FAILED, {
+            operation: "createAccount",
+            error: res.createAccount?.error || "",
+          });
           this.setSubmitError(res.createAccount?.error);
           return;
         }
@@ -168,6 +172,8 @@ export default class CreateAccountScreen extends React.PureComponent<Props, Stat
 
     this.setState({ error });
   };
+
+  context: LogContextType;
 
   render() {
     return (

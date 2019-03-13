@@ -60,7 +60,17 @@ describe("#KiwiLogin", () => {
   it("handles sign in", done => {
     const onSignIn = jest.fn();
     const onClose = jest.fn();
-    const wrapper = mount(<KiwiLogin {...defaultProps} onSignIn={onSignIn} onClose={onClose} />);
+    const wrapper = mount(
+      <KiwiLogin
+        {...defaultProps}
+        email="joe.doe@example.com"
+        onSignIn={onSignIn}
+        onClose={onClose}
+      />,
+    );
+    wrapper
+      .find(`input[data-test="Password"]`)
+      .simulate("change", { target: { value: "qwertyuiop123" } });
     wrapper.find("form").simulate("submit");
 
     setImmediate(() => {

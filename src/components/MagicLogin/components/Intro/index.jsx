@@ -9,6 +9,7 @@ import type { Screen } from "../../records/Screen";
 import Text from "../../../Text";
 import * as events from "../../../../consts/events";
 import LogContext from "../../../../services/log/context";
+import type { Context as LogContextType } from "../../../../services/log/context";
 import * as validators from "../../../../services/input/validators";
 
 type Props = {|
@@ -118,6 +119,8 @@ export default class IntroScreen extends React.Component<Props, State> {
 
     return email ? validators.email(email) : errors.requiredField;
   };
+
+  context: LogContextType;
 
   render() {
     const {

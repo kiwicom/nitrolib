@@ -21,6 +21,7 @@ type Props = {|
   email: string,
   password: string,
   error?: React.Node,
+  passwordError?: string,
   isSigningIn?: boolean,
   isSendingEmail?: boolean,
   onChangeEmail: (ev: SyntheticEvent<HTMLLinkElement>) => void,
@@ -34,6 +35,7 @@ const AccountPassword = ({
   email,
   password,
   error,
+  passwordError,
   isSigningIn,
   isSendingEmail,
   onChangeEmail,
@@ -71,6 +73,7 @@ const AccountPassword = ({
                   <Stack align="end" spacing="condensed">
                     <InputField
                       label={intl.translate(__("account.password_input"))}
+                      error={passwordError && intl.translate(passwordError)}
                       type="password"
                       onChange={onPasswordChange}
                       value={password}

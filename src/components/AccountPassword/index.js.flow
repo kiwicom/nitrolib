@@ -5,6 +5,7 @@ type Props = {|
   email: string,
   password: string,
   error?: React.Node,
+  passwordError?: string,
   isSigningIn?: boolean,
   isSendingEmail?: boolean,
   onChangeEmail: (ev: SyntheticEvent<HTMLLinkElement>) => void,
