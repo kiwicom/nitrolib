@@ -8,6 +8,7 @@ const authConsumerUser = {
     verified: true,
     firstname: "Ellie",
     lastname: "Palo",
+    affiliateId: "lanthi",
   },
   type: "user",
   token:

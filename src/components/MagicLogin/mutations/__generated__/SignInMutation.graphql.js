@@ -25,6 +25,7 @@ export type SignInMutationResponse = {|
         +firstName: ?string,
         +lastName: ?string,
         +emailVerified: ?boolean,
+        +affiliateId: ?string,
       |},
     |},
   |}

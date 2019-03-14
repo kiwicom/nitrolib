@@ -10,6 +10,7 @@ type RelayInput = {|
     +firstName: ?string,
     +lastName: ?string,
     +emailVerified: ?boolean,
+    +affiliateId: ?string,
   |},
 |};
 
@@ -22,6 +23,7 @@ const toUser = (user: RelayInput): AuthUser => ({
     verified: user.identity?.emailVerified || false,
     firstname: user.identity?.firstName || "",
     lastname: user.identity?.lastName || "",
+    affiliateId: user.identity?.affiliateId || "",
   },
 });
 

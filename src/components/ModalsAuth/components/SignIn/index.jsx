@@ -1,6 +1,7 @@
 // @flow strict
 import * as React from "react";
 import * as R from "ramda";
+import Cookies from "js-cookie";
 import styled from "styled-components";
 import FaLongArrowRight from "react-icons/lib/fa/long-arrow-right";
 import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
@@ -25,6 +26,7 @@ import isEmptish from "../../../../services/utils/isEmptish";
 import IconText from "../../../IconText";
 import Query from "../../../Query";
 import { MODAL_OPEN } from "../../../../consts/events";
+import type { User } from "../../../../records/User";
 
 const ERRORS = {
   "Login failed.": __("account.login_failed"),
@@ -59,7 +61,7 @@ ForgotPasswordArrow.defaultProps = {
 
 type Props = {|
   loading: boolean,
-  onSignIn: (email: string, password: string) => Promise<void>,
+  onSignIn: (email: string, password: string) => Promise<?User>,
   onChange: (value?: string) => void,
 |};
 
@@ -125,6 +127,13 @@ export default class SignIn extends React.PureComponent<Props, State> {
     }
 
     onSignIn(fields.email.value, fields.password.value)
+      .then(data => {
+        if (data && data.affiliateId !== null) {
+          Cookies.set("SKYPICKER_AFFILIATE", data.affiliateId);
+        } else {
+          Cookies.remove("SKYPICKER_AFFILIATE");
+        }
+      })
       .then(() => {
         onChange();
       })

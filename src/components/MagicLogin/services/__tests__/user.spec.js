@@ -12,6 +12,7 @@ describe("#toUser", () => {
         firstName: "Joe",
         lastName: "Doe",
         emailVerified: true,
+        affiliateId: "lanthi",
       },
     };
 
@@ -24,6 +25,7 @@ describe("#toUser", () => {
         id: "id123",
         lastname: "Doe",
         verified: true,
+        affiliateId: "lanthi",
       },
     });
   });
@@ -43,6 +45,7 @@ describe("#toUser", () => {
         verified: false,
         firstname: "",
         lastname: "",
+        affiliateId: "",
       },
     });
   });

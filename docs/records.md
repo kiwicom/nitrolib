@@ -1341,7 +1341,7 @@ export type User = {|
   firstname: string,
   lastname: string,
   // apiToken: string,
-  // affiliateId: string,
+  affiliateId: string,
   // cardDiscount: number,
   // balanceDiscount: number,
   // balances: Array<{ amount: number, currency: string }>, ???
@@ -1355,6 +1355,7 @@ export type MapUserInput = {|
   email_verified: boolean,
   first_name: string,
   last_name: string,
+  affiliate_id: string,
 |};
 
 declare export var mapUser: (input: MapUserInput) => User;
