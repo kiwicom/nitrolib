@@ -1147,10 +1147,10 @@
     eslint-plugin-relay "^1.0.0"
     prettier "^1.16.4"
 
-"@kiwicom/orbit-components@^0.34.1":
-  version "0.34.1"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.34.1.tgz#e1dca2447d95add9585583e8ce88616b11bd8a13"
-  integrity sha512-GYXZow/sJWxI3NXh13RTougJo9go2OxQjPMXXW6v+fyIuxumOmu+RrJ+XkU0YpUI2Egl+79lYESBJLUHMpK+qQ==
+"@kiwicom/orbit-components@^0.35.0":
+  version "0.35.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.35.0.tgz#52efb8d1dbd0b487720f67f87d6ca02ea97c3d6c"
+  integrity sha512-5yxuzyLwtItDY0Rku9ntZ9C2qPrddBLdaiaH2D/Qi0s8ymGDAOfLnQ74yxT249buDmtTjIosH1HSrf4/47y9sQ==
   dependencies:
     "@kiwicom/orbit-design-tokens" "^0.4.0"
 
