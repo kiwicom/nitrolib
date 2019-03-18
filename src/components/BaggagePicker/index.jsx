@@ -1,19 +1,11 @@
 // @flow strict
 import * as React from "react";
-import R from "ramda";
 
 import Picker from "./components/Picker";
-import type {
-  BaggageType,
-  BaggageCategory,
-  PassengerGroup,
-  Combination,
-  HandBagDefinition,
-  HoldBagDefinition,
-  OptionBaggage,
-} from "../../records/Baggage";
+import type { BaggageType, BaggageCategory, PassengerGroup } from "../../records/Baggage";
 import type { Airline } from "../../records/Airline";
 import { Provider } from "./services/context";
+import { getOptions } from "../../services/baggage/utils";
 
 type Props = {
   changeBagCombination: () => void,
@@ -28,86 +20,40 @@ type Props = {
   prioBoardingLinkHandler: (Array<Airline>) => void,
 };
 
-class Baggage extends React.Component<Props> {
-  getOptionItems = (
-    definitions: Array<HoldBagDefinition> | Array<HandBagDefinition>,
-    indices: Array<number>,
-  ) =>
-    indices.reduce((acc, optionIndex) => {
-      if (acc[optionIndex]) {
-        acc[optionIndex].amount += 1;
-      } else {
-        acc[optionIndex] = {
-          amount: 1,
-          category: definitions[optionIndex].category,
-          restrictions: definitions[optionIndex].restrictions,
-          conditions: definitions[optionIndex].conditions,
-        };
-      }
-      return acc;
-    }, {});
+const BaggagePicker = (props: Props) => {
+  const {
+    changeBagCombination,
+    pickerType,
+    passengerBaggage,
+    passengerCategory,
+    shouldShowRecheckNote,
+    prioBoardingLinkHandler,
+    context,
+    airlines,
+    currentCombination,
+    baggage,
+  } = props;
 
-  getOptions = (): Array<OptionBaggage> => {
-    const {
-      context,
-      currentCombination,
-      baggage: { combinations, definitions },
-      passengerCategory,
-      pickerType,
-    } = this.props;
+  const baggageOptions = getOptions({
+    baggage,
+    passengerCategory,
+    context,
+    pickerType,
+    currentCombination,
+  });
 
-    const indexedCombinations: Array<{ ...Combination, originalIndex: number }> = combinations[
-      pickerType
-    ]
-      .map((item, index) => ({ ...item, originalIndex: index }))
-      .filter(i =>
-        // $FlowFixMe
-        R.includes(passengerCategory, i.conditions.passengerGroups),
-      );
-    const bagDefinitions = definitions[pickerType];
+  return (
+    <Provider value={{ airlines, shouldShowRecheckNote, prioBoardingLinkHandler }}>
+      <Picker
+        context={context}
+        pickerType={pickerType}
+        options={baggageOptions}
+        selectedIndex={passengerBaggage[pickerType]}
+        onChange={changeBagCombination}
+        currentCombination={currentCombination}
+      />
+    </Provider>
+  );
+};
 
-    const options: Array<OptionBaggage> = indexedCombinations.map(c => ({
-      originalIndex: c.originalIndex,
-      pickerType,
-      price: c.price,
-      items: this.getOptionItems(bagDefinitions, c.indices),
-    }));
-
-    if (context === "mmb" && typeof currentCombination === "number") {
-      return options.filter(
-        o => o.price.amount > combinations[pickerType][currentCombination].price.amount,
-      );
-    }
-
-    return options;
-  };
-
-  render() {
-    const {
-      changeBagCombination,
-      pickerType,
-      passengerBaggage,
-      shouldShowRecheckNote,
-      prioBoardingLinkHandler,
-      context,
-      airlines,
-      currentCombination,
-    } = this.props;
-    const baggageOptions = this.getOptions();
-
-    return (
-      <Provider value={{ airlines, shouldShowRecheckNote, prioBoardingLinkHandler }}>
-        <Picker
-          context={context}
-          pickerType={pickerType}
-          options={baggageOptions}
-          selectedIndex={passengerBaggage[pickerType]}
-          onChange={changeBagCombination}
-          currentCombination={currentCombination}
-        />
-      </Provider>
-    );
-  }
-}
-
-export default Baggage;
+export default BaggagePicker;

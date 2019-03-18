@@ -122,18 +122,39 @@ const PriorityBoardingInfo = ({
   );
 };
 
-const EmptyLabel = ({ pickerType }: { pickerType: BaggageCategory }) => (
-  <Stack spacing="condensed" flex align="center" dataTest="BaggagePicker-EmptyLabel">
-    <Close size="medium" />
-    <Text>
-      <Translate
-        t={
-          pickerType === "handBag"
-            ? "baggage_modal.select.no_cabin_baggage"
-            : "baggage_modal.select.no_checked_baggage"
-        }
-      />
-    </Text>
+const EmptyLabel = ({
+  pickerType,
+  isCurrentCombination,
+}: {
+  pickerType: BaggageCategory,
+  isCurrentCombination: boolean,
+}) => (
+  <Stack
+    spacing="condensed"
+    flex
+    align="center"
+    justify="between"
+    dataTest="BaggagePicker-EmptyLabel"
+  >
+    <Stack flex align="center" inline>
+      <Close size="medium" />
+      <Text>
+        <Translate
+          t={
+            pickerType === "handBag"
+              ? "baggage_modal.select.no_cabin_baggage"
+              : "baggage_modal.select.no_checked_baggage"
+          }
+        />
+      </Text>
+    </Stack>
+    {isCurrentCombination && (
+      <Stack flex align="center" justify="end" inline>
+        <Text element="p" weight="bold" type="secondary">
+          <Translate t="baggage_modal.select.current" />
+        </Text>
+      </Stack>
+    )}
   </Stack>
 );
 
@@ -188,7 +209,7 @@ const Option = ({
                     />
                   ))
                 ) : (
-                  <EmptyLabel pickerType={pickerType} />
+                  <EmptyLabel pickerType={pickerType} isCurrentCombination={isCurrentCombination} />
                 )}
                 {firstItem && firstItem.category === "cabinBag" && isPersonalItemPresent && (
                   <Stack

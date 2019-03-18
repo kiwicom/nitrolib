@@ -23,14 +23,14 @@ describe("#BaggagePicker", () => {
   test("hide options and render show more button", () => {
     const wrapper = shallow(<Picker {...props} />);
     const instance = wrapper.instance();
-    expect(instance.state.hiddenItems).toBe(3);
+    expect(instance.state.hiddenOptions).toBe(3);
     expect(wrapper.find("Button").exists()).toBe(true);
   });
 
   test("show all options and don't render show more button", () => {
     const wrapper = shallow(<Picker {...props} options={baggageOptions.slice(0, 4)} />);
     const instance = wrapper.instance();
-    expect(instance.state.hiddenItems).toBe(0);
+    expect(instance.state.hiddenOptions).toBe(0);
     expect(wrapper.find("Button").exists()).toBe(false);
   });
 
@@ -38,9 +38,9 @@ describe("#BaggagePicker", () => {
     const wrapper = shallow(<Picker {...props} />);
     const instance = wrapper.instance();
 
-    expect(instance.state.hiddenItems).toBe(3);
+    expect(instance.state.hiddenOptions).toBe(3);
     wrapper.find("Button").simulate("click");
-    expect(instance.state.hiddenItems).toBe(0);
+    expect(instance.state.hiddenOptions).toBe(0);
   });
 
   test("getTitle return title with proper translation key", () => {

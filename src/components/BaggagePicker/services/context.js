@@ -1,10 +1,10 @@
 // @flow
 import * as React from "react";
 
-import type { Airline } from "../../../records/Airline";
+import type { Airlines, Airline } from "../../../records/Airline";
 
 type Context = {
-  airlines?: { [string]: Airline },
+  airlines?: Airlines,
   shouldShowRecheckNote?: boolean,
   prioBoardingLinkHandler?: (Array<Airline>) => void,
 };

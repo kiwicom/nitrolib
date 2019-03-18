@@ -18,8 +18,8 @@ import Option from "../Option/index";
 import type { OptionBaggage, BaggageCategory } from "../../../../records/Baggage";
 
 type State = {
-  showedItems: Array<OptionBaggage>,
-  hiddenItems: number,
+  showedOptions: Array<OptionBaggage>,
+  hiddenOptions: number,
 };
 
 type Props = {|
@@ -67,8 +67,8 @@ Title.defaultProps = {
 
 class BaggagePicker extends React.Component<Props, State> {
   state = {
-    showedItems: [],
-    hiddenItems: 0,
+    showedOptions: [],
+    hiddenOptions: 0,
   };
 
   componentDidMount() {
@@ -88,17 +88,17 @@ class BaggagePicker extends React.Component<Props, State> {
       const showedOptionsItems = options.slice(0, 3);
       const hiddenOptionsItems = options.length - showedOptionsItems.length;
       this.setState({
-        showedItems: showedOptionsItems,
-        hiddenItems: hiddenOptionsItems,
+        showedOptions: showedOptionsItems,
+        hiddenOptions: hiddenOptionsItems,
       });
     } else {
-      this.setState({ showedItems: options, hiddenItems: 0 });
+      this.setState({ showedOptions: options, hiddenOptions: 0 });
     }
   };
 
   handleShowOptions = () => {
     const { options } = this.props;
-    this.setState({ showedItems: options, hiddenItems: 0 });
+    this.setState({ showedOptions: options, hiddenOptions: 0 });
   };
 
   getTitle = (type: string): React$Node =>
@@ -141,7 +141,7 @@ class BaggagePicker extends React.Component<Props, State> {
   render() {
     const { context, pickerType, options, selectedIndex, currentCombination } = this.props;
     const hasOnlyEmptyOption = options.length === 1 && R.isEmpty(options[0].items);
-    const { showedItems, hiddenItems } = this.state;
+    const { showedOptions, hiddenOptions } = this.state;
     const isPersonalItemPresent = this.getPersonalItemPresence();
 
     return (
@@ -165,7 +165,7 @@ class BaggagePicker extends React.Component<Props, State> {
           </Text>
         )}
         {options.length > 0 && !hasOnlyEmptyOption ? (
-          showedItems.map((item, index) => (
+          showedOptions.map((item, index) => (
             <Option
               key={item.originalIndex}
               dataTest={`BaggagePicker-Option-${index}`}
@@ -184,7 +184,7 @@ class BaggagePicker extends React.Component<Props, State> {
             <Text>{this.getEmptyOptionText(pickerType)}</Text>
           </EmptyOption>
         )}
-        {hiddenItems > 0 && (
+        {hiddenOptions > 0 && (
           <Flex x="center">
             <Button
               dataTest="BaggagePicker-ShowButton"
@@ -193,7 +193,7 @@ class BaggagePicker extends React.Component<Props, State> {
               type="secondary"
               icon={<ChevronDown />}
             >
-              <Translate t="baggage_modal.select.show_more" values={{ number: hiddenItems }} />
+              <Translate t="baggage_modal.select.show_more" values={{ number: hiddenOptions }} />
             </Button>
           </Flex>
         )}

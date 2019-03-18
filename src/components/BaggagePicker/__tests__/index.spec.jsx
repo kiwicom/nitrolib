@@ -26,19 +26,8 @@ const props = {
 };
 
 describe("#BaggagePicker", () => {
-  test("getOptionItems return items ", () => {
+  test("render", () => {
     const wrapper = shallow(<BaggagePicker {...props} />);
-    const instance = wrapper.instance();
-
-    const optionItems = instance.getOptionItems(baggageData.definitions.handBag, [0, 0, 1]);
-    expect(optionItems["0"].amount).toEqual(2);
-    expect(optionItems["1"].amount).toEqual(1);
-  });
-
-  test("getBaggagePickerOptions return options ", () => {
-    const wrapper = shallow(<BaggagePicker {...props} />);
-    const instance = wrapper.instance();
-    const handBagOptions = instance.getOptions();
-    expect(handBagOptions[0].pickerType).toEqual("handBag");
+    expect(wrapper.find("BaggagePicker").exists()).toBe(true);
   });
 });
