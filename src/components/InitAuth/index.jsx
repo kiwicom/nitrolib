@@ -8,6 +8,8 @@ import type { Brand } from "../../records/Brand";
 import * as api from "../../services/auth/api";
 import type { MyBookingInput, RegisterInput } from "../../services/auth/api";
 import { makeCall, makeEnvironment } from "../../services/utils/relay";
+import * as cookies from "../../services/session/cookies";
+import { AFFILIATE_ID } from "../../consts/cookies";
 
 type Arg = {|
   auth: Auth | null,
@@ -53,6 +55,12 @@ export default class InitAuth extends React.PureComponent<Props, State> {
     api
       .getTokenUser(token)
       .then(user => {
+        if (user.affiliateId) {
+          cookies.save(AFFILIATE_ID, user.affiliateId);
+        } else {
+          cookies.remove(AFFILIATE_ID);
+        }
+
         this.setState({ auth: { type: "user", user, token }, loading: false });
       })
       .catch(() => {
@@ -116,6 +124,12 @@ export default class InitAuth extends React.PureComponent<Props, State> {
     return api
       .signIn({ email, password, brand: brand.id })
       .then(auth => {
+        if (auth.user.affiliateId) {
+          cookies.save(AFFILIATE_ID, auth.user.affiliateId);
+        } else {
+          cookies.remove(AFFILIATE_ID);
+        }
+
         onSignIn(auth.token);
         this.setState({ auth, loading: false });
       })

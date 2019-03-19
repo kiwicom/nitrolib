@@ -8,3 +8,5 @@ Calls APIs for you, handles loading state and supplies context with _Relay_ envi
 * redirecting the user to MMB on **my booking**
 
 It also logs the user in on mount if you supply the `token` prop.
+
+Saves or removes the `AFFILIATE_ID` cookie on sign in.
