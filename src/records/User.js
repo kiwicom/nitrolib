@@ -5,8 +5,8 @@ export type User = {|
   verified: boolean,
   firstname: string,
   lastname: string,
+  affiliateId: string,
   // apiToken: string,
-  // affiliateId: string,
   // cardDiscount: number,
   // balanceDiscount: number,
   // balances: Array<{ amount: number, currency: string }>, ???
@@ -20,6 +20,7 @@ export type MapUserInput = {|
   email_verified: boolean,
   first_name: string,
   last_name: string,
+  affiliate_id: string,
 |};
 
 export const mapUser = (input: MapUserInput): User => ({
@@ -28,8 +29,8 @@ export const mapUser = (input: MapUserInput): User => ({
   verified: Boolean(input.email_verified),
   firstname: input.first_name,
   lastname: input.last_name,
+  affiliateId: input.affiliate_id,
   // apiToken: input.search_token,
-  // affiliateId: input.affiliate_id,
   // cardDiscount: input.card_payment_discount,
   // balanceDiscount: input.credits_payment_discount,
   // balances: input.accounts

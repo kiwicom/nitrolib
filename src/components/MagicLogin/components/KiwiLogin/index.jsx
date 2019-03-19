@@ -14,6 +14,7 @@ import LogContext from "../../../../services/log/context";
 import type { Context as LogContextType } from "../../../../services/log/context";
 import * as loginEvents from "../../consts/events";
 import { API_REQUEST_FAILED, API_ERROR } from "../../../../consts/events";
+import handleAffiliateId from "../../../../services/utils/handleAffiliateId";
 
 type Props = {
   email: string,
@@ -73,6 +74,9 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
           this.setState({ error: errors.loginFailed });
           return;
         }
+
+        const affiliateId = user.bookingIdentity?.affiliateId || "";
+        handleAffiliateId(affiliateId);
 
         onSignIn(toUser(user));
         onClose(true);
