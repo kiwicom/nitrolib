@@ -119,7 +119,7 @@ const propsWithCombinations = {
 const propsWithDefinitions = {
   definitions,
   currentPaxId: undefined,
-  FAQLinksHandler: category => console.log("clicked on", category),
+  FAQLinksHandler: category => console.log("clicked on", category), // eslint-disable-line
   context: "MMB-PassengerCard",
 };
 

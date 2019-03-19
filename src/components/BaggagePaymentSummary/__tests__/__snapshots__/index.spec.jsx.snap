@@ -48,7 +48,7 @@ exports[`#BaggagePaymentSummary renders 1`] = `
       id={1}
       key="1"
       lastName="Obama"
-      price={10}
+      price={10.11}
     />
     <PassengerBaggages
       baggage={
@@ -95,13 +95,13 @@ exports[`#BaggagePaymentSummary renders 1`] = `
       id={1}
       key="1"
       lastName="Trump"
-      price={30}
+      price={30.33}
     />
     <Separator
       spaceAfter="large"
     />
     <TotalPayment
-      totalPrice={40}
+      totalPrice={40.44}
     />
   </CardSection>
 </Card>

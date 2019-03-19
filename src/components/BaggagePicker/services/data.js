@@ -29,7 +29,7 @@ export const baggageData = {
         },
         price: {
           currency: "EUR",
-          amount: 10,
+          amount: 10.11,
           base: 0,
           merchant: null,
           service: 0,
@@ -52,7 +52,7 @@ export const baggageData = {
         },
         price: {
           currency: "EUR",
-          amount: 10,
+          amount: 10.11,
           base: 0,
           merchant: null,
           service: 0,
@@ -73,7 +73,7 @@ export const baggageData = {
         },
         price: {
           currency: "EUR",
-          amount: 20,
+          amount: 20.22,
           base: 20,
           merchant: null,
           service: 5,
@@ -95,7 +95,7 @@ export const baggageData = {
         },
         price: {
           currency: "EUR",
-          amount: 30,
+          amount: 30.33,
           base: 0,
           merchant: null,
           service: 0,
@@ -149,7 +149,7 @@ export const baggageData = {
         indices: [1],
         price: {
           currency: "EUR",
-          amount: 10,
+          amount: 10.11,
           base: 0,
           merchant: null,
           service: 0,
@@ -163,7 +163,7 @@ export const baggageData = {
         indices: [0, 1],
         price: {
           currency: "EUR",
-          amount: 10,
+          amount: 15.15,
           base: 0,
           merchant: null,
           service: 0,
@@ -177,7 +177,7 @@ export const baggageData = {
         indices: [0, 1, 1],
         price: {
           currency: "EUR",
-          amount: 20,
+          amount: 25.26,
           base: 0,
           merchant: null,
           service: 0,
@@ -191,7 +191,7 @@ export const baggageData = {
         indices: [0, 1, 1, 1],
         price: {
           currency: "EUR",
-          amount: 30,
+          amount: 35.37,
           base: 0,
           merchant: null,
           service: 0,
@@ -205,7 +205,7 @@ export const baggageData = {
         indices: [1, 1, 1],
         price: {
           currency: "EUR",
-          amount: 30,
+          amount: 30.33,
           base: 0,
           merchant: null,
           service: 0,
@@ -235,7 +235,7 @@ export const baggageData = {
         indices: [0],
         price: {
           currency: "EUR",
-          amount: 10,
+          amount: 10.11,
           base: 0,
           merchant: null,
           service: 0,
@@ -249,7 +249,7 @@ export const baggageData = {
         indices: [1],
         price: {
           currency: "EUR",
-          amount: 20,
+          amount: 20.22,
           base: 0,
           merchant: null,
           service: 0,
@@ -263,7 +263,7 @@ export const baggageData = {
         indices: [2],
         price: {
           currency: "EUR",
-          amount: 30,
+          amount: 30.33,
           base: 0,
           merchant: null,
           service: 0,
@@ -277,7 +277,7 @@ export const baggageData = {
         indices: [1, 1, 2],
         price: {
           currency: "EUR",
-          amount: 70,
+          amount: 70.77,
           base: 0,
           merchant: null,
           service: 0,
@@ -291,7 +291,7 @@ export const baggageData = {
         indices: [1, 1, 2, 2],
         price: {
           currency: "EUR",
-          amount: 100,
+          amount: 101.1,
           base: 0,
           merchant: null,
           service: 0,

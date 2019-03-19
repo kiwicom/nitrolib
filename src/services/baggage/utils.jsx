@@ -4,6 +4,7 @@ import BaggageChecked from "@kiwicom/orbit-components/lib/icons/BaggageChecked";
 import BaggagePersonalItem from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItem";
 import BaggageCabin from "@kiwicom/orbit-components/lib/icons/BaggageCabin";
 import R from "ramda";
+import { Decimal } from "decimal.js";
 
 import type {
   BaggageType,
@@ -15,7 +16,7 @@ import type {
   HandBagDefinition,
   HoldBagDefinition,
   OptionBaggage,
-} from "../../../records/Baggage";
+} from "../../records/Baggage";
 import Translate from "../../components/Translate/index";
 
 type IconSize = "small" | "medium" | "large";
@@ -72,14 +73,16 @@ type SummaryPriceArgs = {
 export const getTotalPrice = ({ combinationIndices, combinations }: SummaryPriceArgs): number => {
   const { handBag, holdBag } = combinations;
   const holdBagsTotalPrice = combinationIndices.holdBag.reduce(
-    (acc, index) => acc + holdBag[index].price.amount,
+    (acc, index) => new Decimal(holdBag[index].price.amount).plus(acc),
     0,
   );
   const handBagsTotalPrice = combinationIndices.handBag.reduce(
-    (acc, index) => acc + handBag[index].price.amount,
+    (acc, index) => new Decimal(handBag[index].price.amount).plus(acc),
     0,
   );
-  return holdBagsTotalPrice + handBagsTotalPrice;
+  const sum = new Decimal(holdBagsTotalPrice).plus(handBagsTotalPrice).toFixed();
+
+  return new Decimal(sum).toNumber();
 };
 
 export const getOptionItems = (
@@ -118,8 +121,9 @@ export const getOptions = (args: GetOptionsArgsType): Array<OptionBaggage> => {
     baggage: { combinations, definitions },
   } = args;
   const bagDefinitions = definitions[pickerType];
+  const combinationsCopy = R.clone([combinations])[0];
 
-  const indexedCombinations: Array<{ ...Combination, originalIndex: number }> = combinations[
+  const indexedCombinations: Array<{ ...Combination, originalIndex: number }> = combinationsCopy[
     pickerType
   ]
     .map((item, index) => ({ ...item, originalIndex: index }))
@@ -136,9 +140,18 @@ export const getOptions = (args: GetOptionsArgsType): Array<OptionBaggage> => {
   }));
 
   if (context === "mmb" && typeof currentCombination === "number") {
-    return options.filter(
-      o => o.price.amount >= combinations[pickerType][currentCombination].price.amount,
-    );
+    const currentComb = indexedCombinations.find(c => c.originalIndex === currentCombination);
+    const currentCombinationPrice = currentComb ? currentComb.price.amount : 0;
+    return options
+      .filter(o => o.price.amount >= currentCombinationPrice)
+      .map(option => {
+        const priceAmount = option.price.amount;
+        const copyOption = R.clone([option])[0];
+        copyOption.price.amount = new Decimal(priceAmount)
+          .minus(currentCombinationPrice)
+          .toNumber();
+        return copyOption;
+      });
   }
 
   return options;
