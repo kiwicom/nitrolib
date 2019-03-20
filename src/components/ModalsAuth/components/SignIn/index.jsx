@@ -25,7 +25,6 @@ import isEmptish from "../../../../services/utils/isEmptish";
 import IconText from "../../../IconText";
 import Query from "../../../Query";
 import { MODAL_OPEN } from "../../../../consts/events";
-import type { User } from "../../../../records/User";
 
 const ERRORS = {
   "Login failed.": __("account.login_failed"),
