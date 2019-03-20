@@ -9,6 +9,9 @@ const authConsumerUser = {
     firstname: "Ellie",
     lastname: "Palo",
     affiliateId: "lanthi",
+    balanceDiscount: 0,
+    cardDiscount: 0,
+    balances: [],
   },
   type: "user",
   token:

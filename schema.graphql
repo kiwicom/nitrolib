@@ -1,5 +1,5 @@
 # source: https://graphql.kiwi.com
-# timestamp: Sat Feb 02 2019 22:21:37 GMT+0100 (CET)
+# timestamp: Wed Mar 20 2019 19:26:46 GMT+0100 (CET)
 
 schema {
   query: RootQuery
@@ -18,14 +18,6 @@ type Address {
   street: String
   city: String
   zip: String
-}
-
-"""AirHelp+ offer as a booking ancillary"""
-type AirHelpPlusOffer {
-  isPossible: Boolean
-
-  """Price per passenger"""
-  pricePerPerson: Price
 }
 
 type Airline {
@@ -66,7 +58,12 @@ type AllAvailableStay22Hotel implements AllHotelsInterface {
   """
   Total price for all guests and nights and in the hotel. (including VAT)
   """
-  price: Price
+  price: Price @deprecated(reason: "Use money type instead")
+
+  """
+  Total price for all guests and nights and in the hotel. (including VAT)
+  """
+  money: Money
   rating: HotelRating
 
   """Hotel distance from the center in Km."""
@@ -128,7 +125,12 @@ type AllHotelAvailabilityHotel implements AllHotelsInterface {
   """
   Total price for all guests and nights and in the hotel. (including VAT)
   """
-  price: Price
+  price: Price @deprecated(reason: "Use money type instead")
+
+  """
+  Total price for all guests and nights and in the hotel. (including VAT)
+  """
+  money: Money
   rating: HotelRating
 
   """Hotel distance from the center in Km."""
@@ -167,11 +169,17 @@ type AllHotelAvailabilityHotelEdge {
 }
 
 interface AllHotelsInterface {
-  id: ID!
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
   name: String
   address: Address
   review: HotelReview
   price: Price
+  money: Money
   rating: HotelRating
   distanceFromCenter: Float
   mainPhoto: HotelPhoto
@@ -188,6 +196,90 @@ type AllowedBaggage {
 
   """Baggage checked online."""
   checked: [Baggage]
+}
+
+input Ancillaries3rdCarrier {
+  operational: Ancillaries3rdOperational
+}
+
+input Ancillaries3rdItinerary {
+  """Segment code"""
+  segment_code: String
+
+  """
+  Arrival time of the segment, its in timestamp format "1550042100"
+  """
+  arrival: Int
+
+  """Destination of a segment ex. "TXL", "MAD" etc."""
+  destinationCode: String
+
+  """
+  Departure time of the segment, its in timestamp format "1550042100"
+  """
+  departure: Int
+
+  """
+  Source of a segment "TXL", "MAD"
+  """
+  sourceCode: String
+
+  """Carrier of a particular segment"""
+  carrier: Ancillaries3rdCarrier
+  carrier_segment_code: String
+  vehicle: Ancillaries3rdVehicle
+}
+
+"""Ancillaries3rd offers for the booking"""
+type Ancillaries3rdOffers {
+  name: String
+  service: String
+  type: Int
+  data: Ancillaries3rdOffersData
+}
+
+"""A connection to a list of items."""
+type Ancillaries3rdOffersConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [Ancillaries3rdOffersEdge]
+}
+
+type Ancillaries3rdOffersData {
+  is_applicable: Boolean
+  price_info: Ancillaries3rdOffersPriceInfo
+}
+
+"""An edge in a connection."""
+type Ancillaries3rdOffersEdge {
+  """The item at the end of the edge"""
+  node: Ancillaries3rdOffers
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type Ancillaries3rdOffersPriceInfo {
+  base_price: Float
+  service_fee: Float
+  currency: String
+}
+
+input Ancillaries3rdOperational {
+  """Carrier segment code"""
+  code: String
+}
+
+input Ancillaries3rdServices {
+  """Name of the requested ancillary"""
+  service: AvailableServicesEnums
+}
+
+input Ancillaries3rdVehicle {
+  """Segment vehicle type"""
+  type: String
 }
 
 input AreaInput {
@@ -228,6 +320,15 @@ input AvailableHotelSearchInput {
   checkout: Date!
   roomsConfiguration: [RoomsConfiguration!]!
   language: Language
+}
+
+enum AvailableServicesEnums {
+  airhelp_plus
+  blueribbon_bags
+  fast_track
+  paid_checkin
+  cover_more
+  axa
 }
 
 type Baggage {
@@ -435,6 +536,24 @@ enum BookingDestinationImageDimensions {
   _600x330
   _600x600
   _610x251
+}
+
+type BookingIdentity {
+  affiliateId: String
+
+  """Discounts for booking payments in % from base price."""
+  discounts: BookingIdentityDiscounts
+
+  """Current balance of Kiwi.com credits by currency."""
+  balances: [Money]
+}
+
+type BookingIdentityDiscounts {
+  """Discount in % from base price when using Kiwi.com credits."""
+  credits: Int
+
+  """Discount in % from base price when using card."""
+  card: Int
 }
 
 interface BookingInterface {
@@ -1091,6 +1210,26 @@ type CustomerSupportNumber {
   supportedLanguages: [SupportedLanguage]
 }
 
+interface DangerZone_Error {
+  message: String
+}
+
+interface DangerZone_HTTPError {
+  message: String
+  statusCode: Int
+}
+
+type DangerZone_HTTPErrorType implements DangerZone_Error & DangerZone_HTTPError {
+  message: String
+  statusCode: Int
+}
+
+union DangerZone_Locations = LocationConnection | DangerZone_HTTPErrorType
+
+type DangerZone_RootQuery {
+  allLocations(after: String, first: Int, before: String, last: Int, forceFail: Boolean): DangerZone_Locations
+}
+
 """
 A date string, such as 2007-12-03, compliant with the `full-date` format
 outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for
@@ -1287,6 +1426,34 @@ type EnterDetailsTimelineEvent implements TimelineEvent {
   timestamp: DateTime
 }
 
+"""How extra charges are calculated"""
+enum ExtraChargeMode {
+  PER_STAY
+  PER_PERSON_PER_STAY
+  PER_NIGHT
+  PER_PERSON_PER_NIGHT
+  PERCENTAGE
+  VARIABLE
+}
+
+"""Breakdown of extra charges"""
+type ExtraCharges {
+  type: String
+  name: String
+  price: Price @deprecated(reason: "Use chargeAmount and chargePriceMode to calculate price instead, note that this value most likely will be wrong")
+  chargePriceMode: ExtraChargeMode
+
+  """Amount used to calculate charge, depending on chargePriceMode"""
+  chargeAmount: String
+
+  """
+  The amount of the charge, it could be 0, and would then need to be calculated
+  """
+  amount: String
+  excluded: Boolean
+  currency: String
+}
+
 type FAQArticle {
   """
   The globally unique ID of an object. You can unmask this ID to get original
@@ -1357,24 +1524,6 @@ type FAQCategory {
 
   """List of FAQ articles"""
   FAQs: [FAQArticle]
-}
-
-"""A connection to a list of items."""
-type FAQCategoryConnection {
-  """Information to aid in pagination."""
-  pageInfo: PageInfo!
-
-  """A list of edges."""
-  edges: [FAQCategoryEdge]
-}
-
-"""An edge in a connection."""
-type FAQCategoryEdge {
-  """The item at the end of the edge"""
-  node: FAQCategory
-
-  """A cursor for use in pagination"""
-  cursor: String!
 }
 
 enum FAQCommentType {
@@ -1456,10 +1605,10 @@ input FlightsOptionsInput {
 
 input FlightsSearchInput {
   """From where you want to fly?"""
-  from: [LocationInput!]!
+  from: [LocationRadiusInput!]!
 
   """To where you want to fly?"""
-  to: [LocationInput!]!
+  to: [LocationRadiusInput!]!
 
   """When do you want to leave?"""
   date: DateInput!
@@ -1475,6 +1624,11 @@ type GeoIP {
 
   """Coordinates"""
   coordinates: Coordinates
+}
+
+input HolidaysLocationInput {
+  """Legacy ID used in Holidays Locations REST API"""
+  locationId: String
 }
 
 """General information about the hotel."""
@@ -1587,7 +1741,12 @@ type HotelAvailability implements HotelAvailabilityInterface {
   """
   Total price for all guests and nights and in the hotel. (including VAT)
   """
-  price: Price
+  price: Price @deprecated(reason: "Use total field instead")
+
+  """
+  Total price for all guests and nights and in the hotel. (including VAT)
+  """
+  total: Money
   availableRooms: [HotelRoomAvailability]
   hotel: Hotel
 }
@@ -1617,6 +1776,7 @@ type HotelAvailabilityEdge {
 interface HotelAvailabilityInterface {
   id: ID
   price: Price
+  total: Money
   availableRooms: [HotelRoomAvailabilityInterface]
   hotel: HotelInterface
 }
@@ -1733,7 +1893,12 @@ type HotelFacilityEdge {
 }
 
 interface HotelInterface {
-  id: ID!
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
   name: String
   address: Address
   review: HotelReview
@@ -1779,6 +1944,13 @@ type HotelPhotoEdge {
 
   """A cursor for use in pagination"""
   cursor: String!
+}
+
+"""Price with extra charges, included and excluded"""
+type HotelPrice {
+  price: Price @deprecated(reason: "Use money type instead")
+  total: Money
+  extraCharges: [ExtraCharges]
 }
 
 type HotelRating {
@@ -1839,8 +2011,17 @@ type HotelRoomAvailability implements HotelRoomAvailabilityInterface {
   isBreakfastIncluded: Boolean
 
   """Base price for the room in this configuration."""
-  minimalPrice: Price
-  incrementalPrice: [Price]
+  minimalPrice: Price @deprecated(reason: "Use money instead")
+
+  """Base price for the room in this configuration."""
+  minimalCost: Money
+  incrementalPrice: [Price] @deprecated(reason: "Use incrementalPriceWithExtraCharges instead")
+
+  """Includes room price with extra charges like VAT and city tax"""
+  incrementalPriceWithExtraCharges: [HotelPrice]
+
+  """The amount of available rooms for this type"""
+  availableRoomsCount: Int
 
   """Original block ID used to open Booking.com page."""
   originalId: String @deprecated(reason: "Use \"id\" field whenever possible.")
@@ -1848,12 +2029,20 @@ type HotelRoomAvailability implements HotelRoomAvailabilityInterface {
 }
 
 interface HotelRoomAvailabilityInterface {
-  id: ID!
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
   isRefundable: Boolean
   isBreakfastIncluded: Boolean
   minimalPrice: Price
+  minimalCost: Money
   incrementalPrice: [Price]
+  incrementalPriceWithExtraCharges: [HotelPrice]
   room: HotelRoomInterface
+  availableRoomsCount: Int
 }
 
 type HotelRoomBedding {
@@ -1885,7 +2074,12 @@ type HotelRoomEdge {
 }
 
 interface HotelRoomInterface {
-  id: ID!
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
   description: HotelRoomDescription
   roomPhotos: [HotelPhoto]
   maxPersons: Int
@@ -2251,6 +2445,14 @@ type LocationEdge {
 }
 
 input LocationInput {
+  """Legacy ID used in Locations REST API"""
+  locationId: String
+
+  """Location identification used in URL for SEO reasons"""
+  slug: String
+}
+
+input LocationRadiusInput {
   location: String
   radius: RadiusInput
 }
@@ -2290,6 +2492,18 @@ type LoungeService {
 type LoungeServiceRelevantAirports {
   whitelabelURL: String
   location: Location
+}
+
+type Money {
+  """
+  Amount is a string type because it's not recommended to work with floats in
+  your application when working with money. This little change suggest that you
+  should use something like [decimal.js](https://github.com/MikeMcl/decimal.js/) for example.
+  """
+  amount: String
+
+  """An ISO-4217 currency code."""
+  currencyId: String
 }
 
 scalar MonthNumber
@@ -2407,6 +2621,9 @@ type Pkpass {
   passenger: Passenger
 }
 
+"""
+Deprecated -> use Money instead, because you should not use floats for currencies
+"""
 type Price {
   amount: Float
 
@@ -2515,9 +2732,6 @@ type RootMutation {
 
 """Root Query"""
 type RootQuery {
-  """AirHelp+ offer that can be purchased with booking"""
-  airHelpPlusOffer: AirHelpPlusOffer
-
   """
   Search for all available hotels in one location. It's necessary to send
   checkin and checkout dates as well as rooms configuration to get availability info.
@@ -2551,18 +2765,6 @@ type RootQuery {
     before: String
     last: Int
   ): DynamicPackageConnection
-
-  """
-  DEPRECATED - use "FAQSection" query instead.Retrieve list of FAQ categories.
-  """
-  allFAQCategories(
-    """Fetch only subsection of FAQ based on customer's booking status."""
-    section: FAQSection
-    after: String
-    first: Int
-    before: String
-    last: Int
-  ): FAQCategoryConnection
 
   """Search for Frequently Asked Questions"""
   allFAQs(
@@ -2611,6 +2813,11 @@ type RootQuery {
     before: String
     last: Int
   ): LocationConnection
+
+  """
+  Ancillaries are additional services that can be purchased with a Booking
+  """
+  ancillaries3rdOffers(ancillaries: [Ancillaries3rdServices]!, passengers: Int!, itinerary: [Ancillaries3rdItinerary]!, after: String, first: Int, before: String, last: Int): Ancillaries3rdOffersConnection
 
   """
   Search for single available hotel by its ID. It's necessary to send checkin
@@ -2713,8 +2920,8 @@ type RootQuery {
   """Url where user will be redirected for payment"""
   hotelPaymentUrls(hotelId: ID, roomConfig: [RoomConfigInput]): HotelPaymentUrls
 
-  """Single location by ID."""
-  location(id: ID!): Location
+  """Single location by various inputs."""
+  location(input: LocationInput): Location
 
   """
   Find most relevant booking relative to current time. That is a booking with
@@ -2750,6 +2957,25 @@ type RootQuery {
 
   """Single hotel by ID."""
   stay22HotelDetail(id: ID!, guests: Int!, checkin: Date!, checkout: Date!, currency: Currency = EUR): Stay22HotelDetail
+
+  """
+  Everything in this danger zone can be changed or completely removed without
+  any warning. Do not use in production - only for testing.
+  """
+  dangerZone: DangerZone_RootQuery! @deprecated(reason: "Only for testing.")
+
+  """Search for holidays locations by name"""
+  holidaysLocations(
+    """Search locations by name."""
+    search: String!
+    after: String
+    first: Int
+    before: String
+    last: Int
+  ): LocationConnection
+
+  """Single Holidays location by legacy ID."""
+  holidaysLocation(input: HolidaysLocationInput): Location
 }
 
 type RouteStop {
@@ -2822,7 +3048,12 @@ type Stay22HotelDetail implements HotelAvailabilityInterface {
   """
   Total price for all guests and nights and in the hotel. (including VAT)
   """
-  price: Price
+  price: Price @deprecated(reason: "Use total field instead")
+
+  """
+  Total price for all guests and nights and in the hotel. (including VAT)
+  """
+  total: Money
   hotel: Stay22Hotel
   availableRooms: [Stay22HotelRoomAvailability]
   paymentLink: String
@@ -2856,8 +3087,17 @@ type Stay22HotelRoomAvailability implements HotelRoomAvailabilityInterface {
   isBreakfastIncluded: Boolean
 
   """Base price for the room in this configuration."""
-  minimalPrice: Price
-  incrementalPrice: [Price]
+  minimalPrice: Price @deprecated(reason: "Use money instead")
+
+  """Base price for the room in this configuration."""
+  minimalCost: Money
+  incrementalPrice: [Price] @deprecated(reason: "Use incrementalPriceWithExtraCharges instead")
+
+  """Includes room price with extra charges like VAT and city tax"""
+  incrementalPriceWithExtraCharges: [HotelPrice]
+
+  """The amount of available rooms for this type"""
+  availableRoomsCount: Int
   room: Stay22HotelRoom
 }
 
@@ -2943,6 +3183,11 @@ type User {
   token: String
   isLoggedIn: Boolean
   identity: Identity
+
+  """
+  User settings & credit balances related to making bookings on Kiwi.com.
+  """
+  bookingIdentity: BookingIdentity
 }
 
 type Vehicle {

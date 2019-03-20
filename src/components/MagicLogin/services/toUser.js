@@ -10,7 +10,17 @@ type RelayInput = {|
     +firstName: ?string,
     +lastName: ?string,
     +emailVerified: ?boolean,
+  |},
+  +bookingIdentity: ?{|
     +affiliateId: ?string,
+    +discounts: ?{|
+      +credits: ?number,
+      +card: ?number,
+    |},
+    +balances: ?$ReadOnlyArray<?{|
+      +amount: ?string,
+      +currencyId: ?string,
+    |}>,
   |},
 |};
 
@@ -23,7 +33,13 @@ const toUser = (user: RelayInput): AuthUser => ({
     verified: user.identity?.emailVerified || false,
     firstname: user.identity?.firstName || "",
     lastname: user.identity?.lastName || "",
-    affiliateId: user.identity?.affiliateId || "",
+    affiliateId: user.bookingIdentity?.affiliateId || "",
+    cardDiscount: user.bookingIdentity?.discounts?.card || 0,
+    balanceDiscount: user.bookingIdentity?.discounts?.credits || 0,
+    balances: (user.bookingIdentity?.balances || []).filter(Boolean).map(balance => ({
+      amount: balance.amount || "0",
+      currency: balance.currencyId || "EUR",
+    })),
   },
 });
 

@@ -20,6 +20,17 @@ const checkEmail = graphql`
           lastName
           emailVerified
         }
+        bookingIdentity {
+          discounts {
+            card
+            credits
+          }
+          affiliateId
+          balances {
+            amount
+            currencyId
+          }
+        }
       }
     }
   }

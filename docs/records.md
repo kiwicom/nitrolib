@@ -1334,6 +1334,11 @@ import type { User } from "@kiwicom/nitro/lib/records/User";
 
 **Types:**
 ```js
+type Balance = {|
+  amount: string,
+  currency: string,
+|};
+
 export type User = {|
   id: string,
   email: string,
@@ -1342,9 +1347,9 @@ export type User = {|
   lastname: string,
   // apiToken: string,
   affiliateId: string,
-  // cardDiscount: number,
-  // balanceDiscount: number,
-  // balances: Array<{ amount: number, currency: string }>, ???
+  cardDiscount: number,
+  balanceDiscount: number,
+  balances: Balance[],
 |};
 
 declare export var userDefault: User | null;
