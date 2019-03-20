@@ -16,7 +16,7 @@ import Translate from "../../../Translate";
 type Props = {|
   amount: number,
   restrictions: Restrictions,
-  firstItem: boolean,
+  isFirstItem: boolean,
   price: PriceType,
   category: BaggageSubCategory,
   isCurrentCombination: boolean,
@@ -24,24 +24,6 @@ type Props = {|
 
 type BaggageSizeTextProps = ThemeProps & {
   isMobile: boolean,
-};
-
-const BaggageSizeText = styled.p`
-  display: ${({ isMobile }: BaggageSizeTextProps) => (isMobile ? "block" : "none")};
-  color: ${({ theme }): ThemeProps => theme.orbit.colorTextSecondary};
-  font-size: ${({ theme, isMobile }: BaggageSizeTextProps) =>
-    isMobile ? theme.orbit.fontSizeTextSmall : theme.orbit.fontSizeTextNormal};
-  font-family: ${({ theme }): ThemeProps => theme.orbit.fontFamily};
-  margin: 0;
-
-  ${mq.largeMobile(css`
-    display: ${({ isMobile }: BaggageSizeTextProps) => (isMobile ? "none" : "block")};
-  `)};
-`;
-
-BaggageSizeText.defaultProps = {
-  theme: themeDefault,
-  isMobile: false,
 };
 
 const TitleWrapper = styled.div`
@@ -63,6 +45,28 @@ TitleWrapper.defaultProps = {
   theme: themeDefault,
 };
 
+const IconWrapper = styled.div`
+  padding-bottom: 4px;
+`;
+
+const BaggageSizeText = styled.p`
+  display: ${({ isMobile }: BaggageSizeTextProps) => (isMobile ? "block" : "none")};
+  color: ${({ theme }): ThemeProps => theme.orbit.colorTextSecondary};
+  font-size: ${({ theme, isMobile }: BaggageSizeTextProps) =>
+    isMobile ? theme.orbit.fontSizeTextSmall : theme.orbit.fontSizeTextNormal};
+  font-family: ${({ theme }): ThemeProps => theme.orbit.fontFamily};
+  margin: 0;
+
+  ${mq.largeMobile(css`
+    display: ${({ isMobile }: BaggageSizeTextProps) => (isMobile ? "none" : "block")};
+  `)};
+`;
+
+BaggageSizeText.defaultProps = {
+  theme: themeDefault,
+  isMobile: false,
+};
+
 const Title = styled.span`
   line-height: 24px;
 `;
@@ -71,14 +75,16 @@ const BaggageInfoWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 50%;
+  line-height: 24px;
   ${mq.largeMobile(css`
     width: 100%;
     justify-content: space-between;
+    align-items: center;
   `)};
 `;
 
 const OptionItem = ({
-  firstItem,
+  isFirstItem,
   amount,
   restrictions,
   category,
@@ -87,7 +93,6 @@ const OptionItem = ({
 }: Props) => {
   const getBaggageSize = ({ height, length, weight, width }) =>
     `${length} x ${width} x ${height} cm, ${weight} kg`;
-  const isHoldBag = category === "holdBag";
 
   const getFirstItemInfo = (isCurrent, priceValue) =>
     isCurrent ? (
@@ -100,9 +105,9 @@ const OptionItem = ({
       </Text>
     );
   return (
-    <Stack shrink align="center" dataTest={`BaggagePicker-OptionItem-${category}`}>
+    <Stack shrink align="start" dataTest={`BaggagePicker-OptionItem-${category}`}>
       <Stack shrink spacing="condensed">
-        {getIconFromCategory(category, "medium", "primary")}
+        <IconWrapper>{getIconFromCategory(category, "medium", "primary")}</IconWrapper>
         <TitleWrapper>
           <Text>
             <Title>
@@ -111,7 +116,7 @@ const OptionItem = ({
                   {`${amount}× `}
                 </Text>
               )}
-              {isHoldBag && `${restrictions.weight}kg`}{" "}
+              {category === "holdBag" && `${restrictions.weight}kg`}{" "}
               {getTextFromCategory(category, x => x.toLowerCase())}
             </Title>
           </Text>
@@ -120,7 +125,7 @@ const OptionItem = ({
       </Stack>
       <BaggageInfoWrapper>
         <BaggageSizeText>{getBaggageSize(restrictions)}</BaggageSizeText>
-        {firstItem && getFirstItemInfo(isCurrentCombination, price.amount)}
+        {isFirstItem && getFirstItemInfo(isCurrentCombination, price.amount)}
       </BaggageInfoWrapper>
     </Stack>
   );

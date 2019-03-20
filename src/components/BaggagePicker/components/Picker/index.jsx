@@ -77,13 +77,12 @@ class BaggagePicker extends React.Component<Props, State> {
 
   componentDidUpdate(prevProps: Props) {
     // eslint-disable-next-line
-    if (this.props.options !== prevProps.options) {
+    if (!R.equals(this.props.options, prevProps.options)) {
       this.handleDefaultStateValues(this.props);
     }
   }
 
-  handleDefaultStateValues = (props: Props) => {
-    const { options } = props;
+  handleDefaultStateValues = ({ options }: Props) => {
     if (options.length > 4) {
       const showedOptionsItems = options.slice(0, 3);
       const hiddenOptionsItems = options.length - showedOptionsItems.length;
@@ -122,9 +121,6 @@ class BaggagePicker extends React.Component<Props, State> {
       <Translate t="baggage_modal.error.checked_baggage_not_available" />
     );
 
-  handleOptionClick = (pickerType: BaggageCategory, originalIndex: number) =>
-    this.props.onChange(pickerType, originalIndex); // eslint-disable-line
-
   // get info about presence of personal item in all options
   // to validate if "no personal item" should be showed
   getPersonalItemPresence = (): boolean => {
@@ -139,10 +135,16 @@ class BaggagePicker extends React.Component<Props, State> {
   };
 
   render() {
-    const { context, pickerType, options, selectedIndex, currentCombination } = this.props;
+    const {
+      context,
+      pickerType,
+      options,
+      selectedIndex,
+      currentCombination,
+      onChange,
+    } = this.props;
     const hasOnlyEmptyOption = options.length === 1 && R.isEmpty(options[0].items);
     const { showedOptions, hiddenOptions } = this.state;
-    const isPersonalItemPresent = this.getPersonalItemPresence();
 
     return (
       <Stack spacing="condensed" spaceAfter="largest" dataTest={`BaggagePicker-${pickerType}`}>
@@ -174,8 +176,8 @@ class BaggagePicker extends React.Component<Props, State> {
               price={item.price}
               isChecked={item.originalIndex === selectedIndex}
               isCurrentCombination={item.originalIndex === currentCombination}
-              onClick={() => this.handleOptionClick(pickerType, item.originalIndex)}
-              isPersonalItemPresent={isPersonalItemPresent}
+              onClick={() => onChange(pickerType, item.originalIndex)}
+              isPersonalItemPresent={this.getPersonalItemPresence()}
             />
           ))
         ) : (

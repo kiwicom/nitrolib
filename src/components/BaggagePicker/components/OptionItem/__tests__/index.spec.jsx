@@ -13,7 +13,7 @@ const props = {
     weight: 25,
     width: 26,
   },
-  firstItem: true,
+  isFirstItem: true,
   price: {
     amount: 10,
     currency: "EUR",

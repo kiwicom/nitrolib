@@ -1,6 +1,6 @@
 // @flow
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import R from "ramda";
 import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
 import PriorityBoarding from "@kiwicom/orbit-components/lib/icons/PriorityBoarding";
@@ -10,6 +10,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Radio from "@kiwicom/orbit-components/lib/Radio";
 import Close from "@kiwicom/orbit-components/lib/icons/Close";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import Translate from "../../../Translate/index";
 import OptionItem from "../OptionItem/index";
@@ -77,8 +78,13 @@ const RadioWrapper = styled.div`
 
 const IconWrapper = styled.div`
   border-top: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorInput};
-  width: 22px;
+  min-width: 24px;
   text-align: center;
+  padding: 6px 0px;
+
+  ${mq.largeMobile(css`
+    padding: 4px 0px;
+  `)};
 `;
 
 IconWrapper.defaultProps = {
@@ -168,8 +174,8 @@ const Option = ({
   pickerType,
   isPersonalItemPresent,
 }: Props) => {
-  const itemsArr = Object.keys(items).map(key => items[key]);
-  const firstItem = itemsArr[0];
+  const itemsArr = R.values(items);
+  const firstItem = R.head(itemsArr);
 
   const getAirlinesWithPriorityBoarding = itemsArray => {
     const airlines = itemsArray.reduce((acc, item) => {
@@ -184,8 +190,7 @@ const Option = ({
   return (
     <Consumer>
       {({ airlines, shouldShowRecheckNote, prioBoardingLinkHandler }) => {
-        const priorityAirlinesKeys = getAirlinesWithPriorityBoarding(itemsArr);
-        const priorityAirlines = priorityAirlinesKeys
+        const priorityAirlines = getAirlinesWithPriorityBoarding(itemsArr)
           .map((key: string) => airlines?.[key])
           .filter(Boolean);
 
@@ -203,7 +208,7 @@ const Option = ({
                       amount={item.amount}
                       restrictions={item.restrictions}
                       category={item.category}
-                      firstItem={item === itemsArr[0]}
+                      isFirstItem={index === 0}
                       price={price}
                       isCurrentCombination={isCurrentCombination}
                     />
@@ -211,7 +216,7 @@ const Option = ({
                 ) : (
                   <EmptyLabel pickerType={pickerType} isCurrentCombination={isCurrentCombination} />
                 )}
-                {firstItem && firstItem.category === "cabinBag" && isPersonalItemPresent && (
+                {firstItem?.category === "cabinBag" && isPersonalItemPresent && (
                   <Stack
                     flex
                     align="center"
@@ -232,7 +237,7 @@ const Option = ({
                 )}
               </Stack>
             </Stack>
-            {shouldShowRecheckNote && firstItem && firstItem.category === "holdBag" && isChecked && (
+            {shouldShowRecheckNote && firstItem?.category === "holdBag" && isChecked && (
               <Alert dataTest="BaggagePicker-RecheckAlert">
                 <Translate t="baggage_modal.alert.collect_and_recheck" />
               </Alert>
