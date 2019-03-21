@@ -3,22 +3,20 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import R from "ramda";
 import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
-import PriorityBoarding from "@kiwicom/orbit-components/lib/icons/PriorityBoarding";
-import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Radio from "@kiwicom/orbit-components/lib/Radio";
-import Close from "@kiwicom/orbit-components/lib/icons/Close";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
+import PriorityBoardingInfo from "./components/PriorityBoardingInfo";
+import EmptyLabel from "./components/EmptyLabel";
 import Translate from "../../../Translate/index";
 import OptionItem from "../OptionItem/index";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import type { ItemType, BaggageCategory } from "../../../../records/Baggage";
 import type { PriceType } from "../../../../records/Price";
-import type { Airline } from "../../../../records/Airline";
 import { Consumer } from "../../services/context";
 
 type Props = {
@@ -90,79 +88,6 @@ const IconWrapper = styled.div`
 IconWrapper.defaultProps = {
   theme: themeDefault,
 };
-
-const PriorityBoardingInfo = ({
-  airlines,
-  prioBoardingLinkHandler,
-}: {
-  airlines: Array<Airline>,
-  prioBoardingLinkHandler?: (Array<Airline>) => void,
-}) => {
-  const handleClick = e => {
-    if (prioBoardingLinkHandler) {
-      prioBoardingLinkHandler(airlines);
-      e.stopPropagation();
-    }
-  };
-  return (
-    <Stack
-      flex
-      direction="row"
-      spacing="condensed"
-      align="center"
-      dataTest="BaggagePicker-PriorityBoardingInfo"
-    >
-      <IconWrapper>
-        <PriorityBoarding color="secondary" size="small" />
-      </IconWrapper>
-      <Text size="small" element="p">
-        <Translate
-          t="baggage_modal.priority_boarding"
-          values={{ airlines: airlines.map(a => a.name).join(", ") }}
-        />{" "}
-        <TextLink external={false} onClick={handleClick} type="secondary">
-          <Translate t="baggage_modal.learn_more" />
-        </TextLink>
-      </Text>
-    </Stack>
-  );
-};
-
-const EmptyLabel = ({
-  pickerType,
-  isCurrentCombination,
-}: {
-  pickerType: BaggageCategory,
-  isCurrentCombination: boolean,
-}) => (
-  <Stack
-    spacing="condensed"
-    flex
-    align="center"
-    justify="between"
-    dataTest="BaggagePicker-EmptyLabel"
-  >
-    <Stack flex align="center" inline>
-      <Close size="medium" />
-      <Text>
-        <Translate
-          t={
-            pickerType === "handBag"
-              ? "baggage_modal.select.no_cabin_baggage"
-              : "baggage_modal.select.no_checked_baggage"
-          }
-        />
-      </Text>
-    </Stack>
-    {isCurrentCombination && (
-      <Stack flex align="center" justify="end" inline>
-        <Text element="p" weight="bold" type="secondary">
-          <Translate t="baggage_modal.select.current" />
-        </Text>
-      </Stack>
-    )}
-  </Stack>
-);
 
 const Option = ({
   items,
