@@ -102,7 +102,7 @@ const AccountLogin = ({
               </form>
             </ModalSection>
             {!disableSocialLogin && (
-              <ModalSection suppressed>
+              <ModalSection suppressed dataTest="LoginViaSocials">
                 <Text weight="bold" spaceAfter="medium" t="account.or_social_account" />
                 <Stack spacing="natural" align="end">
                   <Button
