@@ -19,7 +19,9 @@ type Props = {
   orderStatus: ?OrderStatusType,
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.div.attrs({
+  "data-test": "CustomerBaggageTile-Content",
+})`
   padding: 17px 0px 17px 28px;
   > * {
     margin-bottom: ${({ theme }): ThemeProps => theme.orbit.spaceXXXSmall};
@@ -29,7 +31,9 @@ Wrapper.defaultProps = {
   theme: themeDefault,
 };
 
-const ContactUsText = styled.p`
+const ContactUsText = styled.p.attrs({
+  "data-test": "CustomerBaggageTile-ContactUsText",
+})`
   color: ${({ theme }): ThemeProps => theme.orbit.colorTextPrimary};
   font-size: ${({ theme }) => theme.orbit.fontSizeTextNormal};
   font-weight: ${({ theme }) => theme.orbit.fontWeightMedium};
@@ -58,7 +62,7 @@ NoPersonalItemWrapper.defaultProps = {
   theme: themeDefault,
 };
 
-const TileContent = ({ definitions, orderStatus }: Props) => {
+const Content = ({ definitions, orderStatus }: Props) => {
   const hasPersonalItem = definitions.some(bag => bag.category === "personalItem");
   return (
     <Wrapper>
@@ -89,4 +93,4 @@ const TileContent = ({ definitions, orderStatus }: Props) => {
   );
 };
 
-export default TileContent;
+export default Content;

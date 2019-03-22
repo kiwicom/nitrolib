@@ -5,8 +5,9 @@ exports[`#CustomerBaggageTile renders 1`] = `
   isIconShown={true}
 >
   <Tile
+    dataTest="CustomerBaggageTile"
     description={
-      <TileContent
+      <Content
         definitions={
           Array [
             Object {

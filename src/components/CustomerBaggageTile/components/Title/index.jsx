@@ -5,6 +5,7 @@ import GenderMan from "@kiwicom/orbit-components/lib/icons/GenderMan";
 import GenderWoman from "@kiwicom/orbit-components/lib/icons/GenderWoman";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import Text from "@kiwicom/orbit-components/lib/Text";
 
 import type { Gender, OrderStatusType } from "../../../../records/Baggage";
 import Badge from "./components/Badge";
@@ -19,30 +20,28 @@ type TitleProps = {
   price: ?number,
 };
 
-const TitleWrapper = styled.div`
+const TitleWrapper = styled.div.attrs({
+  "data-test": "CustomerBaggageTile-Title",
+})`
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
+  align-items: flex-start;
 
   ${mq.largeMobile(css`
     flex-direction: row;
     align-items: center;
   `)};
+
   svg {
-    margin-right: 6px;
+    display: "inline";
   }
 
-  div {
-    margin-top: 9px;
+  > span {
     margin-left: 28px;
     ${mq.largeMobile(css`
       margin-left: 10px;
     `)};
   }
-`;
-
-const PassengerName = styled.span`
-  margin-right: 16px;
 `;
 
 const Title = ({
@@ -57,9 +56,9 @@ const Title = ({
   <TitleWrapper>
     <Stack inline align="center" spacing="condensed">
       {gender === "male" ? <GenderMan /> : <GenderWoman />}
-      <PassengerName>{`${firstName}
+      <Text element="span" weight="bold" size="large">{`${firstName}
         ${middleName ? `${middleName}` : ""}
-        ${lastName}${dayOfBirth ? ` ${dayOfBirth}` : ""}`}</PassengerName>
+        ${lastName}${dayOfBirth ? ` ${dayOfBirth}` : ""}`}</Text>
     </Stack>
     {orderStatus && <Badge orderStatus={orderStatus} price={price} />}
   </TitleWrapper>

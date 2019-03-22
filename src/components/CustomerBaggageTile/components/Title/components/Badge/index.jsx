@@ -28,8 +28,10 @@ const getBadge = (status: OrderStatusType, price: ?number) => {
   switch (status) {
     case "unpaid":
       return (
-        <Badge type="warning">
-          <Money size="small" />
+        <Badge
+          type="warning"
+          icon={<Money size="small" dataTest={`CustomerBaggageTile-Badge-${status}`} />}
+        >
           <Consumer>
             {({ currency }) =>
               typeof price === "number" && (
@@ -44,15 +46,17 @@ const getBadge = (status: OrderStatusType, price: ?number) => {
       );
     case "processing":
       return (
-        <Badge type="info">
-          <Reload size="small" />
+        <Badge type="info" icon={<Reload />} dataTest={`CustomerBaggageTile-Badge-${status}`}>
           <Translate t="baggage_modal.badge.processing" />
         </Badge>
       );
     case "notAvailable":
       return (
-        <Badge type="dark">
-          <Alert size="small" />
+        <Badge
+          type="dark"
+          icon={<Alert size="small" />}
+          dataTest={`CustomerBaggageTile-Badge-${status}`}
+        >
           <Translate t="baggage_modal.badge.not_available" />
         </Badge>
       );

@@ -8,11 +8,15 @@ exports[`#Title renders 1`] = `
     spacing="condensed"
   >
     <GenderMan />
-    <Title__PassengerName>
+    <Text
+      element="span"
+      size="large"
+      weight="bold"
+    >
       Oliver
         Olix
         Dlouhy
-    </Title__PassengerName>
+    </Text>
   </Stack>
   <TitleBadge
     orderStatus="unpaid"

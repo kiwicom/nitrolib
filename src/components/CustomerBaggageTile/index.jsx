@@ -5,7 +5,7 @@ import R from "ramda";
 import Tile from "@kiwicom/orbit-components/lib/Tile";
 
 import Title from "./components/Title";
-import TileContent from "./components/TileContent";
+import Content from "./components/Content";
 import { getTotalPrice } from "../../services/baggage/utils";
 import type {
   BaggageType,
@@ -16,17 +16,17 @@ import type {
 } from "../../records/Baggage";
 
 const Wrapper = styled.div`
-  svg:last-child {
+  div:last-child > svg {
     display: ${({ isIconShown }: { isIconShown: boolean }) => (isIconShown ? "inline" : "none")};
   }
 `;
 
 type Props = {
   firstName: string,
-  middleName?: string, // what to show? initial or whole middleName?
+  middleName?: string,
   lastName: string,
   gender: Gender,
-  dayOfBirth?: string, // format it with date fns
+  dayOfBirth?: string,
   isProcessing: boolean,
   current?: {
     handBag: number, // index of combination
@@ -134,6 +134,7 @@ const CustomerBaggageTile = ({
   return (
     <Wrapper isIconShown={!!onClick}>
       <Tile
+        dataTest="CustomerBaggageTile"
         onClick={onClick && onClick}
         title={
           <Title
@@ -146,9 +147,7 @@ const CustomerBaggageTile = ({
             dayOfBirth={dayOfBirth}
           />
         }
-        description={
-          <TileContent definitions={[...handBag, ...holdBag]} orderStatus={getStatus()} />
-        }
+        description={<Content definitions={[...handBag, ...holdBag]} orderStatus={getStatus()} />}
       />
     </Wrapper>
   );

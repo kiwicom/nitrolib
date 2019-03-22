@@ -14,11 +14,14 @@ exports[`#Badge renders status not available 1`] = `
   size="small"
 >
   <Badge
+    dataTest="CustomerBaggageTile-Badge-notAvailable"
+    icon={
+      <Alert
+        size="small"
+      />
+    }
     type="dark"
   >
-    <Alert
-      size="small"
-    />
     <Translate
       html={false}
       t="baggage_modal.badge.not_available"
@@ -43,11 +46,10 @@ exports[`#Badge renders status processing 1`] = `
   size="small"
 >
   <Badge
+    dataTest="CustomerBaggageTile-Badge-processing"
+    icon={<Reload />}
     type="info"
   >
-    <Reload
-      size="small"
-    />
     <Translate
       html={false}
       t="baggage_modal.badge.processing"
@@ -72,11 +74,14 @@ exports[`#Badge renders status unpaid 1`] = `
   size="small"
 >
   <Badge
+    icon={
+      <Money
+        dataTest="CustomerBaggageTile-Badge-unpaid"
+        size="small"
+      />
+    }
     type="warning"
   >
-    <Money
-      size="small"
-    />
     <ContextConsumer>
       <Component />
     </ContextConsumer>

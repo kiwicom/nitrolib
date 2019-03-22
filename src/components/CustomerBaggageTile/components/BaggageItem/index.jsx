@@ -44,7 +44,9 @@ BaggageRestrictions.defaultProps = {
   isMobile: false,
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.div.attrs({
+  "data-test": "CustomerBaggageTile-BaggageItem",
+})`
   width: 100%;
   display: flex;
   align-items: center;

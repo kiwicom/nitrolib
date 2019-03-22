@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import TileContent from "../index";
+import Content from "../index";
 
 const props = {
   definitions: [
@@ -52,13 +52,13 @@ const props = {
   orderStatus: "unpaid",
 };
 
-describe("#TileContent", () => {
+describe("#Content", () => {
   test("renders no personal item", () => {
-    const wrapper = shallow(<TileContent {...props} />);
+    const wrapper = shallow(<Content {...props} />);
     expect(wrapper.find("BaggagePersonalItemNone").exists()).toBe(true);
   });
   test("renders contact us text", () => {
-    const wrapper = shallow(<TileContent {...props} orderStatus="notAvailable" />);
-    expect(wrapper.find("TileContent__ContactUsText").exists()).toBe(true);
+    const wrapper = shallow(<Content {...props} orderStatus="notAvailable" />);
+    expect(wrapper.find("Content__ContactUsText").exists()).toBe(true);
   });
 });
