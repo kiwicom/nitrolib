@@ -52,11 +52,12 @@ const Wrapper = styled.div`
 
 type BaggageItemType = TileItem & {
   isCurrent?: boolean,
-  orderStatus: OrderStatusType,
+  orderStatus: ?OrderStatusType,
 };
 
 const BaggageItem = ({ category, restrictions, isCurrent, orderStatus }: BaggageItemType) => {
-  const textWeight = isCurrent || orderStatus === "notAvailable" ? "normal" : "bold";
+  const textWeight =
+    isCurrent || orderStatus === null || orderStatus === "notAvailable" ? "normal" : "bold";
   const getBaggageSize = ({ height, length, weight, width }) =>
     `${length} x ${width} x ${height} cm, ${weight} kg`;
 

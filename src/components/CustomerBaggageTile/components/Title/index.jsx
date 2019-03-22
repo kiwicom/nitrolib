@@ -15,7 +15,7 @@ type TitleProps = {
   lastName: string,
   gender: Gender,
   dayOfBirth?: string,
-  orderStatus: OrderStatusType,
+  orderStatus: ?OrderStatusType,
   price: ?number,
 };
 
@@ -61,7 +61,7 @@ const Title = ({
         ${middleName ? `${middleName}` : ""}
         ${lastName}${dayOfBirth ? ` ${dayOfBirth}` : ""}`}</PassengerName>
     </Stack>
-    <Badge orderStatus={orderStatus} price={price} />
+    {orderStatus && <Badge orderStatus={orderStatus} price={price} />}
   </TitleWrapper>
 );
 

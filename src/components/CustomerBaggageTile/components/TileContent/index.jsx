@@ -16,7 +16,7 @@ import Translate from "../../../Translate/index";
 
 type Props = {
   definitions: Array<HoldBagTileDefinition | HandBagTileDefinition>,
-  orderStatus: OrderStatusType,
+  orderStatus: ?OrderStatusType,
 };
 
 const Wrapper = styled.div`

@@ -88,6 +88,13 @@ storiesOf("CustomerBaggageTile", module)
         onClick={undefined}
         definitions={exampleDefinitions}
       />
+      <CustomerBaggageTile
+        {...props}
+        current={{ handBag: 3, holdBag: 3 }}
+        selected={{ handBag: 3, holdBag: 3 }}
+        onClick={undefined}
+        definitions={exampleDefinitions}
+      />
     </Wrapper>
   ))
   .add("with middle name and DOB", () => (

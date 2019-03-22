@@ -117,6 +117,9 @@ const CustomerBaggageTile = ({
   };
 
   const getStatus = () => {
+    if (current && selected && R.equals(current, selected)) {
+      return null;
+    }
     if (isProcessing) {
       return "processing";
     }
