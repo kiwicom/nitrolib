@@ -1,14 +1,212 @@
-// // @flow strict
+// @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
+
+import { Provider } from "../../../services/starred/context";
+import type { StarredItem } from "../../../records/Starred";
 
 import Starred from "..";
 
-// TODO: write proper test
+const starredList: StarredItem[] = [
+  {
+    id: "kek",
+    form: {
+      origin: "bur",
+      destination: "Mordor",
+      outboundDate: "13-10-2018",
+      inboundDate: "12-10-2018",
+      multicity: "cheburek",
+      filters: null,
+      salesman: "pelmeni",
+      passengers: {
+        adults: 1,
+        infants: 0,
+        children: 0,
+      },
+      cabinClass: "first",
+      lang: "en",
+      places: [
+        {
+          id: "vienna_au",
+          slug: "vienna_au",
+        },
+        {
+          id: "vienna_au",
+          slug: "vienna_au",
+        },
+      ],
+      returnUrl: "url",
+      starType: "star",
+    },
+    lastPrice: 123,
+    itinerary: {
+      id: "itinerary1",
+      price: {
+        amount: "1337",
+        currencyId: "EUR",
+      },
+      provider: {
+        id: "lol",
+        name: "kek",
+        code: "bur",
+      },
+      hasNoCheckedBags: false,
+      sector: {
+        id: "sector1",
+        segments: [
+          {
+            id: "segment1",
+            source: {
+              station: {
+                id: "station1",
+                name: "The Station",
+                code: "stationizer",
+                city: {
+                  id: "vienna",
+                  name: "Vienna",
+                  code: "VIE",
+                  slug: "vienna",
+                },
+                country: {
+                  id: "austria",
+                  name: "Austria",
+                  code: "AU",
+                  slug: "austria",
+                },
+                type: "AIRPORT",
+              },
+              time: new Date(),
+            },
+            destination: {
+              station: {
+                id: "station1",
+                name: "The Station",
+                code: "stationizer",
+                city: {
+                  id: "vienna",
+                  name: "Vienna",
+                  code: "VIE",
+                  slug: "vienna",
+                },
+                country: {
+                  id: "austria",
+                  name: "Austria",
+                  code: "AU",
+                  slug: "austria",
+                },
+                type: "AIRPORT",
+              },
+              time: new Date(),
+            },
+            duration: 1336,
+            type: "FLIGHT",
+            code: "segmentizer",
+            layover: {
+              duration: 1338,
+              isKiwiComGuarantee: true,
+              isStationChange: false,
+              isBaggageRecheck: false,
+            },
+            carrier: {
+              id: "kek",
+              name: "Kekistan",
+              code: "KEK",
+            },
+            operatingCarrier: {
+              id: "kek",
+              name: "Kekistan",
+              code: "KEK",
+            },
+            seatInfo: {
+              pitch: 13,
+              width: 37,
+              recline: 420,
+              hasPower: true,
+              hasAudioVideo: false,
+            },
+            hasWifi: true,
+          },
+        ],
+        duration: 420,
+        stopover: {
+          nightsCount: 0,
+          arrival: {
+            id: "station1",
+            name: "The Station",
+            code: "stationizer",
+            city: {
+              id: "vienna",
+              name: "Vienna",
+              code: "VIE",
+              slug: "vienna",
+            },
+            country: {
+              id: "austria",
+              name: "Austria",
+              code: "AU",
+              slug: "austria",
+            },
+            type: "AIRPORT",
+          },
+          departure: {
+            id: "station1",
+            name: "The Station",
+            code: "stationizer",
+            city: {
+              id: "vienna",
+              name: "Vienna",
+              code: "VIE",
+              slug: "vienna",
+            },
+            country: {
+              id: "austria",
+              name: "Austria",
+              code: "AU",
+              slug: "austria",
+            },
+            type: "AIRPORT",
+          },
+        },
+      },
+      type: "oneWay",
+    },
+    priceUpdatedAt: new Date(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+];
+
+const mountedWrapper = mount(
+  <Provider
+    value={{
+      starredList,
+      ShareDialog: () => [],
+      goToJourneyNitro: () => {},
+      isMobile: false,
+      lang: "en",
+      onAdd: () => {},
+      onClear: () => {},
+      onRemove: () => {},
+      shareUrl: () => " ",
+      setNotice: () => {},
+    }}
+  >
+    <Starred positionMenuDesktop={0} positionMenuTablet={120} inverted={false} />
+  </Provider>,
+);
 
 describe("#Starred", () => {
-  test("render open", () => {
-    const wrapper = shallow(<Starred positionMenuDesktop={0} positionMenuTablet={0} inverted />);
-    expect(wrapper.exists()).toBe(true);
+  test("badge should have 1 trip", () => {
+    expect(mountedWrapper.find("Starred__StarredBadge").text()).toEqual("1");
+  });
+
+  test("should render/open component with itineraries", () => {
+    expect(mountedWrapper.find("TripContainer").exists()).toBe(false);
+    mountedWrapper
+      .find("Button")
+      .first()
+      .simulate("click");
+    mountedWrapper.update();
+    expect(mountedWrapper.find("TripContainer").exists()).toBe(true);
   });
 });

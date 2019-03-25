@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`#DistanceInWords #formatDistance 1`] = `
-<DateFnsLocale
-  getLocale={Promise {}}
->
-  [Function]
-</DateFnsLocale>
-`;

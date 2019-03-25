@@ -3,7 +3,7 @@ import format from "date-fns/format";
 import ja from "date-fns/locale/ja";
 import en from "date-fns/locale/en-US";
 
-import { fixDateFormat, fixTimeFormat } from "../LangInfo";
+import { fixDateFormat, fixTimeFormat, fixDurationFormat } from "../LangInfo";
 
 const formats = [
   { input: "ddd DD.MM.", want: "Mon 01.02." },
@@ -63,6 +63,11 @@ describe("#LangInfo", () => {
   test("fixTimeFormat - 'LT' -> 'HH:mm'", () => {
     const date = "LT";
     expect(fixTimeFormat(date)).toBe("HH:mm");
+  });
+
+  test("fixDurationFormat - 'H[h] mm[m]' -> 'HH:mm'", () => {
+    const date = "H[h] mm[m]";
+    expect(fixDurationFormat(date)).toBe("HH:mm");
   });
 
   formats.forEach(f => {

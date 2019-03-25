@@ -10,7 +10,7 @@ import TimeInWords from "../../../DistanceInWords";
 import Price from "../../../Price";
 import Text from "../../../Text";
 import TranslateNode from "../../../TranslateNode";
-import getTransKey from "../../services/getTransKey";
+import { getTransKey } from "../../../../records/Starred";
 import type { ThemeProps } from "../../../../records/Theme";
 import type { ItineraryDeep } from "../../../../records/Itinerary";
 import type { PassengersCount, CabinClass } from "../../../../records/Starred";
@@ -32,7 +32,7 @@ type Props = {|
   passengerMulty: boolean,
   cabinClass: CabinClass,
   goToJourneyNitro: () => void,
-  onRemove: () => void,
+  onRemove: (e: SyntheticEvent<HTMLDivElement>) => void,
   priceUpdatedAt: ?Date,
   shareUrl: string,
   created: Date,

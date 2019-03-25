@@ -5,13 +5,13 @@ import type { StarredItem, ShareDialog } from "../../records/Starred";
 
 export type Context = {|
   starredList: StarredItem[],
-  onAddStarred: () => void,
+  onAdd: (arg: StarredItem) => void,
   isMobile: boolean,
   lang: string,
   goToJourneyNitro: StarredItem => void,
-  onRemoveStarred: () => void,
+  onRemove: (id: string, e: SyntheticEvent<HTMLDivElement>) => void,
   shareUrl: StarredItem => string,
-  onClearStarred: () => void,
+  onClear: (e: SyntheticEvent<HTMLDivElement>) => void,
   setNotice: () => void,
   ShareDialog: ShareDialog => React.Node,
 |};
@@ -22,9 +22,9 @@ const contextDefault: Context = {
   goToJourneyNitro: () => {},
   isMobile: false,
   lang: "en",
-  onAddStarred: () => {},
-  onRemoveStarred: () => {},
-  onClearStarred: () => {},
+  onAdd: () => {},
+  onRemove: () => {},
+  onClear: () => {},
   ShareDialog: () => [],
   setNotice: () => {},
 };

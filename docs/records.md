@@ -1208,6 +1208,7 @@ declare export var langInfoDefault: LangInfo;
 
 declare export var fixDateFormat: (date: string) => string;
 declare export var fixTimeFormat: (time: string) => string;
+declare export var fixDurationFormat: (time: string) => string;
 ```
 
 _TODO_
@@ -1564,6 +1565,10 @@ export type ShareDialog = {|
   setNotice: boolean,
   onClose: boolean,
 |};
+
+declare export var isMulti: (object: PassengersCount) => boolean;
+declare export var getSum: (object: PassengersCount) => number;
+declare export var getTransKey: (object: PassengersCount) => string;
 ```
 
 See types:

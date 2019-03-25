@@ -5,6 +5,7 @@ import * as locales from "date-fns/locale";
 import addSeconds from "date-fns/addSeconds";
 import differenceInSeconds from "date-fns/differenceInSeconds";
 
+import { fixDurationFormat } from "../../records/LangInfo";
 import { Consumer } from "../../services/intl/context";
 
 type Props = {
@@ -18,7 +19,7 @@ const Duration = ({ from, to, format }: Props) => {
   return (
     <Consumer>
       {intl =>
-        dateFnsFormat(date, format || intl.language.durationFormat, {
+        dateFnsFormat(date, format || fixDurationFormat(intl.language.durationFormat), {
           locale: locales[intl.language.locations] || locales.enUS,
         })
       }

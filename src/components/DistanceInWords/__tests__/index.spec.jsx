@@ -1,17 +1,15 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
-import addHours from "date-fns/addHours";
+import { mount } from "enzyme";
 
 import DistanceInWords from "..";
 
-import { intlDefault } from "../../../records/Intl";
-
 describe("#DistanceInWords", () => {
   test("#formatDistance", () => {
-    const time = addHours(Date.now(), 10);
-    const wrapper = shallow(<DistanceInWords to={time} />);
-
-    expect(wrapper.prop("children")(intlDefault)).toMatchSnapshot();
+    const wrapper = mount(
+      <DistanceInWords from={new Date(2015, 0, 1)} to={new Date(2016, 0, 1)} />,
+    );
+    expect(wrapper).not.toBeUndefined();
+    // TODO separate date fns locale promise and test
   });
 });

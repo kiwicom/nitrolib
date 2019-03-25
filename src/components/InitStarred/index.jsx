@@ -1,60 +1,64 @@
-// @flow
+// @flow strict
 import * as React from "react";
+import * as R from "ramda";
 
 import { load, remove, save } from "../../services/session/storage";
 import type { StarredItem } from "../../records/Starred";
+import { SESSION_ID } from "../../consts/storage";
 
 type State = {|
-  starred: Array<StarredItem>,
+  starred: { [key: string]: StarredItem },
 |};
 
 type Args = {|
-  starredList: Array<StarredItem>,
-  onRemoveStarred: (arg: number, e: SyntheticMouseEvent<HTMLDivElement>) => void,
-  onAddStarred: (arg: StarredItem) => void,
+  starredList: StarredItem[],
+  onRemove: (arg: string, e: SyntheticEvent<HTMLDivElement>) => void,
+  onAdd: (arg: StarredItem) => void,
   lang: string,
-  onClearStarred: (e: SyntheticMouseEvent<HTMLDivElement>) => void,
+  onClear: (e: SyntheticEvent<HTMLDivElement>) => void,
 |};
+
 type Props = {|
   children: (args: Args) => React.Node,
 |};
 
-// TODO: refactor to local storage service
 class StarredProvider extends React.Component<Props, State> {
   state = {
-    starred: load("starred") ? JSON.parse(load("starred")) : [],
+    starred: JSON.parse(JSON.stringify(load(SESSION_ID))),
   };
 
   onAdd = (trip: StarredItem) => {
     const { starred } = this.state;
+
     this.setState({
-      starred: starred.concat(trip),
+      starred: { ...starred, trip },
     });
+
+    save(SESSION_ID, JSON.stringify({ starred }));
   };
 
-  onClear = (e: SyntheticMouseEvent<HTMLDivElement>) => {
+  onClear = (e: SyntheticEvent<HTMLDivElement>) => {
     e.stopPropagation();
     e.preventDefault();
 
-    remove("starred");
+    remove(SESSION_ID);
+
     this.setState({
-      starred: [],
+      starred: {},
     });
   };
 
-  onRemove = (index: number, e: SyntheticMouseEvent<HTMLDivElement>) => {
+  onRemove = (key: string, e: SyntheticEvent<HTMLDivElement>) => {
     e.stopPropagation();
     e.preventDefault();
 
     const { starred } = this.state;
-    const storage = load("starred");
 
     this.setState({
-      starred: starred.filter((_, i) => i !== index),
+      starred: R.filter(item => item.id !== key, starred),
     });
 
-    const removeItem = storage.slice(0, index - 1).concat(storage.slice(index, storage.length));
-    save("starred", JSON.stringify(removeItem));
+    save(SESSION_ID, JSON.stringify(R.filter(item => item.id !== key, starred)));
   };
 
   render() {
@@ -62,11 +66,11 @@ class StarredProvider extends React.Component<Props, State> {
     const { starred } = this.state;
 
     return children({
-      starredList: starred,
-      onRemoveStarred: this.onRemove,
+      starredList: R.values(starred),
+      onRemove: this.onRemove,
       lang: "en",
-      onAddStarred: this.onAdd,
-      onClearStarred: this.onClear,
+      onAdd: this.onAdd,
+      onClear: this.onClear,
     });
   }
 }

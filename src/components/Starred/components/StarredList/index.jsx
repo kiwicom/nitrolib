@@ -10,7 +10,7 @@ import StarredTrips from "./StarredTrips";
 
 type Props = {|
   trips: StarredItem[],
-  onRemove: (arg: string) => void,
+  onRemove: (id: string, e: SyntheticEvent<HTMLDivElement>) => void,
   tripsCount: number,
   goToJourneyNitro: (item: StarredItem) => void,
   shareUrl: (item: StarredItem) => string,

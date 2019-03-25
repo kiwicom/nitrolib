@@ -46,7 +46,7 @@ type Props = {|
 const Starred = ({ positionMenuDesktop, positionMenuTablet, inverted }: Props) => (
   <StarredConsumer>
     {starred => {
-      const { starredList, onClearStarred, onRemoveStarred, shareUrl, goToJourneyNitro } = starred;
+      const { starredList, onClear, onRemove, shareUrl, goToJourneyNitro } = starred;
       const starredShow = starredList && starredList.slice(0, MAX_TRIPS);
       const starredCount = starredList && starredList.length;
       const starredFooter = starredCount >= 1 && <StarredFooter tripsCount={starredCount} />;
@@ -60,15 +60,13 @@ const Starred = ({ positionMenuDesktop, positionMenuTablet, inverted }: Props) =
               {open && (
                 <ClickOutside onClickOutside={onToggle}>
                   <TripsContainer
-                    header={
-                      <StarredHeader onClearStorage={onClearStarred} tripsCount={starredCount} />
-                    }
+                    header={<StarredHeader onClear={onClear} tripsCount={starredCount} />}
                     footer={starredFooter}
                     positionMenuTablet={positionMenuTablet}
                     positionMenuDesktop={positionMenuDesktop}
                   >
                     <StarredList
-                      onRemove={onRemoveStarred}
+                      onRemove={(id, e) => onRemove(id, e)}
                       shareUrl={shareUrl}
                       trips={starredShow}
                       goToJourneyNitro={goToJourneyNitro}

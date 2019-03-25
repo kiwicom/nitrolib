@@ -45,3 +45,7 @@ export type ShareDialog = {|
   setNotice: boolean,
   onClose: boolean,
 |};
+
+declare export var isMulti: (object: PassengersCount) => boolean;
+declare export var getSum: (object: PassengersCount) => number;
+declare export var getTransKey: (object: PassengersCount) => string;
