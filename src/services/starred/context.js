@@ -4,7 +4,7 @@ import * as React from "react";
 import type { StarredItem, ShareDialog } from "../../records/Starred";
 
 export type Context = {|
-  starredList: Array<StarredItem>,
+  starredList: StarredItem[],
   onAddStarred: () => void,
   isMobile: boolean,
   lang: string,

@@ -1,8 +1,8 @@
 // @flow strict
 import * as React from "react";
 
-import Translate from "../../Translate";
-import ButtonLink from "../../NavBar/primitives/ButtonLink";
+import Translate from "../../../Translate";
+import ButtonLink from "../../../NavBar/primitives/ButtonLink";
 
 type Props = {|
   tripsCount: number,

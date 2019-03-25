@@ -2,9 +2,9 @@
 import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import { Consumer as IntlConsumer } from "../../../services/intl/context";
-import Translate from "../../Translate";
-import ButtonLink from "../../NavBar/primitives/ButtonLink";
+import { Consumer as IntlConsumer } from "../../../../services/intl/context";
+import Translate from "../../../Translate";
+import ButtonLink from "../../../NavBar/primitives/ButtonLink";
 
 const StarredFooter = () => (
   <Stack flex inline justify="center">

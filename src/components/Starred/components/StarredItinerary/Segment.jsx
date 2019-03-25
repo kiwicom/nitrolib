@@ -5,9 +5,9 @@ import FlightDirect from "@kiwicom/orbit-components/lib/icons/FlightDirect";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 
-import type { Stop } from "../../../records/Segment";
-import Day from "../../Day";
-import Duration from "../../Duration";
+import type { Stop } from "../../../../records/Segment";
+import Day from "../../../Day";
+import Duration from "../../../Duration";
 
 type Props = {|
   destination: Stop,

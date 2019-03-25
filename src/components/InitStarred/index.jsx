@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 
-import { getItem } from "../../services/utils/storage";
+import { load, remove, save } from "../../services/session/storage";
 import type { StarredItem } from "../../records/Starred";
 
 type State = {|
@@ -19,41 +19,42 @@ type Props = {|
   children: (args: Args) => React.Node,
 |};
 
+// TODO: refactor to local storage service
 class StarredProvider extends React.Component<Props, State> {
   state = {
-    starred: getItem("starred") ? JSON.parse(getItem("starred")) : [],
+    starred: load("starred") ? JSON.parse(load("starred")) : [],
   };
 
-  onAddStarred = (trip: StarredItem) => {
+  onAdd = (trip: StarredItem) => {
     const { starred } = this.state;
     this.setState({
       starred: starred.concat(trip),
     });
   };
 
-  onClearStarred = (e: SyntheticMouseEvent<HTMLDivElement>) => {
+  onClear = (e: SyntheticMouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     e.preventDefault();
 
-    localStorage.removeItem("starred");
+    remove("starred");
     this.setState({
       starred: [],
     });
   };
 
-  onRemoveStarred = (index: number, e: SyntheticMouseEvent<HTMLDivElement>) => {
+  onRemove = (index: number, e: SyntheticMouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     e.preventDefault();
 
     const { starred } = this.state;
-    const storage = getItem("starred");
+    const storage = load("starred");
 
     this.setState({
       starred: starred.filter((_, i) => i !== index),
     });
 
     const removeItem = storage.slice(0, index - 1).concat(storage.slice(index, storage.length));
-    localStorage.setItem("starred", JSON.stringify(removeItem));
+    save("starred", JSON.stringify(removeItem));
   };
 
   render() {
@@ -62,10 +63,10 @@ class StarredProvider extends React.Component<Props, State> {
 
     return children({
       starredList: starred,
-      onRemoveStarred: this.onRemoveStarred,
+      onRemoveStarred: this.onRemove,
       lang: "en",
-      onAddStarred: this.onAddStarred,
-      onClearStarred: this.onClearStarred,
+      onAddStarred: this.onAdd,
+      onClearStarred: this.onClear,
     });
   }
 }

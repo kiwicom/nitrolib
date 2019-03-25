@@ -6,18 +6,18 @@ import Share from "@kiwicom/orbit-components/lib/icons/Share";
 import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import TimeInWords from "../../DistanceInWords";
-import Price from "../../Price";
-import Text from "../../Text";
-import TranslateNode from "../../TranslateNode";
-import getTransKey from "../services/getTransKey";
-import type { ThemeProps } from "../../../records/Theme";
-import type { ItineraryDeep } from "../../../records/Itinerary";
-import type { PassengersCount, CabinClass } from "../../../records/Starred";
-import { themeDefault } from "../../../records/Theme";
-import Toggle from "../../Toggle";
-import { Consumer as StarredConsumer } from "../../../services/starred/context";
-import ItineraryVariants from "./ItineraryVariants";
+import TimeInWords from "../../../DistanceInWords";
+import Price from "../../../Price";
+import Text from "../../../Text";
+import TranslateNode from "../../../TranslateNode";
+import getTransKey from "../../services/getTransKey";
+import type { ThemeProps } from "../../../../records/Theme";
+import type { ItineraryDeep } from "../../../../records/Itinerary";
+import type { PassengersCount, CabinClass } from "../../../../records/Starred";
+import { themeDefault } from "../../../../records/Theme";
+import Toggle from "../../../Toggle";
+import { Consumer as StarredConsumer } from "../../../../services/starred/context";
+import ItineraryVariants from "./Variants";
 
 const PASSENGERS_COUNT = {
   infants: __("result.infants_count"),

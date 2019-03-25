@@ -3,7 +3,7 @@ import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import type { ItineraryDeep } from "../../../../records/Itinerary";
-import StarredSegment from "../../StarredSegment";
+import StarredSegment from "./Segment";
 
 type Props = {|
   itinerary: ItineraryDeep,
