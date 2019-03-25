@@ -26,5 +26,3 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowIssue: https://github.com/facebook/flow/iss
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpected: .+
 
 esproposal.optional_chaining=enable
-
-sharedmemory.hash_table_pow=21
