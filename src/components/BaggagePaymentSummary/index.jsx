@@ -78,7 +78,7 @@ const BaggagePaymentSummary = ({ baggage, passengers }: Props) => {
   };
 
   return (
-    <Card>
+    <Card dataTest="BaggagePaymentSummary">
       <CardSection>
         {passengersWithBagDefinitions.map(passenger => (
           <PassengerBaggages key={passenger.id} {...passenger} />

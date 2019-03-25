@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#BaggagePaymentSummary renders 1`] = `
-<Card>
+<Card
+  dataTest="BaggagePaymentSummary"
+>
   <CardSection>
     <PassengerBaggages
       baggage={
@@ -92,8 +94,8 @@ exports[`#BaggagePaymentSummary renders 1`] = `
         }
       }
       firstName="Donald"
-      id={1}
-      key="1"
+      id={2}
+      key="2"
       lastName="Trump"
       price={30.33}
     />

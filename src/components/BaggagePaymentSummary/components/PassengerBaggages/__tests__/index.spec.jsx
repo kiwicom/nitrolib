@@ -5,6 +5,7 @@ import { shallow } from "enzyme";
 import BaggagePaymentSummary from "../index";
 
 const props = {
+  id: 1,
   firstName: "Barrack",
   lastName: "Obama",
   baggage: {

@@ -9,6 +9,7 @@ import type { ItemType } from "../../../../records/Baggage";
 import Translate from "../../../Translate";
 
 type Props = {
+  id: number,
   firstName: string,
   lastName: string,
   baggage: {
@@ -18,8 +19,12 @@ type Props = {
   price: number,
 };
 
-const PassengerBaggages = ({ firstName, lastName, baggage, price }: Props) => (
-  <Stack spaceAfter="medium" spacing="tight">
+const PassengerBaggages = ({ id, firstName, lastName, baggage, price }: Props) => (
+  <Stack
+    spaceAfter="medium"
+    spacing="tight"
+    dataTest={`BaggagePaymentSummary-PassengerBaggages-${id}`}
+  >
     <Stack flex justify="between">
       <Text>
         <Translate t="baggage_modal.summary.baggage_for" values={{ firstName, lastName }} />

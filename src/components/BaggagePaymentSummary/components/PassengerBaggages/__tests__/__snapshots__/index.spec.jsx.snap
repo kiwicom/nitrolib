@@ -2,6 +2,7 @@
 
 exports[`#BaggagePaymentSummary renders 1`] = `
 <Stack
+  dataTest="BaggagePaymentSummary-PassengerBaggages-1"
   spaceAfter="medium"
   spacing="tight"
 >

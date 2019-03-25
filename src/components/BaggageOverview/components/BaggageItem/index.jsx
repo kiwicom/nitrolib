@@ -19,7 +19,9 @@ import type {
 } from "../../../../records/Baggage";
 import { getTextFromCategory, getIconFromCategory } from "../../../../services/baggage/utils";
 
-const Wrapper = styled.div`
+const Wrapper = styled.div.attrs({
+  "data-test": ({ dataTest }: { dataTest: string }) => dataTest,
+})`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,7 +123,7 @@ const BaggageItem = ({
       .map(p => `${p.firstName[0]}. ${p.middleName ? `${p.middleName[0]}.` : ""} ${p.lastName}`)
       .join(", ");
   return (
-    <Wrapper>
+    <Wrapper dataTest={`BaggageOverview-BaggageItem-${category}`}>
       <Stack shrink spacing="condensed">
         {getIconFromCategory(category, "medium", "primary")}
         <TextWrapper>

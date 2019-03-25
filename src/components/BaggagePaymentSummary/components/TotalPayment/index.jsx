@@ -14,7 +14,9 @@ type Props = {
   totalPrice: number,
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.div.attrs({
+  "data-test": "BaggagePaymentSummary-TotalPayment",
+})`
   display: flex;
   justify-content: space-between;
   svg {

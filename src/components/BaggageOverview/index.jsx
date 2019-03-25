@@ -29,7 +29,10 @@ type Props = {
 type WrapperProps = ThemeProps & {
   context: OverviewContextType,
 };
-const Wrapper = styled.div`
+
+const Wrapper = styled.div.attrs({
+  "data-test": ({ context }) => `BaggageOverview-${context}`,
+})`
   width: 100%;
   > * {
     margin-bottom: 10px;
@@ -39,13 +42,14 @@ const Wrapper = styled.div`
     `)};
   }
 `;
+
 Wrapper.defaultProps = {
   theme: themeDefault,
   context: "booking",
 };
 
 const NoPersonalItem = () => (
-  <Stack shrink spacing="condensed" align="center">
+  <Stack shrink spacing="condensed" align="center" dataTest="BaggageOverview-NoPersonalItem">
     <BaggagePersonalItemNone size="medium" color="primary" />
     <Text>
       <Translate t="baggage_modal.select.no_personal_item" />
