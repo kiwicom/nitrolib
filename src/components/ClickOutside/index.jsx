@@ -5,6 +5,7 @@ type Props = {|
   onClickOutside: (ev: MouseEvent) => void,
   active: boolean,
   children: React.Node | React.Node[],
+  className?: string,
 |};
 
 export default class ClickOutside extends React.PureComponent<Props> {
@@ -31,10 +32,11 @@ export default class ClickOutside extends React.PureComponent<Props> {
   node: ?HTMLDivElement;
 
   render() {
-    const { children } = this.props;
+    const { children, className } = this.props;
 
     return (
       <div
+        className={className}
         ref={node => {
           this.node = node;
         }}

@@ -37,12 +37,7 @@ storiesOf("LocationPicker", module)
     <LocationPicker value={null} locationType="airport" onChange={action("change")} label={text("Label", "From")} />
   ))
   .add("with icon", () => (
-    <LocationPicker
-      value={iataValue}
-      icon={<GpsIcon />}
-      onChange={action("change")}
-      label={text("Label", "From")}
-    />
+    <LocationPicker value={iataValue} label={<GpsIcon />} onChange={action("change")} />
   ))
   .add("datasource holidays", () => (
     <LocationPicker
