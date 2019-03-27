@@ -79,6 +79,17 @@ Make a MR as soon as you push a branch!
 
 All _non-approved_, _non-WIP_ MRs with _no unresolved discussions_ are suitable for a review!
 
+### SemVer
+
+Always include the `scale/` label on your MR:
+* `scale/patch` for bug fixes, into `master`
+* `scale/feature` for features, into `master`
+* `scale/breaking` for breaking changes, these go into the `next` branch
+
+The `next` branch will become `master` on the nearest major version bump.
+
+All major version releases also come with a changelog of breaking changes.
+
 ## Issues
 
 Give lots of info, code examples, replications for bugs, screenshots... Just don't write essays. The more _meaningful_ info the better.
