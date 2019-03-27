@@ -4,6 +4,12 @@ import CountryFlag from "@kiwicom/orbit-components/lib/CountryFlag";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 import { createFragmentContainer, graphql } from "react-relay";
+import Trip from "@kiwicom/orbit-components/lib/icons/Trip";
+import Map from "@kiwicom/orbit-components/lib/icons/Map";
+import LocationIcon from "@kiwicom/orbit-components/lib/icons/Location";
+import City from "@kiwicom/orbit-components/lib/icons/City";
+import Leisure from "@kiwicom/orbit-components/lib/icons/Leisure";
+import AirplaneRight from "@kiwicom/orbit-components/lib/icons/AirplaneRight";
 
 import getSlug from "../../services/slug";
 import type { LocationPickerRow_item } from "./__generated__/LocationPickerRow_item.graphql";
@@ -17,19 +23,34 @@ type Props = {|
   onSelect: (loc: Location) => void,
 |};
 
-const LocationPickerRow = ({ item, selected, onSelect }: Props) => {
-  const { type, name, code } = item;
+const icons = {
+  country: Trip,
+  region: Map,
+  region_group: Map,
+  province: Map,
+  city: City,
+  airport: AirplaneRight,
+  hotel: Leisure,
+  default: LocationIcon,
+};
 
+const LocationPickerRow = ({ item, selected, onSelect }: Props) => {
+  const { locationId, type, name, code } = item;
+
+  const matches = locationId.match(/^country-([A-Z]{2})$/);
+  const countryCode = type === "country" && (matches ? matches[1] : code);
   const slug = getSlug(toLocation(item));
+  const Icon = icons[type] || icons.default;
 
   return (
     <PickerRow onClick={() => onSelect(toLocation(item))} selected={selected}>
       <Stack spacing="condensed" flex align="center">
+        <Icon color="secondary" />
         {/* $FlowExpected: TODO describe */}
-        {type === "country" && code && <CountryFlag code={code.toLowerCase()} />}
         <TextWrapper weight="bold">
           {name} {slug}
         </TextWrapper>
+        {countryCode && <CountryFlag code={countryCode.toLowerCase()} />}
       </Stack>
     </PickerRow>
   );
