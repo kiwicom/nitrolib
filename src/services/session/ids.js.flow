@@ -1,0 +1,6 @@
+// @flow strict
+declare export var makeUserId: () => string;
+
+declare export var makeSessionId: () => string;
+
+declare export var makePageViewId: () => string;
