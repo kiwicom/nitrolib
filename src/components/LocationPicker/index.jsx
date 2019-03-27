@@ -83,6 +83,8 @@ class LocationPicker extends React.Component<Props, State> {
     input: "",
   };
 
+  lastResultData: null;
+
   node: { current: any | HTMLDivElement } = React.createRef();
 
   handleClose = () => {
@@ -147,11 +149,14 @@ class LocationPicker extends React.Component<Props, State> {
                     );
                   }
 
-                  if (!res.props) {
-                    return null;
+                  const isLoading = !res.props;
+                  const resultData = isLoading ? this.lastResultData : res.props[queryName];
+
+                  if (!isLoading) {
+                    this.lastResultData = resultData;
                   }
 
-                  if (!res.props[queryName]) {
+                  if (!resultData) {
                     // TODO render this in the list if length is 0
                     return (
                       <NoResult>
@@ -163,7 +168,7 @@ class LocationPicker extends React.Component<Props, State> {
                   return (
                     <PickerDropDown ref={this.node}>
                       <LocationPickerResultList
-                        list={res.props[queryName]}
+                        list={resultData}
                         selectedId={value && value.id}
                         onSelect={this.handleSelect}
                       />

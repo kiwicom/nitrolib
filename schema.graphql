@@ -1731,7 +1731,7 @@ enum Locale {
 
 type Location {
   """The ID of an object"""
-  id: ID!
+  id(opaque: Boolean): ID!
 
   """3-letter IATA code of airport or internal city code."""
   locationId: String

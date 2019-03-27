@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash ada55d368bf320add2099d7ab8ee1484
+ * @relayHash d93fd70e104d9689a9ed8c4f8e4df564
  */
 
 /* eslint-disable */
@@ -38,6 +38,7 @@ fragment LocationPickerResultList_list on LocationConnection {
   edges {
     node {
       id
+      holidaysLocationId: id(opaque: false)
       type
       code
       name
@@ -206,6 +207,20 @@ return {
                   },
                   {
                     "kind": "ScalarField",
+                    "alias": "holidaysLocationId",
+                    "name": "id",
+                    "args": [
+                      {
+                        "kind": "Literal",
+                        "name": "opaque",
+                        "value": false,
+                        "type": "Boolean"
+                      }
+                    ],
+                    "storageKey": "id(opaque:false)"
+                  },
+                  {
+                    "kind": "ScalarField",
                     "alias": null,
                     "name": "type",
                     "args": null,
@@ -287,7 +302,7 @@ return {
     "operationKind": "query",
     "name": "LocationPickerHolidaysQuery",
     "id": null,
-    "text": "query LocationPickerHolidaysQuery(\n  $input: String!\n) {\n  holidaysLocations(last: 50, search: $input) {\n    ...LocationPickerResultList_list\n  }\n}\n\nfragment LocationPickerResultList_list on LocationConnection {\n  edges {\n    node {\n      id\n      type\n      code\n      name\n      country {\n        code\n        name\n      }\n      ...LocationPickerRow_item\n    }\n  }\n}\n\nfragment LocationPickerRow_item on Location {\n  locationId\n  type\n  name\n  code\n  slug\n  location {\n    lat\n    lng\n  }\n  city {\n    locationId\n    name\n    slug\n    code\n  }\n  country {\n    locationId\n    name\n    slug\n    code\n  }\n  subdivision {\n    locationId\n    name\n    slug\n    code\n  }\n}\n",
+    "text": "query LocationPickerHolidaysQuery(\n  $input: String!\n) {\n  holidaysLocations(last: 50, search: $input) {\n    ...LocationPickerResultList_list\n  }\n}\n\nfragment LocationPickerResultList_list on LocationConnection {\n  edges {\n    node {\n      id\n      holidaysLocationId: id(opaque: false)\n      type\n      code\n      name\n      country {\n        code\n        name\n      }\n      ...LocationPickerRow_item\n    }\n  }\n}\n\nfragment LocationPickerRow_item on Location {\n  locationId\n  type\n  name\n  code\n  slug\n  location {\n    lat\n    lng\n  }\n  city {\n    locationId\n    name\n    slug\n    code\n  }\n  country {\n    locationId\n    name\n    slug\n    code\n  }\n  subdivision {\n    locationId\n    name\n    slug\n    code\n  }\n}\n",
     "metadata": {}
   }
 };
