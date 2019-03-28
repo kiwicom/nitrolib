@@ -171,7 +171,8 @@ import * as storage from "@kiwicom/nitro/lib/consts/storage";
 
 **Types:**
 ```js
-declare export var SESSION: "session";
+declare export var AFFILIATE_PARAMS: "affilParams";
+declare export var SESSION_ID: "sessionId";
 
-export type Storage = "session";
+export type Storage = string; // TODO specific once everyone uses this
 ```

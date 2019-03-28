@@ -4,6 +4,7 @@ import type { Affiliate } from "./Affiliate";
 export type Session = {|
   userId: string,
   sessionId: string,
+  pageViewId: string,
   affiliate: Affiliate | null,
   UTMs: { [key: string]: string },
 |};
@@ -12,6 +13,7 @@ export type Session = {|
 export const sessionDefault: Session = {
   userId: "",
   sessionId: "",
+  pageViewId: "",
   affiliate: null,
   UTMs: {},
 };

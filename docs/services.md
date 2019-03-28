@@ -446,6 +446,8 @@ Contains everything regarding session data:
 * **cookies**
 * **local storage**
 
+See [InitSession](./components#initsession) for initializing the service.
+
 ### Context
 
 **Import:**
@@ -476,17 +478,42 @@ import * as cookies from "@kiwicom/nitro/lib/services/session/cookies";
 
 **Types:**
 ```js
+type Options = {|
+  expires?: number | Date,
+  domain?: string,
+  path?: string,
+  secure?: boolean,
+|};
+
 declare export var load: (key: Cookie) => ?string;
 
-declare export var save: (key: Cookie, value: string) => void;
+declare export var save: (key: Cookie, value: string, opts?: Options) => void;
 
-declare export var remove: (key: Cookie) => void;
+declare export var remove: (key: Cookie, opts?: Options) => void;
 ```
 
 See types:
 * [cookies](./consts#cookies)
 
 Centralized medium for manipulating _cookies_.
+
+### Ids
+
+**Import:**
+```js
+import * as ids from "@kiwicom/nitro/lib/services/session/ids";
+```
+
+**Types:**
+```js
+declare export var makeUserId: () => string;
+
+declare export var makeSessionId: () => string;
+
+declare export var makePageViewId: () => string;
+```
+
+Functions for generating IDs.
 
 ### Storage
 
@@ -502,6 +529,12 @@ declare export var load: (key: Storage) => ?string;
 declare export var save: (key: Storage, value: string) => void;
 
 declare export var remove: (key: Storage) => void;
+
+declare export var loadSession: (key: Storage) => ?string;
+
+declare export var saveSession: (key: Storage, value: string) => void;
+
+declare export var removeSession: (key: Storage) => void;
 ```
 
 See types:

@@ -1261,6 +1261,7 @@ import type { Session } from "@kiwicom/nitro/lib/records/Session";
 export type Session = {|
   userId: string,
   sessionId: string,
+  pageViewId: string,
   affiliate: Affiliate | null,
   UTMs: { [key: string]: string },
 |};

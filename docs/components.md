@@ -26,6 +26,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [InitCurrency](#initcurrency)
 * [InitIntl](#initintl)
 * [InitLog](#initlog)
+* [InitSession](#initsession)
 * [Mobile](#mobile)
 * [Price](#price)
 * [Text](#text)
@@ -768,6 +769,25 @@ ReactDOM.render(
   node,
 );
 ```
+
+### InitSession
+
+**Import:**
+```js
+import InitSession from "@kiwicom/nitro/lib/components/InitSession";
+```
+
+**Types:**
+```js
+type Props = {|
+  children: (session: Session) => React.Node,
+|};
+```
+
+See types:
+* [Session](./records#session)
+
+Initializes the [session](./services#session) context.
 
 ### Mobile
 

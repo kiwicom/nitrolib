@@ -6,3 +6,9 @@ declare export var load: (key: Storage) => ?string;
 declare export var save: (key: Storage, value: string) => void;
 
 declare export var remove: (key: Storage) => void;
+
+declare export var loadSession: (key: Storage) => ?string;
+
+declare export var saveSession: (key: Storage, value: string) => void;
+
+declare export var removeSession: (key: Storage) => void;
