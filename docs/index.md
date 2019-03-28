@@ -3,7 +3,7 @@
 * `yarn add @kiwicom/nitro`
 
 **Peer dependencies:**
-* `@kiwicom/orbit-components: ^0.35.0`
+* `@kiwicom/orbit-components: ^0.37.0`
 * `ramda: ^0.26.1`
 * `react: ^16.8.0`
 * `react-dom: ^16.8.0`

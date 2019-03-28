@@ -1147,11 +1147,17 @@
     eslint-plugin-relay "^1.0.0"
     prettier "^1.16.4"
 
-"@kiwicom/orbit-components@^0.35.0":
-  version "0.35.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.35.0.tgz#52efb8d1dbd0b487720f67f87d6ca02ea97c3d6c"
-  integrity sha512-5yxuzyLwtItDY0Rku9ntZ9C2qPrddBLdaiaH2D/Qi0s8ymGDAOfLnQ74yxT249buDmtTjIosH1HSrf4/47y9sQ==
+"@kiwicom/js@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.2.0.tgz#dff952bd4acaedc3a6edfb11714f1c7aeb430a6e"
+  integrity sha512-ft/DLW75P7Ft0YgCHivfz/awOEkrXFMiuG97ZlrLfcTdBmwawrmP4IeUzhAeDxihluBqyvGoa9OWJYVSVlLCWQ==
+
+"@kiwicom/orbit-components@^0.37.0":
+  version "0.37.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.37.0.tgz#6667bf74e3ae3c97fec9058907dd2f41bbad938b"
+  integrity sha512-ihBHVhgePbtHK/FQahD5NB7b30DSZVQZmWP+TqmAYwnRkeNziR8kJIjRsRBIw53j31SWFfERML6uPYvwfgr4pA==
   dependencies:
+    "@kiwicom/js" "^0.2.0"
     "@kiwicom/orbit-design-tokens" "^0.4.0"
 
 "@kiwicom/orbit-design-tokens@^0.4.0":

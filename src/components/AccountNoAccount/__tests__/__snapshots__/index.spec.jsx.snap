@@ -42,14 +42,9 @@ exports[`#AccountNoAccount render 1`] = `
         />
       </Button>
       <ButtonLink
-        component="button"
-        external={false}
         iconLeft={<ChevronLeft />}
         onClick={[Function]}
-        size="normal"
-        transparent={false}
         type="secondary"
-        width={0}
       >
         <Translate
           html={false}
