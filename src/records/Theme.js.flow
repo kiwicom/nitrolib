@@ -1,5 +1,5 @@
 // @flow strict
-import type { Theme } from "@kiwicom/orbit-components/lib/defaultTokens";
+import type { Theme } from "@kiwicom/orbit-components/lib/defaultTheme";
 
 import type { Brand } from "./Brand";
 
