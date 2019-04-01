@@ -40,7 +40,7 @@ describe("#HeaderLinks/service/roomsLink", () => {
     expect(getLink("booking", language, currency, searchFormData)).toEqual({
       base: "BOOKING",
       query:
-        "searchresults.html?lang=en&selected_currency=EUR&ss=Bratislava&checkin_monthday=18&checkin_year_month=1970-01&checkout_monthday=18&checkout_year_month=1970-01&group_adults=2&group_children=1&aid=1549681",
+        "searchresults.html?lang=en&selected_currency=EUR&ss=Bratislava&checkin_monthday=18&checkin_year_month=1970-01&checkout_monthday=18&checkout_year_month=1970-01&group_adults=2&group_children=1&aid=1549681&label=headerlinks_cobrand",
     });
   });
 
@@ -48,7 +48,7 @@ describe("#HeaderLinks/service/roomsLink", () => {
     expect(getLink("roomsKiwi", language, currencySE, searchFormData)).toEqual({
       base: "ROOMS_KIWI",
       query:
-        "searchresults.html?lang=en&selected_currency=SEK&ss=Bratislava&checkin_monthday=18&checkin_year_month=1970-01&checkout_monthday=18&checkout_year_month=1970-01&group_adults=2&group_children=1&headerlinks",
+        "searchresults.html?lang=en&selected_currency=SEK&ss=Bratislava&checkin_monthday=18&checkin_year_month=1970-01&checkout_monthday=18&checkout_year_month=1970-01&group_adults=2&group_children=1&label=headerlinks_logo",
     });
   });
 
@@ -56,7 +56,7 @@ describe("#HeaderLinks/service/roomsLink", () => {
     expect(getLink("roomsKiwiCode", language, currencySE, searchFormData)).toEqual({
       base: "ROOMS_KIWI_CODE",
       query:
-        "searchresults.html?lang=en&selected_currency=SEK&ss=Bratislava&checkin_monthday=18&checkin_year_month=1970-01&checkout_monthday=18&checkout_year_month=1970-01&group_adults=2&group_children=1&aid=1549200&headerlinks",
+        "searchresults.html?lang=en&selected_currency=SEK&ss=Bratislava&checkin_monthday=18&checkin_year_month=1970-01&checkout_monthday=18&checkout_year_month=1970-01&group_adults=2&group_children=1&aid=1549200&label=headerlinks",
     });
   });
 });
