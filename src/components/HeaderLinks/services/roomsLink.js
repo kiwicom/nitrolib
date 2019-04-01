@@ -64,7 +64,7 @@ const PROVIDERS = {
     buildLink("BOOKING", {
       ...params,
       aid: "aid=1549681",
-      label: "label=headerlinks_cobrand"
+      label: "label=headerlinks_cobrand",
     }),
   roomsKiwi: (params: Params) =>
     buildLink("ROOMS_KIWI", {
