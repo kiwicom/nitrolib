@@ -29,9 +29,14 @@ const loadURL = query =>
 
 const loadStorage = () =>
   R.compose(
-    R.map(R.prop("value")),
+    R.map(
+      R.compose(
+        R.prop("value"),
+        JSON.parse,
+      ),
+    ),
     R.filter(Boolean),
-    R.mapObjIndexed((_, key) => storage.load(key)),
+    R.mapObjIndexed((_, key) => storage.load(key) || ""), // || "" due to Flow
   )(UTMs);
 
 const clearStorage = () =>
@@ -41,8 +46,9 @@ const clearStorage = () =>
         storage.remove(key);
       }
     }),
+    R.map(JSON.parse),
     R.filter(Boolean),
-    R.mapObjIndexed((_, key) => storage.load(key)),
+    R.mapObjIndexed((_, key) => storage.load(key) || ""), // || "" due to Flow
   )(UTMs);
 
 const saveStorage = (utms: UTM) =>

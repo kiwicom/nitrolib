@@ -1,6 +1,6 @@
 // @noflow
 module.exports = {
-  setupFiles: ["raf/polyfill", "./etc/jestSetup.js"],
+  setupFiles: ["raf/polyfill", "jest-date-mock", "./etc/jestSetup.js"],
   setupTestFrameworkScriptFile: "./etc/jestSetupFramework.js",
   snapshotSerializers: ["enzyme-to-json/serializer"],
   testPathIgnorePatterns: ["dist"],
