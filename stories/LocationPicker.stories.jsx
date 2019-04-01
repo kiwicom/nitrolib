@@ -34,10 +34,23 @@ storiesOf("LocationPicker", module)
     <LocationPicker value={null} onChange={action("change")} label={text("Label", "From")} />
   ))
   .add("only airports", () => (
-    <LocationPicker value={null} locationType="airport" onChange={action("change")} label={text("Label", "From")} />
+    <LocationPicker
+      value={null}
+      locationType="airport"
+      onChange={action("change")}
+      label={text("Label", "From")}
+    />
   ))
   .add("with icon", () => (
     <LocationPicker value={iataValue} label={<GpsIcon />} onChange={action("change")} />
+  ))
+  .add("with error", () => (
+    <LocationPicker
+      value={iataValue}
+      label={text("Label", "From")}
+      onChange={action("change")}
+      error="Error message"
+    />
   ))
   .add("datasource holidays", () => (
     <LocationPicker

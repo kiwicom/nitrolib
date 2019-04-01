@@ -117,7 +117,7 @@ class LocationPicker extends React.Component<Props, State> {
   };
 
   render() {
-    const { value, label, environment, queryName, locationType } = this.props;
+    const { value, label, environment, queryName, locationType, error } = this.props;
     const { active, input } = this.state;
 
     const placeholder = value ? getPlaceholder(value) : "";
@@ -132,6 +132,7 @@ class LocationPicker extends React.Component<Props, State> {
             onFocus={this.handleFocus}
             onChange={this.handleChange}
             value={inputValue}
+            error={error}
           />
           {active && (
             <>
