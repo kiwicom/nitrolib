@@ -5,6 +5,7 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [Affiliate](#affiliate)
 * [Airline](#airline)
 * [Auth](#auth)
+* [Baggage](#baggage)
 * [Brand](#brand)
 * [BrandLanguage](#brandlanguage)
 * [Continents](#continents)
@@ -107,6 +108,135 @@ See types:
 * [User](./records#user)
 
 _TODO_
+
+## Baggage
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/Baggage";
+import type { Baggage } from "@kiwicom/nitro/lib/records/Baggage";
+```
+
+**Types:**
+```js
+export type BaggageCategory = "holdBag" | "handBag";
+export type BaggageSubCategory = "holdBag" | "personalItem" | "cabinBag";
+export type PassengerGroup = "adult" | "child" | "infant";
+
+export type Restrictions = {|
+  weight: number,
+  height: number,
+  width: number,
+  length: number,
+  dimensionsSum: ?number,
+|};
+
+export type Definition<C: BaggageSubCategory> = {|
+  category: C,
+  price: PriceType,
+  restrictions: Restrictions,
+  conditions: {
+    isPriority?: Array<string>,
+    passengerGroups: Array<PassengerGroup>,
+  },
+|};
+
+export type HandBagDefinition = Definition<"personalItem" | "cabinBag">;
+export type HoldBagDefinition = Definition<"holdBag">;
+
+export type HandBagDefinitionWithId = {| ...HandBagDefinition, id: number |};
+export type HoldBagDefinitionWithId = {| ...HoldBagDefinition, id: number |};
+
+export type HandBagTileDefinition = {|
+  ...HandBagDefinition,
+  originalIndex?: number,
+  isCurrent?: boolean,
+|};
+export type HoldBagTileDefinition = {|
+  ...HoldBagDefinition,
+  originalIndex?: number,
+  isCurrent?: boolean,
+|};
+
+export type Definitions = {
+  handBag: Array<HandBagDefinition>,
+  holdBag: Array<HoldBagDefinition>,
+};
+
+export type Combination = {|
+  indices: Array<number>,
+  price: PriceType,
+  conditions: {
+    passengerGroups: Array<PassengerGroup>,
+  },
+|};
+
+export type Combinations = {|
+  handBag: Array<Combination>,
+  holdBag: Array<Combination>,
+|};
+
+export type BaggageType = {
+  definitions: Definitions,
+  combinations: Combinations,
+};
+
+export type TileItem = {
+  category: BaggageSubCategory,
+  restrictions: Restrictions,
+};
+export type ItemType = TileItem & {
+  amount: number,
+  conditions: {
+    isPriority?: Array<string>,
+    passengerGroups: Array<PassengerGroup>,
+  },
+};
+
+export type OptionBaggage = {
+  originalIndex: number,
+  pickerType: BaggageCategory,
+  price: PriceType,
+  items: { [key: string]: ItemType },
+};
+
+export type OrderStatusType = "unpaid" | "processing" | "notAvailable";
+
+export type Gender = "male" | "female";
+
+export type FAQLinksHandlerType = BaggageSubCategory => void;
+
+export type BaggagePassengerType = {|
+  paxId: number,
+  firstName: string,
+  middleName?: string,
+  lastName: string,
+|};
+
+export type Passenger = {|
+  ...BaggagePassengerType,
+  baggage: {
+    holdBag: number, // index of baggage combination
+    handBag: number, // index of baggage combination
+  },
+|};
+
+export type DefinitionWithPassenger = {|
+  originalIndex: number,
+  category: BaggageSubCategory,
+  restrictions: Restrictions,
+  passengers: Array<BaggagePassengerType>,
+|};
+
+export type OverviewContextType = "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking";
+```
+
+See types:
+* [Price](./records#price)
+
+Baggage
+
+- baggages data type according to snake_case-camelCase mapped API response
 
 ## Brand
 
