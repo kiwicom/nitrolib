@@ -36,6 +36,7 @@ type Props = {|
   value: Location | null,
   onChange: (loc: Location) => void,
   label: React.Node,
+  error?: React.Node,
   // defaulted
   environment?: Environment,
   queryName?: "allLocations" | "holidaysLocations",
