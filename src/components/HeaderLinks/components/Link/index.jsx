@@ -1,6 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
+import Trip from "@kiwicom/orbit-components/lib/icons/Trip";
 import AirplaneUp from "@kiwicom/orbit-components/lib/icons/AirplaneUp";
 import CarRental from "@kiwicom/orbit-components/lib/icons/CarRental";
 import Accommodation from "@kiwicom/orbit-components/lib/icons/Accommodation";
@@ -18,6 +19,7 @@ const mapIcons = {
   holidays: <Suitcase />,
   logitravel: <Suitcase />,
   bedfinder: <Suitcase />,
+  stories: <Trip />,
 };
 
 // These exist just to be collected
@@ -27,6 +29,7 @@ const KEYS = {
   rooms: __("search.service.rooms"),
   cars: __("search.service.cars"),
   holidays: __("search.service.holidays"),
+  stories: __("content.stories"),
 };
 
 const Icon = styled.div`
