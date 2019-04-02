@@ -9,7 +9,7 @@ import type {
   HoldBagTileDefinition,
   HandBagTileDefinition,
   OrderStatusType,
-} from "../../../../records/Baggage";
+} from "../../../../records/Baggage.js.flow";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import Translate from "../../../Translate/index";

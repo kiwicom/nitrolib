@@ -16,7 +16,7 @@ import type {
   HandBagDefinition,
   HoldBagDefinition,
   OptionBaggage,
-} from "../../records/Baggage";
+} from "../../records/Baggage.js.flow";
 import Translate from "../../components/Translate/index";
 
 type IconSize = "small" | "medium" | "large";

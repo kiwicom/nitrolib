@@ -7,7 +7,7 @@ import type {
   BaggagePassengerType,
   Passenger,
   DefinitionWithPassenger,
-} from "../../../../records/Baggage";
+} from "../../../../records/Baggage.js.flow";
 
 type ChildrenProps = {
   context: "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking",

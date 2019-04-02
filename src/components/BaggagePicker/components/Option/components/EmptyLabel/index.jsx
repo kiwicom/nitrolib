@@ -5,7 +5,7 @@ import Close from "@kiwicom/orbit-components/lib/icons/Close";
 import Text from "@kiwicom/orbit-components/lib/Text";
 
 import Translate from "../../../../../Translate/index";
-import type { BaggageCategory } from "../../../../../../records/Baggage";
+import type { BaggageCategory } from "../../../../../../records/Baggage.js.flow";
 
 type Props = {
   pickerType: BaggageCategory,

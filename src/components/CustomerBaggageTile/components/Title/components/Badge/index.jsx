@@ -8,7 +8,7 @@ import Tooltip from "@kiwicom/orbit-components/lib/Tooltip";
 
 import { Consumer } from "../../../../../../services/currency/context";
 import { format } from "../../../../../../records/Currency";
-import type { OrderStatusType } from "../../../../../../records/Baggage";
+import type { OrderStatusType } from "../../../../../../records/Baggage.js.flow";
 import Translate from "../../../../../Translate/index";
 
 const getTooltipText = (status: OrderStatusType) => {

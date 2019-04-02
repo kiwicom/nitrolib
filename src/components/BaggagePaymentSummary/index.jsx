@@ -11,7 +11,7 @@ import type {
   HoldBagDefinition,
   HandBagDefinition,
   ItemType,
-} from "../../records/Baggage";
+} from "../../records/Baggage.js.flow";
 import { getTotalPrice } from "../../services/baggage/utils";
 
 type Passenger = {

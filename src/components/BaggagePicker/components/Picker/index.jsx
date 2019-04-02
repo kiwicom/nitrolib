@@ -15,7 +15,7 @@ import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import Flex from "../../../../primitives/Flex";
 import Option from "../Option/index";
-import type { OptionBaggage, BaggageCategory } from "../../../../records/Baggage";
+import type { OptionBaggage, BaggageCategory } from "../../../../records/Baggage.js.flow";
 
 type State = {
   showedOptions: Array<OptionBaggage>,

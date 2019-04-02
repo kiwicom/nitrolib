@@ -2,7 +2,7 @@
 import * as React from "react";
 
 import Picker from "./components/Picker";
-import type { BaggageType, BaggageCategory, PassengerGroup } from "../../records/Baggage";
+import type { BaggageType, BaggageCategory, PassengerGroup } from "../../records/Baggage.js.flow";
 import type { Airline } from "../../records/Airline";
 import { Provider } from "./services/context";
 import { getOptions } from "../../services/baggage/utils";

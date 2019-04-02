@@ -13,7 +13,7 @@ import type {
   HoldBagTileDefinition,
   BaggageCategory,
   HandBagTileDefinition,
-} from "../../records/Baggage";
+} from "../../records/Baggage.js.flow";
 
 const Wrapper = styled.div`
   div:last-child > svg {

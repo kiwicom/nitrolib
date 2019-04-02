@@ -16,7 +16,7 @@ import type {
   BaggagePassengerType,
   OverviewContextType,
   FAQLinksHandlerType,
-} from "../../../../records/Baggage";
+} from "../../../../records/Baggage.js.flow";
 import { getTextFromCategory, getIconFromCategory } from "../../../../services/baggage/utils";
 
 const Wrapper = styled.div.attrs({

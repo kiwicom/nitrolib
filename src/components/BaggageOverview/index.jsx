@@ -15,7 +15,7 @@ import type {
   HoldBagDefinitionWithId,
   HandBagDefinitionWithId,
   OverviewContextType,
-} from "../../records/Baggage";
+} from "../../records/Baggage.js.flow";
 import BaggageItem from "./components/BaggageItem";
 import Translate from "../Translate/index";
 

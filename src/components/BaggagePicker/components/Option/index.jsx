@@ -15,7 +15,7 @@ import Translate from "../../../Translate/index";
 import OptionItem from "../OptionItem/index";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import type { ItemType, BaggageCategory } from "../../../../records/Baggage";
+import type { ItemType, BaggageCategory } from "../../../../records/Baggage.js.flow";
 import type { PriceType } from "../../../../records/Price";
 import { Consumer } from "../../services/context";
 

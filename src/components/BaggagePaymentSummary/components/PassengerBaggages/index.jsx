@@ -5,7 +5,7 @@ import Text from "@kiwicom/orbit-components/lib/Text";
 
 import Price from "../../../Price";
 import { getTextFromCategory } from "../../../../services/baggage/utils";
-import type { ItemType } from "../../../../records/Baggage";
+import type { ItemType } from "../../../../records/Baggage.js.flow";
 import Translate from "../../../Translate";
 
 type Props = {
