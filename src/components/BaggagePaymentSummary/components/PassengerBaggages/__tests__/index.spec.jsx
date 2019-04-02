@@ -1,8 +1,8 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
-import BaggagePaymentSummary from "../index";
+import PassengerBaggages from "../index";
 
 const props = {
   id: 1,
@@ -62,7 +62,10 @@ const props = {
 
 describe("#BaggagePaymentSummary", () => {
   test("renders", () => {
-    const wrapper = shallow(<BaggagePaymentSummary {...props} />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<PassengerBaggages {...props} />);
+    expect(wrapper.find("[data-test='BaggagePaymentSummary-PassengerBaggages-1']").exists()).toBe(
+      true,
+    );
+    expect(wrapper.find("[data-test='PassengerBaggages-1-Price']").text()).toBe("40 €");
   });
 });

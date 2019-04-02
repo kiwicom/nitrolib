@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import Badge from "../index";
 
@@ -11,15 +11,17 @@ const props = {
 
 describe("#Badge", () => {
   test("renders status unpaid", () => {
-    const wrapper = shallow(<Badge {...props} />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<Badge {...props} />);
+    expect(wrapper.find("[data-test='CustomerBaggageTile-Badge-unpaid']").exists()).toBe(true);
   });
   test("renders status processing", () => {
-    const wrapper = shallow(<Badge price={null} orderStatus="processing" />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<Badge price={null} orderStatus="processing" />);
+    expect(wrapper.find("[data-test='CustomerBaggageTile-Badge-processing']").exists()).toBe(true);
   });
   test("renders status not available", () => {
-    const wrapper = shallow(<Badge price={null} orderStatus="notAvailable" />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<Badge price={null} orderStatus="notAvailable" />);
+    expect(wrapper.find("[data-test='CustomerBaggageTile-Badge-notAvailable']").exists()).toBe(
+      true,
+    );
   });
 });

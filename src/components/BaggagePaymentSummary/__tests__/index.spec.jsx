@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import BaggagePaymentSummary from "../index";
 import { baggageData } from "../../BaggagePicker/services/data";
@@ -33,7 +33,7 @@ const props = {
 
 describe("#BaggagePaymentSummary", () => {
   test("renders", () => {
-    const wrapper = shallow(<BaggagePaymentSummary {...props} />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<BaggagePaymentSummary {...props} />);
+    expect(wrapper.find("[data-test='BaggagePaymentSummary']").exists()).toBe(true);
   });
 });

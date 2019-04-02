@@ -20,7 +20,7 @@ type TitleProps = {
   price: ?number,
 };
 
-const TitleWrapper = styled.div.attrs({
+const Wrapper = styled.div.attrs({
   "data-test": "CustomerBaggageTile-Title",
 })`
   display: flex;
@@ -53,7 +53,7 @@ const Title = ({
   orderStatus,
   price,
 }: TitleProps) => (
-  <TitleWrapper>
+  <Wrapper>
     <Stack inline align="center" spacing="condensed">
       {gender === "male" ? <GenderMan /> : <GenderWoman />}
       <Text element="span" weight="bold" size="large">{`${firstName}
@@ -61,7 +61,7 @@ const Title = ({
         ${lastName}${dayOfBirth ? ` ${dayOfBirth}` : ""}`}</Text>
     </Stack>
     {orderStatus && <Badge orderStatus={orderStatus} price={price} />}
-  </TitleWrapper>
+  </Wrapper>
 );
 
 export default Title;

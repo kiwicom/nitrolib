@@ -94,6 +94,7 @@ export type BaggagePassengerType = {|
   middleName?: string,
   lastName: string,
 |};
+
 export type Passenger = {|
   ...BaggagePassengerType,
   baggage: {

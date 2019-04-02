@@ -17,7 +17,7 @@ const props = {
 describe("#Title", () => {
   test("renders", () => {
     const wrapper = shallow(<Title {...props} />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Title__Wrapper").exists()).toBe(true);
   });
   test("renders proper gender icon", () => {
     const wrapper = shallow(<Title {...props} gender="female" />);

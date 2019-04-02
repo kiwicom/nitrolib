@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import CustomerBaggageTile from "../index";
 import data from "../services/data";
@@ -21,7 +21,7 @@ const props = {
 
 describe("#CustomerBaggageTile", () => {
   test("renders", () => {
-    const wrapper = shallow(<CustomerBaggageTile {...props} />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<CustomerBaggageTile {...props} />);
+    expect(wrapper.find("[data-test='CustomerBaggageTile']").exists()).toBe(true);
   });
 });

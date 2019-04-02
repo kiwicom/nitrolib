@@ -24,6 +24,11 @@ describe("#BaggageItem", () => {
   });
   test("renders baggage restrictions", () => {
     const wrapper = shallow(<BaggageItem {...props} />);
-    expect(wrapper.find("BaggageItem__BaggageRestrictions").exists()).toBe(true);
+    expect(
+      wrapper
+        .find("BaggageItem__BaggageRestrictions")
+        .first()
+        .text(),
+    ).toBe("20 x 20 x 20 cm, 5 kg");
   });
 });

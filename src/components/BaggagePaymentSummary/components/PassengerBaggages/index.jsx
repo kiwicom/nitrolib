@@ -29,7 +29,7 @@ const PassengerBaggages = ({ id, firstName, lastName, baggage, price }: Props) =
       <Text>
         <Translate t="baggage_modal.summary.baggage_for" values={{ firstName, lastName }} />
       </Text>
-      <Text>
+      <Text dataTest={`PassengerBaggages-${id}-Price`}>
         <Price value={price} />
       </Text>
     </Stack>
