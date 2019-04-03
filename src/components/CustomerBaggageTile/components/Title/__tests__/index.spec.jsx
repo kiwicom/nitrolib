@@ -10,7 +10,6 @@ const props = {
   lastName: "Dlouhy",
   gender: "male",
   orderStatus: "unpaid",
-  dayOfBirth: undefined,
   price: 21,
 };
 

@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import Card from "@kiwicom/orbit-components/lib/Card";
 import CardSection from "@kiwicom/orbit-components/lib/Card/CardSection";
@@ -11,7 +11,7 @@ import type {
   HoldBagDefinition,
   HandBagDefinition,
   ItemType,
-} from "../../records/Baggage.js.flow";
+} from "../../records/Baggage";
 import { getTotalPrice } from "../../services/baggage/utils";
 
 type Passenger = {
@@ -25,7 +25,7 @@ type Passenger = {
 };
 
 type Props = {
-  passengers: Array<Passenger>,
+  passengers: Passenger[],
   baggage: BaggageType,
 };
 
@@ -33,9 +33,9 @@ const BaggagePaymentSummary = ({ baggage, passengers }: Props) => {
   const { combinations, definitions } = baggage;
 
   const getDefinitions = (
-    def: Array<HoldBagDefinition> | Array<HandBagDefinition>,
-    indices: Array<number>,
-  ): Array<ItemType> => {
+    def: HoldBagDefinition[] | HandBagDefinition[],
+    indices: number[],
+  ): ItemType[] => {
     const data = indices.reduce((acc, optionIndex) => {
       const key = optionIndex.toString();
       if (acc[key]) {

@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
 import R from "ramda";
@@ -16,13 +16,13 @@ import type {
   HoldBagDefinitionWithId,
   HandBagDefinitionWithId,
   OverviewContextType,
-} from "../../records/Baggage.js.flow";
+} from "../../records/Baggage";
 import BaggageItem from "./components/BaggageItem";
 import Translate from "../Translate/index";
 
 type Props = {
-  definitions?: Array<HandBagDefinitionWithId | HoldBagDefinitionWithId>,
-  definitionWithPassengers?: Array<DefinitionWithPassenger>,
+  definitions?: (HandBagDefinitionWithId | HoldBagDefinitionWithId)[],
+  definitionWithPassengers?: DefinitionWithPassenger[],
   FAQLinksHandler?: FAQLinksHandlerType,
   context: OverviewContextType,
 };
@@ -67,7 +67,7 @@ const BaggageOverview = ({
   const baggages = definitionWithPassengers || (definitions && groupDefinitions(definitions));
   return (
     <Wrapper context={context}>
-      {baggages && baggages.some(R.propEq("category", "personalItem")) && <NoPersonalItem />}
+      {baggages && !baggages.some(R.propEq("category", "personalItem")) && <NoPersonalItem />}
       {baggages &&
         baggages.map((bag, index) => (
           <BaggageItem

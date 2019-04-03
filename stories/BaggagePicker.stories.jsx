@@ -40,7 +40,6 @@ const props = {
   baggage: baggageData,
   airlines,
   context: "booking",
-  currentCombination: undefined,
   prioBoardingLinkHandler: airlines => console.log("prioAirlines", airlines), // eslint-disable-line
 };
 

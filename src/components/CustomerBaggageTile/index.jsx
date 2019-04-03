@@ -13,7 +13,7 @@ import type {
   HoldBagTileDefinition,
   BaggageCategory,
   HandBagTileDefinition,
-} from "../../records/Baggage.js.flow";
+} from "../../records/Baggage";
 
 const Wrapper = styled.div`
   div:last-child > svg {
@@ -36,7 +36,7 @@ type Props = {
     handBag: number, // index of combination
     holdBag: number, // index of combination
   },
-  definitions?: Array<HoldBagTileDefinition | HandBagTileDefinition>,
+  definitions?: (HoldBagTileDefinition | HandBagTileDefinition)[],
   onClick?: () => void,
   baggage: BaggageType,
 };
@@ -63,7 +63,7 @@ const CustomerBaggageTile = ({
         def.isCurrent = true; // eslint-disable-line
         memo.splice(memo.findIndex(i => i === def.originalIndex), 1); // eslint-disable-line
       }
-      // $FlowFixMe
+      // $FlowExpected: Union types issue
       return acc.concat(def);
     }, []);
   };
@@ -82,7 +82,7 @@ const CustomerBaggageTile = ({
 
   const getDefinitions = (
     bagType: BaggageCategory,
-  ): Array<HoldBagTileDefinition | HandBagTileDefinition> => {
+  ): (HoldBagTileDefinition | HandBagTileDefinition)[] => {
     const currentCombination = current && current[bagType];
     const selectedCombination = selected && selected[bagType];
     if (typeof selectedCombination === "number" && typeof currentCombination === "number") {

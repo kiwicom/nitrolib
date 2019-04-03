@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React, { useContext } from "react";
 import styled from "styled-components";
 import Text from "@kiwicom/orbit-components/lib/Text";

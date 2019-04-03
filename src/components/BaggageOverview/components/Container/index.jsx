@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import R from "ramda";
 
@@ -7,15 +7,15 @@ import type {
   BaggagePassengerType,
   Passenger,
   DefinitionWithPassenger,
-} from "../../../../records/Baggage.js.flow";
+} from "../../../../records/Baggage";
 
 type ChildrenProps = {
   context: "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking",
-  definitionWithPassengers: Array<DefinitionWithPassenger>,
+  definitionWithPassengers: DefinitionWithPassenger[],
 };
 
 type Props = {
-  passengers: Array<Passenger>,
+  passengers: Passenger[],
   baggage: BaggageType,
   context: "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking",
   children: ChildrenProps => React.Node,
@@ -32,10 +32,7 @@ const BaggageOverviewContainer = ({ baggage, children, context, passengers }: Pr
     },
   }));
 
-  const getPassengersFromId = (
-    paxIds: Array<number>,
-    passengersArray,
-  ): Array<BaggagePassengerType> =>
+  const getPassengersFromId = (paxIds: number[], passengersArray): BaggagePassengerType[] =>
     R.innerJoin((passenger, paxId) => passenger.paxId === paxId, passengersArray, paxIds).map(
       p => ({
         paxId: p.paxId,

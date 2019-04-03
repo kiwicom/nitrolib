@@ -17,7 +17,6 @@ const props = {
       name: "Ryanair",
     },
   ],
-  prioBoardingLinkHandler: undefined,
 };
 
 describe("#PriorityBoardingInfo", () => {

@@ -15,15 +15,15 @@ import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import Flex from "../../../../primitives/Flex";
 import Option from "../Option/index";
-import type { OptionBaggage, BaggageCategory } from "../../../../records/Baggage.js.flow";
+import type { OptionBaggage, BaggageCategory } from "../../../../records/Baggage";
 
 type State = {
-  showedOptions: Array<OptionBaggage>,
+  showedOptions: OptionBaggage[],
   hiddenOptions: number,
 };
 
 type Props = {|
-  options: Array<OptionBaggage>,
+  options: OptionBaggage[],
   pickerType: BaggageCategory,
   onChange: (pickerType: BaggageCategory, index: number) => void,
   selectedIndex: number,

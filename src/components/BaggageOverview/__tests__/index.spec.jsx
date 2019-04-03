@@ -30,7 +30,6 @@ const passengers = [
   {
     paxId: 3,
     firstName: "George",
-    middleName: undefined,
     lastName: "Bush",
     baggage: {
       holdBag: 0,
@@ -116,7 +115,6 @@ const propsWithCombinations = {
 
 const propsWithDefinitions = {
   definitions,
-  currentPaxId: undefined,
   FAQLinksHandler: category => console.log("clicked on", category), // eslint-disable-line
   context: "MMB-PassengerCard",
 };

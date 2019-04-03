@@ -30,7 +30,6 @@ const passengers = [
   {
     paxId: 3,
     firstName: "George",
-    middleName: undefined,
     lastName: "Bush",
     baggage: {
       holdBag: 0,

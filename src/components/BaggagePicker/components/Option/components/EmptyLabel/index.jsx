@@ -1,11 +1,11 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Close from "@kiwicom/orbit-components/lib/icons/Close";
 import Text from "@kiwicom/orbit-components/lib/Text";
 
 import Translate from "../../../../../Translate/index";
-import type { BaggageCategory } from "../../../../../../records/Baggage.js.flow";
+import type { BaggageCategory } from "../../../../../../records/Baggage";
 
 type Props = {
   pickerType: BaggageCategory,

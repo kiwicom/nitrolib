@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
@@ -7,8 +7,8 @@ import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import type { Restrictions, BaggageSubCategory } from "../../../../records/Baggage.js.flow";
-import type { PriceType } from "../../../../records/Price.js.flow";
+import type { Restrictions, BaggageSubCategory } from "../../../../records/Baggage";
+import type { PriceType } from "../../../../records/Price";
 import {
   getIconFromCategory,
   getTextFromCategory,

@@ -20,7 +20,6 @@ const passengers = [
   {
     paxId: 3,
     firstName: "George",
-    middleName: undefined,
     lastName: "Bush",
   },
 ];
@@ -36,8 +35,6 @@ const props = {
   category: "holdBag",
   context: "booking",
   amount: 2,
-  FAQLinksHandler: undefined,
-  passengers: undefined,
 };
 
 describe("#BaggageItem", () => {

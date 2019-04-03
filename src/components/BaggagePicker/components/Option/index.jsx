@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
 import R from "ramda";
@@ -15,8 +15,8 @@ import Translate from "../../../Translate/index";
 import OptionItem from "../OptionItem/index";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import type { ItemType, BaggageCategory } from "../../../../records/Baggage.js.flow";
-import type { PriceType } from "../../../../records/Price.js.flow";
+import type { ItemType, BaggageCategory } from "../../../../records/Baggage";
+import type { PriceType } from "../../../../records/Price";
 import { Consumer } from "../../services/context";
 
 type Props = {

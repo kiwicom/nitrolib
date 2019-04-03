@@ -5,7 +5,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import type { TileItem, OrderStatusType } from "../../../../records/Baggage.js.flow";
+import type { TileItem, OrderStatusType } from "../../../../records/Baggage";
 import {
   getIconFromCategory,
   getTextFromCategory,

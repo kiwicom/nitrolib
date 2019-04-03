@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import Badge from "@kiwicom/orbit-components/lib/Badge";
 import Money from "@kiwicom/orbit-components/lib/icons/Money";
@@ -8,7 +8,7 @@ import Tooltip from "@kiwicom/orbit-components/lib/Tooltip";
 
 import { Consumer } from "../../../../../../services/currency/context";
 import { format } from "../../../../../../records/Currency";
-import type { OrderStatusType } from "../../../../../../records/Baggage.js.flow";
+import type { OrderStatusType } from "../../../../../../records/Baggage";
 import Translate from "../../../../../Translate/index";
 
 const getTooltipText = (status: OrderStatusType) => {

@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import styled from "styled-components";
 import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
@@ -9,13 +9,13 @@ import type {
   HoldBagTileDefinition,
   HandBagTileDefinition,
   OrderStatusType,
-} from "../../../../records/Baggage.js.flow";
+} from "../../../../records/Baggage";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import Translate from "../../../Translate/index";
 
 type Props = {
-  definitions: Array<HoldBagTileDefinition | HandBagTileDefinition>,
+  definitions: (HoldBagTileDefinition | HandBagTileDefinition)[],
   orderStatus: ?OrderStatusType,
 };
 

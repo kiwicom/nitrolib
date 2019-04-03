@@ -1,11 +1,11 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 
 import Price from "../../../Price";
 import { getTextFromCategory } from "../../../../services/baggage/utils";
-import type { ItemType } from "../../../../records/Baggage.js.flow";
+import type { ItemType } from "../../../../records/Baggage";
 import Translate from "../../../Translate";
 
 type Props = {
@@ -13,8 +13,8 @@ type Props = {
   firstName: string,
   lastName: string,
   baggage: {
-    handBag: Array<ItemType>,
-    holdBag: Array<ItemType>,
+    handBag: ItemType[],
+    holdBag: ItemType[],
   },
   price: number,
 };

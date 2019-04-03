@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
 import PriorityBoarding from "@kiwicom/orbit-components/lib/icons/PriorityBoarding";
@@ -28,8 +28,8 @@ IconWrapper.defaultProps = {
 };
 
 type Props = {
-  airlines: Array<Airline>,
-  prioBoardingLinkHandler?: (Array<Airline>) => void,
+  airlines: Airline[],
+  prioBoardingLinkHandler?: (Airline[]) => void,
 };
 
 const PriorityBoardingInfo = ({ airlines, prioBoardingLinkHandler }: Props) => {

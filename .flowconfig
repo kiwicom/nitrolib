@@ -24,6 +24,5 @@ suppress_type=$FlowFixMe
 
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue: https://github.com/facebook/flow/issues/[0-9]+
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpected: .+
-suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
 
 esproposal.optional_chaining=enable

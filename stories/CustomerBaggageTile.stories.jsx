@@ -10,14 +10,11 @@ import baggageData from "../src/components/CustomerBaggageTile/services/data";
 
 const props = {
   firstName: "Oliver",
-  middleName: undefined,
   lastName: "Dlouhy",
   gender: "male",
-  dayOfBirth: undefined,
   isProcessing: false,
   current: { handBag: 1, holdBag: 1 },
   selected: { handBag: 3, holdBag: 4 },
-  definitions: undefined,
   onClick: () => console.log("clicked"), // eslint-disable-line
   baggage: baggageData,
 };
@@ -80,19 +77,12 @@ storiesOf("CustomerBaggageTile", module)
   .add("all statuses", () => (
     <Wrapper>
       <CustomerBaggageTile {...props} />
-      <CustomerBaggageTile {...props} onClick={undefined} isProcessing />
-      <CustomerBaggageTile
-        {...props}
-        current={undefined}
-        selected={undefined}
-        onClick={undefined}
-        definitions={exampleDefinitions}
-      />
+      <CustomerBaggageTile {...props} isProcessing />
+      <CustomerBaggageTile {...props} definitions={exampleDefinitions} />
       <CustomerBaggageTile
         {...props}
         current={{ handBag: 3, holdBag: 3 }}
         selected={{ handBag: 3, holdBag: 3 }}
-        onClick={undefined}
         definitions={exampleDefinitions}
       />
     </Wrapper>

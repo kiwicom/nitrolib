@@ -7,7 +7,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Text from "@kiwicom/orbit-components/lib/Text";
 
-import type { Gender, OrderStatusType } from "../../../../records/Baggage.js.flow";
+import type { Gender, OrderStatusType } from "../../../../records/Baggage";
 import Badge from "./components/Badge";
 
 type TitleProps = {

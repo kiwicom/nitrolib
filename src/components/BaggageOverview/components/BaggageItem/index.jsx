@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
@@ -16,7 +16,7 @@ import type {
   BaggagePassengerType,
   OverviewContextType,
   FAQLinksHandlerType,
-} from "../../../../records/Baggage.js.flow";
+} from "../../../../records/Baggage";
 import {
   getTextFromCategory,
   getIconFromCategory,
@@ -24,7 +24,7 @@ import {
 } from "../../../../services/baggage/utils";
 
 const Wrapper = styled.div.attrs({
-  "data-test": ({ dataTest }: { dataTest: string }) => dataTest,
+  "data-test": ({ dataTest }) => dataTest,
 })`
   display: flex;
   flex-direction: column;
@@ -106,7 +106,7 @@ type Props = {
   restrictions: Restrictions,
   category: BaggageSubCategory,
   amount: number,
-  passengers?: Array<BaggagePassengerType>,
+  passengers?: BaggagePassengerType[],
   FAQLinksHandler?: FAQLinksHandlerType,
   context: OverviewContextType,
 };
@@ -124,8 +124,8 @@ const BaggageItem = ({
       .map(p => `${p.firstName[0]}. ${p.middleName ? `${p.middleName[0]}.` : ""} ${p.lastName}`)
       .join(", ");
   return (
-    <Wrapper dataTest={`BaggageOverview-BaggageItem-${category}`}>
-      <Stack shrink spacing="condensed">
+    <Wrapper data-test={`BaggageOverview-BaggageItem-${category}`}>
+      <Stack grow spacing="condensed">
         {getIconFromCategory(category, "medium", "primary")}
         <TextWrapper>
           <Text

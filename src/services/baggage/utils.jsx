@@ -19,7 +19,7 @@ import type {
   HoldBagDefinitionWithId,
   OptionBaggage,
   Restrictions,
-} from "../../records/Baggage.js.flow";
+} from "../../records/Baggage";
 import Translate from "../../components/Translate/index";
 
 type IconSize = "small" | "medium" | "large";
@@ -67,8 +67,8 @@ export const getIconFromCategory = (
 };
 type SummaryPriceArgs = {
   combinationIndices: {
-    holdBag: Array<number>,
-    handBag: Array<number>,
+    holdBag: number[],
+    handBag: number[],
   },
   combinations: Combinations,
 };
@@ -89,8 +89,8 @@ export const getTotalPrice = ({ combinationIndices, combinations }: SummaryPrice
 };
 
 export const getOptionItems = (
-  defs: Array<HoldBagDefinition> | Array<HandBagDefinition>,
-  indices: Array<number>,
+  defs: HoldBagDefinition[] | HandBagDefinition[],
+  indices: number[],
 ) => {
   return indices.reduce((acc, optionIndex) => {
     if (acc[optionIndex]) {
@@ -115,7 +115,7 @@ type GetOptionsArgsType = {
   currentCombination?: number,
 };
 
-export const getOptions = (args: GetOptionsArgsType): Array<OptionBaggage> => {
+export const getOptions = (args: GetOptionsArgsType): OptionBaggage[] => {
   const {
     context,
     currentCombination,
@@ -126,16 +126,16 @@ export const getOptions = (args: GetOptionsArgsType): Array<OptionBaggage> => {
   const bagDefinitions = definitions[pickerType];
   const combinationsCopy = R.clone([combinations])[0];
 
-  const indexedCombinations: Array<{ ...Combination, originalIndex: number }> = combinationsCopy[
+  const indexedCombinations: { ...Combination, originalIndex: number }[] = combinationsCopy[
     pickerType
   ]
     .map((item, index) => ({ ...item, originalIndex: index }))
     .filter(i =>
-      // $FlowFixMe
+      // $FlowExpected: Includes is missing in module ramda
       R.includes(passengerCategory, i.conditions.passengerGroups),
     );
 
-  const options: Array<OptionBaggage> = indexedCombinations.map(c => ({
+  const options: OptionBaggage[] = indexedCombinations.map(c => ({
     originalIndex: c.originalIndex,
     pickerType,
     price: c.price,
@@ -161,7 +161,7 @@ export const getOptions = (args: GetOptionsArgsType): Array<OptionBaggage> => {
 };
 
 export const groupDefinitions = (
-  definitions: Array<HandBagDefinitionWithId | HoldBagDefinitionWithId>,
+  definitions: (HandBagDefinitionWithId | HoldBagDefinitionWithId)[],
 ) => {
   const groupedDefinitions = definitions.reduce((acc, def) => {
     if (acc[def.id]) {

@@ -4,14 +4,12 @@ import { shallow } from "enzyme";
 
 import BaggagePicker from "../index";
 import { baggageData } from "../services/data";
-// $FlowFixMe
+// $FlowExpected: JSON file without types
 import airlines from "../../../../stories/fixtures/airlines.json";
 
 const props = {
   passengerCategory: "adult",
-  changeBagCombination: (type, index) => {
-    console.log(type, index); // eslint-disable-line
-  },
+  changeBagCombination: () => {},
   baggage: baggageData,
   airlines,
   context: "booking",
@@ -21,7 +19,6 @@ const props = {
     handBag: 1,
     holdBag: 6,
   },
-  currentCombination: undefined,
   prioBoardingLinkHandler: () => {},
 };
 
