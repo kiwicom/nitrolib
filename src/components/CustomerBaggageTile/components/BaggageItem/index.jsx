@@ -6,7 +6,11 @@ import Text from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import type { TileItem, OrderStatusType } from "../../../../records/Baggage.js.flow";
-import { getIconFromCategory, getTextFromCategory } from "../../../../services/baggage/utils";
+import {
+  getIconFromCategory,
+  getTextFromCategory,
+  getBaggageSize,
+} from "../../../../services/baggage/utils";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 
@@ -60,9 +64,6 @@ type BaggageItemType = TileItem & {
 const BaggageItem = ({ category, restrictions, isCurrent, orderStatus }: BaggageItemType) => {
   const textWeight =
     isCurrent || orderStatus === null || orderStatus === "notAvailable" ? "normal" : "bold";
-  const getBaggageSize = ({ height, length, weight, width }) =>
-    `${length} x ${width} x ${height} cm, ${weight} kg`;
-
   return (
     <Wrapper>
       <Stack shrink spacing="tight" direction="column">

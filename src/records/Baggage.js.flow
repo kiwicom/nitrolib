@@ -1,5 +1,5 @@
 // @flow
-import type { PriceType } from "./Price";
+import type { PriceType } from "./Price.js.flow";
 
 export type BaggageCategory = "holdBag" | "handBag";
 export type BaggageSubCategory = "holdBag" | "personalItem" | "cabinBag";

@@ -19,6 +19,7 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [Languages](#languages)
 * [Location](#location)
 * [Loglady](#loglady)
+* [Price](#price)
 * [Sector](#sector)
 * [Segment](#segment)
 * [Session](#session)
@@ -1290,6 +1291,30 @@ See types:
 * [Event](./records#event)
 
 A data type for our [Loglady](https://loglady.skypicker.com/api-docs/) tracking system.
+
+## Price
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/Price";
+import type { Price } from "@kiwicom/nitro/lib/records/Price";
+```
+
+**Types:**
+```js
+export type PriceType = {
+  currency: string,
+  amount: number,
+  base: number,
+  merchant?: string | null,
+  service: number,
+  serviceFlat: number,
+};
+```
+
+Price
+
+- common Price type
 
 ## Sector
 

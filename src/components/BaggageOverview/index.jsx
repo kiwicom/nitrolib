@@ -7,6 +7,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
+import { groupDefinitions } from "../../services/baggage/utils";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 import type {
@@ -63,30 +64,10 @@ const BaggageOverview = ({
   context,
   FAQLinksHandler,
 }: Props) => {
-  const getDefinitions = () => {
-    if (definitionWithPassengers) {
-      return definitionWithPassengers;
-    }
-    if (definitions) {
-      const groupedDefinitions = definitions.reduce((acc, def) => {
-        if (acc[def.id]) {
-          acc[def.id].amount += 1;
-        } else {
-          acc[def.id] = {
-            amount: 1,
-            ...def,
-          };
-        }
-        return acc;
-      }, {});
-      return R.values(groupedDefinitions);
-    }
-    return null;
-  };
-  const baggages = getDefinitions();
+  const baggages = definitionWithPassengers || (definitions && groupDefinitions(definitions));
   return (
     <Wrapper context={context}>
-      {baggages && baggages.some(bag => bag.category === "personalItem") && <NoPersonalItem />}
+      {baggages && baggages.some(R.propEq("category", "personalItem")) && <NoPersonalItem />}
       {baggages &&
         baggages.map((bag, index) => (
           <BaggageItem

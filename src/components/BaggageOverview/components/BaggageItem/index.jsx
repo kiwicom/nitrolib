@@ -17,7 +17,11 @@ import type {
   OverviewContextType,
   FAQLinksHandlerType,
 } from "../../../../records/Baggage.js.flow";
-import { getTextFromCategory, getIconFromCategory } from "../../../../services/baggage/utils";
+import {
+  getTextFromCategory,
+  getIconFromCategory,
+  getBaggageSize,
+} from "../../../../services/baggage/utils";
 
 const Wrapper = styled.div.attrs({
   "data-test": ({ dataTest }: { dataTest: string }) => dataTest,
@@ -115,9 +119,6 @@ const BaggageItem = ({
   restrictions,
   FAQLinksHandler,
 }: Props) => {
-  const getBaggageSize = ({ height, length, weight, width }) =>
-    `${length} x ${width} x ${height} cm, ${weight} kg`;
-
   const getPassengerNames = passengersArr =>
     passengersArr
       .map(p => `${p.firstName[0]}. ${p.middleName ? `${p.middleName[0]}.` : ""} ${p.lastName}`)

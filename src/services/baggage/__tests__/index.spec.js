@@ -1,5 +1,11 @@
 // @flow
-import { getOptions, getOptionItems, getTotalPrice } from "../utils";
+import {
+  getOptions,
+  getOptionItems,
+  getTotalPrice,
+  groupDefinitions,
+  getBaggageSize,
+} from "../utils";
 import { baggageData } from "../../../components/BaggagePicker/services/data";
 
 const args = {
@@ -9,7 +15,77 @@ const args = {
   pickerType: "handBag",
   baggage: baggageData,
 };
+
 const { combinations } = baggageData;
+
+const definitionsWithIds = [
+  {
+    id: 1,
+    conditions: {
+      passengerGroups: ["adult"],
+    },
+    price: {
+      currency: "EUR",
+      amount: 0,
+      base: 0,
+      merchant: null,
+      service: 0,
+      serviceFlat: 0,
+    },
+    category: "personalItem",
+    restrictions: {
+      weight: 5,
+      height: 20,
+      width: 20,
+      length: 20,
+      dimensionsSum: null,
+    },
+  },
+  {
+    id: 1,
+    conditions: {
+      passengerGroups: ["adult"],
+    },
+    price: {
+      currency: "EUR",
+      amount: 0,
+      base: 0,
+      merchant: null,
+      service: 0,
+      serviceFlat: 0,
+    },
+    category: "personalItem",
+    restrictions: {
+      weight: 5,
+      height: 20,
+      width: 20,
+      length: 20,
+      dimensionsSum: null,
+    },
+  },
+  {
+    id: 2,
+    conditions: {
+      passengerGroups: ["adult"],
+    },
+    price: {
+      currency: "EUR",
+      amount: 10,
+      base: 0,
+      merchant: null,
+      service: 0,
+      serviceFlat: 0,
+    },
+    category: "holdBag",
+    restrictions: {
+      weight: 10,
+      height: 52,
+      width: 26,
+      length: 78,
+      dimensionsSum: 156,
+    },
+  },
+];
 
 describe("#Baggage utils", () => {
   // getOptions
@@ -80,5 +156,17 @@ describe("#Baggage utils", () => {
       combinations,
     });
     expect(totalPrice).toEqual(202.14);
+  });
+
+  test("groupDefinitions returns proper data", () => {
+    const groupedDefinitions = groupDefinitions(definitionsWithIds);
+    expect(groupedDefinitions.length).toEqual(2);
+    const personalItem = groupedDefinitions.find(item => item.category === "personalItem");
+    expect(personalItem?.amount).toEqual(2);
+  });
+
+  test("getBaggageSize returns proper string", () => {
+    const baggageSize = getBaggageSize(baggageData.definitions.holdBag[2].restrictions);
+    expect(baggageSize).toEqual("78 x 26 x 52 cm, 25 kg");
   });
 });

@@ -16,7 +16,7 @@ import OptionItem from "../OptionItem/index";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import type { ItemType, BaggageCategory } from "../../../../records/Baggage.js.flow";
-import type { PriceType } from "../../../../records/Price";
+import type { PriceType } from "../../../../records/Price.js.flow";
 import { Consumer } from "../../services/context";
 
 type Props = {

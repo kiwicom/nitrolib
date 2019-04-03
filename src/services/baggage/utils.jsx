@@ -14,8 +14,11 @@ import type {
   Combinations,
   Combination,
   HandBagDefinition,
+  HandBagDefinitionWithId,
   HoldBagDefinition,
+  HoldBagDefinitionWithId,
   OptionBaggage,
+  Restrictions,
 } from "../../records/Baggage.js.flow";
 import Translate from "../../components/Translate/index";
 
@@ -156,3 +159,23 @@ export const getOptions = (args: GetOptionsArgsType): Array<OptionBaggage> => {
 
   return options;
 };
+
+export const groupDefinitions = (
+  definitions: Array<HandBagDefinitionWithId | HoldBagDefinitionWithId>,
+) => {
+  const groupedDefinitions = definitions.reduce((acc, def) => {
+    if (acc[def.id]) {
+      acc[def.id].amount += 1;
+    } else {
+      acc[def.id] = {
+        amount: 1,
+        ...def,
+      };
+    }
+    return acc;
+  }, {});
+  return R.values(groupedDefinitions);
+};
+
+export const getBaggageSize = ({ height, length, weight, width }: Restrictions): string =>
+  `${length} x ${width} x ${height} cm, ${weight} kg`;

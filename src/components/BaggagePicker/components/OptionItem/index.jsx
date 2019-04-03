@@ -8,8 +8,12 @@ import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import type { Restrictions, BaggageSubCategory } from "../../../../records/Baggage.js.flow";
-import type { PriceType } from "../../../../records/Price";
-import { getIconFromCategory, getTextFromCategory } from "../../../../services/baggage/utils";
+import type { PriceType } from "../../../../records/Price.js.flow";
+import {
+  getIconFromCategory,
+  getTextFromCategory,
+  getBaggageSize,
+} from "../../../../services/baggage/utils";
 import Price from "../../../Price";
 import Translate from "../../../Translate";
 
@@ -91,9 +95,6 @@ const OptionItem = ({
   price,
   isCurrentCombination,
 }: Props) => {
-  const getBaggageSize = ({ height, length, weight, width }) =>
-    `${length} x ${width} x ${height} cm, ${weight} kg`;
-
   const getFirstItemInfo = (isCurrent, priceValue) =>
     isCurrent ? (
       <Text element="span" weight="bold" type="secondary">
