@@ -232,9 +232,6 @@ export type DefinitionWithPassenger = {|
 export type OverviewContextType = "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking";
 ```
 
-See types:
-* [Price](./records#price)
-
 Baggage
 
 - baggages data type according to snake_case-camelCase mapped API response
