@@ -27,13 +27,18 @@ export default class InitSession extends React.PureComponent<Props, State> {
     // the order in which stuff should be determined is:
     // - URL
     // - Cookies / localStorage
-    const { userId, affilId, ...rest } = qs.parse(window.location.search);
+    const {
+      userId,
+      affilId,
+      affilid, // deprecated format, force 'affilId,
+      ...rest
+    } = qs.parse(window.location.search);
 
     const session = {
       userId: handleUserId(userId && String(userId)),
       sessionId: handleSessionId(),
       pageViewId: makePageViewId(),
-      affiliate: handleAffiliateId(affilId && String(affilId), rest),
+      affiliate: handleAffiliateId((affilId || affilid) && String(affilId || affilid), rest),
       UTMs: handleUTMs(rest),
     };
 
