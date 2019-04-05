@@ -46,6 +46,6 @@ describe("#BaggageItem", () => {
     const wrapper = mount(<BaggageItem {...props} passengers={passengers} />);
     const OptionalColumnWrapper = wrapper.find("BaggageItem__OptionalColumnWrapper");
     expect(OptionalColumnWrapper.exists()).toBe(true);
-    expect(OptionalColumnWrapper.find("Text").text()).toBe("B. H. Obama, D. J. Trump, G.  Bush");
+    expect(OptionalColumnWrapper.find("Text").text()).toBe("B. H. Obama, D. J. Trump, G. Bush");
   });
 });

@@ -54,7 +54,7 @@ const definitions = [
       service: 0,
       serviceFlat: 0,
     },
-    category: "personalItem",
+    category: "cabinBag",
     restrictions: {
       weight: 5,
       height: 20,
@@ -76,7 +76,7 @@ const definitions = [
       service: 0,
       serviceFlat: 0,
     },
-    category: "personalItem",
+    category: "cabinBag",
     restrictions: {
       weight: 5,
       height: 20,

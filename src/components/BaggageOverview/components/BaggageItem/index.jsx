@@ -22,6 +22,7 @@ import {
   getIconFromCategory,
   getBaggageSize,
 } from "../../../../services/baggage/utils";
+import getPassengerNames from "./services/getPassengerNames";
 
 const Wrapper = styled.div.attrs({
   "data-test": ({ dataTest }) => dataTest,
@@ -119,13 +120,9 @@ const BaggageItem = ({
   restrictions,
   FAQLinksHandler,
 }: Props) => {
-  const getPassengerNames = passengersArr =>
-    passengersArr
-      .map(p => `${p.firstName[0]}. ${p.middleName ? `${p.middleName[0]}.` : ""} ${p.lastName}`)
-      .join(", ");
   return (
     <Wrapper data-test={`BaggageOverview-BaggageItem-${category}`}>
-      <Stack grow spacing="condensed">
+      <Stack shrink spacing="condensed">
         {getIconFromCategory(category, "medium", "primary")}
         <TextWrapper>
           <Text

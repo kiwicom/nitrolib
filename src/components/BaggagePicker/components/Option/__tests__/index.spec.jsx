@@ -3,7 +3,6 @@ import * as React from "react";
 import { mount } from "enzyme";
 
 import BaggageOption from "../index";
-import { Provider } from "../../../services/context";
 
 const handBagExample = {
   amount: 1,
@@ -51,9 +50,6 @@ const props = {
   isCurrentCombination: false,
   isPersonalItemPresent: false,
   pickerType: "handBag",
-};
-
-const context = {
   shouldShowRecheckNote: true,
   airlines: {
     W6: {
@@ -72,30 +68,18 @@ const context = {
 
 describe("#BaggageOption", () => {
   test("render priority boarding", () => {
-    const wrapper = mount(
-      <Provider value={context}>
-        <BaggageOption {...props} />
-      </Provider>,
-    );
+    const wrapper = mount(<BaggageOption {...props} />);
     expect(wrapper.find("PriorityBoardingInfo").exists()).toBe(true);
   });
 
   test("render alert", () => {
-    const wrapper = mount(
-      <Provider value={context}>
-        <BaggageOption {...props} isChecked />
-      </Provider>,
-    );
+    const wrapper = mount(<BaggageOption {...props} isChecked />);
 
     expect(wrapper.find("Alert").exists()).toEqual(true);
   });
 
   test("render checked Radio", () => {
-    const wrapper = mount(
-      <Provider value={context}>
-        <BaggageOption {...props} isChecked />
-      </Provider>,
-    );
+    const wrapper = mount(<BaggageOption {...props} isChecked />);
     expect(wrapper.find("Radio").exists()).toBe(true);
     const radioProps = wrapper.find("Radio").props() || {};
     expect(radioProps.checked).toBe(true);
@@ -103,19 +87,13 @@ describe("#BaggageOption", () => {
 
   test("render no-personal item info", () => {
     const wrapper = mount(
-      <Provider value={context}>
-        <BaggageOption {...props} items={{ "1": handBagExample }} isPersonalItemPresent />
-      </Provider>,
+      <BaggageOption {...props} items={{ "1": handBagExample }} isPersonalItemPresent />,
     );
     expect(wrapper.find("BaggagePersonalItemNone").exists()).toBe(true);
   });
 
   test("render empty option for handBag", () => {
-    const wrapper = mount(
-      <Provider value={context}>
-        <BaggageOption {...props} items={{}} />
-      </Provider>,
-    );
+    const wrapper = mount(<BaggageOption {...props} items={{}} />);
     expect(
       wrapper
         .find("Text")
@@ -125,11 +103,7 @@ describe("#BaggageOption", () => {
   });
 
   test("render empty option for handBag", () => {
-    const wrapper = mount(
-      <Provider value={context}>
-        <BaggageOption {...props} items={{}} pickerType="holdBag" />
-      </Provider>,
-    );
+    const wrapper = mount(<BaggageOption {...props} items={{}} pickerType="holdBag" />);
     expect(
       wrapper
         .find("Text")

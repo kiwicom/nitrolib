@@ -137,8 +137,8 @@ export type Definition<C: BaggageSubCategory> = {|
   price: PriceType,
   restrictions: Restrictions,
   conditions: {
-    isPriority?: Array<string>,
-    passengerGroups: Array<PassengerGroup>,
+    isPriority?: string[],
+    passengerGroups: PassengerGroup[],
   },
 |};
 
@@ -160,21 +160,21 @@ export type HoldBagTileDefinition = {|
 |};
 
 export type Definitions = {
-  handBag: Array<HandBagDefinition>,
-  holdBag: Array<HoldBagDefinition>,
+  handBag: HandBagDefinition[],
+  holdBag: HoldBagDefinition[],
 };
 
 export type Combination = {|
-  indices: Array<number>,
+  indices: number[],
   price: PriceType,
   conditions: {
-    passengerGroups: Array<PassengerGroup>,
+    passengerGroups: PassengerGroup[],
   },
 |};
 
 export type Combinations = {|
-  handBag: Array<Combination>,
-  holdBag: Array<Combination>,
+  handBag: Combination[],
+  holdBag: Combination[],
 |};
 
 export type BaggageType = {
@@ -189,8 +189,8 @@ export type TileItem = {
 export type ItemType = TileItem & {
   amount: number,
   conditions: {
-    isPriority?: Array<string>,
-    passengerGroups: Array<PassengerGroup>,
+    isPriority?: string[],
+    passengerGroups: PassengerGroup[],
   },
 };
 
@@ -226,11 +226,14 @@ export type DefinitionWithPassenger = {|
   originalIndex: number,
   category: BaggageSubCategory,
   restrictions: Restrictions,
-  passengers: Array<BaggagePassengerType>,
+  passengers: BaggagePassengerType[],
 |};
 
 export type OverviewContextType = "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking";
 ```
+
+See types:
+* [Price](./records#price)
 
 Baggage
 

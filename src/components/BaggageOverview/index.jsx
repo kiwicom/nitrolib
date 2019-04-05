@@ -2,9 +2,6 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import R from "ramda";
-import Text from "@kiwicom/orbit-components/lib/Text";
-import Stack from "@kiwicom/orbit-components/lib/Stack";
-import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import { groupDefinitions } from "../../services/baggage/utils";
@@ -18,7 +15,7 @@ import type {
   OverviewContextType,
 } from "../../records/Baggage";
 import BaggageItem from "./components/BaggageItem";
-import Translate from "../Translate/index";
+import NoPersonalItem from "./components/NoPersonalItem";
 
 type Props = {
   definitions?: (HandBagDefinitionWithId | HoldBagDefinitionWithId)[],
@@ -48,15 +45,6 @@ Wrapper.defaultProps = {
   theme: themeDefault,
   context: "booking",
 };
-
-const NoPersonalItem = () => (
-  <Stack shrink spacing="condensed" align="center" dataTest="BaggageOverview-NoPersonalItem">
-    <BaggagePersonalItemNone size="medium" color="primary" />
-    <Text>
-      <Translate t="baggage_modal.select.no_personal_item" />
-    </Text>
-  </Stack>
-);
 
 const BaggageOverview = ({
   definitions,

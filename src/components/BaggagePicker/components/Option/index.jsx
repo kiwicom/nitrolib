@@ -17,7 +17,8 @@ import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import type { ItemType, BaggageCategory } from "../../../../records/Baggage";
 import type { PriceType } from "../../../../records/Price";
-import { Consumer } from "../../services/context";
+import getAirlinesWithPriorityBoarding from "./services/getAirlinesWithPriorityBoarding";
+import type { Airlines, Airline } from "../../../../records/Airline";
 
 type Props = {
   items: { [key: string]: ItemType },
@@ -28,21 +29,24 @@ type Props = {
   onClick: () => void,
   pickerType: BaggageCategory,
   isPersonalItemPresent: boolean,
+  airlines?: Airlines,
+  shouldShowRecheckNote?: boolean,
+  prioBoardingLinkHandler?: (Airline[]) => void,
 };
 
-type OptionWrapperProps = ThemeProps & {
+type WrapperProps = ThemeProps & {
   checked: boolean,
   dataTest: string,
 };
 
-const OptionWrapper = styled.div.attrs({
+const Wrapper = styled.div.attrs({
   "data-test": ({ dataTest }) => dataTest,
 })`
   background-color: ${({ theme }) => theme.orbit.paletteWhite};
   padding: ${({ theme }) => theme.orbit.spaceSmall};
   box-shadow: 0 1px 2px 0 ${({ theme }: ThemeProps) => theme.orbit.paletteWhiteHover};
   border: solid 2px
-    ${({ theme, checked }: OptionWrapperProps) =>
+    ${({ theme, checked }: WrapperProps) =>
       checked ? `${theme.orbit.colorTextButtonPrimaryBordered}` : `${theme.orbit.borderColorCard}`};
   border-radius: ${({ theme }) => theme.orbit.borderRadiusNormal};
   outline: solid 1px white;
@@ -51,9 +55,6 @@ const OptionWrapper = styled.div.attrs({
     cursor: pointer;
     border-color: ${({ theme }: ThemeProps) => theme.orbit.borderColorCheckboxRadioHover};
     outline-offset: -3px;
-    /* div { slylelint no-descending-specificity
-      border-color: ${({ theme }: ThemeProps) => theme.orbit.borderColorCheckboxRadioHover};
-    } */
   }
 
   > *:not(:last-child) {
@@ -61,7 +62,7 @@ const OptionWrapper = styled.div.attrs({
   }
 `;
 
-OptionWrapper.defaultProps = {
+Wrapper.defaultProps = {
   dataTest: "BaggagePicker-Option",
   theme: themeDefault,
   checked: false,
@@ -98,79 +99,60 @@ const Option = ({
   isCurrentCombination,
   pickerType,
   isPersonalItemPresent,
+  airlines,
+  shouldShowRecheckNote,
+  prioBoardingLinkHandler,
 }: Props) => {
   const itemsArr = R.values(items);
   const firstItem = R.head(itemsArr);
-
-  const getAirlinesWithPriorityBoarding = itemsArray => {
-    const airlines = itemsArray.reduce((acc, item) => {
-      if (item.conditions && item.conditions.isPriority) {
-        return [...acc, ...item.conditions.isPriority];
-      }
-      return acc;
-    }, []);
-    return R.uniq(airlines);
-  };
+  const priorityAirlines = getAirlinesWithPriorityBoarding(itemsArr)
+    .map((key: string) => airlines?.[key])
+    .filter(Boolean);
 
   return (
-    <Consumer>
-      {({ airlines, shouldShowRecheckNote, prioBoardingLinkHandler }) => {
-        const priorityAirlines = getAirlinesWithPriorityBoarding(itemsArr)
-          .map((key: string) => airlines?.[key])
-          .filter(Boolean);
-
-        return (
-          <OptionWrapper onClick={onClick} checked={isChecked} dataTest={dataTest}>
-            <Stack flex>
-              <RadioWrapper>
-                <Radio checked={isChecked} onChange={onClick} />
-              </RadioWrapper>
-              <Stack shrink flex spacing="extraTight" direction="column">
-                {itemsArr.length > 0 ? (
-                  itemsArr.map((item, index) => (
-                    <OptionItem
-                      key={index} // eslint-disable-line
-                      amount={item.amount}
-                      restrictions={item.restrictions}
-                      category={item.category}
-                      isFirstItem={index === 0}
-                      price={price}
-                      isCurrentCombination={isCurrentCombination}
-                    />
-                  ))
-                ) : (
-                  <EmptyLabel pickerType={pickerType} isCurrentCombination={isCurrentCombination} />
-                )}
-                {firstItem?.category === "cabinBag" && isPersonalItemPresent && (
-                  <Stack
-                    flex
-                    align="center"
-                    spacing="tight"
-                    dataTest="BaggagePicker-NoPersonalItemLabel"
-                  >
-                    <BaggagePersonalItemNone color={isChecked ? "warning" : "secondary"} />
-                    <Text type={isChecked ? "warning" : "secondary"}>
-                      <Translate t="baggage_modal.select.no_personal_item" />
-                    </Text>
-                  </Stack>
-                )}
-                {priorityAirlines.length > 0 && (
-                  <PriorityBoardingInfo
-                    airlines={priorityAirlines}
-                    prioBoardingLinkHandler={prioBoardingLinkHandler}
-                  />
-                )}
-              </Stack>
+    <Wrapper onClick={onClick} checked={isChecked} dataTest={dataTest}>
+      <Stack flex>
+        <RadioWrapper>
+          <Radio checked={isChecked} onChange={onClick} />
+        </RadioWrapper>
+        <Stack shrink flex spacing="extraTight" direction="column">
+          {itemsArr.length > 0 ? (
+            itemsArr.map((item, index) => (
+              <OptionItem
+                key={index} // eslint-disable-line
+                amount={item.amount}
+                restrictions={item.restrictions}
+                category={item.category}
+                isFirstItem={index === 0}
+                price={price}
+                isCurrentCombination={isCurrentCombination}
+              />
+            ))
+          ) : (
+            <EmptyLabel pickerType={pickerType} isCurrentCombination={isCurrentCombination} />
+          )}
+          {firstItem?.category === "cabinBag" && isPersonalItemPresent && (
+            <Stack flex align="center" spacing="tight" dataTest="BaggagePicker-NoPersonalItemLabel">
+              <BaggagePersonalItemNone color={isChecked ? "warning" : "secondary"} />
+              <Text type={isChecked ? "warning" : "secondary"}>
+                <Translate t="baggage_modal.select.no_personal_item" />
+              </Text>
             </Stack>
-            {shouldShowRecheckNote && firstItem?.category === "holdBag" && isChecked && (
-              <Alert dataTest="BaggagePicker-RecheckAlert">
-                <Translate t="baggage_modal.alert.collect_and_recheck" />
-              </Alert>
-            )}
-          </OptionWrapper>
-        );
-      }}
-    </Consumer>
+          )}
+          {priorityAirlines.length > 0 && (
+            <PriorityBoardingInfo
+              airlines={priorityAirlines}
+              prioBoardingLinkHandler={prioBoardingLinkHandler}
+            />
+          )}
+        </Stack>
+      </Stack>
+      {shouldShowRecheckNote && firstItem?.category === "holdBag" && isChecked && (
+        <Alert dataTest="BaggagePicker-RecheckAlert">
+          <Translate t="baggage_modal.alert.collect_and_recheck" />
+        </Alert>
+      )}
+    </Wrapper>
   );
 };
 

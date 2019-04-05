@@ -56,6 +56,6 @@ describe("#Container", () => {
       OptionalColumnWrapper.find("Text")
         .first()
         .text(),
-    ).toBe("D. J. Trump, G.  Bush");
+    ).toBe("D. J. Trump, G. Bush");
   });
 });
