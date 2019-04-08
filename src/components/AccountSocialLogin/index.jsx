@@ -44,7 +44,7 @@ const AccountSocialLogin = ({ onAskSignInLink, onSocialLogin, email, pairedWith 
         values={{ provider: PROVIDER[pairedWith] }}
       />
     </Header>
-    <Section>
+    <Section dataTest="AccountSocialLogin">
       <Stack flex direction="column" spacing="condensed" desktop={{ direction: "row" }}>
         <Button type={pairedWith} bordered icon={BUTTON_ICON[pairedWith]} onClick={onSocialLogin}>
           <Translate t="account.log_in_with" values={{ provider: PROVIDER[pairedWith] }} />

@@ -7,7 +7,7 @@ import AccountNoAccount from "..";
 import { brandDefault } from "../../../records/Brand";
 
 describe("#AccountNoAccount", () => {
-  test("render", () => {
+  test("renders button to register", () => {
     const wrapper = shallow(
       <AccountNoAccount
         onBack={() => {}}
@@ -16,7 +16,10 @@ describe("#AccountNoAccount", () => {
         onGoogleLogin={() => {}}
       />,
     );
+    const registerLink = shallow(<span>{wrapper.prop("children")(brandDefault)}</span>).find(
+      `[t="account.register"]`,
+    );
 
-    expect(shallow(<span>{wrapper.prop("children")(brandDefault)}</span>)).toMatchSnapshot();
+    expect(registerLink.exists()).toBe(true);
   });
 });

@@ -1,12 +1,12 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import AccountPairedFacebook from "..";
 
 describe("#AccountPairedFacebook", () => {
-  test("render", () => {
-    const wrapper = shallow(
+  test("render button to login via Facebook", () => {
+    const wrapper = mount(
       <AccountPairedFacebook
         onAskSignInLink={() => {}}
         onSocialLogin={() => {}}
@@ -15,6 +15,11 @@ describe("#AccountPairedFacebook", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(
+      wrapper
+        .find(`[data-test="AccountSocialLogin"]`)
+        .find("button")
+        .exists(),
+    ).toBe(true);
   });
 });

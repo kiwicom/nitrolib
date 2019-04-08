@@ -33,7 +33,7 @@ const AccountNoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }
           </Heading>
           <Text t="account.no_bookings_or_account_description" values={{ brandName: brand.name }} />
         </Header>
-        <Section>
+        <Section dataTest="AccountNoAccount">
           <Stack spacing="natural" direction="column">
             <Button onClick={onRegister}>
               <Translate t="account.register" />
