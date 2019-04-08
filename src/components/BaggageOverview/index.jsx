@@ -24,13 +24,12 @@ type Props = {
   context: OverviewContextType,
 };
 
-type WrapperProps = ThemeProps & {
+type WrapperProps = {
+  ...ThemeProps,
   context: OverviewContextType,
 };
 
-const Wrapper = styled.div.attrs({
-  "data-test": ({ context }) => `BaggageOverview-${context}`,
-})`
+const Wrapper = styled.div`
   width: 100%;
   > * {
     margin-bottom: 10px;
@@ -53,8 +52,9 @@ const BaggageOverview = ({
   FAQLinksHandler,
 }: Props) => {
   const baggages = definitionWithPassengers || (definitions && groupDefinitions(definitions));
+
   return (
-    <Wrapper context={context}>
+    <Wrapper context={context} data-test={`BaggageOverview-${context}`}>
       {baggages && !baggages.some(R.propEq("category", "personalItem")) && <NoPersonalItem />}
       {baggages &&
         baggages.map((bag, index) => (

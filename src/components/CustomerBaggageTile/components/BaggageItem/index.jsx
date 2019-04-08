@@ -26,7 +26,8 @@ const BaggageRestrictionsWrapper = styled.div`
     width: 100%;
   `)};
 `;
-type BaggageRestrictionsProps = ThemeProps & {
+type BaggageRestrictionsProps = {
+  ...ThemeProps,
   isMobile: boolean,
 };
 
@@ -48,15 +49,14 @@ BaggageRestrictions.defaultProps = {
   isMobile: false,
 };
 
-const Wrapper = styled.div.attrs({
-  "data-test": "CustomerBaggageTile-BaggageItem",
-})`
+const Wrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
 `;
 
-type BaggageItemType = TileItem & {
+type BaggageItemType = {
+  ...TileItem,
   isCurrent?: boolean,
   orderStatus: ?OrderStatusType,
 };
@@ -65,7 +65,7 @@ const BaggageItem = ({ category, restrictions, isCurrent, orderStatus }: Baggage
   const textWeight =
     isCurrent || orderStatus === null || orderStatus === "notAvailable" ? "normal" : "bold";
   return (
-    <Wrapper>
+    <Wrapper data-test="CustomerBaggageTile-BaggageItem">
       <Stack shrink spacing="tight" direction="column">
         <Stack grow flex align="center" spacing="condensed">
           {getIconFromCategory(category, "small", "primary")}

@@ -6,16 +6,12 @@ import Separator from "@kiwicom/orbit-components/lib/Separator";
 
 import PassengerBaggages from "./components/PassengerBaggages";
 import TotalPayment from "./components/TotalPayment";
-import type {
-  BaggageType,
-  HoldBagDefinition,
-  HandBagDefinition,
-  ItemType,
-} from "../../records/Baggage";
+import type { BaggageType } from "../../records/Baggage";
 import { getTotalPrice } from "../../services/baggage/utils";
+import getDefinitions from "./services/getDefinitions";
 
 type Passenger = {
-  id: number,
+  paxId: number,
   firstName: string,
   lastName: string,
   baggage: {
@@ -32,29 +28,8 @@ type Props = {
 const BaggagePaymentSummary = ({ baggage, passengers }: Props) => {
   const { combinations, definitions } = baggage;
 
-  const getDefinitions = (
-    def: HoldBagDefinition[] | HandBagDefinition[],
-    indices: number[],
-  ): ItemType[] => {
-    const data = indices.reduce((acc, optionIndex) => {
-      const key = optionIndex.toString();
-      if (acc[key]) {
-        acc[key].amount += 1;
-      } else {
-        acc[key] = {
-          amount: 1,
-          category: def[optionIndex].category,
-          restrictions: def[optionIndex].restrictions,
-          conditions: def[optionIndex].conditions,
-        };
-      }
-      return acc;
-    }, {});
-    return Object.keys(data).map(key => data[key]);
-  };
-
   const passengersWithBagDefinitions = passengers.map(passenger => ({
-    id: passenger.id,
+    paxId: passenger.paxId,
     firstName: passenger.firstName,
     lastName: passenger.lastName,
     baggage: {
@@ -81,7 +56,7 @@ const BaggagePaymentSummary = ({ baggage, passengers }: Props) => {
     <Card dataTest="BaggagePaymentSummary">
       <CardSection>
         {passengersWithBagDefinitions.map(passenger => (
-          <PassengerBaggages key={passenger.id} {...passenger} />
+          <PassengerBaggages key={passenger.paxId} {...passenger} />
         ))}
         <Separator spaceAfter="large" />
         <TotalPayment

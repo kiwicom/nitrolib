@@ -30,6 +30,7 @@ type GetPersonalItemPresenceType = {
   pickerType: BaggageCategory,
   options: OptionBaggage[],
 };
+
 export const getPersonalItemPresence = ({
   pickerType,
   options,

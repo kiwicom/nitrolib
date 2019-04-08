@@ -20,9 +20,7 @@ type TitleProps = {
   price: ?number,
 };
 
-const Wrapper = styled.div.attrs({
-  "data-test": "CustomerBaggageTile-Title",
-})`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -53,7 +51,7 @@ const Title = ({
   orderStatus,
   price,
 }: TitleProps) => (
-  <Wrapper>
+  <Wrapper data-test="CustomerBaggageTile-Title">
     <Stack inline align="center" spacing="condensed">
       {gender === "male" ? <GenderMan /> : <GenderWoman />}
       <Text element="span" weight="bold" size="large">{`${firstName}

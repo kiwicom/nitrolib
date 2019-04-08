@@ -4,13 +4,16 @@ import type { PriceType } from "./Price";
 export type BaggageCategory = "holdBag" | "handBag";
 export type BaggageSubCategory = "holdBag" | "personalItem" | "cabinBag";
 export type PassengerGroup = "adult" | "child" | "infant";
+export type OrderStatusType = "unpaid" | "processing" | "notAvailable";
+export type Gender = "male" | "female";
+export type OverviewContextType = "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking";
 
 export type Restrictions = {|
   weight: number,
   height: number,
   width: number,
   length: number,
-  dimensionsSum: ?number,
+  dimensionsSum: number | null,
 |};
 
 export type Definition<C: BaggageSubCategory> = {|
@@ -63,17 +66,19 @@ export type BaggageType = {
   combinations: Combinations,
 };
 
-export type TileItem = {
+export type TileItem = {|
   category: BaggageSubCategory,
   restrictions: Restrictions,
-};
-export type ItemType = TileItem & {
+|};
+
+export type ItemType = {|
+  ...TileItem,
   amount: number,
   conditions: {
     isPriority?: string[],
     passengerGroups: PassengerGroup[],
   },
-};
+|};
 
 export type OptionBaggage = {
   originalIndex: number,
@@ -81,10 +86,6 @@ export type OptionBaggage = {
   price: PriceType,
   items: { [key: string]: ItemType },
 };
-
-export type OrderStatusType = "unpaid" | "processing" | "notAvailable";
-
-export type Gender = "male" | "female";
 
 export type FAQLinksHandlerType = BaggageSubCategory => void;
 
@@ -109,5 +110,3 @@ export type DefinitionWithPassenger = {|
   restrictions: Restrictions,
   passengers: BaggagePassengerType[],
 |};
-
-export type OverviewContextType = "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking";

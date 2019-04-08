@@ -38,9 +38,7 @@ type Props = {
   prioBoardingLinkHandler: (Airline[]) => void,
 };
 
-const EmptyOption = styled.div.attrs({
-  "data-test": "BaggagePicker-EmptyOption",
-})`
+const EmptyOption = styled.div`
   display: flex;
   align-items: center;
   padding: ${({ theme }) => theme.orbit.spaceSmall};
@@ -158,7 +156,7 @@ const BaggagePicker = (props: Props) => {
           />
         ))
       ) : (
-        <EmptyOption>
+        <EmptyOption data-test="BaggagePicker-EmptyOption">
           <Close size="medium" color="critical" />
           <Text>{getEmptyOptionText(pickerType)}</Text>
         </EmptyOption>

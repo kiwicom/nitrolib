@@ -34,14 +34,13 @@ type Props = {
   prioBoardingLinkHandler?: (Airline[]) => void,
 };
 
-type WrapperProps = ThemeProps & {
+type WrapperProps = {
+  ...ThemeProps,
   checked: boolean,
   dataTest: string,
 };
 
-const Wrapper = styled.div.attrs({
-  "data-test": ({ dataTest }) => dataTest,
-})`
+const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.orbit.paletteWhite};
   padding: ${({ theme }) => theme.orbit.spaceSmall};
   box-shadow: 0 1px 2px 0 ${({ theme }: ThemeProps) => theme.orbit.paletteWhiteHover};
@@ -110,7 +109,7 @@ const Option = ({
     .filter(Boolean);
 
   return (
-    <Wrapper onClick={onClick} checked={isChecked} dataTest={dataTest}>
+    <Wrapper onClick={onClick} checked={isChecked} data-test={dataTest}>
       <Stack flex>
         <RadioWrapper>
           <Radio checked={isChecked} onChange={onClick} />

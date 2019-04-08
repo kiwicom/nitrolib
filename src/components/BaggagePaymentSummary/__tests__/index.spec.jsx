@@ -7,7 +7,7 @@ import { baggageData } from "../../BaggagePicker/services/data";
 
 const passengers = [
   {
-    id: 1,
+    paxId: 1,
     firstName: "Barrack",
     lastName: "Obama",
     baggage: {
@@ -16,7 +16,7 @@ const passengers = [
     },
   },
   {
-    id: 2,
+    paxId: 2,
     firstName: "Donald",
     lastName: "Trump",
     baggage: {

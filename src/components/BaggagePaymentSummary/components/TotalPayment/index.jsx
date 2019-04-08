@@ -14,9 +14,7 @@ type Props = {
   totalPrice: number,
 };
 
-const Wrapper = styled.div.attrs({
-  "data-test": "BaggagePaymentSummary-TotalPayment",
-})`
+const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   svg {
@@ -31,7 +29,7 @@ const TotalPayment = ({ totalPrice }: Props) => {
   const { currency } = useContext(currencyContext);
 
   return (
-    <Wrapper>
+    <Wrapper data-test="BaggagePaymentSummary-TotalPayment">
       <Text>
         <Translate t="baggage_modal.payment.total" values={{ currency: currency.name }} />
         <InformationCircle size="small" color="secondary" />

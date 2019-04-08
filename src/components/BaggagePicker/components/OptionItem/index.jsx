@@ -26,7 +26,8 @@ type Props = {|
   isCurrentCombination: boolean,
 |};
 
-type BaggageSizeTextProps = ThemeProps & {
+type BaggageSizeTextProps = {
+  ...ThemeProps,
   isMobile: boolean,
 };
 

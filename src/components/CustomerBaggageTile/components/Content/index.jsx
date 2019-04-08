@@ -19,9 +19,7 @@ type Props = {
   orderStatus: ?OrderStatusType,
 };
 
-const Wrapper = styled.div.attrs({
-  "data-test": "CustomerBaggageTile-Content",
-})`
+const Wrapper = styled.div`
   padding: 17px 0px 17px 28px;
   > * {
     margin-bottom: ${({ theme }): ThemeProps => theme.orbit.spaceXXXSmall};
@@ -31,9 +29,7 @@ Wrapper.defaultProps = {
   theme: themeDefault,
 };
 
-const ContactUsText = styled.p.attrs({
-  "data-test": "CustomerBaggageTile-ContactUsText",
-})`
+const ContactUsText = styled.p`
   color: ${({ theme }): ThemeProps => theme.orbit.colorTextPrimary};
   font-size: ${({ theme }) => theme.orbit.fontSizeTextNormal};
   font-weight: ${({ theme }) => theme.orbit.fontWeightMedium};
@@ -65,7 +61,7 @@ NoPersonalItemWrapper.defaultProps = {
 const Content = ({ definitions, orderStatus }: Props) => {
   const hasPersonalItem = definitions.some(bag => bag.category === "personalItem");
   return (
-    <Wrapper>
+    <Wrapper data-test="CustomerBaggageTile-Content">
       {definitions &&
         definitions.map((bag, index) => (
           <BaggageItem
@@ -85,7 +81,7 @@ const Content = ({ definitions, orderStatus }: Props) => {
         </NoPersonalItemWrapper>
       )}
       {orderStatus === "notAvailable" && (
-        <ContactUsText>
+        <ContactUsText data-test="CustomerBaggageTile-ContactUsText">
           <Translate t="baggage_modal.contact_support" values={{ link: "/support" }} html />
         </ContactUsText>
       )}

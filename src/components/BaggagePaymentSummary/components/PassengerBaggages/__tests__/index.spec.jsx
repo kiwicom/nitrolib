@@ -5,7 +5,7 @@ import { mount } from "enzyme";
 import PassengerBaggages from "../index";
 
 const props = {
-  id: 1,
+  paxId: 1,
   firstName: "Barrack",
   lastName: "Obama",
   baggage: {

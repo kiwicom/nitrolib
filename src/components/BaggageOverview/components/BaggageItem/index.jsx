@@ -24,9 +24,7 @@ import {
 } from "../../../../services/baggage/utils";
 import getPassengerNames from "./services/getPassengerNames";
 
-const Wrapper = styled.div.attrs({
-  "data-test": ({ dataTest }) => dataTest,
-})`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,7 +69,8 @@ const Title = styled.span`
   line-height: 24px;
 `;
 
-type OptionalColumnWrapperType = ThemeProps & {
+type OptionalColumnWrapperType = {
+  ...ThemeProps,
   hasLink: boolean,
 };
 
@@ -92,12 +91,14 @@ const OptionalColumnWrapper = styled.div`
     margin-right: 11px;
   }
   ${mq.mediumMobile(css`
-    justify-content: ${({ hasLink }) => (hasLink ? "flex-end" : "flex-start")};
+    justify-content: ${({ hasLink }: OptionalColumnWrapperType) =>
+      hasLink ? "flex-end" : "flex-start"};
     svg {
-      margin-right: ${({ theme }): OptionalColumnWrapperType => theme.orbit.spaceXSmall};
+      margin-right: ${({ theme }: OptionalColumnWrapperType) => theme.orbit.spaceXSmall};
     }
   `)};
 `;
+
 OptionalColumnWrapper.defaultProps = {
   theme: themeDefault,
   hasLink: false,

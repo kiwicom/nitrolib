@@ -9,7 +9,7 @@ import type { ItemType } from "../../../../records/Baggage";
 import Translate from "../../../Translate";
 
 type Props = {
-  id: number,
+  paxId: number,
   firstName: string,
   lastName: string,
   baggage: {
@@ -19,22 +19,22 @@ type Props = {
   price: number,
 };
 
-const PassengerBaggages = ({ id, firstName, lastName, baggage, price }: Props) => (
+const PassengerBaggages = ({ paxId, firstName, lastName, baggage, price }: Props) => (
   <Stack
     spaceAfter="medium"
     spacing="tight"
-    dataTest={`BaggagePaymentSummary-PassengerBaggages-${id}`}
+    dataTest={`BaggagePaymentSummary-PassengerBaggages-${paxId}`}
   >
     <Stack flex justify="between">
       <Text>
         <Translate t="baggage_modal.summary.baggage_for" values={{ firstName, lastName }} />
       </Text>
-      <Text dataTest={`PassengerBaggages-${id}-Price`}>
+      <Text dataTest={`PassengerBaggages-${paxId}-Price`}>
         <Price value={price} />
       </Text>
     </Stack>
     <Stack spacing="tight">
-      {baggage.handBag.map((bag, index) => (
+      {baggage.handBag.map((bag: ItemType, index) => (
         <Stack key={index} /* eslint-disable-line */>
           <Text type="secondary" element="span">
             {`${bag.amount}× `}
