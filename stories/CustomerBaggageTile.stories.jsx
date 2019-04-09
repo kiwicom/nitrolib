@@ -78,12 +78,16 @@ storiesOf("CustomerBaggageTile", module)
     <Wrapper>
       <CustomerBaggageTile {...props} />
       <CustomerBaggageTile {...props} isProcessing />
-      <CustomerBaggageTile {...props} definitions={exampleDefinitions} />
+      <CustomerBaggageTile
+        {...props}
+        current={undefined}
+        selected={undefined}
+        newDefinitions={exampleDefinitions}
+      />
       <CustomerBaggageTile
         {...props}
         current={{ handBag: 3, holdBag: 3 }}
         selected={{ handBag: 3, holdBag: 3 }}
-        definitions={exampleDefinitions}
       />
     </Wrapper>
   ))

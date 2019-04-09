@@ -64,8 +64,8 @@ const items = [
   },
 ];
 
-describe("#BaggagePaymentSummary", () => {
-  test("renders proper data", () => {
+describe("#getAirlinesWithPriorityBoarding", () => {
+  test("return proper data", () => {
     const threeAirlines = getAirlinesWithPriorityBoarding(items);
     const oneAirline = getAirlinesWithPriorityBoarding([items[1]]);
     expect(threeAirlines).toEqual(["FR", "W6", "0B"]);

@@ -19,6 +19,6 @@ const props = {
 describe("#CustomerBaggageTile", () => {
   test("renders", () => {
     const wrapper = mount(<CustomerBaggageTile {...props} />);
-    expect(wrapper.find("[data-test='CustomerBaggageTile']").exists()).toBe(true);
+    expect(wrapper.find("[data-test='CustomerBaggageTile-unpaid']").exists()).toBe(true);
   });
 });

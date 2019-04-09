@@ -83,7 +83,7 @@ export const getTotalPrice = ({ combinationIndices, combinations }: SummaryPrice
     (acc, index) => new Decimal(handBag[index].price.amount).plus(acc),
     0,
   );
-  const sum = new Decimal(holdBagsTotalPrice).plus(handBagsTotalPrice).toFixed();
+  const sum = new Decimal(holdBagsTotalPrice).plus(handBagsTotalPrice).toFixed(2);
 
   return new Decimal(sum).toNumber();
 };
