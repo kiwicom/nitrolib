@@ -158,8 +158,8 @@ class LocationPicker extends React.Component<Props, State> {
                     this.lastResultData = resultData;
                   }
 
-                  if (!resultData) {
-                    // TODO render this in the list if length is 0
+                  if (!resultData || input.trim().length !== 0) {
+                    // TODO render this in the list if data length is 0
                     return (
                       <NoResult>
                         <Text t="forms.places_no_results" />
