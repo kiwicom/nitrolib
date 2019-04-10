@@ -60,6 +60,9 @@ const queries = {
     query LocationPickerQuery($input: String!, $options: LocationsOptionsInput) {
       allLocations(last: 50, search: $input, options: $options) {
         ...LocationPickerResultList_list
+        pageInfo {
+          startCursor
+        }
       }
     }
   `,
@@ -67,6 +70,9 @@ const queries = {
     query LocationPickerHolidaysQuery($input: String!) {
       holidaysLocations(last: 50, search: $input) {
         ...LocationPickerResultList_list
+        pageInfo {
+          startCursor
+        }
       }
     }
   `,
@@ -84,6 +90,7 @@ class LocationPicker extends React.Component<Props, State> {
     input: "",
   };
 
+  // used to show previous results while loading new ones
   lastResultData: null;
 
   node: { current: any | HTMLDivElement } = React.createRef();
@@ -135,7 +142,7 @@ class LocationPicker extends React.Component<Props, State> {
             value={inputValue}
             error={error}
           />
-          {active && (
+          {active && input.trim().length !== 0 && (
             <>
               <Spacer />
               <QueryRenderer
@@ -153,13 +160,16 @@ class LocationPicker extends React.Component<Props, State> {
 
                   const isLoading = !res.props;
                   const resultData = isLoading ? this.lastResultData : res.props[queryName];
-
                   if (!isLoading) {
                     this.lastResultData = resultData;
                   }
 
-                  if (!resultData) {
-                    // TODO render this in the list if length is 0
+                  // resultData can be null only while first loading
+                  // render nothing to prevent NoResult flickering
+                  if (!resultData) return null;
+
+                  // if startCursor is null it means resultData.edges is []
+                  if (!resultData.pageInfo.startCursor) {
                     return (
                       <NoResult>
                         <Text t="forms.places_no_results" />

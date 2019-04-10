@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 1a4e1e2874a62910d28fe6fb7552e47a
+ * @relayHash 04f6733ef8c1253d901a2678d377bd44
  */
 
 /* eslint-disable */
@@ -22,7 +22,10 @@ export type LocationPickerQueryVariables = {|
 |};
 export type LocationPickerQueryResponse = {|
   +allLocations: ?{|
-    +$fragmentRefs: LocationPickerResultList_list$ref
+    +pageInfo: {|
+      +startCursor: ?string
+    |},
+    +$fragmentRefs: LocationPickerResultList_list$ref,
   |}
 |};
 export type LocationPickerQuery = {|
@@ -39,6 +42,9 @@ query LocationPickerQuery(
 ) {
   allLocations(last: 50, search: $input, options: $options) {
     ...LocationPickerResultList_list
+    pageInfo {
+      startCursor
+    }
   }
 }
 
@@ -126,38 +132,56 @@ v1 = [
   }
 ],
 v2 = {
+  "kind": "LinkedField",
+  "alias": null,
+  "name": "pageInfo",
+  "storageKey": null,
+  "args": null,
+  "concreteType": "PageInfo",
+  "plural": false,
+  "selections": [
+    {
+      "kind": "ScalarField",
+      "alias": null,
+      "name": "startCursor",
+      "args": null,
+      "storageKey": null
+    }
+  ]
+},
+v3 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "code",
   "args": null,
   "storageKey": null
 },
-v3 = {
+v4 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "name",
   "args": null,
   "storageKey": null
 },
-v4 = {
+v5 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "locationId",
   "args": null,
   "storageKey": null
 },
-v5 = {
+v6 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "slug",
   "args": null,
   "storageKey": null
 },
-v6 = [
-  (v4/*: any*/),
-  (v3/*: any*/),
+v7 = [
   (v5/*: any*/),
-  (v2/*: any*/)
+  (v4/*: any*/),
+  (v6/*: any*/),
+  (v3/*: any*/)
 ];
 return {
   "kind": "Request",
@@ -181,7 +205,8 @@ return {
             "kind": "FragmentSpread",
             "name": "LocationPickerResultList_list",
             "args": null
-          }
+          },
+          (v2/*: any*/)
         ]
       }
     ]
@@ -246,8 +271,8 @@ return {
                     "args": null,
                     "storageKey": null
                   },
-                  (v2/*: any*/),
                   (v3/*: any*/),
+                  (v4/*: any*/),
                   {
                     "kind": "LinkedField",
                     "alias": null,
@@ -257,14 +282,14 @@ return {
                     "concreteType": "LocationArea",
                     "plural": false,
                     "selections": [
-                      (v2/*: any*/),
                       (v3/*: any*/),
                       (v4/*: any*/),
-                      (v5/*: any*/)
+                      (v5/*: any*/),
+                      (v6/*: any*/)
                     ]
                   },
-                  (v4/*: any*/),
                   (v5/*: any*/),
+                  (v6/*: any*/),
                   {
                     "kind": "LinkedField",
                     "alias": null,
@@ -298,7 +323,7 @@ return {
                     "args": null,
                     "concreteType": "LocationArea",
                     "plural": false,
-                    "selections": (v6/*: any*/)
+                    "selections": (v7/*: any*/)
                   },
                   {
                     "kind": "LinkedField",
@@ -308,12 +333,13 @@ return {
                     "args": null,
                     "concreteType": "LocationArea",
                     "plural": false,
-                    "selections": (v6/*: any*/)
+                    "selections": (v7/*: any*/)
                   }
                 ]
               }
             ]
-          }
+          },
+          (v2/*: any*/)
         ]
       }
     ]
@@ -322,11 +348,11 @@ return {
     "operationKind": "query",
     "name": "LocationPickerQuery",
     "id": null,
-    "text": "query LocationPickerQuery(\n  $input: String!\n  $options: LocationsOptionsInput\n) {\n  allLocations(last: 50, search: $input, options: $options) {\n    ...LocationPickerResultList_list\n  }\n}\n\nfragment LocationPickerResultList_list on LocationConnection {\n  edges {\n    node {\n      id\n      holidaysLocationId: id(opaque: false)\n      type\n      code\n      name\n      country {\n        code\n        name\n      }\n      ...LocationPickerRow_item\n    }\n  }\n}\n\nfragment LocationPickerRow_item on Location {\n  locationId\n  type\n  name\n  code\n  slug\n  location {\n    lat\n    lng\n  }\n  city {\n    locationId\n    name\n    slug\n    code\n  }\n  country {\n    locationId\n    name\n    slug\n    code\n  }\n  subdivision {\n    locationId\n    name\n    slug\n    code\n  }\n}\n",
+    "text": "query LocationPickerQuery(\n  $input: String!\n  $options: LocationsOptionsInput\n) {\n  allLocations(last: 50, search: $input, options: $options) {\n    ...LocationPickerResultList_list\n    pageInfo {\n      startCursor\n    }\n  }\n}\n\nfragment LocationPickerResultList_list on LocationConnection {\n  edges {\n    node {\n      id\n      holidaysLocationId: id(opaque: false)\n      type\n      code\n      name\n      country {\n        code\n        name\n      }\n      ...LocationPickerRow_item\n    }\n  }\n}\n\nfragment LocationPickerRow_item on Location {\n  locationId\n  type\n  name\n  code\n  slug\n  location {\n    lat\n    lng\n  }\n  city {\n    locationId\n    name\n    slug\n    code\n  }\n  country {\n    locationId\n    name\n    slug\n    code\n  }\n  subdivision {\n    locationId\n    name\n    slug\n    code\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '9d6d8e0e5a7051d8d8c4514a7e434eb2';
+(node/*: any*/).hash = '832e281681f2a4de1dcfe78e3f41bfa4';
 module.exports = node;
