@@ -18,12 +18,8 @@ import Option from "./components/Option/index";
 import type { BaggageCategory, PassengerGroup, BaggageType } from "../../records/Baggage";
 import type { Airline } from "../../records/Airline";
 import { getOptions } from "../../services/baggage/utils";
-import {
-  getTitle,
-  getTooltip,
-  getEmptyOptionText,
-  getPersonalItemPresence,
-} from "./services/index";
+import getPersonalItemPresence from "./services/getPersonalItemPresence";
+import getTooltip from "./services/getTooltip";
 
 type Props = {
   changeBagCombination: (BaggageCategory, number) => void,
@@ -70,19 +66,18 @@ Title.defaultProps = {
   theme: themeDefault,
 };
 
-const BaggagePicker = (props: Props) => {
-  const {
-    changeBagCombination,
-    pickerType,
-    passengerBaggage,
-    passengerCategory,
-    shouldShowRecheckNote,
-    prioBoardingLinkHandler,
-    context,
-    airlines,
-    currentCombination,
-    baggage,
-  } = props;
+const BaggagePicker = ({
+  changeBagCombination,
+  pickerType,
+  passengerBaggage,
+  passengerCategory,
+  shouldShowRecheckNote,
+  prioBoardingLinkHandler,
+  context,
+  airlines,
+  currentCombination,
+  baggage,
+}: Props) => {
   const [showedOptions, setShowedOptions] = useState([]);
   const [numberOfHiddenOptions, setNumberOfHiddenOptions] = useState(0);
   const [options] = useState(
@@ -122,7 +117,11 @@ const BaggagePicker = (props: Props) => {
     <Stack spacing="condensed" spaceAfter="largest" dataTest={`BaggagePicker-${pickerType}`}>
       <Title>
         <Text weight="bold" uppercase element="p">
-          {getTitle(pickerType)}
+          {pickerType === "handBag" ? (
+            <Translate t="baggage_modal.subheader.cabin_baggage" />
+          ) : (
+            <Translate t="baggage_modal.subheader.checked_baggage" />
+          )}
         </Text>
         <Tooltip content={getTooltip(pickerType)} preferredPosition="right" size="small">
           <InformationCircle size="small" color="secondary" />
@@ -158,7 +157,13 @@ const BaggagePicker = (props: Props) => {
       ) : (
         <EmptyOption data-test="BaggagePicker-EmptyOption">
           <Close size="medium" color="critical" />
-          <Text>{getEmptyOptionText(pickerType)}</Text>
+          <Text>
+            {pickerType === "handBag" ? (
+              <Translate t="baggage_modal.error.cabin_baggage_not_available" />
+            ) : (
+              <Translate t="baggage_modal.error.checked_baggage_not_available" />
+            )}
+          </Text>
         </EmptyOption>
       )}
       {numberOfHiddenOptions > 0 && (
