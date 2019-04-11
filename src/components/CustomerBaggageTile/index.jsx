@@ -5,7 +5,9 @@ import Tile from "@kiwicom/orbit-components/lib/Tile";
 
 import Title from "./components/Title";
 import Content from "./components/Content";
-import { getDefinitions, calculatePrice, getStatus } from "./services/index";
+import getDefinitions from "./services/getDefinitions";
+import calculatePrice from "./services/calculatePrice";
+import getStatus from "./services/getStatus";
 import type {
   BaggageType,
   Gender,

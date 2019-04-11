@@ -5,7 +5,7 @@ import { withKnobs } from "@storybook/addon-knobs";
 
 import withData from "./decorators/withData";
 import BaggagePaymentSummary from "../src/components/BaggagePaymentSummary";
-import { baggageData } from "../src/components/BaggagePicker/services/data";
+import { baggageData } from "../src/records/__mocks__/baggageData";
 
 const passengers = [
   {

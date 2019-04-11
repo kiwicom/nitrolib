@@ -3,7 +3,7 @@ import * as React from "react";
 import { mount } from "enzyme";
 
 import CustomerBaggageTile from "../index";
-import data from "../services/data";
+import { baggageData } from "../../../records/__mocks__/baggageData";
 
 const props = {
   firstName: "Oliver",
@@ -13,7 +13,7 @@ const props = {
   current: { handBag: 1, holdBag: 1 },
   selected: { handBag: 3, holdBag: 4 },
   onClick: () => {},
-  baggage: data,
+  baggage: baggageData,
 };
 
 describe("#CustomerBaggageTile", () => {

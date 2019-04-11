@@ -6,7 +6,7 @@ import { withKnobs } from "@storybook/addon-knobs";
 
 import withData from "./decorators/withData";
 import CustomerBaggageTile from "../src/components/CustomerBaggageTile";
-import baggageData from "../src/components/CustomerBaggageTile/services/data";
+import { baggageData } from "../src/records/__mocks__/baggageData";
 
 const props = {
   firstName: "Oliver",

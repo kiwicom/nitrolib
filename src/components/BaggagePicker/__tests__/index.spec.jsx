@@ -3,7 +3,7 @@ import * as React from "react";
 import { mount } from "enzyme";
 
 import BaggagePicker from "../index";
-import { baggageData } from "../services/data";
+import { baggageData } from "../../../records/__mocks__/baggageData";
 // $FlowExpected: JSON file without types
 import airlines from "../../../../stories/fixtures/airlines.json";
 

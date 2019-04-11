@@ -6,7 +6,7 @@ import {
   groupDefinitions,
   getBaggageSize,
 } from "../utils";
-import { baggageData } from "../../../components/BaggagePicker/services/data";
+import { baggageData } from "../../../records/__mocks__/baggageData";
 
 const args = {
   context: "booking",

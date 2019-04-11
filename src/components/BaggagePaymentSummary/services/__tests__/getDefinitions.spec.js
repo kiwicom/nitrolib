@@ -1,6 +1,6 @@
 // @flow strict
 import getDefinitions from "../getDefinitions";
-import { baggageData } from "../../../BaggagePicker/services/data";
+import { baggageData } from "../../../../records/__mocks__/baggageData";
 
 const {
   definitions: { handBag, holdBag },

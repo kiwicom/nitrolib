@@ -1,4 +1,6 @@
 // @flow
+import type { HoldBagTileDefinition, HandBagTileDefinition } from "../Baggage";
+
 export const baggageData = {
   definitions: {
     handBag: [
@@ -312,3 +314,28 @@ export const emptyData = {
     holdBag: [],
   },
 };
+
+const { definitions } = baggageData;
+
+export const holdBagTileDefinitions: (
+  | HoldBagTileDefinition
+  | HandBagTileDefinition
+)[] = definitions.holdBag.map((def, index) => {
+  // $FlowIssue: https://github.com/facebook/flow/issues/2892
+  return {
+    originalIndex: index,
+    isCurrent: false,
+    ...def,
+  };
+});
+export const handBagTileDefinitions: (
+  | HoldBagTileDefinition
+  | HandBagTileDefinition
+)[] = definitions.handBag.map((def, index) => {
+  // $FlowIssue: https://github.com/facebook/flow/issues/2892
+  return {
+    originalIndex: index,
+    isCurrent: false,
+    ...def,
+  };
+});

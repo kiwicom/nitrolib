@@ -3,7 +3,7 @@ import * as React from "react";
 import { mount } from "enzyme";
 
 import BaggagePaymentSummary from "../index";
-import { baggageData } from "../../BaggagePicker/services/data";
+import { baggageData } from "../../../records/__mocks__/baggageData";
 
 const passengers = [
   {

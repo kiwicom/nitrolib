@@ -25,9 +25,9 @@ const Wrapper = styled.div`
 Wrapper.defaultProps = {
   theme: themeDefault,
 };
+
 const TotalPayment = ({ totalPrice }: Props) => {
   const { currency } = useContext(currencyContext);
-
   return (
     <Wrapper data-test="BaggagePaymentSummary-TotalPayment">
       <Text>

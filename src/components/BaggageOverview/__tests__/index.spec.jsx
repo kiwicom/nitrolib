@@ -2,7 +2,7 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import { baggageData } from "../../BaggagePicker/services/data";
+import { baggageData } from "../../../records/__mocks__/baggageData";
 import BaggageOverview from "../index";
 import Container from "../components/Container";
 
