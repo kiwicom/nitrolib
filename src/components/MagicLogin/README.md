@@ -17,15 +17,16 @@ Modal component handling the whole login flow with magic link.
 
 - `MagicLogin` can be used to test if modal is opened as it wraps the whole login modal.
 - Different stages of login process:
-  - `AccountLogin` - initial screen of the login (unless registration was triggered immediately)
-    - additional section `LoginViaSocials` is appended on same level in DOM as `AccountLogin` unless login with social networks without e-mail check is disallowed.
-  - `AccountCreate` - registration form
-  - `AccountPassword` - login screen which asks for kiwi.com password.
-  - `AccountSocialLogin` - screen which offers login via FB/Google after successful e-mail check.
-  - `AccountNoAccount` - when user has no account or booking, this screen is displayed where he can either proceed with registration or go back to intro screen.
-  - `AccountCheckEmail` - this is shown upon successful request to reset password or when e-mail with magic link is sent.
-- `ModalCloseButton` - close button for the whole login modal.
-- Also, all inputs should have its own `data-test` attribute corresponding to their purpose - `Email`, `Password`
+  - `MagicLogin-Intro` - initial screen of the login (unless registration was triggered immediately)
+    - additional section `MagicLogin-LoginViaSocials` is appended on same level in DOM as `AccountLogin` unless login with social networks without e-mail check is disallowed.
+  - `MagicLogin-CreateAccount` - registration form
+  - `MagicLogin-Password` - login screen which asks for kiwi.com password.
+  - `MagicLogin-SocialLogin` - screen which offers login via FB/Google after successful e-mail check.
+  - `MagicLogin-NoAccount` - when user has no account or booking, this screen is displayed where he can either proceed with registration or go back to intro screen.
+  - `MagicLogin-CheckEmail` - this is shown upon successful request to reset password or when e-mail with magic link is sent.
+- `MagicLogin-CloseButton` - close button for the whole login modal.
+- `MagicLogin-AskForMagic` - button that sends e-mail with magic link when clicked
+- Also, all inputs should have its own `data-test` attribute corresponding to their purpose - `MagicLogin-Email`, `MagicLogin-Password`
 
 **Example**
 

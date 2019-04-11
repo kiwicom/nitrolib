@@ -5,6 +5,13 @@ import { action } from "@storybook/addon-actions";
 import { withKnobs, select } from "@storybook/addon-knobs";
 
 import MagicLogin from "../src/components/MagicLogin";
+import Text from "../src/components/Text";
+import Intro from "../src/components/MagicLogin/components/screens/Intro";
+import Password from "../src/components/MagicLogin/components/screens/Password";
+import NoAccount from "../src/components/MagicLogin/components/screens/NoAccount";
+import CheckEmail from "../src/components/MagicLogin/components/screens/CheckEmail";
+import CreateAccount from "../src/components/MagicLogin/components/screens/CreateAccount";
+import SocialLogin from "../src/components/MagicLogin/components/screens/SocialLogin";
 import withData from "./decorators/withData";
 
 const type = {
@@ -44,5 +51,63 @@ storiesOf("MagicLogin", module)
       onClose={action("Close")}
       onSignIn={action("Sign in")}
       onSocialLogin={action("Social login")}
+    />
+  ))
+  .add("Screen - Intro", () => (
+    <Intro
+      type="help"
+      email=""
+      error={<Text t="common.api_error" />}
+      onEmailChange={() => {}}
+      onEmailBlur={() => {}}
+      onFacebookLogin={() => {}}
+      onGoogleLogin={() => {}}
+      onContinue={() => {}}
+    />
+  ))
+  .add("Screen - checkEmail", () => <CheckEmail email="" reason="magicLink" />)
+  .add("Screen - NoAccount", () => (
+    <NoAccount
+      onBack={() => {}}
+      onRegister={() => {}}
+      onFacebookLogin={() => {}}
+      onGoogleLogin={() => {}}
+    />
+  ))
+  .add("Screen - Password", () => (
+    <Password
+      onAskSignInLink={() => {}}
+      onChangeEmail={() => {}}
+      onPasswordChange={() => {}}
+      onForgotPassword={() => {}}
+      onSignIn={() => {}}
+      password="asdfg"
+      email="example@example.com"
+      isSigningIn
+      isSendingEmail
+    />
+  ))
+  .add("Screen - SocialLogin", () => (
+    <SocialLogin
+      onAskSignInLink={() => {}}
+      onSocialLogin={() => {}}
+      email="email@example.com"
+      pairedWith="facebook"
+    />
+  ))
+  .add("Screen - CreateAccount", () => (
+    <CreateAccount
+      email=""
+      password=""
+      passwordConfirm=""
+      onEmailChange={() => {}}
+      onPasswordChange={() => {}}
+      onPasswordConfirmChange={() => {}}
+      onContinue={() => {}}
+      error={<Text t="account.password_too_simple" />}
+      emailError="Incorrect format of e-mail"
+      passwordError="Password too simple"
+      passwordConfirmError="Passwords doesn't match"
+      isLoading
     />
   ));

@@ -6,10 +6,10 @@ import { mount } from "enzyme";
 
 import KiwiLogin from "..";
 
-import AccountPassword from "../../../../AccountPassword";
+import Password from "../../screens/Password";
 
-jest.mock("../../../mutations/ResetPassword");
-jest.mock("../../../mutations/SignIn");
+jest.mock("../../../mutations/resetPassword");
+jest.mock("../../../mutations/signIn");
 
 const defaultProps = {
   email: "",
@@ -27,7 +27,7 @@ describe("#KiwiLogin", () => {
   it("should render", () => {
     const wrapper = mount(<KiwiLogin {...defaultProps} />);
 
-    expect(wrapper.find(AccountPassword).exists()).toBe(true);
+    expect(wrapper.find(Password).exists()).toBe(true);
   });
 
   it("handles forgotten password", done => {
@@ -69,7 +69,7 @@ describe("#KiwiLogin", () => {
       />,
     );
     wrapper
-      .find(`input[data-test="Password"]`)
+      .find(`input[data-test="MagicLogin-Password"]`)
       .simulate("change", { target: { value: "qwertyuiop123" } });
     wrapper.find("form").simulate("submit");
 

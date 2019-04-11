@@ -2,8 +2,8 @@
 
 import * as React from "react";
 
-import AccountLogin from "../../../AccountLogin";
-import CheckEmail from "../../mutations/CheckEmail";
+import AccountLogin from "../screens/Intro";
+import checkEmail from "../../mutations/checkEmail";
 import errors from "../../../../consts/errors";
 import type { Screen } from "../../records/Screen";
 import Text from "../../../Text";
@@ -58,7 +58,7 @@ export default class IntroScreen extends React.Component<Props, State> {
 
     log(events.API_REQUEST, { operation: "checkEmail" });
 
-    CheckEmail(email, brandId)
+    checkEmail(email, brandId)
       .then(res => {
         this.setState({ isLoading: false });
 
