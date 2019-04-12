@@ -7,7 +7,7 @@ import Separator from "@kiwicom/orbit-components/lib/Separator";
 import PassengerBaggages from "./components/PassengerBaggages";
 import TotalPayment from "./components/TotalPayment";
 import type { BaggageType } from "../../records/Baggage";
-import { getTotalPrice } from "../../services/baggage/utils";
+import getTotalPrice from "../../services/baggage/getTotalPrice";
 import getDefinitions from "./services/getDefinitions";
 
 type Passenger = {

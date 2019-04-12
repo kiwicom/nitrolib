@@ -45,11 +45,11 @@ const propsWithCombinations = {
 };
 
 describe("#Container", () => {
-  test("renders ", () => {
+  test("renders", () => {
     const wrapper = mount(
       <Container {...propsWithCombinations}>{props => <BaggageOverview {...props} />}</Container>,
     );
-    expect(wrapper.find("BaggageOverview__Wrapper").exists()).toBe(true);
+    expect(wrapper.find("BaggageOverview").exists()).toBe(true);
     const OptionalColumnWrapper = wrapper.find("BaggageItem__OptionalColumnWrapper");
     expect(OptionalColumnWrapper.exists()).toBe(true);
     expect(

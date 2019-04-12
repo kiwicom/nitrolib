@@ -1,7 +1,7 @@
 // @flow strict
 import { Decimal } from "decimal.js";
 
-import { getTotalPrice } from "../../../services/baggage/utils";
+import getTotalPrice from "../../../services/baggage/getTotalPrice";
 import type { Combinations } from "../../../records/Baggage";
 
 type CalculatePriceArgs = {

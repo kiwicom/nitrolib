@@ -17,11 +17,9 @@ import type {
   OverviewContextType,
   FAQLinksHandlerType,
 } from "../../../../records/Baggage";
-import {
-  getTextFromCategory,
-  getIconFromCategory,
-  getBaggageSize,
-} from "../../../../services/baggage/utils";
+import getBaggageSize from "../../../../services/baggage/getBaggageSize";
+import getIconFromCategory from "../../../../services/baggage/getIconFromCategory";
+import getTextFromCategory from "../../../../services/baggage/getTextFromCategory";
 import getPassengerNames from "./services/getPassengerNames";
 
 const Wrapper = styled.div`

@@ -6,11 +6,9 @@ import Text from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import type { TileItem, OrderStatusType } from "../../../../records/Baggage";
-import {
-  getIconFromCategory,
-  getTextFromCategory,
-  getBaggageSize,
-} from "../../../../services/baggage/utils";
+import getIconFromCategory from "../../../../services/baggage/getIconFromCategory";
+import getTextFromCategory from "../../../../services/baggage/getTextFromCategory";
+import getBaggageSize from "../../../../services/baggage/getBaggageSize";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 

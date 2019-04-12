@@ -9,11 +9,9 @@ import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import type { Restrictions, BaggageSubCategory } from "../../../../records/Baggage";
 import type { PriceType } from "../../../../records/Price";
-import {
-  getIconFromCategory,
-  getTextFromCategory,
-  getBaggageSize,
-} from "../../../../services/baggage/utils";
+import getBaggageSize from "../../../../services/baggage/getBaggageSize";
+import getTextFromCategory from "../../../../services/baggage/getTextFromCategory";
+import getIconFromCategory from "../../../../services/baggage/getIconFromCategory";
 import Price from "../../../Price";
 import Translate from "../../../Translate";
 

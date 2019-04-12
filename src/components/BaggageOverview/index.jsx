@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 import R from "ramda";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import { groupDefinitions } from "../../services/baggage/utils";
+import groupDefinitions from "./services/groupDefinitions";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
 import type {
@@ -19,7 +19,7 @@ import NoPersonalItem from "./components/NoPersonalItem";
 
 type Props = {
   definitions?: (HandBagDefinitionWithId | HoldBagDefinitionWithId)[],
-  definitionWithPassengers?: DefinitionWithPassenger[],
+  definitionsWithPassengers?: DefinitionWithPassenger[],
   FAQLinksHandler?: FAQLinksHandlerType,
   context: OverviewContextType,
 };
@@ -47,11 +47,11 @@ Wrapper.defaultProps = {
 
 const BaggageOverview = ({
   definitions,
-  definitionWithPassengers,
+  definitionsWithPassengers,
   context,
   FAQLinksHandler,
 }: Props) => {
-  const baggages = definitionWithPassengers || (definitions && groupDefinitions(definitions));
+  const baggages = definitionsWithPassengers || (definitions && groupDefinitions(definitions));
 
   return (
     <Wrapper context={context} data-test={`BaggageOverview-${context}`}>

@@ -17,9 +17,9 @@ import Flex from "../../primitives/Flex";
 import Option from "./components/Option/index";
 import type { BaggageCategory, PassengerGroup, BaggageType } from "../../records/Baggage";
 import type { Airline } from "../../records/Airline";
-import { getOptions } from "../../services/baggage/utils";
 import getPersonalItemPresence from "./services/getPersonalItemPresence";
 import getTooltip from "./services/getTooltip";
+import getOptions from "./services/getOptions";
 
 type Props = {
   changeBagCombination: (BaggageCategory, number) => void,

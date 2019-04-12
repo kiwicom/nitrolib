@@ -1,17 +1,12 @@
 // @flow strict
 import * as React from "react";
-import R from "ramda";
 
-import type {
-  BaggageType,
-  BaggagePassengerType,
-  Passenger,
-  DefinitionWithPassenger,
-} from "../../../../records/Baggage";
+import type { BaggageType, Passenger, DefinitionWithPassenger } from "../../../../records/Baggage";
+import getBaggageRowData from "./services/getBaggageRowData";
 
 type ChildrenProps = {
   context: "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking",
-  definitionWithPassengers: DefinitionWithPassenger[],
+  definitionsWithPassengers: DefinitionWithPassenger[],
 };
 
 type Props = {
@@ -22,63 +17,21 @@ type Props = {
 };
 
 const BaggageOverviewContainer = ({ baggage, children, context, passengers }: Props) => {
-  const { combinations } = baggage;
-
-  const passengersWithBagDefinitionsIndices = passengers.map(passenger => ({
-    paxId: passenger.paxId,
-    definitionsIndices: {
-      handBag: combinations.handBag[passenger.baggage.handBag].indices,
-      holdBag: combinations.holdBag[passenger.baggage.holdBag].indices,
-    },
-  }));
-
-  const getPassengersFromId = (paxIds: number[], passengersArray): BaggagePassengerType[] =>
-    R.innerJoin((passenger, paxId) => passenger.paxId === paxId, passengersArray, paxIds).map(
-      p => ({
-        paxId: p.paxId,
-        firstName: p.firstName,
-        middleName: p.middleName,
-        lastName: p.lastName,
-      }),
-    );
-
-  const getBaggageRowData = bagType => {
-    const defs = baggage.definitions[bagType];
-    const baggageData = passengersWithBagDefinitionsIndices.reduce(
-      (acc, passenger) =>
-        acc.concat(
-          ...passenger.definitionsIndices[bagType].map(bagIndex => ({
-            paxId: passenger.paxId,
-            originalIndex: bagIndex,
-            category: defs[bagIndex].category,
-            restrictions: defs[bagIndex].restrictions,
-          })),
-        ),
-      [],
-    );
-    const baggageWithPassengersIds = baggageData.reduce((acc, bag) => {
-      const bagPassengers = acc[bag.originalIndex]?.passengers || [];
-      acc[bag.originalIndex] = {
-        originalIndex: bag.originalIndex,
-        category: bag.category,
-        passengers: [...bagPassengers, bag.paxId],
-        restrictions: bag.restrictions,
-      };
-      return acc;
-    }, {});
-
-    return R.values(baggageWithPassengersIds).map(bag => ({
-      ...bag,
-      passengers: getPassengersFromId(bag.passengers, passengers),
-    }));
-  };
-
-  const definitionWithPassengers = [
-    ...getBaggageRowData("handBag"),
-    ...getBaggageRowData("holdBag"),
+  const definitionsWithPassengers = [
+    ...getBaggageRowData({
+      bagType: "handBag",
+      baggage,
+      passengers,
+    }),
+    ...getBaggageRowData({
+      bagType: "holdBag",
+      baggage,
+      passengers,
+    }),
   ];
+
   return children({
-    definitionWithPassengers,
+    definitionsWithPassengers,
     context,
   });
 };

@@ -4,7 +4,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 
 import Price from "../../../Price";
-import { getTextFromCategory } from "../../../../services/baggage/utils";
+import getTextFromCategory from "../../../../services/baggage/getTextFromCategory";
 import type { ItemType } from "../../../../records/Baggage";
 import Translate from "../../../Translate";
 
