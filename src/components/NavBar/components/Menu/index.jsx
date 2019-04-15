@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
-import styled from "styled-components";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
@@ -14,11 +14,6 @@ import Trips from "../Trips";
 import SideNav from "../SideNav";
 import * as MODALS from "../../../../consts/modals";
 import type { Modal } from "../../../../consts/modals";
-import marginMixin from "../../styles/marginMixin";
-
-const Wrapper = styled.div`
-  ${marginMixin};
-`;
 
 type Props = {|
   subscription: React.Node,
@@ -42,7 +37,7 @@ const Menu = ({
   <ModalConsumer>
     {({ onChange }) => (
       <>
-        <Wrapper>
+        <Stack inline align="center" spacing="none">
           <AuthConsumer>
             {({ auth, environment }) =>
               auth === null ? (
@@ -67,19 +62,17 @@ const Menu = ({
               )
             }
           </AuthConsumer>
-        </Wrapper>
+        </Stack>
 
-        <Wrapper>
-          <SideNav
-            subscription={subscription}
-            debug={debug}
-            inverted={inverted}
-            portal={portal}
-            onOpenModal={onChange}
-            onSaveLanguage={onSaveLanguage}
-            onSetModal={onSetModal}
-          />
-        </Wrapper>
+        <SideNav
+          subscription={subscription}
+          debug={debug}
+          inverted={inverted}
+          portal={portal}
+          onOpenModal={onChange}
+          onSaveLanguage={onSaveLanguage}
+          onSetModal={onSetModal}
+        />
       </>
     )}
   </ModalConsumer>
