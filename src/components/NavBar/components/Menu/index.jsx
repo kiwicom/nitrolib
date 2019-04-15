@@ -1,7 +1,6 @@
 // @flow strict
 import * as React from "react";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
-import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
@@ -37,32 +36,30 @@ const Menu = ({
   <ModalConsumer>
     {({ onChange }) => (
       <>
-        <Stack inline align="center" spacing="none">
-          <AuthConsumer>
-            {({ auth, environment }) =>
-              auth === null ? (
-                <ValueBind value={MODALS.MY_BOOKING} onChange={onChange}>
-                  {({ onClick }) => (
-                    <>
-                      <Desktop display="flex">
-                        <Button onClick={onClick} color={!inverted && "secondary"}>
-                          <Translate t="account.my_bookings_action" />
-                        </Button>
-                      </Desktop>
-                      <Mobile display="flex">
-                        <Button color={!inverted && "secondary"} onClick={onClick}>
-                          <AccountCircle />
-                        </Button>
-                      </Mobile>
-                    </>
-                  )}
-                </ValueBind>
-              ) : (
-                <Trips auth={auth} env={environment} onSelect={onSelectTrip} />
-              )
-            }
-          </AuthConsumer>
-        </Stack>
+        <AuthConsumer>
+          {({ auth, environment }) =>
+            auth === null ? (
+              <ValueBind value={MODALS.MY_BOOKING} onChange={onChange}>
+                {({ onClick }) => (
+                  <>
+                    <Desktop display="flex">
+                      <Button onClick={onClick} color={!inverted && "secondary"}>
+                        <Translate t="account.my_bookings_action" />
+                      </Button>
+                    </Desktop>
+                    <Mobile display="flex">
+                      <Button color={!inverted && "secondary"} onClick={onClick}>
+                        <AccountCircle />
+                      </Button>
+                    </Mobile>
+                  </>
+                )}
+              </ValueBind>
+            ) : (
+              <Trips auth={auth} env={environment} onSelect={onSelectTrip} />
+            )
+          }
+        </AuthConsumer>
 
         <SideNav
           subscription={subscription}

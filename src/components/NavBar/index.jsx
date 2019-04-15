@@ -87,43 +87,41 @@ const NavBar = ({
         <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
       )}
     </Stack>
-    <TextWrapper size="small">
-      <Stack inline align="center" justify="end" spacing="tight" tablet={{ spacing: "natural" }}>
-        <Desktop display="flex">
-          <Stack flex align="center">
-            <Language
-              positionMenuDesktop={270}
-              positionMenuTablet={5}
-              inverted={inverted}
-              onChange={onSaveLanguage}
-              onSetModal={onSetModal}
-            />
-            <Currency
-              positionMenuDesktop={270}
-              positionMenuTablet={5}
-              inverted={inverted}
-              onSetModal={onSetModal}
-            />
-            <Help onOpen={onOpenFaq} inverted={inverted} />
-          </Stack>
-        </Desktop>
-        <TextWrapper size="small" weight="normal">
-          {starred}
-        </TextWrapper>
-        <Mobile>
+    <Stack inline align="center" justify="end" spacing="tight" tablet={{ spacing: "natural" }}>
+      <Desktop display="flex">
+        <Stack flex align="center">
+          <Language
+            positionMenuDesktop={270}
+            positionMenuTablet={5}
+            inverted={inverted}
+            onChange={onSaveLanguage}
+            onSetModal={onSetModal}
+          />
+          <Currency
+            positionMenuDesktop={270}
+            positionMenuTablet={5}
+            inverted={inverted}
+            onSetModal={onSetModal}
+          />
           <Help onOpen={onOpenFaq} inverted={inverted} />
-        </Mobile>
-        <Menu
-          subscription={subscription}
-          debug={debug}
-          onSetModal={onSetModal}
-          onSaveLanguage={onSaveLanguage}
-          onSelectTrip={onSelectTrip}
-          inverted={inverted}
-          portal={portal}
-        />
-      </Stack>
-    </TextWrapper>
+        </Stack>
+      </Desktop>
+      <TextWrapper size="small" weight="normal">
+        {starred}
+      </TextWrapper>
+      <Mobile>
+        <Help onOpen={onOpenFaq} inverted={inverted} />
+      </Mobile>
+      <Menu
+        subscription={subscription}
+        debug={debug}
+        onSetModal={onSetModal}
+        onSaveLanguage={onSaveLanguage}
+        onSelectTrip={onSelectTrip}
+        inverted={inverted}
+        portal={portal}
+      />
+    </Stack>
   </Container>
 );
 
