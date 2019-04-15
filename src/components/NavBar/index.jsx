@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 
 import { navbar } from "../../styles";
 import Desktop from "../Desktop";
@@ -18,7 +19,6 @@ import Menu from "./components/Menu";
 import Logo from "./components/Logo";
 import Currency from "../Currency";
 import type { Modal } from "../../consts/modals";
-import marginMixin from "./styles/marginMixin";
 // import Starred from "../Starred"; FIXME add as a full feature
 // TODO: replace z-index with Orbit token after refactoring all front-end indexes
 
@@ -48,28 +48,6 @@ const Container = styled(Flex)`
 `;
 
 Container.defaultProps = {
-  theme: themeDefault,
-};
-
-const WrapperChild = styled.div`
-  display: flex;
-  align-items: center;
-  ${marginMixin};
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
-  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-Wrapper.defaultProps = {
   theme: themeDefault,
 };
 
@@ -109,51 +87,41 @@ const NavBar = ({
         <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
       )}
     </Stack>
-    <Flex y="center">
-      <Wrapper>
-        <Desktop display="flex">
-          <WrapperChild>
-            <ButtonWrapper>
-              <WrapperChild>
-                <Language
-                  positionMenuDesktop={270}
-                  positionMenuTablet={5}
-                  inverted={inverted}
-                  onChange={onSaveLanguage}
-                  onSetModal={onSetModal}
-                />
-              </WrapperChild>
-              <WrapperChild>
-                <Currency
-                  positionMenuDesktop={270}
-                  positionMenuTablet={5}
-                  inverted={inverted}
-                  onSetModal={onSetModal}
-                />
-              </WrapperChild>
-              <WrapperChild>
-                <Help onOpen={onOpenFaq} inverted={inverted} />
-              </WrapperChild>
-            </ButtonWrapper>
-          </WrapperChild>
-        </Desktop>
-        <WrapperChild>{starred}</WrapperChild>
-        <Mobile>
-          <WrapperChild>
-            <Help onOpen={onOpenFaq} inverted={inverted} />
-          </WrapperChild>
-        </Mobile>
-        <Menu
-          subscription={subscription}
-          debug={debug}
-          onSetModal={onSetModal}
-          onSaveLanguage={onSaveLanguage}
-          onSelectTrip={onSelectTrip}
-          inverted={inverted}
-          portal={portal}
-        />
-      </Wrapper>
-    </Flex>
+    <Stack inline align="center" justify="end" spacing="tight" tablet={{ spacing: "natural" }}>
+      <Desktop display="flex">
+        <Stack flex align="center">
+          <Language
+            positionMenuDesktop={270}
+            positionMenuTablet={5}
+            inverted={inverted}
+            onChange={onSaveLanguage}
+            onSetModal={onSetModal}
+          />
+          <Currency
+            positionMenuDesktop={270}
+            positionMenuTablet={5}
+            inverted={inverted}
+            onSetModal={onSetModal}
+          />
+          <Help onOpen={onOpenFaq} inverted={inverted} />
+        </Stack>
+      </Desktop>
+      <TextWrapper size="small" weight="normal">
+        {starred}
+      </TextWrapper>
+      <Mobile>
+        <Help onOpen={onOpenFaq} inverted={inverted} />
+      </Mobile>
+      <Menu
+        subscription={subscription}
+        debug={debug}
+        onSetModal={onSetModal}
+        onSaveLanguage={onSaveLanguage}
+        onSelectTrip={onSelectTrip}
+        inverted={inverted}
+        portal={portal}
+      />
+    </Stack>
   </Container>
 );
 
