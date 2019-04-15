@@ -10,7 +10,7 @@ import type { BaggageType } from "../../records/Baggage";
 import getTotalPrice from "../../services/baggage/getTotalPrice";
 import getDefinitions from "./services/getDefinitions";
 
-type Passenger = {
+type Passenger = {|
   paxId: number,
   firstName: string,
   lastName: string,
@@ -18,12 +18,12 @@ type Passenger = {
     holdBag: number, // index of baggage combination
     handBag: number, // index of baggage combination
   },
-};
+|};
 
-type Props = {
+type Props = {|
   passengers: Passenger[],
   baggage: BaggageType,
-};
+|};
 
 const BaggagePaymentSummary = ({ baggage, passengers }: Props) => {
   const { combinations, definitions } = baggage;

@@ -66,6 +66,8 @@ describe("#BaggagePaymentSummary", () => {
     expect(wrapper.find("[data-test='BaggagePaymentSummary-PassengerBaggages-1']").exists()).toBe(
       true,
     );
-    expect(wrapper.find("[data-test='PassengerBaggages-1-Price']").text()).toBe("40 €");
+    expect(
+      wrapper.find("[data-test='BaggagePaymentSummary-PassengerBaggages-1-Price']").text(),
+    ).toBe("40 €");
   });
 });

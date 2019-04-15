@@ -24,10 +24,10 @@ type Props = {|
   isCurrentCombination: boolean,
 |};
 
-type BaggageSizeTextProps = {
+type BaggageSizeTextProps = {|
   ...ThemeProps,
   isMobile: boolean,
-};
+|};
 
 const TitleWrapper = styled.div`
   display: flex;
@@ -39,7 +39,7 @@ const TitleWrapper = styled.div`
   justify-content: flex-start;
   align-content: center;
 
-  > * {
+  > p {
     margin-right: ${({ theme }): ThemeProps => theme.orbit.spaceXSmall};
   }
 `;
@@ -109,7 +109,7 @@ const OptionItem = ({
       <Stack shrink spacing="condensed">
         <IconWrapper>{getIconFromCategory(category, "medium", "primary")}</IconWrapper>
         <TitleWrapper>
-          <Text>
+          <Text element="p">
             <Title>
               {amount > 1 && (
                 <Text element="span" weight="bold">

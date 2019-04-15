@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
-import R from "ramda";
+import * as R from "ramda";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import groupDefinitions from "./services/groupDefinitions";
@@ -17,12 +17,12 @@ import type {
 import BaggageItem from "./components/BaggageItem";
 import NoPersonalItem from "./components/NoPersonalItem";
 
-type Props = {
+type Props = {|
   definitions?: (HandBagDefinitionWithId | HoldBagDefinitionWithId)[],
   definitionsWithPassengers?: DefinitionWithPassenger[],
   FAQLinksHandler?: FAQLinksHandlerType,
   context: OverviewContextType,
-};
+|};
 
 type WrapperProps = {
   ...ThemeProps,
@@ -31,7 +31,7 @@ type WrapperProps = {
 
 const Wrapper = styled.div`
   width: 100%;
-  > * {
+  > div {
     margin-bottom: 10px;
     ${mq.mediumMobile(css`
       margin-bottom: ${({ theme, context }: WrapperProps) =>

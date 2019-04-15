@@ -8,7 +8,7 @@ import getTextFromCategory from "../../../../services/baggage/getTextFromCategor
 import type { ItemType } from "../../../../records/Baggage";
 import Translate from "../../../Translate";
 
-type Props = {
+type Props = {|
   paxId: number,
   firstName: string,
   lastName: string,
@@ -17,7 +17,7 @@ type Props = {
     holdBag: ItemType[],
   },
   price: number,
-};
+|};
 
 const PassengerBaggages = ({ paxId, firstName, lastName, baggage, price }: Props) => (
   <Stack
@@ -29,7 +29,7 @@ const PassengerBaggages = ({ paxId, firstName, lastName, baggage, price }: Props
       <Text>
         <Translate t="baggage_modal.summary.baggage_for" values={{ firstName, lastName }} />
       </Text>
-      <Text dataTest={`PassengerBaggages-${paxId}-Price`}>
+      <Text dataTest={`BaggagePaymentSummary-PassengerBaggages-${paxId}-Price`}>
         <Price value={price} />
       </Text>
     </Stack>

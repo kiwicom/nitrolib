@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   }
 `;
 
-type Props = {
+type Props = {|
   firstName: string,
   middleName?: string,
   lastName: string,
@@ -39,7 +39,7 @@ type Props = {
   newDefinitions?: (HoldBagTileDefinition | HandBagTileDefinition)[],
   onClick?: () => void,
   baggage: BaggageType,
-};
+|};
 
 const CustomerBaggageTile = ({
   firstName,

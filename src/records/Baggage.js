@@ -43,10 +43,10 @@ export type HoldBagTileDefinition = {|
   isCurrent?: boolean,
 |};
 
-export type Definitions = {
+export type Definitions = {|
   handBag: HandBagDefinition[],
   holdBag: HoldBagDefinition[],
-};
+|};
 
 export type Combination = {|
   indices: number[],
@@ -61,10 +61,10 @@ export type Combinations = {|
   holdBag: Combination[],
 |};
 
-export type BaggageType = {
+export type BaggageType = {|
   definitions: Definitions,
   combinations: Combinations,
-};
+|};
 
 export type TileItem = {|
   category: BaggageSubCategory,
@@ -80,12 +80,12 @@ export type ItemType = {|
   },
 |};
 
-export type OptionBaggage = {
+export type OptionBaggage = {|
   originalIndex: number,
   pickerType: BaggageCategory,
   price: PriceType,
   items: { [key: string]: ItemType },
-};
+|};
 
 export type FAQLinksHandlerType = BaggageSubCategory => void;
 

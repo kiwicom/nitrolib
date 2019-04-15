@@ -1,0 +1,17 @@
+// @flow strict
+import type {
+  FAQLinksHandlerType,
+  DefinitionWithPassenger,
+  HoldBagDefinitionWithId,
+  HandBagDefinitionWithId,
+  OverviewContextType,
+} from "../../records/Baggage";
+
+type Props = {|
+  definitions?: (HandBagDefinitionWithId | HoldBagDefinitionWithId)[],
+  definitionsWithPassengers?: DefinitionWithPassenger[],
+  FAQLinksHandler?: FAQLinksHandlerType,
+  context: OverviewContextType,
+|};
+
+declare export default React.ComponentType<Props>;

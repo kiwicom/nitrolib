@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
-import R from "ramda";
+import * as R from "ramda";
 import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
@@ -20,7 +20,7 @@ import type { PriceType } from "../../../../records/Price";
 import getAirlinesWithPriorityBoarding from "./services/getAirlinesWithPriorityBoarding";
 import type { Airlines, Airline } from "../../../../records/Airline";
 
-type Props = {
+type Props = {|
   items: { [key: string]: ItemType },
   price: PriceType,
   dataTest?: string,
@@ -32,13 +32,13 @@ type Props = {
   airlines?: Airlines,
   shouldShowRecheckNote?: boolean,
   prioBoardingLinkHandler?: (Airline[]) => void,
-};
+|};
 
-type WrapperProps = {
+type WrapperProps = {|
   ...ThemeProps,
   checked: boolean,
   dataTest: string,
-};
+|};
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.orbit.paletteWhite};
@@ -56,7 +56,7 @@ const Wrapper = styled.div`
     outline-offset: -3px;
   }
 
-  > *:not(:last-child) {
+  > div:not(:last-child) {
     margin-bottom: 12px;
   }
 `;

@@ -14,14 +14,14 @@ import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import Translate from "../../../Translate/index";
 
-type Props = {
+type Props = {|
   definitions: (HoldBagTileDefinition | HandBagTileDefinition)[],
   orderStatus: ?OrderStatusType,
-};
+|};
 
 const Wrapper = styled.div`
   padding: 17px 0px 17px 28px;
-  > * {
+  > div {
     margin-bottom: ${({ theme }): ThemeProps => theme.orbit.spaceXXXSmall};
   }
 `;

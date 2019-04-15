@@ -66,7 +66,7 @@ const exampleDefinitions = [
 
 const Wrapper = styled.div`
   padding: 5px;
-  > * {
+  > div {
     margin-bottom: 24px;
   }
 `;

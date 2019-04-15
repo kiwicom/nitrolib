@@ -10,7 +10,7 @@ import Text from "@kiwicom/orbit-components/lib/Text";
 import type { Gender, OrderStatusType } from "../../../../records/Baggage";
 import Badge from "./components/Badge";
 
-type TitleProps = {
+type TitleProps = {|
   firstName: string,
   middleName?: string,
   lastName: string,
@@ -18,7 +18,7 @@ type TitleProps = {
   dayOfBirth?: string,
   orderStatus: ?OrderStatusType,
   price: ?number,
-};
+|};
 
 const Wrapper = styled.div`
   display: flex;

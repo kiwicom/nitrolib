@@ -54,7 +54,8 @@ const TextWrapper = styled.div`
     align-items: center;
   `)};
 
-  > * {
+  > p,
+  > span {
     margin-right: ${({ theme }): ThemeProps => theme.orbit.spaceXSmall};
   }
 `;
@@ -102,14 +103,14 @@ OptionalColumnWrapper.defaultProps = {
   hasLink: false,
 };
 
-type Props = {
+type Props = {|
   restrictions: Restrictions,
   category: BaggageSubCategory,
   amount: number,
   passengers?: BaggagePassengerType[],
   FAQLinksHandler?: FAQLinksHandlerType,
   context: OverviewContextType,
-};
+|};
 
 const BaggageItem = ({
   passengers,

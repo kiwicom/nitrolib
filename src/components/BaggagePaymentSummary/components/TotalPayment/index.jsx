@@ -10,9 +10,9 @@ import Translate from "../../../Translate";
 import type { ThemeProps } from "../../../../records/Theme";
 import { themeDefault } from "../../../../records/Theme";
 
-type Props = {
+type Props = {|
   totalPrice: number,
-};
+|};
 
 const Wrapper = styled.div`
   display: flex;

@@ -1,6 +1,6 @@
 // @flow strict
 import React, { useState, useEffect } from "react";
-import R from "ramda";
+import * as R from "ramda";
 import styled from "styled-components";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Button from "@kiwicom/orbit-components/lib/Button";
@@ -21,7 +21,7 @@ import getPersonalItemPresence from "./services/getPersonalItemPresence";
 import getTooltip from "./services/getTooltip";
 import getOptions from "./services/getOptions";
 
-type Props = {
+type Props = {|
   changeBagCombination: (BaggageCategory, number) => void,
   passengerCategory: PassengerGroup,
   passengerBaggage: { handBag: number, holdBag: number },
@@ -32,7 +32,7 @@ type Props = {
   context: "booking" | "mmb",
   currentCombination?: number,
   prioBoardingLinkHandler: (Airline[]) => void,
-};
+|};
 
 const EmptyOption = styled.div`
   display: flex;
@@ -40,7 +40,8 @@ const EmptyOption = styled.div`
   padding: ${({ theme }) => theme.orbit.spaceSmall};
   border-radius: ${({ theme }) => theme.orbit.borderRadiusNormal};
   border: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorCard};
-  > * {
+  > svg,
+  > p {
     margin-right: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
   }
 `;
@@ -53,7 +54,7 @@ const Title = styled.div`
   display: flex;
   align-items: center;
   height: 16px;
-  > * {
+  > p {
     margin-right: ${({ theme }) => theme.orbit.spaceXXSmall};
   }
   span {
@@ -90,7 +91,6 @@ const BaggagePicker = ({
     }),
   );
   const hasOnlyEmptyOption = options.length === 1 && R.isEmpty(options[0].items);
-  const selectedIndex = passengerBaggage[pickerType];
   const isPersonalItemPresent = getPersonalItemPresence({ pickerType, options });
 
   useEffect(() => {
@@ -146,7 +146,7 @@ const BaggagePicker = ({
             pickerType={pickerType}
             items={item.items}
             price={item.price}
-            isChecked={item.originalIndex === selectedIndex}
+            isChecked={item.originalIndex === passengerBaggage[pickerType]}
             shouldShowRecheckNote={shouldShowRecheckNote}
             prioBoardingLinkHandler={prioBoardingLinkHandler}
             isCurrentCombination={item.originalIndex === currentCombination}
@@ -157,7 +157,7 @@ const BaggagePicker = ({
       ) : (
         <EmptyOption data-test="BaggagePicker-EmptyOption">
           <Close size="medium" color="critical" />
-          <Text>
+          <Text element="p">
             {pickerType === "handBag" ? (
               <Translate t="baggage_modal.error.cabin_baggage_not_available" />
             ) : (
