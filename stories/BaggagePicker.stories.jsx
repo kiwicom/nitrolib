@@ -1,6 +1,5 @@
 // @flow strict
 import React from "react";
-import * as R from "ramda";
 import { storiesOf } from "@storybook/react";
 import { withKnobs, select, boolean } from "@storybook/addon-knobs";
 

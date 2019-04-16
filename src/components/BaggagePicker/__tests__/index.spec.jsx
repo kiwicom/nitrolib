@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from "react";
-import * as R from "ramda";
 import { mount } from "enzyme";
 
 import BaggagePicker from "../index";

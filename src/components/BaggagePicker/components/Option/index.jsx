@@ -56,7 +56,7 @@ const Wrapper = styled.div`
     outline-offset: -3px;
   }
 
-  > div:not(:last-child) {
+  > *:not(:last-child) {
     margin-bottom: 12px;
   }
 `;
