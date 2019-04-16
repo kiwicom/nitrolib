@@ -1,5 +1,5 @@
 // @flow strict
-import R from "ramda";
+import * as R from "ramda";
 
 import type { ItemType } from "../../../../../records/Baggage";
 

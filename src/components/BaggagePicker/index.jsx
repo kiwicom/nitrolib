@@ -134,7 +134,6 @@ const BaggagePicker = ({
           ) : (
             <Translate t="baggage_modal.subheader.switch_option" />
           )}
-          :
         </Text>
       )}
       {options.length > 0 && !hasOnlyEmptyOption ? (

@@ -1,5 +1,5 @@
 // @flow strict
-import R from "ramda";
+import * as R from "ramda";
 
 import getPassengersFromId from "./getPassengersFromId";
 import type {

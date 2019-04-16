@@ -1,5 +1,5 @@
 // @flow strict
-import R from "ramda";
+import * as R from "ramda";
 import { Decimal } from "decimal.js";
 
 import getOptionItems from "./getOptionItems";

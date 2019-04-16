@@ -36,10 +36,10 @@ const ContactUsText = styled.p`
   font-family: ${({ theme }): ThemeProps => theme.orbit.fontFamily};
   margin-right: ${({ theme }): ThemeProps => theme.orbit.spaceMedium};
   a {
-    color: ${({ theme }) => theme.orbit.colorTextPrimary};
+    color: ${({ theme }) => theme.orbit.colorTextLinkPrimaryHover};
 
     &:hover {
-      color: ${({ theme }) => theme.orbit.colorTextLinkPrimaryHover};
+      color: ${({ theme }): ThemeProps => theme.orbit.colorTextPrimary};
     }
   }
 `;
