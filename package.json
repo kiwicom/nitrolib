@@ -1,6 +1,6 @@
 {
   "name": "tmp-zbycz-nitro",
-  "version": "0.93.0-dev27",
+  "version": "0.93.0-dev28",
   "description": "Nitro's components.",
   "scripts": {
     "start": "yarn storybook",
@@ -37,8 +37,8 @@
     "tkeys.json",
     "README.md"
   ],
-  "bin": {
-    "nitro": "./bin/nitro.js"
+  "xbin": {
+    "xnitro": "./bin/nitro.js"
   },
   "dependencies": {
     "@babel/parser": "^7.1.6",
