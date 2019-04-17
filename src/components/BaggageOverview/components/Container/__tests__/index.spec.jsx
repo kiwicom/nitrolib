@@ -50,12 +50,8 @@ describe("#Container", () => {
       <Container {...propsWithCombinations}>{props => <BaggageOverview {...props} />}</Container>,
     );
     expect(wrapper.find("BaggageOverview").exists()).toBe(true);
-    const OptionalColumnWrapper = wrapper.find("BaggageItem__OptionalColumnWrapper");
-    expect(OptionalColumnWrapper.exists()).toBe(true);
-    expect(
-      OptionalColumnWrapper.find("Text")
-        .first()
-        .text(),
-    ).toBe("D. J. Trump, G. Bush");
+    const PassengersText = wrapper.find("[data-test='BaggageOverview-BaggageItem-Passengers']");
+    expect(PassengersText.exists()).toBe(true);
+    expect(PassengersText.first().text()).toBe("D. J. Trump, G. Bush");
   });
 });

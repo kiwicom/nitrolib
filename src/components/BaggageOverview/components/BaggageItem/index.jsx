@@ -22,25 +22,9 @@ import getIconFromCategory from "../../../../services/baggage/getIconFromCategor
 import getTextFromCategory from "../../../../services/baggage/getTextFromCategory";
 import getPassengerNames from "./services/getPassengerNames";
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-
-  ${mq.mediumMobile(css`
-    flex-direction: row;
-    align-items: flex-start;
-    margin-bottom: 0px;
-  `)};
-`;
-
 const TextWrapper = styled.div`
   display: flex;
   width: 100%;
-  flex-wrap: nowrap;
-  flex-grow: 1;
-  flex-shrink: 1;
   justify-content: flex-start;
   flex-direction: column;
   align-items: flex-start;
@@ -49,6 +33,7 @@ const TextWrapper = styled.div`
     flex-direction: column;
     align-items: flex-start;
   `)};
+
   ${mq.largeMobile(css`
     flex-direction: row;
     align-items: center;
@@ -68,12 +53,7 @@ const Title = styled.span`
   line-height: 24px;
 `;
 
-type OptionalColumnWrapperType = {
-  ...ThemeProps,
-  hasLink: boolean,
-};
-
-const OptionalColumnWrapper = styled.div`
+const TextLinkWrapper = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
@@ -84,24 +64,22 @@ const OptionalColumnWrapper = styled.div`
   a {
     margin-left: 28px;
   }
+
+  ${mq.mediumMobile(css`
+    justify-content: flex-end;
+    a {
+      margin-left: 0;
+    }
+  `)};
+`;
+
+const PassengersWrapper = styled.div`
   svg {
     /* fix of different icon sizing */
     margin-left: 3px;
     margin-right: 11px;
   }
-  ${mq.mediumMobile(css`
-    justify-content: ${({ hasLink }: OptionalColumnWrapperType) =>
-      hasLink ? "flex-end" : "flex-start"};
-    svg {
-      margin-right: ${({ theme }: OptionalColumnWrapperType) => theme.orbit.spaceXSmall};
-    }
-  `)};
 `;
-
-OptionalColumnWrapper.defaultProps = {
-  theme: themeDefault,
-  hasLink: false,
-};
 
 type Props = {|
   restrictions: Restrictions,
@@ -121,8 +99,16 @@ const BaggageItem = ({
   FAQLinksHandler,
 }: Props) => {
   return (
-    <Wrapper data-test={`BaggageOverview-BaggageItem-${category}`}>
-      <Stack shrink spacing="condensed">
+    <Stack
+      flex
+      align="center"
+      spaceAfter="large"
+      direction="column"
+      spacing="tight"
+      mediumMobile={{ direction: "row", spaceAfter: "smallest" }}
+      dataTest={`BaggageOverview-BaggageItem-${category}`}
+    >
+      <Stack shrink spacing="condensed" spaceAfter="smallest">
         {getIconFromCategory(category, "medium", "primary")}
         <TextWrapper>
           <Text
@@ -138,7 +124,7 @@ const BaggageItem = ({
           </Text>
           <Title>
             <Text
-              element="span"
+              element="p"
               type="secondary"
               size={context === "MMB-PassengersSummary" ? "normal" : "small"}
             >
@@ -148,22 +134,35 @@ const BaggageItem = ({
         </TextWrapper>
       </Stack>
 
-      <OptionalColumnWrapper hasLink={!!FAQLinksHandler}>
-        {passengers && (
-          <>
-            <AccountCircle size="small" color="secondary" />
-            <Text element="span" type="secondary">
-              {getPassengerNames(passengers)}
-            </Text>
-          </>
-        )}
-        {FAQLinksHandler && (
-          <TextLink size="small" onClick={() => FAQLinksHandler(category)}>
-            <Translate t="baggage_modal.summary.more_info" />
-          </TextLink>
-        )}
-      </OptionalColumnWrapper>
-    </Wrapper>
+      {(FAQLinksHandler || !!passengers) && (
+        <Stack
+          align="center"
+          justify="start"
+          spacing="compact"
+          mediumMobile={{ justify: FAQLinksHandler ? "end" : "start", shrink: true }}
+        >
+          {passengers && (
+            <PassengersWrapper>
+              <AccountCircle size="small" color="secondary" />
+              <Text
+                element="span"
+                type="secondary"
+                dataTest="BaggageOverview-BaggageItem-Passengers"
+              >
+                {getPassengerNames(passengers)}
+              </Text>
+            </PassengersWrapper>
+          )}
+          {FAQLinksHandler && (
+            <TextLinkWrapper>
+              <TextLink size="small" onClick={() => FAQLinksHandler(category)}>
+                <Translate t="baggage_modal.summary.more_info" />
+              </TextLink>
+            </TextLinkWrapper>
+          )}
+        </Stack>
+      )}
+    </Stack>
   );
 };
 

@@ -40,12 +40,12 @@ const props = {
 describe("#BaggageItem", () => {
   test("renders ", () => {
     const wrapper = mount(<BaggageItem {...props} />);
-    expect(wrapper.find("BaggageItem__Wrapper").exists()).toBe(true);
+    expect(wrapper.find("[data-test='BaggageOverview-BaggageItem-holdBag']").exists()).toBe(true);
   });
   test("renders with passengers names", () => {
     const wrapper = mount(<BaggageItem {...props} passengers={passengers} />);
-    const OptionalColumnWrapper = wrapper.find("BaggageItem__OptionalColumnWrapper");
-    expect(OptionalColumnWrapper.exists()).toBe(true);
-    expect(OptionalColumnWrapper.find("Text").text()).toBe("B. H. Obama, D. J. Trump, G. Bush");
+    const PassengersText = wrapper.find("[data-test='BaggageOverview-BaggageItem-Passengers']");
+    expect(PassengersText.exists()).toBe(true);
+    expect(PassengersText.text()).toBe("B. H. Obama, D. J. Trump, G. Bush");
   });
 });
