@@ -10,14 +10,13 @@ import calculatePrice from "./services/calculatePrice";
 import getStatus from "./services/getStatus";
 import type {
   BaggageType,
-  Gender,
   HoldBagTileDefinition,
   HandBagTileDefinition,
 } from "../../records/Baggage";
 
 const Wrapper = styled.div`
   div:last-child > svg {
-    display: ${({ isIconShown }: { isIconShown: boolean }) => (isIconShown ? "inline" : "none")};
+    display: ${({ isIconShowed }: { isIconShowed: boolean }) => (isIconShowed ? "inline" : "none")};
   }
 `;
 
@@ -25,7 +24,7 @@ type Props = {|
   firstName: string,
   middleName?: string,
   lastName: string,
-  gender: Gender,
+  icon: React.Node,
   dayOfBirth?: string,
   isProcessing: boolean,
   current?: {
@@ -45,7 +44,7 @@ const CustomerBaggageTile = ({
   firstName,
   middleName,
   lastName,
-  gender,
+  icon,
   dayOfBirth,
   isProcessing,
   current,
@@ -72,13 +71,13 @@ const CustomerBaggageTile = ({
   });
   const status = getStatus({ current, selected, isProcessing });
   return (
-    <Wrapper isIconShown={!!onClick}>
+    <Wrapper isIconShowed={!!onClick}>
       <Tile
         dataTest={`CustomerBaggageTile-${status || "none"}`}
         onClick={onClick && onClick}
         title={
           <Title
-            gender={gender}
+            icon={icon}
             firstName={firstName}
             middleName={middleName}
             lastName={lastName}

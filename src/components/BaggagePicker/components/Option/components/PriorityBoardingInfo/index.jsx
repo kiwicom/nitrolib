@@ -29,14 +29,14 @@ IconWrapper.defaultProps = {
 
 type Props = {
   airlines: Airline[],
-  prioBoardingLinkHandler?: (Airline[]) => void,
+  prioBoardingLinkHandler?: (arg: Airline[]) => void,
 };
 
 const PriorityBoardingInfo = ({ airlines, prioBoardingLinkHandler }: Props) => {
   const handleClick = e => {
     if (prioBoardingLinkHandler) {
-      prioBoardingLinkHandler(airlines);
       e.stopPropagation();
+      prioBoardingLinkHandler(airlines);
     }
   };
   return (

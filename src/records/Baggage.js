@@ -5,7 +5,6 @@ export type BaggageCategory = "holdBag" | "handBag";
 export type BaggageSubCategory = "holdBag" | "personalItem" | "cabinBag";
 export type PassengerGroup = "adult" | "child" | "infant";
 export type OrderStatusType = "unpaid" | "processing" | "notAvailable";
-export type Gender = "male" | "female";
 export type OverviewContextType = "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking";
 
 export type Restrictions = {|

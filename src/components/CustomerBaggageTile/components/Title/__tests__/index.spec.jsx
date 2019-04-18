@@ -1,14 +1,14 @@
 // @flow strict
 import * as React from "react";
 import { shallow } from "enzyme";
+import GenderWoman from "@kiwicom/orbit-components/lib/icons/GenderWoman";
 
 import Title from "../index";
 
 const props = {
-  firstName: "Oliver",
-  middleName: "Olix",
-  lastName: "Dlouhy",
-  gender: "male",
+  firstName: "Maria",
+  lastName: "Antoinetta",
+  icon: <GenderWoman />,
   orderStatus: "unpaid",
   price: 21,
 };
@@ -19,7 +19,7 @@ describe("#Title", () => {
     expect(wrapper.find("Title__Wrapper").exists()).toBe(true);
   });
   test("renders proper gender icon", () => {
-    const wrapper = shallow(<Title {...props} gender="female" />);
+    const wrapper = shallow(<Title {...props} />);
     expect(wrapper.find("GenderWoman").exists()).toBe(true);
   });
 });

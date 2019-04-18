@@ -122,12 +122,12 @@ const propsWithDefinitions = {
 describe("#BaggageOverview", () => {
   test("render component using propsWithDefinitions", () => {
     const wrapper = mount(<BaggageOverview {...propsWithDefinitions} />);
-    expect(wrapper.find("BaggageOverview__Wrapper").exists()).toBe(true);
+    expect(wrapper.find("[data-test='BaggageOverview-MMB-PassengerCard']").exists()).toBe(true);
   });
   test("render component using propsWithCombinations", () => {
     const wrapper = mount(
       <Container {...propsWithCombinations}>{props => <BaggageOverview {...props} />}</Container>,
     );
-    expect(wrapper.find("BaggageOverview__Wrapper").exists()).toBe(true);
+    expect(wrapper.find("[data-test='BaggageOverview-booking']").exists()).toBe(true);
   });
 });

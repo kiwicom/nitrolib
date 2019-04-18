@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { storiesOf } from "@storybook/react";
 import { withKnobs } from "@storybook/addon-knobs";
+import GenderMan from "@kiwicom/orbit-components/lib/icons/GenderMan";
 
 import withData from "./decorators/withData";
 import CustomerBaggageTile from "../src/components/CustomerBaggageTile";
@@ -11,7 +12,7 @@ import { baggageData } from "../src/records/__mocks__/baggageData";
 const props = {
   firstName: "Oliver",
   lastName: "Dlouhy",
-  gender: "male",
+  icon: <GenderMan />,
   isProcessing: false,
   current: { handBag: 1, holdBag: 1 },
   selected: { handBag: 3, holdBag: 4 },

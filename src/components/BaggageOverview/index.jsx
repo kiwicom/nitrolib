@@ -1,12 +1,9 @@
 // @flow strict
 import * as React from "react";
-import styled, { css } from "styled-components";
 import * as R from "ramda";
-import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import groupDefinitions from "./services/groupDefinitions";
-import { themeDefault } from "../../records/Theme";
-import type { ThemeProps } from "../../records/Theme";
 import type {
   FAQLinksHandlerType,
   DefinitionWithPassenger,
@@ -24,27 +21,6 @@ type Props = {|
   context: OverviewContextType,
 |};
 
-type WrapperProps = {
-  ...ThemeProps,
-  context: OverviewContextType,
-};
-
-const Wrapper = styled.div`
-  width: 100%;
-  > div {
-    margin-bottom: 10px;
-    ${mq.mediumMobile(css`
-      margin-bottom: ${({ theme, context }: WrapperProps) =>
-        context === "MMB-PassengersSummary" ? theme.orbit.spaceXSmall : theme.orbit.spaceXXSmall};
-    `)};
-  }
-`;
-
-Wrapper.defaultProps = {
-  theme: themeDefault,
-  context: "booking",
-};
-
 const BaggageOverview = ({
   definitions,
   definitionsWithPassengers,
@@ -54,7 +30,15 @@ const BaggageOverview = ({
   const baggages = definitionsWithPassengers || (definitions && groupDefinitions(definitions));
 
   return (
-    <Wrapper context={context} data-test={`BaggageOverview-${context}`}>
+    <Stack
+      flex
+      direction="column"
+      dataTest={`BaggageOverview-${context}`}
+      mediumMobile={{
+        spacing: context === "MMB-PassengersSummary" ? "condensed" : "tight",
+        direction: "column",
+      }}
+    >
       {baggages && !baggages.some(R.propEq("category", "personalItem")) && <NoPersonalItem />}
       {baggages &&
         baggages.map((bag, index) => (
@@ -68,7 +52,7 @@ const BaggageOverview = ({
             context={context}
           />
         ))}
-    </Wrapper>
+    </Stack>
   );
 };
 
