@@ -39,6 +39,7 @@ const resolve = glob => path.join(process.cwd(), glob);
 
 const commands = {
   keys: "keys",
+  keysCheck: "keys-check",
   fetch: "fetch",
 };
 
@@ -47,6 +48,8 @@ if (!commands[command]) {
   log("Available commands:");
   log(`  ${chalk.underline.bold("keys")} [...globs]      - collects translation keys`);
   log(`    ${chalk.underline("globs")} - where to collect keys from`);
+  log("");
+  log(`  ${chalk.underline.bold("keys-check")}           - checks missing translations`);
   log("");
   log(`  ${chalk.underline.bold("fetch")} [translations] - fetches production data`);
   log(`    ${chalk.underline("translations")} (optional) - path to translations`);
@@ -60,7 +63,7 @@ function keys(globs) {
   const collected = collectKeys(globs.map(resolve));
 
   const data = sortKeys(R.merge(ours, collected));
-  fs.outputJsonSync(path.join(process.cwd(), "data/tkeys.json"), data, {
+  fs.outputJsonSync(path.join(OUT, "data/tkeys.json"), data, {
     spaces: 2,
   });
 
@@ -71,6 +74,39 @@ function keys(globs) {
   );
 }
 
+function keysCheck() {
+  const TZ = path.join(OUT, "translationsFiles.json");
+  if (!fs.existsSync(TZ)) {
+    error("Key checking requires the 'data/translationsFiles.json' file. Run 'nitro fetch'.");
+    process.exit(1);
+    return;
+  }
+
+  if (!fs.existsSync(TKEYS)) {
+    error(
+      "'fetch' requires collecting translation keys to a 'data/tkeys.json' file! This can be done using the 'nitro keys <globs>' command.",
+    );
+    process.exit(1);
+    return;
+  }
+
+  const tkeys = fs.readJsonSync(TKEYS);
+  const tz = fs.readJsonSync(TZ);
+
+  Object.keys(tz).forEach(id => {
+    const locale = fs.readJsonSync(path.join(OUT, tz[id]));
+
+    Object.keys(tkeys).forEach(key => {
+      if (!locale[key]) {
+        error(`Locale ${id} has an untranslated key: ${key}`);
+        process.exit(1);
+      }
+    });
+  });
+
+  log("All good.");
+}
+
 function fetch(translations /* : ?string */) {
   const TRANSLATIONS = translations || TRANSLATIONS_FE;
   if (!fs.existsSync(TRANSLATIONS)) {
@@ -79,6 +115,7 @@ function fetch(translations /* : ?string */) {
         TRANSLATIONS === TRANSLATIONS_FE ? ", have you installed '@kiwicom/translations'?" : ""
       }`,
     );
+    process.exit(1);
     return;
   }
 
@@ -86,6 +123,7 @@ function fetch(translations /* : ?string */) {
     error(
       "'fetch' requires collecting translation keys to a 'data/tkeys.json' file! This can be done using the 'nitro keys <globs>' command.",
     );
+    process.exit(1);
     return;
   }
 
@@ -103,6 +141,10 @@ function fetch(translations /* : ?string */) {
 
 if (command === commands.keys) {
   keys(process.argv.slice(3));
+}
+
+if (command === commands.keysCheck) {
+  keysCheck();
 }
 
 if (command === commands.fetch) {
