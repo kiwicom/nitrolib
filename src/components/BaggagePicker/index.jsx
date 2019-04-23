@@ -79,8 +79,6 @@ const BaggagePicker = ({
   currentCombination,
   baggage,
 }: Props) => {
-  const [showedOptions, setShowedOptions] = useState([]);
-  const [numberOfHiddenOptions, setNumberOfHiddenOptions] = useState(0);
   const [options] = useState(
     getOptions({
       baggage,
@@ -90,6 +88,13 @@ const BaggagePicker = ({
       currentCombination,
     }),
   );
+  const [showedOptions, setShowedOptions] = useState(
+    options.length > 4 ? options.slice(0, 3) : options,
+  );
+  const [numberOfHiddenOptions, setNumberOfHiddenOptions] = useState(
+    options.length - showedOptions.length,
+  );
+
   const hasOnlyEmptyOption = options.length === 1 && R.isEmpty(options[0].items);
   const isPersonalItemPresent = getPersonalItemPresence({ pickerType, options });
 
@@ -136,7 +141,7 @@ const BaggagePicker = ({
           )}
         </Text>
       )}
-      {options.length > 0 && !hasOnlyEmptyOption ? (
+      {showedOptions.length > 0 && !hasOnlyEmptyOption ? (
         showedOptions.map((item, index) => (
           <Option
             key={item.originalIndex}
