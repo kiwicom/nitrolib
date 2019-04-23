@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import type { Environment } from "react-relay";
 import Passenger from "@kiwicom/orbit-components/lib/icons/Passenger";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import Button from "../../primitives/Button";
 import ClickOutside from "../../../ClickOutside";
@@ -38,7 +39,7 @@ const UserWrapper = styled.div`
 
   ${mq.mediumMobile(css`
     display: flex;
-    padding-left: 5px;
+    padding-${/* sc-custom "left" */ left}: 5px;
     font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
   `)};
@@ -52,7 +53,7 @@ const HideOnLower = styled.div`
   display: none;
   ${mq.tablet(css`
     display: block;
-    margin-left: ${({ theme }: ThemeProps) => theme.orbit.spaceXXSmall};
+    margin-${/* sc-custom "left" */ left}: ${({ theme }: ThemeProps) => theme.orbit.spaceXXSmall};
   `)}
 `;
 

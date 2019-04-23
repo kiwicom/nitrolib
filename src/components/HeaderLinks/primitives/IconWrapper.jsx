@@ -1,5 +1,6 @@
 // @flow strict
 import styled, { css } from "styled-components";
+import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
@@ -16,7 +17,7 @@ const IconWrapper = styled.i`
     inverted && (!act ? theme.orbit.paletteWhite : theme.orbit.paletteInkNormal)};
   display: block;
   cursor: pointer;
-  padding-right: 10px;
+  padding-${/* sc-custom "right" */ right}: 10px;
   ${({ act }) =>
     act &&
     css`

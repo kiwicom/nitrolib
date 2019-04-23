@@ -1,6 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
+import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
@@ -27,7 +28,7 @@ const Select = styled.select`
   appearance: none;
   cursor: pointer;
   background-color: transparent;
-  margin-left: 11px;
+  margin-${/* sc-custom "left" */ left}: 11px;
   border: 0;
   outline: 0;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
@@ -44,7 +45,7 @@ const Select = styled.select`
     hideNativeText &&
     css`
       width: 24px;
-      margin-left: -24px;
+      margin-${/* sc-custom "left" */ left}: -24px;
       color: transparent;
 
       &:hover {
