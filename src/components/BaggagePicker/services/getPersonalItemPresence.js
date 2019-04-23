@@ -3,10 +3,10 @@ import * as R from "ramda";
 
 import type { BaggageCategory, OptionBaggage } from "../../../records/Baggage";
 
-type GetPersonalItemPresenceArgs = {
+type GetPersonalItemPresenceArgs = {|
   pickerType: BaggageCategory,
   options: OptionBaggage[],
-};
+|};
 
 export default function getPersonalItemPresence({
   pickerType,

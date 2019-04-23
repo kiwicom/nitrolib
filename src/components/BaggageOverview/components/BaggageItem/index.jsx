@@ -3,13 +3,11 @@ import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
-import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import Hide from "@kiwicom/orbit-components/lib/Hide";
 
 import Translate from "../../../Translate";
-import { themeDefault } from "../../../../records/Theme";
-import type { ThemeProps } from "../../../../records/Theme";
 import type {
   BaggageSubCategory,
   Restrictions,
@@ -22,63 +20,8 @@ import getIconFromCategory from "../../../../services/baggage/getIconFromCategor
 import getTextFromCategory from "../../../../services/baggage/getTextFromCategory";
 import getPassengerNames from "./services/getPassengerNames";
 
-const TextWrapper = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: flex-start;
-  flex-direction: column;
-  align-items: flex-start;
-
-  ${mq.mediumMobile(css`
-    flex-direction: column;
-    align-items: flex-start;
-  `)};
-
-  ${mq.largeMobile(css`
-    flex-direction: row;
-    align-items: center;
-  `)};
-
-  > p,
-  > span {
-    margin-right: ${({ theme }): ThemeProps => theme.orbit.spaceXSmall};
-  }
-`;
-
-TextWrapper.defaultProps = {
-  theme: themeDefault,
-};
-
-const Title = styled.span`
+const Title = styled.div`
   line-height: 24px;
-`;
-
-const TextLinkWrapper = styled.div`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  span,
-  a {
-    line-height: 24px;
-  }
-  a {
-    margin-left: 28px;
-  }
-
-  ${mq.mediumMobile(css`
-    justify-content: flex-end;
-    a {
-      margin-left: 0;
-    }
-  `)};
-`;
-
-const PassengersWrapper = styled.div`
-  svg {
-    /* fix of different icon sizing */
-    margin-left: 3px;
-    margin-right: 11px;
-  }
 `;
 
 type Props = {|
@@ -101,48 +44,70 @@ const BaggageItem = ({
   return (
     <Stack
       flex
-      align="center"
+      align="start"
       spaceAfter="large"
       direction="column"
       spacing="tight"
-      mediumMobile={{ direction: "row", spaceAfter: "smallest" }}
+      mediumMobile={{ direction: "row", spaceAfter: "smallest", align: "center" }}
       dataTest={`BaggageOverview-BaggageItem-${category}`}
     >
       <Stack shrink spacing="condensed" spaceAfter="smallest">
         {getIconFromCategory(category, "medium", "primary")}
-        <TextWrapper>
+        <Stack
+          flex
+          shrink
+          align="start"
+          spacing="none"
+          direction="column"
+          mediumMobile={{ align: "start", direction: "column" }}
+          largeMobile={{ direction: "row", spacing: "condensed", align: "center" }}
+        >
           <Text
             element="p"
             weight={context === "MMB-PassengersSummary" ? "bold" : "normal"}
             size={context === "MMB-PassengersSummary" ? "large" : "normal"}
           >
-            <Title>
-              {`${amount}× `}
-              {category === "holdBag" && `${restrictions.weight}kg  `}
-              {getTextFromCategory(category, x => x.toLowerCase())}
-            </Title>
+            {`${amount}× `}
+            {category === "holdBag" && `${restrictions.weight}kg `}
+            {getTextFromCategory(category, x => x.toLowerCase())}
           </Text>
-          <Title>
-            <Text
-              element="p"
-              type="secondary"
-              size={context === "MMB-PassengersSummary" ? "normal" : "small"}
-            >
-              {getBaggageSize(restrictions)}
-            </Text>
-          </Title>
-        </TextWrapper>
+          <Text
+            element="p"
+            type="secondary"
+            size={context === "MMB-PassengersSummary" ? "normal" : "small"}
+          >
+            <Title>{getBaggageSize(restrictions)}</Title>
+          </Text>
+
+          {FAQLinksHandler && (
+            <Hide on={["largeMobile", "tablet", "desktop", "largeDesktop"]}>
+              <Stack
+                flex
+                shrink
+                align="center"
+                mediumMobile={{ justify: "end" }}
+                spaceAfter="large"
+              >
+                <TextLink size="small" onClick={() => FAQLinksHandler(category)}>
+                  <Translate t="baggage_modal.summary.more_info" />
+                </TextLink>
+              </Stack>
+            </Hide>
+          )}
+        </Stack>
       </Stack>
 
       {(FAQLinksHandler || !!passengers) && (
         <Stack
+          flex
+          shrink
           align="center"
           justify="start"
           spacing="compact"
           mediumMobile={{ justify: FAQLinksHandler ? "end" : "start", shrink: true }}
         >
           {passengers && (
-            <PassengersWrapper>
+            <>
               <AccountCircle size="small" color="secondary" />
               <Text
                 element="span"
@@ -151,14 +116,23 @@ const BaggageItem = ({
               >
                 {getPassengerNames(passengers)}
               </Text>
-            </PassengersWrapper>
+            </>
           )}
+
           {FAQLinksHandler && (
-            <TextLinkWrapper>
-              <TextLink size="small" onClick={() => FAQLinksHandler(category)}>
-                <Translate t="baggage_modal.summary.more_info" />
-              </TextLink>
-            </TextLinkWrapper>
+            <Hide on={["smallMobile", "mediumMobile"]}>
+              <Stack
+                flex
+                shrink
+                align="center"
+                mediumMobile={{ justify: "end" }}
+                spaceAfter="large"
+              >
+                <TextLink size="small" onClick={() => FAQLinksHandler(category)}>
+                  <Translate t="baggage_modal.summary.more_info" />
+                </TextLink>
+              </Stack>
+            </Hide>
           )}
         </Stack>
       )}

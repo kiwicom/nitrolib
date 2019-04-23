@@ -1,43 +1,31 @@
 // @flow strict
 import React, { useContext } from "react";
-import styled from "styled-components";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import InformationCircle from "@kiwicom/orbit-components/lib/icons/InformationCircle";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import Price from "../../../Price";
 import currencyContext from "../../../../services/currency/context";
 import Translate from "../../../Translate";
-import type { ThemeProps } from "../../../../records/Theme";
-import { themeDefault } from "../../../../records/Theme";
 
 type Props = {|
   totalPrice: number,
 |};
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  svg {
-    margin-left: ${({ theme }: ThemeProps) => theme.orbit.spaceXXSmall};
-  }
-`;
-
-Wrapper.defaultProps = {
-  theme: themeDefault,
-};
-
 const TotalPayment = ({ totalPrice }: Props) => {
   const { currency } = useContext(currencyContext);
   return (
-    <Wrapper data-test="BaggagePaymentSummary-TotalPayment">
-      <Text>
-        <Translate t="baggage_modal.payment.total" values={{ currency: currency.name }} />
+    <Stack flex align="center" justify="between" dataTest="BaggagePaymentSummary-TotalPayment">
+      <Stack inline align="center" spacing="tight">
+        <Text>
+          <Translate t="baggage_modal.payment.total" values={{ currency: currency.name }} />
+        </Text>
         <InformationCircle size="small" color="secondary" />
-      </Text>
+      </Stack>
       <Text>
         <Price value={totalPrice} />
       </Text>
-    </Wrapper>
+    </Stack>
   );
 };
 

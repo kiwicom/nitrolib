@@ -1,13 +1,12 @@
 // @flow strict
 import * as React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import * as R from "ramda";
 import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Radio from "@kiwicom/orbit-components/lib/Radio";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
-import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import PriorityBoardingInfo from "./components/PriorityBoardingInfo";
 import EmptyLabel from "./components/EmptyLabel";
@@ -31,7 +30,7 @@ type Props = {|
   isPersonalItemPresent: boolean,
   airlines?: Airlines,
   shouldShowRecheckNote?: boolean,
-  prioBoardingLinkHandler?: (Airline[]) => void,
+  prioBoardingLinkHandler?: (arg: Airline[]) => void,
 |};
 
 type WrapperProps = {|
@@ -50,6 +49,7 @@ const Wrapper = styled.div`
   border-radius: ${({ theme }) => theme.orbit.borderRadiusNormal};
   outline: solid 1px white;
   outline-offset: ${({ checked }) => (checked ? "-3px" : "-2px")};
+  overflow: auto;
   &:hover {
     cursor: pointer;
     border-color: ${({ theme }: ThemeProps) => theme.orbit.borderColorCheckboxRadioHover};
@@ -68,26 +68,10 @@ Wrapper.defaultProps = {
 };
 
 const RadioWrapper = styled.div`
-  width: 20px;
   div {
     margin-top: 2px;
   }
 `;
-
-const IconWrapper = styled.div`
-  border-top: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorInput};
-  min-width: 24px;
-  text-align: center;
-  padding: 6px 0px;
-
-  ${mq.largeMobile(css`
-    padding: 4px 0px;
-  `)};
-`;
-
-IconWrapper.defaultProps = {
-  theme: themeDefault,
-};
 
 const Option = ({
   items,

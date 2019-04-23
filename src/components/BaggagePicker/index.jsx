@@ -13,7 +13,6 @@ import Tooltip from "@kiwicom/orbit-components/lib/Tooltip";
 import Translate from "../Translate/index";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
-import Flex from "../../primitives/Flex";
 import Option from "./components/Option/index";
 import type { BaggageCategory, PassengerGroup, BaggageType } from "../../records/Baggage";
 import type { Airline } from "../../records/Airline";
@@ -22,7 +21,7 @@ import getTooltip from "./services/getTooltip";
 import getOptions from "./services/getOptions";
 
 type Props = {|
-  changeBagCombination: (BaggageCategory, number) => void,
+  changeBagCombination: (picker: BaggageCategory, item: number) => void,
   passengerCategory: PassengerGroup,
   passengerBaggage: { handBag: number, holdBag: number },
   baggage: BaggageType,
@@ -31,39 +30,20 @@ type Props = {|
   pickerType: BaggageCategory,
   context: "booking" | "mmb",
   currentCombination?: number,
-  prioBoardingLinkHandler: (Airline[]) => void,
+  prioBoardingLinkHandler: (arg: Airline[]) => void,
 |};
 
-const EmptyOption = styled.div`
-  display: flex;
-  align-items: center;
+const IconWrapper = styled.div`
+  height: 20px;
+`;
+
+const EmptyOptionWrapper = styled.div`
   padding: ${({ theme }) => theme.orbit.spaceSmall};
   border-radius: ${({ theme }) => theme.orbit.borderRadiusNormal};
   border: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorCard};
-  > svg,
-  > p {
-    margin-right: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
-  }
 `;
 
-EmptyOption.defaultProps = {
-  theme: themeDefault,
-};
-
-const Title = styled.div`
-  display: flex;
-  align-items: center;
-  height: 16px;
-  > p {
-    margin-right: ${({ theme }) => theme.orbit.spaceXXSmall};
-  }
-  span {
-    display: flex;
-    align-items: center;
-  }
-`;
-
-Title.defaultProps = {
+EmptyOptionWrapper.defaultProps = {
   theme: themeDefault,
 };
 
@@ -96,7 +76,6 @@ const BaggagePicker = ({
   );
 
   const hasOnlyEmptyOption = options.length === 1 && R.isEmpty(options[0].items);
-  const isPersonalItemPresent = getPersonalItemPresence({ pickerType, options });
 
   useEffect(() => {
     function handleDefaultStateValues() {
@@ -120,7 +99,7 @@ const BaggagePicker = ({
 
   return (
     <Stack spacing="condensed" spaceAfter="largest" dataTest={`BaggagePicker-${pickerType}`}>
-      <Title>
+      <Stack flex align="center" spaceAfter="medium" spacing="tight">
         <Text weight="bold" uppercase element="p">
           {pickerType === "handBag" ? (
             <Translate t="baggage_modal.subheader.cabin_baggage" />
@@ -129,9 +108,11 @@ const BaggagePicker = ({
           )}
         </Text>
         <Tooltip content={getTooltip(pickerType)} preferredPosition="right" size="small">
-          <InformationCircle size="small" color="secondary" />
+          <IconWrapper>
+            <InformationCircle size="small" color="secondary" />
+          </IconWrapper>
         </Tooltip>
-      </Title>
+      </Stack>
       {options.length > 0 && (
         <Text>
           {context === "booking" ? (
@@ -155,23 +136,27 @@ const BaggagePicker = ({
             prioBoardingLinkHandler={prioBoardingLinkHandler}
             isCurrentCombination={item.originalIndex === currentCombination}
             onClick={() => changeBagCombination(pickerType, item.originalIndex)}
-            isPersonalItemPresent={isPersonalItemPresent}
+            isPersonalItemPresent={getPersonalItemPresence({ pickerType, options })}
           />
         ))
       ) : (
-        <EmptyOption data-test="BaggagePicker-EmptyOption">
-          <Close size="medium" color="critical" />
-          <Text element="p">
-            {pickerType === "handBag" ? (
-              <Translate t="baggage_modal.error.cabin_baggage_not_available" />
-            ) : (
-              <Translate t="baggage_modal.error.checked_baggage_not_available" />
-            )}
-          </Text>
-        </EmptyOption>
+        <EmptyOptionWrapper data-test="BaggagePicker-EmptyOption">
+          <Stack flex shrink align="center" spacing="compact">
+            <Close size="medium" color="critical" />
+            <Stack>
+              <Text element="p">
+                {pickerType === "handBag" ? (
+                  <Translate t="baggage_modal.error.cabin_baggage_not_available" />
+                ) : (
+                  <Translate t="baggage_modal.error.checked_baggage_not_available" />
+                )}
+              </Text>
+            </Stack>
+          </Stack>
+        </EmptyOptionWrapper>
       )}
       {numberOfHiddenOptions > 0 && (
-        <Flex x="center">
+        <Stack flex justify="center" spacing="none">
           <Button
             dataTest="BaggagePicker-ShowButton"
             onClick={() => handleShowOptions(options)}
@@ -184,7 +169,7 @@ const BaggagePicker = ({
               values={{ number: numberOfHiddenOptions }}
             />
           </Button>
-        </Flex>
+        </Stack>
       )}
     </Stack>
   );

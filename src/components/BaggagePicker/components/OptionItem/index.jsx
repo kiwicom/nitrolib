@@ -29,32 +29,10 @@ type BaggageSizeTextProps = {|
   isMobile: boolean,
 |};
 
-const TitleWrapper = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  flex-grow: 1;
-  flex-shrink: 1;
-  justify-content: flex-start;
-  align-content: center;
-
-  > p {
-    margin-right: ${({ theme }): ThemeProps => theme.orbit.spaceXSmall};
-  }
-`;
-
-TitleWrapper.defaultProps = {
-  theme: themeDefault,
-};
-
-const IconWrapper = styled.div`
-  padding-bottom: 4px;
-`;
-
 const BaggageSizeText = styled.p`
   display: ${({ isMobile }: BaggageSizeTextProps) => (isMobile ? "block" : "none")};
   color: ${({ theme }): ThemeProps => theme.orbit.colorTextSecondary};
+  line-height: 24px;
   font-size: ${({ theme, isMobile }: BaggageSizeTextProps) =>
     isMobile ? theme.orbit.fontSizeTextSmall : theme.orbit.fontSizeTextNormal};
   font-family: ${({ theme }): ThemeProps => theme.orbit.fontFamily};
@@ -72,18 +50,6 @@ BaggageSizeText.defaultProps = {
 
 const Title = styled.span`
   line-height: 24px;
-`;
-
-const BaggageInfoWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  width: 50%;
-  line-height: 24px;
-  ${mq.largeMobile(css`
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-  `)};
 `;
 
 const OptionItem = ({
@@ -105,10 +71,10 @@ const OptionItem = ({
       </Text>
     );
   return (
-    <Stack shrink align="start" dataTest={`BaggagePicker-OptionItem-${category}`}>
-      <Stack shrink spacing="condensed">
-        <IconWrapper>{getIconFromCategory(category, "medium", "primary")}</IconWrapper>
-        <TitleWrapper>
+    <Stack flex shrink align="start" dataTest={`BaggagePicker-OptionItem-${category}`}>
+      <Stack inline spacing="condensed" mediumMobile={{ shrink: true, inline: false }}>
+        {getIconFromCategory(category, "medium", "primary")}
+        <Stack inline direction="column" spacing="none">
           <Text element="p">
             <Title>
               {amount > 1 && (
@@ -121,12 +87,12 @@ const OptionItem = ({
             </Title>
           </Text>
           <BaggageSizeText isMobile>{getBaggageSize(restrictions)}</BaggageSizeText>
-        </TitleWrapper>
+        </Stack>
       </Stack>
-      <BaggageInfoWrapper>
+      <Stack inline justify="end" largeMobile={{ justify: "between", shrink: true, basis: "100%" }}>
         <BaggageSizeText>{getBaggageSize(restrictions)}</BaggageSizeText>
-        {isFirstItem && getFirstItemInfo(isCurrentCombination, price.amount)}
-      </BaggageInfoWrapper>
+        <Title>{isFirstItem && getFirstItemInfo(isCurrentCombination, price.amount)}</Title>
+      </Stack>
     </Stack>
   );
 };

@@ -32,35 +32,36 @@ type Props = {
   prioBoardingLinkHandler?: (arg: Airline[]) => void,
 };
 
-const PriorityBoardingInfo = ({ airlines, prioBoardingLinkHandler }: Props) => {
-  const handleClick = e => {
-    if (prioBoardingLinkHandler) {
-      e.stopPropagation();
-      prioBoardingLinkHandler(airlines);
-    }
-  };
-  return (
-    <Stack
-      flex
-      direction="row"
-      spacing="condensed"
-      align="center"
-      dataTest="BaggagePicker-PriorityBoardingInfo"
-    >
-      <IconWrapper>
-        <PriorityBoarding color="secondary" size="small" />
-      </IconWrapper>
-      <Text size="small" element="p">
-        <Translate
-          t="baggage_modal.priority_boarding"
-          values={{ airlines: airlines.map(a => a.name).join(", ") }}
-        />{" "}
-        <TextLink external={false} onClick={handleClick} type="secondary">
-          <Translate t="baggage_modal.learn_more" />
-        </TextLink>
-      </Text>
-    </Stack>
-  );
-};
+const PriorityBoardingInfo = ({ airlines, prioBoardingLinkHandler }: Props) => (
+  <Stack
+    flex
+    direction="row"
+    spacing="condensed"
+    align="center"
+    dataTest="BaggagePicker-PriorityBoardingInfo"
+  >
+    <IconWrapper>
+      <PriorityBoarding color="secondary" size="small" />
+    </IconWrapper>
+    <Text size="small" element="p">
+      <Translate
+        t="baggage_modal.priority_boarding"
+        values={{ airlines: airlines.map(a => a.name).join(", ") }}
+      />{" "}
+      <TextLink
+        external={false}
+        onClick={e => {
+          if (prioBoardingLinkHandler) {
+            e.stopPropagation();
+            prioBoardingLinkHandler(airlines);
+          }
+        }}
+        type="secondary"
+      >
+        <Translate t="baggage_modal.learn_more" />
+      </TextLink>
+    </Text>
+  </Stack>
+);
 
 export default PriorityBoardingInfo;

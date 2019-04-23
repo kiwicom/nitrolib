@@ -11,13 +11,13 @@ import type {
   OptionBaggage,
 } from "../../../records/Baggage";
 
-type GetOptionsArgs = {
+type GetOptionsArgs = {|
   baggage: BaggageType,
   pickerType: BaggageCategory,
   context: "booking" | "mmb",
   passengerCategory: PassengerGroup,
   currentCombination?: number,
-};
+|};
 
 export default function getOptions(args: GetOptionsArgs): OptionBaggage[] {
   const {
