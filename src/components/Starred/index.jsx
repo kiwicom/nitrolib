@@ -3,6 +3,7 @@ import * as React from "react";
 import StarFull from "@kiwicom/orbit-components/lib/icons/StarFull";
 import styled from "styled-components";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import Button from "../NavBar/primitives/Button";
 import Toggle from "../Toggle";
@@ -30,7 +31,7 @@ const StarredBadge = styled.div`
   text-align: center;
   line-height: 7.5px;
   padding: 5px;
-  margin-left: 5px;
+  margin-${/* sc-custom "left" */ left}: 5px;
 `;
 
 StarredBadge.defaultProps = {
@@ -46,12 +47,9 @@ type Props = {|
 const Starred = ({ positionMenuDesktop, positionMenuTablet, inverted }: Props) => (
   <StarredConsumer>
     {starred => {
-      const { starredList, onClear, onRemove, shareUrl, goToJourneyNitro } = starred;
-      const starredShow = starredList && starredList.slice(0, MAX_TRIPS);
-      const starredCount = starredList && starredList.length;
-      const starredFooter = starredCount >= 1 && <StarredFooter tripsCount={starredCount} />;
+      const { starredList, onClear, onRemove, shareUrl, onGoToStarred } = starred;
+      const starredCount = starredList.length || 0;
       const buttonColor = inverted ? null : "secondary";
-      const StarIcon = inverted ? <StarFull customColor="#fff" /> : <StarFull color="primary" />;
 
       return (
         <Toggle>
@@ -61,15 +59,15 @@ const Starred = ({ positionMenuDesktop, positionMenuTablet, inverted }: Props) =
                 <ClickOutside onClickOutside={onToggle}>
                   <TripsContainer
                     header={<StarredHeader onClear={onClear} tripsCount={starredCount} />}
-                    footer={starredFooter}
+                    footer={starredCount >= 1 && <StarredFooter tripsCount={starredCount} />}
                     positionMenuTablet={positionMenuTablet}
                     positionMenuDesktop={positionMenuDesktop}
                   >
                     <StarredList
                       onRemove={(id, e) => onRemove(id, e)}
                       shareUrl={shareUrl}
-                      trips={starredShow}
-                      goToJourneyNitro={goToJourneyNitro}
+                      trips={starredList && starredList.slice(0, MAX_TRIPS)}
+                      onGoToStarred={onGoToStarred}
                       tripsCount={starredCount}
                     />
                   </TripsContainer>
@@ -84,7 +82,7 @@ const Starred = ({ positionMenuDesktop, positionMenuTablet, inverted }: Props) =
                 </Desktop>
                 <Mobile>
                   <Button onClick={onToggle} color={buttonColor}>
-                    {StarIcon}
+                    {inverted ? <StarFull customColor="#fff" /> : <StarFull color="primary" />}
                   </Button>
                 </Mobile>
                 {starredCount > 0 && (

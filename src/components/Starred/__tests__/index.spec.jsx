@@ -7,8 +7,6 @@ import type { StarredItem } from "../../../records/Starred";
 
 import Starred from "..";
 
-// TODO:
-
 const starredList: StarredItem[] = [
   {
     id: "kek",
@@ -48,11 +46,50 @@ const starredList: StarredItem[] = [
         currencyId: "EUR",
       },
       provider: {
-        id: "lol",
-        name: "kek",
-        code: "bur",
+        id: "pelmeni",
+        name: "kvas",
+        code: "da Vinci",
+        hasHighProbabilityOfPriceChange: false,
       },
-      hasNoCheckedBags: false,
+      bagsInfo: {
+        hasNoCheckedBags: false,
+        checkedBag: {
+          height: {
+            value: "60",
+            unit: "CM",
+          },
+          length: {
+            value: "150",
+            unit: "CM",
+          },
+          width: {
+            value: "80",
+            unit: "CM",
+          },
+          weight: {
+            value: "20",
+            unit: "KG",
+          },
+        },
+      },
+      handBag: {
+        height: {
+          value: "30",
+          unit: "CM",
+        },
+        length: {
+          value: "60",
+          unit: "CM",
+        },
+        width: {
+          value: "40",
+          unit: "CM",
+        },
+        weight: {
+          value: "10",
+          unit: "KG",
+        },
+      },
       sector: {
         id: "sector1",
         segments: [
@@ -168,6 +205,23 @@ const starredList: StarredItem[] = [
             },
             type: "AIRPORT",
           },
+          seatInfo: {
+            pitch: {
+              value: "30",
+              unit: "CM",
+            },
+            width: {
+              value: "80",
+              unit: "CM",
+            },
+            recline: {
+              value: "7",
+              unit: "CM",
+            },
+            hasPower: true,
+            hasAudioVideo: false,
+            hasWifi: true,
+          },
         },
       },
       type: "oneWay",
@@ -183,7 +237,7 @@ const mountedWrapper = mount(
     value={{
       starredList,
       ShareDialog: () => [],
-      goToJourneyNitro: () => {},
+      onGoToStarred: () => {},
       isMobile: false,
       lang: "en",
       onAdd: () => {},

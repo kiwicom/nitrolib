@@ -147,7 +147,7 @@ const withData = (storyFn: () => React.Node) => {
                               // Passes from FE
                               // $FlowExpected: TODO
                               ShareDialog: () => console.log("shareDialog"),
-                              goToJourneyNitro: () => console.log("nitro"),
+                              onGoToStarred: () => console.log("nitro"),
                               isMobile: false,
                               lang: starredInit.lang,
                               // Passes from FE

@@ -8,11 +8,11 @@ import type { StarredItem } from "../../../../records/Starred";
 type Props = {|
   trips: StarredItem[],
   onRemove: (id: string, e: SyntheticEvent<HTMLDivElement>) => void,
-  goToJourneyNitro: (item: StarredItem) => void,
+  onGoToStarred: (item: StarredItem) => void,
   shareUrl: (item: StarredItem) => string,
 |};
 
-const StarredTrips = ({ trips, goToJourneyNitro, shareUrl, onRemove }: Props): React.Node[] =>
+const StarredTrips = ({ trips, onGoToStarred, shareUrl, onRemove }: Props): React.Node[] =>
   trips &&
   trips.map(trip => {
     const { id, updatedAt, itinerary, priceUpdatedAt, form, createdAt } = trip;
@@ -23,7 +23,7 @@ const StarredTrips = ({ trips, goToJourneyNitro, shareUrl, onRemove }: Props): R
         passengerCount={getSum(passengers)}
         passengerMulty={isMulti(passengers)}
         passengers={passengers}
-        goToJourneyNitro={() => goToJourneyNitro(trip)}
+        onGoToStarred={() => onGoToStarred(trip)}
         cabinClass={cabinClass}
         itinerary={itinerary}
         shareUrl={shareUrl(trip)}

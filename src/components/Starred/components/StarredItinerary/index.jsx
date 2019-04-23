@@ -5,6 +5,7 @@ import Star from "@kiwicom/orbit-components/lib/icons/StarFull";
 import Share from "@kiwicom/orbit-components/lib/icons/Share";
 import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import TimeInWords from "../../../DistanceInWords";
 import Price from "../../../Price";
@@ -20,8 +21,8 @@ import { Consumer as StarredConsumer } from "../../../../services/starred/contex
 import ItineraryVariants from "./Variants";
 
 const PASSENGERS_COUNT = {
-  infants: __("result.infants_count"),
-  adults: __("result.adults_count"),
+  infants: __("price_alert.trip_overview.x_adults"),
+  adults: __("price_alert.trip_overview.x_infants"),
 };
 
 type Props = {|
@@ -31,7 +32,7 @@ type Props = {|
   passengers: PassengersCount,
   passengerMulty: boolean,
   cabinClass: CabinClass,
-  goToJourneyNitro: () => void,
+  onGoToStarred: () => void,
   onRemove: (e: SyntheticEvent<HTMLDivElement>) => void,
   priceUpdatedAt: ?Date,
   shareUrl: string,
@@ -42,7 +43,7 @@ const Info = styled.div`
   display: flex;
   min-width: 80px;
   width: 80px;
-  margin-right: 5px;
+  margin-${/* sc-custom "left" */ right}: 5px;
   margin-top: 10px;
   flex-direction: column;
 
@@ -114,7 +115,7 @@ const StarredItinerary = ({
   onRemove,
   created,
   passengers,
-  goToJourneyNitro,
+  onGoToStarred,
   cabinClass,
   priceUpdatedAt,
   passengerCount,
@@ -134,7 +135,7 @@ const StarredItinerary = ({
   return (
     <StarredConsumer>
       {({ isMobile, lang, setNotice, ShareDialog }) => (
-        <Wrapper onClick={() => goToJourneyNitro()}>
+        <Wrapper onClick={() => onGoToStarred()}>
           <TextWrapper type="secondary" size="small">
             {getPriceUpdated()}
           </TextWrapper>

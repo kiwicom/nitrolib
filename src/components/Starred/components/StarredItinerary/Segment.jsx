@@ -4,6 +4,7 @@ import styled from "styled-components";
 import FlightDirect from "@kiwicom/orbit-components/lib/icons/FlightDirect";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import TextWrapper from "@kiwicom/orbit-components/lib/Text";
+import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import type { Stop } from "../../../../records/Segment";
 import Day from "../../../Day";
@@ -28,8 +29,8 @@ const TextOverflow = styled.span`
 const LongText = styled.div`
   position: absolute;
   top: -20px;
-  left: 0;
-  right: 0;
+  ${left}: 0;
+  ${right}: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -105,11 +105,10 @@ const NavBar = ({
           </Stack>
         </Desktop>
         <TextWrapper size="small" weight="normal">
-          {starred}
+          <Starred positionMenuDesktop={270} inverted={inverted} positionMenuTablet={0} />
         </TextWrapper>
         <Mobile>
           <Help onOpen={onOpenFaq} inverted={inverted} />
-<<<<<<< HEAD
         </Mobile>
         <Menu
           subscription={subscription}
@@ -121,25 +120,6 @@ const NavBar = ({
           portal={portal}
         />
       </Stack>
-=======
-        </Stack>
-      </Desktop>
-      <TextWrapper size="small" weight="normal">
-        <Starred positionMenuDesktop={270} inverted={inverted} positionMenuTablet={0} />
-      </TextWrapper>
-      <Mobile>
-        <Help onOpen={onOpenFaq} inverted={inverted} />
-      </Mobile>
-      <Menu
-        subscription={subscription}
-        debug={debug}
-        onSetModal={onSetModal}
-        onSaveLanguage={onSaveLanguage}
-        onSelectTrip={onSelectTrip}
-        inverted={inverted}
-        portal={portal}
-      />
->>>>>>> Starred: Duration Component
     </Stack>
   </Container>
 );

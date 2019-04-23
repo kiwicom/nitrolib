@@ -8,18 +8,18 @@ export type Context = {|
   onAdd: (arg: StarredItem) => void,
   isMobile: boolean,
   lang: string,
-  goToJourneyNitro: StarredItem => void,
+  onGoToStarred: (arg: StarredItem) => void,
   onRemove: (id: string, e: SyntheticEvent<HTMLDivElement>) => void,
-  shareUrl: StarredItem => string,
+  shareUrl: (arg: StarredItem) => string,
   onClear: (e: SyntheticEvent<HTMLDivElement>) => void,
   setNotice: () => void,
-  ShareDialog: ShareDialog => React.Node,
+  ShareDialog: (arg: ShareDialog) => React.Node,
 |};
 
 const contextDefault: Context = {
   starredList: [],
   shareUrl: () => "some string",
-  goToJourneyNitro: () => {},
+  onGoToStarred: () => {},
   isMobile: false,
   lang: "en",
   onAdd: () => {},

@@ -4,7 +4,7 @@ import * as R from "ramda";
 
 import { load, remove, save } from "../../services/session/storage";
 import type { StarredItem } from "../../records/Starred";
-import { SESSION_ID } from "../../consts/storage";
+import { STARRED_ID } from "../../consts/storage";
 
 type State = {|
   starred: { [key: string]: StarredItem },
@@ -24,24 +24,24 @@ type Props = {|
 
 class StarredProvider extends React.Component<Props, State> {
   state = {
-    starred: JSON.parse(JSON.stringify(load(SESSION_ID))),
+    starred: JSON.parse(JSON.stringify(load(STARRED_ID))),
   };
 
   onAdd = (trip: StarredItem) => {
     const { starred } = this.state;
 
     this.setState({
-      starred: { ...starred, trip },
+      starred: R.assoc(String(trip.id), trip, starred),
     });
 
-    save(SESSION_ID, JSON.stringify({ starred }));
+    save(STARRED_ID, JSON.stringify({ starred }));
   };
 
   onClear = (e: SyntheticEvent<HTMLDivElement>) => {
     e.stopPropagation();
     e.preventDefault();
 
-    remove(SESSION_ID);
+    remove(STARRED_ID);
 
     this.setState({
       starred: {},
@@ -58,7 +58,7 @@ class StarredProvider extends React.Component<Props, State> {
       starred: R.filter(item => item.id !== key, starred),
     });
 
-    save(SESSION_ID, JSON.stringify(R.filter(item => item.id !== key, starred)));
+    save(STARRED_ID, JSON.stringify(R.filter(item => item.id !== key, starred)));
   };
 
   render() {

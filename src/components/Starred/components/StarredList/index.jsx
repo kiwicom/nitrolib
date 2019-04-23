@@ -12,7 +12,7 @@ type Props = {|
   trips: StarredItem[],
   onRemove: (id: string, e: SyntheticEvent<HTMLDivElement>) => void,
   tripsCount: number,
-  goToJourneyNitro: (item: StarredItem) => void,
+  onGoToStarred: (item: StarredItem) => void,
   shareUrl: (item: StarredItem) => string,
 |};
 
@@ -25,12 +25,12 @@ NoFlights.defaultProps = {
   theme: themeDefault,
 };
 
-const StarredList = ({ trips, onRemove, tripsCount, shareUrl, goToJourneyNitro }: Props) => {
+const StarredList = ({ trips, onRemove, tripsCount, shareUrl, onGoToStarred }: Props) => {
   return tripsCount >= 1 ? (
     <StarredTrips
       trips={trips}
       onRemove={onRemove}
-      goToJourneyNitro={goToJourneyNitro}
+      onGoToStarred={onGoToStarred}
       shareUrl={shareUrl}
     />
   ) : (
