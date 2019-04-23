@@ -4,6 +4,9 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import CalendarIcon from "@kiwicom/orbit-components/lib/icons/Calendar";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Separator from "@kiwicom/orbit-components/lib/Separator";
+import Hide from "@kiwicom/orbit-components/lib/Hide";
 
 import SectionHeading from "./components/SectionHeading";
 import TravelDates from "./components/TravelDates";
@@ -41,41 +44,6 @@ Wrapper.defaultProps = {
   theme: themeDefault,
 };
 
-// Used custom `Separator` instead of orbit’s one
-// because of the responsivity
-const Separator = styled.div`
-  margin-bottom: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
-  border-bottom-width: ${({ theme }: ThemeProps) => theme.orbit.heightSeparator};
-  border-bottom-style: solid;
-  border-bottom-color: ${({ theme }: ThemeProps) => theme.orbit.backgroundSeparator};
-  ${mq.largeMobile(css`
-    display: none;
-  `)};
-`;
-
-Separator.defaultProps = {
-  theme: themeDefault,
-};
-
-const Row = styled.div`
-  ${mq.largeMobile(css`
-    display: flex;
-  `)};
-`;
-
-const Column = styled.div`
-  flex-grow: 1;
-  flex-basis: 0;
-
-  :first-child {
-    margin-right: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
-  }
-`;
-
-Column.defaultProps = {
-  theme: themeDefault,
-};
-
 const TravelDatesWrapper = styled.div`
   margin-bottom: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
   ${mq.largeMobile(css`
@@ -91,18 +59,23 @@ const TravelInfo = ({ travelArrangement, travelDates, passengers }: Props) => (
   <Wrapper>
     <SectionHeading icon={<CalendarIcon />} t="holidays.travel_info.title" />
     <TravelArrangement data={travelArrangement} />
-    <Separator />
-    <Row>
-      <Column>
+
+    <Hide on={["largeMobile"]} block>
+      <Separator />
+    </Hide>
+    <Stack flex direction="column" spacing="comfy" largeMobile={{ direction: "row" }}>
+      <Stack>
         <TravelDatesWrapper>
           <TravelDates data={travelDates} />
         </TravelDatesWrapper>
-        <Separator />
-      </Column>
-      <Column>
+        <Hide on={["largeMobile"]} block>
+          <Separator />
+        </Hide>
+      </Stack>
+      <Stack>
         <Passengers {...passengers} />
-      </Column>
-    </Row>
+      </Stack>
+    </Stack>
   </Wrapper>
 );
 

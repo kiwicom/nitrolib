@@ -7,6 +7,7 @@ import AirplaneTakeoff from "@kiwicom/orbit-components/lib/icons/AirplaneTakeoff
 import AirplaneLanding from "@kiwicom/orbit-components/lib/icons/AirplaneLanding";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import StopoverArrow from "@kiwicom/orbit-components/lib/StopoverArrow";
+import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import { themeDefault } from "../../../../../../records/Theme";
 import type { Sector as SectorType } from "../../../../records/TravelArrangement";
@@ -19,6 +20,7 @@ type Props = {|
 
 const Wrapper = styled.div`
   display: flex;
+  width: 100%;
   align-items: center;
   margin-bottom: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
   padding-top: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
@@ -34,7 +36,7 @@ Wrapper.defaultProps = {
 
 const RouteIcon = styled.div`
   margin-top: 5px;
-  margin-right: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
+  margin-${/* sc-custom "right" */ right}: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
 `;
 
 RouteIcon.defaultProps = {
@@ -44,31 +46,31 @@ RouteIcon.defaultProps = {
 const Sector = ({ data, direction }: Props) => {
   const { from, to, stops, note } = data;
   return (
-    <>
+    <Stack flex shrink direction="column">
       <Wrapper>
-        <RouteIcon>
-          {direction === "takeOff" ? (
-            <AirplaneTakeoff color="secondary" />
-          ) : (
-            <AirplaneLanding color="secondary" />
-          )}
-        </RouteIcon>
-        <div>
-          <Stack spaceAfter="smallest">
+        <Stack inline shrink spacing="none">
+          <RouteIcon>
+            {direction === "takeOff" ? (
+              <AirplaneTakeoff color="secondary" />
+            ) : (
+              <AirplaneLanding color="secondary" />
+            )}
+          </RouteIcon>
+          <Stack inline shrink direction="column" spacing="tight">
             <Text>{from}</Text>
+            <Stack direction="row" spacing="condensed" align="center">
+              <StopoverArrow stops={stops} />
+              <Text element="span" weight="bold" size="large">
+                {to}
+              </Text>
+            </Stack>
           </Stack>
-          <Stack direction="row" spacing="condensed" align="center">
-            <StopoverArrow stops={stops} />
-            <Text element="span" weight="bold" size="large">
-              {to}
-            </Text>
-          </Stack>
-        </div>
+        </Stack>
       </Wrapper>
       <Text size="small" type="secondary">
         {note}
       </Text>
-    </>
+    </Stack>
   );
 };
 
