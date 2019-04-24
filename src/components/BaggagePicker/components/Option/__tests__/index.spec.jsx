@@ -41,7 +41,7 @@ const props = {
     amount: 0,
     currency: "EUR",
     base: 0,
-    merchant: null,
+    merchant: 0,
     service: 0,
     serviceFlat: 0,
   },

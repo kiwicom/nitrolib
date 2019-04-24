@@ -12,7 +12,7 @@ export const baggageData = {
           currency: "EUR",
           amount: 0,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
@@ -33,7 +33,7 @@ export const baggageData = {
           currency: "EUR",
           amount: 10.11,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
@@ -56,7 +56,7 @@ export const baggageData = {
           currency: "EUR",
           amount: 10.11,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
@@ -77,7 +77,7 @@ export const baggageData = {
           currency: "EUR",
           amount: 20.22,
           base: 20,
-          merchant: null,
+          merchant: 0,
           service: 5,
           serviceFlat: 0,
         },
@@ -99,7 +99,7 @@ export const baggageData = {
           currency: "EUR",
           amount: 30.33,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
@@ -117,6 +117,7 @@ export const baggageData = {
   combinations: {
     handBag: [
       {
+        index: 0,
         conditions: {
           passengerGroups: ["adult", "child", "infant"],
         },
@@ -125,12 +126,13 @@ export const baggageData = {
           currency: "EUR",
           amount: 0,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
       },
       {
+        index: 1,
         conditions: {
           passengerGroups: ["adult", "infant"],
         },
@@ -139,12 +141,13 @@ export const baggageData = {
           currency: "EUR",
           amount: 0,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
       },
       {
+        index: 2,
         conditions: {
           passengerGroups: ["adult", "child"],
         },
@@ -153,12 +156,13 @@ export const baggageData = {
           currency: "EUR",
           amount: 10.11,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
       },
       {
+        index: 3,
         conditions: {
           passengerGroups: ["adult"],
         },
@@ -167,12 +171,13 @@ export const baggageData = {
           currency: "EUR",
           amount: 15.15,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
       },
       {
+        index: 4,
         conditions: {
           passengerGroups: ["adult"],
         },
@@ -181,12 +186,13 @@ export const baggageData = {
           currency: "EUR",
           amount: 25.26,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
       },
       {
+        index: 5,
         conditions: {
           passengerGroups: ["adult"],
         },
@@ -195,12 +201,13 @@ export const baggageData = {
           currency: "EUR",
           amount: 35.37,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
       },
       {
+        index: 6,
         conditions: {
           passengerGroups: ["adult"],
         },
@@ -209,7 +216,7 @@ export const baggageData = {
           currency: "EUR",
           amount: 30.33,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
@@ -217,6 +224,7 @@ export const baggageData = {
     ],
     holdBag: [
       {
+        index: 0,
         conditions: {
           passengerGroups: ["adult", "child", "infant"],
         },
@@ -225,12 +233,13 @@ export const baggageData = {
           currency: "EUR",
           amount: 0,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
       },
       {
+        index: 1,
         conditions: {
           passengerGroups: ["adult", "infant"],
         },
@@ -239,12 +248,13 @@ export const baggageData = {
           currency: "EUR",
           amount: 10.11,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
       },
       {
+        index: 2,
         conditions: {
           passengerGroups: ["adult", "infant"],
         },
@@ -253,12 +263,13 @@ export const baggageData = {
           currency: "EUR",
           amount: 20.22,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
       },
       {
+        index: 3,
         conditions: {
           passengerGroups: ["adult"],
         },
@@ -267,12 +278,13 @@ export const baggageData = {
           currency: "EUR",
           amount: 30.33,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
       },
       {
+        index: 4,
         conditions: {
           passengerGroups: ["adult"],
         },
@@ -281,12 +293,13 @@ export const baggageData = {
           currency: "EUR",
           amount: 70.77,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },
       },
       {
+        index: 5,
         conditions: {
           passengerGroups: ["adult"],
         },
@@ -295,7 +308,7 @@ export const baggageData = {
           currency: "EUR",
           amount: 101.1,
           base: 0,
-          merchant: null,
+          merchant: 0,
           service: 0,
           serviceFlat: 0,
         },

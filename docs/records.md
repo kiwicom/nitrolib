@@ -135,14 +135,15 @@ export type Restrictions = {|
   dimensionsSum: ?number,
 |};
 
+type Conditions = {
+  isPriority?: string[],
+  passengerGroups: PassengerGroup[],
+};
 export type Definition = {|
   category: BaggageSubCategory,
   price: PriceType,
   restrictions: Restrictions,
-  conditions: {
-    isPriority?: string[],
-    passengerGroups: PassengerGroup[],
-  },
+  conditions: Conditions,
 |};
 
 export type DefinitionWithId = {| ...Definition, id: number |};
@@ -159,11 +160,10 @@ export type Definitions = {|
 |};
 
 export type Combination = {|
+  index: number,
   indices: number[],
   price: PriceType,
-  conditions: {
-    passengerGroups: PassengerGroup[],
-  },
+  conditions: Conditions,
 |};
 
 export type Combinations = {|
@@ -1293,12 +1293,12 @@ import type { Price } from "@kiwicom/nitro/lib/records/Price";
 **Types:**
 ```js
 export type PriceType = {
-  currency: string,
   amount: number,
   base: number,
-  merchant?: string | null,
   service: number,
   serviceFlat: number,
+  merchant: number,
+  currency: string,
 };
 ```
 

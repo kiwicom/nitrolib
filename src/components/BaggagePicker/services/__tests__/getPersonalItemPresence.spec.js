@@ -12,6 +12,7 @@ const options = [
       base: 10,
       service: 8,
       serviceFlat: 2,
+      merchant: 0,
     },
     items: {
       "2": {
@@ -52,6 +53,7 @@ const options = [
     price: {
       currency: "EUR",
       amount: 10,
+      merchant: 0,
       base: 10,
       service: 8,
       serviceFlat: 2,
@@ -86,6 +88,7 @@ const optionsWithoutPersonalItems = [
       base: 10,
       service: 8,
       serviceFlat: 2,
+      merchant: 0,
     },
     items: {
       "2": {
