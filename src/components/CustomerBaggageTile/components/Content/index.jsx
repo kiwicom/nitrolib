@@ -5,17 +5,13 @@ import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/Baggage
 import Text from "@kiwicom/orbit-components/lib/Text";
 
 import BaggageItem from "../BaggageItem";
-import type {
-  HoldBagTileDefinition,
-  HandBagTileDefinition,
-  OrderStatusType,
-} from "../../../../records/Baggage";
+import type { TileDefinition, OrderStatusType } from "../../../../records/Baggage";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import Translate from "../../../Translate/index";
 
 type Props = {|
-  definitions: (HoldBagTileDefinition | HandBagTileDefinition)[],
+  definitions: TileDefinition[],
   orderStatus: ?OrderStatusType,
 |};
 

@@ -7,7 +7,7 @@ const {
 } = baggageData;
 
 describe("#getDefinitions", () => {
-  test("retunrs proper data", () => {
+  test("returns proper data", () => {
     const handBagDefinitions = getDefinitions(handBag, [0, 1, 1]);
     const holdBagDefinitions = getDefinitions(holdBag, [0, 1, 1, 2, 2, 2]);
     expect(handBagDefinitions).toHaveLength(2);

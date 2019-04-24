@@ -82,7 +82,9 @@ const OptionItem = ({
                   {`${amount}× `}
                 </Text>
               )}
-              {category === "holdBag" && `${restrictions.weight}kg`}{" "}
+              {category === "holdBag" &&
+                typeof restrictions.weight === "number" &&
+                `${restrictions.weight}kg`}
               {getTextFromCategory(category, x => x.toLowerCase())}
             </Title>
           </Text>

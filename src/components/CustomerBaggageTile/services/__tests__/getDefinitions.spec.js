@@ -3,6 +3,7 @@ import getDefinitions from "../getDefinitions";
 import { baggageData } from "../../../../records/__mocks__/baggageData";
 
 const { definitions, combinations } = baggageData;
+
 const getDefinitionsArgs = {
   current: {
     handBag: 1,
@@ -17,8 +18,14 @@ const getDefinitionsArgs = {
 
 describe("getDefinitions", () => {
   test("returns proper data without newDefinitions", () => {
-    const handBagDefs = getDefinitions({ ...getDefinitionsArgs, bagType: "handBag" });
-    const holdBagDefs = getDefinitions({ ...getDefinitionsArgs, bagType: "holdBag" });
+    const handBagDefs = getDefinitions({
+      ...getDefinitionsArgs,
+      bagType: "handBag",
+    });
+    const holdBagDefs = getDefinitions({
+      ...getDefinitionsArgs,
+      bagType: "holdBag",
+    });
     expect(handBagDefs).toHaveLength(combinations.handBag[1].indices.length);
     expect(holdBagDefs).toHaveLength(3);
     expect(handBagDefs[0].isCurrent).toBe(true);
@@ -33,6 +40,7 @@ describe("getDefinitions", () => {
       baggage: baggageData,
       bagType: "handBag",
     });
+
     const holdBagDefs = getDefinitions({
       newDefinitions,
       baggage: baggageData,

@@ -8,15 +8,15 @@ export type OrderStatusType = "unpaid" | "processing" | "notAvailable";
 export type OverviewContextType = "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking";
 
 export type Restrictions = {|
-  weight: number,
-  height: number,
-  width: number,
-  length: number,
-  dimensionsSum: number | null,
+  weight: ?number,
+  height: ?number,
+  width: ?number,
+  length: ?number,
+  dimensionsSum: ?number,
 |};
 
-export type Definition<C: BaggageSubCategory> = {|
-  category: C,
+export type Definition = {|
+  category: BaggageSubCategory,
   price: PriceType,
   restrictions: Restrictions,
   conditions: {
@@ -25,26 +25,17 @@ export type Definition<C: BaggageSubCategory> = {|
   },
 |};
 
-export type HandBagDefinition = Definition<"personalItem" | "cabinBag">;
-export type HoldBagDefinition = Definition<"holdBag">;
+export type DefinitionWithId = {| ...Definition, id: number |};
 
-export type HandBagDefinitionWithId = {| ...HandBagDefinition, id: number |};
-export type HoldBagDefinitionWithId = {| ...HoldBagDefinition, id: number |};
-
-export type HandBagTileDefinition = {|
-  ...HandBagDefinition,
+export type TileDefinition = {
+  ...Definition,
   originalIndex?: number,
   isCurrent?: boolean,
-|};
-export type HoldBagTileDefinition = {|
-  ...HoldBagDefinition,
-  originalIndex?: number,
-  isCurrent?: boolean,
-|};
+};
 
 export type Definitions = {|
-  handBag: HandBagDefinition[],
-  holdBag: HoldBagDefinition[],
+  handBag: Definition[],
+  holdBag: Definition[],
 |};
 
 export type Combination = {|

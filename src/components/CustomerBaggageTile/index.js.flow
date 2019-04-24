@@ -1,10 +1,5 @@
 // @flow strict
-import type {
-  BaggageType,
-  Gender,
-  HoldBagTileDefinition,
-  HandBagTileDefinition,
-} from "../../records/Baggage";
+import type { BaggageType, Gender, Definition } from "../../records/Baggage";
 
 type Props = {|
   firstName: string,
@@ -21,7 +16,7 @@ type Props = {|
     handBag: number,
     holdBag: number,
   },
-  newDefinitions?: (HoldBagTileDefinition | HandBagTileDefinition)[],
+  newDefinitions?: Definition[],
   onClick?: () => void,
   baggage: BaggageType,
 |};

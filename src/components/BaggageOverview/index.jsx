@@ -7,15 +7,14 @@ import groupDefinitions from "./services/groupDefinitions";
 import type {
   FAQLinksHandlerType,
   DefinitionWithPassenger,
-  HoldBagDefinitionWithId,
-  HandBagDefinitionWithId,
+  DefinitionWithId,
   OverviewContextType,
 } from "../../records/Baggage";
 import BaggageItem from "./components/BaggageItem";
 import NoPersonalItem from "./components/NoPersonalItem";
 
 type Props = {|
-  definitions?: (HandBagDefinitionWithId | HoldBagDefinitionWithId)[],
+  definitions?: DefinitionWithId[],
   definitionsWithPassengers?: DefinitionWithPassenger[],
   FAQLinksHandler?: FAQLinksHandlerType,
   context: OverviewContextType,

@@ -8,11 +8,7 @@ import Content from "./components/Content";
 import getDefinitions from "./services/getDefinitions";
 import calculatePrice from "./services/calculatePrice";
 import getStatus from "./services/getStatus";
-import type {
-  BaggageType,
-  HoldBagTileDefinition,
-  HandBagTileDefinition,
-} from "../../records/Baggage";
+import type { BaggageType, Definition } from "../../records/Baggage";
 
 const Wrapper = styled.div`
   div:last-child > svg {
@@ -35,7 +31,7 @@ type Props = {|
     handBag: number, // index of combination
     holdBag: number, // index of combination
   },
-  newDefinitions?: (HoldBagTileDefinition | HandBagTileDefinition)[],
+  newDefinitions?: Definition[],
   onClick?: () => void,
   baggage: BaggageType,
 |};

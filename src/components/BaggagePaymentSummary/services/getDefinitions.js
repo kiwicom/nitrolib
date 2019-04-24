@@ -1,10 +1,7 @@
 // @flow strict
-import type { HoldBagDefinition, HandBagDefinition, ItemType } from "../../../records/Baggage";
+import type { Definition, ItemType } from "../../../records/Baggage";
 
-const getDefinitions = (
-  def: HoldBagDefinition[] | HandBagDefinition[],
-  indices: number[],
-): ItemType[] => {
+const getDefinitions = (def: Definition[], indices: number[]): ItemType[] => {
   const data = indices.reduce((acc, optionIndex) => {
     const key = optionIndex.toString();
     if (acc[key]) {

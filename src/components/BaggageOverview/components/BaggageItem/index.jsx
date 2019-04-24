@@ -68,7 +68,9 @@ const BaggageItem = ({
             size={context === "MMB-PassengersSummary" ? "large" : "normal"}
           >
             {`${amount}× `}
-            {category === "holdBag" && `${restrictions.weight}kg `}
+            {category === "holdBag" &&
+              typeof restrictions.weight === "number" &&
+              `${restrictions.weight}kg `}
             {getTextFromCategory(category, x => x.toLowerCase())}
           </Text>
           <Text

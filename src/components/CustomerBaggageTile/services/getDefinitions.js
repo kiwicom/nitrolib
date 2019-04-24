@@ -4,9 +4,9 @@ import * as R from "ramda";
 import handleIsCurrentFlag from "./handleIsCurrentFlag";
 import filterNewDefinitions from "./filterNewDefinitions";
 import type {
-  HoldBagTileDefinition,
+  TileDefinition,
+  Definition,
   BaggageCategory,
-  HandBagTileDefinition,
   BaggageType,
 } from "../../../records/Baggage";
 
@@ -21,7 +21,7 @@ type GetDefinitionsArgs = {
   },
   baggage: BaggageType,
   bagType: BaggageCategory,
-  newDefinitions?: (HoldBagTileDefinition | HandBagTileDefinition)[],
+  newDefinitions?: Definition[],
 };
 export default function getDefinitions({
   current,
@@ -29,7 +29,11 @@ export default function getDefinitions({
   baggage,
   bagType,
   newDefinitions,
-}: GetDefinitionsArgs): (HoldBagTileDefinition | HandBagTileDefinition)[] {
+}: GetDefinitionsArgs): TileDefinition[] {
+  if (newDefinitions) {
+    const filteredDefs = filterNewDefinitions(newDefinitions, bagType);
+    return filteredDefs.map(i => ({ ...i, isCurrent: false }));
+  }
   const { definitions, combinations } = baggage;
   const currentCombination = current && current[bagType];
   const selectedCombination = selected && selected[bagType];
@@ -46,8 +50,7 @@ export default function getDefinitions({
         ...definitions[bagType][index],
       };
     });
-
     return handleIsCurrentFlag(selectedDef, newDefinitionsIndices);
   }
-  return filterNewDefinitions(newDefinitions, bagType);
+  return [];
 }

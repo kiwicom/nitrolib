@@ -1,11 +1,8 @@
 // @flow strict
 
-import type { HandBagDefinition, HoldBagDefinition } from "../../../records/Baggage";
+import type { Definition } from "../../../records/Baggage";
 
-export default function getOptionItems(
-  defs: HoldBagDefinition[] | HandBagDefinition[],
-  indices: number[],
-) {
+export default function getOptionItems(defs: Definition[], indices: number[]) {
   return indices.reduce((acc, optionIndex) => {
     if (acc[optionIndex]) {
       acc[optionIndex].amount += 1;

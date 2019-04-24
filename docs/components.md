@@ -433,13 +433,12 @@ import BaggageOverview from "@kiwicom/nitro/lib/components/BaggageOverview";
 ```js
 FAQLinksHandlerType,
   DefinitionWithPassenger,
-  HoldBagDefinitionWithId,
-  HandBagDefinitionWithId,
+  DefinitionWithId,
   OverviewContextType,
 } from "../../records/Baggage";
 
 type Props = {|
-  definitions?: (HandBagDefinitionWithId | HoldBagDefinitionWithId)[],
+  definitions?: DefinitionWithId[],
   definitionsWithPassengers?: DefinitionWithPassenger[],
   FAQLinksHandler?: FAQLinksHandlerType,
   context: OverviewContextType,
@@ -780,12 +779,6 @@ import CustomerBaggageTile from "@kiwicom/nitro/lib/components/CustomerBaggageTi
 
 **Types:**
 ```js
-BaggageType,
-  Gender,
-  HoldBagTileDefinition,
-  HandBagTileDefinition,
-} from "../../records/Baggage";
-
 type Props = {|
   firstName: string,
   middleName?: string,
@@ -801,11 +794,14 @@ type Props = {|
     handBag: number,
     holdBag: number,
   },
-  newDefinitions?: (HoldBagTileDefinition | HandBagTileDefinition)[],
+  newDefinitions?: Definition[],
   onClick?: () => void,
   baggage: BaggageType,
 |};
 ```
+
+See types:
+* [Baggage](./records#baggage)
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=CustomerBaggageTile).
 

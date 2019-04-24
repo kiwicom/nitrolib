@@ -128,15 +128,15 @@ export type Gender = "male" | "female";
 export type OverviewContextType = "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking";
 
 export type Restrictions = {|
-  weight: number,
-  height: number,
-  width: number,
-  length: number,
-  dimensionsSum: number | null,
+  weight: ?number,
+  height: ?number,
+  width: ?number,
+  length: ?number,
+  dimensionsSum: ?number,
 |};
 
-export type Definition<C: BaggageSubCategory> = {|
-  category: C,
+export type Definition = {|
+  category: BaggageSubCategory,
   price: PriceType,
   restrictions: Restrictions,
   conditions: {
@@ -145,27 +145,18 @@ export type Definition<C: BaggageSubCategory> = {|
   },
 |};
 
-export type HandBagDefinition = Definition<"personalItem" | "cabinBag">;
-export type HoldBagDefinition = Definition<"holdBag">;
+export type DefinitionWithId = {| ...Definition, id: number |};
 
-export type HandBagDefinitionWithId = {| ...HandBagDefinition, id: number |};
-export type HoldBagDefinitionWithId = {| ...HoldBagDefinition, id: number |};
-
-export type HandBagTileDefinition = {|
-  ...HandBagDefinition,
-  originalIndex?: number,
-  isCurrent?: boolean,
-|};
-export type HoldBagTileDefinition = {|
-  ...HoldBagDefinition,
+export type TileDefinition = {|
+  ...Definition,
   originalIndex?: number,
   isCurrent?: boolean,
 |};
 
-export type Definitions = {
-  handBag: HandBagDefinition[],
-  holdBag: HoldBagDefinition[],
-};
+export type Definitions = {|
+  handBag: Definition[],
+  holdBag: Definition[],
+|};
 
 export type Combination = {|
   indices: number[],
@@ -199,12 +190,12 @@ export type ItemType = {|
   },
 |};
 
-export type OptionBaggage = {
+export type OptionBaggage = {|
   originalIndex: number,
   pickerType: BaggageCategory,
   price: PriceType,
   items: { [key: string]: ItemType },
-};
+|};
 
 export type FAQLinksHandlerType = BaggageSubCategory => void;
 

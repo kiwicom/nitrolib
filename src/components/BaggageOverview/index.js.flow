@@ -2,13 +2,12 @@
 import type {
   FAQLinksHandlerType,
   DefinitionWithPassenger,
-  HoldBagDefinitionWithId,
-  HandBagDefinitionWithId,
+  DefinitionWithId,
   OverviewContextType,
 } from "../../records/Baggage";
 
 type Props = {|
-  definitions?: (HandBagDefinitionWithId | HoldBagDefinitionWithId)[],
+  definitions?: DefinitionWithId[],
   definitionsWithPassengers?: DefinitionWithPassenger[],
   FAQLinksHandler?: FAQLinksHandlerType,
   context: OverviewContextType,

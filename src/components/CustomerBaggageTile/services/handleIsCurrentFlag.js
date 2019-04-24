@@ -1,8 +1,8 @@
 // @flow strict
-import type { HoldBagTileDefinition, HandBagTileDefinition } from "../../../records/Baggage";
+import type { TileDefinition } from "../../../records/Baggage";
 
 export default function handleIsCurrentFlag(
-  definitions: (HoldBagTileDefinition | HandBagTileDefinition)[],
+  definitions: TileDefinition[],
   commonDefIndices: number[],
 ) {
   const memo = [...commonDefIndices];

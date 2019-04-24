@@ -1,5 +1,5 @@
-// @flow
-import type { HoldBagTileDefinition, HandBagTileDefinition } from "../Baggage";
+// @flow strict
+import type { TileDefinition } from "../Baggage";
 
 export const baggageData = {
   definitions: {
@@ -317,10 +317,7 @@ export const emptyData = {
 
 const { definitions } = baggageData;
 
-export const holdBagTileDefinitions: (
-  | HoldBagTileDefinition
-  | HandBagTileDefinition
-)[] = definitions.holdBag.map((def, index) => {
+export const holdBagTileDefinitions: TileDefinition[] = definitions.holdBag.map((def, index) => {
   // $FlowIssue: https://github.com/facebook/flow/issues/2892
   return {
     originalIndex: index,
@@ -328,10 +325,7 @@ export const holdBagTileDefinitions: (
     ...def,
   };
 });
-export const handBagTileDefinitions: (
-  | HoldBagTileDefinition
-  | HandBagTileDefinition
-)[] = definitions.handBag.map((def, index) => {
+export const handBagTileDefinitions: TileDefinition[] = definitions.handBag.map((def, index) => {
   // $FlowIssue: https://github.com/facebook/flow/issues/2892
   return {
     originalIndex: index,
