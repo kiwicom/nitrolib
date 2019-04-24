@@ -59,7 +59,7 @@ const BaggagePicker = ({
   currentCombination,
   baggage,
 }: Props) => {
-  const [options] = useState(
+  const [options, setOptions] = useState(
     getOptions({
       baggage,
       passengerCategory,
@@ -78,18 +78,27 @@ const BaggagePicker = ({
   const hasOnlyEmptyOption = options.length === 1 && R.isEmpty(options[0].items);
 
   useEffect(() => {
-    function handleDefaultStateValues() {
-      if (options.length > 4) {
-        const optionsToShow = options.slice(0, 3);
-        const hiddenOptionsLength = options.length - optionsToShow.length;
-        setShowedOptions(optionsToShow);
-        setNumberOfHiddenOptions(hiddenOptionsLength);
-      } else {
-        setShowedOptions(options);
-        setNumberOfHiddenOptions(0);
-      }
+    setOptions(
+      getOptions({
+        baggage,
+        passengerCategory,
+        context,
+        pickerType,
+        currentCombination,
+      }),
+    );
+  }, [baggage, context, currentCombination, passengerCategory, pickerType]);
+
+  useEffect(() => {
+    if (options.length > 4) {
+      const optionsToShow = options.slice(0, 3);
+      const hiddenOptionsLength = options.length - optionsToShow.length;
+      setShowedOptions(optionsToShow);
+      setNumberOfHiddenOptions(hiddenOptionsLength);
+    } else {
+      setShowedOptions(options);
+      setNumberOfHiddenOptions(0);
     }
-    handleDefaultStateValues();
   }, [options, options.length]);
 
   const handleShowOptions = opts => {
