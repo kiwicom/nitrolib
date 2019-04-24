@@ -1,27 +1,10 @@
 // @flow strict
 import filterCurrencies from "../filterCurrencies";
+import currencies from "../../../../records/__mocks__/Currencies";
 
-const currencies = {
-  eur: {
-    id: "eur",
-    name: "Euro",
-    format: "__price__ €",
-    uncertainFormat: false,
-    round: "2",
-    enabledOnAffilId: "",
-    fallback: "",
-    rate: 1,
-  },
-  gbp: {
-    id: "gbp",
-    name: "British Pound Sterling",
-    format: "£__price__",
-    uncertainFormat: false,
-    round: "2",
-    enabledOnAffilId: ["uk"],
-    fallback: "",
-    rate: 1.14355,
-  },
+const output = {
+  eur: { ...currencies.eur },
+  gbp: { ...currencies.gbp },
 };
 
 describe("#filterCurrencies", () => {
@@ -32,22 +15,22 @@ describe("#filterCurrencies", () => {
   });
 
   test("matching affiliate", () => {
-    expect(filterCurrencies("UK", ["eur", "gbp"], currencies)).toEqual(currencies);
+    expect(filterCurrencies("UK", ["eur", "gbp"], currencies)).toEqual(output);
   });
 
   test("containing affiliate", () => {
-    expect(filterCurrencies("UK-NEW", ["eur", "gbp"], currencies)).toEqual(currencies);
+    expect(filterCurrencies("UK-NEW", ["eur", "gbp"], currencies)).toEqual(output);
   });
 
   test("not matching affiliate", () => {
     expect(filterCurrencies("test", ["eur", "gbp"], currencies)).toEqual({
-      eur: currencies.eur,
+      eur: output.eur,
     });
   });
 
   test("not in whitelist", () => {
     expect(filterCurrencies("", ["eur"], currencies)).toEqual({
-      eur: currencies.eur,
+      eur: output.eur,
     });
   });
 });

@@ -4,39 +4,7 @@ import { shallow } from "enzyme";
 
 import InitCurrency from "../index";
 import { brandDefault } from "../../../records/Brand";
-
-const currencies = {
-  eur: {
-    id: "eur",
-    name: "Euro",
-    format: "__price__ €",
-    uncertainFormat: false,
-    round: "2",
-    enabledOnAffilId: "",
-    fallback: "",
-    rate: 1,
-  },
-  gbp: {
-    id: "gbp",
-    name: "British Pound Sterling",
-    format: "£__price__",
-    uncertainFormat: false,
-    round: "2",
-    enabledOnAffilId: ["UK"],
-    fallback: "",
-    rate: 1.14355,
-  },
-  czk: {
-    id: "czk",
-    name: "Czech Republic Koruna",
-    format: "__price__ Kč",
-    uncertainFormat: false,
-    round: "0",
-    enabledOnAffilId: "",
-    fallback: "",
-    rate: 0.0387945,
-  },
-};
+import currencies from "../../../records/__mocks__/Currencies";
 
 const countries = {
   sk: {

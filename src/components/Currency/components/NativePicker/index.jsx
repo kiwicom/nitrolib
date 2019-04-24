@@ -9,7 +9,7 @@ import NativeGroupedSelect from "../../../NativeGroupedSelect/index";
 
 const mapCurrencies = R.map(currency => ({
   value: currency.id,
-  text: `${getCode(currency.id)} - ${getSymbol(currency.format)}`,
+  text: `${getCode(currency.id)} - ${getSymbol(currency.format.format)}`,
 }));
 
 type Props = {|
@@ -28,7 +28,7 @@ const NativePicker = ({ current, available, recommended, onChange }: Props) => (
         items: [
           {
             value: current.id,
-            text: `${getCode(current.id)} - ${getSymbol(current.format)}`,
+            text: `${getCode(current.id)} - ${getSymbol(current.format.format)}`,
           },
         ],
       },

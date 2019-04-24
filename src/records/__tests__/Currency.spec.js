@@ -1,5 +1,6 @@
 // @flow strict
 import * as currency from "../Currency";
+import currencies from "../__mocks__/Currencies";
 
 describe("#Currency", () => {
   test("get code", () => {
@@ -7,11 +8,11 @@ describe("#Currency", () => {
   });
 
   test("get symbol", () => {
-    expect(currency.getSymbol(currency.currencyDefault.format)).toBe("€");
+    expect(currency.getSymbol(currency.currencyDefault.format.format)).toBe("€");
   });
 
   test("convert", () => {
-    expect(currency.convert({ ...currency.currencyDefault, rate: 1.105 }, 10)).toBe(9.05);
+    expect(currency.convert({ ...currency.currencyDefault, rate: "1.105" }, 10)).toBe(9.05);
   });
 
   test("format", () => {
@@ -20,26 +21,8 @@ describe("#Currency", () => {
 
   test("get available list", () => {
     const currencyMap = {
-      eur: {
-        id: "eur",
-        name: "Euro",
-        format: "__price__ €",
-        uncertainFormat: false,
-        round: "2",
-        enabledOnAffilId: "",
-        fallback: "",
-        rate: 1,
-      },
-      czk: {
-        id: "czk",
-        name: "Koruna",
-        format: "__price__ Kč",
-        uncertainFormat: false,
-        round: "2",
-        enabledOnAffilId: "",
-        fallback: "",
-        rate: 0.3,
-      },
+      eur: { ...currencies.eur },
+      czk: { ...currencies.czk },
     };
 
     expect(currency.getAvailableList(currencyMap)).toEqual([currencyMap.czk, currencyMap.eur]);
