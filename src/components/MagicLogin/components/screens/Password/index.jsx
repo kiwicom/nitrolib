@@ -78,7 +78,7 @@ const Password = ({
                       onChange={onPasswordChange}
                       value={password}
                       name="password"
-                      dataTest="MagicLogin-Password"
+                      dataTest="MagicLogin-PasswordInput"
                     />
                     <Button submit loading={isSigningIn}>
                       <Translate t="account.sign_in" />

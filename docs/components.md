@@ -253,8 +253,8 @@ See types:
 * ```"MagicLogin-NoAccount"```
 * ```"MagicLogin-Password"```
 * ```"MagicLogin-Password"```
-* ```"MagicLogin-Password"```
 * ```"MagicLogin-PasswordConfirm"```
+* ```"MagicLogin-PasswordInput"```
 * ```"MagicLogin-SocialLogin"```
 
 Modal component handling the whole login flow with magic link.

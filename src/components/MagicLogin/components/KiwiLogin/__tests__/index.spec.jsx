@@ -69,7 +69,7 @@ describe("#KiwiLogin", () => {
       />,
     );
     wrapper
-      .find(`input[data-test="MagicLogin-Password"]`)
+      .find(`input[data-test="MagicLogin-PasswordInput"]`)
       .simulate("change", { target: { value: "qwertyuiop123" } });
     wrapper.find("form").simulate("submit");
 
