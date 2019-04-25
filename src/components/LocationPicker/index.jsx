@@ -15,6 +15,7 @@ import LocationPickerResultList from "./components/LocationPickerResultList";
 import getPlaceholder from "./services/placeholder";
 import type { Location } from "../../records/Location";
 import LocationPickerPopup from "./components/LocationPickerPopup";
+import { Consumer as IntlConsumer } from "../../services/intl/context";
 
 const Spacer = styled.div`
   padding-bottom: ${({ theme }) => theme.orbit.spaceSmall};
@@ -172,7 +173,10 @@ class LocationPicker extends React.Component<Props, State> {
                   if (!resultData.pageInfo.startCursor) {
                     return (
                       <NoResult>
-                        <Text t="forms.places_no_results" />
+                        {queryName === 'allLocation'
+                          ? <Text t="forms.places_no_results"/>
+                          : <Text t="forms.places_no_results_no_iata"/>
+                        }
                       </NoResult>
                     );
                   }
