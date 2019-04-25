@@ -9,62 +9,62 @@ exports[`#Months render 1`] = `
   <option
     value={0}
   >
-    January
+    common.months.january
   </option>
   <option
     value={1}
   >
-    February
+    common.months.february
   </option>
   <option
     value={2}
   >
-    March
+    common.months.march
   </option>
   <option
     value={3}
   >
-    April
+    common.months.april
   </option>
   <option
     value={4}
   >
-    May
+    common.months.may
   </option>
   <option
     value={5}
   >
-    June
+    common.months.june
   </option>
   <option
     value={6}
   >
-    July
+    common.months.july
   </option>
   <option
     value={7}
   >
-    August
+    common.months.august
   </option>
   <option
     value={8}
   >
-    September
+    common.months.september
   </option>
   <option
     value={9}
   >
-    October
+    common.months.october
   </option>
   <option
     value={10}
   >
-    November
+    common.months.november
   </option>
   <option
     value={11}
   >
-    December
+    common.months.december
   </option>
 </Select>
 `;
