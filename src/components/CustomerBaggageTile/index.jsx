@@ -67,7 +67,7 @@ const CustomerBaggageTile = ({
   });
   const status = getStatus({ current, selected, isProcessing });
   return (
-    <Wrapper isIconShowed={!!onClick && status === "unpaid"}>
+    <Wrapper isIconShowed={!!onClick && (status === "unpaid" || status === null)}>
       <Tile
         dataTest={`CustomerBaggageTile-${status || "none"}`}
         onClick={onClick && onClick}
