@@ -26,8 +26,8 @@ const EmptyLabel = ({ pickerType, isCurrentCombination }: Props) => (
         <Translate
           t={
             pickerType === "handBag"
-              ? "baggage_modal.select.no_cabin_baggage"
-              : "baggage_modal.select.no_checked_baggage"
+              ? __("baggage_modal.select.no_cabin_baggage")
+              : __("baggage_modal.select.no_checked_baggage")
           }
         />
       </Text>

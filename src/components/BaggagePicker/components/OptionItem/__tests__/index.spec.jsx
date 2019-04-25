@@ -35,13 +35,13 @@ describe("#OptionItem", () => {
   test("renders current info", () => {
     const wrapper = mount(<OptionItem {...props} isCurrentCombination />);
     expect(wrapper.find('[data-test="BaggagePicker-OptionItem-cabinBag"]').exists()).toBe(true);
-    expect(wrapper.find('[data-test="BaggagePicker-OptionItem-current"]').text()).toEqual(
+    expect(wrapper.find('[data-test="BaggagePicker-OptionItem-Current"]').text()).toEqual(
       "baggage_modal.select.current",
     );
   });
 
   test("renders price", () => {
     const wrapper = mount(<OptionItem {...props} />);
-    expect(wrapper.find('[data-test="BaggagePicker-OptionItem-price"]').text()).toEqual("10 €");
+    expect(wrapper.find('[data-test="BaggagePicker-OptionItem-Price"]').text()).toEqual("10 €");
   });
 });

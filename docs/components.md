@@ -593,6 +593,8 @@ See types:
 * ```"BaggagePicker-EmptyLabel"```
 * ```"BaggagePicker-EmptyOption"```
 * ```"BaggagePicker-NoPersonalItemLabel"```
+* ```"BaggagePicker-OptionItem-Current"```
+* ```"BaggagePicker-OptionItem-Price"```
 * ```"BaggagePicker-PriorityBoardingInfo"```
 * ```"BaggagePicker-RecheckAlert"```
 * ```"BaggagePicker-ShowButton"```

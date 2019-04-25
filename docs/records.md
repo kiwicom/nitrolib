@@ -122,7 +122,7 @@ import type { Baggage } from "@kiwicom/nitro/lib/records/Baggage";
 ```js
 export type BaggageCategory = "holdBag" | "handBag";
 export type BaggageSubCategory = "holdBag" | "personalItem" | "cabinBag";
-export type PassengerGroup = "adult" | "child" | "infant";
+export type PassengerGroup = "adult" | "teen" | "child" | "infant";
 export type OrderStatusType = "unpaid" | "processing" | "notAvailable";
 export type Gender = "male" | "female";
 export type OverviewContextType = "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking";
@@ -135,7 +135,7 @@ export type Restrictions = {|
   dimensionsSum: ?number,
 |};
 
-type Conditions = {
+export type Conditions = {
   isPriority?: string[],
   passengerGroups: PassengerGroup[],
 };

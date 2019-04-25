@@ -25,12 +25,12 @@ type Props = {|
   passengerCategory: PassengerGroup,
   passengerBaggage: { handBag: number, holdBag: number },
   baggage: BaggageType,
-  shouldShowRecheckNote: boolean,
+  shouldShowRecheckNote?: boolean,
   airlines: { [string]: Airline },
   pickerType: BaggageCategory,
   context: "booking" | "mmb",
   currentCombination?: number,
-  prioBoardingLinkHandler: (arg: Airline[]) => void,
+  prioBoardingLinkHandler?: (arg: Airline[]) => void,
 |};
 
 const IconWrapper = styled.div`

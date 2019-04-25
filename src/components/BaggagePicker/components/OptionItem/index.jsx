@@ -66,12 +66,12 @@ const OptionItem = ({
         element="span"
         weight="bold"
         type="secondary"
-        dataTest="BaggagePicker-OptionItem-current"
+        dataTest="BaggagePicker-OptionItem-Current"
       >
         <Translate t="baggage_modal.select.current" />
       </Text>
     ) : (
-      <Text element="span" weight="bold" dataTest="BaggagePicker-OptionItem-price">
+      <Text element="span" weight="bold" dataTest="BaggagePicker-OptionItem-Price">
         <Price value={priceValue} />
       </Text>
     );

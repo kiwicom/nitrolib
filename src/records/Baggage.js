@@ -15,7 +15,7 @@ export type Restrictions = {|
   dimensionsSum: ?number,
 |};
 
-type Conditions = {
+export type Conditions = {
   isPriority?: string[],
   passengerGroups: PassengerGroup[],
 };
