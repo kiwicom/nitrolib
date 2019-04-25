@@ -12,6 +12,7 @@ const collectKeys = require("./scripts/collectKeys");
 const fetchBrandConfig = require("./scripts/fetchBrandConfig");
 const fetchSpreadsheet = require("./scripts/fetchSpreadsheet");
 const getTranslations = require("./scripts/getTranslations");
+const missingKeys = require("./scripts/missingKeys");
 const mapLanguages = require("./scripts/mapLanguages");
 
 const command = process.argv[2];
@@ -39,7 +40,7 @@ const resolve = glob => path.join(process.cwd(), glob);
 
 const commands = {
   keys: "keys",
-  keysCheck: "keys-check",
+  "keys-check": "keys-check",
   fetch: "fetch",
 };
 
@@ -63,7 +64,7 @@ function keys(globs) {
   const collected = collectKeys(globs.map(resolve));
 
   const data = sortKeys(R.merge(ours, collected));
-  fs.outputJsonSync(path.join(OUT, "data/tkeys.json"), data, {
+  fs.outputJsonSync(path.join(OUT, "tkeys.json"), data, {
     spaces: 2,
   });
 
@@ -75,8 +76,8 @@ function keys(globs) {
 }
 
 function keysCheck() {
-  const TZ = path.join(OUT, "translationsFiles.json");
-  if (!fs.existsSync(TZ)) {
+  const TFILES = path.join(OUT, "translationsFiles.json");
+  if (!fs.existsSync(TFILES)) {
     error("Key checking requires the 'data/translationsFiles.json' file. Run 'nitro fetch'.");
     process.exit(1);
     return;
@@ -90,19 +91,11 @@ function keysCheck() {
     return;
   }
 
-  const tkeys = fs.readJsonSync(TKEYS);
-  const tz = fs.readJsonSync(TZ);
-
-  Object.keys(tz).forEach(id => {
-    const locale = fs.readJsonSync(path.join(OUT, tz[id]));
-
-    Object.keys(tkeys).forEach(key => {
-      if (!locale[key]) {
-        error(`Locale ${id} has an untranslated key: ${key}`);
-        process.exit(1);
-      }
-    });
-  });
+  const missing = missingKeys(OUT, TKEYS, TFILES);
+  if (missing.length > 0) {
+    missing.forEach(error);
+    process.exit(1);
+  }
 
   log("All good.");
 }
@@ -143,7 +136,7 @@ if (command === commands.keys) {
   keys(process.argv.slice(3));
 }
 
-if (command === commands.keysCheck) {
+if (command === commands["keys-check"]) {
   keysCheck();
 }
 

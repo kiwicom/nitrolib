@@ -356,13 +356,6 @@ export default class SideNav extends React.Component<Props, State> {
                               />
                             </>
                           )}
-                          {company.branding && (
-                            <BrandedMenuItem
-                              title={company.branding.title}
-                              Icon={company.branding.Icon}
-                              link={company.branding.link}
-                            />
-                          )}
                           {company.guarantee && (
                             <BrandedMenuItem
                               title={company.guarantee.title}

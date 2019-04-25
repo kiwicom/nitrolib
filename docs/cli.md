@@ -26,6 +26,12 @@ Collects translation keys:
 
 > Nitrolib also exports its translation keys in the `@kiwicom/nitro/tkeys.json` file
 
+## Keys check
+
+* `yarn nitro keys-check`
+
+Checks if _all_ keys are translated. Run `keys` and `fetch` to get translations.
+
 ## Fetch
 
 * `yarn nitro fetch [--translations <path>]`
