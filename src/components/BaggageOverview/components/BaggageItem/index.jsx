@@ -20,8 +20,15 @@ import getIconFromCategory from "../../../../services/baggage/getIconFromCategor
 import getTextFromCategory from "../../../../services/baggage/getTextFromCategory";
 import getPassengerNames from "./services/getPassengerNames";
 
-const Title = styled.div`
-  line-height: 24px;
+const CenteringFixWrapper = styled.div`
+  > span,
+  > p {
+    line-height: 24px;
+  }
+  ,
+  > svg {
+    margin-left: 2px;
+  }
 `;
 
 type Props = {|
@@ -48,10 +55,10 @@ const BaggageItem = ({
       spaceAfter="large"
       direction="column"
       spacing="tight"
-      mediumMobile={{ direction: "row", spaceAfter: "smallest", align: "center" }}
+      mediumMobile={{ direction: "row", spaceAfter: "smallest", align: "start" }}
       dataTest={`BaggageOverview-BaggageItem-${category}`}
     >
-      <Stack shrink spacing="condensed" spaceAfter="smallest">
+      <Stack shrink spacing="condensed">
         {getIconFromCategory(category, "medium", "primary")}
         <Stack
           flex
@@ -62,24 +69,28 @@ const BaggageItem = ({
           mediumMobile={{ align: "start", direction: "column" }}
           largeMobile={{ direction: "row", spacing: "condensed", align: "center" }}
         >
-          <Text
-            element="p"
-            weight={context === "MMB-PassengersSummary" ? "bold" : "normal"}
-            size={context === "MMB-PassengersSummary" ? "large" : "normal"}
-          >
-            {`${amount}× `}
-            {category === "holdBag" &&
-              typeof restrictions.weight === "number" &&
-              `${restrictions.weight}kg `}
-            {getTextFromCategory(category, x => x.toLowerCase())}
-          </Text>
-          <Text
-            element="p"
-            type="secondary"
-            size={context === "MMB-PassengersSummary" ? "normal" : "small"}
-          >
-            <Title>{getBaggageSize(restrictions)}</Title>
-          </Text>
+          <CenteringFixWrapper>
+            <Text
+              element="p"
+              weight={context === "MMB-PassengersSummary" ? "bold" : "normal"}
+              size={context === "MMB-PassengersSummary" ? "large" : "normal"}
+            >
+              {`${amount}× `}
+              {category === "holdBag" &&
+                typeof restrictions.weight === "number" &&
+                `${restrictions.weight}kg `}
+              {getTextFromCategory(category, x => x.toLowerCase())}
+            </Text>
+          </CenteringFixWrapper>
+          <CenteringFixWrapper>
+            <Text
+              element="p"
+              type="secondary"
+              size={context === "MMB-PassengersSummary" ? "normal" : "small"}
+            >
+              {getBaggageSize(restrictions)}
+            </Text>
+          </CenteringFixWrapper>
 
           {FAQLinksHandler && (
             <Hide on={["largeMobile", "tablet", "desktop", "largeDesktop"]}>
@@ -106,18 +117,25 @@ const BaggageItem = ({
           align="center"
           justify="start"
           spacing="compact"
-          mediumMobile={{ justify: FAQLinksHandler ? "end" : "start", shrink: true }}
+          mediumMobile={{
+            justify: FAQLinksHandler ? "end" : "start",
+            shrink: true,
+          }}
         >
           {passengers && (
             <>
-              <AccountCircle size="small" color="secondary" />
-              <Text
-                element="span"
-                type="secondary"
-                dataTest="BaggageOverview-BaggageItem-Passengers"
-              >
-                {getPassengerNames(passengers)}
-              </Text>
+              <CenteringFixWrapper>
+                <AccountCircle size="small" color="secondary" />
+              </CenteringFixWrapper>
+              <CenteringFixWrapper>
+                <Text
+                  element="span"
+                  type="secondary"
+                  dataTest="BaggageOverview-BaggageItem-Passengers"
+                >
+                  {getPassengerNames(passengers)}
+                </Text>
+              </CenteringFixWrapper>
             </>
           )}
 

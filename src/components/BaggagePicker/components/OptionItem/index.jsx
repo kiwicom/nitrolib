@@ -62,11 +62,16 @@ const OptionItem = ({
 }: Props) => {
   const getFirstItemInfo = (isCurrent, priceValue) =>
     isCurrent ? (
-      <Text element="span" weight="bold" type="secondary">
+      <Text
+        element="span"
+        weight="bold"
+        type="secondary"
+        dataTest="BaggagePicker-OptionItem-current"
+      >
         <Translate t="baggage_modal.select.current" />
       </Text>
     ) : (
-      <Text element="span" weight="bold">
+      <Text element="span" weight="bold" dataTest="BaggagePicker-OptionItem-price">
         <Price value={priceValue} />
       </Text>
     );
@@ -84,7 +89,7 @@ const OptionItem = ({
               )}
               {category === "holdBag" &&
                 typeof restrictions.weight === "number" &&
-                `${restrictions.weight}kg`}
+                `${restrictions.weight}kg `}
               {getTextFromCategory(category, x => x.toLowerCase())}
             </Title>
           </Text>

@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 
 import OptionItem from "../index";
 
@@ -26,18 +26,22 @@ const props = {
   isCurrentCombination: false,
 };
 
-// MATUS TODO: rewrite test
 describe("#OptionItem", () => {
   test("render ", () => {
     const wrapper = shallow(<OptionItem {...props} />);
     expect(wrapper.find("Stack").exists()).toBe(true);
   });
 
-  // test("render current info", () => {
-  //   const wrapper = mount(<OptionItem {...props} isCurrentCombination />);
-  //   expect(wrapper.find("OptionItem__BaggageInfoWrapper").exists()).toBe(true);
-  //   expect(wrapper.find("OptionItem__BaggageInfoWrapper span").text()).toEqual(
-  //     "baggage_modal.select.current",
-  //   );
-  // });
+  test("renders current info", () => {
+    const wrapper = mount(<OptionItem {...props} isCurrentCombination />);
+    expect(wrapper.find('[data-test="BaggagePicker-OptionItem-cabinBag"]').exists()).toBe(true);
+    expect(wrapper.find('[data-test="BaggagePicker-OptionItem-current"]').text()).toEqual(
+      "baggage_modal.select.current",
+    );
+  });
+
+  test("renders price", () => {
+    const wrapper = mount(<OptionItem {...props} />);
+    expect(wrapper.find('[data-test="BaggagePicker-OptionItem-price"]').text()).toEqual("10 €");
+  });
 });
