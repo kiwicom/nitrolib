@@ -29,6 +29,7 @@ const holdBagOptions = {
 
 const passengerCategoryOptions = {
   adult: "adult",
+  teen: "teen",
   child: "child",
   infant: "infant",
 };
