@@ -41,19 +41,22 @@ const resolve = glob => path.join(process.cwd(), glob);
 const commands = {
   keys: "keys",
   "keys-check": "keys-check",
+  translations: "translations",
   fetch: "fetch",
 };
 
 log(chalk.bold.green("NITRO"));
 if (!commands[command]) {
   log("Available commands:");
-  log(`  ${chalk.underline.bold("keys")} [...globs]      - collects translation keys`);
-  log(`    ${chalk.underline("globs")} - where to collect keys from`);
+  log(`  ${chalk.underline.bold("keys")} [...globs]        - collects translation keys`);
+  log(`    ${chalk.underline("...globs")} - where to collect keys from`);
   log("");
-  log(`  ${chalk.underline.bold("keys-check")}           - checks missing translations`);
+  log(`  ${chalk.underline.bold("keys-check")}             - checks missing translations`);
   log("");
-  log(`  ${chalk.underline.bold("fetch")} [translations] - fetches production data`);
-  log(`    ${chalk.underline("translations")} (optional) - path to translations`);
+  log(`  ${chalk.underline.bold("translations")} [--path]  - fetches translations`);
+  log(`    ${chalk.underline("--path")} (optional) - where to take translations from`);
+  log("");
+  log(`  ${chalk.underline.bold("fetch")}                  - fetches production data`);
   log("");
   log("See CLI docs for details at https://github.com/kiwicom/nitrolib");
 }
@@ -78,7 +81,9 @@ function keys(globs) {
 function keysCheck() {
   const TFILES = path.join(OUT, "translationsFiles.json");
   if (!fs.existsSync(TFILES)) {
-    error("Key checking requires the 'data/translationsFiles.json' file. Run 'nitro fetch'.");
+    error(
+      "Key checking requires the 'data/translationsFiles.json' file. Run 'nitro translations'.",
+    );
     process.exit(1);
     return;
   }
@@ -100,8 +105,15 @@ function keysCheck() {
   log("All good.");
 }
 
-function fetch(translations /* : ?string */) {
-  const TRANSLATIONS = translations || TRANSLATIONS_FE;
+const TRANSLATIONS_NEEDS = [
+  path.join(OUT, "brands.json"),
+  path.join(OUT, "languages.json"),
+  path.join(OUT, "countries.json"),
+  path.join(OUT, "tkeys.json"),
+];
+
+function translations(tFile) {
+  const TRANSLATIONS = tFile || TRANSLATIONS_FE;
   if (!fs.existsSync(TRANSLATIONS)) {
     error(
       `Translations not found at '${TRANSLATIONS}'${
@@ -112,17 +124,34 @@ function fetch(translations /* : ?string */) {
     return;
   }
 
-  if (!fs.existsSync(TKEYS)) {
-    error(
-      "'fetch' requires collecting translation keys to a 'data/tkeys.json' file! This can be done using the 'nitro keys <globs>' command.",
-    );
+  const good = TRANSLATIONS_NEEDS.reduce((ok, need) => {
+    if (!fs.existsSync(need)) {
+      error(
+        `Task 'translations' requires running the 'keys' and 'fetch' commands first! Missing file: ${need}`,
+      );
+      return false;
+    }
+    return ok;
+  }, true);
+
+  if (!good) {
     process.exit(1);
     return;
   }
 
-  Promise.all([fetchSpreadsheet(), fetchBrandConfig()])
-    .then(() => getTranslations(TKEYS, TRANSLATIONS))
+  getTranslations(TKEYS, TRANSLATIONS)
     .then(mapLanguages)
+    .then(() => {
+      log("DONE!");
+    })
+    .catch(err => {
+      log(chalk.bold.red("ERROR"));
+      error(err);
+    });
+}
+
+function fetch() {
+  Promise.all([fetchSpreadsheet(), fetchBrandConfig()])
     .then(() => {
       log("DONE!");
     })
@@ -140,6 +169,10 @@ if (command === commands["keys-check"]) {
   keysCheck();
 }
 
+if (command === commands.translations) {
+  translations(yargs.argv.path);
+}
+
 if (command === commands.fetch) {
-  fetch(yargs.argv.translations);
+  fetch();
 }
