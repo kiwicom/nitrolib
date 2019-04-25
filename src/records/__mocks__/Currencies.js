@@ -71,7 +71,7 @@ const currencies = {
         isUncertain: false,
       },
       fallback: null,
-      enabledOnAffilId: "",
+      enabledOnAffilId: ["uk"],
       rate: "1.14355",
     },
     enabledOnAffilId: "",
