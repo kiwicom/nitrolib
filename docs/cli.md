@@ -30,31 +30,42 @@ Collects translation keys:
 
 * `yarn nitro keys-check`
 
-Checks if _all_ keys are translated. Run `keys` and `fetch` to get translations.
+Checks if _all_ keys are translated. Run `keys` and `translations` to get translations.
 
-## Fetch
+## Translations
 
-* `yarn nitro fetch [--translations <path>]`
+* `yarn nitro translations [--translations <path>]`
 
-Fetches production data.
+Fetches translations.
 
 **Flags:**
-* `translations` _optional_ - path to a custom translations folder
+* `path` _optional_ - path to a custom translations folder
 
 **Requires:**
 * The `data/tkeys.json` file to exist due to translation whitelisting, see the `keys` command
 * The `@kiwicom/translations` package installed if not using a custom project
 
 **Example:**
-* `yarn nitro fetch` - fetches data and translations
-* `yarn nitro fetch --translations ./locales` - fetches data and translations from a custom folder
+* `yarn nitro translations` - fetches data
+* `yarn nitro translations --path ./locales` - fetches data and translations from a custom folder
 
 **Files:**
 * `translations/<locale>_<hash>.json` - translations for the given _locale_, cache-busted with the commit _hash_
-* `airlines.json` - contains basic information about supported airlines, see [Airline.js](./records#airline)
 * `brandLanguages.json` - contains information about languages for different brands, see [BrandLanguage](./records#brandlanguage)
+* `translationsFiles.json` - contains a map of a _locale_ to its translation file
+
+## Fetch
+
+* `yarn nitro fetch`
+
+Fetches production data.
+
+**Example:**
+* `yarn nitro fetch` - fetches data
+
+**Files:**
+* `airlines.json` - contains basic information about supported airlines, see [Airline.js](./records#airline)
 * `brands.json` - contains brand config, see [Brand](./records#brand)
 * `continents.json` - contains a list of continents and their countries, see [Continents](./records#continents)
 * `countries.json` - contains basic information about all the world's countries, see [Country](./records#country)
 * `languages.json` - contains information about our supported languages, see [LangInfo](./records#langinfo)
-* `translationsFiles.json` - contains a map of a _locale_ to its translation file
