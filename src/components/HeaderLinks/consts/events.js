@@ -10,5 +10,6 @@ export const HEADER_LINKS_ERROR: Event = {
     exponea: false,
     ga: false,
     logmole: true,
+    bigquery: true,
   },
 };
