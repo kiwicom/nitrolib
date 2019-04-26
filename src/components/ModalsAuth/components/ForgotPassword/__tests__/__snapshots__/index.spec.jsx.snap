@@ -457,6 +457,7 @@ exports[`#SideBar/ForgotPassword render 1`] = `
           "action": "Open",
           "category": "Nitro",
           "destinations": Object {
+            "bigquery": true,
             "exponea": false,
             "ga": false,
             "logmole": true,
@@ -980,6 +981,7 @@ exports[`#SideBar/ForgotPassword render error 1`] = `
           "action": "Open",
           "category": "Nitro",
           "destinations": Object {
+            "bigquery": true,
             "exponea": false,
             "ga": false,
             "logmole": true,
@@ -1530,6 +1532,7 @@ exports[`#SideBar/ForgotPassword render loading 1`] = `
           "action": "Open",
           "category": "Nitro",
           "destinations": Object {
+            "bigquery": true,
             "exponea": false,
             "ga": false,
             "logmole": true,
