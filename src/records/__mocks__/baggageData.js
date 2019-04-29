@@ -5,6 +5,7 @@ export const baggageData = {
   definitions: {
     handBag: [
       {
+        index: 0,
         conditions: {
           passengerGroups: ["teen", "adult"],
         },
@@ -26,6 +27,7 @@ export const baggageData = {
         },
       },
       {
+        index: 1,
         conditions: {
           passengerGroups: ["adult"],
         },
@@ -49,6 +51,7 @@ export const baggageData = {
     ],
     holdBag: [
       {
+        index: 0,
         conditions: {
           passengerGroups: ["teen", "adult"],
         },
@@ -70,6 +73,7 @@ export const baggageData = {
         },
       },
       {
+        index: 1,
         conditions: {
           passengerGroups: ["teen", "adult"],
         },
@@ -91,6 +95,7 @@ export const baggageData = {
         },
       },
       {
+        index: 2,
         conditions: {
           passengerGroups: ["adult"],
           isPriority: ["FR", "W6"],

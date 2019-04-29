@@ -1,9 +1,9 @@
 // @flow strict
 import groupDefinitions from "../groupDefinitions";
 
-const definitionsWithIds = [
+const definitions = [
   {
-    id: 1,
+    index: 0,
     conditions: {
       passengerGroups: ["adult"],
     },
@@ -25,7 +25,7 @@ const definitionsWithIds = [
     },
   },
   {
-    id: 1,
+    index: 0,
     conditions: {
       passengerGroups: ["adult"],
     },
@@ -47,7 +47,7 @@ const definitionsWithIds = [
     },
   },
   {
-    id: 2,
+    index: 2,
     conditions: {
       passengerGroups: ["adult"],
     },
@@ -72,7 +72,7 @@ const definitionsWithIds = [
 
 describe("groupDefinitions", () => {
   test(" returns proper data", () => {
-    const groupedDefinitions = groupDefinitions(definitionsWithIds);
+    const groupedDefinitions = groupDefinitions(definitions);
     expect(groupedDefinitions.length).toEqual(2);
     const personalItem = groupedDefinitions.find(item => item.category === "personalItem");
     expect(personalItem?.amount).toEqual(2);

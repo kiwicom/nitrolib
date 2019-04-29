@@ -1,14 +1,14 @@
 // @flow strict
 import * as R from "ramda";
 
-import type { DefinitionWithId } from "../../../records/Baggage";
+import type { Definition } from "../../../records/Baggage";
 
-export default function groupDefinitions(definitions: DefinitionWithId[]) {
+export default function groupDefinitions(definitions: Definition[]) {
   const groupedDefinitions = definitions.reduce((acc, def) => {
-    if (acc[def.id]) {
-      acc[def.id].amount += 1;
+    if (acc[def.index]) {
+      acc[def.index].amount += 1;
     } else {
-      acc[def.id] = {
+      acc[def.index] = {
         amount: 1,
         ...def,
       };

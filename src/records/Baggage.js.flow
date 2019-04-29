@@ -21,13 +21,12 @@ export type Conditions = {
   passengerGroups: PassengerGroup[],
 };
 export type Definition = {|
+  index: number,
   category: BaggageSubCategory,
   price: PriceType,
   restrictions: Restrictions,
   conditions: Conditions,
 |};
-
-export type DefinitionWithId = {| ...Definition, id: number |};
 
 export type TileDefinition = {|
   ...Definition,

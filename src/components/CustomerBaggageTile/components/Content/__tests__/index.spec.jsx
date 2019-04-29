@@ -7,6 +7,7 @@ import Content from "../index";
 const props = {
   definitions: [
     {
+      index: 0,
       conditions: {
         passengerGroups: ["adult"],
       },
@@ -28,6 +29,7 @@ const props = {
       },
     },
     {
+      index: 1,
       conditions: {
         passengerGroups: ["adult"],
       },

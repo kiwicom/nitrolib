@@ -40,7 +40,7 @@ const passengers = [
 
 const definitions = [
   {
-    id: 1,
+    index: 0,
     conditions: {
       passengerGroups: ["adult"],
     },
@@ -62,7 +62,7 @@ const definitions = [
     },
   },
   {
-    id: 1,
+    index: 0,
     conditions: {
       passengerGroups: ["adult"],
     },
@@ -84,7 +84,7 @@ const definitions = [
     },
   },
   {
-    id: 2,
+    index: 2,
     conditions: {
       passengerGroups: ["adult"],
     },

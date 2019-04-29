@@ -433,12 +433,12 @@ import BaggageOverview from "@kiwicom/nitro/lib/components/BaggageOverview";
 ```js
 FAQLinksHandlerType,
   DefinitionWithPassenger,
-  DefinitionWithId,
+  Definition,
   OverviewContextType,
 } from "../../records/Baggage";
 
 type Props = {|
-  definitions?: DefinitionWithId[],
+  definitions?: Definition[],
   definitionsWithPassengers?: DefinitionWithPassenger[],
   FAQLinksHandler?: FAQLinksHandlerType,
   context: OverviewContextType,
