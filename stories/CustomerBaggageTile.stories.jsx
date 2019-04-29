@@ -16,7 +16,7 @@ const props = {
   isProcessing: false,
   current: { handBag: 1, holdBag: 1 },
   selected: { handBag: 3, holdBag: 4 },
-  onClick: () => console.log("clicked"), // eslint-disable-line
+  onClick: () => {},
   baggage: baggageData,
 };
 

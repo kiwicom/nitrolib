@@ -35,13 +35,11 @@ const passengerCategoryOptions = {
 };
 
 const props = {
-  changeBagCombination: (type, index) => {
-    console.log(type, index); // eslint-disable-line
-  },
+  changeBagCombination: () => {},
   baggage: baggageData,
   airlines,
   context: "booking",
-  prioBoardingLinkHandler: airlines => console.log("prioAirlines", airlines), // eslint-disable-line
+  prioBoardingLinkHandler: () => {},
 };
 
 storiesOf("BaggagePicker", module)

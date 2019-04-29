@@ -115,7 +115,7 @@ const propsWithCombinations = {
 
 const propsWithDefinitions = {
   definitions,
-  FAQLinksHandler: category => console.log("clicked on", category), // eslint-disable-line
+  FAQLinksHandler: category => category,
   context: "MMB-PassengerCard",
 };
 

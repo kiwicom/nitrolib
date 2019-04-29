@@ -566,16 +566,16 @@ import BaggagePicker from "@kiwicom/nitro/lib/components/BaggagePicker";
 **Types:**
 ```js
 type Props = {|
-  changeBagCombination: (BaggageCategory, number) => void,
+  changeBagCombination: (picker: BaggageCategory, item: number) => void,
   passengerCategory: PassengerGroup,
   passengerBaggage: { handBag: number, holdBag: number },
   baggage: BaggageType,
-  shouldShowRecheckNote: boolean,
+  shouldShowRecheckNote?: boolean,
   airlines: { [string]: Airline },
   pickerType: BaggageCategory,
   context: "booking" | "mmb",
   currentCombination?: number,
-  prioBoardingLinkHandler: (Airline[]) => void,
+  prioBoardingLinkHandler?: (arg: Airline[]) => void,
 |};
 ```
 

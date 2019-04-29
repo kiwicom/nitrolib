@@ -6,6 +6,7 @@ import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import styled from "styled-components";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
 import Hide from "@kiwicom/orbit-components/lib/Hide";
+import { rtlSpacing } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import Translate from "../../../Translate";
 import type {
@@ -27,7 +28,7 @@ const CenteringFixWrapper = styled.div`
   }
   ,
   > svg {
-    margin-left: 2px;
+    margin: ${rtlSpacing(`0px 0px 0px 2px`)};
   }
 `;
 
