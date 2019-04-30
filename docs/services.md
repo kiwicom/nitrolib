@@ -293,8 +293,83 @@ Just utility objects to be used in the `headers` option when using `fetch`.
 
 ## Input
 
-_TODO_
+Functions related to normalization, validation and manipulation of input values.
 
+### ComposeValidator
+
+**Import:**
+```js
+import * as composeValidator from "@kiwicom/nitro/lib/services/input/composeValidator";
+```
+
+**Types:**
+```js
+export type Validator = (value: any) => string;
+```
+
+Composes multiple validators into a single validator that returns the first error encountered.
+
+### EmailCorrector
+
+**Import:**
+```js
+import * as emailCorrector from "@kiwicom/nitro/lib/services/input/emailCorrector";
+```
+
+**Types:**
+```js
+```
+
+Tries to correct an email, giving you a recommended one back.
+
+### Normalizers
+
+**Import:**
+```js
+import * as normalizers from "@kiwicom/nitro/lib/services/input/normalizers";
+```
+
+**Types:**
+```js
+declare export var email: (value: string) => string;
+
+declare export var numbers: (val: string) => string;
+```
+
+
+
+### Validators
+
+**Import:**
+```js
+import * as validators from "@kiwicom/nitro/lib/services/input/validators";
+```
+
+**Types:**
+```js
+export type Error = string; // "" means no error
+
+declare export var required: (val: mixed) => Error;
+
+declare export var email: (val: string) => Error;
+
+export type YearAfterOpts = {|
+  offset: number,
+  now: Date,
+|};
+
+declare export var yearAfter: (arg: YearAfterOpts) => (val: Date) => Error;
+
+declare export var iata: (val: string) => Error;
+
+declare export var departure: (val: Date, now?: Date) => Error;
+
+declare export var password: (value: string) => Error;
+```
+
+Validators return error _translation keys_ for wrong inputs.
+
+> Error is always a `string`, an empty string means no error.
 
 ## Intl
 

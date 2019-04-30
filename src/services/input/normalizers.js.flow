@@ -1,0 +1,4 @@
+// @flow strict
+declare export var email: (value: string) => string;
+
+declare export var numbers: (val: string) => string;

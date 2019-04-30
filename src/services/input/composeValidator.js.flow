@@ -1,0 +1,4 @@
+// @flow strict
+export type Validator = (value: any) => string;
+
+declare export default (...validators: Validator[]) => Validator;
