@@ -457,6 +457,28 @@ const localeFn = LOCALES[ID] || LOCALES.enUS; // Fallback to 'en-US'
 </InitIntl>
 ```
 
+### Translate
+
+**Import:**
+```js
+import * as translate from "@kiwicom/nitro/lib/services/intl/translate";
+```
+
+**Types:**
+```js
+export type Values = { [key: string]: string | number };
+export type Translate = (key: string, values?: Values) => string;
+export type Translations = { [key: string]: string };
+
+declare export default function translate(
+  translations: Translations,
+  key: string,
+  values?: Values,
+): string;
+```
+
+
+
 ## Log
 
 _TODO_
