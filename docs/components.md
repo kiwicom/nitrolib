@@ -53,6 +53,8 @@ import CookiesConsent from "@kiwicom/nitro/lib/components/CookiesConsent";
 type Props = {|
   onAccept: () => void,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=CookiesConsent).
@@ -83,6 +85,8 @@ type Props = {|
   native?: boolean,
   loading?: React.Node,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -118,6 +122,8 @@ type Props = {|
   min: Date,
   max: Date,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=DatePicker).
@@ -138,6 +144,8 @@ import Footer from "@kiwicom/nitro/lib/components/Footer";
 **Types:**
 ```js
 type Props = {||};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Footer).
@@ -174,6 +182,8 @@ type Props = {|
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO DI actual API call
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -202,6 +212,8 @@ type Props = {|
   // defaulted
   environment?: Environment,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -229,6 +241,8 @@ type Props = {|
   onSignIn: (user: AuthUser) => void,
   onSocialLogin: (provider: SocialProvider) => Promise<void>,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -351,6 +365,8 @@ type Props = {|
   debug?: React.Node, // null
   inverted?: boolean, // false
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -390,6 +406,8 @@ type Props = {|
   onClick: () => void,
   children: React.Node,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=SideBar).
@@ -415,6 +433,8 @@ type Props = {|
   onLearnMoreClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers redirection to learn more article
   onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers modal with alternative trips
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=BookingSavingsBanner).
@@ -445,6 +465,8 @@ type Props = {|
   html?: boolean,
   transform?: (value: string) => string,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Button).
@@ -471,6 +493,8 @@ type Props = {|
   // defaulted
   active?: boolean, // true
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=ClickOutside).
@@ -500,6 +524,8 @@ type Props = {|
   // defaulted
   loader?: React.Node, // null
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=ClientOnly).
@@ -533,6 +559,8 @@ type Props = {|
   // defaulted
   closeKey?: string, // Escape
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=CloseByKey).
@@ -553,6 +581,8 @@ type Props = {|
   // defaulted
   display?: "block" | "inline" | "inline-block" | "flex", // block
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Desktop).
@@ -616,6 +646,8 @@ type Props = {|
   onSignOut: () => void,
   children: (arg: Arg) => React.Node,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -664,6 +696,8 @@ type Props = {|
   getCurrencies?: () => Promise<Currencies>,
   getGeoCountry?: (ip: string) => Promise<string>,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -688,6 +722,8 @@ type Props = {|
   // defaulted
   getLocale?: Promise<$FlowFixMe>, // resolves en-US by default
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -758,6 +794,8 @@ type Props = {|
   onLog: (ev: EventPayload, globals: Globals) => void,
   children: (ctx: Context) => React.Node,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -810,6 +848,8 @@ import InitSession from "@kiwicom/nitro/lib/components/InitSession";
 type Props = {|
   children: (session: Session) => React.Node,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -831,6 +871,8 @@ type Props = {|
   // defaulted
   display?: "block" | "inline" | "inline-block" | "flex", // block
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Mobile).
@@ -861,6 +903,8 @@ import Price from "@kiwicom/nitro/lib/components/Price";
 type Props = {|
   value: number,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Price).
@@ -900,6 +944,8 @@ type Props = {|
   html?: boolean,
   transform?: (value: string) => string,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Text).
@@ -926,6 +972,8 @@ type Props = {|
   values: { [key: string]: React.Node },
   transform?: (value: string) => string,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=TextNode).
@@ -956,6 +1004,8 @@ type Props = {|
   // defaulted
   initial?: boolean, // false
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Toggle).
@@ -992,6 +1042,8 @@ type Props = {|
   html?: boolean, // false
   transform?: (value: string) => string, // identity
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Translate).
@@ -1027,6 +1079,8 @@ type Props = {|
   // defaulted
   transform?: (value: string) => string, // identity
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=TranslateNode).
@@ -1069,6 +1123,8 @@ type Props = {|
   // defaulted
   initial?: string, // ""
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Value).
@@ -1116,6 +1172,8 @@ type Props = {|
   onChange: (value: string) => void,
   children: (data: Data) => React.Node,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=ValueBind).

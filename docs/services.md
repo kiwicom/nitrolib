@@ -305,6 +305,8 @@ import * as composeValidator from "@kiwicom/nitro/lib/services/input/composeVali
 **Types:**
 ```js
 export type Validator = (value: any) => string;
+
+declare export default (...validators: Validator[]) => Validator;
 ```
 
 Composes multiple validators into a single validator that returns the first error encountered.
@@ -318,6 +320,7 @@ import * as emailCorrector from "@kiwicom/nitro/lib/services/input/emailCorrecto
 
 **Types:**
 ```js
+declare export default (email: string) => string;
 ```
 
 Tries to correct an email, giving you a recommended one back.

@@ -145,7 +145,6 @@ function getFlowFile(file) {
     .split("\n")
     .filter(line => !line.match(/^\/\/ @flow/)) // remove initial Flow comment
     .filter(line => !line.match(/^import/)) // remove imports
-    .filter(line => !line.match(/^declare export default/)) // remove exports
     .join("\n")
     .trim(); // trim that shit
 
