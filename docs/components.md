@@ -16,11 +16,15 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 
 **Utilities:**
 
+* [BaggageOverview](#baggageoverview)
+* [BaggagePaymentSummary](#baggagepaymentsummary)
+* [BaggagePicker](#baggagepicker)
 * [BookingSavingsBanner](#bookingsavingsbanner)
 * [Button](#button)
 * [ClickOutside](#clickoutside)
 * [ClientOnly](#clientonly)
 * [CloseByKey](#closebykey)
+* [CustomerBaggageTile](#customerbaggagetile)
 * [Desktop](#desktop)
 * [InitAuth](#initauth)
 * [InitCurrency](#initcurrency)
@@ -418,6 +422,213 @@ A container for a sidebar sliding from the _right_ (_left_ in RTL). It is append
 
 Things that help in development.
 
+### BaggageOverview
+
+**Import:**
+```js
+import BaggageOverview from "@kiwicom/nitro/lib/components/BaggageOverview";
+```
+
+**Types:**
+```js
+FAQLinksHandlerType,
+  DefinitionWithPassenger,
+  Definition,
+  OverviewContextType,
+} from "../../records/Baggage";
+
+type Props = {|
+  definitions?: Definition[],
+  definitionsWithPassengers?: DefinitionWithPassenger[],
+  FAQLinksHandler?: FAQLinksHandlerType,
+  context: OverviewContextType,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=BaggageOverview).
+
+**Context needs:**
+* [intl](./services#intl)
+
+**Selectors `data-test`:**
+* ```"BaggageOverview-BaggageItem-Passengers"```
+* ```"BaggageOverview-NoPersonalItem"```
+* ```{`BaggageOverview-${context}`}```
+* ```{`BaggageOverview-BaggageItem-${category}`}```
+
+- renders baggage overview
+- depending on props can be used as standalone component or wrapped in [Container ](`./components/Container`)
+
+**Example:**
+
+standalone
+
+```js
+<BaggageOverview
+  definitions={definitions}
+  FAQLinksHandler={category => {}}
+  context="MMB-PassengerCard"
+/>
+```
+
+wrapped in Container
+
+```js
+<Container
+  passengers={[
+    {
+      paxId: 3,
+      firstName: "George",
+      lastName: "Bush",
+      baggage: {
+        holdBag: 0,
+        handBag: 1
+      }
+    }
+  ]}
+  baggage={baggageData}
+  context="booking"
+>
+  {({ props }) => <BaggageOverview {...props} />}
+</Container>
+```
+
+### BaggagePaymentSummary
+
+**Import:**
+```js
+import BaggagePaymentSummary from "@kiwicom/nitro/lib/components/BaggagePaymentSummary";
+```
+
+**Types:**
+```js
+type Passenger = {|
+  paxId: number,
+  firstName: string,
+  lastName: string,
+  baggage: {
+    holdBag: number,
+    handBag: number,
+  },
+|};
+
+type Props = {|
+  passengers: Passenger[],
+  baggage: BaggageType,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+See types:
+* [Baggage](./records#baggage)
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=BaggagePaymentSummary).
+
+**Context needs:**
+* [currency](./services#currency)
+* [intl](./services#intl)
+
+**Selectors `data-test`:**
+* ```"BaggagePaymentSummary"```
+* ```"BaggagePaymentSummary-TotalPayment"```
+* ```{`BaggagePaymentSummary-PassengerBaggages-${paxId}-Price`}```
+* ```{`BaggagePaymentSummary-PassengerBaggages-${paxId}`}```
+
+- renders baggage payment summary
+- renders baggages per passenger with price per passenger
+- renders summary price for all baggages in itinerary
+
+**Example:**
+
+```js
+<BaggagePaymentSummary
+  passengers={[
+    {
+      paxId: 1,
+      firstName: "Vaclav",
+      lastName: "Havel",
+      baggage: {
+        holdBag: 1,
+        handBag: 1
+      }
+    }
+  ]}
+  baggage={baggageData}
+/>
+```
+
+### BaggagePicker
+
+**Import:**
+```js
+import BaggagePicker from "@kiwicom/nitro/lib/components/BaggagePicker";
+```
+
+**Types:**
+```js
+type Props = {|
+  changeBagCombination: (picker: BaggageCategory, item: number) => void,
+  passengerCategory: PassengerGroup,
+  passengerBaggage: { handBag: number, holdBag: number },
+  baggage: BaggageType,
+  shouldShowRecheckNote?: boolean,
+  airlines: { [string]: Airline },
+  pickerType: BaggageCategory,
+  context: "booking" | "mmb",
+  currentCombination?: number,
+  prioBoardingLinkHandler?: (arg: Airline[]) => void,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+See types:
+* [Baggage](./records#baggage)
+* [Airline](./records#airline)
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=BaggagePicker).
+
+**Context needs:**
+* [currency](./services#currency)
+* [intl](./services#intl)
+
+**Selectors `data-test`:**
+* ```"BaggagePicker-EmptyLabel"```
+* ```"BaggagePicker-EmptyOption"```
+* ```"BaggagePicker-NoPersonalItemLabel"```
+* ```"BaggagePicker-OptionItem-Current"```
+* ```"BaggagePicker-OptionItem-Price"```
+* ```"BaggagePicker-PriorityBoardingInfo"```
+* ```"BaggagePicker-RecheckAlert"```
+* ```"BaggagePicker-ShowButton"```
+* ```{`BaggagePicker-${pickerType}`}```
+* ```{`BaggagePicker-Option-${index}`}```
+* ```{`BaggagePicker-OptionItem-${category}`}```
+
+- renders baggage picker
+
+**Example:**
+
+```js
+<BaggagePicker
+  airlines={airlines}
+  baggage={baggageData}
+  context="context"
+  changeBagCombination={(type, index) => {}}
+  passengerBaggage={{
+    handBag: 1,
+    holdBag: 1
+  }}
+  passengerCategory="adult"
+  prioBoardingLinkHandler={airlines => console.log("prioAirlines", airlines)}
+  pickerType="handBag"
+  shouldShowRecheckNote={false}
+/>
+```
+
 ### BookingSavingsBanner
 
 **Import:**
@@ -566,6 +777,82 @@ declare export default React.ComponentType<Props>;
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=CloseByKey).
 
 Fires a callback whenever a user presses the close button (_Escape_ by default).
+
+### CustomerBaggageTile
+
+**Import:**
+```js
+import CustomerBaggageTile from "@kiwicom/nitro/lib/components/CustomerBaggageTile";
+```
+
+**Types:**
+```js
+type Props = {|
+  firstName: string,
+  middleName?: string,
+  lastName: string,
+  gender: Gender,
+  dayOfBirth?: string,
+  isProcessing: boolean,
+  current?: {
+    handBag: number,
+    holdBag: number,
+  },
+  selected?: {
+    handBag: number,
+    holdBag: number,
+  },
+  newDefinitions?: Definition[],
+  onClick?: () => void,
+  baggage: BaggageType,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+See types:
+* [Baggage](./records#baggage)
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=CustomerBaggageTile).
+
+**Context needs:**
+* [currency](./services#currency)
+
+**Selectors `data-test`:**
+* ```"CustomerBaggageTile-BaggageItem"```
+* ```"CustomerBaggageTile-ContactUsText"```
+* ```"CustomerBaggageTile-Content"```
+* ```"CustomerBaggageTile-Title"```
+* ```{`CustomerBaggageTile-Badge-${status}`}```
+* ```{`CustomerBaggageTile-Badge-${status}`}```
+* ```{`CustomerBaggageTile-Badge-${status}`}```
+
+- renders baggage tile for customer
+- component should be used in baggage ordering process
+- component has features:
+  - order statuses
+  - differ newly selected baggages from current
+
+**Example:**
+
+```js
+<CustomerBaggageTile
+  firstName="Vaclav"
+  lastName="Havel"
+  gender="male"
+  isProcessing={false},
+  current={{
+    handBag: 1,
+    holdBag: 1,
+  }}
+  selected={{
+    handBag: 2,
+    holdBag: 2,
+  }}
+  onClick={ () => {}}
+  baggage={baggageData}
+/>
+```
 
 ### Desktop
 
