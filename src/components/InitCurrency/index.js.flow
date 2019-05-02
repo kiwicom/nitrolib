@@ -2,7 +2,7 @@
 import * as React from "react";
 
 import type { Brand } from "../../records/Brand";
-import type { Currencies, Currency } from "../../records/Currency";
+import type { Currencies, FetchedCurrencies, Currency } from "../../records/Currency";
 import type { Countries } from "../../records/Country";
 
 type Arg = {|
@@ -24,7 +24,7 @@ type Props = {|
   // defaulted
   mostUsed?: string[],
   // DI
-  getCurrencies?: () => Promise<Currencies>,
+  getCurrencies?: () => Promise<FetchedCurrencies>,
   getGeoCountry?: (ip: string) => Promise<string>,
 |};
 

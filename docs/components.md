@@ -693,7 +693,7 @@ type Props = {|
   // defaulted
   mostUsed?: string[],
   // DI
-  getCurrencies?: () => Promise<Currencies>,
+  getCurrencies?: () => Promise<FetchedCurrencies>,
   getGeoCountry?: (ip: string) => Promise<string>,
 |};
 
