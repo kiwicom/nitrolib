@@ -12,7 +12,7 @@ import getGeoCountryCall from "./services/getGeoCountry";
 import getCurrenciesCall from "./services/getCurrencies";
 import getCandidate from "./services/getCandidate";
 import getRecommended from "./services/getRecommended";
-import rewriteCurrencies from "./services/rewriteCurrencies";
+import rewriteCurrencies from "../../services/currency/services/rewriteCurrencies";
 
 type Arg = {|
   currency: Currency,
