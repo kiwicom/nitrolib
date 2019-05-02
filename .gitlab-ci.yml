@@ -58,6 +58,11 @@ flow:
   script:
     - yarn flow check
 
+keys:
+  stage: build
+  script:
+    - yarn keys-check
+
 docs:
   stage: build
   script:
