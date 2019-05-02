@@ -1,0 +1,24 @@
+// @flow strict
+import type { BaggageType, Gender, Definition } from "../../records/Baggage";
+
+type Props = {|
+  firstName: string,
+  middleName?: string,
+  lastName: string,
+  gender: Gender,
+  dayOfBirth?: string,
+  isProcessing: boolean,
+  current?: {
+    handBag: number,
+    holdBag: number,
+  },
+  selected?: {
+    handBag: number,
+    holdBag: number,
+  },
+  newDefinitions?: Definition[],
+  onClick?: () => void,
+  baggage: BaggageType,
+|};
+
+declare export default React.ComponentType<Props>;
