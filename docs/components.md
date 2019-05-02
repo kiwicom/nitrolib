@@ -443,6 +443,8 @@ type Props = {|
   FAQLinksHandler?: FAQLinksHandlerType,
   context: OverviewContextType,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=BaggageOverview).
@@ -516,6 +518,8 @@ type Props = {|
   passengers: Passenger[],
   baggage: BaggageType,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -577,6 +581,8 @@ type Props = {|
   currentCombination?: number,
   prioBoardingLinkHandler?: (arg: Airline[]) => void,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -800,6 +806,8 @@ type Props = {|
   onClick?: () => void,
   baggage: BaggageType,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
