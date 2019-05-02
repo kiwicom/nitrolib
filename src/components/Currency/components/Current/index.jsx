@@ -42,7 +42,7 @@ const Current = ({ current, inverted }: Props) => (
   <Wrapper inverted={inverted} data-test="Currency-Open">
     <Code>{getCode(current.id)}</Code>
     <Separator>-</Separator>
-    <Sign>{getSymbol(current.format)}</Sign>
+    <Sign>{getSymbol(current.format.format)}</Sign>
   </Wrapper>
 );
 

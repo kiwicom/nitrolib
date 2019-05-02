@@ -4,8 +4,9 @@ import { shallow } from "enzyme";
 
 import InitCurrency from "../index";
 import { brandDefault } from "../../../records/Brand";
+import currencies from "../../../records/__mocks__/Currencies";
 
-const currencies = {
+const fetchedCurrencies = {
   eur: {
     id: "eur",
     name: "Euro",
@@ -22,20 +23,26 @@ const currencies = {
     format: "£__price__",
     uncertainFormat: false,
     round: "2",
-    enabledOnAffilId: ["UK"],
+    enabledOnAffilId: ["uk"],
     fallback: "",
     rate: 1.14355,
   },
   czk: {
     id: "czk",
-    name: "Czech Republic Koruna",
+    name: "Koruna",
     format: "__price__ Kč",
     uncertainFormat: false,
-    round: "0",
+    round: "2",
     enabledOnAffilId: "",
     fallback: "",
-    rate: 0.0387945,
+    rate: 0.3,
   },
+};
+
+const changedCurrencies = {
+  eur: { ...currencies.eur },
+  gbp: { ...currencies.gbp },
+  czk: { ...currencies.czk },
 };
 
 const countries = {
@@ -151,11 +158,12 @@ describe("#InitCurrency", () => {
   });
 
   test("mount", async () => {
-    const currenciesPromise = Promise.resolve(currencies);
+    const currenciesPromise = Promise.resolve(fetchedCurrencies);
     const countryPromise = Promise.resolve("sk");
 
     const getCurrencies = jest.fn().mockImplementation(() => currenciesPromise);
     const getGeoCountry = jest.fn().mockImplementation(() => countryPromise);
+
     const wrapper = shallow(
       <InitCurrency
         countries={countries}
@@ -175,18 +183,19 @@ describe("#InitCurrency", () => {
     expect(getCurrencies).toBeCalled();
     expect(getGeoCountry).toBeCalledWith("1.2.3.4");
 
-    await Promise.all([currenciesPromise, countryPromise]);
+    await wrapper.instance().loadData();
 
-    expect(wrapper.state("all")).toBe(currencies);
+    expect(wrapper.state("all")).toEqual(changedCurrencies);
     expect(wrapper.state("country")).toBe("sk");
   });
 
   test("update", async () => {
-    const currenciesPromise = Promise.resolve(currencies);
+    const currenciesPromise = Promise.resolve(fetchedCurrencies);
     const countryPromise = Promise.resolve("sk");
 
     const getCurrencies = jest.fn().mockImplementation(() => currenciesPromise);
     const getGeoCountry = jest.fn().mockImplementation(() => countryPromise);
+
     const wrapper = shallow(
       <InitCurrency
         countries={countries}
@@ -205,9 +214,9 @@ describe("#InitCurrency", () => {
 
     wrapper.setState({ all: {}, country: "" });
 
-    await Promise.all([currenciesPromise, countryPromise]);
+    await wrapper.instance().loadData();
 
-    expect(wrapper.state("all")).toBe(currencies);
+    expect(wrapper.state("all")).toEqual(changedCurrencies);
     expect(wrapper.state("country")).toBe("sk");
   });
 

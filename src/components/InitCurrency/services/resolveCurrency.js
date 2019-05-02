@@ -9,8 +9,8 @@ function resolveCurrency(all: Currencies, available: Currencies, candidate: stri
     return available[candidate];
   }
 
-  if (all[candidate] && available[all[candidate].fallback]) {
-    return available[all[candidate].fallback];
+  if (all[candidate] && all[candidate].fallback && available[all[candidate].fallback.id]) {
+    return available[all[candidate].fallback.id];
   }
 
   if (available[currencyDefault.id]) {

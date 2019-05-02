@@ -24,7 +24,7 @@ type Props = {|
 const Item = ({ item }: Props) => (
   <>
     <Code>{getCode(item.id)}</Code>
-    <Sign>{getSymbol(item.format)}</Sign>
+    <Sign>{getSymbol(item.format.format)}</Sign>
     <NameSeparator>-</NameSeparator>
     <Name>{item.name}</Name>
   </>

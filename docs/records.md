@@ -687,15 +687,33 @@ import type { Currency } from "@kiwicom/nitro/lib/records/Currency";
 
 **Types:**
 ```js
+type CurrencyFormat = {|
+  format: string,
+  precision: number,
+  isUncertain: boolean,
+|};
+
+export type FetchedCurrency = {|
+  enabledOnAffilId: string | string[],
+  fallback: string,
+  format: string,
+  id: string,
+  name: string,
+  rate: number,
+  round: string,
+  uncertainFormat: boolean,
+|};
+
+export type FetchedCurrencies = { [key: string]: FetchedCurrency };
+
 export type Currency = {|
   id: string,
   name: string,
-  format: string,
-  uncertainFormat: boolean,
-  round: string, // number string
+  code: string,
+  format: CurrencyFormat,
+  fallback: Currency | null,
   enabledOnAffilId: string | string[],
-  fallback: string,
-  rate: number,
+  rate: string,
 |};
 
 export type Currencies = {

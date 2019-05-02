@@ -1,15 +1,33 @@
 // @flow strict
 import * as R from "ramda";
 
+type CurrencyFormat = {|
+  format: string,
+  precision: number,
+  isUncertain: boolean,
+|};
+
+export type FetchedCurrency = {|
+  enabledOnAffilId: string | string[],
+  fallback: string,
+  format: string,
+  id: string,
+  name: string,
+  rate: number,
+  round: string,
+  uncertainFormat: boolean,
+|};
+
+export type FetchedCurrencies = { [key: string]: FetchedCurrency };
+
 export type Currency = {|
   id: string,
   name: string,
-  format: string,
-  uncertainFormat: boolean,
-  round: string, // number string
+  code: string,
+  format: CurrencyFormat,
+  fallback: Currency | null,
   enabledOnAffilId: string | string[],
-  fallback: string,
-  rate: number,
+  rate: string,
 |};
 
 export type Currencies = {
@@ -21,13 +39,13 @@ export const getCode = (code: string): string => code.toUpperCase();
 export const getSymbol = (format: string): string => format.replace("__price__", "").trim();
 
 export const convert = (currency: Currency, eur: number): number => {
-  const amount = eur / currency.rate;
+  const amount = eur / Number(currency.rate);
 
-  return Number(amount.toFixed(Number(currency.round)));
+  return Number(amount.toFixed(Number(currency.format.precision)));
 };
 
 export const format = (currency: Currency, price: number): string =>
-  currency.format.replace("__price__", String(convert(currency, price)));
+  currency.format.format.replace("__price__", String(convert(currency, price)));
 
 export const getAvailableList: Currencies => Currency[] = R.compose(
   R.sortBy(R.prop("id")),
@@ -37,12 +55,15 @@ export const getAvailableList: Currencies => Currency[] = R.compose(
 export const currencyDefault: Currency = {
   id: "eur",
   name: "Euro",
-  format: "__price__ €",
-  uncertainFormat: false,
-  round: "2",
+  code: "EUR",
+  format: {
+    format: "__price__ €",
+    precision: 2,
+    isUncertain: false,
+  },
+  fallback: null,
   enabledOnAffilId: "",
-  fallback: "",
-  rate: 1,
+  rate: "1",
 };
 
 export const MOST_USED_CURRENCIES = ["usd", "eur", "gbp", "aud", "sek", "dkk"];

@@ -1,101 +1,28 @@
 // @flow strict
 import { currencyDefault } from "../../../../records/Currency";
 import resolveCurrency from "../resolveCurrency";
-
-const all = {
-  // available 1
-  dkk: {
-    id: "dkk",
-    name: "Danish Krone",
-    format: "__price__ kr",
-    uncertainFormat: true,
-    round: "0",
-    enabledOnAffilId: "",
-    fallback: "",
-    rate: 0.13434,
-  },
-  // available 2
-  gbp: {
-    id: "gbp",
-    name: "British Pound Sterling",
-    format: "£__price__",
-    uncertainFormat: false,
-    round: "2",
-    enabledOnAffilId: "",
-    fallback: "",
-    rate: 1.14355,
-  },
-  // available, default
-  eur: {
-    id: "eur",
-    name: "Euro",
-    format: "__price__ €",
-    uncertainFormat: false,
-    round: "2",
-    enabledOnAffilId: "",
-    fallback: "",
-    rate: 1,
-  },
-  // not available, available fallback
-  hkd: {
-    id: "hkd",
-    name: "Hong Kong dollar",
-    format: "HK$__price__",
-    uncertainFormat: false,
-    round: "0",
-    enabledOnAffilId: "AFFIL",
-    fallback: "gbp",
-    rate: 0.109077,
-  },
-};
+import currencies from "../../../../records/__mocks__/Currencies";
 
 const available = {
-  dkk: {
-    id: "dkk",
-    name: "Danish Krone",
-    format: "__price__ kr",
-    uncertainFormat: true,
-    round: "0",
-    enabledOnAffilId: "",
-    fallback: "",
-    rate: 0.13434,
-  },
-  gbp: {
-    id: "gbp",
-    name: "British Pound Sterling",
-    format: "£__price__",
-    uncertainFormat: false,
-    round: "2",
-    enabledOnAffilId: "",
-    fallback: "",
-    rate: 1.14355,
-  },
-  eur: {
-    id: "eur",
-    name: "Euro",
-    format: "__price__ €",
-    uncertainFormat: false,
-    round: "2",
-    enabledOnAffilId: "",
-    fallback: "",
-    rate: 1,
-  },
+  dkk: { ...currencies.dkk },
+  gbp: { ...currencies.gbp },
+  eur: { ...currencies.eur },
 };
 
 describe("#resolveCurrency", () => {
   test("candidate", () => {
-    expect(resolveCurrency(all, available, "dkk")).toEqual(all.dkk);
+    expect(resolveCurrency(currencies, available, "dkk")).toEqual(currencies.dkk);
   });
 
   test("fallback", () => {
-    expect(resolveCurrency(all, available, "hkd")).toEqual(all.gbp);
+    expect(resolveCurrency(currencies, available, "hkd")).toEqual(currencies.gbp);
   });
 
   test("default", () => {
-    expect(resolveCurrency(all, available, "")).toEqual(currencyDefault);
+    expect(resolveCurrency(currencies, available, "")).toEqual(currencyDefault);
   });
 
   test("first available", () => {
-    expect(resolveCurrency(all, { dkk: available.dkk }, "")).toEqual(available.dkk);
+    expect(resolveCurrency(currencies, { dkk: available.dkk }, "")).toEqual(available.dkk);
   });
 });
