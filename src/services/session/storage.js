@@ -19,7 +19,11 @@ export const save = (key: Storage, value: string) => {
 
 export const remove = (key: Storage) => {
   if (available()) {
-    window.localStorage.removeItem(key);
+    try {
+      window.localStorage.removeItem(key);
+    } catch (e) {
+      // Pass
+    }
   }
 };
 
