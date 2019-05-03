@@ -18,8 +18,10 @@ export const save = (key: Storage, value: string) => {
 };
 
 export const remove = (key: Storage) => {
-  if (available()) {
+  try {
     window.localStorage.removeItem(key);
+  } catch (e) {
+    // Ignore
   }
 };
 
