@@ -1,8 +1,8 @@
 // @flow strict
 import type { Storage } from "../../consts/storage";
 
-const available = () => "localStorage" in window;
-const availableSession = () => "sessionStorage" in window;
+const available = () => "localStorage" in window && window.localStorage;
+const availableSession = () => "sessionStorage" in window && window.sessionStorage;
 
 export const load = (key: Storage): ?string =>
   available() ? window.localStorage.getItem(key) : null;
@@ -19,11 +19,7 @@ export const save = (key: Storage, value: string) => {
 
 export const remove = (key: Storage) => {
   if (available()) {
-    try {
-      window.localStorage.removeItem(key);
-    } catch (e) {
-      // Pass
-    }
+    window.localStorage.removeItem(key);
   }
 };
 
