@@ -11,7 +11,6 @@ import Desktop from "../Desktop";
 import Mobile from "../Mobile";
 import type { ThemeProps } from "../../records/Theme";
 import { themeDefault } from "../../records/Theme";
-import Flex from "../../primitives/Flex";
 import Language from "../Language";
 import { Consumer as BrandConsumer } from "../../services/brand/context";
 import Help from "./components/Help";
@@ -27,8 +26,9 @@ type Inverted = {|
   inverted: boolean,
 |};
 
-const Container = styled(Flex)`
+const Container = styled.div`
   width: 100%;
+  display: flex;
   position: relative;
   height: ${navbar.height}px;
   background-color: ${({ theme, inverted }: Inverted) =>
@@ -80,47 +80,49 @@ const NavBar = ({
   onSelectTrip,
   onLogoClick,
 }: Props) => (
-  <Container x="space-between" y="center" data-test="NavBar" inverted={inverted}>
-    <Stack flex shrink inline align="center">
-      <Logo inverted={inverted} onClick={onLogoClick} />
-      {headerLinks && (
-        <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
-      )}
-    </Stack>
-    <Stack inline align="center" justify="end" spacing="tight" tablet={{ spacing: "natural" }}>
-      <Desktop display="flex">
-        <Stack flex align="center">
-          <Language
-            positionMenuDesktop={270}
-            positionMenuTablet={5}
-            inverted={inverted}
-            onChange={onSaveLanguage}
-            onSetModal={onSetModal}
-          />
-          <Currency
-            positionMenuDesktop={270}
-            positionMenuTablet={5}
-            inverted={inverted}
-            onSetModal={onSetModal}
-          />
+  <Container inverted={inverted}>
+    <Stack justify="between" align="center" dataTest="NavBar">
+      <Stack flex shrink inline align="center">
+        <Logo inverted={inverted} onClick={onLogoClick} />
+        {headerLinks && (
+          <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
+        )}
+      </Stack>
+      <Stack inline align="center" justify="end" spacing="tight" tablet={{ spacing: "natural" }}>
+        <Desktop display="flex">
+          <Stack flex align="center">
+            <Language
+              positionMenuDesktop={270}
+              positionMenuTablet={5}
+              inverted={inverted}
+              onChange={onSaveLanguage}
+              onSetModal={onSetModal}
+            />
+            <Currency
+              positionMenuDesktop={270}
+              positionMenuTablet={5}
+              inverted={inverted}
+              onSetModal={onSetModal}
+            />
+            <Help onOpen={onOpenFaq} inverted={inverted} />
+          </Stack>
+        </Desktop>
+        <TextWrapper size="small" weight="normal">
+          {starred}
+        </TextWrapper>
+        <Mobile>
           <Help onOpen={onOpenFaq} inverted={inverted} />
-        </Stack>
-      </Desktop>
-      <TextWrapper size="small" weight="normal">
-        {starred}
-      </TextWrapper>
-      <Mobile>
-        <Help onOpen={onOpenFaq} inverted={inverted} />
-      </Mobile>
-      <Menu
-        subscription={subscription}
-        debug={debug}
-        onSetModal={onSetModal}
-        onSaveLanguage={onSaveLanguage}
-        onSelectTrip={onSelectTrip}
-        inverted={inverted}
-        portal={portal}
-      />
+        </Mobile>
+        <Menu
+          subscription={subscription}
+          debug={debug}
+          onSetModal={onSetModal}
+          onSaveLanguage={onSaveLanguage}
+          onSelectTrip={onSelectTrip}
+          inverted={inverted}
+          portal={portal}
+        />
+      </Stack>
     </Stack>
   </Container>
 );

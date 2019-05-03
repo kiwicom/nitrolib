@@ -6,7 +6,7 @@ import Button from "@kiwicom/orbit-components/lib/Button";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
-import Security from "@kiwicom/orbit-components/lib/icons/Security";
+import Lock from "@kiwicom/orbit-components/lib/icons/Lock";
 import User from "@kiwicom/orbit-components/lib/icons/Passenger";
 
 import Query from "../../../Query/index";
@@ -226,7 +226,7 @@ export default class Register extends React.PureComponent<Props, State> {
           />
         </FieldWrap>
         <FieldWrap>
-          <IconText icon={<Security color="primary" size="small" />}>
+          <IconText icon={<Lock color="primary" size="small" />}>
             <Translate t="account.password.colon" />
           </IconText>
           <InputText

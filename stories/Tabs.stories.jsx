@@ -3,14 +3,14 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, boolean } from "@storybook/addon-knobs/react";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import Container from "../src/components/Tab";
-import Flex from "../src/primitives/Flex";
 
 storiesOf("Tabs", module)
   .addDecorator(withKnobs)
   .add("basic", () => (
-    <Flex>
+    <Stack flex spacing="none">
       <Container id="tab1" active={boolean("Tab 1", false)} onClick={action("click")}>
         Tab 1
       </Container>
@@ -20,5 +20,5 @@ storiesOf("Tabs", module)
       <Container id="tab3" active={boolean("Tab 3", false)} onClick={action("click")}>
         Tab 3
       </Container>
-    </Flex>
+    </Stack>
   ));

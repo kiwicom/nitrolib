@@ -2,12 +2,12 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import ItemWrapper from "../../primitives/ItemWrapper";
 import Translate from "../../../../../Translate";
 import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
 import ButtonLink from "../../../../primitives/ButtonLink";
-import Flex from "../../../../../../primitives/Flex";
 
 type Props = {|
   children: React.Node,
@@ -27,7 +27,7 @@ const TripListBottom = ({ children }: Props) => (
       <>
         <ItemWrapper>
           <TripsBottomWrapper>{children}</TripsBottomWrapper>
-          <Flex y="center">
+          <Stack align="center" spacing="none">
             <ButtonLink
               color="primary"
               marginLeft={25}
@@ -36,7 +36,7 @@ const TripListBottom = ({ children }: Props) => (
             >
               <Translate t="account.all_trips" />
             </ButtonLink>
-          </Flex>
+          </Stack>
         </ItemWrapper>
       </>
     )}
