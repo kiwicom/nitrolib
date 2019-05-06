@@ -1,13 +1,13 @@
 // @flow
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import Logo from "..";
 
 describe("#Logo", () => {
   test("render", () => {
-    const wrapper = shallow(<Logo onClick={jest.fn()} />);
+    const wrapper = mount(<Logo onClick={jest.fn()} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Logo").exists()).toBe(true);
   });
 });

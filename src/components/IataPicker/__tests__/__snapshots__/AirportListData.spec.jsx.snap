@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`#AirportListData render error 1`] = `"<div class=\\"Alert__StyledAlert-svgppc-0 jCMjFD\\"><div class=\\"Alert__ContentWrapper-svgppc-2 gGclWN\\"><div class=\\"Alert__Content-svgppc-4 cGbCFo\\">common.api_error</div></div></div>"`;
-
-exports[`#AirportListData render loading 1`] = `null`;
-
-exports[`#AirportListData render results 1`] = `"<button class=\\"AirportResult__Container-sc-1cbq8wi-0 iktDbi\\"><div class=\\"CountryFlag__StyledCountryFlag-h98fwe-0 RxxyG\\"><img src=\\"//images.kiwi.com/flags/24x0/flag-at.jpg\\" srcset=\\"//images.kiwi.com/flags/48x0/flag-at.jpg 2x\\" class=\\"CountryFlag__StyledImage-h98fwe-1 iYSrFt\\"><div class=\\"CountryFlag__StyledShadow-h98fwe-2 cKAvsc\\"></div></div><span class=\\"AirportResult__Name-sc-1cbq8wi-1 gMohdB\\">Vienna (VIE)</span></button>"`;

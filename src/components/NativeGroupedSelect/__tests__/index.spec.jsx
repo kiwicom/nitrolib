@@ -17,7 +17,7 @@ describe("#NativeGroupedSelect", () => {
       <NativeGroupedSelect value="a" groups={[{ key: "groupA", items }]} onChange={jest.fn()} />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("NativeGroupedSelect__Container").exists()).toBe(true);
   });
 
   test("render - multiple groups", () => {
@@ -29,7 +29,26 @@ describe("#NativeGroupedSelect", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(
+      wrapper
+        .find("optgroup")
+        .at(0)
+        .exists(),
+    ).toBe(true);
+
+    expect(
+      wrapper
+        .find("optgroup")
+        .at(1)
+        .exists(),
+    ).toBe(true);
+
+    expect(
+      wrapper
+        .find("optgroup")
+        .at(2)
+        .exists(),
+    ).toBe(true);
   });
 
   test("render - skip empty groups", () => {
@@ -41,7 +60,19 @@ describe("#NativeGroupedSelect", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(
+      wrapper
+        .find("optgroup")
+        .at(0)
+        .key(),
+    ).toBe("groupA");
+
+    expect(
+      wrapper
+        .find("optgroup")
+        .at(1)
+        .key(),
+    ).toBe("groupC");
   });
 
   test("render - with icon", () => {
@@ -54,7 +85,7 @@ describe("#NativeGroupedSelect", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("NativeGroupedSelect__IconContainer").exists()).toBe(true);
   });
 
   test("render - with custom divider", () => {
@@ -67,7 +98,12 @@ describe("#NativeGroupedSelect", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(
+      wrapper
+        .find("optgroup")
+        .at(1)
+        .prop("label"),
+    ).toBe("***");
   });
 
   test("render - with hidden text", () => {
@@ -81,7 +117,7 @@ describe("#NativeGroupedSelect", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("NativeGroupedSelect__Select").prop("hideNativeText")).toBe(true);
   });
 
   test("handle change", () => {

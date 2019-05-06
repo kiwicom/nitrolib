@@ -8,6 +8,6 @@ describe("#SideNav MenuItem", () => {
   test("render", () => {
     const wrapper = shallow(<BrandedMenuItem link="lol" Icon={() => "Icon"} title="kek" />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("MenuItem").exists()).toBe(true);
   });
 });

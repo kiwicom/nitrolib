@@ -10,6 +10,6 @@ describe("#Footer", () => {
   test("render", () => {
     const wrapper = shallow(<Footer />);
 
-    expect(wrapper.prop("children")(intlDefault)).toMatchSnapshot();
+    expect(wrapper.prop("children")(intlDefault)).toBeDefined();
   });
 });

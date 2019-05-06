@@ -1,12 +1,12 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import Menu from "..";
 
 describe("#Menu", () => {
   test("render", () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <Menu
         subscription={<div>subscription</div>}
         debug={<div>debug</div>}
@@ -18,6 +18,6 @@ describe("#Menu", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Menu").exists()).toBe(true);
   });
 });

@@ -8,6 +8,6 @@ describe("#SideNav MenuGroup", () => {
   test("render", () => {
     const wrapper = shallow(<MenuGroup headerText="LOL">KEK</MenuGroup>);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("MenuGroup__Menu").exists()).toBe(true);
   });
 });

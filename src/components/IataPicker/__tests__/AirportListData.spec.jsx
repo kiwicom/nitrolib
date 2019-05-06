@@ -39,7 +39,7 @@ describe("#AirportListData", () => {
 
     await promise.catch(() => null);
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.find("ReactRelayQueryRenderer").exists()).toBe(true);
   });
 
   test("render loading", () => {
@@ -50,7 +50,7 @@ describe("#AirportListData", () => {
       <AirportListData value="VIE" onSelect={jest.fn()} environment={environment} />,
     );
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.text()).toBe(null);
   });
 
   test("render results", async () => {
@@ -63,6 +63,6 @@ describe("#AirportListData", () => {
 
     await promise;
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.text()).toBe("Vienna (VIE)");
   });
 });

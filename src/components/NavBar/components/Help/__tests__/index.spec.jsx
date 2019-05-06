@@ -8,6 +8,7 @@ describe("#Help", () => {
   test("render", () => {
     const wrapper = shallow(<Help inverted={false} onOpen={jest.fn()} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Button").exists()).toBe(true);
+    expect(wrapper.find("Button").prop("data-test")).toBe("NavBar-Help");
   });
 });

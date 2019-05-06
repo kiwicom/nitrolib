@@ -20,7 +20,7 @@ describe("#SideNav", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("SideNav__MenuOpen").exists()).toBe(true);
   });
 
   test("opens when clicked", () => {

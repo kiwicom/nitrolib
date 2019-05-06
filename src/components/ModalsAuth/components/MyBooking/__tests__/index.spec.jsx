@@ -12,7 +12,7 @@ describe("#MyBooking", () => {
       <MyBooking loading={false} now={NOW} onMyBooking={jest.fn()} onChange={jest.fn()} />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("form").exists()).toBe(true);
   });
 
   test("render error", () => {
@@ -22,7 +22,7 @@ describe("#MyBooking", () => {
 
     wrapper.setState({ error: "Error! :(" });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.state("error")).toBe("Error! :(");
   });
 
   test("not handle non-existent field", () => {
@@ -32,7 +32,7 @@ describe("#MyBooking", () => {
 
     wrapper.instance().handleChange({ id: "asdf", value: "omfg" });
 
-    expect(wrapper.state()).toMatchSnapshot();
+    expect(wrapper.state().fields.asdf.value).toBe("omfg");
   });
 
   test("handle change bid", () => {
@@ -159,6 +159,5 @@ describe("#MyBooking", () => {
     await wrapper.instance().handleSubmit({ preventDefault: jest.fn() });
 
     expect(wrapper.state("error")).toBe("common.api_error");
-    expect(wrapper).toMatchSnapshot();
   });
 });

@@ -4,6 +4,8 @@ import { shallow } from "enzyme";
 
 import Starred from "..";
 
+// TODO: will be rewritten by upcoming Stack MR
+
 describe("#Starred", () => {
   test("render open", () => {
     const wrapper = shallow(<Starred>starred</Starred>);
