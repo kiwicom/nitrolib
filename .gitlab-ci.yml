@@ -61,7 +61,7 @@ flow:
 keys:
   stage: build
   script:
-    - yarn keys-check
+    - yarn keyfile && yarn keys-check
 
 docs:
   stage: build
