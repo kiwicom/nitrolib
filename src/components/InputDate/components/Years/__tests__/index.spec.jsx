@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import Years from "../Years";
+import Years from "..";
 
 const NOW = new Date(Date.UTC(2020, 0, 1));
 
@@ -14,7 +14,7 @@ describe("#Years", () => {
   test("render", () => {
     const wrapper = shallow(<Years id="kek" value={NOW} onChange={jest.fn()} years={years} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Select").exists()).toBe(true);
   });
 
   test("handle change", () => {

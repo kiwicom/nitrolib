@@ -2,8 +2,8 @@
 import * as React from "react";
 import getMonth from "date-fns/getMonth";
 
-import Select from "../Select";
-import { Consumer } from "../../services/intl/context";
+import Select from "../../../Select";
+import { Consumer } from "../../../../services/intl/context";
 
 const MONTHS = [
   __("common.months.january"),

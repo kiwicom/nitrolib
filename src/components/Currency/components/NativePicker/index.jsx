@@ -5,7 +5,7 @@ import Exchange from "@kiwicom/orbit-components/lib/icons/Exchange";
 
 import { getCode, getSymbol } from "../../../../records/Currency";
 import type { Currency } from "../../../../records/Currency";
-import NativeGroupedSelect from "../../../NativeGroupedSelect/index";
+import NativeGroupedSelect from "../../../NativeGroupedSelect";
 
 const mapCurrencies = R.map(currency => ({
   value: currency.id,

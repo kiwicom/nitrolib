@@ -2,8 +2,6 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-// import { themeDefault } from "../../../records/Theme";
-
 import Tab from "..";
 
 describe("#Tab", () => {
@@ -14,9 +12,7 @@ describe("#Tab", () => {
       </Tab>,
     );
 
-    expect(wrapper).toMatchSnapshot();
-    // expect(wrapper).toHaveStyleRule("background", themeDefault.orbit.paletteWhite);
-    // expect(wrapper).toHaveStyleRule("cursor", "pointer");
+    expect(wrapper.find("Tab__Container").exists()).toBe(true);
   });
 
   test("render active", () => {
@@ -26,12 +22,7 @@ describe("#Tab", () => {
       </Tab>,
     );
 
-    expect(wrapper).toMatchSnapshot();
-    // expect(wrapper).toHaveStyleRule("background", themeDefault.orbit.paletteCloudNormal);
-    // expect(wrapper).toHaveStyleRule(
-    //   "box-shadow",
-    //   `0 0 3px 0 ${themeDefault.orbit.paletteInkLighter} inset`,
-    // );
+    expect(wrapper.find("Tab__Container").prop("active")).toBe(true);
   });
 
   test("handle click", () => {

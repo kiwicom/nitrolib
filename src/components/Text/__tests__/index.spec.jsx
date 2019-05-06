@@ -8,12 +8,12 @@ describe("#Text", () => {
   test("string", () => {
     const wrapper = shallow(<Text t="lol" />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Text").exists()).toBe(true);
   });
 
   test("html", () => {
     const wrapper = shallow(<Text t="lol" html />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Translate").prop("html")).toBe(true);
   });
 });

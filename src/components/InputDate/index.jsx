@@ -6,9 +6,9 @@ import setYear from "date-fns/setYear";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import calculateRanges from "../../services/dates/calculateRanges";
-import Dates from "./Dates";
-import Months from "./Months";
-import Years from "./Years";
+import Dates from "./components/Dates";
+import Months from "./components/Months";
+import Years from "./components/Years";
 
 type Props = {|
   id: string,

@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import Dates from "../Dates";
+import Dates from "..";
 
 const NOW = new Date(Date.UTC(2020, 0, 1));
 
@@ -14,7 +14,7 @@ describe("#Dates", () => {
   test("render", () => {
     const wrapper = shallow(<Dates id="kek" value={NOW} onChange={jest.fn()} dates={dates} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Select").exists()).toBe(true);
   });
 
   test("handle change", () => {

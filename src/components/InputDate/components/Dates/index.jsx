@@ -2,7 +2,7 @@
 import * as React from "react";
 import getDate from "date-fns/getDate";
 
-import Select from "../Select";
+import Select from "../../../Select";
 
 type Props = {|
   id: string,

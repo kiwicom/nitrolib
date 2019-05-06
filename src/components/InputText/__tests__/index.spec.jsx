@@ -1,15 +1,17 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
+
+import IconText from "../../IconText";
+
+import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
 import "jest-styled-components";
 
 import { InputText } from "..";
 
-// import { themeDefault } from "../../../records/Theme";
-
 describe("#InputText", () => {
   test("removing unwanted props", () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <InputText
         id="kek"
         value="A value"
@@ -24,47 +26,18 @@ describe("#InputText", () => {
       />,
     );
 
-    expect(wrapper.find("InputText__Input").props()).toMatchSnapshot();
-  });
-
-  test("render no label", () => {
-    const wrapper = shallow(
-      <InputText id="kek" value="A value" onChange={jest.fn()} placeholder="Placeholder" />,
-    );
-
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("InputText__Input").props()).toBeDefined();
   });
 
   test("render label", () => {
-    const wrapper = shallow(
-      <InputText
-        id="kek"
-        value="A value"
-        onChange={jest.fn()}
-        placeholder="Placeholder"
-        label={<div>Kekistan</div>}
-      />,
+    const wrapper = mount(
+      <>
+        <IconText icon={<Airplane size="small" />}>Label</IconText>
+        <InputText id="kek" value="A value" onChange={jest.fn()} placeholder="Placeholder" />,
+      </>,
     );
 
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  test("render show state", () => {
-    const wrapper = shallow(
-      <InputText
-        id="kek"
-        value="A value"
-        onChange={jest.fn()}
-        placeholder="Placeholder"
-        showState
-      />,
-    );
-
-    expect(wrapper).toMatchSnapshot();
-    // expect(wrapper.find("InputText__Label")).toHaveStyleRule(
-    //   "border",
-    //   `1px solid ${themeDefault.orbit.paletteProductNormal}`,
-    // );
+    expect(wrapper.find("IconText").exists()).toBe(true);
   });
 
   test("render regular error", () => {
@@ -80,13 +53,8 @@ describe("#InputText", () => {
 
     wrapper.setState({ visited: true });
 
-    expect(wrapper).toMatchSnapshot();
-    // expect(wrapper.find("InputText__Error")).toHaveStyleRule(
-    //   "color",
-    //   themeDefault.orbit.colorTextError,
-    // );
+    expect(wrapper.state("visited")).toBe(true);
   });
-
   test("render active error", () => {
     const wrapper = shallow(
       <InputText
@@ -100,15 +68,12 @@ describe("#InputText", () => {
 
     wrapper.setState({ visited: true, active: true });
 
-    expect(wrapper).toMatchSnapshot();
-    // expect(wrapper.find("InputText__Error")).toHaveStyleRule(
-    //   "color",
-    //   themeDefault.orbit.paletteProductNormal,
-    // );
+    expect(wrapper.state("visited")).toBe(true);
+    expect(wrapper.state("active")).toBe(true);
   });
 
   test("render show state error", () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <InputText
         id="kek"
         value="A value"
@@ -119,11 +84,7 @@ describe("#InputText", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
-    // expect(wrapper.find("InputText__Error")).toHaveStyleRule(
-    //   "color",
-    //   themeDefault.orbit.colorTextError,
-    // );
+    expect(wrapper.contains("An error")).toBe(true);
   });
 
   test("render hint", () => {
@@ -133,11 +94,7 @@ describe("#InputText", () => {
 
     wrapper.setState({ hint: "hint" });
 
-    expect(wrapper).toMatchSnapshot();
-    // expect(wrapper.find("InputText__Hint")).toHaveStyleRule(
-    //   "color",
-    //   themeDefault.orbit.paletteProductNormal,
-    // );
+    expect(wrapper.state("hint")).toBe("hint");
   });
 
   test("on change basic", () => {

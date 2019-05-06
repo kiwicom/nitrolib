@@ -23,7 +23,7 @@ describe("#Language/CustomPicker/Menu", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Menu__MenuWrapper").exists()).toBe(true);
   });
 
   test("render flat", () => {
@@ -39,7 +39,7 @@ describe("#Language/CustomPicker/Menu", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Menu__MenuWrapper").prop("flat")).toBe(true);
   });
 
   test("changes continent filter", () => {

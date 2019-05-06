@@ -10,6 +10,6 @@ describe("#SideNav MenuItem", () => {
       <MenuItem onClick={jest.fn()} Icon={() => "Icon"} text="LOL" link="kek" />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("MenuItem__Container").exists()).toBe(true);
   });
 });

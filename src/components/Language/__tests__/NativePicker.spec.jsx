@@ -16,6 +16,6 @@ describe("#Language/NativePicker", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("NativeGroupedSelect").exists()).toBe(true);
   });
 });
