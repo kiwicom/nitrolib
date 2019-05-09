@@ -30,9 +30,9 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [InitCurrency](#initcurrency)
 * [InitIntl](#initintl)
 * [InitLog](#initlog)
-* [InitSession](#initsession)
 * [InitStarred](#initstarred)
 * [Itinerary](#itinerary)
+* [LogMount](#logmount)
 * [Mobile](#mobile)
 * [Price](#price)
 * [Text](#text)
@@ -1080,7 +1080,7 @@ import InitLog from "@kiwicom/nitro/lib/components/InitLog";
 ```js
 type Props = {|
   globals: Globals,
-  onLog: (ev: EventPayload, globals: Globals) => void,
+  onLog?: (ev: EventPayload, globals: Globals) => void,
   children: (ctx: Context) => React.Node,
 |};
 
@@ -1124,27 +1124,6 @@ ReactDOM.render(
   node,
 );
 ```
-
-### InitSession
-
-**Import:**
-```js
-import InitSession from "@kiwicom/nitro/lib/components/InitSession";
-```
-
-**Types:**
-```js
-type Props = {|
-  children: (session: Session) => React.Node,
-|};
-
-declare export default React.ComponentType<Props>;
-```
-
-See types:
-* [Session](./records#session)
-
-Initializes the [session](./services#session) context.
 
 ### InitStarred
 
@@ -1216,6 +1195,36 @@ import { flatten } from "@kiwicom/nitro/lib/records/Itinerary";
 
 <Itinerary itinerary={flatten(ItineraryOneWay)} />;
 ```
+
+### LogMount
+
+**Import:**
+```js
+import LogMount from "@kiwicom/nitro/lib/components/LogMount";
+```
+
+**Types:**
+```js
+type Props = {|
+  event: Event,
+  // defaulted
+  props?: EventProps,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+See types:
+* [Event](./records#event)
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=LogMount).
+
+**Context needs:**
+* [log](./services#log)
+
+Logs the given event and props on mount.
+
+Useful for declarative tracking of opening modals or page sections.
 
 ### Mobile
 

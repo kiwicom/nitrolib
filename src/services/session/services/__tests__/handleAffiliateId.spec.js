@@ -1,12 +1,12 @@
 // @flow strict
 import handleAffiliateId from "../handleAffiliateId";
-import * as cookies from "../../../../services/session/cookies";
-import * as storage from "../../../../services/session/storage";
+import * as cookies from "../../cookies";
+import * as local from "../../local";
 import { AFFILIATE_ID } from "../../../../consts/cookies";
-import { AFFILIATE_PARAMS } from "../../../../consts/storage";
+import { AFFILIATE_PARAMS } from "../../../../consts/local";
 
-jest.mock("../../../../services/session/cookies");
-jest.mock("../../../../services/session/storage");
+jest.mock("../../cookies");
+jest.mock("../../local");
 
 describe("#handleAffiliateId", () => {
   test("url", () => {
@@ -14,28 +14,28 @@ describe("#handleAffiliateId", () => {
 
     expect(res).toEqual({ id: "lol", params: { kek: "bur" } });
     expect(cookies.save).toBeCalledWith(AFFILIATE_ID, "lol", { expires: 30 });
-    expect(storage.save).toBeCalledWith(AFFILIATE_PARAMS, JSON.stringify({ kek: "bur" }));
+    expect(local.save).toBeCalledWith(AFFILIATE_PARAMS, JSON.stringify({ kek: "bur" }));
   });
 
   test("cookies", () => {
     cookies.load.mockReturnValue("lol");
-    storage.load.mockReturnValue(JSON.stringify({ kek: "bur" }));
+    local.load.mockReturnValue(JSON.stringify({ kek: "bur" }));
 
     const res = handleAffiliateId(null, {});
 
     expect(res).toEqual({ id: "lol", params: { kek: "bur" } });
     expect(cookies.load).toBeCalledWith(AFFILIATE_ID);
-    expect(storage.load).toBeCalledWith(AFFILIATE_PARAMS);
+    expect(local.load).toBeCalledWith(AFFILIATE_PARAMS);
   });
 
   test("none", () => {
     cookies.load.mockReturnValue(null);
-    storage.load.mockReturnValue(null);
+    local.load.mockReturnValue(null);
 
     const res = handleAffiliateId(null, {});
 
     expect(res).toBeNull();
     expect(cookies.remove).toBeCalledWith(AFFILIATE_ID);
-    expect(storage.remove).toBeCalledWith(AFFILIATE_PARAMS);
+    expect(local.remove).toBeCalledWith(AFFILIATE_PARAMS);
   });
 });

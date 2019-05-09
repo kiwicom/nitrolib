@@ -1,0 +1,8 @@
+// @flow strict
+import type { Session } from "../../consts/session";
+
+declare export var load: (key: Session) => ?string;
+
+declare export var save: (key: Session, value: string) => void;
+
+declare export var remove: (key: Session) => void;

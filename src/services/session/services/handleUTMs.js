@@ -3,7 +3,7 @@ import * as R from "ramda";
 import isBefore from "date-fns/isBefore";
 import subMonths from "date-fns/subMonths";
 
-import * as storage from "../../../services/session/storage";
+import * as local from "../local";
 
 const UTMs = {
   utm_source: "",
@@ -36,25 +36,25 @@ const loadStorage = () =>
       ),
     ),
     R.filter(Boolean),
-    R.mapObjIndexed((_, key) => storage.load(key) || ""), // || "" due to Flow
+    R.mapObjIndexed((_, key) => local.load(key) || ""), // || "" due to Flow
   )(UTMs);
 
 const clearStorage = () =>
   R.compose(
     R.forEachObjIndexed((item, key) => {
       if (isBefore(new Date(item.createdAt), subMonths(new Date(), 1))) {
-        storage.remove(key);
+        local.remove(key);
       }
     }),
     R.map(JSON.parse),
     R.filter(Boolean),
-    R.mapObjIndexed((_, key) => storage.load(key) || ""), // || "" due to Flow
+    R.mapObjIndexed((_, key) => local.load(key) || ""), // || "" due to Flow
   )(UTMs);
 
 const saveStorage = (utms: UTM) =>
   R.compose(
     R.forEachObjIndexed((val, key) => {
-      storage.save(key, JSON.stringify(val));
+      local.save(key, JSON.stringify(val));
     }),
     R.map(value => ({ value, createdAt: new Date() })),
   )(utms);

@@ -1,9 +1,7 @@
 // @flow strict
-import * as React from "react";
-import { shallow } from "enzyme";
 import qs from "query-string";
 
-import InitSession from "../index";
+import init from "../init";
 import handleUserId from "../services/handleUserId";
 import handleAffiliateId from "../services/handleAffiliateId";
 import handleSessionId from "../services/handleSessionId";
@@ -13,10 +11,10 @@ jest.mock("query-string");
 jest.mock("../services/handleUserId");
 jest.mock("../services/handleAffiliateId");
 jest.mock("../services/handleSessionId");
-jest.mock("../../../services/session/ids");
+jest.mock("../ids");
 jest.mock("../services/handleUTMs");
 
-describe("#InitSession", () => {
+describe("#init", () => {
   test("mount", () => {
     qs.parse.mockReturnValue({ userId: "kek", affilId: "bur", lol: "lmao", utm_source: "omg" });
     // $FlowExpected: Mocks
@@ -28,14 +26,13 @@ describe("#InitSession", () => {
     // $FlowExpected: Mocks
     handleUTMs.mockReturnValue({ utm_source: "omg" });
 
-    const fn = jest.fn().mockReturnValue("kek");
-    shallow(<InitSession>{fn}</InitSession>);
+    const res = init();
 
     expect(handleUserId).toBeCalledWith("kek");
     expect(handleAffiliateId).toBeCalledWith("bur", { lol: "lmao", utm_source: "omg" });
     expect(handleSessionId).toBeCalledWith();
     expect(handleUTMs).toBeCalledWith({ lol: "lmao", utm_source: "omg" });
-    expect(fn).toBeCalledWith({
+    expect(res).toEqual({
       userId: "userId",
       sessionId: "sessionId",
       pageViewId: "pageViewId",

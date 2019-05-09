@@ -2,10 +2,10 @@
 import { advanceTo, clear } from "jest-date-mock";
 
 import handleUTMs from "../handleUTMs";
-import * as storage from "../../../../services/session/storage";
+import * as local from "../../local";
 
-jest.mock("../../../../services/session/cookies");
-jest.mock("../../../../services/session/storage");
+jest.mock("../../cookies");
+jest.mock("../../local");
 
 const UTMs = {
   utm_source: "utm_source",
@@ -33,9 +33,9 @@ const query = {
 
 describe("#handleUTMs", () => {
   beforeEach(() => {
-    storage.load.mockReset();
-    storage.save.mockReset();
-    storage.remove.mockReset();
+    local.load.mockReset();
+    local.save.mockReset();
+    local.remove.mockReset();
 
     advanceTo(new Date(2019, 5, 1, 0, 0, 0)); // 2019-06-01
   });
@@ -47,8 +47,8 @@ describe("#handleUTMs", () => {
   test("none", () => {
     const res = handleUTMs({});
 
-    expect(storage.load.mock.calls.length).toBe(20); // clear & load
-    storage.load.mock.calls.forEach(([utm]) => {
+    expect(local.load.mock.calls.length).toBe(20); // clear & load
+    local.load.mock.calls.forEach(([utm]) => {
       expect(all[utm]).toBe(utm);
     });
 
@@ -58,17 +58,17 @@ describe("#handleUTMs", () => {
   test("url", () => {
     const res = handleUTMs(query);
 
-    expect(storage.load.mock.calls.length).toBe(20); // clear & load
-    expect(storage.save.mock.calls.length).toBe(10);
-    storage.save.mock.calls.forEach(([utm]) => {
+    expect(local.load.mock.calls.length).toBe(20); // clear & load
+    expect(local.save.mock.calls.length).toBe(10);
+    local.save.mock.calls.forEach(([utm]) => {
       expect(all[utm]).toBe(utm);
     });
 
     expect(res).toEqual(all);
   });
 
-  test("storage", () => {
-    storage.load.mockImplementation(utm =>
+  test("local", () => {
+    local.load.mockImplementation(utm =>
       JSON.stringify({
         value: all[utm],
         createdAt: new Date(2019, 4, 15, 0, 0, 0), // cca 15 days before
@@ -77,15 +77,15 @@ describe("#handleUTMs", () => {
 
     const res = handleUTMs({});
 
-    expect(storage.load.mock.calls.length).toBe(20); // clear & load
-    expect(storage.remove.mock.calls.length).toBe(0);
-    expect(storage.save.mock.calls.length).toBe(0);
+    expect(local.load.mock.calls.length).toBe(20); // clear & load
+    expect(local.remove.mock.calls.length).toBe(0);
+    expect(local.save.mock.calls.length).toBe(0);
 
     expect(res).toEqual(all);
   });
 
   test("both", () => {
-    storage.load.mockImplementation(utm =>
+    local.load.mockImplementation(utm =>
       UTMs[utm]
         ? JSON.stringify({
             value: UTMs[utm],
@@ -96,15 +96,15 @@ describe("#handleUTMs", () => {
 
     const res = handleUTMs(MKTs);
 
-    expect(storage.load.mock.calls.length).toBe(20); // clear & load
-    expect(storage.remove.mock.calls.length).toBe(0);
-    expect(storage.save.mock.calls.length).toBe(5);
+    expect(local.load.mock.calls.length).toBe(20); // clear & load
+    expect(local.remove.mock.calls.length).toBe(0);
+    expect(local.save.mock.calls.length).toBe(5);
 
     expect(res).toEqual(all);
   });
 
   test("clear old", () => {
-    storage.load.mockImplementation(utm =>
+    local.load.mockImplementation(utm =>
       JSON.stringify({
         value: all[utm],
         createdAt: new Date(2019, 3, 15, 0, 0, 0), // cca 45 days before
@@ -113,9 +113,9 @@ describe("#handleUTMs", () => {
 
     const res = handleUTMs({});
 
-    expect(storage.load.mock.calls.length).toBe(20); // clear & load
-    expect(storage.remove.mock.calls.length).toBe(10);
-    expect(storage.save.mock.calls.length).toBe(0);
+    expect(local.load.mock.calls.length).toBe(20); // clear & load
+    expect(local.remove.mock.calls.length).toBe(10);
+    expect(local.save.mock.calls.length).toBe(0);
 
     expect(res).toEqual(all);
   });

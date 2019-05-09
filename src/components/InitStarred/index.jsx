@@ -2,9 +2,9 @@
 import * as React from "react";
 import * as R from "ramda";
 
-import { load, remove, save } from "../../services/session/storage";
+import { load, remove, save } from "../../services/session/local";
 import type { StarredItem } from "../../records/Starred";
-import { STARRED_ID } from "../../consts/storage";
+import { STARRED_ID } from "../../consts/local";
 
 type State = {|
   starred: { [key: string]: StarredItem },

@@ -513,6 +513,23 @@ _TODO_
 
 See [InitLog](./components#initlog) for initializing the service.
 
+### Api
+
+**Import:**
+```js
+import * as api from "@kiwicom/nitro/lib/services/log/api";
+```
+
+**Types:**
+```js
+declare export default function log(payload: Loglady): Promise<void>;
+```
+
+See types:
+* [Loglady](./records#loglady)
+
+**LogLady** API call.
+
 ### Context
 
 **Import:**
@@ -537,6 +554,40 @@ See types:
 * [Event](./records#event)
 
 _TODO_
+
+### Globals
+
+**Import:**
+```js
+import * as globals from "@kiwicom/nitro/lib/services/log/globals";
+```
+
+**Types:**
+```js
+type Static = {|
+  brandingId: string,
+  UTMs: { [key: string]: string },
+  affilParams: { [key: string]: string },
+  // Optional
+  langId?: string,
+  project?: string,
+  module?: string,
+  pageName?: string,
+  deeplinkId?: string,
+  pageViewId?: string,
+  bid?: number,
+  splitster?: { [key: string]: string },
+|};
+
+declare export default (statics: Static) => Globals;
+```
+
+See types:
+* [Loglady](./records#loglady)
+
+Utility for gathering the `global` object for **LogLady** tracking.
+
+> Uses the `window` object, use only on the client!
 
 ## Modal
 
@@ -573,8 +624,6 @@ Contains everything regarding session data:
 * **user** and **request** specific context data
 * **cookies**
 * **local storage**
-
-See [InitSession](./components#initsession) for initializing the service.
 
 ### Context
 
@@ -643,32 +692,66 @@ declare export var makePageViewId: () => string;
 
 Functions for generating IDs.
 
-### Storage
+### Init
 
 **Import:**
 ```js
-import * as storage from "@kiwicom/nitro/lib/services/session/storage";
+import * as init from "@kiwicom/nitro/lib/services/session/init";
 ```
 
 **Types:**
 ```js
-declare export var load: (key: Storage) => ?string;
-
-declare export var save: (key: Storage, value: string) => void;
-
-declare export var remove: (key: Storage) => void;
-
-declare export var loadSession: (key: Storage) => ?string;
-
-declare export var saveSession: (key: Storage, value: string) => void;
-
-declare export var removeSession: (key: Storage) => void;
+declare export default () => Session;
 ```
 
 See types:
-* [storage](./consts#storage)
+* [Session](./records#session)
+
+Initializes the [session](./services#session) context.
+
+> Uses the `window` object, unavailable on the server.
+
+### Local
+
+**Import:**
+```js
+import * as local from "@kiwicom/nitro/lib/services/session/local";
+```
+
+**Types:**
+```js
+declare export var load: (key: Local) => ?string;
+
+declare export var save: (key: Local, value: string) => void;
+
+declare export var remove: (key: Local) => void;
+```
+
+See types:
+* [local](./consts#local)
 
 Centralized medium for manipulating `localStorage`.
+
+### Session
+
+**Import:**
+```js
+import * as session from "@kiwicom/nitro/lib/services/session/session";
+```
+
+**Types:**
+```js
+declare export var load: (key: Session) => ?string;
+
+declare export var save: (key: Session, value: string) => void;
+
+declare export var remove: (key: Session) => void;
+```
+
+See types:
+* [session](./consts#session)
+
+Centralized medium for manipulating `sessionStorage`.
 
 ## Starred
 

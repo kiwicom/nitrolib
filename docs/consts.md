@@ -6,8 +6,9 @@ Located in `@kiwicom/nitro/lib/consts/<const>`.
 * [Config](#config)
 * [Cookies](#cookies)
 * [Events](#events)
+* [Local](#local)
 * [Modals](#modals)
-* [Storage](#storage)
+* [Session](#session)
 
 ## Config
 
@@ -126,6 +127,21 @@ declare export var API_REQUEST_FAILED: Event;
 declare export var MODAL_OPEN: Event;
 ```
 
+## Local
+
+**Import:**
+```js
+import * as local from "@kiwicom/nitro/lib/consts/local";
+```
+
+**Types:**
+```js
+declare export var AFFILIATE_PARAMS: "affilParams";
+declare export var STARRED_ID: "starredId";
+
+export type Local = string; // TODO specific once everyone uses this
+```
+
 ## Modals
 
 **Import:**
@@ -162,18 +178,16 @@ export type Modal =
   | "languageMenu";
 ```
 
-## Storage
+## Session
 
 **Import:**
 ```js
-import * as storage from "@kiwicom/nitro/lib/consts/storage";
+import * as session from "@kiwicom/nitro/lib/consts/session";
 ```
 
 **Types:**
 ```js
-declare export var AFFILIATE_PARAMS: "affilParams";
 declare export var SESSION_ID: "sessionId";
-declare export var STARRED_ID: "starredId";
 
-export type Storage = string; // TODO specific once everyone uses this
+export type Session = string; // TODO specific once everyone uses this
 ```

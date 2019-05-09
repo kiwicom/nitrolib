@@ -1,7 +1,7 @@
 // @flow strict
-import * as cookies from "../../../services/session/cookies";
+import * as cookies from "../cookies";
 import { USER_ID } from "../../../consts/cookies";
-import { makeUserId } from "../../../services/session/ids";
+import { makeUserId } from "../ids";
 
 const handleUserId = (fromUrl: ?string): string => {
   // URL 1st

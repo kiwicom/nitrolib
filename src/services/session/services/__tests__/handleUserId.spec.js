@@ -1,6 +1,6 @@
 // @flow strict
 import handleUserId from "../handleUserId";
-import * as cookies from "../../../../services/session/cookies";
+import * as cookies from "../../cookies";
 import { USER_ID } from "../../../../consts/cookies";
 
 jest.mock("../../../../services/session/cookies");

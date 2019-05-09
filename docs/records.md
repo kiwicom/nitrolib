@@ -1316,6 +1316,7 @@ import type { Loglady } from "@kiwicom/nitro/lib/records/Loglady";
 export type Globals = {|
   userId: string,
   affilId: string,
+  affilParams: { [key: string]: string },
   brandingId: string,
   url: string,
   langId?: string,
