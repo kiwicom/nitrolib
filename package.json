@@ -75,7 +75,7 @@
     "ramda": "^0.26.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "styled-components": "^4.1.1"
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
@@ -134,7 +134,7 @@
     "relay-compiler": "^2.0.0",
     "renamer": "^1.1.0",
     "rimraf": "^2.6.2",
-    "styled-components": "^4.1.1",
+    "styled-components": "^4.2.0",
     "stylelint": "^9.9.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-styled-components": "^0.1.1",
