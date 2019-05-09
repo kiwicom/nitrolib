@@ -7,7 +7,7 @@
 * `ramda: ^0.26.1`
 * `react: ^16.8.0`
 * `react-dom: ^16.8.0`
-* `styled-components: ^4.1.1`;
+* `styled-components: ^4.2.0`;
 
 ## Documentation
 
