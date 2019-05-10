@@ -24,14 +24,14 @@ const Popup = styled.div`
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   cursor: default;
   box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
-
-  ${mq.desktop(css`
-    ${right}: ${({ positionMenuDesktop }) => `${positionMenuDesktop}px`};
-  `)};
+  ${right}: 0;
 
   ${mq.largeMobile(css`
     ${right}: ${({ positionMenuTablet }) => `${positionMenuTablet}px`};
-    min-width: ${({ width }: Width) => width || `550px`};
+  `)};
+
+  ${mq.desktop(css`
+    ${right}: ${({ positionMenuDesktop }) => `${positionMenuDesktop}px`};
   `)};
 `;
 

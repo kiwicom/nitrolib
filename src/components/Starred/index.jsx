@@ -38,6 +38,11 @@ StarredBadge.defaultProps = {
   theme: themeDefault,
 };
 
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 type Props = {|
   positionMenuDesktop: number,
   positionMenuTablet: number,
@@ -50,47 +55,48 @@ const Starred = ({ positionMenuDesktop, positionMenuTablet, inverted }: Props) =
       const buttonColor = inverted ? null : "secondary";
 
       return (
-        <Toggle>
-          {({ open, onToggle }) => (
-            <>
-              {open && (
-                <ClickOutside onClickOutside={onToggle}>
-                  <TripsContainer
-                    header={<StarredHeader onClear={onClear} tripsCount={list.length} />}
-                    footer={list.length >= 1 && <StarredFooter tripsCount={list.length} />}
-                    positionMenuTablet={positionMenuTablet}
-                    positionMenuDesktop={positionMenuDesktop}
-                  >
-                    <StarredList
-                      onRemove={(id, e) => onRemove(id, e)}
-                      makeShareUrl={makeShareUrl}
-                      trips={list && list.slice(0, MAX_TRIPS)}
-                      onGoToStarred={onGoToStarred}
-                    />
-                  </TripsContainer>
-                </ClickOutside>
-              )}
-
-              <Stack inline spacing="tight" align="center">
-                <Desktop>
-                  <Button onClick={onToggle} color={buttonColor}>
-                    <Translate t="starred.starred" />
-                  </Button>
-                </Desktop>
-                <Mobile>
-                  <Button onClick={onToggle} color={buttonColor}>
-                    {inverted ? <StarFull customColor="#fff" /> : <StarFull color="primary" />}
-                  </Button>
-                </Mobile>
-                {list.length > 0 && (
-                  <StarredBadge>
-                    {list.length > BADGE_MAX ? `${BADGE_MAX}+` : list.length}
-                  </StarredBadge>
+        <Wrapper>
+          <Toggle>
+            {({ open, onToggle }) => (
+              <>
+                {open && (
+                  <ClickOutside onClickOutside={onToggle}>
+                    <TripsContainer
+                      header={<StarredHeader onClear={onClear} tripsCount={list.length} />}
+                      footer={list.length >= 1 && <StarredFooter tripsCount={list.length} />}
+                      positionMenuTablet={positionMenuTablet}
+                      positionMenuDesktop={positionMenuDesktop}
+                    >
+                      <StarredList
+                        onRemove={(id, e) => onRemove(id, e)}
+                        makeShareUrl={makeShareUrl}
+                        trips={list && list.slice(0, MAX_TRIPS)}
+                        onGoToStarred={onGoToStarred}
+                      />
+                    </TripsContainer>
+                  </ClickOutside>
                 )}
-              </Stack>
-            </>
-          )}
-        </Toggle>
+                <Stack inline justify="end" spacing="tight" align="center">
+                  <Desktop>
+                    <Button onClick={onToggle} color={buttonColor}>
+                      <Translate t="starred.starred" />
+                    </Button>
+                  </Desktop>
+                  <Mobile>
+                    <Button onClick={onToggle} color={buttonColor}>
+                      {inverted ? <StarFull customColor="#fff" /> : <StarFull color="primary" />}
+                    </Button>
+                  </Mobile>
+                  {list.length > 0 && (
+                    <StarredBadge>
+                      {list.length > BADGE_MAX ? `${BADGE_MAX}+` : list.length}
+                    </StarredBadge>
+                  )}
+                </Stack>
+              </>
+            )}
+          </Toggle>
+        </Wrapper>
       );
     }}
   </StarredConsumer>
