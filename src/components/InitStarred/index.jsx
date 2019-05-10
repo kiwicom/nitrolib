@@ -11,10 +11,9 @@ type State = {|
 |};
 
 type Args = {|
-  starredList: StarredItem[],
+  list: StarredItem[],
   onRemove: (arg: string, e: SyntheticEvent<HTMLDivElement>) => void,
   onAdd: (arg: StarredItem) => void,
-  lang: string,
   onClear: (e: SyntheticEvent<HTMLDivElement>) => void,
 |};
 
@@ -66,9 +65,8 @@ class StarredProvider extends React.Component<Props, State> {
     const { starred } = this.state;
 
     return children({
-      starredList: R.values(starred),
+      list: R.values(starred),
       onRemove: this.onRemove,
-      lang: "en",
       onAdd: this.onAdd,
       onClear: this.onClear,
     });

@@ -4,29 +4,29 @@ import * as React from "react";
 import type { StarredItem, ShareDialog } from "../../records/Starred";
 
 export type Context = {|
-  starredList: StarredItem[],
-  onAdd: (arg: StarredItem) => void,
+  list: StarredItem[],
   isMobile: boolean,
   lang: string,
+  onAdd: (arg: StarredItem) => void,
   onGoToStarred: (arg: StarredItem) => void,
   onRemove: (id: string, e: SyntheticEvent<HTMLDivElement>) => void,
-  shareUrl: (arg: StarredItem) => string,
   onClear: (e: SyntheticEvent<HTMLDivElement>) => void,
-  setNotice: () => void,
-  ShareDialog: (arg: ShareDialog) => React.Node,
+  onSetNotice: () => void,
+  renderShareDialog: (arg: ShareDialog) => React.Node,
+  makeShareUrl: (arg: StarredItem) => string,
 |};
 
 const contextDefault: Context = {
-  starredList: [],
-  shareUrl: () => "some string",
-  onGoToStarred: () => {},
+  list: [],
   isMobile: false,
   lang: "en",
   onAdd: () => {},
+  onGoToStarred: () => {},
   onRemove: () => {},
   onClear: () => {},
-  ShareDialog: () => [],
-  setNotice: () => {},
+  onSetNotice: () => {},
+  renderShareDialog: () => null,
+  makeShareUrl: () => "some string",
 };
 
 const context: React.Context<Context> = React.createContext(contextDefault);

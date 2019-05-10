@@ -9,10 +9,11 @@ import { themeDefault } from "../../../records/Theme";
 import buttonMixin from "../../../styles/mixins/button";
 
 export type Bg = "white" | "primary" | "secondary";
-export type Color = "primary" | "secondary" | "warning" | false;
-export type FontSize = ThemeProps & {
+export type Color = "primary" | "secondary" | "warning" | "";
+export type FontSize = {|
+  ...ThemeProps,
   fontSize: number,
-};
+|};
 
 type Props = {|
   onClick: (ev: SyntheticEvent<HTMLButtonElement>) => void,

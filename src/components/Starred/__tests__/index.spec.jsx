@@ -232,37 +232,43 @@ const starredList: StarredItem[] = [
   },
 ];
 
-const mountedWrapper = mount(
-  <Provider
-    value={{
-      starredList,
-      ShareDialog: () => [],
-      onGoToStarred: () => {},
-      isMobile: false,
-      lang: "en",
-      onAdd: () => {},
-      onClear: () => {},
-      onRemove: () => {},
-      shareUrl: () => " ",
-      setNotice: () => {},
-    }}
-  >
-    <Starred positionMenuDesktop={0} positionMenuTablet={120} inverted={false} />
-  </Provider>,
-);
+const context = {
+  list: starredList,
+  lang: "en",
+  isMobile: false,
+  onAdd: () => {},
+  onGoToStarred: () => {},
+  onClear: () => {},
+  onRemove: () => {},
+  onSetNotice: () => {},
+  renderShareDialog: () => null,
+  makeShareUrl: () => " ",
+};
 
 describe("#Starred", () => {
   test("badge should have 1 trip", () => {
-    expect(mountedWrapper.find("Starred__StarredBadge").text()).toEqual("1");
+    const wrapper = mount(
+      <Provider value={context}>
+        <Starred positionMenuDesktop={0} positionMenuTablet={120} inverted={false} />
+      </Provider>,
+    );
+
+    expect(wrapper.find("Starred__StarredBadge").text()).toEqual("1");
   });
 
   test("should render/open component with itineraries", () => {
-    expect(mountedWrapper.find("TripContainer").exists()).toBe(false);
-    mountedWrapper
+    const wrapper = mount(
+      <Provider value={context}>
+        <Starred positionMenuDesktop={0} positionMenuTablet={120} inverted={false} />
+      </Provider>,
+    );
+
+    expect(wrapper.find("TripContainer").exists()).toBe(false);
+    wrapper
       .find("Button")
       .first()
       .simulate("click");
-    mountedWrapper.update();
-    expect(mountedWrapper.find("TripContainer").exists()).toBe(true);
+    wrapper.update();
+    expect(wrapper.find("TripContainer").exists()).toBe(true);
   });
 });

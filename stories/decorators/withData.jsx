@@ -143,18 +143,16 @@ const withData = (storyFn: () => React.Node) => {
                           <StarredProvider
                             value={{
                               ...starredInit,
-                              starredList,
+                              list: starredList,
                               // Passes from FE
-                              // $FlowExpected: TODO
-                              ShareDialog: () => console.log("shareDialog"),
+                              renderShareDialog: () => console.log("shareDialog") || null,
                               onGoToStarred: () => console.log("nitro"),
                               isMobile: false,
-                              lang: starredInit.lang,
+                              lang: intl.language.id,
                               // Passes from FE
-                              setNotice: () => console.log("notice"),
+                              onSetNotice: () => console.log("notice"),
                               // Passes from FE
-                              // $FlowExpected: TODO
-                              shareUrl: () => console.log("shareUrl"),
+                              makeShareUrl: () => console.log("shareUrl") || "",
                             }}
                           >
                             <Value>

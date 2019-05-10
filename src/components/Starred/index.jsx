@@ -46,9 +46,7 @@ type Props = {|
 
 const Starred = ({ positionMenuDesktop, positionMenuTablet, inverted }: Props) => (
   <StarredConsumer>
-    {starred => {
-      const { starredList, onClear, onRemove, shareUrl, onGoToStarred } = starred;
-      const starredCount = starredList.length || 0;
+    {({ list, onClear, onRemove, makeShareUrl, onGoToStarred }) => {
       const buttonColor = inverted ? null : "secondary";
 
       return (
@@ -58,17 +56,16 @@ const Starred = ({ positionMenuDesktop, positionMenuTablet, inverted }: Props) =
               {open && (
                 <ClickOutside onClickOutside={onToggle}>
                   <TripsContainer
-                    header={<StarredHeader onClear={onClear} tripsCount={starredCount} />}
-                    footer={starredCount >= 1 && <StarredFooter tripsCount={starredCount} />}
+                    header={<StarredHeader onClear={onClear} tripsCount={list.length} />}
+                    footer={list.length >= 1 && <StarredFooter tripsCount={list.length} />}
                     positionMenuTablet={positionMenuTablet}
                     positionMenuDesktop={positionMenuDesktop}
                   >
                     <StarredList
                       onRemove={(id, e) => onRemove(id, e)}
-                      shareUrl={shareUrl}
-                      trips={starredList && starredList.slice(0, MAX_TRIPS)}
+                      makeShareUrl={makeShareUrl}
+                      trips={list && list.slice(0, MAX_TRIPS)}
                       onGoToStarred={onGoToStarred}
-                      tripsCount={starredCount}
                     />
                   </TripsContainer>
                 </ClickOutside>
@@ -85,9 +82,9 @@ const Starred = ({ positionMenuDesktop, positionMenuTablet, inverted }: Props) =
                     {inverted ? <StarFull customColor="#fff" /> : <StarFull color="primary" />}
                   </Button>
                 </Mobile>
-                {starredCount > 0 && (
+                {list.length > 0 && (
                   <StarredBadge>
-                    {starredCount > BADGE_MAX ? `${BADGE_MAX}+` : starredCount}
+                    {list.length > BADGE_MAX ? `${BADGE_MAX}+` : list.length}
                   </StarredBadge>
                 )}
               </Stack>

@@ -4,9 +4,10 @@ import styled from "styled-components";
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
 
-type AllProps = ThemeProps & {
+type AllProps = {|
+  ...ThemeProps,
   padding: boolean,
-};
+|};
 
 const Content = styled.div`
   max-height: calc(100vh - 140px);

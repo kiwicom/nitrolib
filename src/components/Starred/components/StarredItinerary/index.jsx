@@ -134,8 +134,8 @@ const StarredItinerary = ({
 
   return (
     <StarredConsumer>
-      {({ isMobile, lang, setNotice, ShareDialog }) => (
-        <Wrapper onClick={() => onGoToStarred()}>
+      {({ isMobile, lang, onSetNotice, renderShareDialog }) => (
+        <Wrapper onClick={onGoToStarred}>
           <TextWrapper type="secondary" size="small">
             {getPriceUpdated()}
           </TextWrapper>
@@ -172,18 +172,17 @@ const StarredItinerary = ({
                       >
                         <ShareIcon color="tertiary" />
                       </ActionButton>
-                      {open && (
-                        <ShareDialog
-                          shareUrl={shareUrl}
-                          itinerary={itinerary}
-                          passengers={passengers}
-                          cabinClass={cabinClass}
-                          isMobile={isMobile}
-                          getLangInfo={lang}
-                          setNotice={setNotice}
-                          onClose={onToggle}
-                        />
-                      )}
+                      {open &&
+                        renderShareDialog({
+                          shareUrl,
+                          itinerary,
+                          passengers,
+                          cabinClass,
+                          isMobile,
+                          lang,
+                          onSetNotice,
+                          onClose: onToggle,
+                        })}
                     </>
                   )}
                 </Toggle>

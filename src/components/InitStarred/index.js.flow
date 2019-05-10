@@ -4,10 +4,9 @@ import * as React from "react";
 import type { StarredItem } from "../../records/Starred";
 
 type Args = {|
-  starredList: StarredItem[],
+  list: StarredItem[],
   onRemove: (arg: string, e: SyntheticEvent<HTMLDivElement>) => void,
   onAdd: (arg: StarredItem) => void,
-  lang: string,
   onClear: (e: SyntheticEvent<HTMLDivElement>) => void,
 |};
 

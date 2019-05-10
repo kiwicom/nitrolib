@@ -37,13 +37,13 @@ export type StarredItem = {|
 
 export type ShareDialog = {|
   itinerary: ItineraryDeep,
+  lang: string,
   shareUrl: string,
   passengers: PassengersCount,
   cabinClass: CabinClass,
   isMobile: boolean,
-  getLangInfo: string,
-  setNotice: boolean,
-  onClose: boolean,
+  onSetNotice: () => void,
+  onClose: () => void,
 |};
 
 declare export var isMulti: (object: PassengersCount) => boolean;

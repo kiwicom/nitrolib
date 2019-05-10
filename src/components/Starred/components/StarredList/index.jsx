@@ -11,9 +11,8 @@ import StarredTrips from "./StarredTrips";
 type Props = {|
   trips: StarredItem[],
   onRemove: (id: string, e: SyntheticEvent<HTMLDivElement>) => void,
-  tripsCount: number,
   onGoToStarred: (item: StarredItem) => void,
-  shareUrl: (item: StarredItem) => string,
+  makeShareUrl: (item: StarredItem) => string,
 |};
 
 const NoFlights = styled.div`
@@ -25,13 +24,13 @@ NoFlights.defaultProps = {
   theme: themeDefault,
 };
 
-const StarredList = ({ trips, onRemove, tripsCount, shareUrl, onGoToStarred }: Props) => {
-  return tripsCount >= 1 ? (
+const StarredList = ({ trips, onRemove, makeShareUrl, onGoToStarred }: Props) => {
+  return trips.length >= 1 ? (
     <StarredTrips
       trips={trips}
       onRemove={onRemove}
       onGoToStarred={onGoToStarred}
-      shareUrl={shareUrl}
+      makeShareUrl={makeShareUrl}
     />
   ) : (
     <NoFlights>

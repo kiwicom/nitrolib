@@ -9,10 +9,10 @@ type Props = {|
   trips: StarredItem[],
   onRemove: (id: string, e: SyntheticEvent<HTMLDivElement>) => void,
   onGoToStarred: (item: StarredItem) => void,
-  shareUrl: (item: StarredItem) => string,
+  makeShareUrl: (item: StarredItem) => string,
 |};
 
-const StarredTrips = ({ trips, onGoToStarred, shareUrl, onRemove }: Props): React.Node[] =>
+const StarredTrips = ({ trips, onGoToStarred, makeShareUrl, onRemove }: Props): React.Node[] =>
   trips &&
   trips.map(trip => {
     const { id, updatedAt, itinerary, priceUpdatedAt, form, createdAt } = trip;
@@ -26,7 +26,7 @@ const StarredTrips = ({ trips, onGoToStarred, shareUrl, onRemove }: Props): Reac
         onGoToStarred={() => onGoToStarred(trip)}
         cabinClass={cabinClass}
         itinerary={itinerary}
-        shareUrl={shareUrl(trip)}
+        shareUrl={makeShareUrl(trip)}
         onRemove={e => onRemove(id, e)}
         created={createdAt}
         updated={updatedAt}

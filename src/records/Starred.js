@@ -57,7 +57,7 @@ export type ShareDialog = {|
   cabinClass: CabinClass,
   isMobile: boolean,
   getLangInfo: string,
-  setNotice: boolean,
+  onSetNotice: boolean,
   onClose: boolean,
 |};
 
