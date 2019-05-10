@@ -13,6 +13,7 @@ Located in `@kiwicom/nitro/lib/services/<service>`.
 * [Log](#log)
 * [Modal](#modal)
 * [Session](#session)
+* [Starred](#starred)
 * [Utils](#utils)
 
 ## Auth
@@ -668,6 +669,44 @@ See types:
 * [storage](./consts#storage)
 
 Centralized medium for manipulating `localStorage`.
+
+## Starred
+
+
+
+See [InitStarred](./components#initstarred) for initializing the service.
+
+### Context
+
+**Import:**
+```js
+import * as context from "@kiwicom/nitro/lib/services/starred/context";
+```
+
+**Types:**
+```js
+export type Context = {|
+  list: StarredItem[],
+  isMobile: boolean,
+  lang: string,
+  onAdd: (arg: StarredItem) => void,
+  onGoToStarred: (arg: StarredItem) => void,
+  onRemove: (id: string, e: SyntheticEvent<HTMLDivElement>) => void,
+  onClear: (e: SyntheticEvent<HTMLDivElement>) => void,
+  onSetNotice: () => void,
+  renderShareDialog: (arg: ShareDialog) => React.Node,
+  makeShareUrl: (arg: StarredItem) => string,
+|};
+
+declare var context: React.Context<Context>;
+
+export const { Consumer, Provider } = context;
+```
+
+See types:
+* [Starred](./records#starred)
+
+
 
 ## Utils
 

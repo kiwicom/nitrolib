@@ -10,7 +10,7 @@ describe("#Day", () => {
     const wrapper = mount(<Day date={date} />);
 
     expect(wrapper).not.toBeUndefined();
-    // TODO separate date fns locale promise and test
+    // TODO: separate date fns locale promise and test
   });
 
   test("format custom", () => {
@@ -18,6 +18,6 @@ describe("#Day", () => {
     const wrapper = mount(<Day date={date} format="dd MM | yyyy" />);
 
     expect(wrapper).not.toBeUndefined();
-    // TODO separate date fns locale promise and test
+    // TODO: separate date fns locale promise and test
   });
 });

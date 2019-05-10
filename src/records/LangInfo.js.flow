@@ -54,3 +54,4 @@ declare export var langInfoDefault: LangInfo;
 
 declare export var fixDateFormat: (date: string) => string;
 declare export var fixTimeFormat: (time: string) => string;
+declare export var fixDurationFormat: (time: string) => string;

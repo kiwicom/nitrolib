@@ -112,3 +112,5 @@ export const fixDateFormat: (format: string) => string = R.compose(
 );
 
 export const fixTimeFormat: (format: string) => string = R.replace(/\bLT\b/g, "HH:mm");
+// TODO: rewrite
+export const fixDurationFormat: (format: string) => string = R.replace(/.*/, "HH:mm");

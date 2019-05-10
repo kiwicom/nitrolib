@@ -31,6 +31,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [InitIntl](#initintl)
 * [InitLog](#initlog)
 * [InitSession](#initsession)
+* [InitStarred](#initstarred)
 * [Itinerary](#itinerary)
 * [Mobile](#mobile)
 * [Price](#price)
@@ -357,7 +358,6 @@ import NavBar from "@kiwicom/nitro/lib/components/NavBar";
 **Types:**
 ```js
 type Props = {|
-  starred: React.Node,
   subscription: React.Node,
   portal: string,
   onOpenFaq: ?() => void,
@@ -387,6 +387,7 @@ See types:
 * [intl](./services#intl)
 * [log](./services#log)
 * [modal](./services#modal)
+* [starred](./services#starred)
 
 **Selectors `data-test`:**
 * ```"NavBar"```
@@ -1144,6 +1145,34 @@ See types:
 * [Session](./records#session)
 
 Initializes the [session](./services#session) context.
+
+### InitStarred
+
+**Import:**
+```js
+import InitStarred from "@kiwicom/nitro/lib/components/InitStarred";
+```
+
+**Types:**
+```js
+type Args = {|
+  list: StarredItem[],
+  onRemove: (arg: string, e: SyntheticEvent<HTMLDivElement>) => void,
+  onAdd: (arg: StarredItem) => void,
+  onClear: (e: SyntheticEvent<HTMLDivElement>) => void,
+|};
+
+type Props = {|
+  children: (args: Args) => React.Node,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+See types:
+* [Starred](./records#starred)
+
+Just mount it and it works!
 
 ### Itinerary
 
