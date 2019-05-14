@@ -1,9 +1,10 @@
 // @flow strict
 import * as React from "react";
+import styled from "styled-components";
+import type { Environment } from "react-relay";
 import { graphql, QueryRenderer } from "react-relay";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
-import type { Environment } from "react-relay";
 
 import environmentReal from "../../services/environment";
 import PickerDropDown from "./primitives/PickerDropDown";
@@ -13,6 +14,15 @@ import Text from "../Text";
 import LocationPickerResultList from "./components/LocationPickerResultList";
 import getPlaceholder from "./services/placeholder";
 import type { Location } from "../../records/Location";
+import LocationPickerPopup from "./components/LocationPickerPopup";
+import { themeDefault } from "../../records/Theme";
+
+const Spacer = styled.div`
+  padding-bottom: ${({ theme }) => theme.orbit.spaceSmall};
+`;
+Spacer.defaultProps = {
+  theme: themeDefault,
+};
 
 // FIXME add arrow handling somehow neatly
 // const ARROW_UP = 38;
@@ -29,10 +39,18 @@ import type { Location } from "../../records/Location";
 type Props = {|
   value: Location | null,
   onChange: (loc: Location) => void,
-  label: string,
-  icon?: React.Node,
+  label: React.Node,
+  error?: React.Node,
   // defaulted
-  environment: Environment,
+  environment?: Environment,
+  queryName?: "allLocations" | "holidaysLocations",
+  locationType?:
+    | "airport"
+    | "autonomous_territory"
+    | "city"
+    | "country"
+    | "station"
+    | "subdivision",
 |};
 
 type State = {|
@@ -40,9 +58,35 @@ type State = {|
   input: string,
 |};
 
+const queries = {
+  // TODO make one query with directives? @include(if: $var) @skip(if: $var)
+  allLocations: graphql`
+    query LocationPickerQuery($input: String!, $options: LocationsOptionsInput) {
+      allLocations(last: 50, search: $input, options: $options) {
+        ...LocationPickerResultList_list
+        pageInfo {
+          startCursor
+        }
+      }
+    }
+  `,
+  holidaysLocations: graphql`
+    query LocationPickerHolidaysQuery($input: String!) {
+      holidaysLocations(last: 50, search: $input) {
+        ...LocationPickerResultList_list
+        pageInfo {
+          startCursor
+        }
+      }
+    }
+  `,
+};
+
 class LocationPicker extends React.Component<Props, State> {
   static defaultProps = {
     environment: environmentReal,
+    queryName: "allLocations",
+    locationType: false,
   };
 
   state = {
@@ -74,70 +118,88 @@ class LocationPicker extends React.Component<Props, State> {
     });
   };
 
+  handleFocus = () => {
+    this.setState({
+      input: "",
+      active: true,
+    });
+  };
+
+  // used to show previous results while loading new ones
+  lastResultData: null;
+
   render() {
-    const { value, label, icon, environment } = this.props;
+    const { value, label, environment, queryName, locationType, error } = this.props;
     const { active, input } = this.state;
 
     const placeholder = value ? getPlaceholder(value) : "";
+    const options = locationType ? { locationType } : {};
+    const inputValue = active ? input : placeholder; // TODO Warning: A component is changing an uncontrolled input of type text to be controlled. Input elements should not switch from uncontrolled to controlled (or vice versa). Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://fb.me/react-controlled-components
 
     return (
-      <ClickOutside active={active} onClickOutside={this.handleClose}>
-        <>
+      <LocationPickerPopup active={active}>
+        <ClickOutside active={active} onClickOutside={this.handleClose}>
           <InputField
-            inlineLabel
-            label={label}
-            placeholder={placeholder}
+            prefix={label}
+            onFocus={this.handleFocus}
             onChange={this.handleChange}
-            prefix={icon}
-            value={active ? input : ""}
+            value={inputValue}
+            error={error}
           />
-          {input && active && (
-            <QueryRenderer
-              environment={environment}
-              query={graphql`
-                query LocationPickerQuery($input: String!) {
-                  allLocations(last: 50, search: $input) {
-                    ...LocationPickerResultList_list
+          {active && input.trim().length !== 0 && (
+            <>
+              <Spacer />
+              <QueryRenderer
+                environment={environment}
+                query={queries[queryName]}
+                variables={{ input, options }}
+                render={res => {
+                  if (res.error) {
+                    return (
+                      <Alert type="critical">
+                        <Text t="common.api_error" />
+                      </Alert>
+                    );
                   }
-                }
-              `}
-              variables={{ input }}
-              render={res => {
-                if (res.error) {
+
+                  const isLoading = !res.props;
+                  const resultData = isLoading ? this.lastResultData : res.props[queryName];
+                  if (!isLoading) {
+                    this.lastResultData = resultData;
+                  }
+
+                  // resultData can be null only while first loading
+                  // render nothing to prevent NoResult flickering
+                  if (!resultData) return null;
+
+                  // if startCursor is null it means resultData.edges is []
+                  if (!resultData.pageInfo.startCursor) {
+                    return (
+                      <NoResult>
+                        {queryName === "allLocation" ? (
+                          <Text t="forms.places_no_results" />
+                        ) : (
+                          <Text t="forms.places_no_results_no_iata" />
+                        )}
+                      </NoResult>
+                    );
+                  }
+
                   return (
-                    <Alert type="critical">
-                      <Text t="common.api_error" />
-                    </Alert>
+                    <PickerDropDown ref={this.node}>
+                      <LocationPickerResultList
+                        list={resultData}
+                        selectedId={value && value.id}
+                        onSelect={this.handleSelect}
+                      />
+                    </PickerDropDown>
                   );
-                }
-
-                if (!res.props) {
-                  return null;
-                }
-
-                if (!res.props.allLocations) {
-                  // TODO render this in the list if length is 0
-                  return (
-                    <NoResult>
-                      <Text t="forms.places_no_results" />
-                    </NoResult>
-                  );
-                }
-
-                return (
-                  <PickerDropDown ref={this.node}>
-                    <LocationPickerResultList
-                      list={res.props.allLocations}
-                      selectedId={value && value.id}
-                      onSelect={this.handleSelect}
-                    />
-                  </PickerDropDown>
-                );
-              }}
-            />
+                }}
+              />
+            </>
           )}
-        </>
-      </ClickOutside>
+        </ClickOutside>
+      </LocationPickerPopup>
     );
   }
 }

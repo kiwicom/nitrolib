@@ -15,6 +15,7 @@ export type LocationPickerResultList_list = {|
   +edges: ?$ReadOnlyArray<?{|
     +node: ?{|
       +id: string,
+      +holidaysLocationId: string,
       +type: ?string,
       +code: ?string,
       +name: ?string,
@@ -79,6 +80,20 @@ return {
             },
             {
               "kind": "ScalarField",
+              "alias": "holidaysLocationId",
+              "name": "id",
+              "args": [
+                {
+                  "kind": "Literal",
+                  "name": "opaque",
+                  "value": false,
+                  "type": "Boolean"
+                }
+              ],
+              "storageKey": "id(opaque:false)"
+            },
+            {
+              "kind": "ScalarField",
               "alias": null,
               "name": "type",
               "args": null,
@@ -112,5 +127,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '1ea2d7544f75d1136a7717149d16ebea';
+(node/*: any*/).hash = 'c460aae12bd3aa9ab30fa892bf585392';
 module.exports = node;

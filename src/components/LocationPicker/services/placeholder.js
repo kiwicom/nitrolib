@@ -7,7 +7,7 @@ const placeholder = (loc: Location): string => {
   switch (type) {
     case "city":
     case "autonomous_territory":
-      return `${name} ${loc.country ? `(${loc.country.name})` : ""}`;
+      return `${name} ${loc.country && loc.country.name ? `(${loc.country.name})` : ""}`;
 
     case "airport":
     case "station":

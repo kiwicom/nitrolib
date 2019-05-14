@@ -215,8 +215,17 @@ type Props = {|
   onChange: (loc: Location) => void,
   label: string,
   icon?: React.Node,
+  error?: React.Node,
   // defaulted
   environment?: Environment,
+  queryName?: "allLocations" | "holidaysLocations",
+  locationType?:
+    | "airport"
+    | "autonomous_territory"
+    | "city"
+    | "country"
+    | "station"
+    | "subdivision",
 |};
 
 declare export default React.ComponentType<Props>;

@@ -63,10 +63,10 @@ function toLocation(input: LocationPickerRow_item): Location {
     };
   }
 
-  // country
+  // country (+ in holidaysLocations - province, etc.)
   return {
     ...common,
-    type: "country",
+    type: input.type,
   };
 }
 

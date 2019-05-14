@@ -35,6 +35,7 @@ export default createFragmentContainer(
       edges {
         node {
           id
+          holidaysLocationId: id(opaque: false)
           type
           code
           name
