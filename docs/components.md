@@ -216,10 +216,19 @@ import LocationPicker from "@kiwicom/nitro/lib/components/LocationPicker";
 type Props = {|
   value: Location | null,
   onChange: (loc: Location) => void,
-  label: string,
+  label: React.Node,
   icon?: React.Node,
+  error?: React.Node,
   // defaulted
   environment?: Environment,
+  queryName?: "allLocations" | "holidaysLocations",
+  locationType?:
+    | "airport"
+    | "autonomous_territory"
+    | "city"
+    | "country"
+    | "station"
+    | "subdivision",
 |};
 
 declare export default React.ComponentType<Props>;

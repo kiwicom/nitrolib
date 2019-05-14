@@ -63,10 +63,15 @@ function toLocation(input: LocationPickerRow_item): Location {
     };
   }
 
-  // country
+  if (input.type === undefined || input.type === null) {
+    // eslint-disable-next-line fp/no-throw
+    throw new Error("Location type returned from API is undefined.");
+  }
+
+  // country (+ in holidaysLocations - province, etc.)
   return {
     ...common,
-    type: "country",
+    type: input.type,
   };
 }
 

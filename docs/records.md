@@ -1275,7 +1275,7 @@ type Common = {|
 
 export type LocationCountry = {|
   ...Common,
-  type: "country" | "special",
+  type: "country" | "special" | string,
 |};
 
 export type LocationSubdivision = {|
