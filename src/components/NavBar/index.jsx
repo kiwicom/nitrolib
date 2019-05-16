@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 
 import { navbar } from "../../styles";
 import Desktop from "../Desktop";
@@ -17,7 +18,6 @@ import Menu from "./components/Menu";
 import Logo from "./components/Logo";
 import Currency from "../Currency";
 import type { Modal } from "../../consts/modals";
-import Starred from "../Starred";
 
 type Inverted = {|
   ...ThemeProps,
@@ -50,6 +50,7 @@ Container.defaultProps = {
 };
 
 type Props = {|
+  starred: React.Node,
   subscription: React.Node,
   debug: React.Node,
   portal: string,
@@ -65,6 +66,7 @@ type Props = {|
 |};
 
 const NavBar = ({
+  starred,
   headerLinks,
   subscription,
   debug,
@@ -103,7 +105,10 @@ const NavBar = ({
             <Help onOpen={onOpenFaq} inverted={inverted} />
           </Stack>
         </Desktop>
-        <Starred positionMenuDesktop={270} inverted={inverted} positionMenuTablet={0} />
+        {/* TODO remove 'TextWrapper' eventually */}
+        <TextWrapper size="small" weight="normal">
+          {starred}
+        </TextWrapper>
         <Mobile>
           <Help onOpen={onOpenFaq} inverted={inverted} />
         </Mobile>

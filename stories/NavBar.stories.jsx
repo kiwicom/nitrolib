@@ -34,6 +34,7 @@ storiesOf("NavBar", module)
     <>
       <ModalsAuth portal="" />
       <NavBar
+        starred={<h1>Starred</h1>}
         headerLinks={<HeaderLinks {...props} inverted={false} />}
         subscription={<h1>Subscription</h1>}
         debug={<h1>Debug</h1>}
@@ -50,6 +51,7 @@ storiesOf("NavBar", module)
     <>
       <ModalsAuth portal="" />
       <NavBar
+        starred={<h1>Starred</h1>}
         headerLinks={<HeaderLinks {...props} inverted />}
         subscription={<h1>Subscription</h1>}
         debug={<h1>Debug</h1>}

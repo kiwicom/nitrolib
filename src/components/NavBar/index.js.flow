@@ -4,6 +4,7 @@ import * as React from "react";
 import type { Modal } from "../../consts/modals";
 
 type Props = {|
+  starred: React.Node,
   subscription: React.Node,
   portal: string,
   onOpenFaq: ?() => void,
