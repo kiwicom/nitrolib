@@ -1,5 +1,7 @@
 // @flow
-const itineraryReturn = {
+import type { ItineraryReturnDeep } from "../../Itinerary";
+
+const itineraryReturn: ItineraryReturnDeep = {
   id: "returnItinerary",
   price: {
     amount: "130",
@@ -25,6 +27,7 @@ const itineraryReturn = {
     hasHighProbabilityOfPriceChange: false,
   },
   type: "return",
+  duration: 137,
   bagsInfo: {
     hasNoCheckedBags: false,
     checkedBag: {
@@ -98,22 +101,42 @@ const itineraryReturn = {
             id: "station1",
             name: "Moscow",
             code: "VKO",
-            city: "Moscow",
-            country: "Russia",
+            city: {
+              id: "moscow",
+              name: "Moscow",
+              code: "MSC",
+              slug: "moscow",
+            },
+            country: {
+              id: "ru",
+              name: "Russia",
+              code: "RU",
+              slug: "russia",
+            },
             type: "AIRPORT",
           },
-          time: "2019-03-17T03:24:00.000Z",
+          time: new Date("2019-03-17T03:24:00.000Z"),
         },
         destination: {
           station: {
             id: "station2",
             name: "Prague",
             code: "PRG",
-            city: "Prague",
-            country: "Czech Republic",
+            city: {
+              id: "prague",
+              name: "Prague",
+              code: "prague",
+              slug: "prague",
+            },
+            country: {
+              id: "cz",
+              name: "Czech Republic",
+              code: "cz",
+              slug: "czech-republic",
+            },
             type: "AIRPORT",
           },
-          time: "2019-03-17T05:30:00.000Z",
+          time: new Date("2019-03-17T05:30:00.000Z"),
         },
         type: "FLIGHT",
         code: "1",
@@ -216,22 +239,42 @@ const itineraryReturn = {
             id: "station1",
             name: "Prague",
             code: "PRG",
-            city: "Prague",
-            country: "Czech Republic",
+            city: {
+              id: "prague",
+              name: "Prague",
+              code: "prague",
+              slug: "prague",
+            },
+            country: {
+              id: "cz",
+              name: "Czech Republic",
+              code: "cz",
+              slug: "czech-republic",
+            },
             type: "AIRPORT",
           },
-          time: "2019-03-25T03:30:00.000Z",
+          time: new Date("2019-03-25T03:30:00.000Z"),
         },
         destination: {
           station: {
             id: "station2",
             name: "Moscow",
             code: "VKO",
-            city: "Moscow",
-            country: "Russia",
+            city: {
+              id: "moscow",
+              name: "Moscow",
+              code: "MSC",
+              slug: "moscow",
+            },
+            country: {
+              id: "ru",
+              name: "Russia",
+              code: "RU",
+              slug: "russia",
+            },
             type: "AIRPORT",
           },
-          time: "2019-03-25T05:24:00.000Z",
+          time: new Date("2019-03-25T05:24:00.000Z"),
         },
         type: "FLIGHT",
         duration: 114,

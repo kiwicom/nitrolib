@@ -1,10 +1,10 @@
 // @flow strict
 import * as React from "react";
 
-import type { ItineraryDeep } from "../../records/Itinerary";
+import type { ItineraryNormalized } from "../../records/Itinerary";
 
 type Props = {|
-  itinerary: ItineraryDeep,
+  itinerary: ItineraryNormalized,
 |};
 
 declare export default React.ComponentType<Props>;

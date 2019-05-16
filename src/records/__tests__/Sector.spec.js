@@ -35,7 +35,25 @@ const allSectors = [
     duration: 240,
     id: "sector1",
     segments: ["segment1", "segment2"],
-    stopover: { arrival: {}, departure: {}, nightsCount: 1 },
+    stopover: {
+      arrival: {
+        city: { code: "VIE", id: "vienna", name: "Vienna", slug: "vienna" },
+        code: "stationizer",
+        country: { code: "AU", id: "austria", name: "Austria", slug: "austria" },
+        id: "station1",
+        name: "The Station",
+        type: "AIRPORT",
+      },
+      departure: {
+        city: { code: "VIE", id: "vienna", name: "Vienna", slug: "vienna" },
+        code: "stationizer",
+        country: { code: "AU", id: "austria", name: "Austria", slug: "austria" },
+        id: "station1",
+        name: "The Station",
+        type: "AIRPORT",
+      },
+      nightsCount: 1,
+    },
   },
   {
     carriers: ["DP", "UX"],
@@ -64,7 +82,7 @@ const allSectors = [
   },
 ];
 
-describe("#getSector/getSectors", () => {
+describe("#Sector", () => {
   it("should return single sector by id", () => {
     expect(getSector(flatten(input), "sector2")).toEqual(singleSector);
   });

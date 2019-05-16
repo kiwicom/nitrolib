@@ -1,5 +1,7 @@
-// @flow
-const itineraryOneWay = {
+// @flow strict
+import type { ItineraryOneWayDeep } from "../../Itinerary";
+
+const itineraryOneWay: ItineraryOneWayDeep = {
   id: "cheburek",
   price: {
     amount: "130",
@@ -25,6 +27,7 @@ const itineraryOneWay = {
     hasHighProbabilityOfPriceChange: false,
   },
   type: "oneWay",
+  duration: 137,
   bagsInfo: {
     hasNoCheckedBags: false,
     checkedBag: {
@@ -98,22 +101,42 @@ const itineraryOneWay = {
             id: "station1",
             name: "Moscow",
             code: "VKO",
-            city: "Moscow",
-            country: "Russia",
+            city: {
+              id: "moscow",
+              name: "Moscow",
+              code: "MSC",
+              slug: "moscow",
+            },
+            country: {
+              id: "ru",
+              name: "Russia",
+              code: "RU",
+              slug: "russia",
+            },
             type: "AIRPORT",
           },
-          time: "2019-03-17T03:24:00.000Z",
+          time: new Date("2019-03-17T03:24:00.000Z"),
         },
         destination: {
           station: {
             id: "station2",
             name: "Prague",
             code: "PRG",
-            city: "Prague",
-            country: "Czech Republic",
+            city: {
+              id: "prague",
+              name: "Prague",
+              code: "prague",
+              slug: "prague",
+            },
+            country: {
+              id: "cz",
+              name: "Czech Republic",
+              code: "cz",
+              slug: "czech-republic",
+            },
             type: "AIRPORT",
           },
-          time: "2019-03-17T05:30:00.000Z",
+          time: new Date("2019-03-17T05:30:00.000Z"),
         },
         type: "FLIGHT",
         code: "1",
@@ -159,22 +182,42 @@ const itineraryOneWay = {
             id: "station2",
             name: "Prague",
             code: "PRG",
-            city: "Prague",
-            country: "Czech Republic",
+            city: {
+              id: "prague",
+              name: "Prague",
+              code: "prague",
+              slug: "prague",
+            },
+            country: {
+              id: "cz",
+              name: "Czech Republic",
+              code: "cz",
+              slug: "czech-republic",
+            },
             type: "AIRPORT",
           },
-          time: "2019-03-18T04:25:00.000Z",
+          time: new Date("2019-03-18T04:25:00.000Z"),
         },
         destination: {
           station: {
             id: "station2",
             name: "London",
             code: "LTN",
-            city: "London",
-            country: "United Kingdom",
+            city: {
+              id: "London",
+              name: "London",
+              code: "L",
+              slug: "london",
+            },
+            country: {
+              id: "uk",
+              name: "United Kingdom",
+              code: "uk",
+              slug: "united-kingdom",
+            },
             type: "AIRPORT",
           },
-          time: "2019-03-18T06:30:00.000Z",
+          time: new Date("2019-03-18T06:30:00.000Z"),
         },
         type: "FLIGHT",
         code: "1",
