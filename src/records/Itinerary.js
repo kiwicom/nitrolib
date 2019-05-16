@@ -75,7 +75,7 @@ export type ItineraryMulticity = {|
 |};
 
 export type ItineraryMulticityDeep = {|
-  ...ItineraryMulticityDeep,
+  ...ItineraryMulticity,
   sectors: SectorDeep[],
 |};
 
