@@ -10,6 +10,7 @@ import { Provider as IntlProvider } from "../../src/services/intl/context";
 import { Provider as FetchedProvider } from "../../src/services/fetched/context";
 import { Provider as CurrencyProvider } from "../../src/services/currency/context";
 import { Provider as ModalProvider } from "../../src/services/modal/context";
+import { Provider as StarredProvider } from "../../src/services/starred/context";
 import InitIntl from "../../src/components/InitIntl";
 import InitCurrency from "../../src/components/InitCurrency";
 import Value from "../../src/components/Value";
@@ -21,6 +22,8 @@ import countries from "../fixtures/countries";
 import languages from "../fixtures/languages";
 import translations from "../fixtures/translations";
 import { getBrandTheme } from "../../src/records/Theme";
+import InitStarred from "../../src/components/InitStarred";
+import starredList from "../fixtures/starred";
 
 const GROUP_ID = "Context";
 
@@ -135,9 +138,29 @@ const withData = (storyFn: () => React.Node) => {
                         currency: currency.available[currencyId] || currency.currency,
                       }}
                     >
-                      <Value>
-                        {modal => <ModalProvider value={modal}>{storyFn()}</ModalProvider>}
-                      </Value>
+                      <InitStarred>
+                        {starredInit => (
+                          <StarredProvider
+                            value={{
+                              ...starredInit,
+                              list: starredList,
+                              // Passes from FE
+                              renderShareDialog: () => console.log("shareDialog") || null,
+                              onGoToStarred: () => console.log("nitro"),
+                              isMobile: false,
+                              lang: intl.language.id,
+                              // Passes from FE
+                              onSetNotice: () => console.log("notice"),
+                              // Passes from FE
+                              makeShareUrl: () => console.log("shareUrl") || "",
+                            }}
+                          >
+                            <Value>
+                              {modal => <ModalProvider value={modal}>{storyFn()}</ModalProvider>}
+                            </Value>
+                          </StarredProvider>
+                        )}
+                      </InitStarred>
                     </CurrencyProvider>
                   )}
                 </InitCurrency>

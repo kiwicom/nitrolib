@@ -5,10 +5,10 @@ import * as React from "react";
 import errors from "../../../../consts/errors";
 import { Consumer } from "../../../../services/intl/context";
 import * as validators from "../../../../services/input/validators";
-import AccountCreate from "../../../AccountCreate";
+import CreateAccount from "../screens/CreateAccount";
 import Text from "../../../Text";
-import CreateAccount from "../../mutations/CreateAccount";
-import type { CreateAccountError } from "../../mutations/__generated__/CreateAccountMutation.graphql";
+import createAccount from "../../mutations/createAccount";
+import type { CreateAccountError } from "../../mutations/__generated__/createAccountMutation.graphql";
 import LogContext from "../../../../services/log/context";
 import type { Context as LogContextType } from "../../../../services/log/context";
 import * as loginEvents from "../../consts/events";
@@ -109,7 +109,7 @@ export default class CreateAccountScreen extends React.PureComponent<Props, Stat
 
     this.setState({ isCreatingAccount: true, error: null, ...defaultErrors });
 
-    CreateAccount(brandId, { email, password })
+    createAccount(brandId, { email, password })
       .then(res => {
         this.setState({ isCreatingAccount: false });
 
@@ -194,7 +194,7 @@ export default class CreateAccountScreen extends React.PureComponent<Props, Stat
           const passConfirmError = passwordConfirmError ? intl.translate(passwordConfirmError) : "";
 
           return (
-            <AccountCreate
+            <CreateAccount
               email={email}
               password={password}
               error={error ? <Text t={error} values={{ text: email }} /> : null}

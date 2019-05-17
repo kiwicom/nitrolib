@@ -12,6 +12,7 @@ import getGeoCountryCall from "./services/getGeoCountry";
 import getCurrenciesCall from "./services/getCurrencies";
 import getCandidate from "./services/getCandidate";
 import getRecommended from "./services/getRecommended";
+import rewriteCurrencies from "../../services/currency/services/rewriteCurrencies";
 
 type Arg = {|
   currency: Currency,
@@ -129,7 +130,7 @@ export default class CurrencyProvider extends React.PureComponent<Props, State> 
 
     const [all, country] = await Promise.all([getCurrencies(), getGeoCountry(ip)]);
 
-    this.setState({ loading: false, all, country });
+    this.setState({ loading: false, all: rewriteCurrencies(all), country });
   }
 
   render() {

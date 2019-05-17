@@ -6,6 +6,7 @@ import Twitter from "@kiwicom/orbit-components/lib/icons/Twitter";
 import Instagram from "@kiwicom/orbit-components/lib/icons/Instagram";
 import Facebook from "@kiwicom/orbit-components/lib/icons/Facebook";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import { left, right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import Text from "../Text";
 import { Consumer as IntlConsumer } from "../../services/intl/context";
@@ -114,7 +115,7 @@ Link.defaultProps = {
 };
 
 const Icons = styled.div`
-  margin-left: auto;
+  margin-${/* sc-custom "left" */ left}: auto;
   order: -1;
 
   ${mq.desktop(css`
@@ -124,7 +125,7 @@ const Icons = styled.div`
 
 const IconsLink = styled.a`
   :not(:last-child) {
-    margin-right: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
+    margin-${/* sc-custom "right" */ right}: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
   }
 `;
 

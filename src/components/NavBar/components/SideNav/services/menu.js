@@ -48,10 +48,6 @@ export const icons = {
 };
 
 const companyPagesUI = {
-  branding: {
-    title: __("content.branding"),
-    Icon: icons.Kiwicom,
-  },
   stories: {
     title: __("content.stories"),
     Icon: icons.Trip,

@@ -7,7 +7,7 @@ import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
-import Security from "@kiwicom/orbit-components/lib/icons/Security";
+import Lock from "@kiwicom/orbit-components/lib/icons/Lock";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import { themeDefault } from "../../../../records/Theme";
@@ -164,7 +164,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
         </FieldWrap>
         <FieldWrap>
           {/* TODO: replace with Icon password after it will be added to Orbit */}
-          <IconText icon={<Security color="primary" size="small" />}>
+          <IconText icon={<Lock color="primary" size="small" />}>
             <Translate t="account.password.colon" />
           </IconText>
           <InputText

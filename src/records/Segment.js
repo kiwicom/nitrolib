@@ -2,15 +2,17 @@
 import { schema } from "normalizr";
 
 import type { Station } from "./Station";
+import type { ItineraryNormalized } from "./Itinerary";
 
 export type Stop = {|
   station: Station,
   time: Date,
 |};
 
+type Guarantee = "KIWI_COM" | "CARRIER";
 export type Layover = {|
   duration: number,
-  isKiwiComGuarantee: boolean,
+  guarantee: Guarantee,
   isStationChange: boolean,
   isBaggageRecheck: boolean,
 |};
@@ -23,12 +25,18 @@ export type Carrier = {|
 
 export const carrier = new schema.Entity("carrier");
 
+type SeatDimenstion = {|
+  value: string,
+  unit: "CM" | "INCH" | "DEGREE",
+|};
+
 export type SeatInfo = {|
-  pitch: number,
-  width: number,
-  recline: number,
+  pitch: SeatDimenstion,
+  width: SeatDimenstion,
+  recline: SeatDimenstion,
   hasPower: boolean,
   hasAudioVideo: boolean,
+  hasWifi: boolean,
 |};
 
 export type Segment = {|
@@ -42,8 +50,9 @@ export type Segment = {|
   carrier: string, // normalized, Carrier
   operatingCarrier: string, // normalized, Carrier
   seatInfo: SeatInfo,
-  hasWifi: boolean,
 |};
+
+export type Segments = { [key: string]: Segment };
 
 export type SegmentDeep = {|
   ...Segment,
@@ -55,3 +64,11 @@ export const segment = new schema.Entity("segment", {
   carrier,
   operatingCarrier: carrier,
 });
+
+export const getSegment = (obj: ItineraryNormalized, id: string): ?Segment =>
+  Object.keys(obj.entities.segment)
+    .map(key => obj.entities.segment[key])
+    .find(item => item.id === id);
+
+export const getSegments = (obj: ItineraryNormalized, ids: string[]): Segment[] =>
+  ids.map(id => obj.entities.segment[id]);

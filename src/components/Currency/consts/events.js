@@ -10,5 +10,6 @@ export const CURRENCY_OPEN: Event = {
     exponea: false,
     ga: false,
     logmole: true,
+    bigquery: true,
   },
 };

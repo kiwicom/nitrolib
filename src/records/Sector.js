@@ -1,6 +1,7 @@
 // @flow strict
 import { schema } from "normalizr";
 
+import type { ItineraryNormalized } from "./Itinerary";
 import type { Station } from "./Station";
 import { carrier, segment } from "./Segment";
 import type { Carrier, SegmentDeep } from "./Segment";
@@ -30,3 +31,11 @@ export const sector = new schema.Entity("sector", {
   segments: [segment],
   carriers: [carrier],
 });
+
+export const getSector = (obj: ItineraryNormalized, id: string): ?Sector =>
+  Object.keys(obj.entities.sector)
+    .map(key => obj.entities.sector[key])
+    .find(item => item.id === id);
+
+export const getSectors = (obj: ItineraryNormalized): Sector[] =>
+  Object.keys(obj.entities.sector).map(key => obj.entities.sector[key]);

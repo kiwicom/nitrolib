@@ -4,6 +4,8 @@ import styled, { css } from "styled-components";
 import type { Environment } from "react-relay";
 import Passenger from "@kiwicom/orbit-components/lib/icons/Passenger";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import Button from "../../primitives/Button";
 import ClickOutside from "../../../ClickOutside";
@@ -15,7 +17,6 @@ import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import Toggle from "../../../Toggle";
 import TripDataList from "./components/TripDataList";
-import Flex from "../../../../primitives/Flex";
 import SingleTripData from "./components/SingleTripData";
 import userType from "./services/userType";
 
@@ -38,7 +39,7 @@ const UserWrapper = styled.div`
 
   ${mq.mediumMobile(css`
     display: flex;
-    padding-left: 5px;
+    padding-${/* sc-custom "left" */ left}: 5px;
     font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
   `)};
@@ -52,7 +53,7 @@ const HideOnLower = styled.div`
   display: none;
   ${mq.tablet(css`
     display: block;
-    margin-left: ${({ theme }: ThemeProps) => theme.orbit.spaceXXSmall};
+    margin-${/* sc-custom "left" */ left}: ${({ theme }: ThemeProps) => theme.orbit.spaceXXSmall};
   `)}
 `;
 
@@ -79,7 +80,7 @@ const Trips = ({ auth, env, onSelect }: Props) => (
           </ClickOutside>
         )}
         <Desktop display="flex">
-          <Flex y="center">
+          <Stack align="center" spacing="none">
             <Passenger size="small" />
             <Button onClick={onToggle} color="secondary">
               <HideOnLower>
@@ -91,7 +92,7 @@ const Trips = ({ auth, env, onSelect }: Props) => (
                 <span>)</span>
               </UserWrapper>
             </Button>
-          </Flex>
+          </Stack>
         </Desktop>
         <Mobile display="flex">
           <Button onClick={onToggle} color="secondary">

@@ -6,9 +6,9 @@ import { mount } from "enzyme";
 
 import Intro from "..";
 
-import AccountLogin from "../../../../AccountLogin";
+import AccountLogin from "../../screens/Intro";
 
-jest.mock("../../../mutations/CheckEmail");
+jest.mock("../../../mutations/checkEmail");
 
 const defaultProps = {
   email: "joe.doe@example.com",

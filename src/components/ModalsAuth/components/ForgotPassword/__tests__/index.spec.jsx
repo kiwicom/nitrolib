@@ -10,7 +10,7 @@ describe("#SideBar/ForgotPassword", () => {
       <ForgotPassword brandId="kiwicom" onClose={jest.fn()} resetPassword={jest.fn()} />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("ForgotPassword__Container").exists()).toBe(true);
   });
 
   test("render loading", () => {
@@ -20,7 +20,7 @@ describe("#SideBar/ForgotPassword", () => {
 
     wrapper.setState({ loading: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.state("loading")).toBe(true);
   });
 
   test("render submitted", () => {
@@ -30,7 +30,7 @@ describe("#SideBar/ForgotPassword", () => {
 
     wrapper.setState({ submitted: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.state("submitted")).toBe(true);
   });
 
   test("render error INVALID_ARGUMENT_LOGIN", () => {
@@ -42,7 +42,7 @@ describe("#SideBar/ForgotPassword", () => {
     error.name = "INVALID_ARGUMENT_LOGIN";
     wrapper.setState({ error });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("AcceptAlert").exists()).toBe(true);
   });
 
   test("render error", () => {
@@ -52,7 +52,7 @@ describe("#SideBar/ForgotPassword", () => {
 
     wrapper.setState({ error: new Error() });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.state("error")).toEqual(new Error());
   });
 
   test("handle change", async () => {

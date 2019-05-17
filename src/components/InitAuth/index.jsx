@@ -10,6 +10,7 @@ import type { MyBookingInput, RegisterInput } from "../../services/auth/api";
 import { makeCall, makeEnvironment } from "../../services/utils/relay";
 import * as cookies from "../../services/session/cookies";
 import { AFFILIATE_ID } from "../../consts/cookies";
+import handleAffiliateId from "../../services/utils/handleAffiliateId";
 
 type Arg = {|
   auth: Auth | null,
@@ -55,11 +56,7 @@ export default class InitAuth extends React.PureComponent<Props, State> {
     api
       .getTokenUser(token)
       .then(user => {
-        if (user.affiliateId) {
-          cookies.save(AFFILIATE_ID, user.affiliateId);
-        } else {
-          cookies.remove(AFFILIATE_ID);
-        }
+        handleAffiliateId(user.affiliateId);
 
         this.setState({ auth: { type: "user", user, token }, loading: false });
       })

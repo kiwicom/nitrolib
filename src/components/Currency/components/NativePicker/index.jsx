@@ -5,11 +5,11 @@ import Exchange from "@kiwicom/orbit-components/lib/icons/Exchange";
 
 import { getCode, getSymbol } from "../../../../records/Currency";
 import type { Currency } from "../../../../records/Currency";
-import NativeGroupedSelect from "../../../NativeGroupedSelect/index";
+import NativeGroupedSelect from "../../../NativeGroupedSelect";
 
 const mapCurrencies = R.map(currency => ({
   value: currency.id,
-  text: `${getCode(currency.id)} - ${getSymbol(currency.format)}`,
+  text: `${getCode(currency.id)} - ${getSymbol(currency.format.format)}`,
 }));
 
 type Props = {|
@@ -28,7 +28,7 @@ const NativePicker = ({ current, available, recommended, onChange }: Props) => (
         items: [
           {
             value: current.id,
-            text: `${getCode(current.id)} - ${getSymbol(current.format)}`,
+            text: `${getCode(current.id)} - ${getSymbol(current.format.format)}`,
           },
         ],
       },

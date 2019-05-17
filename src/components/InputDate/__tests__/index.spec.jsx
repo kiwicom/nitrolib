@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import addYears from "date-fns/addYears";
 import setDate from "date-fns/setDate";
 import setMonth from "date-fns/setMonth";
@@ -8,7 +8,7 @@ import setYear from "date-fns/setYear";
 
 import InputDate from "..";
 
-const NOW = new Date(Date.UTC(2018, 1, 1));
+const NOW = new Date(Date.UTC(2018, 2, 1));
 
 describe("#InputDate", () => {
   test("render regular", () => {
@@ -22,11 +22,11 @@ describe("#InputDate", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find("Stack").exists()).toBe(true);
   });
 
   test("render ddmmyyyy", () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <InputDate
         id="test"
         value={NOW}
@@ -37,11 +37,30 @@ describe("#InputDate", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(
+      wrapper
+        .find("Select")
+        .at(0)
+        .prop("value"),
+    ).toEqual("1");
+
+    expect(
+      wrapper
+        .find("Select")
+        .at(1)
+        .prop("value"),
+    ).toEqual("2");
+
+    expect(
+      wrapper
+        .find("Select")
+        .at(2)
+        .prop("value"),
+    ).toEqual("2018");
   });
 
   test("render mmddyyyy", () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <InputDate
         id="test"
         value={NOW}
@@ -52,11 +71,30 @@ describe("#InputDate", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(
+      wrapper
+        .find("Select")
+        .at(0)
+        .prop("value"),
+    ).toEqual("2");
+
+    expect(
+      wrapper
+        .find("Select")
+        .at(1)
+        .prop("value"),
+    ).toEqual("1");
+
+    expect(
+      wrapper
+        .find("Select")
+        .at(2)
+        .prop("value"),
+    ).toEqual("2018");
   });
 
   test("render yyyymmdd", () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <InputDate
         id="test"
         value={NOW}
@@ -67,7 +105,26 @@ describe("#InputDate", () => {
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(
+      wrapper
+        .find("Select")
+        .at(0)
+        .prop("value"),
+    ).toEqual("2018");
+
+    expect(
+      wrapper
+        .find("Select")
+        .at(1)
+        .prop("value"),
+    ).toEqual("2");
+
+    expect(
+      wrapper
+        .find("Select")
+        .at(2)
+        .prop("value"),
+    ).toEqual("1");
   });
 
   test("handle change date", () => {

@@ -1,0 +1,19 @@
+// @flow strict
+export type Error = string; // "" means no error
+
+declare export var required: (val: mixed) => Error;
+
+declare export var email: (val: string) => Error;
+
+export type YearAfterOpts = {|
+  offset: number,
+  now: Date,
+|};
+
+declare export var yearAfter: (arg: YearAfterOpts) => (val: Date) => Error;
+
+declare export var iata: (val: string) => Error;
+
+declare export var departure: (val: Date, now?: Date) => Error;
+
+declare export var password: (value: string) => Error;

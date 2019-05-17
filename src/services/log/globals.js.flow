@@ -1,0 +1,19 @@
+// @flow strict
+import type { Globals } from "../../records/Loglady";
+
+type Static = {|
+  brandingId: string,
+  UTMs: { [key: string]: string },
+  affilParams: { [key: string]: string },
+  // Optional
+  langId?: string,
+  project?: string,
+  module?: string,
+  pageName?: string,
+  deeplinkId?: string,
+  pageViewId?: string,
+  bid?: number,
+  splitster?: { [key: string]: string },
+|};
+
+declare export default (statics: Static) => Globals;

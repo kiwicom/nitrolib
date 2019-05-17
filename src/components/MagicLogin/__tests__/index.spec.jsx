@@ -13,8 +13,8 @@ import { Provider as BrandProvider } from "../../../services/brand/context";
 import { Provider as LogProvider } from "../../../services/log/context";
 import * as loginEvents from "../consts/events";
 
-jest.mock("../mutations/CheckEmail");
-jest.mock("../mutations/SendMagicLink");
+jest.mock("../mutations/checkEmail");
+jest.mock("../mutations/sendMagicLink");
 
 const defaultProps = {
   onSocialLogin: () => Promise.resolve(undefined),
@@ -43,13 +43,13 @@ describe("#MagicLogin", () => {
     );
 
     wrapper
-      .find(`input[data-test="Email"]`)
+      .find(`input[data-test="MagicLogin-Email"]`)
       .simulate("change", { target: { value: "withBooking@example.com" } });
-    wrapper.find(`input[data-test="Email"]`).simulate("blur");
+    wrapper.find(`input[data-test="MagicLogin-Email"]`).simulate("blur");
     wrapper.find("form").simulate("submit");
 
     setImmediate(() => {
-      expect(wrapper.render().find(`[data-test="AccountCheckEmail"]`)).toHaveLength(1);
+      expect(wrapper.render().find(`[data-test="MagicLogin-CheckEmail"]`)).toHaveLength(1);
       done();
     });
   });
@@ -61,13 +61,13 @@ describe("#MagicLogin", () => {
       </BrandProvider>,
     );
     wrapper
-      .find(`input[data-test="Email"]`)
+      .find(`input[data-test="MagicLogin-Email"]`)
       .simulate("change", { target: { value: "withBookingError@example.com" } });
-    wrapper.find(`input[data-test="Email"]`).simulate("blur");
+    wrapper.find(`input[data-test="MagicLogin-Email"]`).simulate("blur");
     wrapper.find("form").simulate("submit");
 
     setImmediate(() => {
-      expect(wrapper.render().find(`[data-test="AccountLogin"]`)).toHaveLength(1);
+      expect(wrapper.render().find(`[data-test="MagicLogin-Intro"]`)).toHaveLength(1);
       expect(wrapper.render().text()).toContain("common.api_error");
       done();
     });
@@ -121,9 +121,9 @@ describe("#MagicLogin", () => {
     );
 
     wrapper
-      .find(`input[data-test="Email"]`)
+      .find(`input[data-test="MagicLogin-Email"]`)
       .simulate("change", { target: { value: "withBooking@example.com" } });
-    wrapper.find(`input[data-test="Email"]`).simulate("blur");
+    wrapper.find(`input[data-test="MagicLogin-Email"]`).simulate("blur");
     wrapper.find("form").simulate("submit");
 
     setImmediate(() => {

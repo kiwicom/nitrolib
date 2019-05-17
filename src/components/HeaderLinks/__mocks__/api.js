@@ -16,8 +16,6 @@ export const props = {
     children: 0,
   },
   splitster: {
-    HEADER_LINKS_PACKAGE_PROVIDER_0: "__disabled_user_group",
-    HEADER_LINKS_PACKAGE_PROVIDER_LASTMINUTE_0: "show",
     HEADER_LINKS_ROOMS_PROVIDER_0: "roomsKiwiCode",
   },
   context: "booking",
@@ -26,8 +24,6 @@ export const props = {
 
 export const response = {
   splitster: {
-    HEADER_LINKS_PACKAGE_PROVIDER_0: "__disabled_user_group",
-    HEADER_LINKS_PACKAGE_PROVIDER_LASTMINUTE_0: "show",
     HEADER_LINKS_ROOMS_PROVIDER_0: "roomsKiwiCode",
   },
   items: [

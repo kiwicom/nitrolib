@@ -5,6 +5,7 @@ import styled from "styled-components";
 import PassengersIcon from "@kiwicom/orbit-components/lib/icons/Passengers";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
+import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import Translate from "../../../Translate";
 import { themeDefault } from "../../../../records/Theme";
@@ -16,7 +17,7 @@ const Wrapper = styled.div`
 `;
 
 const StyledPassengersIcon = styled(PassengersIcon)`
-  margin-right: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
+  margin-${/* sc-custom "right" */ right}: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
 `;
 
 StyledPassengersIcon.defaultProps = {

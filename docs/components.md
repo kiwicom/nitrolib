@@ -16,17 +16,23 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 
 **Utilities:**
 
+* [BaggageOverview](#baggageoverview)
+* [BaggagePaymentSummary](#baggagepaymentsummary)
+* [BaggagePicker](#baggagepicker)
 * [BookingSavingsBanner](#bookingsavingsbanner)
 * [Button](#button)
 * [ClickOutside](#clickoutside)
 * [ClientOnly](#clientonly)
 * [CloseByKey](#closebykey)
+* [CustomerBaggageTile](#customerbaggagetile)
 * [Desktop](#desktop)
 * [InitAuth](#initauth)
 * [InitCurrency](#initcurrency)
 * [InitIntl](#initintl)
 * [InitLog](#initlog)
-* [InitSession](#initsession)
+* [InitStarred](#initstarred)
+* [Itinerary](#itinerary)
+* [LogMount](#logmount)
 * [Mobile](#mobile)
 * [Price](#price)
 * [Text](#text)
@@ -53,6 +59,8 @@ import CookiesConsent from "@kiwicom/nitro/lib/components/CookiesConsent";
 type Props = {|
   onAccept: () => void,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=CookiesConsent).
@@ -83,6 +91,8 @@ type Props = {|
   native?: boolean,
   loading?: React.Node,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -118,6 +128,8 @@ type Props = {|
   min: Date,
   max: Date,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=DatePicker).
@@ -138,6 +150,8 @@ import Footer from "@kiwicom/nitro/lib/components/Footer";
 **Types:**
 ```js
 type Props = {||};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Footer).
@@ -174,6 +188,8 @@ type Props = {|
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO DI actual API call
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -202,6 +218,8 @@ type Props = {|
   // defaulted
   environment?: Environment,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -229,6 +247,8 @@ type Props = {|
   onSignIn: (user: AuthUser) => void,
   onSocialLogin: (provider: SocialProvider) => Promise<void>,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -243,6 +263,19 @@ See types:
 
 **Selectors `data-test`:**
 * ```"MagicLogin"```
+* ```"MagicLogin-AskForMagic"```
+* ```"MagicLogin-CheckEmail"```
+* ```"MagicLogin-CreateAccount"```
+* ```"MagicLogin-Email"```
+* ```"MagicLogin-Email"```
+* ```"MagicLogin-Intro"```
+* ```"MagicLogin-LoginViaSocials"```
+* ```"MagicLogin-NoAccount"```
+* ```"MagicLogin-Password"```
+* ```"MagicLogin-Password"```
+* ```"MagicLogin-PasswordConfirm"```
+* ```"MagicLogin-PasswordInput"```
+* ```"MagicLogin-SocialLogin"```
 
 Modal component handling the whole login flow with magic link.
 
@@ -256,6 +289,21 @@ Modal component handling the whole login flow with magic link.
 - **initialScreen** - by default it shows intro screen where user is asked for e-mail based on which following steps are decided. You can pass `signUp` to display registration form immediately.
 - **type** - Explains the reason why user is asked to login, current options are `mmb` to manage bookings, `help` to get personalized help & `refer` to refer a friend to get a bonus. Default: `mmb`
 - **onClose** - callback to close the modal. TODO: should be handled probably by `ModalContext` in future.
+
+**`data-test` attributes for acceptance tests**
+
+- `MagicLogin` can be used to test if modal is opened as it wraps the whole login modal.
+- Different stages of login process:
+  - `MagicLogin-Intro` - initial screen of the login (unless registration was triggered immediately)
+    - additional section `MagicLogin-LoginViaSocials` is appended on same level in DOM as `AccountLogin` unless login with social networks without e-mail check is disallowed.
+  - `MagicLogin-CreateAccount` - registration form
+  - `MagicLogin-Password` - login screen which asks for kiwi.com password.
+  - `MagicLogin-SocialLogin` - screen which offers login via FB/Google after successful e-mail check.
+  - `MagicLogin-NoAccount` - when user has no account or booking, this screen is displayed where he can either proceed with registration or go back to intro screen.
+  - `MagicLogin-CheckEmail` - this is shown upon successful request to reset password or when e-mail with magic link is sent.
+- `MagicLogin-CloseButton` - close button for the whole login modal.
+- `MagicLogin-AskForMagic` - button that sends e-mail with magic link when clicked
+- Also, all inputs should have its own `data-test` attribute corresponding to their purpose - `MagicLogin-Email`, `MagicLogin-Password`
 
 **Example**
 
@@ -310,7 +358,6 @@ import NavBar from "@kiwicom/nitro/lib/components/NavBar";
 **Types:**
 ```js
 type Props = {|
-  starred: React.Node,
   subscription: React.Node,
   portal: string,
   onOpenFaq: ?() => void,
@@ -323,6 +370,8 @@ type Props = {|
   debug?: React.Node, // null
   inverted?: boolean, // false
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -338,6 +387,7 @@ See types:
 * [intl](./services#intl)
 * [log](./services#log)
 * [modal](./services#modal)
+* [starred](./services#starred)
 
 **Selectors `data-test`:**
 * ```"NavBar"```
@@ -362,6 +412,8 @@ type Props = {|
   onClick: () => void,
   children: React.Node,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=SideBar).
@@ -371,6 +423,213 @@ A container for a sidebar sliding from the _right_ (_left_ in RTL). It is append
 ## Utilities
 
 Things that help in development.
+
+### BaggageOverview
+
+**Import:**
+```js
+import BaggageOverview from "@kiwicom/nitro/lib/components/BaggageOverview";
+```
+
+**Types:**
+```js
+FAQLinksHandlerType,
+  DefinitionWithPassenger,
+  Definition,
+  OverviewContextType,
+} from "../../records/Baggage";
+
+type Props = {|
+  definitions?: Definition[],
+  definitionsWithPassengers?: DefinitionWithPassenger[],
+  FAQLinksHandler?: FAQLinksHandlerType,
+  context: OverviewContextType,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=BaggageOverview).
+
+**Context needs:**
+* [intl](./services#intl)
+
+**Selectors `data-test`:**
+* ```"BaggageOverview-BaggageItem-Passengers"```
+* ```"BaggageOverview-NoPersonalItem"```
+* ```{`BaggageOverview-${context}`}```
+* ```{`BaggageOverview-BaggageItem-${category}`}```
+
+- renders baggage overview
+- depending on props can be used as standalone component or wrapped in [Container ](`./components/Container`)
+
+**Example:**
+
+standalone
+
+```js
+<BaggageOverview
+  definitions={definitions}
+  FAQLinksHandler={category => {}}
+  context="MMB-PassengerCard"
+/>
+```
+
+wrapped in Container
+
+```js
+<Container
+  passengers={[
+    {
+      paxId: 3,
+      firstName: "George",
+      lastName: "Bush",
+      baggage: {
+        holdBag: 0,
+        handBag: 1
+      }
+    }
+  ]}
+  baggage={baggageData}
+  context="booking"
+>
+  {({ props }) => <BaggageOverview {...props} />}
+</Container>
+```
+
+### BaggagePaymentSummary
+
+**Import:**
+```js
+import BaggagePaymentSummary from "@kiwicom/nitro/lib/components/BaggagePaymentSummary";
+```
+
+**Types:**
+```js
+type Passenger = {|
+  paxId: number,
+  firstName: string,
+  lastName: string,
+  baggage: {
+    holdBag: number,
+    handBag: number,
+  },
+|};
+
+type Props = {|
+  passengers: Passenger[],
+  baggage: BaggageType,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+See types:
+* [Baggage](./records#baggage)
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=BaggagePaymentSummary).
+
+**Context needs:**
+* [currency](./services#currency)
+* [intl](./services#intl)
+
+**Selectors `data-test`:**
+* ```"BaggagePaymentSummary"```
+* ```"BaggagePaymentSummary-TotalPayment"```
+* ```{`BaggagePaymentSummary-PassengerBaggages-${paxId}-Price`}```
+* ```{`BaggagePaymentSummary-PassengerBaggages-${paxId}`}```
+
+- renders baggage payment summary
+- renders baggages per passenger with price per passenger
+- renders summary price for all baggages in itinerary
+
+**Example:**
+
+```js
+<BaggagePaymentSummary
+  passengers={[
+    {
+      paxId: 1,
+      firstName: "Vaclav",
+      lastName: "Havel",
+      baggage: {
+        holdBag: 1,
+        handBag: 1
+      }
+    }
+  ]}
+  baggage={baggageData}
+/>
+```
+
+### BaggagePicker
+
+**Import:**
+```js
+import BaggagePicker from "@kiwicom/nitro/lib/components/BaggagePicker";
+```
+
+**Types:**
+```js
+type Props = {|
+  changeBagCombination: (picker: BaggageCategory, item: number) => void,
+  passengerCategory: PassengerGroup,
+  passengerBaggage: { handBag: number, holdBag: number },
+  baggage: BaggageType,
+  shouldShowRecheckNote?: boolean,
+  airlines: { [string]: Airline },
+  pickerType: BaggageCategory,
+  context: "booking" | "mmb",
+  currentCombination?: number,
+  prioBoardingLinkHandler?: (arg: Airline[]) => void,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+See types:
+* [Baggage](./records#baggage)
+* [Airline](./records#airline)
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=BaggagePicker).
+
+**Context needs:**
+* [currency](./services#currency)
+* [intl](./services#intl)
+
+**Selectors `data-test`:**
+* ```"BaggagePicker-EmptyLabel"```
+* ```"BaggagePicker-EmptyOption"```
+* ```"BaggagePicker-NoPersonalItemLabel"```
+* ```"BaggagePicker-OptionItem-Current"```
+* ```"BaggagePicker-OptionItem-Price"```
+* ```"BaggagePicker-PriorityBoardingInfo"```
+* ```"BaggagePicker-RecheckAlert"```
+* ```"BaggagePicker-ShowButton"```
+* ```{`BaggagePicker-${pickerType}`}```
+* ```{`BaggagePicker-Option-${index}`}```
+* ```{`BaggagePicker-OptionItem-${category}`}```
+
+- renders baggage picker
+
+**Example:**
+
+```js
+<BaggagePicker
+  airlines={airlines}
+  baggage={baggageData}
+  context="context"
+  changeBagCombination={(type, index) => {}}
+  passengerBaggage={{
+    handBag: 1,
+    holdBag: 1
+  }}
+  passengerCategory="adult"
+  prioBoardingLinkHandler={airlines => console.log("prioAirlines", airlines)}
+  pickerType="handBag"
+  shouldShowRecheckNote={false}
+/>
+```
 
 ### BookingSavingsBanner
 
@@ -387,6 +646,8 @@ type Props = {|
   onLearnMoreClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers redirection to learn more article
   onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers modal with alternative trips
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=BookingSavingsBanner).
@@ -417,6 +678,8 @@ type Props = {|
   html?: boolean,
   transform?: (value: string) => string,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Button).
@@ -443,6 +706,8 @@ type Props = {|
   // defaulted
   active?: boolean, // true
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=ClickOutside).
@@ -472,6 +737,8 @@ type Props = {|
   // defaulted
   loader?: React.Node, // null
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=ClientOnly).
@@ -505,11 +772,89 @@ type Props = {|
   // defaulted
   closeKey?: string, // Escape
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=CloseByKey).
 
 Fires a callback whenever a user presses the close button (_Escape_ by default).
+
+### CustomerBaggageTile
+
+**Import:**
+```js
+import CustomerBaggageTile from "@kiwicom/nitro/lib/components/CustomerBaggageTile";
+```
+
+**Types:**
+```js
+type Props = {|
+  firstName: string,
+  middleName?: string,
+  lastName: string,
+  gender: Gender,
+  dayOfBirth?: string,
+  isProcessing: boolean,
+  current?: {
+    handBag: number,
+    holdBag: number,
+  },
+  selected?: {
+    handBag: number,
+    holdBag: number,
+  },
+  newDefinitions?: Definition[],
+  onClick?: () => void,
+  baggage: BaggageType,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+See types:
+* [Baggage](./records#baggage)
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=CustomerBaggageTile).
+
+**Context needs:**
+* [currency](./services#currency)
+
+**Selectors `data-test`:**
+* ```"CustomerBaggageTile-BaggageItem"```
+* ```"CustomerBaggageTile-ContactUsText"```
+* ```"CustomerBaggageTile-Content"```
+* ```"CustomerBaggageTile-Title"```
+* ```{`CustomerBaggageTile-Badge-${status}`}```
+* ```{`CustomerBaggageTile-Badge-${status}`}```
+* ```{`CustomerBaggageTile-Badge-${status}`}```
+
+- renders baggage tile for customer
+- component should be used in baggage ordering process
+- component has features:
+  - order statuses
+  - differ newly selected baggages from current
+
+**Example:**
+
+```js
+<CustomerBaggageTile
+  firstName="Vaclav"
+  lastName="Havel"
+  gender="male"
+  isProcessing={false},
+  current={{
+    handBag: 1,
+    holdBag: 1,
+  }}
+  selected={{
+    handBag: 2,
+    holdBag: 2,
+  }}
+  onClick={ () => {}}
+  baggage={baggageData}
+/>
+```
 
 ### Desktop
 
@@ -525,6 +870,8 @@ type Props = {|
   // defaulted
   display?: "block" | "inline" | "inline-block" | "flex", // block
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Desktop).
@@ -588,6 +935,8 @@ type Props = {|
   onSignOut: () => void,
   children: (arg: Arg) => React.Node,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -633,9 +982,11 @@ type Props = {|
   // defaulted
   mostUsed?: string[],
   // DI
-  getCurrencies?: () => Promise<Currencies>,
+  getCurrencies?: () => Promise<FetchedCurrencies>,
   getGeoCountry?: (ip: string) => Promise<string>,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -660,6 +1011,8 @@ type Props = {|
   // defaulted
   getLocale?: Promise<$FlowFixMe>, // resolves en-US by default
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -727,9 +1080,11 @@ import InitLog from "@kiwicom/nitro/lib/components/InitLog";
 ```js
 type Props = {|
   globals: Globals,
-  onLog: (ev: EventPayload, globals: Globals) => void,
+  onLog?: (ev: EventPayload, globals: Globals) => void,
   children: (ctx: Context) => React.Node,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
@@ -770,24 +1125,106 @@ ReactDOM.render(
 );
 ```
 
-### InitSession
+### InitStarred
 
 **Import:**
 ```js
-import InitSession from "@kiwicom/nitro/lib/components/InitSession";
+import InitStarred from "@kiwicom/nitro/lib/components/InitStarred";
+```
+
+**Types:**
+```js
+type Args = {|
+  list: StarredItem[],
+  onRemove: (arg: string, e: SyntheticEvent<HTMLDivElement>) => void,
+  onAdd: (arg: StarredItem) => void,
+  onClear: (e: SyntheticEvent<HTMLDivElement>) => void,
+|};
+
+type Props = {|
+  children: (args: Args) => React.Node,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+See types:
+* [Starred](./records#starred)
+
+Just mount it and it works!
+
+### Itinerary
+
+**Import:**
+```js
+import Itinerary from "@kiwicom/nitro/lib/components/Itinerary";
 ```
 
 **Types:**
 ```js
 type Props = {|
-  children: (session: Session) => React.Node,
+  itinerary: ItineraryDeep,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 See types:
-* [Session](./records#session)
+* [Itinerary](./records#itinerary)
 
-Initializes the [session](./services#session) context.
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Itinerary).
+
+**Context needs:**
+* [intl](./services#intl)
+
+- Renders all trip types aka Itineraries (oneWay, return, multicity and nomad)
+- It was made similiar to search graphql date structure
+- Uses flat date structure
+- You can check new structure in these records:
+
+[Itineray](`../records/Itinerary`)
+[Sector](`../records/Sector`)
+[Segment](`../records/Segment`)
+
+To implement `Itinerary` you have to import **_flatten_** function.
+
+**Example:**
+
+```js
+import { flatten } from "@kiwicom/nitro/lib/records/Itinerary";
+
+<Itinerary itinerary={flatten(ItineraryOneWay)} />;
+```
+
+### LogMount
+
+**Import:**
+```js
+import LogMount from "@kiwicom/nitro/lib/components/LogMount";
+```
+
+**Types:**
+```js
+type Props = {|
+  event: Event,
+  // defaulted
+  props?: EventProps,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+See types:
+* [Event](./records#event)
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=LogMount).
+
+**Context needs:**
+* [log](./services#log)
+
+Logs the given event and props on mount.
+
+Useful for declarative tracking of opening modals or page sections.
 
 ### Mobile
 
@@ -803,6 +1240,8 @@ type Props = {|
   // defaulted
   display?: "block" | "inline" | "inline-block" | "flex", // block
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Mobile).
@@ -833,6 +1272,8 @@ import Price from "@kiwicom/nitro/lib/components/Price";
 type Props = {|
   value: number,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Price).
@@ -872,6 +1313,8 @@ type Props = {|
   html?: boolean,
   transform?: (value: string) => string,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Text).
@@ -898,6 +1341,8 @@ type Props = {|
   values: { [key: string]: React.Node },
   transform?: (value: string) => string,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=TextNode).
@@ -928,6 +1373,8 @@ type Props = {|
   // defaulted
   initial?: boolean, // false
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Toggle).
@@ -964,6 +1411,8 @@ type Props = {|
   html?: boolean, // false
   transform?: (value: string) => string, // identity
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Translate).
@@ -999,6 +1448,8 @@ type Props = {|
   // defaulted
   transform?: (value: string) => string, // identity
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=TranslateNode).
@@ -1041,6 +1492,8 @@ type Props = {|
   // defaulted
   initial?: string, // ""
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Value).
@@ -1088,6 +1541,8 @@ type Props = {|
   onChange: (value: string) => void,
   children: (data: Data) => React.Node,
 |};
+
+declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=ValueBind).

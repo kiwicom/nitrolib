@@ -5,15 +5,15 @@ import { graphql, createFragmentContainer } from "react-relay";
 import ButtonLink from "../../../../primitives/ButtonLink";
 import Translate from "../../../../../Translate";
 import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
-import type { TripHeader_trips } from "./__generated__/TripHeader_trips.graphql";
+import type { TripHeader_list } from "./__generated__/TripHeader_list.graphql";
 
 type Props = {|
-  trips: TripHeader_trips,
+  list: TripHeader_list,
 |};
 
-const TripHeader = ({ trips }: Props) => {
-  const countTrips = trips.edges
-    ? trips.edges
+const TripHeader = ({ list }: Props) => {
+  const countTrips = list.edges
+    ? list.edges
         .map(edge => edge && edge.node)
         .filter(Boolean)
         .filter(item => item.isPastBooking === false).length
@@ -50,7 +50,7 @@ export const TripHeaderUnwrapped = TripHeader;
 export default createFragmentContainer(
   TripHeader,
   graphql`
-    fragment TripHeader_trips on BookingInterfaceConnection {
+    fragment TripHeader_list on BookingInterfaceConnection {
       edges {
         node {
           isPastBooking

@@ -40,6 +40,7 @@ function getTranslations(keys, folder) /* : Promise<void> */ {
             .update(JSON.stringify(filtered, null, 2), "binary")
             .digest("hex");
 
+          // SIDE EFFECT
           fs.outputJsonSync(path.join(OUT, makeFilename(locale, hash)), filtered, {
             spaces: 2,
           });

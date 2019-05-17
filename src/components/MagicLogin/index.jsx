@@ -3,13 +3,13 @@
 import * as React from "react";
 import Modal from "@kiwicom/orbit-components/lib/Modal";
 
-import AccountNoAccount from "../AccountNoAccount";
-import AccountSocialLogin from "../AccountSocialLogin";
-import AccountCheckEmail from "../AccountCheckEmail";
+import NoAccount from "./components/screens/NoAccount";
+import SocialLogin from "./components/screens/SocialLogin";
+import AccountCheckEmail from "./components/screens/CheckEmail";
 import KiwiLoginScreen from "./components/KiwiLogin";
 import IntroScreen from "./components/Intro";
 import CreateAccountScreen from "./components/CreateAccount";
-import SendMagicLink from "./mutations/SendMagicLink";
+import sendMagicLink from "./mutations/sendMagicLink";
 import type { Screen } from "./records/Screen";
 import errors from "../../consts/errors";
 import { Consumer as BrandConsumer } from "../../services/brand/context";
@@ -130,7 +130,7 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
 
     this.setState({ isSendingEmail: true, error: "" });
 
-    SendMagicLink(email, brand.id)
+    sendMagicLink(email, brand.id)
       .then(res => {
         this.setState({ isSendingEmail: false });
 
@@ -186,7 +186,7 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
         )}
 
         {screen === "noAccount" && (
-          <AccountNoAccount
+          <NoAccount
             onBack={this.handleToIntro}
             onRegister={this.handleToSignUp}
             onGoogleLogin={this.handleGoogleLogin}
@@ -219,7 +219,7 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
         )}
 
         {screen === "googleLogin" && (
-          <AccountSocialLogin
+          <SocialLogin
             email={email}
             pairedWith="google"
             onAskSignInLink={this.handleMagicLink}
@@ -228,7 +228,7 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
         )}
 
         {screen === "facebookLogin" && (
-          <AccountSocialLogin
+          <SocialLogin
             email={email}
             pairedWith="facebook"
             onAskSignInLink={this.handleMagicLink}

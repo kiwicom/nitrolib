@@ -8,7 +8,7 @@ describe("#IataPicker", () => {
   test("render", () => {
     const wrapper = shallow(<IataPicker id="test" value="" onSelect={jest.fn()} error="" />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.text()).toBe("");
   });
 
   test("render open", () => {
@@ -16,7 +16,7 @@ describe("#IataPicker", () => {
 
     wrapper.setState({ open: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.state("open")).toEqual(true);
   });
 
   test("handle change", () => {

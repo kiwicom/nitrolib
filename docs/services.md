@@ -13,6 +13,7 @@ Located in `@kiwicom/nitro/lib/services/<service>`.
 * [Log](#log)
 * [Modal](#modal)
 * [Session](#session)
+* [Starred](#starred)
 * [Utils](#utils)
 
 ## Auth
@@ -210,6 +211,33 @@ Contains the brand configuration object. It is static.
 
 Has all the necessary information and operations regarding currency.
 
+Setup might look something like:
+
+```js
+// Rewrites currencies from fetched to new date structure
+import rewriteCurrencies from "@kiwicom/nitro/lib/services/currency/serivces/rewriteCurrencies";
+
+<CurrencyProvider
+  value={{
+    currency: available[currencyId],
+    available,
+    recommended: recommended.map(code => available[code]),
+    onChange
+  }}
+>
+  {children}
+</CurrencyProvider>;
+
+const connector: Connector<OwnProps, Props> = connect(state => ({
+  // currency
+  currencyId: getCurrency(state),
+  available: rewriteCurrencies(getCurrencies(state)),
+  recommended: getRecommendedCurrenciesSelectorJS(state)
+}));
+
+export default connector(NitroBridge);
+```
+
 See [InitCurrency](./components#initcurrency) for initializing the service.
 
 ### Context
@@ -293,8 +321,86 @@ Just utility objects to be used in the `headers` option when using `fetch`.
 
 ## Input
 
-_TODO_
+Functions related to normalization, validation and manipulation of input values.
 
+### ComposeValidator
+
+**Import:**
+```js
+import * as composeValidator from "@kiwicom/nitro/lib/services/input/composeValidator";
+```
+
+**Types:**
+```js
+export type Validator = (value: any) => string;
+
+declare export default (...validators: Validator[]) => Validator;
+```
+
+Composes multiple validators into a single validator that returns the first error encountered.
+
+### EmailCorrector
+
+**Import:**
+```js
+import * as emailCorrector from "@kiwicom/nitro/lib/services/input/emailCorrector";
+```
+
+**Types:**
+```js
+declare export default (email: string) => string;
+```
+
+Tries to correct an email, giving you a recommended one back.
+
+### Normalizers
+
+**Import:**
+```js
+import * as normalizers from "@kiwicom/nitro/lib/services/input/normalizers";
+```
+
+**Types:**
+```js
+declare export var email: (value: string) => string;
+
+declare export var numbers: (val: string) => string;
+```
+
+
+
+### Validators
+
+**Import:**
+```js
+import * as validators from "@kiwicom/nitro/lib/services/input/validators";
+```
+
+**Types:**
+```js
+export type Error = string; // "" means no error
+
+declare export var required: (val: mixed) => Error;
+
+declare export var email: (val: string) => Error;
+
+export type YearAfterOpts = {|
+  offset: number,
+  now: Date,
+|};
+
+declare export var yearAfter: (arg: YearAfterOpts) => (val: Date) => Error;
+
+declare export var iata: (val: string) => Error;
+
+declare export var departure: (val: Date, now?: Date) => Error;
+
+declare export var password: (value: string) => Error;
+```
+
+Validators return error _translation keys_ for wrong inputs.
+
+> Error is always a `string`, an empty string means no error.
 
 ## Intl
 
@@ -379,11 +485,50 @@ const localeFn = LOCALES[ID] || LOCALES.enUS; // Fallback to 'en-US'
 </InitIntl>
 ```
 
+### Translate
+
+**Import:**
+```js
+import * as translate from "@kiwicom/nitro/lib/services/intl/translate";
+```
+
+**Types:**
+```js
+export type Values = { [key: string]: string | number };
+export type Translate = (key: string, values?: Values) => string;
+export type Translations = { [key: string]: string };
+
+declare export default function translate(
+  translations: Translations,
+  key: string,
+  values?: Values,
+): string;
+```
+
+
+
 ## Log
 
 _TODO_
 
 See [InitLog](./components#initlog) for initializing the service.
+
+### Api
+
+**Import:**
+```js
+import * as api from "@kiwicom/nitro/lib/services/log/api";
+```
+
+**Types:**
+```js
+declare export default function log(payload: Loglady): Promise<void>;
+```
+
+See types:
+* [Loglady](./records#loglady)
+
+**LogLady** API call.
 
 ### Context
 
@@ -409,6 +554,40 @@ See types:
 * [Event](./records#event)
 
 _TODO_
+
+### Globals
+
+**Import:**
+```js
+import * as globals from "@kiwicom/nitro/lib/services/log/globals";
+```
+
+**Types:**
+```js
+type Static = {|
+  brandingId: string,
+  UTMs: { [key: string]: string },
+  affilParams: { [key: string]: string },
+  // Optional
+  langId?: string,
+  project?: string,
+  module?: string,
+  pageName?: string,
+  deeplinkId?: string,
+  pageViewId?: string,
+  bid?: number,
+  splitster?: { [key: string]: string },
+|};
+
+declare export default (statics: Static) => Globals;
+```
+
+See types:
+* [Loglady](./records#loglady)
+
+Utility for gathering the `global` object for **LogLady** tracking.
+
+> Uses the `window` object, use only on the client!
 
 ## Modal
 
@@ -445,8 +624,6 @@ Contains everything regarding session data:
 * **user** and **request** specific context data
 * **cookies**
 * **local storage**
-
-See [InitSession](./components#initsession) for initializing the service.
 
 ### Context
 
@@ -515,32 +692,104 @@ declare export var makePageViewId: () => string;
 
 Functions for generating IDs.
 
-### Storage
+### Init
 
 **Import:**
 ```js
-import * as storage from "@kiwicom/nitro/lib/services/session/storage";
+import * as init from "@kiwicom/nitro/lib/services/session/init";
 ```
 
 **Types:**
 ```js
-declare export var load: (key: Storage) => ?string;
-
-declare export var save: (key: Storage, value: string) => void;
-
-declare export var remove: (key: Storage) => void;
-
-declare export var loadSession: (key: Storage) => ?string;
-
-declare export var saveSession: (key: Storage, value: string) => void;
-
-declare export var removeSession: (key: Storage) => void;
+declare export default () => Session;
 ```
 
 See types:
-* [storage](./consts#storage)
+* [Session](./records#session)
+
+Initializes the [session](./services#session) context.
+
+> Uses the `window` object, unavailable on the server.
+
+### Local
+
+**Import:**
+```js
+import * as local from "@kiwicom/nitro/lib/services/session/local";
+```
+
+**Types:**
+```js
+declare export var load: (key: Local) => ?string;
+
+declare export var save: (key: Local, value: string) => void;
+
+declare export var remove: (key: Local) => void;
+```
+
+See types:
+* [local](./consts#local)
 
 Centralized medium for manipulating `localStorage`.
+
+### Session
+
+**Import:**
+```js
+import * as session from "@kiwicom/nitro/lib/services/session/session";
+```
+
+**Types:**
+```js
+declare export var load: (key: Session) => ?string;
+
+declare export var save: (key: Session, value: string) => void;
+
+declare export var remove: (key: Session) => void;
+```
+
+See types:
+* [session](./consts#session)
+
+Centralized medium for manipulating `sessionStorage`.
+
+## Starred
+
+
+
+See [InitStarred](./components#initstarred) for initializing the service.
+
+### Context
+
+**Import:**
+```js
+import * as context from "@kiwicom/nitro/lib/services/starred/context";
+```
+
+**Types:**
+```js
+export type Context = {|
+  list: StarredItem[],
+  isMobile: boolean,
+  lang: string,
+  onAdd: (arg: StarredItem) => void,
+  onGoToStarred: (arg: StarredItem) => void,
+  onRemove: (id: string, e: SyntheticEvent<HTMLDivElement>) => void,
+  onClear: (e: SyntheticEvent<HTMLDivElement>) => void,
+  onSetNotice: () => void,
+  renderShareDialog: (arg: ShareDialog) => React.Node,
+  makeShareUrl: (arg: StarredItem) => string,
+|};
+
+declare var context: React.Context<Context>;
+
+export const { Consumer, Provider } = context;
+```
+
+See types:
+* [Starred](./records#starred)
+
+
 
 ## Utils
 

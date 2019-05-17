@@ -2,8 +2,8 @@
 import * as React from "react";
 import format from "date-fns/format";
 
-import { Consumer } from "../../services/intl/context";
 import { fixTimeFormat } from "../../records/LangInfo";
+import { Consumer } from "../../services/intl/context";
 
 type Props = {|
   time: Date,

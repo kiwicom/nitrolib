@@ -21,6 +21,7 @@ type Args = {|
 |};
 
 type Link = {|
+  key: string,
   id: ThemeNames,
   title: ThemeNames,
   onClick: () => void,
@@ -39,7 +40,8 @@ const setTheme = ({ api, set, rerender }: Args) => {
 };
 
 const ThemeSwitcher = ({ api }: Props) => {
-  const links: Array<Link> = Object.keys(themes).map(i => ({
+  const links: Link[] = Object.keys(themes).map(i => ({
+    key: i,
     id: i,
     title: i,
     onClick: () => {

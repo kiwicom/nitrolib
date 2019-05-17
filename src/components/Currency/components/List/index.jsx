@@ -4,12 +4,12 @@ import styled, { css } from "styled-components";
 import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import type { Currency } from "../../../../records/Currency";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import separateList from "../../services/separateList";
-import Flex from "../../../../primitives/Flex";
 import button from "../../../../styles/mixins/button";
 import Tooltip from "../../../Tooltip/index";
 import CurrencyItem from "../Item/index";
@@ -98,7 +98,7 @@ type Props = {|
 |};
 
 const List = ({ active, list, onSetCurrency }: Props) => (
-  <Flex wrap="wrap">
+  <Stack wrap spacing="none">
     {separateList(COLUMNS, list).map((items, i) => (
       <Column key={items.reduce((acc, next) => acc + next.id, "")}>
         {items.map(item => (
@@ -114,7 +114,7 @@ const List = ({ active, list, onSetCurrency }: Props) => (
         ))}
       </Column>
     ))}
-  </Flex>
+  </Stack>
 );
 
 export default List;

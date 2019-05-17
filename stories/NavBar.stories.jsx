@@ -24,8 +24,6 @@ const props = {
     children: 0,
   },
   splitster: {
-    HEADER_LINKS_PACKAGE_PROVIDER_0: "__disabled_user_group",
-    HEADER_LINKS_PACKAGE_PROVIDER_LASTMINUTE_0: "show",
     HEADER_LINKS_ROOMS_PROVIDER_0: "roomsKiwiCode",
   },
 };
@@ -36,11 +34,11 @@ storiesOf("NavBar", module)
     <>
       <ModalsAuth portal="" />
       <NavBar
+        starred={<h1>Starred</h1>}
         headerLinks={<HeaderLinks {...props} inverted={false} />}
         subscription={<h1>Subscription</h1>}
         debug={<h1>Debug</h1>}
         portal=""
-        starred={<span>Starred</span>}
         onOpenFaq={action("Open FAQ")}
         onSetModal={action("Set modal")}
         onLogoClick={action("Click logo")}
@@ -53,10 +51,10 @@ storiesOf("NavBar", module)
     <>
       <ModalsAuth portal="" />
       <NavBar
+        starred={<h1>Starred</h1>}
         headerLinks={<HeaderLinks {...props} inverted />}
         subscription={<h1>Subscription</h1>}
         debug={<h1>Debug</h1>}
-        starred={<span>Starred</span>}
         inverted
         portal=""
         onOpenFaq={action("Open FAQ")}

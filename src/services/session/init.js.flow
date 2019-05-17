@@ -1,0 +1,4 @@
+// @flow strict
+import type { Session } from "../../records/Session";
+
+declare export default () => Session;

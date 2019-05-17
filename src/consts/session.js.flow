@@ -1,0 +1,4 @@
+// @flow strict
+declare export var SESSION_ID: "sessionId";
+
+export type Session = string; // TODO specific once everyone uses this

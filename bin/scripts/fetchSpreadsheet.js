@@ -4,6 +4,7 @@ const path = require("path");
 const fetch = require("isomorphic-fetch");
 
 const countries = require("./utils/countries");
+const pkg = require("../../package");
 
 const OUT = path.join(process.cwd(), "data");
 
@@ -45,7 +46,11 @@ function write(name, data) {
 function fetchSpreadsheet() /* : Promise<void[]> */ {
   return Promise.all(
     whitelist.map(name =>
-      fetch(`https://nitro-hankey.skypicker.com/${name}`)
+      fetch(`https://nitro-hankey.skypicker.com/${name}`, {
+        headers: {
+          "User-Agent": `nitrolib/${pkg.version} (Kiwi.com production)`,
+        },
+      })
         .then(res => {
           if (!res.ok) {
             return Promise.reject(new Error(`Failed to fetch '${name}'`));

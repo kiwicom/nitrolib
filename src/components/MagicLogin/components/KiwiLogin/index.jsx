@@ -3,9 +3,9 @@
 import * as React from "react";
 
 import Text from "../../../Text";
-import AccountPassword from "../../../AccountPassword";
-import SignIn from "../../mutations/SignIn";
-import ResetPassword from "../../mutations/ResetPassword";
+import Password from "../screens/Password";
+import signIn from "../../mutations/signIn";
+import resetPassword from "../../mutations/resetPassword";
 import errors from "../../../../consts/errors";
 import type { Screen } from "../../records/Screen";
 import type { AuthUser } from "../../../../records/Auth";
@@ -14,6 +14,7 @@ import LogContext from "../../../../services/log/context";
 import type { Context as LogContextType } from "../../../../services/log/context";
 import * as loginEvents from "../../consts/events";
 import { API_REQUEST_FAILED, API_ERROR } from "../../../../consts/events";
+import handleAffiliateId from "../../../../services/utils/handleAffiliateId";
 
 type Props = {
   email: string,
@@ -63,7 +64,7 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
 
     this.setState({ isSigningIn: true, error: null, passwordError: "" });
 
-    SignIn(email, password, brandId)
+    signIn(email, password, brandId)
       .then(res => {
         this.setState({ isSigningIn: false });
 
@@ -73,6 +74,9 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
           this.setState({ error: errors.loginFailed });
           return;
         }
+
+        const affiliateId = user.bookingIdentity?.affiliateId || "";
+        handleAffiliateId(affiliateId);
 
         onSignIn(toUser(user));
         onClose(true);
@@ -112,7 +116,7 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
 
     this.setState({ error: null, passwordError: "" });
 
-    ResetPassword(email, brandId)
+    resetPassword(email, brandId)
       .then(res => {
         if (!res.resetPassword?.success) {
           log(API_REQUEST_FAILED, { operation: "resetPassword" });
@@ -150,7 +154,7 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
     const formError = error || magicLinkError;
 
     return (
-      <AccountPassword
+      <Password
         email={email}
         error={formError ? <Text t={formError} /> : null}
         isSigningIn={isSigningIn}

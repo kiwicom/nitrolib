@@ -8,6 +8,6 @@ describe("#Desktop", () => {
   test("render", () => {
     const wrapper = shallow(<Desktop>asd</Desktop>);
 
-    expect(wrapper.find("Desktop__Wrapper").shallow()).toMatchSnapshot();
+    expect(wrapper.find("Desktop__Wrapper").exists()).toBe(true);
   });
 });

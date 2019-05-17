@@ -1,0 +1,17 @@
+// @flow strict
+import * as React from "react";
+
+import type { StarredItem } from "../../records/Starred";
+
+type Args = {|
+  list: StarredItem[],
+  onRemove: (arg: string, e: SyntheticEvent<HTMLDivElement>) => void,
+  onAdd: (arg: StarredItem) => void,
+  onClear: (e: SyntheticEvent<HTMLDivElement>) => void,
+|};
+
+type Props = {|
+  children: (args: Args) => React.Node,
+|};
+
+declare export default React.ComponentType<Props>;

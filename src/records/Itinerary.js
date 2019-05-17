@@ -3,29 +3,40 @@ import { normalize } from "normalizr";
 
 import type { Sector, SectorDeep } from "./Sector";
 import type { Carrier, Segment } from "./Segment";
+import type { Money } from "./Money";
+import type { BagsInfo } from "./BaggageInfo";
 import { sector } from "./Sector";
-
-export type Price = {|
-  amount: string,
-  currencyId: string,
-|};
 
 export type Provider = {|
   id: string,
   name: string,
   code: string,
+  hasHighProbabilityOfPriceChange: boolean,
 |};
 
 type Common = {|
   id: string,
-  price: Price,
+  price: Money,
   provider: Provider,
-  hasNoCheckedBags: boolean,
+  duration: number,
+  bagsInfo: BagsInfo,
+|};
+
+type BookingProvider = {|
+  name: string,
+  siteName: string,
+|};
+
+type BookingOption = {|
+  provider: BookingProvider,
+  price: Money,
+  token: string,
 |};
 
 export type ItineraryOneWay = {|
   ...Common,
   type: "oneWay",
+  bookingOptions: BookingOption,
   sector: string, // normalized, Sector
 |};
 
@@ -41,6 +52,7 @@ export const itineraryOneWay = {
 export type ItineraryReturn = {|
   ...Common,
   type: "return",
+  bookingOptions: BookingOption,
   outbound: string, //  normalized, Sector
   inbound: string, //  normalized, Sector
 |};
@@ -63,7 +75,7 @@ export type ItineraryMulticity = {|
 |};
 
 export type ItineraryMulticityDeep = {|
-  ...ItineraryMulticityDeep,
+  ...ItineraryMulticity,
   sectors: SectorDeep[],
 |};
 

@@ -4,30 +4,28 @@ import styled, { css } from "styled-components";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 
 import { navbar } from "../../styles";
 import Desktop from "../Desktop";
 import Mobile from "../Mobile";
 import type { ThemeProps } from "../../records/Theme";
 import { themeDefault } from "../../records/Theme";
-import Flex from "../../primitives/Flex";
 import Language from "../Language";
 import Help from "./components/Help";
 import Menu from "./components/Menu";
 import Logo from "./components/Logo";
 import Currency from "../Currency";
 import type { Modal } from "../../consts/modals";
-import marginMixin from "./styles/marginMixin";
-// import Starred from "../Starred"; FIXME add as a full feature
-// TODO: replace z-index with Orbit token after refactoring all front-end indexes
 
 type Inverted = {|
   ...ThemeProps,
   inverted: boolean,
 |};
 
-const Container = styled(Flex)`
+const Container = styled.div`
   width: 100%;
+  display: flex;
   position: relative;
   height: ${navbar.height}px;
   background-color: ${({ theme, inverted }: Inverted) =>
@@ -50,28 +48,6 @@ Container.defaultProps = {
   theme: themeDefault,
 };
 
-const WrapperChild = styled.div`
-  display: flex;
-  align-items: center;
-  ${marginMixin};
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
-  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-Wrapper.defaultProps = {
-  theme: themeDefault,
-};
-
 type Props = {|
   starred: React.Node,
   subscription: React.Node,
@@ -89,8 +65,8 @@ type Props = {|
 |};
 
 const NavBar = ({
-  headerLinks,
   starred,
+  headerLinks,
   subscription,
   debug,
   portal,
@@ -101,44 +77,37 @@ const NavBar = ({
   onSelectTrip,
   onLogoClick,
 }: Props) => (
-  <Container x="space-between" y="center" data-test="NavBar" inverted={inverted}>
-    <Stack flex shrink inline align="center">
-      <Logo inverted={inverted} onClick={onLogoClick} />
-      {headerLinks}
-    </Stack>
-    <Flex y="center">
-      <Wrapper>
+  <Container inverted={inverted}>
+    <Stack justify="between" align="center" dataTest="NavBar">
+      <Stack flex shrink inline align="center">
+        <Logo inverted={inverted} onClick={onLogoClick} />
+        {headerLinks}
+      </Stack>
+      <Stack inline align="center" justify="end" spacing="tight" tablet={{ spacing: "natural" }}>
         <Desktop display="flex">
-          <WrapperChild>
-            <ButtonWrapper>
-              <WrapperChild>
-                <Language
-                  positionMenuDesktop={270}
-                  positionMenuTablet={5}
-                  inverted={inverted}
-                  onChange={onSaveLanguage}
-                  onSetModal={onSetModal}
-                />
-              </WrapperChild>
-              <WrapperChild>
-                <Currency
-                  positionMenuDesktop={270}
-                  positionMenuTablet={5}
-                  inverted={inverted}
-                  onSetModal={onSetModal}
-                />
-              </WrapperChild>
-              <WrapperChild>
-                <Help onOpen={onOpenFaq} inverted={inverted} />
-              </WrapperChild>
-            </ButtonWrapper>
-          </WrapperChild>
-        </Desktop>
-        <WrapperChild>{starred}</WrapperChild>
-        <Mobile>
-          <WrapperChild>
+          <Stack flex align="center">
+            <Language
+              positionMenuDesktop={270}
+              positionMenuTablet={5}
+              inverted={inverted}
+              onChange={onSaveLanguage}
+              onSetModal={onSetModal}
+            />
+            <Currency
+              positionMenuDesktop={270}
+              positionMenuTablet={5}
+              inverted={inverted}
+              onSetModal={onSetModal}
+            />
             <Help onOpen={onOpenFaq} inverted={inverted} />
-          </WrapperChild>
+          </Stack>
+        </Desktop>
+        {/* TODO remove 'TextWrapper' eventually */}
+        <TextWrapper size="small" weight="normal">
+          {starred}
+        </TextWrapper>
+        <Mobile>
+          <Help onOpen={onOpenFaq} inverted={inverted} />
         </Mobile>
         <Menu
           subscription={subscription}
@@ -149,8 +118,8 @@ const NavBar = ({
           inverted={inverted}
           portal={portal}
         />
-      </Wrapper>
-    </Flex>
+      </Stack>
+    </Stack>
   </Container>
 );
 

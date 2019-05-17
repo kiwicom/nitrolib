@@ -5,6 +5,8 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [Affiliate](#affiliate)
 * [Airline](#airline)
 * [Auth](#auth)
+* [Baggage](#baggage)
+* [BaggageInfo](#baggageinfo)
 * [Brand](#brand)
 * [BrandLanguage](#brandlanguage)
 * [Continents](#continents)
@@ -18,9 +20,11 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [Languages](#languages)
 * [Location](#location)
 * [Loglady](#loglady)
+* [Price](#price)
 * [Sector](#sector)
 * [Segment](#segment)
 * [Session](#session)
+* [Starred](#starred)
 * [Station](#station)
 * [Theme](#theme)
 * [User](#user)
@@ -105,6 +109,164 @@ declare export var authDefault: Auth | null;
 
 See types:
 * [User](./records#user)
+
+_TODO_
+
+## Baggage
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/Baggage";
+import type { Baggage } from "@kiwicom/nitro/lib/records/Baggage";
+```
+
+**Types:**
+```js
+export type BaggageCategory = "holdBag" | "handBag";
+export type BaggageSubCategory = "holdBag" | "personalItem" | "cabinBag";
+export type PassengerGroup = "adult" | "teen" | "child" | "infant";
+export type OrderStatusType = "unpaid" | "processing" | "notAvailable";
+export type Gender = "male" | "female";
+export type OverviewContextType = "MMB-PassengerCard" | "MMB-PassengersSummary" | "booking";
+
+export type Restrictions = {|
+  weight: ?number,
+  height: ?number,
+  width: ?number,
+  length: ?number,
+  dimensionsSum: ?number,
+|};
+
+export type Conditions = {
+  isPriority?: string[],
+  passengerGroups: PassengerGroup[],
+};
+export type Definition = {|
+  index: number,
+  category: BaggageSubCategory,
+  price: PriceType,
+  restrictions: Restrictions,
+  conditions: Conditions,
+|};
+
+export type TileDefinition = {|
+  ...Definition,
+  originalIndex?: number,
+  isCurrent?: boolean,
+|};
+
+export type Definitions = {|
+  handBag: Definition[],
+  holdBag: Definition[],
+|};
+
+export type Combination = {|
+  index: number,
+  indices: number[],
+  price: PriceType,
+  conditions: Conditions,
+|};
+
+export type Combinations = {|
+  handBag: Combination[],
+  holdBag: Combination[],
+|};
+
+export type BaggageType = {
+  definitions: Definitions,
+  combinations: Combinations,
+};
+
+export type TileItem = {|
+  category: BaggageSubCategory,
+  restrictions: Restrictions,
+|};
+
+export type ItemType = {|
+  ...TileItem,
+  amount: number,
+  conditions: {
+    isPriority?: string[],
+    passengerGroups: PassengerGroup[],
+  },
+|};
+
+export type OptionBaggage = {|
+  originalIndex: number,
+  pickerType: BaggageCategory,
+  price: PriceType,
+  items: { [key: string]: ItemType },
+|};
+
+export type FAQLinksHandlerType = BaggageSubCategory => void;
+
+export type BaggagePassengerType = {|
+  paxId: number,
+  firstName: string,
+  middleName?: string,
+  lastName: string,
+|};
+
+export type Passenger = {|
+  ...BaggagePassengerType,
+  baggage: {
+    holdBag: number, // index of baggage combination
+    handBag: number, // index of baggage combination
+  },
+|};
+
+export type DefinitionWithPassenger = {|
+  originalIndex: number,
+  category: BaggageSubCategory,
+  restrictions: Restrictions,
+  passengers: BaggagePassengerType[],
+|};
+```
+
+See types:
+* [Price](./records#price)
+
+Baggage
+
+- baggages data type according to snake_case-camelCase mapped API response
+
+## BaggageInfo
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/BaggageInfo";
+import type { BaggageInfo } from "@kiwicom/nitro/lib/records/BaggageInfo";
+```
+
+**Types:**
+```js
+type SizeUnit = "CM" | "INCH";
+
+type WeightUnit = "KG" | "POUND";
+
+type SizeValue = {|
+  value: string,
+  unit: SizeUnit,
+|};
+
+type WeightValue = {|
+  value: string,
+  unit: WeightUnit,
+|};
+
+export type BaggageInfo = {|
+  height: SizeValue,
+  length: SizeValue,
+  width: SizeValue,
+  weight: WeightValue,
+|};
+
+export type BagsInfo = {|
+  hasNoCheckedBags: boolean,
+  checkedBag: BaggageInfo,
+  handBag: BaggageInfo,
+|};
+```
 
 _TODO_
 
@@ -687,15 +849,33 @@ import type { Currency } from "@kiwicom/nitro/lib/records/Currency";
 
 **Types:**
 ```js
+type CurrencyFormat = {|
+  format: string,
+  precision: number,
+  isUncertain: boolean,
+|};
+
+export type FetchedCurrency = {|
+  enabledOnAffilId: string | string[],
+  fallback: string,
+  format: string,
+  id: string,
+  name: string,
+  rate: number,
+  round: string,
+  uncertainFormat: boolean,
+|};
+
+export type FetchedCurrencies = { [key: string]: FetchedCurrency };
+
 export type Currency = {|
   id: string,
   name: string,
-  format: string,
-  uncertainFormat: boolean,
-  round: string, // number string
+  code: string,
+  format: CurrencyFormat,
+  fallback: Currency | null,
   enabledOnAffilId: string | string[],
-  fallback: string,
-  rate: number,
+  rate: string,
 |};
 
 export type Currencies = {
@@ -752,6 +932,7 @@ export type Event = {|
     exponea: boolean,
     ga: boolean,
     logmole: boolean,
+    bigquery: boolean,
   |},
 |};
 
@@ -838,28 +1019,50 @@ import type { Itinerary } from "@kiwicom/nitro/lib/records/Itinerary";
 
 **Types:**
 ```js
-export type Price = {|
-  amount: string,
-  currencyId: string,
-|};
-
 export type Provider = {|
   id: string,
   name: string,
   code: string,
+  hasHighProbabilityOfPriceChange: boolean,
+|};
+
+type BagsInfo = {|
+  hasNoCheckedBags: boolean,
+  checkedBag: BaggageInfo,
+  handBag: BaggageInfo,
 |};
 
 type Common = {|
   id: string,
-  price: Price,
+  price: Money,
   provider: Provider,
-  hasNoCheckedBags: boolean,
+  duration: number,
+  bagsInfo: BagsInfo,
+|};
+
+type BookingProvider = {|
+  name: string,
+  siteName: string,
+|};
+type BookingOption = {|
+  provider: BookingProvider,
+  price: Money,
+  token: string,
 |};
 
 export type ItineraryOneWay = {|
   ...Common,
   type: "oneWay",
+  bookingOptions: BookingOption,
   sector: string, // normalized, Sector
+|};
+
+export type ItineraryReturn = {|
+  ...Common,
+  type: "return",
+  bookingOptions: BookingOption,
+  outbound: string, //  normalized, Sector
+  inbound: string, //  normalized, Sector
 |};
 
 export type ItineraryOneWayDeep = {|
@@ -870,13 +1073,6 @@ export type ItineraryOneWayDeep = {|
 declare export var itineraryOneWay: {
   sector: Schema,
 };
-
-export type ItineraryReturn = {|
-  ...Common,
-  type: "return",
-  outbound: string, //  normalized, Sector
-  inbound: string, //  normalized, Sector
-|};
 
 export type ItineraryReturnDeep = {|
   ...ItineraryReturn,
@@ -942,6 +1138,8 @@ declare export var flatten: (data: ItineraryDeep) => ItineraryNormalized;
 See types:
 * [Sector](./records#sector)
 * [Segment](./records#segment)
+* [Money](./records#money)
+* [BaggageInfo](./records#baggageinfo)
 
 
 
@@ -1010,6 +1208,7 @@ declare export var langInfoDefault: LangInfo;
 
 declare export var fixDateFormat: (date: string) => string;
 declare export var fixTimeFormat: (time: string) => string;
+declare export var fixDurationFormat: (time: string) => string;
 ```
 
 _TODO_
@@ -1117,6 +1316,7 @@ import type { Loglady } from "@kiwicom/nitro/lib/records/Loglady";
 export type Globals = {|
   userId: string,
   affilId: string,
+  affilParams: { [key: string]: string },
   brandingId: string,
   url: string,
   langId?: string,
@@ -1141,6 +1341,30 @@ See types:
 * [Event](./records#event)
 
 A data type for our [Loglady](https://loglady.skypicker.com/api-docs/) tracking system.
+
+## Price
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/Price";
+import type { Price } from "@kiwicom/nitro/lib/records/Price";
+```
+
+**Types:**
+```js
+export type PriceType = {
+  amount: number,
+  base: number,
+  service: number,
+  serviceFlat: number,
+  merchant: number,
+  currency: string,
+};
+```
+
+Price
+
+- common Price type
 
 ## Sector
 
@@ -1174,11 +1398,14 @@ export type SectorDeep = {|
 
 // eslint-disable-next-line import/prefer-default-export
 declare export var sector: Schema;
+declare export var getSector: (obj: ItineraryNormalized, id: string) => Sector;
+declare export var getSectors: (obj: ItineraryNormalized) => Sector[];
 ```
 
 See types:
 * [Station](./records#station)
 * [Segment](./records#segment)
+* [Itinerary](./records#itinerary)
 
 A part of [Itinerary](#Itinerary).
 
@@ -1197,9 +1424,11 @@ export type Stop = {|
   time: Date,
 |};
 
+type Guarantee = "KIWI_COM" | "CARRIER";
+
 export type Layover = {|
   duration: number,
-  isKiwiComGuarantee: boolean,
+  guarantee: Guarantee,
   isStationChange: boolean,
   isBaggageRecheck: boolean,
 |};
@@ -1212,12 +1441,18 @@ export type Carrier = {|
 
 declare export var carrier: Schema;
 
+type SeatDimenstion = {|
+  value: string,
+  unit: "CM" | "INCH" | "DEGREE",
+|};
+
 export type SeatInfo = {|
-  pitch: number,
-  width: number,
-  recline: number,
+  pitch: SeatDimenstion,
+  width: SeatDimenstion,
+  recline: SeatDimenstion,
   hasPower: boolean,
   hasAudioVideo: boolean,
+  hasWifi: boolean,
 |};
 
 export type Segment = {|
@@ -1231,8 +1466,8 @@ export type Segment = {|
   carrier: string, // normalized, Carrier
   operatingCarrier: string, // normalized, Carrier
   seatInfo: SeatInfo,
-  hasWifi: boolean,
 |};
+export type Segments = { [key: string]: Segment };
 
 export type SegmentDeep = {|
   ...Segment,
@@ -1241,10 +1476,13 @@ export type SegmentDeep = {|
 |};
 
 declare export var segment: Schema;
+declare export var getSegment: (obj: ItineraryNormalized, id: string) => Segment;
+declare export var getSegments: (obj: ItineraryNormalized, ids: string[]) => Segment[];
 ```
 
 See types:
 * [Station](./records#station)
+* [Itinerary](./records#itinerary)
 
 A part of [Itinerary](#Itinerary).
 
@@ -1273,6 +1511,71 @@ See types:
 * [Affiliate](./records#affiliate)
 
 Contains **user** and **request** specific information.
+
+## Starred
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/Starred";
+import type { Starred } from "@kiwicom/nitro/lib/records/Starred";
+```
+
+**Types:**
+```js
+export type CabinClass = "economy" | "business" | "first" | "premium";
+
+export type PassengersCount = {|
+  adults: number,
+  children: number,
+  infants: number,
+|};
+
+export type StarredFormData = {|
+  origin: string,
+  destination: string,
+  outboundDate: string,
+  inboundDate: string,
+  multicity: string,
+  salesman: string,
+  passengers: PassengersCount,
+  cabinClass: CabinClass,
+  filters: any,
+  lang: string,
+  places: Array<{ id: string, slug: string }>,
+  returnUrl: string,
+  starType: string,
+|};
+
+export type StarredItem = {|
+  id: string,
+  form: StarredFormData,
+  lastPrice: number,
+  itinerary: ItineraryDeep,
+  priceUpdatedAt: Date,
+  createdAt: Date,
+  updatedAt: Date,
+|};
+
+export type ShareDialog = {|
+  itinerary: ItineraryDeep,
+  lang: string,
+  shareUrl: string,
+  passengers: PassengersCount,
+  cabinClass: CabinClass,
+  isMobile: boolean,
+  onSetNotice: () => void,
+  onClose: () => void,
+|};
+
+declare export var isMulti: (object: PassengersCount) => boolean;
+declare export var getSum: (object: PassengersCount) => number;
+declare export var getTransKey: (object: PassengersCount) => string;
+```
+
+See types:
+* [Itinerary](./records#itinerary)
+
+_TODO_
 
 ## Station
 

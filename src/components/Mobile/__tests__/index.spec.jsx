@@ -8,6 +8,6 @@ describe("#Mobile", () => {
   test("render", () => {
     const wrapper = shallow(<Mobile>asd</Mobile>);
 
-    expect(wrapper.find("Mobile__Wrapper").shallow()).toMatchSnapshot();
+    expect(wrapper.find("Mobile__Wrapper").exists()).toBe(true);
   });
 });

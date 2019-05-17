@@ -20,7 +20,7 @@ describe("#CloseByKey", () => {
       </CloseByKey>,
     );
 
-    expect(wrapper.matchesElement(<h1>kek</h1>)).toBe(true);
+    expect(wrapper.contains("kek")).toBe(true);
   });
 
   test("unmount without body", () => {
@@ -34,7 +34,7 @@ describe("#CloseByKey", () => {
       </CloseByKey>,
     );
 
-    expect(wrapper.matchesElement(<h1>kek</h1>)).toBe(true);
+    expect(wrapper.contains("kek")).toBe(true);
 
     wrapper.unmount();
   });

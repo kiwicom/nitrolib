@@ -14,23 +14,24 @@ type Width = {|
 
 const Popup = styled.div`
   position: absolute;
+  display: flex;
+  flex-direction: column;
   top: 50px;
-  min-width: 100%;
-  ${right}: 0;
-  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
-  background: ${({ theme }: ThemeProps) => theme.orbit.paletteCloudLight};
+  background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
+  max-width: ${({ width }: Width) => width || `550px`};
+  width: 100%;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   cursor: default;
   box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
-
-  ${mq.desktop(css`
-    ${right}: ${({ positionMenuDesktop }) => `${positionMenuDesktop}px`};
-  `)};
+  ${right}: 0;
 
   ${mq.largeMobile(css`
     ${right}: ${({ positionMenuTablet }) => `${positionMenuTablet}px`};
-    min-width: ${({ width }: Width) => width || `550px`};
+  `)};
+
+  ${mq.desktop(css`
+    ${right}: ${({ positionMenuDesktop }) => `${positionMenuDesktop}px`};
   `)};
 `;
 
