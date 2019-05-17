@@ -20,6 +20,8 @@ export const props = {
     HEADER_LINKS_PACKAGE_PROVIDER_LASTMINUTE_0: "show",
     HEADER_LINKS_ROOMS_PROVIDER_0: "roomsKiwiCode",
   },
+  context: "booking",
+  brand: "Kiwi.com",
 };
 
 export const response = {

@@ -12,7 +12,6 @@ import type { ThemeProps } from "../../records/Theme";
 import { themeDefault } from "../../records/Theme";
 import Flex from "../../primitives/Flex";
 import Language from "../Language";
-import { Consumer as BrandConsumer } from "../../services/brand/context";
 import Help from "./components/Help";
 import Menu from "./components/Menu";
 import Logo from "./components/Logo";
@@ -105,9 +104,7 @@ const NavBar = ({
   <Container x="space-between" y="center" data-test="NavBar" inverted={inverted}>
     <Stack flex shrink inline align="center">
       <Logo inverted={inverted} onClick={onLogoClick} />
-      {headerLinks && (
-        <BrandConsumer>{brand => brand.id === "kiwicom" && headerLinks}</BrandConsumer>
-      )}
+      {headerLinks}
     </Stack>
     <Flex y="center">
       <Wrapper>
