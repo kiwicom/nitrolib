@@ -18,7 +18,7 @@ type InvertedProps = {|
   inverted?: boolean,
 |};
 
-const Container = styled.section`
+const Container = styled.div`
   display: flex;
   visibility: ${({ shown }: ShownProps) => (shown ? "visible" : "hidden")};
   position: fixed;
@@ -45,7 +45,7 @@ const leftCSS = css`
   transform: ${({ shown }: ShownProps) => (shown ? translate3d("0") : translate3d("-480px, 0, 0"))};
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.aside`
   ${({ inverted }: InvertedProps) => (!inverted ? rightCSS : leftCSS)};
   position: absolute;
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
