@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs/react";
+import { withKnobs, boolean, select } from "@storybook/addon-knobs/react";
 
 import HeaderLinks from "../src/components/HeaderLinks";
 import withData from "./decorators/withData";
@@ -25,6 +25,26 @@ const props = {
   splitster: {
     HEADER_LINKS_ROOMS_PROVIDER_0: "roomsKiwiCode",
   },
+  context: "search",
+  brand: "Pulkovo airport",
+};
+
+const LOCALES = {
+  en: "English",
+  de: "German",
+  it: "Italian",
+};
+
+const CURRENCIES = {
+  usd: "US dollar",
+  eur: "Euro",
+  czk: "Czech koruna",
+};
+
+const LINKS = {
+  travel: "travel",
+  rooms: "rooms",
+  cars: "cars",
 };
 
 storiesOf("HeaderLinks", module)
@@ -32,7 +52,9 @@ storiesOf("HeaderLinks", module)
   .add("default", () => (
     <HeaderLinks
       {...props}
-      active={text("Active", "travel", GROUP_ID)} // TODO make this a select
+      languageId={select("Locale", LOCALES, "en", GROUP_ID)}
+      currencyId={select("Currency", CURRENCIES, "eur", GROUP_ID)}
+      active={select("Active", LINKS, "travel", GROUP_ID)}
       inverted={boolean("Inverted", false, GROUP_ID)}
     />
   ));
