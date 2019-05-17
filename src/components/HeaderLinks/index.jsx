@@ -45,12 +45,7 @@ type Props = {|
   inverted?: boolean,
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO solve using DI
-<<<<<<< HEAD
   context?: HeaderLinksContext,
-=======
-  context: string,
-  brand?: string | null,
->>>>>>> HeaderLinks: added context and brand props, updated HeaderLinks stories
 |};
 
 type State = {|
@@ -79,10 +74,6 @@ export default class HeaderLinks extends React.Component<Props, State> {
       splitster,
       onFetch,
       context,
-<<<<<<< HEAD
-=======
-      brand,
->>>>>>> HeaderLinks: added context and brand props, updated HeaderLinks stories
     } = this.props;
     const { log } = this.context;
 
@@ -98,10 +89,6 @@ export default class HeaderLinks extends React.Component<Props, State> {
         searchForm,
         splitster,
         context,
-<<<<<<< HEAD
-=======
-        brand,
->>>>>>> HeaderLinks: added context and brand props, updated HeaderLinks stories
       });
 
       this.setState({ services: services.items });

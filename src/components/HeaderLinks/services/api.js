@@ -12,12 +12,7 @@ export type Input = {|
   currencyId: string,
   searchForm: SearchForm | null,
   splitster: Splitster,
-<<<<<<< HEAD
   context?: HeaderLinksContext,
-=======
-  context: string,
-  brand?: string | null,
->>>>>>> HeaderLinks: added context and brand props, updated HeaderLinks stories
 |};
 
 export type Response = {|
@@ -31,10 +26,6 @@ const getNavBarLinks = ({
   searchForm,
   splitster,
   context,
-<<<<<<< HEAD
-=======
-  brand,
->>>>>>> HeaderLinks: added context and brand props, updated HeaderLinks stories
 }: Input): Promise<Response> =>
   fetch("https://ancillaries-integration.skypicker.com/v2/navbar", {
     method: "POST",
@@ -45,10 +36,6 @@ const getNavBarLinks = ({
       searchForm,
       splitster,
       context,
-<<<<<<< HEAD
-=======
-      brand,
->>>>>>> HeaderLinks: added context and brand props, updated HeaderLinks stories
     }),
   }).then(handleJSON);
 
