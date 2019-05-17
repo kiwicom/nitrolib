@@ -26,6 +26,8 @@ const props = {
   splitster: {
     HEADER_LINKS_ROOMS_PROVIDER_0: "roomsKiwiCode",
   },
+  context: "search",
+  brand: "Kiwi.com",
 };
 
 storiesOf("NavBar", module)
