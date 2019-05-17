@@ -187,6 +187,8 @@ type Props = {|
   inverted?: boolean,
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO DI actual API call
+  context: string,
+  brand?: string | null,
 |};
 
 declare export default React.ComponentType<Props>;
@@ -358,6 +360,7 @@ import NavBar from "@kiwicom/nitro/lib/components/NavBar";
 **Types:**
 ```js
 type Props = {|
+  starred: React.Node,
   subscription: React.Node,
   portal: string,
   onOpenFaq: ?() => void,
@@ -387,7 +390,6 @@ See types:
 * [intl](./services#intl)
 * [log](./services#log)
 * [modal](./services#modal)
-* [starred](./services#starred)
 
 **Selectors `data-test`:**
 * ```"NavBar"```
@@ -1163,7 +1165,7 @@ import Itinerary from "@kiwicom/nitro/lib/components/Itinerary";
 **Types:**
 ```js
 type Props = {|
-  itinerary: ItineraryDeep,
+  itinerary: ItineraryNormalized,
 |};
 
 declare export default React.ComponentType<Props>;
