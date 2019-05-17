@@ -72,7 +72,7 @@ Document what problem does a service solve, how to use it.
 
 Make a MR as soon as you push a branch!
 
-* commit with a `<context>: <Message>` format
+* see [conventional commitlint](https://www.conventionalcommits.org/en/) for commit format
 * prefix with `WIP: ` if you're still working on it
 * resolve all CR discussions after fixing them
 * press the _approved_ button when approving
