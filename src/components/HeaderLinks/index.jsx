@@ -45,6 +45,8 @@ type Props = {|
   inverted?: boolean,
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO solve using DI
+  context: string,
+  brand?: string | null,
 |};
 
 type State = {|
@@ -63,7 +65,16 @@ export default class HeaderLinks extends React.Component<Props, State> {
   }
 
   getNavBarLinks = async () => {
-    const { languageId, currencyId, searchForm, testResponse, splitster, onFetch } = this.props;
+    const {
+      languageId,
+      currencyId,
+      searchForm,
+      testResponse,
+      splitster,
+      onFetch,
+      context,
+      brand,
+    } = this.props;
     const { log } = this.context;
 
     if (testResponse) {
@@ -77,6 +88,8 @@ export default class HeaderLinks extends React.Component<Props, State> {
         currencyId,
         searchForm,
         splitster,
+        context,
+        brand,
       });
 
       this.setState({ services: services.items });

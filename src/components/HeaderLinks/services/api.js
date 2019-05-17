@@ -13,6 +13,8 @@ export type Input = {|
   currencyId: string,
   searchForm: SearchForm | null,
   splitster: Splitster,
+  context: string,
+  brand?: string | null,
 |};
 
 export type Response = {|
@@ -25,6 +27,8 @@ const getNavBarLinks = ({
   currencyId,
   searchForm,
   splitster,
+  context,
+  brand,
 }: Input): Promise<Response> =>
   fetch("https://ancillaries-integration.skypicker.com/navbar", {
     method: "POST",
@@ -34,6 +38,8 @@ const getNavBarLinks = ({
       currency: { id: currencyId },
       searchForm,
       splitster,
+      context,
+      brand,
     }),
   }).then(handleJSON);
 
