@@ -4,7 +4,6 @@ import { JSON_BOTH } from "../../../services/fetch/headers";
 import type { HeaderLink, SearchForm } from "../records/HeaderLink";
 
 export type Splitster = {
-  // FIXME add a firm structure
   [key: string]: string,
 };
 
