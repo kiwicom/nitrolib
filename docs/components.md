@@ -189,6 +189,8 @@ type Props = {|
   inverted?: boolean,
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO DI actual API call
+  context: string,
+  brand?: string | null,
 |};
 
 declare export default React.ComponentType<Props>;
