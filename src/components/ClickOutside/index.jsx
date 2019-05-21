@@ -2,6 +2,7 @@
 import * as React from "react";
 
 type Props = {|
+  className?: string,
   onClickOutside: (ev: MouseEvent | FocusEvent) => void,
   active: boolean,
   children: React.Node | React.Node[],
@@ -33,10 +34,11 @@ export default class ClickOutside extends React.PureComponent<Props> {
   node: ?HTMLDivElement;
 
   render() {
-    const { children } = this.props;
+    const { className, children } = this.props;
 
     return (
       <div
+        className={className}
         ref={node => {
           this.node = node;
         }}

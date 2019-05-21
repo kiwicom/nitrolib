@@ -701,6 +701,7 @@ import ClickOutside from "@kiwicom/nitro/lib/components/ClickOutside";
 **Types:**
 ```js
 type Props = {|
+  className?: string,
   onClickOutside: (ev: MouseEvent) => void,
   children: React.Node | React.Node[],
   // defaulted
