@@ -1,3 +1,12 @@
+## [3.3.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.3.0...v3.3.1) (2019-05-22)
+
+
+### Bug Fixes
+
+* **cookies:** Correct userId cookie ([9082ef8](https://gitlab.skypicker.com/frontend/nitrolib/commit/9082ef8))
+
+
+
 # [3.3.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.2.0...v3.3.0) (2019-05-22)
 
 
