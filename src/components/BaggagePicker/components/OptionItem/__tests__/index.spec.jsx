@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow, mount } from "enzyme";
+import { mount } from "enzyme";
 
 import OptionItem from "../index";
 
@@ -28,7 +28,7 @@ const props = {
 
 describe("#OptionItem", () => {
   test("render ", () => {
-    const wrapper = shallow(<OptionItem {...props} />);
+    const wrapper = mount(<OptionItem {...props} />);
     expect(wrapper.find("Stack").exists()).toBe(true);
   });
 

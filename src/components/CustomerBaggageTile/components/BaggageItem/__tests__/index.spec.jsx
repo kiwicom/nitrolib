@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import BaggageItem from "../index";
 
@@ -19,11 +19,11 @@ const props = {
 
 describe("#BaggageItem", () => {
   test("renders category icon", () => {
-    const wrapper = shallow(<BaggageItem {...props} />);
+    const wrapper = mount(<BaggageItem {...props} />);
     expect(wrapper.find("BaggageCabin").exists()).toBe(true);
   });
   test("renders baggage restrictions", () => {
-    const wrapper = shallow(<BaggageItem {...props} />);
+    const wrapper = mount(<BaggageItem {...props} />);
     expect(
       wrapper
         .find("BaggageItem__BaggageRestrictions")

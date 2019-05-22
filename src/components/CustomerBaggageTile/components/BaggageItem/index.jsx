@@ -1,9 +1,10 @@
 // @flow strict
 import * as React from "react";
-import styled, { css, ThemeConsumer } from "styled-components";
+import styled, { css, withTheme } from "styled-components";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import type { Theme } from "@kiwicom/orbit-components/lib/defaultTheme";
 
 import type { TileItem, OrderStatusType } from "../../../../records/Baggage";
 import getIconFromCategory from "../../../../services/baggage/getIconFromCategory";
@@ -51,32 +52,39 @@ type BaggageItemType = {
   ...TileItem,
   isCurrent?: boolean,
   orderStatus: ?OrderStatusType,
+  theme: Theme,
 };
 
-const BaggageItem = ({ category, restrictions, isCurrent, orderStatus }: BaggageItemType) => {
+const BaggageItem = ({
+  category,
+  restrictions,
+  isCurrent,
+  orderStatus,
+  theme: { rtl },
+}: BaggageItemType) => {
   const textWeight =
     isCurrent || orderStatus === null || orderStatus === "notAvailable" ? "normal" : "bold";
   return (
-    <ThemeConsumer>
-      {({ rtl }) => (
-        <Stack flex direction="row" align="center" dataTest="CustomerBaggageTile-BaggageItem">
-          <Stack shrink spacing="tight" direction="column">
-            <Stack grow flex align="center" spacing="condensed">
-              {getIconFromCategory(category, "small", "primary")}
-              <Text element="span" weight={textWeight}>
-                {typeof restrictions.weight === "number" && `${restrictions.weight}kg `}
-                {getTextFromCategory(category)}
-              </Text>
-            </Stack>
-            <BaggageRestrictions isMobile>{getBaggageSize(restrictions, rtl)}</BaggageRestrictions>
-          </Stack>
-          <BaggageRestrictionsWrapper shrink>
-            <BaggageRestrictions>{getBaggageSize(restrictions, rtl)}</BaggageRestrictions>
-          </BaggageRestrictionsWrapper>
+    <Stack flex direction="row" align="center" dataTest="CustomerBaggageTile-BaggageItem">
+      <Stack shrink spacing="tight" direction="column">
+        <Stack grow flex align="center" spacing="condensed">
+          {getIconFromCategory(category, "small", "primary")}
+          <Text element="span" weight={textWeight}>
+            {typeof restrictions.weight === "number" && `${restrictions.weight}kg `}
+            {getTextFromCategory(category)}
+          </Text>
         </Stack>
-      )}
-    </ThemeConsumer>
+        <BaggageRestrictions isMobile>{getBaggageSize(restrictions, rtl)}</BaggageRestrictions>
+      </Stack>
+      <BaggageRestrictionsWrapper shrink>
+        <BaggageRestrictions>{getBaggageSize(restrictions, rtl)}</BaggageRestrictions>
+      </BaggageRestrictionsWrapper>
+    </Stack>
   );
 };
 
-export default BaggageItem;
+BaggageItem.defaultProps = {
+  theme: themeDefault,
+};
+
+export default withTheme(BaggageItem);
