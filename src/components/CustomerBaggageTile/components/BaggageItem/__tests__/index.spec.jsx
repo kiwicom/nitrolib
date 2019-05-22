@@ -29,6 +29,6 @@ describe("#BaggageItem", () => {
         .find("BaggageItem__BaggageRestrictions")
         .first()
         .text(),
-    ).toBe("20 x 20 x 20 cm, 5 kg");
+    ).toBe("20 × 20 × 20 cm, 5 kg");
   });
 });

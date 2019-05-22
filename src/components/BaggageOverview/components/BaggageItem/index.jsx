@@ -3,7 +3,7 @@ import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
-import styled from "styled-components";
+import styled, { ThemeConsumer } from "styled-components";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
 import Hide from "@kiwicom/orbit-components/lib/Hide";
 import { rtlSpacing } from "@kiwicom/orbit-components/lib/utils/rtl";
@@ -84,13 +84,17 @@ const BaggageItem = ({
             </Text>
           </CenteringFixWrapper>
           <CenteringFixWrapper>
-            <Text
-              element="p"
-              type="secondary"
-              size={context === "MMB-PassengersSummary" ? "normal" : "small"}
-            >
-              {getBaggageSize(restrictions)}
-            </Text>
+            <ThemeConsumer>
+              {({ rtl }) => (
+                <Text
+                  element="p"
+                  type="secondary"
+                  size={context === "MMB-PassengersSummary" ? "normal" : "small"}
+                >
+                  {getBaggageSize(restrictions, rtl)}
+                </Text>
+              )}
+            </ThemeConsumer>
           </CenteringFixWrapper>
 
           {FAQLinksHandler && (

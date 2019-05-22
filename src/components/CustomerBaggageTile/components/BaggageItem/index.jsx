@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import styled, { css } from "styled-components";
+import styled, { css, ThemeConsumer } from "styled-components";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
@@ -57,21 +57,25 @@ const BaggageItem = ({ category, restrictions, isCurrent, orderStatus }: Baggage
   const textWeight =
     isCurrent || orderStatus === null || orderStatus === "notAvailable" ? "normal" : "bold";
   return (
-    <Stack flex direction="row" align="center" dataTest="CustomerBaggageTile-BaggageItem">
-      <Stack shrink spacing="tight" direction="column">
-        <Stack grow flex align="center" spacing="condensed">
-          {getIconFromCategory(category, "small", "primary")}
-          <Text element="span" weight={textWeight}>
-            {typeof restrictions.weight === "number" && `${restrictions.weight}kg `}
-            {getTextFromCategory(category)}
-          </Text>
+    <ThemeConsumer>
+      {({ rtl }) => (
+        <Stack flex direction="row" align="center" dataTest="CustomerBaggageTile-BaggageItem">
+          <Stack shrink spacing="tight" direction="column">
+            <Stack grow flex align="center" spacing="condensed">
+              {getIconFromCategory(category, "small", "primary")}
+              <Text element="span" weight={textWeight}>
+                {typeof restrictions.weight === "number" && `${restrictions.weight}kg `}
+                {getTextFromCategory(category)}
+              </Text>
+            </Stack>
+            <BaggageRestrictions isMobile>{getBaggageSize(restrictions, rtl)}</BaggageRestrictions>
+          </Stack>
+          <BaggageRestrictionsWrapper shrink>
+            <BaggageRestrictions>{getBaggageSize(restrictions, rtl)}</BaggageRestrictions>
+          </BaggageRestrictionsWrapper>
         </Stack>
-        <BaggageRestrictions isMobile>{getBaggageSize(restrictions)}</BaggageRestrictions>
-      </Stack>
-      <BaggageRestrictionsWrapper shrink>
-        <BaggageRestrictions>{getBaggageSize(restrictions)}</BaggageRestrictions>
-      </BaggageRestrictionsWrapper>
-    </Stack>
+      )}
+    </ThemeConsumer>
   );
 };
 
