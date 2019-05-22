@@ -1,3 +1,12 @@
+# [3.3.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.2.0...v3.3.0) (2019-05-22)
+
+
+### Features
+
+* **records:** Loglady globals add missing parameters ([5038d47](https://gitlab.skypicker.com/frontend/nitrolib/commit/5038d47))
+
+
+
 # [3.2.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.1.0...v3.2.0) (2019-05-21)
 
 
