@@ -7,8 +7,7 @@ import styled, { withTheme } from "styled-components";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
 import Hide from "@kiwicom/orbit-components/lib/Hide";
 import { rtlSpacing } from "@kiwicom/orbit-components/lib/utils/rtl";
-import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
-import type { Theme } from "@kiwicom/orbit-components/lib/defaultTheme";
+import { type Theme } from "@kiwicom/orbit-components/lib/defaultTheme";
 
 import { themeDefault } from "../../../../records/Theme";
 import Translate from "../../../Translate";
