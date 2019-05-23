@@ -14,6 +14,10 @@ const Wrapper = styled.div`
   div:last-child > svg {
     display: ${({ isIconShowed }: { isIconShowed: boolean }) => (isIconShowed ? "inline" : "none")};
   }
+  div {
+    cursor: ${({ isIconShowed }: { isIconShowed: boolean }) =>
+      isIconShowed ? "cursor" : "default"};
+  }
 `;
 
 type Props = {|
@@ -66,11 +70,14 @@ const CustomerBaggageTile = ({
     bagType: "holdBag",
   });
   const status = getStatus({ current, selected, isProcessing });
+  const isClickEnabled = status === "unpaid" || status === null;
+  const handleOnClick = isClickEnabled && !!onClick ? onClick : () => {};
+
   return (
-    <Wrapper isIconShowed={!!onClick && (status === "unpaid" || status === null)}>
+    <Wrapper isIconShowed={isClickEnabled}>
       <Tile
         dataTest={`CustomerBaggageTile-${status || "none"}`}
-        onClick={onClick && onClick}
+        onClick={handleOnClick}
         title={
           <Title
             icon={icon}
