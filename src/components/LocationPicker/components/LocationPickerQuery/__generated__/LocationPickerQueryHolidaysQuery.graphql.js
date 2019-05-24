@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 791edcf954ee9d4135fab249bb788f52
+ * @relayHash c90468d7d23b5b530d5b20a082ca1b68
  */
 
 /* eslint-disable */
@@ -44,13 +44,6 @@ fragment LocationPickerResultList_list on LocationConnection {
   edges {
     node {
       id
-      type
-      code
-      name
-      country {
-        code
-        name
-      }
       ...LocationPickerRow_item
     }
   }
@@ -131,7 +124,7 @@ v2 = {
 v3 = {
   "kind": "ScalarField",
   "alias": null,
-  "name": "code",
+  "name": "locationId",
   "args": null,
   "storageKey": null
 },
@@ -145,7 +138,7 @@ v4 = {
 v5 = {
   "kind": "ScalarField",
   "alias": null,
-  "name": "locationId",
+  "name": "code",
   "args": null,
   "storageKey": null
 },
@@ -157,10 +150,10 @@ v6 = {
   "storageKey": null
 },
 v7 = [
-  (v5/*: any*/),
+  (v3/*: any*/),
   (v4/*: any*/),
   (v6/*: any*/),
-  (v3/*: any*/)
+  (v5/*: any*/)
 ];
 return {
   "kind": "Request",
@@ -229,6 +222,7 @@ return {
                     "args": null,
                     "storageKey": null
                   },
+                  (v3/*: any*/),
                   {
                     "kind": "ScalarField",
                     "alias": null,
@@ -236,23 +230,7 @@ return {
                     "args": null,
                     "storageKey": null
                   },
-                  (v3/*: any*/),
                   (v4/*: any*/),
-                  {
-                    "kind": "LinkedField",
-                    "alias": null,
-                    "name": "country",
-                    "storageKey": null,
-                    "args": null,
-                    "concreteType": "LocationArea",
-                    "plural": false,
-                    "selections": [
-                      (v3/*: any*/),
-                      (v4/*: any*/),
-                      (v5/*: any*/),
-                      (v6/*: any*/)
-                    ]
-                  },
                   (v5/*: any*/),
                   (v6/*: any*/),
                   {
@@ -293,6 +271,16 @@ return {
                   {
                     "kind": "LinkedField",
                     "alias": null,
+                    "name": "country",
+                    "storageKey": null,
+                    "args": null,
+                    "concreteType": "LocationArea",
+                    "plural": false,
+                    "selections": (v7/*: any*/)
+                  },
+                  {
+                    "kind": "LinkedField",
+                    "alias": null,
                     "name": "subdivision",
                     "storageKey": null,
                     "args": null,
@@ -313,7 +301,7 @@ return {
     "operationKind": "query",
     "name": "LocationPickerQueryHolidaysQuery",
     "id": null,
-    "text": "query LocationPickerQueryHolidaysQuery(\n  $input: String!\n) {\n  holidaysLocations(last: 50, search: $input) {\n    ...LocationPickerResultList_list\n    pageInfo {\n      startCursor\n    }\n  }\n}\n\nfragment LocationPickerResultList_list on LocationConnection {\n  edges {\n    node {\n      id\n      type\n      code\n      name\n      country {\n        code\n        name\n      }\n      ...LocationPickerRow_item\n    }\n  }\n}\n\nfragment LocationPickerRow_item on Location {\n  locationId\n  type\n  name\n  code\n  slug\n  location {\n    lat\n    lng\n  }\n  city {\n    locationId\n    name\n    slug\n    code\n  }\n  country {\n    locationId\n    name\n    slug\n    code\n  }\n  subdivision {\n    locationId\n    name\n    slug\n    code\n  }\n}\n",
+    "text": "query LocationPickerQueryHolidaysQuery(\n  $input: String!\n) {\n  holidaysLocations(last: 50, search: $input) {\n    ...LocationPickerResultList_list\n    pageInfo {\n      startCursor\n    }\n  }\n}\n\nfragment LocationPickerResultList_list on LocationConnection {\n  edges {\n    node {\n      id\n      ...LocationPickerRow_item\n    }\n  }\n}\n\nfragment LocationPickerRow_item on Location {\n  locationId\n  type\n  name\n  code\n  slug\n  location {\n    lat\n    lng\n  }\n  city {\n    locationId\n    name\n    slug\n    code\n  }\n  country {\n    locationId\n    name\n    slug\n    code\n  }\n  subdivision {\n    locationId\n    name\n    slug\n    code\n  }\n}\n",
     "metadata": {}
   }
 };

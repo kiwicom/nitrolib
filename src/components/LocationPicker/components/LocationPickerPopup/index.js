@@ -28,7 +28,6 @@ const LocationPickerPopup = styled.div`
     active &&
     `
     box-shadow: 0 20px 60px 0 rgba(23, 27, 30, 0.4);
-    z-index: 1000;
   `};
 `;
 

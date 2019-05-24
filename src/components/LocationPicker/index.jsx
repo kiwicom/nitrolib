@@ -15,6 +15,7 @@ import LocationPickerQuery from "./components/LocationPickerQuery";
 const Spacer = styled.div`
   padding-bottom: ${({ theme }) => theme.orbit.spaceSmall};
 `;
+
 Spacer.defaultProps = {
   theme: themeDefault,
 };
@@ -36,8 +37,6 @@ type Props = {|
   onChange: (loc: Location) => void,
   label: React.Node,
   error?: React.Node,
-  // defaulted
-  environment?: Environment,
   queryName?: "allLocations" | "holidaysLocations",
   locationType?:
     | "airport"
@@ -46,6 +45,8 @@ type Props = {|
     | "country"
     | "station"
     | "subdivision",
+  // defaulted
+  environment: Environment,
 |};
 
 type State = {|

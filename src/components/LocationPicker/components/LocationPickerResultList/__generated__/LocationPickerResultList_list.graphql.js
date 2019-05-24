@@ -15,13 +15,6 @@ export type LocationPickerResultList_list = {|
   +edges: ?$ReadOnlyArray<?{|
     +node: ?{|
       +id: string,
-      +type: ?string,
-      +code: ?string,
-      +name: ?string,
-      +country: ?{|
-        +code: ?string,
-        +name: ?string,
-      |},
       +$fragmentRefs: LocationPickerRow_item$ref,
     |}
   |}>,
@@ -30,22 +23,7 @@ export type LocationPickerResultList_list = {|
 */
 
 
-const node/*: ReaderFragment*/ = (function(){
-var v0 = {
-  "kind": "ScalarField",
-  "alias": null,
-  "name": "code",
-  "args": null,
-  "storageKey": null
-},
-v1 = {
-  "kind": "ScalarField",
-  "alias": null,
-  "name": "name",
-  "args": null,
-  "storageKey": null
-};
-return {
+const node/*: ReaderFragment*/ = {
   "kind": "Fragment",
   "name": "LocationPickerResultList_list",
   "type": "LocationConnection",
@@ -78,28 +56,6 @@ return {
               "storageKey": null
             },
             {
-              "kind": "ScalarField",
-              "alias": null,
-              "name": "type",
-              "args": null,
-              "storageKey": null
-            },
-            (v0/*: any*/),
-            (v1/*: any*/),
-            {
-              "kind": "LinkedField",
-              "alias": null,
-              "name": "country",
-              "storageKey": null,
-              "args": null,
-              "concreteType": "LocationArea",
-              "plural": false,
-              "selections": [
-                (v0/*: any*/),
-                (v1/*: any*/)
-              ]
-            },
-            {
               "kind": "FragmentSpread",
               "name": "LocationPickerRow_item",
               "args": null
@@ -110,7 +66,6 @@ return {
     }
   ]
 };
-})();
 // prettier-ignore
-(node/*: any*/).hash = '1ea2d7544f75d1136a7717149d16ebea';
+(node/*: any*/).hash = '223af908ef6d88dd24629bfe885777e7';
 module.exports = node;
