@@ -18,7 +18,7 @@ export const props = {
   splitster: {
     HEADER_LINKS_ROOMS_PROVIDER_0: "roomsKiwiCode",
   },
-  context: "booking",
+  context: "search",
   brand: "Kiwi.com",
 };
 
