@@ -1,3 +1,18 @@
+# [3.5.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.4.0...v3.5.0) (2019-05-27)
+
+
+### Bug Fixes
+
+* **starred:** Align, removed wrapper ([5cbc87b](https://gitlab.skypicker.com/frontend/nitrolib/commit/5cbc87b))
+
+
+### Features
+
+* **docs:** Add CHANGELOG ([e2008dd](https://gitlab.skypicker.com/frontend/nitrolib/commit/e2008dd))
+* **services:** Add deeplinkId to Session ([4590f31](https://gitlab.skypicker.com/frontend/nitrolib/commit/4590f31))
+
+
+
 # [3.4.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.3.1...v3.4.0) (2019-05-27)
 
 
