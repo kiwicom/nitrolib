@@ -1,3 +1,12 @@
+# [3.4.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.3.1...v3.4.0) (2019-05-27)
+
+
+### Features
+
+* **components:** Add TranslateRef ([85c70ef](https://gitlab.skypicker.com/frontend/nitrolib/commit/85c70ef))
+
+
+
 ## [3.3.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.3.0...v3.3.1) (2019-05-22)
 
 
