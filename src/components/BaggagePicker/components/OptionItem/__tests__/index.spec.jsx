@@ -1,6 +1,8 @@
 // @flow strict
 import * as React from "react";
 import { mount } from "enzyme";
+import { ThemeProvider } from "styled-components";
+import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
 
 import OptionItem from "../index";
 
@@ -28,12 +30,20 @@ const props = {
 
 describe("#OptionItem", () => {
   test("render ", () => {
-    const wrapper = mount(<OptionItem {...props} />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTheme}>
+        <OptionItem {...props} />
+      </ThemeProvider>,
+    );
     expect(wrapper.find("Stack").exists()).toBe(true);
   });
 
   test("renders current info", () => {
-    const wrapper = mount(<OptionItem {...props} isCurrentCombination />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTheme}>
+        <OptionItem {...props} isCurrentCombination />
+      </ThemeProvider>,
+    );
     expect(wrapper.find('[data-test="BaggagePicker-OptionItem-cabinBag"]').exists()).toBe(true);
     expect(wrapper.find('[data-test="BaggagePicker-OptionItem-Current"]').text()).toEqual(
       "baggage_modal.select.current",
@@ -41,7 +51,11 @@ describe("#OptionItem", () => {
   });
 
   test("renders price", () => {
-    const wrapper = mount(<OptionItem {...props} />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTheme}>
+        <OptionItem {...props} />
+      </ThemeProvider>,
+    );
     expect(wrapper.find('[data-test="BaggagePicker-OptionItem-Price"]').text()).toEqual("10 €");
   });
 });

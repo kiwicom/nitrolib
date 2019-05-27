@@ -3,13 +3,11 @@ import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
-import styled, { withTheme } from "styled-components";
+import styled, { ThemeConsumer } from "styled-components";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
 import Hide from "@kiwicom/orbit-components/lib/Hide";
 import { rtlSpacing } from "@kiwicom/orbit-components/lib/utils/rtl";
-import { type Theme } from "@kiwicom/orbit-components/lib/defaultTheme";
 
-import { themeDefault } from "../../../../records/Theme";
 import Translate from "../../../Translate";
 import type {
   BaggageSubCategory,
@@ -41,7 +39,6 @@ type Props = {|
   passengers?: BaggagePassengerType[],
   FAQLinksHandler?: FAQLinksHandlerType,
   context: OverviewContextType,
-  theme: Theme,
 |};
 
 const BaggageItem = ({
@@ -51,7 +48,6 @@ const BaggageItem = ({
   amount,
   restrictions,
   FAQLinksHandler,
-  theme: { rtl },
 }: Props) => {
   return (
     <Stack
@@ -88,13 +84,17 @@ const BaggageItem = ({
             </Text>
           </CenteringFixWrapper>
           <CenteringFixWrapper>
-            <Text
-              element="p"
-              type="secondary"
-              size={context === "MMB-PassengersSummary" ? "normal" : "small"}
-            >
-              {getBaggageSize(restrictions, rtl)}
-            </Text>
+            <ThemeConsumer>
+              {({ rtl }) => (
+                <Text
+                  element="p"
+                  type="secondary"
+                  size={context === "MMB-PassengersSummary" ? "normal" : "small"}
+                >
+                  {getBaggageSize(restrictions, rtl)}
+                </Text>
+              )}
+            </ThemeConsumer>
           </CenteringFixWrapper>
 
           {FAQLinksHandler && (
@@ -165,8 +165,4 @@ const BaggageItem = ({
   );
 };
 
-BaggageItem.defaultProps = {
-  theme: themeDefault,
-};
-
-export default withTheme(BaggageItem);
+export default BaggageItem;

@@ -1,6 +1,8 @@
 // @flow strict
 import * as React from "react";
 import { mount } from "enzyme";
+import { ThemeProvider } from "styled-components";
+import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
 
 import BaggageItem from "../index";
 
@@ -19,11 +21,19 @@ const props = {
 
 describe("#BaggageItem", () => {
   test("renders category icon", () => {
-    const wrapper = mount(<BaggageItem {...props} />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTheme}>
+        <BaggageItem {...props} />
+      </ThemeProvider>,
+    );
     expect(wrapper.find("BaggageCabin").exists()).toBe(true);
   });
   test("renders baggage restrictions", () => {
-    const wrapper = mount(<BaggageItem {...props} />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTheme}>
+        <BaggageItem {...props} />
+      </ThemeProvider>,
+    );
     expect(
       wrapper
         .find("BaggageItem__BaggageRestrictions")
