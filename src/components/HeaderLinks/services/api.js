@@ -29,7 +29,7 @@ const getNavBarLinks = ({
   context,
   brand,
 }: Input): Promise<Response> =>
-  fetch("https://ancillaries-integration.skypicker.com/navbar", {
+  fetch("https://ancillaries-integration.skypicker.com/v2/navbar", {
     method: "POST",
     headers: JSON_BOTH,
     body: JSON.stringify({
