@@ -1,9 +1,10 @@
 // @flow strict
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import BaggageItem from "../BaggageItem";
 import type { TileDefinition, OrderStatusType } from "../../../../records/Baggage";
@@ -19,10 +20,13 @@ type Props = {|
 |};
 
 const Wrapper = styled.div`
-  padding: 17px 0px 17px 28px;
+  padding: 8px 0px 0px 28px;
   > div {
     margin-bottom: ${({ theme }): ThemeProps => theme.orbit.spaceXXXSmall};
   }
+  ${mq.largeMobile(css`
+    padding-top: ${({ theme }): ThemeProps => theme.orbit.spaceMedium};
+  `)};
 `;
 Wrapper.defaultProps = {
   theme: themeDefault,
