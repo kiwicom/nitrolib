@@ -19,6 +19,7 @@ import type { Airline } from "../../records/Airline";
 import getPersonalItemPresence from "./services/getPersonalItemPresence";
 import getTooltip from "./services/getTooltip";
 import getOptions from "./services/getOptions";
+import baggageErrorMessage from "./services/baggageErrorMessage";
 
 type Props = {|
   changeBagCombination: (picker: BaggageCategory, item: number) => void,
@@ -154,11 +155,7 @@ const BaggagePicker = ({
             <Close size="medium" color="critical" />
             <Stack>
               <Text element="p">
-                {pickerType === "handBag" ? (
-                  <Translate t="baggage_modal.error.cabin_baggage_not_available" />
-                ) : (
-                  <Translate t="baggage_modal.error.checked_baggage_not_available" />
-                )}
+                <Translate t={baggageErrorMessage[pickerType][passengerCategory]} />
               </Text>
             </Stack>
           </Stack>
