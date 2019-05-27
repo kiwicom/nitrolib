@@ -1500,6 +1500,7 @@ export type Session = {|
   userId: string,
   sessionId: string,
   pageViewId: string,
+  deeplinkId: string,
   affiliate: Affiliate | null,
   UTMs: { [key: string]: string },
 |};

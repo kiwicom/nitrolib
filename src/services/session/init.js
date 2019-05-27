@@ -5,6 +5,7 @@ import handleUserId from "./services/handleUserId";
 import handleSessionId from "./services/handleSessionId";
 import { makePageViewId } from "./ids";
 import handleAffiliateId from "./services/handleAffiliateId";
+import handleDeeplinkId from "./services/handleDeeplinkId";
 import handleUTMs from "./services/handleUTMs";
 import type { Session } from "../../records/Session";
 
@@ -13,6 +14,7 @@ const init = (): Session => {
     userId,
     affilId,
     affilid, // deprecated format, force 'affilId'
+    deeplinkId,
     ...rest
   } = qs.parse(window.location.search);
 
@@ -20,6 +22,7 @@ const init = (): Session => {
     userId: handleUserId(userId && String(userId)),
     sessionId: handleSessionId(),
     pageViewId: makePageViewId(),
+    deeplinkId: handleDeeplinkId(deeplinkId && String(deeplinkId)),
     affiliate: handleAffiliateId((affilId || affilid) && String(affilId || affilid), rest),
     UTMs: handleUTMs(rest),
   };
