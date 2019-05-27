@@ -37,6 +37,7 @@ type Props = {|
   },
   newDefinitions?: Definition[],
   onClick?: () => void,
+  supportLinkHandler?: () => void,
   baggage: BaggageType,
 |};
 
@@ -51,6 +52,7 @@ const CustomerBaggageTile = ({
   selected,
   newDefinitions,
   onClick,
+  supportLinkHandler,
   baggage,
 }: Props) => {
   const { combinations } = baggage;
@@ -89,7 +91,13 @@ const CustomerBaggageTile = ({
             dayOfBirth={dayOfBirth}
           />
         }
-        description={<Content definitions={[...handBag, ...holdBag]} orderStatus={status} />}
+        description={
+          <Content
+            definitions={[...handBag, ...holdBag]}
+            orderStatus={status}
+            supportLinkHandler={supportLinkHandler}
+          />
+        }
       />
     </Wrapper>
   );
