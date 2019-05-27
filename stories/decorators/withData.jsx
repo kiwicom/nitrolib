@@ -127,7 +127,7 @@ const withData = (storyFn: () => React.Node) => {
                   countries={countries}
                   affiliate=""
                   ip="1.3.3.7"
-                  initialCurrency="EUR"
+                  initialCurrency="eur"
                   langCurrency={language.currency}
                   onChange={action("Save currency")}
                 >

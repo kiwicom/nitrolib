@@ -40,6 +40,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [Toggle](#toggle)
 * [Translate](#translate)
 * [TranslateNode](#translatenode)
+* [TranslateRef](#translateref)
 * [Value](#value)
 * [ValueBind](#valuebind)
 
@@ -703,6 +704,7 @@ import ClickOutside from "@kiwicom/nitro/lib/components/ClickOutside";
 **Types:**
 ```js
 type Props = {|
+  className?: string,
   onClickOutside: (ev: MouseEvent) => void,
   children: React.Node | React.Node[],
   // defaulted
@@ -1471,6 +1473,44 @@ const MyComponent = () => (
     values={
       { x: <button onClick={() => alert("Clicked")}>Yo</button> }
     }
+  />
+);
+```
+
+### TranslateRef
+
+**Import:**
+```js
+import TranslateRef from "@kiwicom/nitro/lib/components/TranslateRef";
+```
+
+**Types:**
+```js
+type Props = {|
+  t: string,
+  values?: Values,
+  render: (ref: string) => React.Node,
+  transform?: (value: string) => string,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=TranslateRef).
+
+**Context needs:**
+* [intl](./services#intl)
+
+The same as `Translate`, except it expects the translation to contain a `<ref></ref>` tag to be replaced with the result of the `render` function call. Useful for injecting event handlers!
+
+> The text output can be transformed using the `transform` function. You can use arrow functions - the component does not implement pure render.
+
+Example:
+```js
+const MyComponent = () => (
+  <TranslateRef
+    t="Some stuff, <ref>read more</ref>."
+    render={text => <Link to="/about">{text}</Link>}
   />
 );
 ```

@@ -4,7 +4,6 @@ import styled, { css } from "styled-components";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
-import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 
 import { navbar } from "../../styles";
 import Desktop from "../Desktop";
@@ -102,10 +101,7 @@ const NavBar = ({
             <Help onOpen={onOpenFaq} inverted={inverted} />
           </Stack>
         </Desktop>
-        {/* TODO remove 'TextWrapper' eventually */}
-        <TextWrapper size="small" weight="normal">
-          {starred}
-        </TextWrapper>
+        {starred}
         <Mobile>
           <Help onOpen={onOpenFaq} inverted={inverted} />
         </Mobile>

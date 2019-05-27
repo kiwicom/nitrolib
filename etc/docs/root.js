@@ -12,6 +12,8 @@ const BEGIN = `## Setup
 
 const END = `## Documentation
 
+[Changelog](https://github.com/kiwicom/nitrolib/blob/master/CHANGELOG.md).
+
 * [CLI](./cli.md) - Nitro's CLI
 * [Components](./components.md) - well... components 🤷
 * [Constants](./consts.md)
