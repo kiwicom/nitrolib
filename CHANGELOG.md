@@ -1,3 +1,12 @@
+# [3.6.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.5.0...v3.6.0) (2019-05-28)
+
+
+### Features
+
+* **components:** TranslateRef supports multiple refs ([ddf5b78](https://gitlab.skypicker.com/frontend/nitrolib/commit/ddf5b78))
+
+
+
 # [3.5.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.4.0...v3.5.0) (2019-05-27)
 
 
