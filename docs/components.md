@@ -1487,7 +1487,7 @@ import TranslateRef from "@kiwicom/nitro/lib/components/TranslateRef";
 type Props = {|
   t: string,
   values?: Values,
-  render: (ref: string) => React.Node,
+  render: (ref: string, index: number) => React.Node,
   transform?: (value: string) => string,
 |};
 
