@@ -1,3 +1,17 @@
+## [3.6.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.6.0...v3.6.1) (2019-05-28)
+
+
+### Bug Fixes
+
+* **records:** In-sync Loglady type in typedefs ([4a82827](https://gitlab.skypicker.com/frontend/nitrolib/commit/4a82827))
+
+
+### Features
+
+* Update docs ([410c4cd](https://gitlab.skypicker.com/frontend/nitrolib/commit/410c4cd))
+
+
+
 # [3.6.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.5.0...v3.6.0) (2019-05-28)
 
 
