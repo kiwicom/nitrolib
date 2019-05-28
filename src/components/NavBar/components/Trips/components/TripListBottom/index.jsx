@@ -24,44 +24,40 @@ const TripsBottomWrapper = styled.div`
   `)};
 `;
 
-const ListWrapper = styled.div`
-  width: 100%;
-`;
 const TripListBottom = ({ list }: Props) => {
   const trips = list.edges && list.edges.map(edge => edge && edge.node).filter(Boolean);
   const upcoming = trips && trips.filter(trip => trip && !trip.isPastBooking);
   const futureTrips = upcoming && upcoming.slice(2, 6);
-  return (
+
+  return futureTrips && futureTrips.length > 0 ? (
     <IntlConsumer>
       {intl => (
-        <ListWrapper>
-          <ItemWrapper>
-            <TripsBottomWrapper>
-              {futureTrips &&
-                futureTrips.map(item => (
-                  <BottomTripItem
-                    key={item.id}
-                    id={item.id}
-                    imageUrl={item.destinationImageUrl || ""}
-                    lang={intl.language.id}
-                  />
-                ))}
-            </TripsBottomWrapper>
-            <Stack align="center" spacing="none">
-              <ButtonLink
-                color="primary"
-                marginLeft={25}
-                bold
-                href={`/${intl.language.id}/account#future`}
-              >
-                <Translate t="account.all_trips" />
-              </ButtonLink>
-            </Stack>
-          </ItemWrapper>
-        </ListWrapper>
+        <ItemWrapper>
+          <TripsBottomWrapper>
+            {futureTrips &&
+              futureTrips.map(item => (
+                <BottomTripItem
+                  key={item.id}
+                  id={item.id}
+                  imageUrl={item.destinationImageUrl || ""}
+                  lang={intl.language.id}
+                />
+              ))}
+          </TripsBottomWrapper>
+          <Stack inline align="center" spacing="none">
+            <ButtonLink
+              color="primary"
+              marginLeft={25}
+              bold
+              href={`/${intl.language.id}/account#future`}
+            >
+              <Translate t="account.all_trips" />
+            </ButtonLink>
+          </Stack>
+        </ItemWrapper>
       )}
     </IntlConsumer>
-  );
+  ) : null;
 };
 
 export const TripListBottomUnwrapped = TripListBottom;

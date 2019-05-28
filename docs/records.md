@@ -1314,21 +1314,29 @@ import type { Loglady } from "@kiwicom/nitro/lib/records/Loglady";
 **Types:**
 ```js
 export type Globals = {|
-  userId: string,
-  affilId: string,
-  affilParams: { [key: string]: string },
-  brandingId: string,
-  url: string,
-  langId?: string,
-  sessionId?: string,
   project?: string,
+  userId: string,
   module?: string,
   pageName?: string,
+  langId?: string,
+  sessionId?: string,
   deeplinkId?: string,
   pageViewId?: string,
+  affilId: string,
+  affilParams?: { [key: string]: string },
+  brandingId: string,
+  timestamp?: number,
+  url: string,
   bid?: number,
   splitster?: { [key: string]: string },
   UTMs: { [key: string]: string },
+  bookingSessionId?: string,
+  screenWidth?: number,
+  screenHeight?: number,
+  viewportWidth?: number,
+  viewportHeight?: number,
+  isLoggedIn?: boolean,
+  browserPrivacyMode?: string,
 |};
 
 export type Loglady = {|

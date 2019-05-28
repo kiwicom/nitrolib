@@ -4,7 +4,6 @@ import * as React from "react";
 import Popup from "./primitives/Popup";
 import Header from "./primitives/Header";
 import Content from "./primitives/Content";
-import Footer from "./primitives/Footer";
 
 type Props = {|
   header?: React.Node,
@@ -32,7 +31,7 @@ const TripContainer = ({
   >
     {header && <Header>{header}</Header>}
     <Content padding={padding}>{children}</Content>
-    <Footer>{footer}</Footer>
+    {footer}
   </Popup>
 );
 
