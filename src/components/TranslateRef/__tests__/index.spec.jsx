@@ -28,12 +28,33 @@ describe("#TranslateRef", () => {
   });
 
   test("string", () => {
-    const render = jest.fn().mockReturnValue(<b>lmao</b>);
+    const render = jest.fn().mockImplementation((text, id) => (
+      <b>
+        {text} {id}
+      </b>
+    ));
     const wrapper = mount(<TranslateRef t="lol <ref>x</ref> kek bur" render={render} />);
 
     expect(wrapper.contains(<span />)).toBe(false);
     expect(wrapper.contains(<span dangerouslySetInnerHTML={{ __html: "lol " }} />)).toBe(true);
-    expect(wrapper.contains(<b>lmao</b>)).toBe(true);
+    expect(wrapper.contains(<b>x 0</b>)).toBe(true);
     expect(wrapper.contains(<span dangerouslySetInnerHTML={{ __html: " kek bur" }} />)).toBe(true);
+  });
+
+  test("more strings", () => {
+    const render = jest.fn().mockImplementation((text, id) => (
+      <b>
+        {text} {id}
+      </b>
+    ));
+    const wrapper = mount(
+      <TranslateRef t="lol <ref>x</ref> kek bur <ref>y</ref>" render={render} />,
+    );
+
+    expect(wrapper.contains(<span />)).toBe(false);
+    expect(wrapper.contains(<span dangerouslySetInnerHTML={{ __html: "lol " }} />)).toBe(true);
+    expect(wrapper.contains(<b>x 0</b>)).toBe(true);
+    expect(wrapper.contains(<span dangerouslySetInnerHTML={{ __html: " kek bur " }} />)).toBe(true);
+    expect(wrapper.contains(<b>y 1</b>)).toBe(true);
   });
 });

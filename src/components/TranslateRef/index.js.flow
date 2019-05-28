@@ -6,7 +6,7 @@ import type { Values } from "../../services/intl/translate";
 type Props = {|
   t: string,
   values?: Values,
-  render: (ref: string) => React.Node,
+  render: (ref: string, index: number) => React.Node,
   transform?: (value: string) => string,
 |};
 
