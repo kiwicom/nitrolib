@@ -12,6 +12,7 @@ Located in `@kiwicom/nitro/lib/services/<service>`.
 * [Intl](#intl)
 * [Log](#log)
 * [Modal](#modal)
+* [Server](#server)
 * [Session](#session)
 * [Starred](#starred)
 * [Utils](#utils)
@@ -617,6 +618,41 @@ export default context;
 Holds an information about which modal is currently open. Only supports one modal **on purpose**.
 
 > Initialize using the [Value](./components#value) component, it has no associated `InitModal` component.
+
+## Server
+
+
+
+### AnalyseHeaders
+
+**Import:**
+```js
+import * as analyseHeaders from "@kiwicom/nitro/lib/services/server/analyseHeaders";
+```
+
+**Types:**
+```js
+export type CookieSizes = {|
+  total: number,
+  splitster: number,
+  recentSearch: number,
+  other: number,
+|};
+
+export type Headers = { [string]: string };
+
+export type AnalysePayload = {|
+  total: number,
+  url: number,
+  headers: number,
+  cookies: CookieSizes,
+  cookiesToRemove: string[],
+|};
+
+declare export default (h: Headers, url: string) => AnalysePayload;
+```
+
+
 
 ## Session
 

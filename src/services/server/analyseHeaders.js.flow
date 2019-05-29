@@ -1,0 +1,19 @@
+// @flow strict
+export type CookieSizes = {|
+  total: number,
+  splitster: number,
+  recentSearch: number,
+  other: number,
+|};
+
+export type Headers = { [string]: string };
+
+export type AnalysePayload = {|
+  total: number,
+  url: number,
+  headers: number,
+  cookies: CookieSizes,
+  cookiesToRemove: string[],
+|};
+
+declare export default (h: Headers, url: string, limit?: number) => AnalysePayload;
