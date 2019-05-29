@@ -1,3 +1,12 @@
+# [3.7.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.6.1...v3.7.0) (2019-05-29)
+
+
+### Features
+
+* **services:** Add server service, `analyseHeaders` function ([ce96719](https://gitlab.skypicker.com/frontend/nitrolib/commit/ce96719))
+
+
+
 ## [3.6.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.6.0...v3.6.1) (2019-05-28)
 
 
