@@ -58,6 +58,8 @@ export default class HeaderLinks extends React.Component<Props, State> {
     services: null,
   };
 
+  context: Context;
+
   componentDidMount() {
     this.getNavBarLinks();
   }
@@ -87,8 +89,6 @@ export default class HeaderLinks extends React.Component<Props, State> {
       log(HEADER_LINKS_ERROR, { error: String(err) });
     }
   };
-
-  context: Context;
 
   render() {
     const { inverted, active } = this.props;

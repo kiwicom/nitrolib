@@ -14,15 +14,10 @@ type Props = {|
   bold?: boolean,
   block?: boolean,
   color?: Color,
-  padding?: string,
   background?: Bg,
-  marginLeft?: number,
-  marginRight?: number,
   fontSize?: number,
+  className?: string,
   disabled?: boolean,
-  x?: string,
-  y?: string,
-  direction?: string,
 |};
 
 // $FlowExpected: TODO describe

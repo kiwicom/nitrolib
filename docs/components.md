@@ -821,6 +821,7 @@ See types:
 
 **Context needs:**
 * [currency](./services#currency)
+* [intl](./services#intl)
 
 **Selectors `data-test`:**
 * ```"CustomerBaggageTile-BaggageItem"```

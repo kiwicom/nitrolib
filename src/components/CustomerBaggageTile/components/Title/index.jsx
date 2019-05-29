@@ -4,9 +4,11 @@ import styled, { css } from "styled-components";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Text from "@kiwicom/orbit-components/lib/Text";
+import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import type { OrderStatusType } from "../../../../records/Baggage";
 import Badge from "./components/Badge";
+import { themeDefault } from "../../../../records/Theme";
 
 type TitleProps = {|
   firstName: string,
@@ -33,14 +35,18 @@ const Wrapper = styled.div`
   }
 
   > span {
-    margin-left: 28px;
+    margin-${/* sc-custom "left" */ left}: 28px;
     margin-top: 6px;
     ${mq.largeMobile(css`
-      margin-left: 10px;
+      margin-${/* sc-custom "left" */ left}:: 10px;
       margin-top: 0;
     `)};
   }
 `;
+
+Wrapper.defaultProps = {
+  theme: themeDefault,
+};
 
 const Title = ({
   firstName,

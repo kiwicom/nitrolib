@@ -11,8 +11,8 @@ import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import separateList from "../../services/separateList";
 import button from "../../../../styles/mixins/button";
-import Tooltip from "../../../Tooltip/index";
-import CurrencyItem from "../Item/index";
+import Tooltip from "../../../Tooltip";
+import CurrencyItem from "../Item";
 import Code from "../../primitives/Code";
 import Name from "../../primitives/Name";
 import Sign from "../../primitives/Sign";
@@ -31,6 +31,10 @@ const Column = styled.div`
     width: ${100 / COLUMNS}%;
   `)};
 `;
+
+Column.defaultProps = {
+  theme: themeDefault,
+};
 
 const Item = styled.div`
   ${mq.largeMobile(css`

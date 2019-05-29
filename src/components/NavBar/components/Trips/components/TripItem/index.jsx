@@ -6,6 +6,7 @@ import styled, { css } from "styled-components";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import parseISO from "date-fns/fp/parseISO";
 
+import { themeDefault } from "../../../../../../records/Theme";
 import ItemWrapper from "../../primitives/ItemWrapper";
 import TripInfo from "../../primitives/TripInfo";
 import Column from "../../primitives/Column";
@@ -36,6 +37,10 @@ const Img = styled.img`
     height: 180px;
   `)};
 `;
+
+Img.defaultProps = {
+  theme: themeDefault,
+};
 
 const TripItem = ({
   bid,

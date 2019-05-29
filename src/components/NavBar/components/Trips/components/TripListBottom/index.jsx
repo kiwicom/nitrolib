@@ -11,6 +11,7 @@ import { Consumer as IntlConsumer } from "../../../../../../services/intl/contex
 import ButtonLink from "../../../../primitives/ButtonLink";
 import BottomTripItem from "../BottomTripItem";
 import type { TripListBottom_list } from "./__generated__/TripListBottom_list.graphql";
+import { themeDefault } from "../../../../../../records/Theme";
 
 type Props = {|
   list: TripListBottom_list,
@@ -23,6 +24,10 @@ const TripsBottomWrapper = styled.div`
     width: 180px;
   `)};
 `;
+
+TripsBottomWrapper.defaultProps = {
+  theme: themeDefault,
+};
 
 const TripListBottom = ({ list }: Props) => {
   const trips = list.edges && list.edges.map(edge => edge && edge.node).filter(Boolean);

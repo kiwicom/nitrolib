@@ -55,6 +55,10 @@ const LogoStyled = styled.img`
   `)};
 `;
 
+LogoStyled.defaultProps = {
+  theme: themeDefault,
+};
+
 const LogoStyledMobile = styled.img`
   max-height: 40px;
   max-width: 40px;
@@ -64,6 +68,10 @@ const LogoStyledMobile = styled.img`
     display: none;
   `)};
 `;
+
+LogoStyledMobile.defaultProps = {
+  theme: themeDefault,
+};
 
 const Link = styled.a`
   display: flex;

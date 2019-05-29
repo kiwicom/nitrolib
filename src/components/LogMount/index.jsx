@@ -18,14 +18,14 @@ export default class Core extends React.Component<Props> {
 
   static contextType = logContext;
 
+  context: Context;
+
   componentDidMount() {
     const { event, props } = this.props;
     const { log } = this.context;
 
     log(event, props);
   }
-
-  context: Context;
 
   render() {
     return null;

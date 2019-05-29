@@ -52,6 +52,10 @@ const Info = styled.div`
   `)};
 `;
 
+Info.defaultProps = {
+  theme: themeDefault,
+};
+
 const PriceInfo = styled.div`
   text-transform: lowercase;
   max-width: 80px;
@@ -86,6 +90,10 @@ const WrapperInner = styled.div`
     align-items: center;
   `)};
 `;
+
+WrapperInner.defaultProps = {
+  theme: themeDefault,
+};
 
 const ActionButtonsWrapper = styled.div`
   display: flex;

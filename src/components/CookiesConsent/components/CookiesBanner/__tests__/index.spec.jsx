@@ -1,7 +1,6 @@
 // @flow strict
 import * as React from "react";
 import { shallow, mount } from "enzyme";
-import { breakpoints } from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import CookiesBanner from "..";
 
@@ -15,13 +14,8 @@ describe("#CookiesBanner", () => {
       "background",
       themeDefault.orbit.paletteInkDark,
     );
-    expect(wrapper.find("CookiesBanner__Container")).toHaveStyleRule(
-      "background",
-      themeDefault.orbit.paletteWhite,
-      {
-        media: breakpoints.largeMobile,
-      },
-    );
+
+    expect(wrapper.find("CookiesBanner__Container").exists()).toBe(true);
   });
 
   test("click accept", () => {

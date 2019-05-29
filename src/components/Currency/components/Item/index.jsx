@@ -8,6 +8,7 @@ import type { Currency } from "../../../../records/Currency";
 import Code from "../../primitives/Code";
 import Sign from "../../primitives/Sign";
 import Name from "../../primitives/Name";
+import { themeDefault } from "../../../../records/Theme";
 
 const NameSeparator = styled.span`
   margin: 0 5px;
@@ -16,6 +17,10 @@ const NameSeparator = styled.span`
     display: none;
   `)};
 `;
+
+NameSeparator.defaultProps = {
+  theme: themeDefault,
+};
 
 type Props = {|
   item: Currency,

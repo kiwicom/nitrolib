@@ -107,6 +107,7 @@ import * as cookies from "@kiwicom/nitro/lib/consts/cookies";
 declare export var AFFILIATE_ID: "SKYPICKER_AFFILIATE";
 declare export var COOKIES_CONSENT: "cookiesConsent";
 declare export var USER_ID: "SKYPICKER_VISITOR_UNIQID";
+declare export var UA_SESSION_TOKEN: "ua_session_token";
 
 export type Cookie = string; // TODO specific once everyone uses this
 ```

@@ -43,7 +43,7 @@ const Menu = ({
                 {({ onClick }) => (
                   <>
                     <Desktop display="flex">
-                      <Button onClick={onClick} color={!inverted && "secondary"}>
+                      <Button onClick={onClick} color={inverted && "white"}>
                         <Translate t="account.my_bookings_action" />
                       </Button>
                     </Desktop>
@@ -56,7 +56,7 @@ const Menu = ({
                 )}
               </ValueBind>
             ) : (
-              <Trips auth={auth} env={environment} onSelect={onSelectTrip} />
+              <Trips auth={auth} env={environment} inverted={inverted} onSelect={onSelectTrip} />
             )
           }
         </AuthConsumer>

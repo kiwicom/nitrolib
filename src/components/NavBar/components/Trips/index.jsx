@@ -23,6 +23,7 @@ import userType from "./services/userType";
 type Props = {|
   auth: Auth,
   env: Environment,
+  inverted: boolean,
   onSelect: (bid: string) => void,
 |};
 
@@ -61,7 +62,7 @@ HideOnLower.defaultProps = {
   theme: themeDefault,
 };
 
-const Trips = ({ auth, env, onSelect }: Props) => (
+const Trips = ({ auth, env, onSelect, inverted }: Props) => (
   <Toggle>
     {({ open, onToggle }) => (
       <div>
@@ -82,7 +83,7 @@ const Trips = ({ auth, env, onSelect }: Props) => (
         <Desktop display="flex">
           <Stack align="center" spacing="none">
             <Passenger size="small" />
-            <Button onClick={onToggle} color="secondary">
+            <Button onClick={onToggle} color={inverted && "white"}>
               <HideOnLower>
                 <Translate t="account.my_bookings_action" />
               </HideOnLower>
@@ -95,7 +96,7 @@ const Trips = ({ auth, env, onSelect }: Props) => (
           </Stack>
         </Desktop>
         <Mobile display="flex">
-          <Button onClick={onToggle} color="secondary">
+          <Button onClick={onToggle} color={inverted && "white"}>
             <Passenger size="small" />
             <UserWrapper>
               <UserName>{userType(auth)}</UserName>

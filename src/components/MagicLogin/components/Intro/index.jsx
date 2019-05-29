@@ -40,6 +40,8 @@ export default class IntroScreen extends React.Component<Props, State> {
     validateEmail: false,
   };
 
+  context: LogContextType;
+
   handleEmailBlur = () => {
     this.setState({ validateEmail: true });
   };
@@ -119,8 +121,6 @@ export default class IntroScreen extends React.Component<Props, State> {
 
     return email ? validators.email(email) : errors.requiredField;
   };
-
-  context: LogContextType;
 
   render() {
     const {

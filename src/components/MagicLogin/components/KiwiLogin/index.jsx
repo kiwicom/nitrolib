@@ -45,6 +45,8 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
     isSigningIn: false,
   };
 
+  context: LogContextType;
+
   componentWillUnmount() {
     const { onResetMagicLinkError } = this.props;
 
@@ -144,8 +146,6 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
 
     return !password;
   };
-
-  context: LogContextType;
 
   render() {
     const { email, magicLinkError, isSendingEmail } = this.props;

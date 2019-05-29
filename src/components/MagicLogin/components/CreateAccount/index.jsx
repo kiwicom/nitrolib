@@ -58,6 +58,8 @@ export default class CreateAccountScreen extends React.PureComponent<Props, Stat
     validateEmail: false,
   };
 
+  context: LogContextType;
+
   handleEmailBlur = () => {
     this.setState({ validateEmail: true });
   };
@@ -172,8 +174,6 @@ export default class CreateAccountScreen extends React.PureComponent<Props, Stat
 
     this.setState({ error });
   };
-
-  context: LogContextType;
 
   render() {
     return (

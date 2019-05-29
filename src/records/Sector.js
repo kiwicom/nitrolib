@@ -3,6 +3,7 @@ import { schema } from "normalizr";
 
 import type { ItineraryNormalized } from "./Itinerary";
 import type { Station } from "./Station";
+// eslint-disable-next-line import/no-cycle
 import { carrier, segment } from "./Segment";
 import type { Carrier, SegmentDeep } from "./Segment";
 

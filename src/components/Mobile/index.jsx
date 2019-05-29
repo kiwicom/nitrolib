@@ -3,6 +3,8 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
+import { themeDefault } from "../../records/Theme";
+
 type Props = {|
   children: React.Node | React.Node[],
   // defaulted
@@ -16,6 +18,10 @@ const Wrapper = styled.div`
     display: none;
   `)};
 `;
+
+Wrapper.defaultProps = {
+  theme: themeDefault,
+};
 
 const Mobile = ({ display, children }: Props) => <Wrapper display={display}>{children}</Wrapper>;
 

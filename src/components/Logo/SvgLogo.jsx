@@ -17,6 +17,10 @@ const LtMiddleMobile = styled.div`
   `)};
 `;
 
+LtMiddleMobile.defaultProps = {
+  theme: themeDefault,
+};
+
 const GtMiddleMobile = styled.div`
   display: none;
   svg {
@@ -27,6 +31,10 @@ const GtMiddleMobile = styled.div`
     display: block;
   `)};
 `;
+
+GtMiddleMobile.defaultProps = {
+  theme: themeDefault,
+};
 
 type Props = {|
   width: number,

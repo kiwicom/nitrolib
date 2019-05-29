@@ -13,6 +13,8 @@ export default class ClickOutside extends React.PureComponent<Props> {
     active: true,
   };
 
+  node: ?HTMLDivElement;
+
   componentDidMount() {
     document.addEventListener("click", this.handleClickOutside, true);
     document.addEventListener("focus", this.handleClickOutside, true); // needed to catch clicks into textfields, see https://gitlab.skypicker.com/frontend/nitrolib/issues/39
@@ -30,8 +32,6 @@ export default class ClickOutside extends React.PureComponent<Props> {
       onClickOutside(ev);
     }
   };
-
-  node: ?HTMLDivElement;
 
   render() {
     const { className, children } = this.props;

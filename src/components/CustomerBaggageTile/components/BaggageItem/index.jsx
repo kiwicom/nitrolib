@@ -24,10 +24,15 @@ const BaggageRestrictionsWrapper = styled.div`
     width: 100%;
   `)};
 `;
-type BaggageRestrictionsProps = {
+
+BaggageRestrictionsWrapper.defaultProps = {
+  theme: themeDefault,
+};
+
+type BaggageRestrictionsProps = {|
   ...ThemeProps,
   isMobile: boolean,
-};
+|};
 
 const BaggageRestrictions = styled.span`
   display: ${({ isMobile }: BaggageRestrictionsProps) => (isMobile ? "inline-block" : "none")};
@@ -47,13 +52,13 @@ BaggageRestrictions.defaultProps = {
   isMobile: false,
 };
 
-type BaggageItemType = {
+type Props = {
   ...TileItem,
   isCurrent?: boolean,
   orderStatus: ?OrderStatusType,
 };
 
-const BaggageItem = ({ category, restrictions, isCurrent, orderStatus }: BaggageItemType) => {
+const BaggageItem = ({ category, restrictions, isCurrent, orderStatus }: Props) => {
   const textWeight =
     isCurrent || orderStatus === null || orderStatus === "notAvailable" ? "normal" : "bold";
   return (

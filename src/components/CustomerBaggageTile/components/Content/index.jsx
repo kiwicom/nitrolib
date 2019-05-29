@@ -5,13 +5,14 @@ import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/Baggage
 import Text from "@kiwicom/orbit-components/lib/Text";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import BaggageItem from "../BaggageItem";
 import type { TileDefinition, OrderStatusType } from "../../../../records/Baggage";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import Translate from "../../../Translate/index";
-import TranslateRef from "../../../TranslateRef/index";
+import Translate from "../../../Translate";
+import TranslateRef from "../../../TranslateRef";
 
 type Props = {|
   definitions: TileDefinition[],
@@ -28,6 +29,7 @@ const Wrapper = styled.div`
     padding-top: ${({ theme }): ThemeProps => theme.orbit.spaceMedium};
   `)};
 `;
+
 Wrapper.defaultProps = {
   theme: themeDefault,
 };
@@ -37,7 +39,7 @@ const ContactUsText = styled.p`
   font-size: ${({ theme }) => theme.orbit.fontSizeTextNormal};
   font-weight: ${({ theme }) => theme.orbit.fontWeightMedium};
   font-family: ${({ theme }): ThemeProps => theme.orbit.fontFamily};
-  margin-right: ${({ theme }): ThemeProps => theme.orbit.spaceMedium};
+  margin-${/* sc-custom "right" */ right}: ${({ theme }): ThemeProps => theme.orbit.spaceMedium};
   a {
     color: ${({ theme }) => theme.orbit.colorTextLinkPrimaryHover};
 
@@ -53,7 +55,7 @@ ContactUsText.defaultProps = {
 
 const NoPersonalItemWrapper = styled.div`
   svg {
-    margin-right: ${({ theme }): ThemeProps => theme.orbit.spaceXSmall};
+    margin-${/* sc-custom "right" */ right}: ${({ theme }): ThemeProps => theme.orbit.spaceXSmall};
   }
 `;
 
