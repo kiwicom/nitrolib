@@ -20,7 +20,7 @@ const EmptyLabel = ({ pickerType, isCurrentCombination }: Props) => (
     justify="between"
     dataTest="BaggagePicker-EmptyLabel"
   >
-    <Stack flex align="center" inline>
+    <Stack flex align="center" spacing="condensed" inline>
       <Close size="medium" />
       <Text>
         <Translate
