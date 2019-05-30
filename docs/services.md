@@ -649,7 +649,7 @@ export type AnalysePayload = {|
   cookiesToRemove: string[],
 |};
 
-declare export default (h: Headers, url: string) => AnalysePayload;
+declare export default (h: Headers, url: string, limit?: number) => AnalysePayload;
 ```
 
 
