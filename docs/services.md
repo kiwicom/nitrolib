@@ -619,7 +619,8 @@ declare export var statics: Statics;
 
 declare export var getGlobals: () => Globals;
 
-declare export var log: (evs: Event[], props: Props) => Promise<void>;
+declare export var log: (ev: Event, props: Props) => Promise<void>;
+declare export var batch: (evs: EventPayload[]) => Promise<void>;
 ```
 
 See types:
