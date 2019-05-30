@@ -1,3 +1,13 @@
+## [3.7.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.6.1...v3.7.1) (2019-05-30)
+
+
+### Bug Fixes
+
+* **docs:** Update ([19bda80](https://gitlab.skypicker.com/frontend/nitrolib/commit/19bda80))
+* **trips:** TripsContainer, TripListBottom fixes ([04e64af](https://gitlab.skypicker.com/frontend/nitrolib/commit/04e64af))
+
+
+
 # [3.7.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.6.1...v3.7.0) (2019-05-29)
 
 
