@@ -1,0 +1,23 @@
+// @flow strict
+import type { Globals } from "../../records/Loglady";
+import type { Event, Props } from "../../records/Event";
+
+export type Statics = {|
+  project?: string,
+  module?: string,
+  pageName?: string,
+  langId?: string,
+  pageViewId?: string,
+  brandingId: string,
+  bid?: number,
+  splitster?: { [key: string]: string },
+  isLoggedIn?: boolean,
+  affilParams?: { [key: string]: string },
+  UTMs: { [key: string]: string },
+|};
+
+declare export var statics: Statics;
+
+declare export var getGlobals: () => Globals;
+
+declare export var log: (evs: Event[], props: Props) => Promise<void>;

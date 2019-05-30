@@ -189,6 +189,7 @@ import * as session from "@kiwicom/nitro/lib/consts/session";
 ```js
 declare export var SESSION_ID: "sessionId";
 declare export var DEEPLINK_ID: "deeplinkId";
+declare export var BOOKING_SESSION_ID: "bookingSessionId";
 
 export type Session = string; // TODO specific once everyone uses this
 ```

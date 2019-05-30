@@ -586,9 +586,54 @@ declare export default (statics: Static) => Globals;
 See types:
 * [Loglady](./records#loglady)
 
+**DEPRECATED**
+
 Utility for gathering the `global` object for **LogLady** tracking.
 
 > Uses the `window` object, use only on the client!
+
+### Logger
+
+**Import:**
+```js
+import * as logger from "@kiwicom/nitro/lib/services/log/logger";
+```
+
+**Types:**
+```js
+export type Statics = {|
+  project?: string,
+  module?: string,
+  pageName?: string,
+  langId?: string,
+  pageViewId?: string,
+  brandingId: string,
+  bid?: number,
+  splitster?: { [key: string]: string },
+  isLoggedIn?: boolean,
+  affilParams?: { [key: string]: string },
+  UTMs: { [key: string]: string },
+|};
+
+declare export var statics: Statics;
+
+declare export var getGlobals: () => Globals;
+
+declare export var log: (evs: Event[], props: Props) => Promise<void>;
+```
+
+See types:
+* [Loglady](./records#loglady)
+* [Event](./records#event)
+
+A service substituting FE's current `cuckoo`.
+
+Setup:
+* get session data with the `init` function from the [session](./services#session) service
+* set attributes of the global `statics` variable
+* call the `log` function
+
+Also exports the `getGlobals` function that returns globals `LogLady` expects.
 
 ## Modal
 
