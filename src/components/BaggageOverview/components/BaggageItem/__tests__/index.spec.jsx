@@ -1,6 +1,8 @@
 // @flow strict
 import * as React from "react";
+import { ThemeProvider } from "styled-components";
 import { mount } from "enzyme";
+import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
 
 import BaggageItem from "../index";
 
@@ -39,11 +41,19 @@ const props = {
 
 describe("#BaggageItem", () => {
   test("renders ", () => {
-    const wrapper = mount(<BaggageItem {...props} />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTheme}>
+        <BaggageItem {...props} />
+      </ThemeProvider>,
+    );
     expect(wrapper.find("[data-test='BaggageOverview-BaggageItem-holdBag']").exists()).toBe(true);
   });
   test("renders with passengers names", () => {
-    const wrapper = mount(<BaggageItem {...props} passengers={passengers} />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTheme}>
+        <BaggageItem {...props} passengers={passengers} />
+      </ThemeProvider>,
+    );
     const PassengersText = wrapper.find("[data-test='BaggageOverview-BaggageItem-Passengers']");
     expect(PassengersText.exists()).toBe(true);
     expect(PassengersText.text()).toBe("B. H. Obama, D. J. Trump, G. Bush");

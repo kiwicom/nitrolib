@@ -52,6 +52,7 @@ const props = {
     },
   ],
   orderStatus: "unpaid",
+  supportLinkHandler: () => {},
 };
 
 describe("#Content", () => {

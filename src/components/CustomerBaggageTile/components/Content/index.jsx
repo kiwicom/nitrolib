@@ -1,25 +1,32 @@
 // @flow strict
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/BaggagePersonalItemNone";
 import Text from "@kiwicom/orbit-components/lib/Text";
+import TextLink from "@kiwicom/orbit-components/lib/TextLink";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import BaggageItem from "../BaggageItem";
 import type { TileDefinition, OrderStatusType } from "../../../../records/Baggage";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import Translate from "../../../Translate/index";
+import TranslateRef from "../../../TranslateRef/index";
 
 type Props = {|
   definitions: TileDefinition[],
   orderStatus: ?OrderStatusType,
+  supportLinkHandler?: () => void,
 |};
 
 const Wrapper = styled.div`
-  padding: 17px 0px 17px 28px;
+  padding: 8px 0px 0px 28px;
   > div {
     margin-bottom: ${({ theme }): ThemeProps => theme.orbit.spaceXXXSmall};
   }
+  ${mq.largeMobile(css`
+    padding-top: ${({ theme }): ThemeProps => theme.orbit.spaceMedium};
+  `)};
 `;
 Wrapper.defaultProps = {
   theme: themeDefault,
@@ -54,7 +61,7 @@ NoPersonalItemWrapper.defaultProps = {
   theme: themeDefault,
 };
 
-const Content = ({ definitions, orderStatus }: Props) => {
+const Content = ({ definitions, orderStatus, supportLinkHandler }: Props) => {
   const hasPersonalItem = definitions.some(bag => bag.category === "personalItem");
   return (
     <Wrapper data-test="CustomerBaggageTile-Content">
@@ -76,9 +83,12 @@ const Content = ({ definitions, orderStatus }: Props) => {
           </Text>
         </NoPersonalItemWrapper>
       )}
-      {orderStatus === "notAvailable" && (
+      {orderStatus === "notAvailable" && supportLinkHandler && (
         <ContactUsText data-test="CustomerBaggageTile-ContactUsText">
-          <Translate t="baggage_modal.contact_support" values={{ link: "/support" }} html />
+          <TranslateRef
+            t="baggage_modal.contact_support"
+            render={text => <TextLink onClick={supportLinkHandler}>{text}</TextLink>}
+          />
         </ContactUsText>
       )}
     </Wrapper>

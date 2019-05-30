@@ -1,6 +1,8 @@
 // @flow strict
 import * as React from "react";
 import { mount } from "enzyme";
+import { ThemeProvider } from "styled-components";
+import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
 
 import BaggageOption from "../index";
 
@@ -68,18 +70,30 @@ const props = {
 
 describe("#BaggageOption", () => {
   test("render priority boarding", () => {
-    const wrapper = mount(<BaggageOption {...props} />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTheme}>
+        <BaggageOption {...props} />
+      </ThemeProvider>,
+    );
     expect(wrapper.find("PriorityBoardingInfo").exists()).toBe(true);
   });
 
   test("render alert", () => {
-    const wrapper = mount(<BaggageOption {...props} isChecked />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTheme}>
+        <BaggageOption {...props} isChecked />
+      </ThemeProvider>,
+    );
 
     expect(wrapper.find("Alert").exists()).toEqual(true);
   });
 
   test("render checked Radio", () => {
-    const wrapper = mount(<BaggageOption {...props} isChecked />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTheme}>
+        <BaggageOption {...props} isChecked />
+      </ThemeProvider>,
+    );
     expect(wrapper.find("Radio").exists()).toBe(true);
     const radioProps = wrapper.find("Radio").props() || {};
     expect(radioProps.checked).toBe(true);
@@ -87,13 +101,21 @@ describe("#BaggageOption", () => {
 
   test("render no-personal item info", () => {
     const wrapper = mount(
-      <BaggageOption {...props} items={{ "1": handBagExample }} isPersonalItemPresent />,
+      <ThemeProvider theme={defaultTheme}>
+        <>
+          <BaggageOption {...props} items={{ "1": handBagExample }} isPersonalItemPresent />,
+        </>
+      </ThemeProvider>,
     );
     expect(wrapper.find("BaggagePersonalItemNone").exists()).toBe(true);
   });
 
   test("render empty option for handBag", () => {
-    const wrapper = mount(<BaggageOption {...props} items={{}} />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTheme}>
+        <BaggageOption {...props} items={{}} />
+      </ThemeProvider>,
+    );
     expect(
       wrapper
         .find("Text")
@@ -103,7 +125,11 @@ describe("#BaggageOption", () => {
   });
 
   test("render empty option for handBag", () => {
-    const wrapper = mount(<BaggageOption {...props} items={{}} pickerType="holdBag" />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTheme}>
+        <BaggageOption {...props} items={{}} pickerType="holdBag" />
+      </ThemeProvider>,
+    );
     expect(
       wrapper
         .find("Text")

@@ -1,6 +1,8 @@
 // @flow strict
 import * as React from "react";
 import { mount } from "enzyme";
+import { ThemeProvider } from "styled-components";
+import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
 
 import { baggageData } from "../../../records/__mocks__/baggageData";
 import BaggageOverview from "../index";
@@ -121,12 +123,23 @@ const propsWithDefinitions = {
 
 describe("#BaggageOverview", () => {
   test("render component using propsWithDefinitions", () => {
-    const wrapper = mount(<BaggageOverview {...propsWithDefinitions} />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTheme}>
+        <BaggageOverview {...propsWithDefinitions} />
+      </ThemeProvider>,
+    );
     expect(wrapper.find("[data-test='BaggageOverview-MMB-PassengerCard']").exists()).toBe(true);
   });
   test("render component using propsWithCombinations", () => {
     const wrapper = mount(
-      <Container {...propsWithCombinations}>{props => <BaggageOverview {...props} />}</Container>,
+      <ThemeProvider theme={defaultTheme}>
+        <>
+          <Container {...propsWithCombinations}>
+            {props => <BaggageOverview {...props} />}
+          </Container>
+          ,
+        </>
+      </ThemeProvider>,
     );
     expect(wrapper.find("[data-test='BaggageOverview-booking']").exists()).toBe(true);
   });

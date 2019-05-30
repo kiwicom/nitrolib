@@ -2,7 +2,7 @@
 import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
-import styled, { css } from "styled-components";
+import styled, { css, ThemeConsumer } from "styled-components";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import { themeDefault } from "../../../../records/Theme";
@@ -76,31 +76,39 @@ const OptionItem = ({
       </Text>
     );
   return (
-    <Stack flex shrink align="start" dataTest={`BaggagePicker-OptionItem-${category}`}>
-      <Stack inline spacing="condensed" mediumMobile={{ shrink: true, inline: false }}>
-        {getIconFromCategory(category, "medium", "primary")}
-        <Stack inline direction="column" spacing="none">
-          <Text element="p">
-            <Title>
-              {amount > 1 && (
-                <Text element="span" weight="bold">
-                  {`${amount}× `}
-                </Text>
-              )}
-              {category === "holdBag" &&
-                typeof restrictions.weight === "number" &&
-                `${restrictions.weight}kg `}
-              {getTextFromCategory(category, x => x.toLowerCase())}
-            </Title>
-          </Text>
-          <BaggageSizeText isMobile>{getBaggageSize(restrictions)}</BaggageSizeText>
+    <ThemeConsumer>
+      {({ rtl }) => (
+        <Stack flex shrink align="start" dataTest={`BaggagePicker-OptionItem-${category}`}>
+          <Stack inline spacing="condensed" mediumMobile={{ shrink: true, inline: false }}>
+            {getIconFromCategory(category, "medium", "primary")}
+            <Stack inline direction="column" spacing="none">
+              <Text element="p">
+                <Title>
+                  {amount > 1 && (
+                    <Text element="span" weight="bold">
+                      {`${amount}× `}
+                    </Text>
+                  )}
+                  {category === "holdBag" &&
+                    typeof restrictions.weight === "number" &&
+                    `${restrictions.weight}kg `}
+                  {getTextFromCategory(category, x => x.toLowerCase())}
+                </Title>
+              </Text>
+              <BaggageSizeText isMobile>{getBaggageSize(restrictions, rtl)}</BaggageSizeText>
+            </Stack>
+          </Stack>
+          <Stack
+            inline
+            justify="end"
+            largeMobile={{ justify: "between", shrink: true, basis: "100%" }}
+          >
+            <BaggageSizeText>{getBaggageSize(restrictions, rtl)}</BaggageSizeText>
+            <Title>{isFirstItem && getFirstItemInfo(isCurrentCombination, price.amount)}</Title>
+          </Stack>
         </Stack>
-      </Stack>
-      <Stack inline justify="end" largeMobile={{ justify: "between", shrink: true, basis: "100%" }}>
-        <BaggageSizeText>{getBaggageSize(restrictions)}</BaggageSizeText>
-        <Title>{isFirstItem && getFirstItemInfo(isCurrentCombination, price.amount)}</Title>
-      </Stack>
-    </Stack>
+      )}
+    </ThemeConsumer>
   );
 };
 
