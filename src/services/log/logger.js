@@ -5,7 +5,7 @@ import * as session from "../session/session";
 import { DEEPLINK_ID, SESSION_ID, BOOKING_SESSION_ID } from "../../consts/session";
 import type { Globals } from "../../records/Loglady";
 import { make } from "../../records/Event";
-import type { Event, Props } from "../../records/Event";
+import type { Event, Props, EventPayload } from "../../records/Event";
 import api from "./api";
 
 export type Statics = {|
@@ -52,5 +52,8 @@ export const getGlobals = (): Globals => ({
   timestamp: Date.now(),
 });
 
-export const log = (evs: Event[], props: Props): Promise<void> =>
-  api({ events: evs.map(ev => make(ev, props)), global: getGlobals() });
+export const log = (ev: Event, props: Props): Promise<void> =>
+  api({ events: [make(ev, props)], global: getGlobals() });
+
+export const batch = (evs: EventPayload[]): Promise<void> =>
+  api({ events: evs, global: getGlobals() });
