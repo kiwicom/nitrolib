@@ -1,3 +1,17 @@
+# [3.9.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.8.0...v3.9.0) (2019-05-30)
+
+
+### Bug Fixes
+
+* **services:** Make `logger`'s `log` have the intended type ([5dbc8a3](https://gitlab.skypicker.com/frontend/nitrolib/commit/5dbc8a3))
+
+
+### Features
+
+* **services:** Add a `batch` function to `log`'s `logger` ([c87736a](https://gitlab.skypicker.com/frontend/nitrolib/commit/c87736a))
+
+
+
 # [3.8.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.6.1...v3.8.0) (2019-05-30)
 
 
