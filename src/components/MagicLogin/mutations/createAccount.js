@@ -1,13 +1,12 @@
 // @flow strict
 
-import { commitMutation, graphql } from "react-relay";
+import { commitMutation, Environment, graphql } from "react-relay";
 
 import type {
   createAccountMutationVariables,
   createAccountMutationResponse,
   createAccountInput,
 } from "./__generated__/createAccountMutation.graphql";
-import environment from "../../../services/environment";
 
 const createAccountMutation = graphql`
   mutation createAccountMutation($brand: Brand!, $credentials: CreateAccountInput!) {
@@ -19,6 +18,7 @@ const createAccountMutation = graphql`
 `;
 
 const createAccount = (
+  environment: typeof Environment,
   brand: string,
   credentials: createAccountInput,
 ): Promise<createAccountMutationResponse> =>

@@ -16,14 +16,13 @@ const makeFetchQuery = (call: Call) => (operation, variables) =>
 
 const store = new Store(new RecordSource());
 
-export const makeCall = (token: string, kwAuthToken: string = "") => (input: Input) =>
+export const makeCall = (headers: { [string]: string }) => (input: Input) =>
   fetch("https://graphql.kiwi.com", {
     method: "POST",
     headers: {
+      ...headers,
       "Content-type": "application/json",
       Accept: "application/json",
-      Authorization: token,
-      "KW-Auth-Token": kwAuthToken,
       "X-Client": "nitro",
     },
     body: JSON.stringify(input),

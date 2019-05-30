@@ -3,22 +3,30 @@
 import * as React from "react";
 
 import errors from "../../../../consts/errors";
-import { Consumer } from "../../../../services/intl/context";
 import * as validators from "../../../../services/input/validators";
 import CreateAccount from "../screens/CreateAccount";
 import Text from "../../../Text";
 import createAccount from "../../mutations/createAccount";
 import type { CreateAccountError } from "../../mutations/__generated__/createAccountMutation.graphql";
 import LogContext from "../../../../services/log/context";
-import type { Context as LogContextType } from "../../../../services/log/context";
+import IntlContext from "../../../../services/intl/context";
 import * as loginEvents from "../../consts/events";
 import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
+import { makeCall, makeEnvironment } from "../../../../services/utils/relay";
+import type { Context as IntlContextType } from "../../../../services/intl/context";
+import type { Event, Props as EventProps } from "../../../../records/Event";
 
-type Props = {|
+type OwnProps = {|
   email: string,
   brandId: string,
   onEmailChange: (e: SyntheticInputEvent<HTMLInputElement>) => void,
   onSignUpConfirmation: () => void,
+|};
+
+type Props = {|
+  ...OwnProps,
+  log: (event: Event, props: EventProps) => void,
+  intl: IntlContextType,
 |};
 
 type State = {|
@@ -45,9 +53,7 @@ const submitErrors = {
   "%future added value": errors.general,
 };
 
-export default class CreateAccountScreen extends React.PureComponent<Props, State> {
-  static contextType = LogContext;
-
+class CreateAccountWithoutContext extends React.PureComponent<Props, State> {
   state = {
     ...defaultErrors,
     error: null,
@@ -99,19 +105,19 @@ export default class CreateAccountScreen extends React.PureComponent<Props, Stat
   };
 
   handleContinue = (e: SyntheticEvent<HTMLFormElement>) => {
-    const { email, brandId, onSignUpConfirmation } = this.props;
-    const { password } = this.state;
-    const { log } = this.context;
-
     e.preventDefault();
 
     if (this.validateInput()) {
       return;
     }
 
+    const { email, brandId, onSignUpConfirmation, intl, log } = this.props;
+    const { password } = this.state;
+    const environment = makeEnvironment(makeCall({ "Accept-Language": intl.language.iso }));
+
     this.setState({ isCreatingAccount: true, error: null, ...defaultErrors });
 
-    createAccount(brandId, { email, password })
+    createAccount(environment, brandId, { email, password })
       .then(res => {
         this.setState({ isCreatingAccount: false });
 
@@ -176,44 +182,47 @@ export default class CreateAccountScreen extends React.PureComponent<Props, Stat
   };
 
   render() {
-    return (
-      <Consumer>
-        {intl => {
-          const { email, onEmailChange } = this.props;
-          const {
-            password,
-            passwordConfirm,
-            isCreatingAccount,
-            error,
-            validateEmail,
-            passwordError,
-            passwordConfirmError,
-          } = this.state;
-          const emailError = validateEmail ? intl.translate(validators.email(email)) : "";
-          const passError = passwordError ? intl.translate(passwordError) : "";
-          const passConfirmError = passwordConfirmError ? intl.translate(passwordConfirmError) : "";
+    const { email, onEmailChange, intl } = this.props;
+    const {
+      password,
+      passwordConfirm,
+      isCreatingAccount,
+      error,
+      validateEmail,
+      passwordError,
+      passwordConfirmError,
+    } = this.state;
+    const emailError = validateEmail ? intl.translate(validators.email(email)) : "";
+    const passError = passwordError ? intl.translate(passwordError) : "";
+    const passConfirmError = passwordConfirmError ? intl.translate(passwordConfirmError) : "";
 
-          return (
-            <CreateAccount
-              email={email}
-              password={password}
-              error={error ? <Text t={error} values={{ text: email }} /> : null}
-              passwordConfirm={passwordConfirm}
-              emailError={emailError}
-              passwordError={passError}
-              passwordConfirmError={passConfirmError}
-              isLoading={isCreatingAccount}
-              onEmailChange={onEmailChange}
-              onEmailBlur={this.handleEmailBlur}
-              onPasswordChange={this.handlePasswordChange}
-              onPasswordBlur={this.handlePasswordBlur}
-              onPasswordConfirmChange={this.handlePasswordConfirmChange}
-              onPasswordConfirmBlur={this.handlePasswordConfirmBlur}
-              onContinue={this.handleContinue}
-            />
-          );
-        }}
-      </Consumer>
+    return (
+      <CreateAccount
+        email={email}
+        password={password}
+        error={error ? <Text t={error} values={{ text: email }} /> : null}
+        passwordConfirm={passwordConfirm}
+        emailError={emailError}
+        passwordError={passError}
+        passwordConfirmError={passConfirmError}
+        isLoading={isCreatingAccount}
+        onEmailChange={onEmailChange}
+        onEmailBlur={this.handleEmailBlur}
+        onPasswordChange={this.handlePasswordChange}
+        onPasswordBlur={this.handlePasswordBlur}
+        onPasswordConfirmChange={this.handlePasswordConfirmChange}
+        onPasswordConfirmBlur={this.handlePasswordConfirmBlur}
+        onContinue={this.handleContinue}
+      />
     );
   }
 }
+
+const CreateAccountScreen = (props: OwnProps) => {
+  const { log } = React.useContext(LogContext);
+  const intl = React.useContext(IntlContext);
+
+  return <CreateAccountWithoutContext {...props} intl={intl} log={log} />;
+};
+
+export default CreateAccountScreen;

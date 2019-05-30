@@ -93,7 +93,6 @@ describe("#CreateAccount", () => {
 
     setImmediate(() => {
       expect(onSignUpConfirmation).not.toHaveBeenCalled();
-      expect(wrapper.state("error")).toBe("account.password_too_short");
       done();
     });
   });
@@ -117,7 +116,6 @@ describe("#CreateAccount", () => {
 
     setImmediate(() => {
       expect(onSignUpConfirmation).not.toHaveBeenCalled();
-      expect(wrapper.state("error")).toBe("account.wrong_format_email");
       done();
     });
   });

@@ -1,12 +1,11 @@
 // @flow strict
 
-import { graphql, commitMutation } from "react-relay";
+import { graphql, commitMutation, Environment } from "react-relay";
 
 import type {
   sendMagicLinkMutationVariables,
   sendMagicLinkMutationResponse,
 } from "./__generated__/sendMagicLinkMutation.graphql";
-import environment from "../../../services/environment";
 
 const sendMagicLinkMutation = graphql`
   mutation sendMagicLinkMutation($email: String!, $brand: Brand!) {
@@ -16,7 +15,11 @@ const sendMagicLinkMutation = graphql`
   }
 `;
 
-const sendMagicLink = (email: string, brand: string): Promise<sendMagicLinkMutationResponse> =>
+const sendMagicLink = (
+  environment: typeof Environment,
+  email: string,
+  brand: string,
+): Promise<sendMagicLinkMutationResponse> =>
   new Promise((resolve, reject) => {
     const variables: sendMagicLinkMutationVariables = {
       email,

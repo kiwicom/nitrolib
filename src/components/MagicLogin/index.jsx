@@ -12,13 +12,16 @@ import CreateAccountScreen from "./components/CreateAccount";
 import sendMagicLink from "./mutations/sendMagicLink";
 import type { Screen } from "./records/Screen";
 import errors from "../../consts/errors";
-import { Consumer as BrandConsumer } from "../../services/brand/context";
-import { Consumer as LogConsumer } from "../../services/log/context";
+import BrandContext from "../../services/brand/context";
+import LogContext from "../../services/log/context";
+import IntlContext from "../../services/intl/context";
 import { API_REQUEST_FAILED, API_ERROR } from "../../consts/events";
 import * as loginEvents from "./consts/events";
+import { makeCall, makeEnvironment } from "../../services/utils/relay";
 import type { AuthUser, SocialProvider } from "../../records/Auth";
 import type { Event, Props as EventProps } from "../../records/Event";
 import type { Brand } from "../../records/Brand";
+import type { LangInfo } from "../../records/LangInfo";
 
 type ContainerProps = {|
   initialScreen: "intro" | "signUp",
@@ -31,6 +34,7 @@ type ContainerProps = {|
 
 type Props = {|
   ...ContainerProps,
+  langInfo: LangInfo,
   log: (event: Event, props: EventProps) => void,
   brand: Brand,
 |};
@@ -126,11 +130,12 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
 
   handleMagicLink = () => {
     const { email } = this.state;
-    const { brand, log } = this.props;
+    const { brand, log, langInfo } = this.props;
+    const environment = makeEnvironment(makeCall({ "Accept-Language": langInfo.iso }));
 
     this.setState({ isSendingEmail: true, error: "" });
 
-    sendMagicLink(email, brand.id)
+    sendMagicLink(environment, email, brand.id)
       .then(res => {
         this.setState({ isSendingEmail: false });
 
@@ -209,7 +214,6 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
             onResetMagicLinkError={this.handleResetMagicLinkError}
             magicLinkError={error}
             brandId={brand.id}
-            brandName={brand.name}
             isSendingEmail={isSendingEmail}
             onChangeScreen={this.handleChangeScreen}
             onAskSignInLink={this.handleMagicLink}
@@ -244,14 +248,12 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
   }
 }
 
-const MagicLogin = (props: ContainerProps) => (
-  <BrandConsumer>
-    {brand => (
-      <LogConsumer>
-        {({ log }) => <MagicLoginWithoutContext {...props} brand={brand} log={log} />}
-      </LogConsumer>
-    )}
-  </BrandConsumer>
-);
+const MagicLogin = (props: ContainerProps) => {
+  const { log } = React.useContext(LogContext);
+  const brand = React.useContext(BrandContext);
+  const { language } = React.useContext(IntlContext);
+
+  return <MagicLoginWithoutContext {...props} brand={brand} log={log} langInfo={language} />;
+};
 
 export default MagicLogin;

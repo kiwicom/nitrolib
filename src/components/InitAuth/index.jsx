@@ -150,7 +150,7 @@ export default class InitAuth extends React.PureComponent<Props, State> {
     return children({
       auth,
       loading,
-      environment: makeEnvironment(makeCall(auth?.token || "")),
+      environment: makeEnvironment(makeCall({ Authorization: auth?.token || "" })),
       onMyBooking: this.handleMyBooking,
       onRegister: this.handleRegister,
       onSocialAuth: this.handleSocialAuth,

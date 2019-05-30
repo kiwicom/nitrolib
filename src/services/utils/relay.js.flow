@@ -10,7 +10,7 @@ export type Input = {
 
 export type Call = (input: Input) => Promise<$FlowFixMe>;
 
-declare export var makeCall: (token: string, kwAuthToken: ?string) => Call;
+declare export var makeCall: (headers: { [string]: string }) => Call;
 declare export var makeEnvironment: (call: Call) => Environment;
 declare export var executeMutation: <Variables, Result>(
   mutation: GraphQLTaggedNode,

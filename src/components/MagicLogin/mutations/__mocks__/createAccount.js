@@ -1,6 +1,6 @@
 // @noflow
 
-const createAccount = jest.fn((brand, credentials) => {
+const createAccount = jest.fn((environment, brand, credentials) => {
   if (credentials.email === "error@example.com") {
     return Promise.resolve({
       createAccount: {

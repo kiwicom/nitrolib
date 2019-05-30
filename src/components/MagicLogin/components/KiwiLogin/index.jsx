@@ -11,12 +11,15 @@ import type { Screen } from "../../records/Screen";
 import type { AuthUser } from "../../../../records/Auth";
 import toUser from "../../services/toUser";
 import LogContext from "../../../../services/log/context";
-import type { Context as LogContextType } from "../../../../services/log/context";
+import IntlContext from "../../../../services/intl/context";
 import * as loginEvents from "../../consts/events";
 import { API_REQUEST_FAILED, API_ERROR } from "../../../../consts/events";
 import handleAffiliateId from "../../../../services/utils/handleAffiliateId";
+import { makeCall, makeEnvironment } from "../../../../services/utils/relay";
+import type { LangInfo } from "../../../../records/LangInfo";
+import type { Event, Props as EventProps } from "../../../../records/Event";
 
-type Props = {
+type OwnProps = {|
   email: string,
   magicLinkError: string,
   isSendingEmail: boolean,
@@ -26,7 +29,13 @@ type Props = {
   onChangeScreen: Screen => void,
   onAskSignInLink: () => void,
   onSignIn: (user: AuthUser) => void,
-};
+|};
+
+type Props = {|
+  ...OwnProps,
+  langInfo: LangInfo,
+  log: (event: Event, props: EventProps) => void,
+|};
 
 type State = {|
   error: string | null,
@@ -35,9 +44,7 @@ type State = {|
   isSigningIn: boolean,
 |};
 
-export default class KiwiLoginScreen extends React.Component<Props, State> {
-  static contextType = LogContext;
-
+class KiwiLoginWithoutContext extends React.Component<Props, State> {
   state = {
     error: null,
     password: "",
@@ -54,9 +61,8 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
   }
 
   handleSignIn = (e: SyntheticEvent<HTMLFormElement>) => {
-    const { email, brandId, onResetMagicLinkError, onSignIn, onClose } = this.props;
+    const { email, brandId, onResetMagicLinkError, onSignIn, onClose, log } = this.props;
     const { password } = this.state;
-    const { log } = this.context;
 
     e.preventDefault();
     onResetMagicLinkError();
@@ -91,8 +97,7 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
   };
 
   handleSignInLink = () => {
-    const { onAskSignInLink } = this.props;
-    const { log } = this.context;
+    const { onAskSignInLink, log } = this.props;
 
     log(loginEvents.ASK_FOR_MAGIC_LINK, {});
 
@@ -100,8 +105,7 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
   };
 
   handleChangeEmail = () => {
-    const { onChangeScreen } = this.props;
-    const { log } = this.context;
+    const { onChangeScreen, log } = this.props;
 
     log(loginEvents.CHANGE_EMAIL, {});
 
@@ -113,12 +117,12 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
   };
 
   handleForgotPassword = () => {
-    const { email, brandId, onChangeScreen } = this.props;
-    const { log } = this.context;
+    const { email, brandId, onChangeScreen, langInfo, log } = this.props;
+    const environment = makeEnvironment(makeCall({ "Accept-Language": langInfo.iso }));
 
     this.setState({ error: null, passwordError: "" });
 
-    resetPassword(email, brandId)
+    resetPassword(environment, email, brandId)
       .then(res => {
         if (!res.resetPassword?.success) {
           log(API_REQUEST_FAILED, { operation: "resetPassword" });
@@ -170,3 +174,12 @@ export default class KiwiLoginScreen extends React.Component<Props, State> {
     );
   }
 }
+
+const KiwiLogin = (props: OwnProps) => {
+  const { log } = React.useContext(LogContext);
+  const { language } = React.useContext(IntlContext);
+
+  return <KiwiLoginWithoutContext {...props} log={log} langInfo={language} />;
+};
+
+export default KiwiLogin;
