@@ -8,7 +8,7 @@ import log from "../../services/log/api";
 import { make } from "../../records/Event";
 
 type Props = {|
-  globals: Globals,
+  globals: Globals, // TODO get from logger
   onLog?: (ev: EventPayload, globals: Globals) => void,
   children: (ctx: Context) => React.Node,
 |};

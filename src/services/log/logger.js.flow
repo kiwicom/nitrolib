@@ -3,16 +3,15 @@ import type { Globals } from "../../records/Loglady";
 import type { Event, EventPayload, Props } from "../../records/Event";
 
 export type Statics = {|
-  project?: string,
-  module?: string,
-  pageName?: string,
-  langId?: string,
-  pageViewId?: string,
+  project: string,
+  module: string,
+  pageName: string,
+  langId: string,
+  pageViewId: string,
   brandingId: string,
-  bid?: number,
-  splitster?: { [key: string]: string },
-  isLoggedIn?: boolean,
-  affilParams?: { [key: string]: string },
+  bid: number,
+  splitster: { [key: string]: string },
+  affilParams: { [key: string]: string },
   UTMs: { [key: string]: string },
 |};
 
