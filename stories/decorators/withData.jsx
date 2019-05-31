@@ -13,7 +13,6 @@ import { Provider as ModalProvider } from "../../src/services/modal/context";
 import { Provider as StarredProvider } from "../../src/services/starred/context";
 import InitIntl from "../../src/components/InitIntl";
 import InitCurrency from "../../src/components/InitCurrency";
-import Value from "../../src/components/Value";
 import brandLanguages from "../fixtures/brandLanguages";
 import brands from "../fixtures/brands";
 import airlines from "../fixtures/airlines";
@@ -87,12 +86,27 @@ const CURRENCIES = [
   "zar",
 ];
 
+const MODALS = [
+  "",
+  "myBooking",
+  "register",
+  "signIn",
+  "forgotPassword",
+  "sideNav",
+  "chat",
+  "subscription",
+  "debug",
+  "currencyMenu",
+  "languageMenu",
+];
+
 const localeFn = (ID: string) => LOCALES[ID] || LOCALES.enUS; // Fallback to 'en-US'
 
 const withData = (storyFn: () => React.Node) => {
   const brandId = select("Brand", Object.keys(brands), "kiwicom", GROUP_ID);
   const localeId = select("Locale", Object.keys(languages), "en", GROUP_ID);
   const currencyId = select("Currency", CURRENCIES, "eur", GROUP_ID);
+  const modal = select("Modal", MODALS, "", GROUP_ID);
 
   const brand = brands[brandId];
   const language = languages[localeId];
@@ -155,9 +169,9 @@ const withData = (storyFn: () => React.Node) => {
                               makeShareUrl: () => console.log("shareUrl") || "",
                             }}
                           >
-                            <Value>
-                              {modal => <ModalProvider value={modal}>{storyFn()}</ModalProvider>}
-                            </Value>
+                            <ModalProvider value={{ value: modal, onChange: action("Modal") }}>
+                              {storyFn()}
+                            </ModalProvider>
                           </StarredProvider>
                         )}
                       </InitStarred>
