@@ -602,16 +602,15 @@ import * as logger from "@kiwicom/nitro/lib/services/log/logger";
 **Types:**
 ```js
 export type Statics = {|
-  project?: string,
-  module?: string,
-  pageName?: string,
-  langId?: string,
-  pageViewId?: string,
+  project: string,
+  module: string,
+  pageName: string,
+  langId: string,
+  pageViewId: string,
   brandingId: string,
-  bid?: number,
-  splitster?: { [key: string]: string },
-  isLoggedIn?: boolean,
-  affilParams?: { [key: string]: string },
+  bid: number,
+  splitster: { [key: string]: string },
+  affilParams: { [key: string]: string },
   UTMs: { [key: string]: string },
 |};
 
