@@ -1,3 +1,12 @@
+## [3.9.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.9.0...v3.9.1) (2019-05-31)
+
+
+### Bug Fixes
+
+* **services:** Move 'isLoggedIn' where it belongs in `log/logger` ([ad3cafb](https://gitlab.skypicker.com/frontend/nitrolib/commit/ad3cafb))
+
+
+
 # [3.9.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.8.0...v3.9.0) (2019-05-30)
 
 
