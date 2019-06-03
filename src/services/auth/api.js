@@ -65,7 +65,7 @@ export function getMyBookingToken({ bid, email, iata, departure }: MyBookingInpu
     )}`,
   ).then((res: Response) => {
     if (!res.ok) {
-      return res.json().then(body => Promise.reject(body.msg));
+      return res.json().then(body => Promise.reject(new Error(body.msg)));
     }
 
     return res.json().then(body => body.simple_token);
