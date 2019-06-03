@@ -4,7 +4,7 @@ import { JSON_BOTH } from "../fetch/headers";
 import { handleError } from "../fetch/handlers";
 
 const log = (payload: Loglady): Promise<void> =>
-  fetch("https://loglady.skypicker.com/api-docs/track", {
+  fetch("https://loglady.skypicker.com/track", {
     method: "POST",
     headers: JSON_BOTH,
     body: JSON.stringify(payload),
