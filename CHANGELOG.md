@@ -1,3 +1,12 @@
+## [3.9.2](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.9.1...v3.9.2) (2019-06-03)
+
+
+### Bug Fixes
+
+* **services:** Reject `new Error` in `auth/api` ([37a7a76](https://gitlab.skypicker.com/frontend/nitrolib/commit/37a7a76))
+
+
+
 ## [3.9.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.9.0...v3.9.1) (2019-05-31)
 
 
