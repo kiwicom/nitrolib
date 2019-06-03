@@ -44,9 +44,9 @@ const Wrapper = styled.div`
 `;
 
 type Props = {|
-  positionMenuDesktop: number,
-  positionMenuTablet: number,
-  inverted: boolean,
+  positionMenuDesktop?: number,
+  positionMenuTablet?: number,
+  inverted?: boolean,
 |};
 
 const Starred = ({ positionMenuDesktop, positionMenuTablet, inverted }: Props) => (

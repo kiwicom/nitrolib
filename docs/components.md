@@ -35,6 +35,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [LogMount](#logmount)
 * [Mobile](#mobile)
 * [Price](#price)
+* [Starred](#starred)
 * [Text](#text)
 * [TextNode](#textnode)
 * [Toggle](#toggle)
@@ -1299,6 +1300,31 @@ const Pay = ({ value }: Props) => (
   </Button>
 );
 ```
+
+### Starred
+
+**Import:**
+```js
+import Starred from "@kiwicom/nitro/lib/components/Starred";
+```
+
+**Types:**
+```js
+type Props = {|
+  positionMenuDesktop?: number,
+  positionMenuTablet?: number,
+  inverted?: boolean,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Starred).
+
+**Context needs:**
+* [currency](./services#currency)
+* [intl](./services#intl)
+* [starred](./services#starred)
 
 ### Text
 

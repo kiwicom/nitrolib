@@ -1,0 +1,10 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {|
+  positionMenuDesktop?: number,
+  positionMenuTablet?: number,
+  inverted?: boolean,
+|};
+
+declare export default React.ComponentType<Props>;
