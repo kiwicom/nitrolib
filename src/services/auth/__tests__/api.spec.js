@@ -30,7 +30,7 @@ describe("#api", () => {
     test("not ok", async () => {
       fetchMock.mock(bookingLoginUrl, { status: 400, body: { msg: "asdf" } });
       const res = await api.getMyBookingToken(input).catch(String);
-      expect(res).toBe("asdf");
+      expect(res).toBe("Error: asdf");
     });
   });
 
