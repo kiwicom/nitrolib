@@ -1,3 +1,12 @@
+# [3.10.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.9.4...v3.10.0) (2019-06-03)
+
+
+### Features
+
+* **components:** Starred ([1cf82de](https://gitlab.skypicker.com/frontend/nitrolib/commit/1cf82de))
+
+
+
 ## [3.9.4](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.9.2...v3.9.4) (2019-06-03)
 
 
