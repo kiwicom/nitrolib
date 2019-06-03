@@ -1,3 +1,13 @@
+## [3.9.4](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.9.2...v3.9.4) (2019-06-03)
+
+
+### Bug Fixes
+
+* **services:** `log/api` correct endpoint ([d2b9243](https://gitlab.skypicker.com/frontend/nitrolib/commit/d2b9243))
+* **services:** `log/api` returns a promise ([8aa08a7](https://gitlab.skypicker.com/frontend/nitrolib/commit/8aa08a7))
+
+
+
 ## [3.9.3](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.9.1...v3.9.3) (2019-06-03)
 
 
