@@ -1,3 +1,13 @@
+## [3.9.3](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.9.1...v3.9.3) (2019-06-03)
+
+
+### Bug Fixes
+
+* **services:** `log/api` returns a promise ([67f7a5f](https://gitlab.skypicker.com/frontend/nitrolib/commit/67f7a5f))
+* **services:** Reject `new Error` in `auth/api` ([37a7a76](https://gitlab.skypicker.com/frontend/nitrolib/commit/37a7a76))
+
+
+
 ## [3.9.2](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.9.1...v3.9.2) (2019-06-03)
 
 
