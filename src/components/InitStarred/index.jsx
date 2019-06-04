@@ -23,8 +23,12 @@ type Props = {|
 
 class StarredProvider extends React.Component<Props, State> {
   state = {
-    starred: JSON.parse(JSON.stringify(load(STARRED_ID))),
+    starred: {},
   };
+
+  componentDidMount() {
+    this.setState({ starred: JSON.parse(JSON.stringify(load(STARRED_ID))) });
+  }
 
   onAdd = (trip: StarredItem) => {
     const { starred } = this.state;
