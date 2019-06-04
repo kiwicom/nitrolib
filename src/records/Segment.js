@@ -1,6 +1,4 @@
 // @flow strict
-import { schema } from "normalizr";
-
 import type { Station } from "./Station";
 import type { ItineraryNormalized } from "./Itinerary";
 
@@ -22,8 +20,6 @@ export type Carrier = {|
   name: string,
   code: string,
 |};
-
-export const carrier = new schema.Entity("carrier");
 
 type SeatDimenstion = {|
   value: string,
@@ -59,11 +55,6 @@ export type SegmentDeep = {|
   carrier: Carrier,
   operatingCarrier: Carrier,
 |};
-
-export const segment = new schema.Entity("segment", {
-  carrier,
-  operatingCarrier: carrier,
-});
 
 export const getSegment = (obj: ItineraryNormalized, id: string): ?Segment =>
   Object.keys(obj.entities.segment)

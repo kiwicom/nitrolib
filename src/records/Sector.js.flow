@@ -1,6 +1,4 @@
 // @flow strict
-import type { Schema } from "normalizr";
-
 import type { Station } from "./Station";
 import type { SegmentDeep, Carrier } from "./Segment";
 import type { ItineraryNormalized } from "./Itinerary";
@@ -26,6 +24,5 @@ export type SectorDeep = {|
 |};
 
 // eslint-disable-next-line import/prefer-default-export
-declare export var sector: Schema;
 declare export var getSector: (obj: ItineraryNormalized, id: string) => Sector;
 declare export var getSectors: (obj: ItineraryNormalized) => Sector[];

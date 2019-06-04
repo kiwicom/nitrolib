@@ -5,8 +5,7 @@ import type { Sector, SectorDeep } from "./Sector";
 import type { Carrier, Segment } from "./Segment";
 import type { Money } from "./Money";
 import type { BagsInfo } from "./BaggageInfo";
-// eslint-disable-next-line import/no-cycle
-import { sector } from "./Sector";
+import { sector } from "./fragments/Sector";
 
 export type Provider = {|
   id: string,

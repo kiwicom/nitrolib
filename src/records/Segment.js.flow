@@ -1,6 +1,4 @@
 // @flow strict
-import type { Schema } from "normalizr";
-
 import type { Station } from "./Station";
 import type { ItineraryNormalized } from "./Itinerary";
 
@@ -23,8 +21,6 @@ export type Carrier = {|
   name: string,
   code: string,
 |};
-
-declare export var carrier: Schema;
 
 type SeatDimenstion = {|
   value: string,
@@ -52,6 +48,7 @@ export type Segment = {|
   operatingCarrier: string, // normalized, Carrier
   seatInfo: SeatInfo,
 |};
+
 export type Segments = { [key: string]: Segment };
 
 export type SegmentDeep = {|
@@ -60,6 +57,5 @@ export type SegmentDeep = {|
   operatingCarrier: Carrier,
 |};
 
-declare export var segment: Schema;
 declare export var getSegment: (obj: ItineraryNormalized, id: string) => Segment;
 declare export var getSegments: (obj: ItineraryNormalized, ids: string[]) => Segment[];
