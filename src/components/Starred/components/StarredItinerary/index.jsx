@@ -6,7 +6,6 @@ import Share from "@kiwicom/orbit-components/lib/icons/Share";
 import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
-import parseISO from "date-fns/fp/parseISO";
 import fromUnixTime from "date-fns/fromUnixTime";
 
 import TimeInWords from "../../../DistanceInWords";

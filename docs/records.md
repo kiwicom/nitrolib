@@ -1405,7 +1405,6 @@ export type SectorDeep = {|
 |};
 
 // eslint-disable-next-line import/prefer-default-export
-declare export var sector: Schema;
 declare export var getSector: (obj: ItineraryNormalized, id: string) => Sector;
 declare export var getSectors: (obj: ItineraryNormalized) => Sector[];
 ```
@@ -1447,8 +1446,6 @@ export type Carrier = {|
   code: string,
 |};
 
-declare export var carrier: Schema;
-
 type SeatDimenstion = {|
   value: string,
   unit: "CM" | "INCH" | "DEGREE",
@@ -1475,6 +1472,7 @@ export type Segment = {|
   operatingCarrier: string, // normalized, Carrier
   seatInfo: SeatInfo,
 |};
+
 export type Segments = { [key: string]: Segment };
 
 export type SegmentDeep = {|
@@ -1483,7 +1481,6 @@ export type SegmentDeep = {|
   operatingCarrier: Carrier,
 |};
 
-declare export var segment: Schema;
 declare export var getSegment: (obj: ItineraryNormalized, id: string) => Segment;
 declare export var getSegments: (obj: ItineraryNormalized, ids: string[]) => Segment[];
 ```
