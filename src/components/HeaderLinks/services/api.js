@@ -1,7 +1,7 @@
 // @flow strict
 import { handleJSON } from "../../../services/fetch/handlers";
 import { JSON_BOTH } from "../../../services/fetch/headers";
-import type { HeaderLink, SearchForm } from "../records/HeaderLink";
+import type { HeaderLink, SearchForm, HeaderLinksContext } from "../records/HeaderLink";
 
 export type Splitster = {
   [key: string]: string,
@@ -12,8 +12,7 @@ export type Input = {|
   currencyId: string,
   searchForm: SearchForm | null,
   splitster: Splitster,
-  context: string,
-  brand?: string | null,
+  context?: HeaderLinksContext,
 |};
 
 export type Response = {|
@@ -27,7 +26,6 @@ const getNavBarLinks = ({
   searchForm,
   splitster,
   context,
-  brand,
 }: Input): Promise<Response> =>
   fetch("https://ancillaries-integration.skypicker.com/v2/navbar", {
     method: "POST",
@@ -38,7 +36,6 @@ const getNavBarLinks = ({
       searchForm,
       splitster,
       context,
-      brand,
     }),
   }).then(handleJSON);
 
