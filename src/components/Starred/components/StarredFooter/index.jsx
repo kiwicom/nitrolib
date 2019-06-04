@@ -1,15 +1,22 @@
 // @flow strict
 import * as React from "react";
-import Stack from "@kiwicom/orbit-components/lib/Stack";
+import styled from "styled-components";
 
 import { Consumer as IntlConsumer } from "../../../../services/intl/context";
 import Translate from "../../../Translate";
 import ButtonLink from "../../../NavBar/primitives/ButtonLink";
 
+const Wrapper = styled.div`
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const StarredFooter = () => (
-  <Stack flex inline justify="center">
-    <IntlConsumer>
-      {intl => (
+  <IntlConsumer>
+    {intl => (
+      <Wrapper>
         <ButtonLink
           color="primary"
           fontSize={14}
@@ -17,9 +24,9 @@ const StarredFooter = () => (
         >
           <Translate t="common.view_all" />
         </ButtonLink>
-      )}
-    </IntlConsumer>
-  </Stack>
+      </Wrapper>
+    )}
+  </IntlConsumer>
 );
 
 export default StarredFooter;
