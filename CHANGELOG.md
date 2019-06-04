@@ -1,3 +1,12 @@
+## [3.10.2](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.10.1...v3.10.2) (2019-06-04)
+
+
+### Bug Fixes
+
+* **components:** InitStarred only client ([38c5f7b](https://gitlab.skypicker.com/frontend/nitrolib/commit/38c5f7b))
+
+
+
 ## [3.10.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.9.4...v3.10.1) (2019-06-04)
 
 
