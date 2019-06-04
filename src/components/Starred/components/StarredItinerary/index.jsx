@@ -6,6 +6,8 @@ import Share from "@kiwicom/orbit-components/lib/icons/Share";
 import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
+import parseISO from "date-fns/fp/parseISO";
+import fromUnixTime from "date-fns/fromUnixTime";
 
 import TimeInWords from "../../../DistanceInWords";
 import Price from "../../../Price";
@@ -133,10 +135,13 @@ const StarredItinerary = ({
     return priceUpdatedAt ? (
       <TranslateNode
         t="starred.price_update"
-        values={{ lastUpdate: <TimeInWords to={updated} /> }}
+        values={{ lastUpdate: <TimeInWords to={fromUnixTime(updated)} /> }}
       />
     ) : (
-      <TranslateNode t="starred.created_at" values={{ createdAt: <TimeInWords to={created} /> }} />
+      <TranslateNode
+        t="starred.created_at"
+        values={{ createdAt: <TimeInWords to={fromUnixTime(created)} /> }}
+      />
     );
   };
 

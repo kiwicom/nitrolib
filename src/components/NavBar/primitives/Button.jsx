@@ -15,7 +15,6 @@ export type FontSize = {|
 |};
 
 type Props = {|
-  onClick: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   bold?: boolean,
   children: React.Node | React.Node[],
   onClick?: () => void,
