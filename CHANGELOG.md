@@ -1,3 +1,12 @@
+## [3.10.4](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.10.3...v3.10.4) (2019-06-06)
+
+
+### Bug Fixes
+
+* **components:** InitStarred load value ([a4b647c](https://gitlab.skypicker.com/frontend/nitrolib/commit/a4b647c))
+
+
+
 ## [3.10.3](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.10.2...v3.10.3) (2019-06-06)
 
 
