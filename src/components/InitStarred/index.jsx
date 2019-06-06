@@ -28,8 +28,12 @@ class StarredProvider extends React.Component<Props, State> {
   };
 
   componentDidMount() {
-    // FIXME why the fuck is 'JSON.strigify' here
-    this.setState({ starred: JSON.parse(JSON.stringify(load(STARRED))) });
+    const starred = load(STARRED);
+    if (!starred) {
+      return;
+    }
+
+    this.setState({ starred: JSON.parse(starred) });
   }
 
   onAdd = (trip: StarredItem) => {
@@ -38,7 +42,7 @@ class StarredProvider extends React.Component<Props, State> {
     const starredNew = starred.concat(trip);
 
     this.setState({ starred: starredNew });
-    save(STARRED, JSON.stringify({ starred: starredNew }));
+    save(STARRED, JSON.stringify(starredNew));
   };
 
   onClear = (e: SyntheticEvent<HTMLDivElement>) => {
