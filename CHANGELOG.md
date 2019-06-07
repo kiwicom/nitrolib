@@ -1,3 +1,22 @@
+# [3.11.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.10.2...v3.11.0) (2019-06-07)
+
+
+### Bug Fixes
+
+* **components:** InitStarred load value ([d5e4df4](https://gitlab.skypicker.com/frontend/nitrolib/commit/d5e4df4))
+* **components:** InitStarred storage name and value ([06fcb57](https://gitlab.skypicker.com/frontend/nitrolib/commit/06fcb57))
+* **itinerary:** Cycle imports ([f2a628b](https://gitlab.skypicker.com/frontend/nitrolib/commit/f2a628b))
+* **starred:** StarredFooter height ([e20b6df](https://gitlab.skypicker.com/frontend/nitrolib/commit/e20b6df))
+* **starred:** TripsContainer padding ([1e1db8a](https://gitlab.skypicker.com/frontend/nitrolib/commit/1e1db8a))
+
+
+### Features
+
+* **components:** HeaderLinks props update ([3ca9c8c](https://gitlab.skypicker.com/frontend/nitrolib/commit/3ca9c8c))
+* **meta:** Add scope enum ([b2b2716](https://gitlab.skypicker.com/frontend/nitrolib/commit/b2b2716))
+
+
+
 ## [3.10.4](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.10.3...v3.10.4) (2019-06-06)
 
 
