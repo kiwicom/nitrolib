@@ -19,21 +19,19 @@ const StyledLink = styled.a`
   &:visited {
     color: ${({ active, theme }: LinkProps) =>
       active ? theme.orbit.paletteProductNormal : theme.orbit.paletteInkNormal};
-
     i {
       color: ${({ theme }) => theme.orbit.paletteInkNormal};
     }
 
     &:hover {
       color: ${({ theme }: LinkProps) => theme.orbit.paletteProductNormal};
-
       i {
         color: ${({ theme }) => theme.orbit.paletteInkNormal};
       }
     }
   }
 
-  ${mq.tablet(css`
+  ${mq.desktop(css`
     &:link,
     &:visited {
       color: ${({ active, theme, inverted }: LinkProps) =>

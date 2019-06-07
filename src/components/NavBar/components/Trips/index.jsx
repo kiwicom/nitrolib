@@ -7,7 +7,7 @@ import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import Button from "../../primitives/Button";
+import Button from "../Button";
 import ClickOutside from "../../../ClickOutside";
 import Desktop from "../../../Desktop";
 import Mobile from "../../../Mobile";
@@ -83,7 +83,7 @@ const Trips = ({ auth, env, onSelect, inverted }: Props) => (
         <Desktop display="flex">
           <Stack align="center" spacing="none">
             <Passenger size="small" />
-            <Button onClick={onToggle} color={inverted && "white"}>
+            <Button onClick={onToggle} color={inverted ? "white" : "secondary"}>
               <HideOnLower>
                 <Translate t="account.my_bookings_action" />
               </HideOnLower>
@@ -96,7 +96,7 @@ const Trips = ({ auth, env, onSelect, inverted }: Props) => (
           </Stack>
         </Desktop>
         <Mobile display="flex">
-          <Button onClick={onToggle} color={inverted && "white"}>
+          <Button onClick={onToggle} color={inverted ? "white" : "secondary"}>
             <Passenger size="small" />
             <UserWrapper>
               <UserName>{userType(auth)}</UserName>

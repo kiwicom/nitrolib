@@ -8,7 +8,7 @@ import Translate from "../../../Translate";
 import ValueBind from "../../../ValueBind";
 import { Consumer as ModalConsumer } from "../../../../services/modal/context";
 import { Consumer as AuthConsumer } from "../../../../services/auth/context";
-import Button from "../../primitives/Button";
+import Button from "../Button";
 import Trips from "../Trips";
 import SideNav from "../SideNav";
 import * as MODALS from "../../../../consts/modals";
@@ -43,12 +43,16 @@ const Menu = ({
                 {({ onClick }) => (
                   <>
                     <Desktop display="flex">
-                      <Button onClick={onClick} color={inverted && "white"}>
+                      <Button onClick={onClick} color={inverted ? "white" : "secondary"}>
                         <Translate t="account.my_bookings_action" />
                       </Button>
                     </Desktop>
                     <Mobile display="flex">
-                      <Button color={!inverted && "secondary"} onClick={onClick}>
+                      <Button
+                        color={inverted ? "white" : "secondary"}
+                        ariaLabel="account.my_bookings_action"
+                        onClick={onClick}
+                      >
                         <AccountCircle />
                       </Button>
                     </Mobile>

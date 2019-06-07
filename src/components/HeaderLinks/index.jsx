@@ -122,7 +122,7 @@ export default class HeaderLinks extends React.Component<Props, State> {
                       )}
                     </Popup>
                   )}
-                  <IconWrapper act={open} inverted={inverted} onClick={onToggle}>
+                  <IconWrapper aria-label="open" act={open} inverted={inverted} onClick={onToggle}>
                     <AirplaneUp />
                     <ChevronDown size="small" />
                   </IconWrapper>
