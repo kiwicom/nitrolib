@@ -105,6 +105,7 @@ export const getPagesItems = (brand: Brand): PageItems =>
     // $FlowExpected: some props are missing in certain objects
   )(brand.content.pages);
 
+// TODO: missing translations common.instagram etc
 const socialPagesUI = {
   instagram: {
     type: "instagram",
@@ -113,6 +114,7 @@ const socialPagesUI = {
   twitter: {
     type: "twitter",
     Icon: icons.Twitter,
+    label: "common.twitter",
   },
   youtube: {
     type: "youtube",
@@ -129,6 +131,7 @@ const socialPagesUI = {
   facebook: {
     type: "facebook",
     Icon: icons.Facebook,
+    label: "common.facebook",
   },
 };
 
@@ -137,6 +140,7 @@ type SocialMedia = {|
   enabled: boolean,
   Icon: React.ComponentType<{ className: string }>,
   link?: string,
+  label?: string,
 |};
 
 export const getSocialMediaItems = (brand: Brand): SocialMedia[] =>

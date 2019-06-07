@@ -8,7 +8,7 @@ import { themeDefault } from "../../../records/Theme";
 import buttonMixin from "../../../styles/mixins/button";
 
 export type Bg = "white" | "primary" | "secondary";
-export type Color = "primary" | "warning" | "white";
+export type Color = "primary" | "secondary" | "warning" | "white";
 export type FontSize = {|
   ...ThemeProps,
   fontSize: number,
@@ -34,6 +34,7 @@ const Button: ReactComponentFunctional<Props, ThemeProps> = styled.button`
     (color === "primary" && `${theme.orbit.paletteProductNormal}`) ||
     (color === "warning" && `${theme.orbit.paletteRedNormal}`) ||
     (color === "white" && `${theme.orbit.paletteWhite}`) ||
+    (color === "secondary" && `${theme.orbit.paletteInkNormal}`) ||
     theme.orbit.paletteInkNormal};
   cursor: pointer;
   font-weight: ${({ theme, bold }: PropsAll) =>

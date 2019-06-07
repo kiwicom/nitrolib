@@ -7,6 +7,7 @@ import Modal from "@kiwicom/orbit-components/lib/Modal";
 import Portal from "@kiwicom/orbit-components/lib/Portal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import { right, rtlSpacing } from "@kiwicom/orbit-components/lib/utils/rtl";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import Translate from "../../../Translate";
 import ClientOnly from "../../../ClientOnly";
@@ -205,16 +206,23 @@ export default class SideNav extends React.Component<Props, State> {
     const { modalOpen } = this.state;
 
     return (
+      // TODO: common.open translation does not exists yet
       <>
-        <MenuOpen data-test="NavBar-SideNav-Open" onClick={this.handleToggle} inverted={inverted}>
+        <MenuOpen
+          aria-label="open"
+          data-test="NavBar-SideNav-Open"
+          onClick={this.handleToggle}
+          inverted={inverted}
+        >
           <MenuHamburger />
         </MenuOpen>
-
         <ClientOnly>
           <SideBar onClick={this.handleToggle} shown={modalOpen === MODALS.SIDE_NAV}>
             <section data-test="NavBar-SideNav">
               <Close data-test="NavBar-SideNav-Close" onClick={this.handleToggle}>
-                <Translate t="common.hide" /> <CloseIcon />
+                <Stack flex align="center" spacing="tight">
+                  <Translate html t="common.hide" /> <CloseIcon />
+                </Stack>
               </Close>
 
               <Content>
@@ -311,12 +319,13 @@ export default class SideNav extends React.Component<Props, State> {
 
                           {/* --- Social links --- */}
                           <MediaIcons>
-                            {socialMedia.map(({ link, Icon }) => (
+                            {socialMedia.map(({ link, Icon, label }) => (
                               <Link
                                 key={link}
                                 href={link}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label={label && <Translate t={label} />}
                               >
                                 {Icon && <Icon className="socialIcon" />}
                               </Link>
@@ -417,7 +426,6 @@ export default class SideNav extends React.Component<Props, State> {
             </section>
           </SideBar>
         </ClientOnly>
-
         {/* MODALS */}
         {modalOpen === MODALS.SUBSCRIPTION && (
           <Portal element={portal}>
@@ -426,7 +434,6 @@ export default class SideNav extends React.Component<Props, State> {
             </Modal>
           </Portal>
         )}
-
         {modalOpen === MODALS.DEBUG && (
           <Portal element={portal}>
             <Modal onClose={this.handleCloseModal}>
