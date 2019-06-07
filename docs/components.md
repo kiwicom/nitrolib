@@ -336,7 +336,7 @@ type Props = {|
   ...OwnProps,
 |}
 
-// onSignIn fn should handle usual action which takes place after successful login via email & password
+// onSignIn fn should handle usual action which takes place after successful login via email & password  
 const onSignIn = (user) => ({ type: LOGIN_SUCCESS, res: user })
 // onSocialLogin fn should trigger full OAuth login process thought specified provider
 const onSocialLogin = (provider: Provider) => {}
@@ -1578,7 +1578,7 @@ const AuthModals = ({ query }: Props) => (
       <>
         <ModalLogin open={value === "login"} onClose={onChange} />
         <ModalRegister open={value === "register"} onClose={onChange} />
-
+        
         <ValueBind value="login" onChange={onChange}>
           {({ onClick }) => <Button onClick={onClick}>Login</Button>}
         </ValueBind>
