@@ -1,10 +1,9 @@
 // @flow strict
 import { handleJSON } from "../../../services/fetch/handlers";
 import { JSON_BOTH } from "../../../services/fetch/headers";
-import type { HeaderLink, SearchForm } from "../records/HeaderLink";
+import type { HeaderLink, SearchForm, HeaderLinksContext } from "../records/HeaderLink";
 
 export type Splitster = {
-  // FIXME add a firm structure
   [key: string]: string,
 };
 
@@ -13,6 +12,7 @@ export type Input = {|
   currencyId: string,
   searchForm: SearchForm | null,
   splitster: Splitster,
+  context?: HeaderLinksContext,
 |};
 
 export type Response = {|
@@ -25,8 +25,9 @@ const getNavBarLinks = ({
   currencyId,
   searchForm,
   splitster,
+  context,
 }: Input): Promise<Response> =>
-  fetch("https://ancillaries-integration.skypicker.com/navbar", {
+  fetch("https://ancillaries-integration.skypicker.com/v2/navbar", {
     method: "POST",
     headers: JSON_BOTH,
     body: JSON.stringify({
@@ -34,6 +35,7 @@ const getNavBarLinks = ({
       currency: { id: currencyId },
       searchForm,
       splitster,
+      context,
     }),
   }).then(handleJSON);
 

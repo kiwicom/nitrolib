@@ -12,7 +12,7 @@ import Popup from "./primitives/Popup";
 import IconWrapper from "./primitives/IconWrapper";
 import Links from "./components/Links";
 import getNavBarLinks from "./services/api";
-import type { HeaderLink, SearchForm } from "./records/HeaderLink";
+import type { HeaderLink, SearchForm, HeaderLinksContext } from "./records/HeaderLink";
 import LogContext from "../../services/log/context";
 import type { Context } from "../../services/log/context";
 import type { Splitster, Response } from "./services/api";
@@ -45,6 +45,7 @@ type Props = {|
   inverted?: boolean,
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO solve using DI
+  context?: HeaderLinksContext,
 |};
 
 type State = {|
@@ -65,7 +66,15 @@ export default class HeaderLinks extends React.Component<Props, State> {
   }
 
   getNavBarLinks = async () => {
-    const { languageId, currencyId, searchForm, testResponse, splitster, onFetch } = this.props;
+    const {
+      languageId,
+      currencyId,
+      searchForm,
+      testResponse,
+      splitster,
+      onFetch,
+      context,
+    } = this.props;
     const { log } = this.context;
 
     if (testResponse) {
@@ -79,6 +88,7 @@ export default class HeaderLinks extends React.Component<Props, State> {
         currencyId,
         searchForm,
         splitster,
+        context,
       });
 
       this.setState({ services: services.items });
