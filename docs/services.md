@@ -523,7 +523,11 @@ import * as api from "@kiwicom/nitro/lib/services/log/api";
 
 **Types:**
 ```js
-declare export default function log(payload: Loglady): Promise<void>;
+export type Settings = {
+  devUrl?: string, // Fires a 2nd, not returned, log call to this URL if supplied
+};
+
+declare export default function log(payload: Loglady, settings?: Settings): Promise<void>;
 ```
 
 See types:

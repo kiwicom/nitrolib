@@ -1084,42 +1084,31 @@ import InitLog from "@kiwicom/nitro/lib/components/InitLog";
 **Types:**
 ```js
 type Props = {|
-  globals: Globals,
-  onLog?: (ev: EventPayload, globals: Globals) => void,
   children: (ctx: Context) => React.Node,
 |};
 
 declare export default React.ComponentType<Props>;
 ```
 
-See types:
-* [Event](./records#event)
-* [Loglady](./records#loglady)
-
 **Context needs:**
 * [log](./services#log)
 
 Initializes the [log](./services#log) context.
 
+Logs are logged using the [log/logger](./services#logger) service.
+
 **Example:**
 ```js
-import type { EventPayload } from "@kiwicom/nitro/lib/records/Event";
-import type { Globals } from "@kiwicom/nitro/lib/records/Loglady";
 import { Provider as LogProvider } from "@kiwicom/nitro/lib/services/log/context";
 import InitLog from "@kiwicom/nitro/lib/components/InitLog";
+import * as logger from "@kiwicom/nitro/lib/services/log/logger";
 
-const globals: Globals = {
-  userId: window.__SESSION__.userId,
-  langId: window.__INTL__.id,
-  // ...etc
-};
-
-function log(ev: EventPayload, globals: Globals) {
-  // do side effects
-}
+logger.globals.userId = window.__SESSION__.userId;
+logger.globals.langId = window.__INTL__.id;
+// ...
 
 ReactDOM.render(
-  <InitLog globals={globals} onLog={log}>
+  <InitLog>
     {ctx => (
       <LogProvider value={ctx}>
         <App />
