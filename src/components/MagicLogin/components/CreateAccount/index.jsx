@@ -13,6 +13,7 @@ import IntlContext from "../../../../services/intl/context";
 import * as loginEvents from "../../consts/events";
 import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
 import { makeCall, makeEnvironment } from "../../../../services/utils/relay";
+import type { Context as LogContextType } from "../../../../services/log/context";
 import type { Context as IntlContextType } from "../../../../services/intl/context";
 import type { Event, Props as EventProps } from "../../../../records/Event";
 

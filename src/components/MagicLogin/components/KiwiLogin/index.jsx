@@ -11,6 +11,7 @@ import type { Screen } from "../../records/Screen";
 import type { AuthUser } from "../../../../records/Auth";
 import toUser from "../../services/toUser";
 import LogContext from "../../../../services/log/context";
+import type { Context as LogContextType } from "../../../../services/log/context";
 import IntlContext from "../../../../services/intl/context";
 import * as loginEvents from "../../consts/events";
 import { API_REQUEST_FAILED, API_ERROR } from "../../../../consts/events";
