@@ -35,10 +35,10 @@ const Wrapper = styled.div`
   }
 
   > span {
-    margin-${/* sc-custom "left" */ left}: 28px;
+    margin-left: 28px;
     margin-top: 6px;
     ${mq.largeMobile(css`
-      margin-${/* sc-custom "left" */ left}:: 10px;
+      margin-left: 10px;
       margin-top: 0;
     `)};
   }
