@@ -860,6 +860,7 @@ export type Context = {|
   onSetNotice: () => void,
   renderShareDialog: (arg: ShareDialog) => React.Node,
   makeShareUrl: (arg: StarredItem) => string,
+  isStarred: boolean,
 |};
 
 declare var context: React.Context<Context>;

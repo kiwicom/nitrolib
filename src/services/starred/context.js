@@ -14,6 +14,7 @@ export type Context = {|
   onSetNotice: () => void,
   renderShareDialog: (arg: ShareDialog) => React.Node,
   makeShareUrl: (arg: StarredItem) => string,
+  isStarred: boolean,
 |};
 
 const contextDefault: Context = {
@@ -27,6 +28,7 @@ const contextDefault: Context = {
   onSetNotice: () => {},
   renderShareDialog: () => null,
   makeShareUrl: () => "some string",
+  isStarred: false,
 };
 
 const context: React.Context<Context> = React.createContext(contextDefault);

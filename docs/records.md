@@ -1133,6 +1133,8 @@ export type ItineraryNormalized = {|
 |};
 
 declare export var flatten: (data: ItineraryDeep) => ItineraryNormalized;
+declare export var isSame: (fst: Itinerary, snd: Itinerary) => boolean;
+declare export var isSamePrice: (fst: Itinerary, snd: Itinerary) => boolean;
 ```
 
 See types:
@@ -1576,6 +1578,7 @@ export type ShareDialog = {|
 declare export var isMulti: (object: PassengersCount) => boolean;
 declare export var getSum: (object: PassengersCount) => number;
 declare export var getTransKey: (object: PassengersCount) => string;
+declare export var isStarred: (starred: StarredItem, itineraries: ItineraryNormalized[]) => boolean;
 ```
 
 See types:

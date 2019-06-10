@@ -1,5 +1,5 @@
 // @flow strict
-import type { ItineraryDeep } from "./Itinerary";
+import type { ItineraryDeep, ItineraryNormalized } from "./Itinerary";
 
 const TRANS_KEY_SINGLE = {
   adults: {
@@ -73,3 +73,6 @@ export const getTransKey = (object: PassengersCount): string => {
 
 export const isMulti = (object: PassengersCount) =>
   Object.keys(object).filter(key => object[key] > 0).length > 1;
+
+export const isStarred = (starred: StarredItem, itineraries: ItineraryNormalized[]): boolean =>
+  itineraries.some(itinerary => itinerary.result.id === starred.id);

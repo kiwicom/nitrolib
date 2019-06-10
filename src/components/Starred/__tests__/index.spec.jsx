@@ -59,6 +59,7 @@ const context = {
   onSetNotice: () => {},
   renderShareDialog: () => null,
   makeShareUrl: () => " ",
+  isStarred: false,
 };
 
 describe("#Starred", () => {

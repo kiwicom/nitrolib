@@ -167,6 +167,7 @@ const withData = (storyFn: () => React.Node) => {
                               onSetNotice: () => console.log("notice"),
                               // Passes from FE
                               makeShareUrl: () => console.log("shareUrl") || "",
+                              isStarred: false,
                             }}
                           >
                             <ModalProvider value={{ value: modal, onChange: action("Modal") }}>

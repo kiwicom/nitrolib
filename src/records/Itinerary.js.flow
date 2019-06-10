@@ -120,3 +120,5 @@ export type ItineraryNormalized = {|
 |};
 
 declare export var flatten: (data: ItineraryDeep) => ItineraryNormalized;
+declare export var isSame: (fst: Itinerary, snd: Itinerary) => boolean;
+declare export var isSamePrice: (fst: Itinerary, snd: Itinerary) => boolean;

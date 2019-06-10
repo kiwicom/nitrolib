@@ -1,5 +1,5 @@
 // @flow strict
-import type { ItineraryDeep } from "./Itinerary";
+import type { ItineraryDeep, ItineraryNormalized } from "./Itinerary";
 
 export type CabinClass = "economy" | "business" | "first" | "premium";
 
@@ -49,3 +49,4 @@ export type ShareDialog = {|
 declare export var isMulti: (object: PassengersCount) => boolean;
 declare export var getSum: (object: PassengersCount) => number;
 declare export var getTransKey: (object: PassengersCount) => string;
+declare export var isStarred: (starred: StarredItem, itineraries: ItineraryNormalized[]) => boolean;

@@ -130,3 +130,8 @@ export const flatten = (data: ItineraryDeep): ItineraryNormalized => {
 
   return normalize(data, itineraryNomad);
 };
+
+export const isSame = (fst: Itinerary, snd: Itinerary): boolean => fst.id === snd.id;
+
+export const isSamePrice = (fst: Itinerary, snd: Itinerary): boolean =>
+  fst.price.amount === snd.price.amount;
