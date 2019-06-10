@@ -7,6 +7,7 @@ import type { Globals } from "../../records/Loglady";
 import { make } from "../../records/Event";
 import type { Event, Props, EventPayload } from "../../records/Event";
 import api from "./api";
+import type { Settings as ApiSettings } from "./api";
 
 export type Statics = {|
   project: string,
@@ -34,6 +35,14 @@ export const statics: Statics = {
   UTMs: {},
 };
 
+export type Settings = {|
+  api: ApiSettings,
+|};
+
+export const settings: Settings = {
+  api: {},
+};
+
 export const getGlobals = (): Globals => ({
   ...statics,
   userId: cookies.load(USER_ID) || "",
@@ -52,7 +61,7 @@ export const getGlobals = (): Globals => ({
 });
 
 export const log = (ev: Event, props: Props): Promise<void> =>
-  api({ events: [make(ev, props)], global: getGlobals() });
+  api({ events: [make(ev, props)], global: getGlobals() }, settings.api);
 
 export const batch = (evs: EventPayload[]): Promise<void> =>
-  api({ events: evs, global: getGlobals() });
+  api({ events: evs, global: getGlobals() }, settings.api);
