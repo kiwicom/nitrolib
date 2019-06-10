@@ -1362,9 +1362,9 @@
     ramda "^0.26.1"
 
 "@kiwicom/translations@^1.290.0":
-  version "1.291.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.291.0.tgz#efab20079e14ab4d15f665b42e155393aa4a0c87"
-  integrity sha512-u6vinv/l3j9byVeNQUFA1AjtlaQwgpbAHIwRC8BQify0LjqX25s2ihmsJtE0cKtVrjsv4IdKdXaqDxI6YlJTBQ==
+  version "1.296.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.296.0.tgz#e6d90a326ffc51ef870fda3005ff80ca14d854c2"
+  integrity sha512-wCMLIe/Abm8WFZqz2AfGkIY9kpS+aDmSaUVF8gEsKYo/LvGJcKonXkeLAsD3zlvfXST77a3N1tDNsZd++v87aw==
 
 "@marionebl/sander@^0.6.0":
   version "0.6.1"
