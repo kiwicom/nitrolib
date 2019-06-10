@@ -1,3 +1,12 @@
+# [4.0.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.11.0...v4.0.0) (2019-06-10)
+
+
+### Features
+
+* **components:** Make InitLog use log/logger, add dev option to api ([49138ee](https://gitlab.skypicker.com/frontend/nitrolib/commit/49138ee))
+
+
+
 # [3.11.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.10.2...v3.11.0) (2019-06-07)
 
 
