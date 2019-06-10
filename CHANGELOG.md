@@ -1,3 +1,13 @@
+# [5.0.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v4.0.0...v5.0.0) (2019-06-10)
+
+
+### Bug Fixes
+
+* Send magic login e-mail in correct language ([43bd048](https://gitlab.skypicker.com/frontend/nitrolib/commit/43bd048))
+* **components:** MagicLogin Flow ([8114ac0](https://gitlab.skypicker.com/frontend/nitrolib/commit/8114ac0))
+
+
+
 # [4.0.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.11.0...v4.0.0) (2019-06-10)
 
 
