@@ -1,3 +1,12 @@
+# [5.1.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.0.0...v5.1.0) (2019-06-11)
+
+
+### Features
+
+* **services:** Purge redundant userId cookie in `server/analyseHeaders` ([5b63ba3](https://gitlab.skypicker.com/frontend/nitrolib/commit/5b63ba3))
+
+
+
 # [5.0.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v4.0.0...v5.0.0) (2019-06-10)
 
 
