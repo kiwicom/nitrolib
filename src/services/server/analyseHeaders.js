@@ -7,6 +7,7 @@ const getCookieName = (cookie: string): string => cookie.split("=")[0].trim();
 
 const isCookieSplitster = cookie => cookie.toLowerCase().split("_")[0] === "splitster";
 const isCookieRecentSearch = cookie => cookie === "recentSearch";
+const isCookieUserId = cookie => cookie === "userId";
 
 type CookieSizes = {|
   total: number,
@@ -43,7 +44,9 @@ const getHeadersSize = (headers: Headers) =>
   );
 
 const getCookiesToRemove = (cookies: string[]): string[] =>
-  cookies.map(getCookieName).filter(name => isCookieSplitster(name) || isCookieRecentSearch(name));
+  cookies
+    .map(getCookieName)
+    .filter(name => isCookieSplitster(name) || isCookieRecentSearch(name) || isCookieUserId(name));
 
 export type AnalysePayload = {|
   total: number,
