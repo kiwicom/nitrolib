@@ -85,7 +85,7 @@ const Content = ({ definitions, orderStatus, supportLinkHandler }: Props) => {
           </Text>
         </NoPersonalItemWrapper>
       )}
-      {!hasPersonalItem && definitions.length === 0 && (
+      {definitions.length === 0 && (
         <Text element="span" type="secondary">
           <Translate t="baggage_modal.select.no_baggage" />
         </Text>
