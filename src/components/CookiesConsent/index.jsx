@@ -31,7 +31,10 @@ class CookiesConsent extends React.PureComponent<Props, State> {
     }
 
     return (
-      <section data-test="CookiesConsent">
+      <section
+        id="cookie_consent" // For ads/i-don't-care-about-cookies blockers
+        data-test="CookiesConsent"
+      >
         <CookiesBanner onAccept={this.handleAccept} />
       </section>
     );
