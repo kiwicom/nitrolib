@@ -1,3 +1,56 @@
+# [3.12.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v0.66.1...v3.12.0) (2019-06-12)
+
+
+### Bug Fixes
+
+* Itinerary/Starred tests and types ([ecaa2e2](https://gitlab.skypicker.com/frontend/nitrolib/commit/ecaa2e2))
+* ItineraryMulticityDeep type spread ([6383ae4](https://gitlab.skypicker.com/frontend/nitrolib/commit/6383ae4))
+* **services:** Move 'isLoggedIn' where it belongs in `log/logger` ([ad3cafb](https://gitlab.skypicker.com/frontend/nitrolib/commit/ad3cafb))
+* Make Starred pluggable ([2e946b0](https://gitlab.skypicker.com/frontend/nitrolib/commit/2e946b0))
+* **button:** Fixed button, rised react, orbit, fixed mediaqueries ([7b04b21](https://gitlab.skypicker.com/frontend/nitrolib/commit/7b04b21))
+* **components:** InitStarred load value ([d5e4df4](https://gitlab.skypicker.com/frontend/nitrolib/commit/d5e4df4))
+* **components:** InitStarred only client ([38c5f7b](https://gitlab.skypicker.com/frontend/nitrolib/commit/38c5f7b))
+* **components:** InitStarred storage name and value ([06fcb57](https://gitlab.skypicker.com/frontend/nitrolib/commit/06fcb57))
+* **cookies:** Correct userId cookie ([9082ef8](https://gitlab.skypicker.com/frontend/nitrolib/commit/9082ef8))
+* **docs:** Update ([19bda80](https://gitlab.skypicker.com/frontend/nitrolib/commit/19bda80))
+* **itinerary:** Cycle imports ([f2a628b](https://gitlab.skypicker.com/frontend/nitrolib/commit/f2a628b))
+* **records:** In-sync Loglady type in typedefs ([4a82827](https://gitlab.skypicker.com/frontend/nitrolib/commit/4a82827))
+* **services:** `log/api` correct endpoint ([d2b9243](https://gitlab.skypicker.com/frontend/nitrolib/commit/d2b9243))
+* **services:** `log/api` returns a promise ([8aa08a7](https://gitlab.skypicker.com/frontend/nitrolib/commit/8aa08a7))
+* **services:** Make `logger`'s `log` have the intended type ([5dbc8a3](https://gitlab.skypicker.com/frontend/nitrolib/commit/5dbc8a3))
+* **services:** Reject `new Error` in `auth/api` ([37a7a76](https://gitlab.skypicker.com/frontend/nitrolib/commit/37a7a76))
+* **starred:** Align, removed wrapper ([5cbc87b](https://gitlab.skypicker.com/frontend/nitrolib/commit/5cbc87b))
+* **starred:** StarredFooter height ([e20b6df](https://gitlab.skypicker.com/frontend/nitrolib/commit/e20b6df))
+* **starred:** TripsContainer padding ([1e1db8a](https://gitlab.skypicker.com/frontend/nitrolib/commit/1e1db8a))
+* **trips:** TripsContainer, TripListBottom fixes ([04e64af](https://gitlab.skypicker.com/frontend/nitrolib/commit/04e64af))
+
+
+### Features
+
+* Add CHANGELOG ([724b2a7](https://gitlab.skypicker.com/frontend/nitrolib/commit/724b2a7))
+* Bump translations ([8893ad3](https://gitlab.skypicker.com/frontend/nitrolib/commit/8893ad3))
+* **components:** TranslateRef supports multiple refs ([ddf5b78](https://gitlab.skypicker.com/frontend/nitrolib/commit/ddf5b78))
+* Commits ([795ea14](https://gitlab.skypicker.com/frontend/nitrolib/commit/795ea14))
+* **clickoutside:** Add className prop ([bc3a1b3](https://gitlab.skypicker.com/frontend/nitrolib/commit/bc3a1b3))
+* **components:** Add TranslateRef ([85c70ef](https://gitlab.skypicker.com/frontend/nitrolib/commit/85c70ef))
+* **components:** HeaderLinks props update ([3ca9c8c](https://gitlab.skypicker.com/frontend/nitrolib/commit/3ca9c8c))
+* **components:** Starred ([5073d84](https://gitlab.skypicker.com/frontend/nitrolib/commit/5073d84))
+* **docs:** Add CHANGELOG ([e2008dd](https://gitlab.skypicker.com/frontend/nitrolib/commit/e2008dd))
+* Update docs ([410c4cd](https://gitlab.skypicker.com/frontend/nitrolib/commit/410c4cd))
+* **meta:** Add scope enum ([b2b2716](https://gitlab.skypicker.com/frontend/nitrolib/commit/b2b2716))
+* **records:** Loglady globals add missing parameters ([5038d47](https://gitlab.skypicker.com/frontend/nitrolib/commit/5038d47))
+* **services:** Add `logger` into the `log` service ([372b2bf](https://gitlab.skypicker.com/frontend/nitrolib/commit/372b2bf))
+* **services:** Add a `batch` function to `log`'s `logger` ([c87736a](https://gitlab.skypicker.com/frontend/nitrolib/commit/c87736a))
+* **services:** Add deeplinkId to Session ([4590f31](https://gitlab.skypicker.com/frontend/nitrolib/commit/4590f31))
+* **services:** Add server service, `analyseHeaders` function ([f32b316](https://gitlab.skypicker.com/frontend/nitrolib/commit/f32b316))
+
+
+### Reverts
+
+* InitCurrency Launchpad/finance -> hankey until finance publishes proper prod ([17248f3](https://gitlab.skypicker.com/frontend/nitrolib/commit/17248f3))
+
+
+
 # [3.11.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v3.10.2...v3.11.0) (2019-06-07)
 
 
