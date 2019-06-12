@@ -1,3 +1,12 @@
+## [5.1.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.1.0...v5.1.1) (2019-06-12)
+
+
+### Bug Fixes
+
+* **services:** `log/logger` typings ([d0b6040](https://gitlab.skypicker.com/frontend/nitrolib/commit/d0b6040))
+
+
+
 # [5.1.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.0.0...v5.1.0) (2019-06-11)
 
 
