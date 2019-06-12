@@ -35,13 +35,6 @@ export default createFragmentContainer(
       edges {
         node {
           id
-          type
-          code
-          name
-          country {
-            code
-            name
-          }
           ...LocationPickerRow_item
         }
       }

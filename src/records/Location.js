@@ -19,7 +19,7 @@ type Common = {|
 
 export type LocationCountry = {|
   ...Common,
-  type: "country" | "special",
+  type: "continent" | "country" | "special" | "bus_station" | "region" | "tourist_region",
 |};
 
 export type LocationSubdivision = {|
