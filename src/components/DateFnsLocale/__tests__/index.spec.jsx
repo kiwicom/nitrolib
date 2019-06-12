@@ -3,7 +3,7 @@ import * as React from "react";
 import { shallow } from "enzyme";
 import enUS from "date-fns/locale/en-US"; // fallback
 
-import DateFnsLocale from "../index";
+import DateFnsLocale from "..";
 
 describe("#DateFnsLocale", () => {
   test("render", async () => {

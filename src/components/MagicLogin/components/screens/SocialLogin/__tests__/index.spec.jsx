@@ -2,7 +2,7 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import AccountPairedFacebook from "../index";
+import AccountPairedFacebook from "..";
 
 describe("#AccountPairedFacebook", () => {
   test("render button to login via Facebook", () => {

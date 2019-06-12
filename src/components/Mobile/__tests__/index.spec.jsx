@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import Mobile from "../index";
+import Mobile from "..";
 
 describe("#Mobile", () => {
   test("render", () => {

@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import { Environment, graphql, QueryRenderer } from "react-relay";
-import Alert from "@kiwicom/orbit-components/lib/Alert/index";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
 
 import Text from "../../../Text";
 import NoResult from "../../primitives/NoResult";

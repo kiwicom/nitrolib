@@ -2,7 +2,8 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import Sector from "../index";
+import Sector from "..";
+
 import { themeDefault } from "../../../../../../../records/Theme";
 
 describe("#Sector", () => {

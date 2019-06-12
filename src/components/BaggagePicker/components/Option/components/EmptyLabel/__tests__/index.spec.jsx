@@ -2,7 +2,7 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import EmptyLabel from "../index";
+import EmptyLabel from "..";
 
 const props = {
   isCurrentCombination: false,

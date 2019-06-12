@@ -3,7 +3,7 @@ import * as React from "react";
 import { shallow } from "enzyme";
 import GenderWoman from "@kiwicom/orbit-components/lib/icons/GenderWoman";
 
-import Title from "../index";
+import Title from "..";
 
 const props = {
   firstName: "Maria",

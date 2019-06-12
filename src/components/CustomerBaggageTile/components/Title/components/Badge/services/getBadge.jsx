@@ -8,7 +8,7 @@ import Reload from "@kiwicom/orbit-components/lib/icons/Reload";
 import { Consumer } from "../../../../../../../services/currency/context";
 import { format } from "../../../../../../../records/Currency";
 import type { OrderStatusType } from "../../../../../../../records/Baggage";
-import Translate from "../../../../../../Translate/index";
+import Translate from "../../../../../../Translate";
 
 export default function getBadge(status: OrderStatusType, price: ?number) {
   switch (status) {

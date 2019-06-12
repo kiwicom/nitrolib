@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import Help from "../index";
+import Help from "..";
 
 describe("#Help", () => {
   test("render", () => {

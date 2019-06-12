@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import Content from "../index";
+import Content from "..";
 
 const props = {
   definitions: [

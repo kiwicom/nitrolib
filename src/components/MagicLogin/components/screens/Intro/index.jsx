@@ -10,8 +10,8 @@ import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
-import Translate from "../../../../Translate/index";
-import Text from "../../../../Text/index";
+import Translate from "../../../../Translate";
+import Text from "../../../../Text";
 import { Consumer as IntlConsumer } from "../../../../../services/intl/context";
 import { Consumer as BrandConsumer } from "../../../../../services/brand/context";
 

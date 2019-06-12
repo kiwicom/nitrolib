@@ -2,7 +2,7 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import Query from "../index";
+import Query from "..";
 
 describe("#Query", () => {
   test("no query", () => {

@@ -3,7 +3,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { withKnobs } from "@storybook/addon-knobs/react";
 
-import Itinerary from "../src/components/Itinerary/index";
+import Itinerary from "../src/components/Itinerary";
 import ItineraryOneWay from "../src/records/__mocks__/Itinerary/ItineraryOneWay";
 import ItineraryReturn from "../src/records/__mocks__/Itinerary/ItineraryReturn";
 import ItineraryMulticity from "../src/records/__mocks__/Itinerary/ItineraryMulticity";

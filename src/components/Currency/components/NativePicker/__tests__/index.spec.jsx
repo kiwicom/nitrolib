@@ -3,7 +3,8 @@ import * as React from "react";
 import { mount } from "enzyme";
 
 import currencies from "../../../../../records/__mocks__/Currencies";
-import NativePicker from "../index";
+
+import NativePicker from "..";
 
 const current = currencies.eur;
 

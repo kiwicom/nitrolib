@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import Translate from "../../Translate/index";
+import Translate from "../../Translate";
 
 export default function getTooltip(type: string): React$Node {
   return type === "handBag" ? (

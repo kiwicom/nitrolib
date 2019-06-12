@@ -2,7 +2,7 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import AccountLogin from "../index";
+import AccountLogin from "..";
 
 const commonProps = {
   email: "",

@@ -6,7 +6,7 @@ import Calendar from "@kiwicom/orbit-components/lib/icons/Calendar";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 
-import Translate from "../../../Translate/index";
+import Translate from "../../../Translate";
 import type { TravelDates as TravelDatesType } from "../../records/TravelDates";
 
 type Props = {|

@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import ForgotPassword from "../index";
+import ForgotPassword from "..";
 
 describe("#SideBar/ForgotPassword", () => {
   test("render", () => {

@@ -6,9 +6,9 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import ChevronLeft from "@kiwicom/orbit-components/lib/icons/ChevronLeft";
 import ChevronRight from "@kiwicom/orbit-components/lib/icons/ChevronRight";
 
-import Weeks from "../Weeks/index";
+import Weeks from "../Weeks";
 import Days from "../Days/Days";
-import Months from "../Months/index";
+import Months from "../Months";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 

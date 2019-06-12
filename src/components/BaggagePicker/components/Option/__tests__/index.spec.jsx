@@ -4,7 +4,7 @@ import { mount } from "enzyme";
 import { ThemeProvider } from "styled-components";
 import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
 
-import BaggageOption from "../index";
+import BaggageOption from "..";
 
 const handBagExample = {
   amount: 1,

@@ -2,7 +2,7 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import PriorityBoardingInfo from "../index";
+import PriorityBoardingInfo from "..";
 
 const props = {
   airlines: [

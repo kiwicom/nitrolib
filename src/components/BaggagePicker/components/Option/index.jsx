@@ -10,8 +10,8 @@ import Alert from "@kiwicom/orbit-components/lib/Alert";
 
 import PriorityBoardingInfo from "./components/PriorityBoardingInfo";
 import EmptyLabel from "./components/EmptyLabel";
-import Translate from "../../../Translate/index";
-import OptionItem from "../OptionItem/index";
+import Translate from "../../../Translate";
+import OptionItem from "../OptionItem";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import type { ItemType, BaggageCategory } from "../../../../records/Baggage";

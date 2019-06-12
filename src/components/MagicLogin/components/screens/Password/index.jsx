@@ -14,8 +14,8 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import { Consumer as IntlConsumer } from "../../../../../services/intl/context";
 import { Consumer as BrandConsumer } from "../../../../../services/brand/context";
-import Translate from "../../../../Translate/index";
-import Text from "../../../../Text/index";
+import Translate from "../../../../Translate";
+import Text from "../../../../Text";
 
 type Props = {|
   email: string,

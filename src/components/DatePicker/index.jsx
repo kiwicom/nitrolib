@@ -9,7 +9,7 @@ import startOfMonth from "date-fns/startOfMonth";
 import format from "date-fns/format";
 
 import { fixDateFormat } from "../../records/LangInfo";
-import Calendar from "./components/Calendar/index";
+import Calendar from "./components/Calendar";
 import ClickOutside from "../ClickOutside";
 import DatePickerWrapper from "./primitives/DatePickerWrapper";
 import { Consumer as IntlConsumer } from "../../services/intl/context";

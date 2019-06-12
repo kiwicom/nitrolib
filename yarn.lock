@@ -1361,17 +1361,10 @@
   dependencies:
     ramda "^0.26.1"
 
-<<<<<<< HEAD
 "@kiwicom/translations@^1.290.0":
   version "1.291.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.291.0.tgz#efab20079e14ab4d15f665b42e155393aa4a0c87"
   integrity sha512-u6vinv/l3j9byVeNQUFA1AjtlaQwgpbAHIwRC8BQify0LjqX25s2ihmsJtE0cKtVrjsv4IdKdXaqDxI6YlJTBQ==
-=======
-"@kiwicom/translations@^1.267.0":
-  version "1.267.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.267.0.tgz#f974c4f3d2dfd84c5e4bff21b1ccfcb72b14935b"
-  integrity sha512-cy2+5ewPe/bsuTv8rgWYOOm28Jeda9Hw+C0LrU5xcSXcAluMSayZXZjr7r2gM6scBwxlKa7EQyLinBxGBh5QMQ==
->>>>>>> 23a87fab... feat(locationpicker): Updates for project holidays
 
 "@marionebl/sander@^0.6.0":
   version "0.6.1"

@@ -4,7 +4,7 @@ import { mount } from "enzyme";
 import { ThemeProvider } from "styled-components";
 import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
 
-import BaggageItem from "../index";
+import BaggageItem from "..";
 
 const props = {
   category: "cabinBag",

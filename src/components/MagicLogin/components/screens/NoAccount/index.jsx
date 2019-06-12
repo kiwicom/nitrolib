@@ -11,8 +11,8 @@ import Header from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
 import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import Translate from "../../../../Translate/index";
-import Text from "../../../../Text/index";
+import Translate from "../../../../Translate";
+import Text from "../../../../Text";
 import { Consumer as BrandConsumer } from "../../../../../services/brand/context";
 
 type Props = {|

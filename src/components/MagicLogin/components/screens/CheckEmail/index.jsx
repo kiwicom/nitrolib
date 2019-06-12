@@ -4,8 +4,8 @@ import Heading from "@kiwicom/orbit-components/lib/Heading";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
-import Text from "../../../../Text/index";
-import Translate from "../../../../Translate/index";
+import Text from "../../../../Text";
+import Translate from "../../../../Translate";
 
 type Props = {|
   email: string,

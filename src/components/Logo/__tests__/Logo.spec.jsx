@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import Logo from "../index";
+import Logo from "..";
 
 describe("#Logo", () => {
   test("check default Logo", () => {

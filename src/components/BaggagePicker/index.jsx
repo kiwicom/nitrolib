@@ -10,10 +10,10 @@ import Close from "@kiwicom/orbit-components/lib/icons/Close";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Tooltip from "@kiwicom/orbit-components/lib/Tooltip";
 
-import Translate from "../Translate/index";
+import Translate from "../Translate";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
-import Option from "./components/Option/index";
+import Option from "./components/Option";
 import type { BaggageCategory, PassengerGroup, BaggageType } from "../../records/Baggage";
 import type { Airline } from "../../records/Airline";
 import getPersonalItemPresence from "./services/getPersonalItemPresence";

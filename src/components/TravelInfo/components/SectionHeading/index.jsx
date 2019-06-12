@@ -4,7 +4,7 @@ import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 
-import Translate from "../../../Translate/index";
+import Translate from "../../../Translate";
 
 type Props = {
   icon: React.Node,

@@ -4,7 +4,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Close from "@kiwicom/orbit-components/lib/icons/Close";
 import Text from "@kiwicom/orbit-components/lib/Text";
 
-import Translate from "../../../../../Translate/index";
+import Translate from "../../../../../Translate";
 import type { BaggageCategory } from "../../../../../../records/Baggage";
 
 type Props = {

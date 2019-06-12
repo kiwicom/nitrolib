@@ -7,7 +7,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Text from "@kiwicom/orbit-components/lib/Text";
 
-import Translate from "../../../../../Translate/index";
+import Translate from "../../../../../Translate";
 import { themeDefault } from "../../../../../../records/Theme";
 import type { ThemeProps } from "../../../../../../records/Theme";
 import type { Airline } from "../../../../../../records/Airline";

@@ -4,7 +4,7 @@ import { mount } from "enzyme";
 import { ThemeProvider } from "styled-components";
 import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
 
-import OptionItem from "../index";
+import OptionItem from "..";
 
 const props = {
   amount: 1,

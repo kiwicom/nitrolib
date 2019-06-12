@@ -9,12 +9,12 @@ import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
 import Lock from "@kiwicom/orbit-components/lib/icons/Lock";
 import User from "@kiwicom/orbit-components/lib/icons/Passenger";
 
-import Query from "../../../Query/index";
-import LogMount from "../../../LogMount/index";
-import InputText from "../../../InputText/index";
-import type { Change } from "../../../InputText/index";
-import IconText from "../../../IconText/index";
-import Translate from "../../../Translate/index";
+import Query from "../../../Query";
+import LogMount from "../../../LogMount";
+import InputText from "../../../InputText";
+import type { Change } from "../../../InputText";
+import IconText from "../../../IconText";
+import Translate from "../../../Translate";
 import firstFormError from "../../../NavBar/services/firstFormError";
 import * as normalizers from "../../../../services/input/normalizers";
 import * as validators from "../../../../services/input/validators";

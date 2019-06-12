@@ -2,7 +2,7 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import PassengerBaggages from "../index";
+import PassengerBaggages from "..";
 
 const props = {
   paxId: 1,

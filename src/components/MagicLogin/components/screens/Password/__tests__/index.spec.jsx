@@ -4,7 +4,7 @@ import Text from "@kiwicom/orbit-components/lib/Text";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import { mount } from "enzyme";
 
-import Password from "../index";
+import Password from "..";
 
 const defaultProps = {
   onAskSignInLink: () => {},

@@ -2,7 +2,7 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import NoPersonalItem from "../index";
+import NoPersonalItem from "..";
 
 describe("#NoPersonalItem", () => {
   test("renders ", () => {

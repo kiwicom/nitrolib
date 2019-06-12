@@ -10,8 +10,8 @@ import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import { Consumer } from "../../../../../services/intl/context";
-import Translate from "../../../../Translate/index";
-import Text from "../../../../Text/index";
+import Translate from "../../../../Translate";
+import Text from "../../../../Text";
 
 type Props = {|
   email: string,

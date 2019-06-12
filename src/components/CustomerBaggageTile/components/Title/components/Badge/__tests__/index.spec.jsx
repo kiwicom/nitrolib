@@ -2,7 +2,7 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import Badge from "../index";
+import Badge from "..";
 
 const props = {
   orderStatus: "unpaid",

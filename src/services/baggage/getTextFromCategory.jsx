@@ -2,7 +2,7 @@
 import * as React from "react";
 
 import type { BaggageSubCategory } from "../../records/Baggage";
-import Translate from "../../components/Translate/index";
+import Translate from "../../components/Translate";
 
 export default function getTextFromCategory(
   category: BaggageSubCategory,

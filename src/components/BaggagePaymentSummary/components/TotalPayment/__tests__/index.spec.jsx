@@ -2,7 +2,7 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import TotalPayment from "../index";
+import TotalPayment from "..";
 
 const props = {
   totalPrice: 50,

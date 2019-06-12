@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { mount } from "enzyme";
 import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
 
-import BaggageItem from "../index";
+import BaggageItem from "..";
 
 const passengers = [
   {

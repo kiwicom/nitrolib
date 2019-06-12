@@ -2,7 +2,7 @@
 import React from "react";
 
 import type { OrderStatusType } from "../../../../../../../records/Baggage";
-import Translate from "../../../../../../Translate/index";
+import Translate from "../../../../../../Translate";
 
 export default function getTooltipText(status: OrderStatusType) {
   switch (status) {

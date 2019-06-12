@@ -9,7 +9,7 @@ import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import * as MODALS from "../../../../consts/modals";
 import type { Modal as ModalType } from "../../../../consts/modals";
-import List from "../List/index";
+import List from "../List";
 
 const Container = styled.div`
   position: absolute;

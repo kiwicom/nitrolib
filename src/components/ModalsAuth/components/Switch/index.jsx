@@ -2,8 +2,8 @@
 import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import Tab from "../../../Tab/index";
-import Translate from "../../../Translate/index";
+import Tab from "../../../Tab";
+import Translate from "../../../Translate";
 import { Consumer as BrandConsumer } from "../../../../services/brand/context";
 import * as MODALS from "../../../../consts/modals";
 
