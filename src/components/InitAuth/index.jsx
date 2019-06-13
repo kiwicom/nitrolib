@@ -8,8 +8,6 @@ import type { Brand } from "../../records/Brand";
 import * as api from "../../services/auth/api";
 import type { MyBookingInput, RegisterInput } from "../../services/auth/api";
 import { makeCall, makeEnvironment } from "../../services/utils/relay";
-import * as cookies from "../../services/session/cookies";
-import { AFFILIATE_ID } from "../../consts/cookies";
 import * as session from "../../services/session/session";
 import { ACCOUNT_ID } from "../../consts/session";
 import handleAffiliateId from "../../services/utils/handleAffiliateId";
