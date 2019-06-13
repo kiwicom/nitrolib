@@ -10,6 +10,8 @@ import type { MyBookingInput, RegisterInput } from "../../services/auth/api";
 import { makeCall, makeEnvironment } from "../../services/utils/relay";
 import * as cookies from "../../services/session/cookies";
 import { AFFILIATE_ID } from "../../consts/cookies";
+import * as session from "../../services/session/session";
+import { ACCOUNT_ID } from "../../consts/session";
 import handleAffiliateId from "../../services/utils/handleAffiliateId";
 
 type Arg = {|
@@ -56,6 +58,7 @@ export default class InitAuth extends React.PureComponent<Props, State> {
     api
       .getTokenUser(token)
       .then(user => {
+        session.save(ACCOUNT_ID, user.id);
         handleAffiliateId(user.affiliateId);
 
         this.setState({ auth: { type: "user", user, token }, loading: false });
@@ -121,11 +124,8 @@ export default class InitAuth extends React.PureComponent<Props, State> {
     return api
       .signIn({ email, password, brand: brand.id })
       .then(auth => {
-        if (auth.user.affiliateId) {
-          cookies.save(AFFILIATE_ID, auth.user.affiliateId);
-        } else {
-          cookies.remove(AFFILIATE_ID);
-        }
+        session.save(ACCOUNT_ID, auth.user.id);
+        handleAffiliateId(auth.user.affiliateId);
 
         onSignIn(auth.token);
         this.setState({ auth, loading: false });
@@ -138,6 +138,8 @@ export default class InitAuth extends React.PureComponent<Props, State> {
 
   handleSignOut = () => {
     const { onSignOut } = this.props;
+
+    session.remove(ACCOUNT_ID);
 
     onSignOut();
     this.setState({ auth: null });

@@ -2,7 +2,7 @@
 import * as cookies from "../session/cookies";
 import { AFFILIATE_ID, USER_ID, UA_SESSION_TOKEN } from "../../consts/cookies";
 import * as session from "../session/session";
-import { DEEPLINK_ID, SESSION_ID, BOOKING_SESSION_ID } from "../../consts/session";
+import { ACCOUNT_ID, DEEPLINK_ID, SESSION_ID, BOOKING_SESSION_ID } from "../../consts/session";
 import type { Globals } from "../../records/Loglady";
 import { make } from "../../records/Event";
 import type { Event, Props, EventPayload } from "../../records/Event";
@@ -46,6 +46,7 @@ export const settings: Settings = {
 export const getGlobals = (): Globals => ({
   ...statics,
   userId: cookies.load(USER_ID) || "",
+  accountId: session.load(ACCOUNT_ID) || "",
   affilId: cookies.load(AFFILIATE_ID) || "",
   sessionId: session.load(SESSION_ID) || "",
   deeplinkId: session.load(DEEPLINK_ID) || "",

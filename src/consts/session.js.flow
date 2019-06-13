@@ -1,4 +1,5 @@
 // @flow strict
+declare export var ACCOUNT_ID: "accountId";
 declare export var SESSION_ID: "sessionId";
 declare export var DEEPLINK_ID: "deeplinkId";
 declare export var BOOKING_SESSION_ID: "bookingSessionId";

@@ -4,6 +4,7 @@ import type { EventPayload } from "./Event";
 export type Globals = {|
   project?: string,
   userId: string,
+  accountId?: string,
   module?: string,
   pageName?: string,
   langId?: string,
