@@ -100,6 +100,21 @@ storiesOf("CustomerBaggageTile", module)
   ))
   .add("without personal item", () => (
     <Wrapper>
-      <CustomerBaggageTile {...props} currentBaggage={{ handBag: 1, holdBag: 2 }} />
+      <span> test</span>
+      <CustomerBaggageTile
+        {...props}
+        current={{ handBag: 0, holdBag: 2 }}
+        selected={{ handBag: 0, holdBag: 2 }}
+      />
+    </Wrapper>
+  ))
+  .add("empty", () => (
+    <Wrapper>
+      <span> test</span>
+      <CustomerBaggageTile
+        {...props}
+        current={{ handBag: 0, holdBag: 0 }}
+        selected={{ handBag: 0, holdBag: 0 }}
+      />
     </Wrapper>
   ));

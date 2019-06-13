@@ -77,13 +77,18 @@ const Content = ({ definitions, orderStatus, supportLinkHandler }: Props) => {
             orderStatus={orderStatus}
           />
         ))}
-      {!hasPersonalItem && (
+      {!hasPersonalItem && definitions.length > 0 && (
         <NoPersonalItemWrapper>
           <Text element="span" type="secondary">
             <BaggagePersonalItemNone size="small" />
             <Translate t="baggage_modal.select.no_personal_item" />
           </Text>
         </NoPersonalItemWrapper>
+      )}
+      {definitions.length === 0 && (
+        <Text element="span" type="secondary">
+          <Translate t="baggage_modal.select.no_baggage" />
+        </Text>
       )}
       {orderStatus === "notAvailable" && supportLinkHandler && (
         <ContactUsText data-test="CustomerBaggageTile-ContactUsText">

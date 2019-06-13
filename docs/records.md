@@ -618,6 +618,8 @@ export type Brand = {|
       productLightHover: string,
       productLightActive: string,
       productNormalActive: string,
+      productDarkHover?: string,
+      productDarkActive?: string,
     |},
   |},
   company_name: string,

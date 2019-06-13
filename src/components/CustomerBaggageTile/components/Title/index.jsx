@@ -38,7 +38,7 @@ const Wrapper = styled.div`
     margin-${/* sc-custom "left" */ left}: 28px;
     margin-top: 6px;
     ${mq.largeMobile(css`
-      margin-${/* sc-custom "left" */ left}:: 10px;
+      margin-${/* sc-custom "left" */ left}: 10px;
       margin-top: 0;
     `)};
   }
@@ -60,9 +60,16 @@ const Title = ({
   <Wrapper data-test="CustomerBaggageTile-Title">
     <Stack inline align="center" spacing="condensed">
       {icon}
-      <Text element="span" weight="bold" size="large">{`${firstName}
+      <Text element="span" weight="bold" size="large">
+        {`${firstName}
         ${middleName ? `${middleName}` : ""}
-        ${lastName}${dayOfBirth ? ` ${dayOfBirth}` : ""}`}</Text>
+        ${lastName}`}
+      </Text>
+      {dayOfBirth && (
+        <Text element="span" weight="bold" size="large">
+          {dayOfBirth}
+        </Text>
+      )}
     </Stack>
     {orderStatus && <Badge orderStatus={orderStatus} price={price} />}
   </Wrapper>
