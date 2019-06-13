@@ -1,3 +1,24 @@
+# [5.2.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v4.0.0...v5.2.0) (2019-06-13)
+
+
+### Bug Fixes
+
+* Send magic login e-mail in correct language ([43bd048](https://gitlab.skypicker.com/frontend/nitrolib/commit/43bd048))
+* **components:** Imports ([08f4638](https://gitlab.skypicker.com/frontend/nitrolib/commit/08f4638))
+* **components:** MagicLogin Flow ([8114ac0](https://gitlab.skypicker.com/frontend/nitrolib/commit/8114ac0))
+* **components:** Update handling empty baggage ([45e7bf6](https://gitlab.skypicker.com/frontend/nitrolib/commit/45e7bf6))
+* **services:** `log/logger` typings ([da35509](https://gitlab.skypicker.com/frontend/nitrolib/commit/da35509))
+
+
+### Features
+
+* **components:** Add id to Cookie consent for ad blockers ([10cc6de](https://gitlab.skypicker.com/frontend/nitrolib/commit/10cc6de))
+* **components:** Navbar accessibility ([c182bbf](https://gitlab.skypicker.com/frontend/nitrolib/commit/c182bbf))
+* **services:** Add `accountId` in `log/logger` globals ([db55bd3](https://gitlab.skypicker.com/frontend/nitrolib/commit/db55bd3))
+* **services:** Purge redundant userId cookie in `server/analyseHeaders` ([6aa3307](https://gitlab.skypicker.com/frontend/nitrolib/commit/6aa3307))
+
+
+
 ## [5.1.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.1.0...v5.1.1) (2019-06-12)
 
 
