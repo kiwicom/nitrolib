@@ -1,3 +1,12 @@
+# [5.4.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.3.0...v5.4.0) (2019-06-15)
+
+
+### Features
+
+* **services:** Add connection info to `log/logger`'s `Globals` ([1d5e3c5](https://gitlab.skypicker.com/frontend/nitrolib/commit/1d5e3c5))
+
+
+
 # [5.3.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.2.0...v5.3.0) (2019-06-15)
 
 
