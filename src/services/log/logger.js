@@ -66,6 +66,9 @@ export const getGlobals = (): Globals => ({
   viewportWidth: window.innerWidth,
   viewportHeight: window.innerHeight,
   timestamp: Date.now(),
+  connectionType: window.navigator?.connection?.type,
+  connectionSpeed: window.navigator?.connection?.downlinkMax,
+  connectionSpeedMax: window.navigator?.connection?.downlinkMax,
 });
 
 export const log = (ev: Event, props: Props): Promise<void> =>

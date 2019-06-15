@@ -1343,6 +1343,9 @@ export type Globals = {|
   viewportHeight?: number,
   isLoggedIn?: boolean,
   browserPrivacyMode?: string,
+  connectionType?: string,
+  connectionSpeed?: number,
+  connectionSpeedMax?: number,
 |};
 
 export type Loglady = {|
