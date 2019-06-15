@@ -1,3 +1,17 @@
+# [5.3.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.2.0...v5.3.0) (2019-06-15)
+
+
+### Bug Fixes
+
+* Lint, changelog dupes ([5895ad3](https://gitlab.skypicker.com/frontend/nitrolib/commit/5895ad3))
+
+
+### Features
+
+* **services:** Add `email` to `log/logger`'s `Globals` ([c01bf15](https://gitlab.skypicker.com/frontend/nitrolib/commit/c01bf15))
+
+
+
 # [5.2.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v4.0.0...v5.2.0) (2019-06-13)
 
 
