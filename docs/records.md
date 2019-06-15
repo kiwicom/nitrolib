@@ -104,6 +104,8 @@ export type Auth = AuthUser | AuthMagic | AuthToken;
 
 export type SocialProvider = "facebook" | "google";
 
+declare export var getEmail: (a: Auth) => string;
+
 declare export var authDefault: Auth | null;
 ```
 
@@ -1318,6 +1320,8 @@ import type { Loglady } from "@kiwicom/nitro/lib/records/Loglady";
 export type Globals = {|
   project?: string,
   userId: string,
+  accountId?: string,
+  email?: string,
   module?: string,
   pageName?: string,
   langId?: string,

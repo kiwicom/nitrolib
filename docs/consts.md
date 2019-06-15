@@ -188,6 +188,8 @@ import * as session from "@kiwicom/nitro/lib/consts/session";
 
 **Types:**
 ```js
+declare export var EMAIL: "email";
+declare export var ACCOUNT_ID: "accountId";
 declare export var SESSION_ID: "sessionId";
 declare export var DEEPLINK_ID: "deeplinkId";
 declare export var BOOKING_SESSION_ID: "bookingSessionId";

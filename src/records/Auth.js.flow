@@ -23,4 +23,6 @@ export type Auth = AuthUser | AuthMagic | AuthToken;
 
 export type SocialProvider = "facebook" | "google";
 
+declare export var getEmail: (a: Auth) => string;
+
 declare export var authDefault: Auth | null;

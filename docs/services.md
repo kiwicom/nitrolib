@@ -620,6 +620,12 @@ export type Statics = {|
 
 declare export var statics: Statics;
 
+export type Settings = {|
+  api: ApiSettings,
+|};
+
+declare export var settings: Settings;
+
 declare export var getGlobals: () => Globals;
 
 declare export var log: (ev: Event, props: Props) => Promise<void>;
@@ -629,6 +635,7 @@ declare export var batch: (evs: EventPayload[]) => Promise<void>;
 See types:
 * [Loglady](./records#loglady)
 * [Event](./records#event)
+* [api](./records#api)
 
 A service substituting FE's current `cuckoo`.
 

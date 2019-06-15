@@ -9,7 +9,7 @@ import * as api from "../../services/auth/api";
 import type { MyBookingInput, RegisterInput } from "../../services/auth/api";
 import { makeCall, makeEnvironment } from "../../services/utils/relay";
 import * as session from "../../services/session/session";
-import { ACCOUNT_ID } from "../../consts/session";
+import { ACCOUNT_ID, EMAIL } from "../../consts/session";
 import handleAffiliateId from "../../services/utils/handleAffiliateId";
 
 type Arg = {|
@@ -57,6 +57,7 @@ export default class InitAuth extends React.PureComponent<Props, State> {
       .getTokenUser(token)
       .then(user => {
         session.save(ACCOUNT_ID, user.id);
+        session.save(EMAIL, user.email);
         handleAffiliateId(user.affiliateId);
 
         this.setState({ auth: { type: "user", user, token }, loading: false });
@@ -123,6 +124,7 @@ export default class InitAuth extends React.PureComponent<Props, State> {
       .signIn({ email, password, brand: brand.id })
       .then(auth => {
         session.save(ACCOUNT_ID, auth.user.id);
+        session.save(EMAIL, auth.user.email);
         handleAffiliateId(auth.user.affiliateId);
 
         onSignIn(auth.token);
@@ -138,6 +140,7 @@ export default class InitAuth extends React.PureComponent<Props, State> {
     const { onSignOut } = this.props;
 
     session.remove(ACCOUNT_ID);
+    session.remove(EMAIL);
 
     onSignOut();
     this.setState({ auth: null });
