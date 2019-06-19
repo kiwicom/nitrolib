@@ -7,6 +7,7 @@ const errors = {
   invalidEmail: __("account.wrong_format_email"),
   loginFailed: __("account.login_failed"),
   passwordMismatch: __("account.password_confirm_not_matching"),
+  wrongIATACode: __("forms.enter_iata_code"),
   general: __("common.api_error"),
 };
 

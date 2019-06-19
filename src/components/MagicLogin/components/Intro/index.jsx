@@ -46,6 +46,12 @@ export default class IntroScreen extends React.Component<Props, State> {
     this.setState({ validateEmail: true });
   };
 
+  handleIncorrectEmail = () => {
+    const { onChangeScreen } = this.props;
+
+    onChangeScreen("getSingleBooking");
+  };
+
   handleCheckEmail = (e: SyntheticEvent<HTMLButtonElement>) => {
     const { email, brandId, onChangeScreen, onSendMagicLink } = this.props;
     const { log } = this.context;
@@ -149,6 +155,7 @@ export default class IntroScreen extends React.Component<Props, State> {
         onGoogleLogin={onGoogleLogin}
         onFacebookLogin={onFacebookLogin}
         onContinue={this.handleCheckEmail}
+        onIncorrectEmail={this.handleIncorrectEmail}
       />
     );
   }

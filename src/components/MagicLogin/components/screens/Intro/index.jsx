@@ -4,6 +4,7 @@ import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 import Button from "@kiwicom/orbit-components/lib/Button";
+import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
@@ -29,6 +30,7 @@ type Props = {|
   onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onEmailBlur: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onContinue: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onIncorrectEmail: () => void,
 |};
 
 const ILLUSTRATION = {
@@ -61,6 +63,7 @@ const Intro = ({
   onEmailChange,
   onEmailBlur,
   onContinue,
+  onIncorrectEmail,
 }: Props) => (
   <IntlConsumer>
     {intl => (
@@ -126,6 +129,16 @@ const Intro = ({
                 </Stack>
               </ModalSection>
             )}
+            <ModalSection>
+              <TextLink
+                type="secondary"
+                size="small"
+                dataTest="MagicLogin-IncorrectEmail"
+                onClick={onIncorrectEmail}
+              >
+                <Translate t="account.incorrect_booking_email" />
+              </TextLink>
+            </ModalSection>
           </>
         )}
       </BrandConsumer>

@@ -3,7 +3,6 @@
 
 import * as React from "react";
 import { mount } from "enzyme";
-import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
 import MagicLogin from "..";
 
@@ -85,8 +84,7 @@ describe("#MagicLogin", () => {
     );
 
     wrapper
-      .find(ModalSection)
-      .last()
+      .find(`[data-test="MagicLogin-LoginViaSocials"]`)
       .find("button")
       .first()
       .simulate("click");

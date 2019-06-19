@@ -9,4 +9,5 @@ export type Screen =
   | "googleLogin"
   | "magicLink"
   | "signUpConfirmation"
-  | "resetPassword";
+  | "resetPassword"
+  | "getSingleBooking";

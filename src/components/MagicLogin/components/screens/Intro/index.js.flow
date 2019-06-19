@@ -15,6 +15,7 @@ type Props = {|
   onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onEmailBlur: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onContinue: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onIncorrectEmail: () => void,
 |};
 
 declare export default React.ComponentType<Props>;

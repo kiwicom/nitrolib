@@ -22,6 +22,7 @@ import type { AuthUser, SocialProvider } from "../../records/Auth";
 import type { Event, Props as EventProps } from "../../records/Event";
 import type { Brand } from "../../records/Brand";
 import type { LangInfo } from "../../records/LangInfo";
+import GetSingleBooking from "./components/GetSingleBooking/index";
 
 type ContainerProps = {|
   initialScreen: "intro" | "signUp",
@@ -243,6 +244,8 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
         {(screen === "signUpConfirmation" ||
           screen === "magicLink" ||
           screen === "resetPassword") && <AccountCheckEmail reason={screen} email={email} />}
+
+        {screen === "getSingleBooking" && <GetSingleBooking onBack={this.handleToIntro} />}
       </Modal>
     );
   }

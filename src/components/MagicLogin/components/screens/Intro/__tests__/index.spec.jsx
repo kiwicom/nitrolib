@@ -11,6 +11,7 @@ const commonProps = {
   onFacebookLogin: () => {},
   onGoogleLogin: () => {},
   onContinue: () => {},
+  onIncorrectEmail: () => {},
 };
 
 describe("#AccountLogin", () => {

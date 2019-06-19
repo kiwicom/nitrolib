@@ -317,10 +317,17 @@ See types:
 **Selectors `data-test`:**
 * ```"MagicLogin"```
 * ```"MagicLogin-AskForMagic"```
+* ```"MagicLogin-BookingId"```
 * ```"MagicLogin-CheckEmail"```
 * ```"MagicLogin-CreateAccount"```
 * ```"MagicLogin-Email"```
 * ```"MagicLogin-Email"```
+* ```"MagicLogin-Email"```
+* ```"MagicLogin-GetSingleBooking"```
+* ```"MagicLogin-GetSingleBookingBack"```
+* ```"MagicLogin-GetSingleBookingSubmit"```
+* ```"MagicLogin-IATA"```
+* ```"MagicLogin-IncorrectEmail"```
 * ```"MagicLogin-Intro"```
 * ```"MagicLogin-LoginViaSocials"```
 * ```"MagicLogin-NoAccount"```

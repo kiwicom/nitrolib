@@ -12,6 +12,7 @@ import NoAccount from "../src/components/MagicLogin/components/screens/NoAccount
 import CheckEmail from "../src/components/MagicLogin/components/screens/CheckEmail";
 import CreateAccount from "../src/components/MagicLogin/components/screens/CreateAccount";
 import SocialLogin from "../src/components/MagicLogin/components/screens/SocialLogin";
+import GetSingleBooking from "../src/components/MagicLogin/components/screens/GetSingleBooking";
 import withData from "./decorators/withData";
 
 const type = {
@@ -63,6 +64,7 @@ storiesOf("MagicLogin", module)
       onFacebookLogin={() => {}}
       onGoogleLogin={() => {}}
       onContinue={() => {}}
+      onIncorrectEmail={action("onIncorrectLogin")}
     />
   ))
   .add("Screen - checkEmail", () => <CheckEmail email="" reason="magicLink" />)
@@ -109,5 +111,23 @@ storiesOf("MagicLogin", module)
       passwordError="Password too simple"
       passwordConfirmError="Passwords doesn't match"
       isLoading
+    />
+  ))
+  .add("Screen - GetSingleBooking", () => (
+    <GetSingleBooking
+      IATA=""
+      IATAError=""
+      bookingId=""
+      bookingIdError=""
+      email=""
+      emailError=""
+      departureDate={null}
+      departureDateError=""
+      onBack={action("onBack")}
+      onBookingIdChange={action("onBookingIdChange")}
+      onDepartureDateChange={action("onDepartureDateChange")}
+      onEmailChange={action("onEmailChange")}
+      onIATAChange={action("onIATAChange")}
+      onSubmit={action("onSubmit")}
     />
   ));
