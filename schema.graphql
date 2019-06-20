@@ -1,5 +1,5 @@
 # source: https://graphql.kiwi.com
-# timestamp: Mon May 20 2019 10:19:42 GMT+0200 (Central European Summer Time)
+# timestamp: Thu Jun 20 2019 14:02:23 GMT+0200 (Central European Summer Time)
 
 schema {
   query: RootQuery
@@ -89,6 +89,9 @@ type AllAvailableStay22HotelConnection {
 
   """Name of the closest city"""
   cityName: String
+
+  """Meta data for the search"""
+  stats: HotelSearchMeta
 }
 
 """An edge in a connection."""
@@ -1045,6 +1048,10 @@ type CreateAccountResponse {
   identity: Identity
 }
 
+type CreateStoredOperation {
+  createdOperations: [StoredOperation]
+}
+
 interface CSPhoneAvailabilityInterface {
   """Customer support availability type"""
   type: CSPhoneAvailabilityType
@@ -1343,9 +1350,7 @@ input DateInput {
   """
   from: Date
 
-  """
-  End of the date range (cannot be used in combination with exact date).
-  """
+  """End of the date range (cannot be used in combination with exact date)."""
   to: Date
 }
 
@@ -1466,9 +1471,7 @@ type DynamicPackage {
   """Transport part of the package"""
   flight: Flight
 
-  """
-  URL to the whitelabel page where this dynamic package can be purchased
-  """
+  """URL to the whitelabel page where this dynamic package can be purchased"""
   whitelabelUrl: String
 
   """Total price"""
@@ -2219,6 +2222,12 @@ type HotelRoomPhotoEdge {
   cursor: String!
 }
 
+"""Meta data for hotel search"""
+type HotelSearchMeta {
+  minPrice: Money
+  maxPrice: Money
+}
+
 type HotelService {
   relevantLocations: [HotelServiceRelevantLocation]
   roomsConfiguration: RoomsConfigurationOutput
@@ -2235,15 +2244,21 @@ input HotelsFilterInput {
   """List of hotels classes (stars) you want to filter."""
   starsRating: [Int]
 
+  """Deprecated -> Use minimumPrice instead"""
+  minPrice: Float
+
+  """Deprecated -> Use maximumPrice instead"""
+  maxPrice: Float
+
   """
   Show only hotels having minimum total price lower than or equal to this value.
   """
-  minPrice: Float
+  minimumPrice: String
 
   """
   Show only hotels having minimum total price higher than or equal to this value.
   """
-  maxPrice: Float
+  maximumPrice: String
 
   """Deprecated -> use hotelAmenities instead."""
   hotelFacilities: HotelFacilitiesInput
@@ -2280,9 +2295,7 @@ input HotelsSearchInput {
   """Must not be before today."""
   checkin: Date!
 
-  """
-  Max 365 days in the future, and max 30 days greater than checkin date.
-  """
+  """Max 365 days in the future, and max 30 days greater than checkin date."""
   checkout: Date!
   language: Language
   roomsConfiguration: [RoomsConfiguration!]!
@@ -2305,9 +2318,7 @@ type Identity {
   firstName: String
   lastName: String
 
-  """
-  Concatenation of first and last name with fallback to the login field.
-  """
+  """Concatenation of first and last name with fallback to the login field."""
   fullName: String
 
   """Use this in API calls. It is email but normalized."""
@@ -2602,6 +2613,11 @@ input LocationsOptionsInput {
 
   """Desired location types the response should only include."""
   locationTypes: [LocationType!]
+
+  """
+  Locations by some providers are hidden by default and have to be explicitly enabled.
+  """
+  providerIds: [Int!]
 }
 
 type LocationTag {
@@ -2618,6 +2634,7 @@ enum LocationType {
   bus_station @deprecated(reason: "This type has been removed and there is no replacement for it.")
   city
   country
+  special
   station
   subdivision
 }
@@ -2823,50 +2840,6 @@ type RoomsConfigurationOutput {
 
 """Root Mutation."""
 type RootMutation {
-  login(email: String!, password: String!): User @deprecated(reason: "Use \"signIn\" mutation instead.")
-
-  """Log into Kiwi.com account with email & password."""
-  signIn(email: String!, password: String!, brand: Brand = "kiwicom"): SignInResponse
-
-  """Create Kiwi.com user account."""
-  createAccount(credentials: CreateAccountInput!, brand: Brand = "kiwicom"): CreateAccountResponse
-  resetPassword(email: String!, brand: String = "kiwicom"): ResetPasswordResponse
-
-  """Check whether given e-mail has any associated account or bookings."""
-  checkEmail(email: String!, brand: Brand = "kiwicom"): CheckEmailResponse
-
-  """Sends time limited link on given e-mail to log in."""
-  sendMagicLink(email: String!, brand: Brand = "kiwicom"): SendMagicLinkResponse
-  updatePassenger(
-    """The global booking id"""
-    id: ID!
-    simpleToken: String
-    passengers: [PassengerInput!]!
-  ): UpdatePassenger
-  refundInsurance(
-    """The global booking id"""
-    id: ID!
-    simpleToken: String!
-    passengers: [PassengerInsuranceInput!]!
-    brand: String = "kiwicom"
-  ): Booking
-  voteFAQArticle(
-    """ID of FAQ article to receive vote."""
-    id: ID!
-
-    """Type of vote for article (up/down)"""
-    vote: VoteType
-  ): FAQArticle
-  addFAQArticleComment(
-    """ID of FAQ article to receive vote."""
-    id: ID!
-
-    """Value indicating the comment type."""
-    type: FAQCommentType!
-
-    """Comment text"""
-    comment: String!
-  ): FAQArticle
   _addFAQArticleComment(
     """ID of FAQ article to receive vote."""
     id: ID!
@@ -2877,6 +2850,53 @@ type RootMutation {
     """Comment text"""
     comment: String!
   ): FAQFeedbackResponse
+  addFAQArticleComment(
+    """ID of FAQ article to receive vote."""
+    id: ID!
+
+    """Value indicating the comment type."""
+    type: FAQCommentType!
+
+    """Comment text"""
+    comment: String!
+  ): FAQArticle
+
+  """Check whether given e-mail has any associated account or bookings."""
+  checkEmail(email: String!, brand: Brand = "kiwicom"): CheckEmailResponse
+
+  """Create Kiwi.com user account."""
+  createAccount(credentials: CreateAccountInput!, brand: Brand = "kiwicom"): CreateAccountResponse
+
+  """Mutation to add persisted queries -> Not yet production ready"""
+  createStoredOperations(persistedOperations: [StoredOperationInput!]!): CreateStoredOperation
+  login(email: String!, password: String!): User @deprecated(reason: "Use \"signIn\" mutation instead.")
+  refundInsurance(
+    """The global booking id"""
+    id: ID!
+    simpleToken: String!
+    passengers: [PassengerInsuranceInput!]!
+    brand: String = "kiwicom"
+  ): Booking
+  resetPassword(email: String!, brand: String = "kiwicom"): ResetPasswordResponse
+
+  """Sends time limited link on given e-mail to log in."""
+  sendMagicLink(email: String!, brand: Brand = "kiwicom"): SendMagicLinkResponse
+
+  """Log into Kiwi.com account with email & password."""
+  signIn(email: String!, password: String!, brand: Brand = "kiwicom"): SignInResponse
+  updatePassenger(
+    """The global booking id"""
+    id: ID!
+    simpleToken: String
+    passengers: [PassengerInput!]!
+  ): UpdatePassenger
+  voteFAQArticle(
+    """ID of FAQ article to receive vote."""
+    id: ID!
+
+    """Type of vote for article (up/down)"""
+    vote: VoteType
+  ): FAQArticle
 }
 
 """Root Query"""
@@ -2894,7 +2914,7 @@ type RootQuery {
   allAvailableHotels(search: HotelsSearchInput!, filter: HotelsFilterInput, options: AvailableHotelOptionsInput, after: String, first: Int = 50, before: String, last: Int): HotelAvailabilityConnection @deprecated(reason: "This query has serious performace issues. That is basically because we are overfeching data\n  from the https://distribution-xml.booking.com/2.0/json/hotels endpoint with way to many extras.\n  Use allAvailableBookingComHotels instead")
 
   """All available hotels from provider stay22 for the given time"""
-  allAvailableStay22Hotels(search: Stay22HotelsSearchInput!, after: String, first: Int = 50, before: String, last: Int): AllAvailableStay22HotelConnection
+  allAvailableStay22Hotels(search: Stay22HotelsSearchInput!, filter: HotelsFilterInput, after: String, first: Int = 50, before: String, last: Int): AllAvailableStay22HotelConnection
 
   """Search for the urls of public documents"""
   allDocuments(after: String, first: Int, before: String, last: Int): DocumentInterfaceConnection
@@ -3282,6 +3302,22 @@ input StopoversInput {
 
   """Maximum number of hours of stopover duration."""
   to: Int
+}
+
+type StoredOperation {
+  """The md5 has generated by relay compiler"""
+  operationId: String
+
+  """The entire query generated by relay compiler"""
+  text: String
+}
+
+input StoredOperationInput {
+  """The md5 has generated by relay compiler"""
+  operationId: String!
+
+  """The entire query generated by relay compiler"""
+  text: String!
 }
 
 type SupportedLanguage {

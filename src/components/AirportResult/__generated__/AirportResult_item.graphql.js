@@ -10,10 +10,10 @@
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type AirportResult_item$ref: FragmentReference;
+declare export opaque type AirportResult_item$fragmentType: AirportResult_item$ref;
 export type AirportResult_item = {|
   +locationId: ?string,
   +name: ?string,
-  +type: ?string,
   +city: ?{|
     +name: ?string
   |},
@@ -22,6 +22,11 @@ export type AirportResult_item = {|
   |},
   +$refType: AirportResult_item$ref,
 |};
+export type AirportResult_item$data = AirportResult_item;
+export type AirportResult_item$key = {
+  +$data?: AirportResult_item$data,
+  +$fragmentRefs: AirportResult_item$ref,
+};
 */
 
 
@@ -50,13 +55,6 @@ return {
     (v0/*: any*/),
     (v1/*: any*/),
     {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "type",
-      "args": null,
-      "storageKey": null
-    },
-    {
       "kind": "LinkedField",
       "alias": null,
       "name": "city",
@@ -84,5 +82,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '8e1fa20cf89c00ead07979a1b1a2d2e4';
+(node/*: any*/).hash = 'afae1b5fa60d9cd49195e7aeb9d0f141';
 module.exports = node;

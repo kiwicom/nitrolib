@@ -62,9 +62,8 @@ const TripList = ({ list, onSelect }: Props) => {
 
 export const TripListUnwrapped = TripList;
 
-export default createFragmentContainer(
-  TripList,
-  graphql`
+export default createFragmentContainer(TripList, {
+  list: graphql`
     fragment TripList_list on BookingInterfaceConnection {
       edges {
         node {
@@ -77,4 +76,4 @@ export default createFragmentContainer(
       }
     }
   `,
-);
+});

@@ -47,9 +47,8 @@ const TripHeader = ({ list }: Props) => {
 
 export const TripHeaderUnwrapped = TripHeader;
 
-export default createFragmentContainer(
-  TripHeader,
-  graphql`
+export default createFragmentContainer(TripHeader, {
+  list: graphql`
     fragment TripHeader_list on BookingInterfaceConnection {
       edges {
         node {
@@ -58,4 +57,4 @@ export default createFragmentContainer(
       }
     }
   `,
-);
+});

@@ -21,9 +21,8 @@ const AirportList = ({ list, onSelect }: Props): React.Node[] | null =>
           <AirportResult key={item.locationId} item={item} onClick={onSelect} />
         ));
 
-export default createFragmentContainer(
-  AirportList,
-  graphql`
+export default createFragmentContainer(AirportList, {
+  list: graphql`
     fragment AirportList_list on LocationConnection {
       edges {
         node {
@@ -33,4 +32,4 @@ export default createFragmentContainer(
       }
     }
   `,
-);
+});

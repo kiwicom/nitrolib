@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash dcc4342df622b686e3a5fd74ca1d7031
+ * @relayHash 5007ce83dfdaa1efa524273a9abc44d6
  */
 
 /* eslint-disable */
@@ -11,11 +11,12 @@
 import type { ConcreteRequest } from 'relay-runtime';
 type LocationPickerResultList_list$ref = any;
 export type Locale = "ar_AE" | "ar_BH" | "ar_JO" | "ar_KW" | "ar_OM" | "ar_QA" | "ar_SA" | "bg_BG" | "ca_ES" | "cs_CZ" | "da_DK" | "de_AT" | "de_CH" | "de_DE" | "el_GR" | "en_AU" | "en_CA" | "en_EE" | "en_GB" | "en_HK" | "en_IE" | "en_IN" | "en_MY" | "en_NZ" | "en_PH" | "en_SG" | "en_US" | "en_ZA" | "es_AR" | "es_CL" | "es_CO" | "es_EC" | "es_ES" | "es_MX" | "es_PE" | "fi_FI" | "fr_BE" | "fr_CA" | "fr_FR" | "he_IL" | "hr_HR" | "hu_HU" | "id_ID" | "is_IS" | "it_IT" | "ja_JP" | "ko_KR" | "lt_LT" | "nb_NO" | "nl_NL" | "nn_NO" | "no_NO" | "pl_PL" | "pt_BR" | "pt_PT" | "ro_RO" | "ru_BY" | "ru_KZ" | "ru_RU" | "sk_SK" | "sr_RS" | "sv_SE" | "th_TH" | "tr_TR" | "uk_UA" | "vi_VN" | "zh_CN" | "zh_TW" | "%future added value";
-export type LocationType = "airport" | "autonomous_territory" | "bus_station" | "city" | "country" | "station" | "subdivision" | "%future added value";
+export type LocationType = "airport" | "autonomous_territory" | "bus_station" | "city" | "country" | "special" | "station" | "subdivision" | "%future added value";
 export type LocationsOptionsInput = {|
   locale?: ?Locale,
   locationType?: ?LocationType,
   locationTypes?: ?$ReadOnlyArray<LocationType>,
+  providerIds?: ?$ReadOnlyArray<number>,
 |};
 export type LocationPickerQueryVariables = {|
   input: string,
@@ -108,20 +109,17 @@ v1 = [
   {
     "kind": "Literal",
     "name": "last",
-    "value": 50,
-    "type": "Int"
+    "value": 50
   },
   {
     "kind": "Variable",
     "name": "options",
-    "variableName": "options",
-    "type": "LocationsOptionsInput"
+    "variableName": "options"
   },
   {
     "kind": "Variable",
     "name": "search",
-    "variableName": "input",
-    "type": "String"
+    "variableName": "input"
   }
 ],
 v2 = {
@@ -194,12 +192,12 @@ return {
         "concreteType": "LocationConnection",
         "plural": false,
         "selections": [
+          (v2/*: any*/),
           {
             "kind": "FragmentSpread",
             "name": "LocationPickerResultList_list",
             "args": null
-          },
-          (v2/*: any*/)
+          }
         ]
       }
     ]

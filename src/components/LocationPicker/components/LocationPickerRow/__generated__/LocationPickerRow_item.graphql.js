@@ -10,6 +10,7 @@
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type LocationPickerRow_item$ref: FragmentReference;
+declare export opaque type LocationPickerRow_item$fragmentType: LocationPickerRow_item$ref;
 export type LocationPickerRow_item = {|
   +locationId: ?string,
   +type: ?string,
@@ -40,6 +41,11 @@ export type LocationPickerRow_item = {|
   |},
   +$refType: LocationPickerRow_item$ref,
 |};
+export type LocationPickerRow_item$data = LocationPickerRow_item;
+export type LocationPickerRow_item$key = {
+  +$data?: LocationPickerRow_item$data,
+  +$fragmentRefs: LocationPickerRow_item$ref,
+};
 */
 
 

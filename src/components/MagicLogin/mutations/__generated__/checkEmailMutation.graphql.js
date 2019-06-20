@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash f820b8c68603fca4dd65ed47abcec22e
+ * @relayHash 9f85597d24fbf9b5c3ab67452a0f6eeb
  */
 
 /* eslint-disable */
@@ -71,14 +71,12 @@ v1 = [
       {
         "kind": "Variable",
         "name": "brand",
-        "variableName": "brand",
-        "type": "Brand"
+        "variableName": "brand"
       },
       {
         "kind": "Variable",
         "name": "email",
-        "variableName": "email",
-        "type": "String!"
+        "variableName": "email"
       }
     ],
     "concreteType": "CheckEmailResponse",

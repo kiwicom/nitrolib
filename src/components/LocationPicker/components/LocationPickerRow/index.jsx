@@ -56,9 +56,8 @@ const LocationPickerRow = ({ item, selected, onSelect }: Props) => {
   );
 };
 
-export default createFragmentContainer(
-  LocationPickerRow,
-  graphql`
+export default createFragmentContainer(LocationPickerRow, {
+  item: graphql`
     fragment LocationPickerRow_item on Location {
       locationId
       type
@@ -91,4 +90,4 @@ export default createFragmentContainer(
       }
     }
   `,
-);
+});

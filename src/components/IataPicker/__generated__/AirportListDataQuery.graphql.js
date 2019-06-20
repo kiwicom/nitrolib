@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash e4bf314a70ddba91a28da64606966d72
+ * @relayHash 8db7cf6d18bb547a7837f9d02878d60a
  */
 
 /* eslint-disable */
@@ -47,7 +47,6 @@ fragment AirportList_list on LocationConnection {
 fragment AirportResult_item on Location {
   locationId
   name
-  type
   city {
     name
   }
@@ -72,14 +71,12 @@ v1 = [
     "name": "options",
     "value": {
       "locationType": "airport"
-    },
-    "type": "LocationsOptionsInput"
+    }
   },
   {
     "kind": "Variable",
     "name": "search",
-    "variableName": "input",
-    "type": "String"
+    "variableName": "input"
   }
 ],
 v2 = {
@@ -158,13 +155,6 @@ return {
                   (v2/*: any*/),
                   (v3/*: any*/),
                   {
-                    "kind": "ScalarField",
-                    "alias": null,
-                    "name": "type",
-                    "args": null,
-                    "storageKey": null
-                  },
-                  {
                     "kind": "LinkedField",
                     "alias": null,
                     "name": "city",
@@ -207,7 +197,7 @@ return {
     "operationKind": "query",
     "name": "AirportListDataQuery",
     "id": null,
-    "text": "query AirportListDataQuery(\n  $input: String!\n) {\n  allLocations(search: $input, options: {locationType: airport}) {\n    ...AirportList_list\n  }\n}\n\nfragment AirportList_list on LocationConnection {\n  edges {\n    node {\n      locationId\n      ...AirportResult_item\n      id\n    }\n  }\n}\n\nfragment AirportResult_item on Location {\n  locationId\n  name\n  type\n  city {\n    name\n  }\n  country {\n    locationId\n  }\n}\n",
+    "text": "query AirportListDataQuery(\n  $input: String!\n) {\n  allLocations(search: $input, options: {locationType: airport}) {\n    ...AirportList_list\n  }\n}\n\nfragment AirportList_list on LocationConnection {\n  edges {\n    node {\n      locationId\n      ...AirportResult_item\n      id\n    }\n  }\n}\n\nfragment AirportResult_item on Location {\n  locationId\n  name\n  city {\n    name\n  }\n  country {\n    locationId\n  }\n}\n",
     "metadata": {}
   }
 };

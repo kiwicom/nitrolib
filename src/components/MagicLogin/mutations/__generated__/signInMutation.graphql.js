@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 080447fb52b44ff6edb43eeba747bb16
+ * @relayHash 5cf886d3ecf0a6d5a8ac0c8aef50d8c8
  */
 
 /* eslint-disable */
@@ -111,20 +111,17 @@ v1 = [
       {
         "kind": "Variable",
         "name": "brand",
-        "variableName": "brand",
-        "type": "Brand"
+        "variableName": "brand"
       },
       {
         "kind": "Variable",
         "name": "email",
-        "variableName": "email",
-        "type": "String!"
+        "variableName": "email"
       },
       {
         "kind": "Variable",
         "name": "password",
-        "variableName": "password",
-        "type": "String!"
+        "variableName": "password"
       }
     ],
     "concreteType": "SignInResponse",
@@ -170,8 +167,7 @@ v1 = [
                   {
                     "kind": "Literal",
                     "name": "opaque",
-                    "value": false,
-                    "type": "Boolean"
+                    "value": false
                   }
                 ],
                 "storageKey": "id(opaque:false)"

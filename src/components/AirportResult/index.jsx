@@ -73,13 +73,11 @@ class AirportResult extends React.PureComponent<Props> {
 
 export const AirportResultUnwrapped = AirportResult;
 
-export default createFragmentContainer(
-  AirportResult,
-  graphql`
+export default createFragmentContainer(AirportResult, {
+  item: graphql`
     fragment AirportResult_item on Location {
       locationId
       name
-      type
       city {
         name
       }
@@ -88,4 +86,4 @@ export default createFragmentContainer(
       }
     }
   `,
-);
+});

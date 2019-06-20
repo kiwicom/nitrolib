@@ -25,9 +25,8 @@ const ReturnTrips = ({ item, onSelect }: Props) => (
 
 export const ReturnTripsUnwrapped = ReturnTrips;
 
-export default createFragmentContainer(
-  ReturnTrips,
-  graphql`
+export default createFragmentContainer(ReturnTrips, {
+  item: graphql`
     fragment ReturnTrips_item on BookingReturn {
       databaseId
       destinationImageUrl
@@ -71,4 +70,4 @@ export default createFragmentContainer(
       }
     }
   `,
-);
+});

@@ -31,8 +31,7 @@ TripsBottomWrapper.defaultProps = {
 
 const TripListBottom = ({ list }: Props) => {
   const trips = list.edges && list.edges.map(edge => edge && edge.node).filter(Boolean);
-  const upcoming = trips && trips.filter(trip => trip && !trip.isPastBooking);
-  const futureTrips = upcoming && upcoming.slice(2, 6);
+  const futureTrips = trips && trips.slice(2, 6);
 
   return futureTrips && futureTrips.length > 0 ? (
     <IntlConsumer>
@@ -67,18 +66,16 @@ const TripListBottom = ({ list }: Props) => {
 
 export const TripListBottomUnwrapped = TripListBottom;
 
-export default createFragmentContainer(
-  TripListBottom,
-  graphql`
+export default createFragmentContainer(TripListBottom, {
+  list: graphql`
     fragment TripListBottom_list on BookingInterfaceConnection {
       edges {
         node {
           __typename
-          isPastBooking
           id
           destinationImageUrl
         }
       }
     }
   `,
-);
+});

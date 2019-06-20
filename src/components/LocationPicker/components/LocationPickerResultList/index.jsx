@@ -28,9 +28,8 @@ const LocationPickerResultList = ({ list, selectedId, onSelect }: Props): React.
         ))
     : null;
 
-export default createFragmentContainer(
-  LocationPickerResultList,
-  graphql`
+export default createFragmentContainer(LocationPickerResultList, {
+  list: graphql`
     fragment LocationPickerResultList_list on LocationConnection {
       edges {
         node {
@@ -40,4 +39,4 @@ export default createFragmentContainer(
       }
     }
   `,
-);
+});

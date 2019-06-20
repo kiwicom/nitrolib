@@ -10,17 +10,22 @@
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type TripListBottom_list$ref: FragmentReference;
+declare export opaque type TripListBottom_list$fragmentType: TripListBottom_list$ref;
 export type TripListBottom_list = {|
   +edges: ?$ReadOnlyArray<?{|
     +node: ?{|
       +__typename: string,
-      +isPastBooking: ?boolean,
       +id: string,
       +destinationImageUrl: ?string,
     |}
   |}>,
   +$refType: TripListBottom_list$ref,
 |};
+export type TripListBottom_list$data = TripListBottom_list;
+export type TripListBottom_list$key = {
+  +$data?: TripListBottom_list$data,
+  +$fragmentRefs: TripListBottom_list$ref,
+};
 */
 
 
@@ -59,13 +64,6 @@ const node/*: ReaderFragment*/ = {
             {
               "kind": "ScalarField",
               "alias": null,
-              "name": "isPastBooking",
-              "args": null,
-              "storageKey": null
-            },
-            {
-              "kind": "ScalarField",
-              "alias": null,
               "name": "id",
               "args": null,
               "storageKey": null
@@ -84,5 +82,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = 'e42acb3cf0de77bb6ce78fea30678a61';
+(node/*: any*/).hash = '11a5c7bce7d2f8ed258c8b67ad0a126c';
 module.exports = node;

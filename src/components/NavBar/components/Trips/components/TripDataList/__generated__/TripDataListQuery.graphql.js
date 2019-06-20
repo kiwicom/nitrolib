@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 9f4eba75b9cfd0d7d07ca95bb9a933a8
+ * @relayHash 9d476aed96c8319a67466b3d0429fd89
  */
 
 /* eslint-disable */
@@ -70,7 +70,6 @@ fragment TripListBottom_list on BookingInterfaceConnection {
   edges {
     node {
       __typename
-      isPastBooking
       id
       destinationImageUrl
     }
@@ -212,20 +211,17 @@ v1 = [
   {
     "kind": "Variable",
     "name": "first",
-    "variableName": "first",
-    "type": "Int"
+    "variableName": "first"
   },
   {
     "kind": "Variable",
     "name": "only",
-    "variableName": "only",
-    "type": "CustomerBookingsOnlyEnum"
+    "variableName": "only"
   },
   {
     "kind": "Variable",
     "name": "order",
-    "variableName": "order",
-    "type": "CustomerBookingsOrderEnum"
+    "variableName": "order"
   }
 ],
 v2 = {
@@ -406,32 +402,19 @@ return {
                   },
                   {
                     "kind": "InlineFragment",
-                    "type": "BookingReturn",
+                    "type": "BookingOneWay",
                     "selections": [
                       (v3/*: any*/),
                       (v4/*: any*/),
                       {
                         "kind": "LinkedField",
                         "alias": null,
-                        "name": "outbound",
+                        "name": "trip",
                         "storageKey": null,
                         "args": null,
                         "concreteType": "Trip",
                         "plural": false,
                         "selections": (v9/*: any*/)
-                      },
-                      {
-                        "kind": "LinkedField",
-                        "alias": null,
-                        "name": "inbound",
-                        "storageKey": null,
-                        "args": null,
-                        "concreteType": "Trip",
-                        "plural": false,
-                        "selections": [
-                          (v8/*: any*/),
-                          (v7/*: any*/)
-                        ]
                       }
                     ]
                   },
@@ -488,19 +471,32 @@ return {
                   },
                   {
                     "kind": "InlineFragment",
-                    "type": "BookingOneWay",
+                    "type": "BookingReturn",
                     "selections": [
                       (v3/*: any*/),
                       (v4/*: any*/),
                       {
                         "kind": "LinkedField",
                         "alias": null,
-                        "name": "trip",
+                        "name": "outbound",
                         "storageKey": null,
                         "args": null,
                         "concreteType": "Trip",
                         "plural": false,
                         "selections": (v9/*: any*/)
+                      },
+                      {
+                        "kind": "LinkedField",
+                        "alias": null,
+                        "name": "inbound",
+                        "storageKey": null,
+                        "args": null,
+                        "concreteType": "Trip",
+                        "plural": false,
+                        "selections": [
+                          (v8/*: any*/),
+                          (v7/*: any*/)
+                        ]
                       }
                     ]
                   }
@@ -516,7 +512,7 @@ return {
     "operationKind": "query",
     "name": "TripDataListQuery",
     "id": null,
-    "text": "query TripDataListQuery(\n  $first: Int!\n  $only: CustomerBookingsOnlyEnum!\n  $order: CustomerBookingsOrderEnum!\n) {\n  customerBookings(first: $first, only: $only, order: $order) {\n    ...TripHeader_list\n    ...TripList_list\n    ...TripListBottom_list\n  }\n}\n\nfragment TripHeader_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      isPastBooking\n      id\n    }\n  }\n}\n\nfragment TripList_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      id\n      ...OneWayTrips_item\n      ...MulticityTrips_item\n      ...ReturnTrips_item\n    }\n  }\n}\n\nfragment TripListBottom_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      isPastBooking\n      id\n      destinationImageUrl\n    }\n  }\n}\n\nfragment OneWayTrips_item on BookingOneWay {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  trip {\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n\nfragment MulticityTrips_item on BookingMulticity {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  start {\n    localTime\n    airport {\n      city {\n        name\n      }\n      id\n    }\n  }\n  end {\n    localTime\n    airport {\n      city {\n        name\n      }\n      id\n    }\n  }\n  trips {\n    departure {\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n\nfragment ReturnTrips_item on BookingReturn {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  outbound {\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n  inbound {\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n",
+    "text": "query TripDataListQuery(\n  $first: Int!\n  $only: CustomerBookingsOnlyEnum!\n  $order: CustomerBookingsOrderEnum!\n) {\n  customerBookings(first: $first, only: $only, order: $order) {\n    ...TripHeader_list\n    ...TripList_list\n    ...TripListBottom_list\n  }\n}\n\nfragment TripHeader_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      isPastBooking\n      id\n    }\n  }\n}\n\nfragment TripList_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      id\n      ...OneWayTrips_item\n      ...MulticityTrips_item\n      ...ReturnTrips_item\n    }\n  }\n}\n\nfragment TripListBottom_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      id\n      destinationImageUrl\n    }\n  }\n}\n\nfragment OneWayTrips_item on BookingOneWay {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  trip {\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n\nfragment MulticityTrips_item on BookingMulticity {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  start {\n    localTime\n    airport {\n      city {\n        name\n      }\n      id\n    }\n  }\n  end {\n    localTime\n    airport {\n      city {\n        name\n      }\n      id\n    }\n  }\n  trips {\n    departure {\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n\nfragment ReturnTrips_item on BookingReturn {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  outbound {\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n  inbound {\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

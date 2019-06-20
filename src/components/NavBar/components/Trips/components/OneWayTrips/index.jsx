@@ -25,9 +25,8 @@ const OneWayTrips = ({ item, onSelect }: Props) => (
 
 export const OneWayTripsUnwrapped = OneWayTrips;
 
-export default createFragmentContainer(
-  OneWayTrips,
-  graphql`
+export default createFragmentContainer(OneWayTrips, {
+  item: graphql`
     fragment OneWayTrips_item on BookingOneWay {
       databaseId
       destinationImageUrl
@@ -53,4 +52,4 @@ export default createFragmentContainer(
       }
     }
   `,
-);
+});

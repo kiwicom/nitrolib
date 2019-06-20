@@ -32,9 +32,8 @@ const MulticityTrips = ({ item, onSelect }: Props) => {
 
 export const MulticityTripsUnwrapped = MulticityTrips;
 
-export default createFragmentContainer(
-  MulticityTrips,
-  graphql`
+export default createFragmentContainer(MulticityTrips, {
+  item: graphql`
     fragment MulticityTrips_item on BookingMulticity {
       databaseId
       destinationImageUrl
@@ -67,4 +66,4 @@ export default createFragmentContainer(
       }
     }
   `,
-);
+});

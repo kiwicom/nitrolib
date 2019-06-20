@@ -10,6 +10,7 @@
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type MulticityTrips_item$ref: FragmentReference;
+declare export opaque type MulticityTrips_item$fragmentType: MulticityTrips_item$ref;
 export type MulticityTrips_item = {|
   +databaseId: ?number,
   +destinationImageUrl: ?string,
@@ -42,6 +43,11 @@ export type MulticityTrips_item = {|
   +__typename: "BookingMulticity",
   +$refType: MulticityTrips_item$ref,
 |};
+export type MulticityTrips_item$data = MulticityTrips_item;
+export type MulticityTrips_item$key = {
+  +$data?: MulticityTrips_item$data,
+  +$fragmentRefs: MulticityTrips_item$ref,
+};
 */
 
 

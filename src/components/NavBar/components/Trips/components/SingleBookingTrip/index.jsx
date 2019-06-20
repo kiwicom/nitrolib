@@ -32,9 +32,8 @@ const SingleBookingTrip = ({ trip, onSelect }: Props) => {
 
 export const SingleBookingTripUnWrapped = SingleBookingTrip;
 
-export default createFragmentContainer(
-  SingleBookingTrip,
-  graphql`
+export default createFragmentContainer(SingleBookingTrip, {
+  trip: graphql`
     fragment SingleBookingTrip_trip on BookingInterface {
       __typename
       id
@@ -43,4 +42,4 @@ export default createFragmentContainer(
       ...ReturnTrips_item
     }
   `,
-);
+});
