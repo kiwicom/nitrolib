@@ -1,3 +1,12 @@
+## [5.4.2](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.4.1...v5.4.2) (2019-06-20)
+
+
+### Bug Fixes
+
+* **bin:** Ignore node_modules in collect keys ([575c354](https://gitlab.skypicker.com/frontend/nitrolib/commit/575c354))
+
+
+
 ## [5.4.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.2.0...v5.4.1) (2019-06-20)
 
 
