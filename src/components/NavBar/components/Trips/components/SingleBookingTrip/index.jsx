@@ -38,8 +38,6 @@ export default createFragmentContainer(
     fragment SingleBookingTrip_trip on BookingInterface {
       __typename
       id
-      isPastBooking
-      destinationImageUrl
       ...OneWayTrips_item
       ...MulticityTrips_item
       ...ReturnTrips_item

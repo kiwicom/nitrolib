@@ -64,13 +64,6 @@ export default createFragmentContainer(
             }
           }
         }
-        arrival {
-          airport {
-            city {
-              name
-            }
-          }
-        }
       }
     }
   `,

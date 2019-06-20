@@ -72,7 +72,6 @@ export default createFragmentContainer(
           __typename
           id
           isPastBooking
-          destinationImageUrl
           ...OneWayTrips_item
           ...MulticityTrips_item
           ...ReturnTrips_item
