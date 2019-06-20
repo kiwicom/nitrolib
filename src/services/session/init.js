@@ -12,6 +12,7 @@ import type { Session } from "../../records/Session";
 const init = (): Session => {
   const {
     userId,
+    user_id, // deprecated format, force 'userId'
     affilId,
     affilid, // deprecated format, force 'affilId'
     deeplinkId,
@@ -19,7 +20,7 @@ const init = (): Session => {
   } = qs.parse(window.location.search);
 
   return {
-    userId: handleUserId(userId && String(userId)),
+    userId: handleUserId((userId || user_id) && String(userId || user_id)),
     sessionId: handleSessionId(),
     pageViewId: makePageViewId(),
     deeplinkId: handleDeeplinkId(deeplinkId && String(deeplinkId)),
