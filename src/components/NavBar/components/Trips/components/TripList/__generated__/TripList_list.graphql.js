@@ -18,7 +18,6 @@ export type TripList_list = {|
     +node: ?{|
       +__typename: string,
       +id: string,
-      +isPastBooking: ?boolean,
       +$fragmentRefs: OneWayTrips_item$ref & MulticityTrips_item$ref & ReturnTrips_item$ref,
     |}
   |}>,
@@ -67,13 +66,6 @@ const node/*: ReaderFragment*/ = {
               "storageKey": null
             },
             {
-              "kind": "ScalarField",
-              "alias": null,
-              "name": "isPastBooking",
-              "args": null,
-              "storageKey": null
-            },
-            {
               "kind": "FragmentSpread",
               "name": "OneWayTrips_item",
               "args": null
@@ -95,5 +87,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '7399d9be9950cb06f1d71283aa4743cb';
+(node/*: any*/).hash = '1251216e60a35b40bc42cd6a66234191';
 module.exports = node;

@@ -20,15 +20,19 @@ const TripDataList = ({ env, onSelect }: Props) => (
   <QueryRenderer
     environment={env}
     query={graphql`
-      query TripDataListQuery($first: Int) {
-        customerBookings(first: $first) {
+      query TripDataListQuery(
+        $first: Int!
+        $only: CustomerBookingsOnlyEnum!
+        $order: CustomerBookingsOrderEnum!
+      ) {
+        customerBookings(first: $first, only: $only, order: $order) {
           ...TripHeader_list
           ...TripList_list
           ...TripListBottom_list
         }
       }
     `}
-    variables={{ first: 6 }}
+    variables={{ first: 6, only: "FUTURE", order: "ASC" }}
     render={res => {
       if (res.error) {
         return (

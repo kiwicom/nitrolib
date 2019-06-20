@@ -16,8 +16,6 @@ declare export opaque type SingleBookingTrip_trip$ref: FragmentReference;
 export type SingleBookingTrip_trip = {|
   +__typename: string,
   +id: string,
-  +isPastBooking: ?boolean,
-  +destinationImageUrl: ?string,
   +$fragmentRefs: OneWayTrips_item$ref & MulticityTrips_item$ref & ReturnTrips_item$ref,
   +$refType: SingleBookingTrip_trip$ref,
 |};
@@ -46,20 +44,6 @@ const node/*: ReaderFragment*/ = {
       "storageKey": null
     },
     {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "isPastBooking",
-      "args": null,
-      "storageKey": null
-    },
-    {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "destinationImageUrl",
-      "args": null,
-      "storageKey": null
-    },
-    {
       "kind": "FragmentSpread",
       "name": "OneWayTrips_item",
       "args": null
@@ -77,5 +61,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '5a615c25c579bde41aefd2cfa17d35f6';
+(node/*: any*/).hash = '09426230124f62bbbe491847c17c67f4';
 module.exports = node;

@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 69a49a0df5b83d1c68d84b8d9690e766
+ * @relayHash 9f4eba75b9cfd0d7d07ca95bb9a933a8
  */
 
 /* eslint-disable */
@@ -12,8 +12,12 @@ import type { ConcreteRequest } from 'relay-runtime';
 type TripHeader_list$ref = any;
 type TripListBottom_list$ref = any;
 type TripList_list$ref = any;
+export type CustomerBookingsOnlyEnum = "FUTURE" | "PAST" | "%future added value";
+export type CustomerBookingsOrderEnum = "ASC" | "DESC" | "%future added value";
 export type TripDataListQueryVariables = {|
-  first?: ?number
+  first: number,
+  only: CustomerBookingsOnlyEnum,
+  order: CustomerBookingsOrderEnum,
 |};
 export type TripDataListQueryResponse = {|
   +customerBookings: ?{|
@@ -29,9 +33,11 @@ export type TripDataListQuery = {|
 
 /*
 query TripDataListQuery(
-  $first: Int
+  $first: Int!
+  $only: CustomerBookingsOnlyEnum!
+  $order: CustomerBookingsOrderEnum!
 ) {
-  customerBookings(first: $first) {
+  customerBookings(first: $first, only: $only, order: $order) {
     ...TripHeader_list
     ...TripList_list
     ...TripListBottom_list
@@ -53,7 +59,6 @@ fragment TripList_list on BookingInterfaceConnection {
     node {
       __typename
       id
-      isPastBooking
       ...OneWayTrips_item
       ...MulticityTrips_item
       ...ReturnTrips_item
@@ -131,14 +136,6 @@ fragment MulticityTrips_item on BookingMulticity {
         id
       }
     }
-    arrival {
-      airport {
-        city {
-          name
-        }
-        id
-      }
-    }
   }
 }
 
@@ -195,7 +192,19 @@ var v0 = [
   {
     "kind": "LocalArgument",
     "name": "first",
-    "type": "Int",
+    "type": "Int!",
+    "defaultValue": null
+  },
+  {
+    "kind": "LocalArgument",
+    "name": "only",
+    "type": "CustomerBookingsOnlyEnum!",
+    "defaultValue": null
+  },
+  {
+    "kind": "LocalArgument",
+    "name": "order",
+    "type": "CustomerBookingsOrderEnum!",
     "defaultValue": null
   }
 ],
@@ -205,6 +214,18 @@ v1 = [
     "name": "first",
     "variableName": "first",
     "type": "Int"
+  },
+  {
+    "kind": "Variable",
+    "name": "only",
+    "variableName": "only",
+    "type": "CustomerBookingsOnlyEnum"
+  },
+  {
+    "kind": "Variable",
+    "name": "order",
+    "variableName": "order",
+    "type": "CustomerBookingsOrderEnum"
   }
 ],
 v2 = {
@@ -291,9 +312,6 @@ v8 = {
 v9 = [
   (v7/*: any*/),
   (v8/*: any*/)
-],
-v10 = [
-  (v5/*: any*/)
 ];
 return {
   "kind": "Request",
@@ -460,17 +478,9 @@ return {
                             "args": null,
                             "concreteType": "RouteStop",
                             "plural": false,
-                            "selections": (v10/*: any*/)
-                          },
-                          {
-                            "kind": "LinkedField",
-                            "alias": null,
-                            "name": "arrival",
-                            "storageKey": null,
-                            "args": null,
-                            "concreteType": "RouteStop",
-                            "plural": false,
-                            "selections": (v10/*: any*/)
+                            "selections": [
+                              (v5/*: any*/)
+                            ]
                           }
                         ]
                       }
@@ -506,11 +516,11 @@ return {
     "operationKind": "query",
     "name": "TripDataListQuery",
     "id": null,
-    "text": "query TripDataListQuery(\n  $first: Int\n) {\n  customerBookings(first: $first) {\n    ...TripHeader_list\n    ...TripList_list\n    ...TripListBottom_list\n  }\n}\n\nfragment TripHeader_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      isPastBooking\n      id\n    }\n  }\n}\n\nfragment TripList_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      id\n      isPastBooking\n      ...OneWayTrips_item\n      ...MulticityTrips_item\n      ...ReturnTrips_item\n    }\n  }\n}\n\nfragment TripListBottom_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      isPastBooking\n      id\n      destinationImageUrl\n    }\n  }\n}\n\nfragment OneWayTrips_item on BookingOneWay {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  trip {\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n\nfragment MulticityTrips_item on BookingMulticity {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  start {\n    localTime\n    airport {\n      city {\n        name\n      }\n      id\n    }\n  }\n  end {\n    localTime\n    airport {\n      city {\n        name\n      }\n      id\n    }\n  }\n  trips {\n    departure {\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n\nfragment ReturnTrips_item on BookingReturn {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  outbound {\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n  inbound {\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n",
+    "text": "query TripDataListQuery(\n  $first: Int!\n  $only: CustomerBookingsOnlyEnum!\n  $order: CustomerBookingsOrderEnum!\n) {\n  customerBookings(first: $first, only: $only, order: $order) {\n    ...TripHeader_list\n    ...TripList_list\n    ...TripListBottom_list\n  }\n}\n\nfragment TripHeader_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      isPastBooking\n      id\n    }\n  }\n}\n\nfragment TripList_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      id\n      ...OneWayTrips_item\n      ...MulticityTrips_item\n      ...ReturnTrips_item\n    }\n  }\n}\n\nfragment TripListBottom_list on BookingInterfaceConnection {\n  edges {\n    node {\n      __typename\n      isPastBooking\n      id\n      destinationImageUrl\n    }\n  }\n}\n\nfragment OneWayTrips_item on BookingOneWay {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  trip {\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n\nfragment MulticityTrips_item on BookingMulticity {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  start {\n    localTime\n    airport {\n      city {\n        name\n      }\n      id\n    }\n  }\n  end {\n    localTime\n    airport {\n      city {\n        name\n      }\n      id\n    }\n  }\n  trips {\n    departure {\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n\nfragment ReturnTrips_item on BookingReturn {\n  databaseId\n  destinationImageUrl\n  passengerCount\n  __typename\n  outbound {\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n  inbound {\n    arrival {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n    departure {\n      localTime\n      airport {\n        city {\n          name\n        }\n        id\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '0f466cacd2cf1ee48c18298a024bbb62';
+(node/*: any*/).hash = '17639c7e35034f5b63674ac802231f62';
 module.exports = node;

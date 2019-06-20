@@ -37,14 +37,7 @@ export type MulticityTrips_item = {|
           +name: ?string
         |}
       |}
-    |},
-    +arrival: ?{|
-      +airport: ?{|
-        +city: ?{|
-          +name: ?string
-        |}
-      |}
-    |},
+    |}
   |}>,
   +__typename: "BookingMulticity",
   +$refType: MulticityTrips_item$ref,
@@ -90,9 +83,6 @@ v1 = [
     "args": null,
     "storageKey": null
   },
-  (v0/*: any*/)
-],
-v2 = [
   (v0/*: any*/)
 ];
 return {
@@ -167,17 +157,9 @@ return {
           "args": null,
           "concreteType": "RouteStop",
           "plural": false,
-          "selections": (v2/*: any*/)
-        },
-        {
-          "kind": "LinkedField",
-          "alias": null,
-          "name": "arrival",
-          "storageKey": null,
-          "args": null,
-          "concreteType": "RouteStop",
-          "plural": false,
-          "selections": (v2/*: any*/)
+          "selections": [
+            (v0/*: any*/)
+          ]
         }
       ]
     }
@@ -185,5 +167,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '3aa08107b6dc411c511eac6432239177';
+(node/*: any*/).hash = '3da289a9a16bcdf3fa060ae8e4a9af77';
 module.exports = node;
