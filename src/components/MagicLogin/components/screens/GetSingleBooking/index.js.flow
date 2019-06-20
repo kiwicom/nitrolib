@@ -13,7 +13,7 @@ type Props = {|
   onDepartureDateChange: (?Date) => void,
   onBookingIdChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
-  onIATAChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onIATAChange: (value: string) => void,
   onBack: () => void,
   onSubmit: (ev: SyntheticInputEvent<HTMLFormElement>) => void,
 |};

@@ -2,6 +2,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
+import InputField from "@kiwicom/orbit-components/lib/InputField";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import InputText from "../InputText";
@@ -40,6 +41,7 @@ type Props = {|
   onSelect: (value: string) => void,
   error: string,
   showState: boolean,
+  useLegacyUI: boolean,
 |};
 
 type State = {|
@@ -49,6 +51,7 @@ type State = {|
 export default class IataPicker extends React.PureComponent<Props, State> {
   static defaultProps = {
     showState: false,
+    useLegacyUI: true,
   };
 
   state = {
@@ -56,6 +59,13 @@ export default class IataPicker extends React.PureComponent<Props, State> {
   };
 
   handleChange = ({ value }: Change) => {
+    const { onSelect } = this.props;
+
+    onSelect(value);
+  };
+
+  handleInputChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
+    const { value } = ev.target;
     const { onSelect } = this.props;
 
     onSelect(value);
@@ -83,27 +93,43 @@ export default class IataPicker extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { id, value, error, showState } = this.props;
+    const { id, value, error, showState, useLegacyUI } = this.props;
     const { open } = this.state;
 
     return (
       <IntlConsumer>
         {intl => (
           <ClickOutside active={open} onClickOutside={this.handleClickOutside}>
-            <Container>
-              <IconText icon={<Airplane color="primary" size="small" />}>
-                <Translate t="common.iata_code" />
-              </IconText>
-              <InputText
-                id={id}
-                value={value}
-                onChange={this.handleChange}
-                onFocus={this.handleFocus}
-                onKeyDown={this.handleKeyDown}
-                placeholder={intl.translate(__("common.iata_airport_placeholder"))}
-                error={intl.translate(error)}
-                showState={showState}
-              />
+            <Container data-test="IATAPicker">
+              {useLegacyUI ? (
+                <>
+                  <IconText icon={<Airplane color="primary" size="small" />}>
+                    <Translate t="common.iata_code" />
+                  </IconText>
+                  <InputText
+                    id={id}
+                    value={value}
+                    onChange={this.handleChange}
+                    onFocus={this.handleFocus}
+                    onKeyDown={this.handleKeyDown}
+                    placeholder={intl.translate(__("common.iata_airport_placeholder"))}
+                    error={intl.translate(error)}
+                    showState={showState}
+                  />
+                </>
+              ) : (
+                <InputField
+                  id={id}
+                  value={value}
+                  onChange={this.handleInputChange}
+                  onFocus={this.handleFocus}
+                  onKeyDown={this.handleKeyDown}
+                  label={intl.translate(__("account.iata_label"))}
+                  placeholder={intl.translate(__("account.iata_placeholder"))}
+                  help={intl.translate(__("account.iata_help"))}
+                  error={intl.translate(error)}
+                />
+              )}
               {open && value !== "" && (
                 <ResultWrapper>
                   <AirportListData value={value} onSelect={this.handleSelect} />

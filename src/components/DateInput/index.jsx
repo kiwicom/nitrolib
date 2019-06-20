@@ -70,13 +70,13 @@ class DateInput extends React.Component<Props, State> {
           <InputGroup
             error={error && intl.translate(error)}
             onChange={this.handleChange}
-            label={label}
+            label={intl.translate(label)}
             flex={["0 0 60px", "1 1 100%", "0 0 90px"]}
             dataTest="DateInput"
           >
             <InputField
               name="date"
-              placeholder="DD"
+              placeholder={intl.translate(__("account.date_input.date_placeholder"))}
               type="number"
               value={date}
               dataTest="DateInput-Date"
@@ -87,13 +87,13 @@ class DateInput extends React.Component<Props, State> {
                 value: i,
                 label: intl.translate(monthLabel),
               }))}
-              placeholder={intl.translate(__("common.date_input.select_month"))}
+              placeholder={intl.translate(__("account.date_input.select_month_placeholder"))}
               value={month}
               dataTest="DateInput-Month"
             />
             <InputField
               name="year"
-              placeholder="YYYY"
+              placeholder={intl.translate(__("account.date_input.year_placeholder"))}
               type="number"
               value={year}
               dataTest="DateInput-Year"

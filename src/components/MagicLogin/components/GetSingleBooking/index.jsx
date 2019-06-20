@@ -63,8 +63,7 @@ class GetSingleBooking extends React.Component<Props, State> {
     });
   };
 
-  handleIATA = (ev: SyntheticInputEvent<HTMLInputElement>) => {
-    const { value } = ev.target;
+  handleIATA = (value: string) => {
     const { submitted } = this.state;
 
     this.setState({

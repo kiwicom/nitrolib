@@ -12,6 +12,7 @@ import Text from "../../../../Text";
 import Button from "../../../../Button";
 import IntlContext from "../../../../../services/intl/context";
 import DateInput from "../../../../DateInput/index";
+import IataPicker from "../../../../IataPicker";
 
 type Props = {|
   departureDate: ?Date,
@@ -25,7 +26,7 @@ type Props = {|
   onDepartureDateChange: (?Date) => void,
   onBookingIdChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
-  onIATAChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onIATAChange: (value: string) => void,
   onBack: () => void,
   onSubmit: () => void,
 |};
@@ -54,25 +55,25 @@ const GetSingleBooking = ({
         <Stack direction="column">
           <Stack direction="column" spacing="tight">
             <Heading element="h2">
-              <Translate t="account.single_booking.title" />
+              <Translate t="account.sign_in.single_booking.title" />
             </Heading>
-            <Text t="account.single_booking.description" />
+            <Text t="account.sign_in.single_booking.description" />
           </Stack>
           <Stack inline>
             <InputField
               type="number"
-              label={intl.translate(__("common.booking_number"))}
-              placeholder={intl.translate(__("common.booking_number_placeholder"))}
+              label={intl.translate(__("account.sign_in.bid_number_label"))}
+              placeholder={intl.translate(__("account.sign_in.bid_number_placeholder"))}
               value={bookingId}
-              error={bookingIdError && intl.translate(bookingIdError)}
+              error={intl.translate(bookingIdError)}
               onChange={onBookingIdChange}
               dataTest="MagicLogin-BookingId"
             />
             <InputField
-              label={intl.translate(__("account.single_booking.incorrect_email_label"))}
-              placeholder={intl.translate(__("account.single_booking.incorrect_email_placeholder"))}
+              label={intl.translate(__("account.sign_in.incorrect_email_label"))}
+              placeholder={intl.translate(__("account.sign_in.incorrect_email_placeholder"))}
               value={email}
-              error={emailError && intl.translate(emailError)}
+              error={intl.translate(emailError)}
               onChange={onEmailChange}
               dataTest="MagicLogin-Email"
             />
@@ -80,21 +81,19 @@ const GetSingleBooking = ({
           <Stack inline>
             <DateInput
               value={departureDate}
-              error={departureDateError && intl.translate(departureDateError)}
+              error={intl.translate(departureDateError)}
               onChange={onDepartureDateChange}
-              label={intl.translate(__("common.departure_date"))}
+              label={__("account.sign_in.departure_date_label")}
             />
           </Stack>
           <div>
             <Stack inline spaceAfter="large">
-              <InputField
-                label={intl.translate(__("account.single_booking.iata_label"))}
-                placeholder={intl.translate(__("account.single_booking.iata_placeholder"))}
-                help={intl.translate(__("account.single_booking.iata_help"))}
+              <IataPicker
+                id="MagicLogin-IATA"
                 value={IATA}
-                error={IATAError && intl.translate(IATAError)}
-                onChange={onIATAChange}
-                dataTest="MagicLogin-IATA"
+                onSelect={onIATAChange}
+                error={IATAError}
+                useLegacyUI={false}
               />
             </Stack>
           </div>

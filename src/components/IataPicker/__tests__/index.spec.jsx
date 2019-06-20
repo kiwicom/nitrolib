@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { shallow } from "enzyme";
+import { shallow, render } from "enzyme";
 
 import IataPicker from "..";
 
@@ -17,6 +17,14 @@ describe("#IataPicker", () => {
     wrapper.setState({ open: true });
 
     expect(wrapper.state("open")).toEqual(true);
+  });
+
+  test("render with Orbit UI", () => {
+    const wrapper = render(
+      <IataPicker id="test" value="VIE" onSelect={jest.fn()} error="" useLegacyUI={false} />,
+    );
+
+    expect(wrapper.find("label").text()).toBe("account.iata_labelaccount.iata_help");
   });
 
   test("handle change", () => {

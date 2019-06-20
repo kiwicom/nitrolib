@@ -326,7 +326,6 @@ See types:
 * ```"MagicLogin-GetSingleBooking"```
 * ```"MagicLogin-GetSingleBookingBack"```
 * ```"MagicLogin-GetSingleBookingSubmit"```
-* ```"MagicLogin-IATA"```
 * ```"MagicLogin-IncorrectEmail"```
 * ```"MagicLogin-Intro"```
 * ```"MagicLogin-LoginViaSocials"```
