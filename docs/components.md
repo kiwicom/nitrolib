@@ -24,6 +24,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [ClickOutside](#clickoutside)
 * [ClientOnly](#clientonly)
 * [CloseByKey](#closebykey)
+* [CookiesPopup](#cookiespopup)
 * [CustomerBaggageTile](#customerbaggagetile)
 * [Desktop](#desktop)
 * [InitAuth](#initauth)
@@ -840,6 +841,32 @@ declare export default React.ComponentType<Props>;
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=CloseByKey).
 
 Fires a callback whenever a user presses the close button (_Escape_ by default).
+
+### CookiesPopup
+
+**Import:**
+```js
+import CookiesPopup from "@kiwicom/nitro/lib/components/CookiesPopup";
+```
+
+**Types:**
+```js
+type Props = {|
+  onAccept: () => void,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=CookiesPopup).
+
+**Context needs:**
+* [intl](./services#intl)
+
+**Selectors `data-test`:**
+* ```"CookiesPopup"```
+
+Closeable cookies thingie #2.
 
 ### CustomerBaggageTile
 
