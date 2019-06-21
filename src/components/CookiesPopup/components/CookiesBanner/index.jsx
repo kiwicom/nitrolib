@@ -6,6 +6,8 @@ import { rtlSpacing, right } from "@kiwicom/orbit-components/lib/utils/rtl";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import ButtonGroup from "@kiwicom/orbit-components/lib/ButtonGroup";
+import Text from "@kiwicom/orbit-components/lib/Text";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import linkMixin from "../../../../styles/mixins/link";
 import Translate from "../../../Translate";
@@ -16,6 +18,7 @@ const Container = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   box-sizing: border-box;
   width: 100%;
@@ -36,12 +39,13 @@ const Container = styled.div`
 `;
 
 Container.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const Message = styled.p`
   ${linkMixin};
   line-height: 16px;
+  margin-bottom: 20px;
 
   ${mq.largeMobile(css`
     line-height: 20px;
@@ -49,7 +53,7 @@ const Message = styled.p`
 `;
 
 Message.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const AcceptButton = styled.a`
@@ -61,7 +65,7 @@ const AcceptButton = styled.a`
 `;
 
 AcceptButton.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const Close = styled(MdClose)`
@@ -71,7 +75,7 @@ const Close = styled(MdClose)`
 
 type Props = {|
   onAccept: () => void,
-  onCustomize: () => void
+  onCustomize: () => void,
 |};
 
 const CookiesBanner = ({ onAccept, onCustomize }: Props) => (
@@ -79,14 +83,20 @@ const CookiesBanner = ({ onAccept, onCustomize }: Props) => (
     <Message>
       <Translate t="content.cookies.banner.text" html />
     </Message>
-    <ButtonGroup>
-      <Button onClick={onCustomize} size="small" type="secondary">
-        Customize my preferences
-      </Button>
-      <Button onClick={onAccept} size="small">
-        I agree
-      </Button>
-    </ButtonGroup>
+    <Stack justify="end" spaceAfter="medium">
+      <ButtonGroup>
+        <Button onClick={onCustomize} size="small" type="secondary">
+          <Text size="small" weight="bold">
+            Customize my preferences
+          </Text>
+        </Button>
+        <Button onClick={onAccept} size="small">
+          <Text size="small" type="white" weight="bold">
+            I agree
+          </Text>
+        </Button>
+      </ButtonGroup>
+    </Stack>
     <AcceptButton onClick={onAccept}>
       <Close />
     </AcceptButton>
