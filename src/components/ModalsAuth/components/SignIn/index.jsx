@@ -2,7 +2,7 @@
 import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
-import FaLongArrowRight from "react-icons/lib/fa/long-arrow-right";
+import Arrow from "@kiwicom/orbit-components/lib/icons/RouteNoStops";
 import Envelope from "@kiwicom/orbit-components/lib/icons/Email";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
@@ -201,7 +201,7 @@ export default class SignIn extends React.PureComponent<Props, State> {
                 <TextLink onClick={onClick}>
                   <Translate t="account.forgot_password" />
                   <ForgotPasswordArrow>
-                    <FaLongArrowRight />
+                    <Arrow size="small" customColor="#00a991" />
                   </ForgotPasswordArrow>
                 </TextLink>
               )}

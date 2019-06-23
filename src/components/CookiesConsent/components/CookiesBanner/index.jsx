@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
-import MdClose from "react-icons/lib/md/close";
+import Close from "@kiwicom/orbit-components/lib/icons/Close";
 import { rtlSpacing, right } from "@kiwicom/orbit-components/lib/utils/rtl";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
@@ -62,11 +62,6 @@ AcceptButton.defaultProps = {
   theme: themeDefault,
 };
 
-const Close = styled(MdClose)`
-  height: 20px;
-  width: 20px;
-`;
-
 type Props = {|
   onAccept: () => void,
 |};
@@ -77,7 +72,7 @@ const CookiesBanner = ({ onAccept }: Props) => (
       <Translate t="content.cookies.banner.text" html />
     </Message>
     <AcceptButton onClick={onAccept}>
-      <Close />
+      <Close color="secondary" />
     </AcceptButton>
   </Container>
 );

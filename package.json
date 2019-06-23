@@ -63,7 +63,6 @@
     "mailcheck": "^1.1.1",
     "normalizr": "^3.3.0",
     "query-string": "^5.1.1",
-    "react-icons": "^2.2.7",
     "react-relay": "^5.0.0",
     "react-transition-group": "^2.5.0",
     "relay-runtime": "^5.0.0",

@@ -2,7 +2,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import MenuHamburger from "@kiwicom/orbit-components/lib/icons/MenuHamburger";
-import FaAngleRight from "react-icons/lib/fa/angle-right";
+import ChevronRight from "@kiwicom/orbit-components/lib/icons/ChevronRight";
 import Modal from "@kiwicom/orbit-components/lib/Modal";
 import Portal from "@kiwicom/orbit-components/lib/Portal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
@@ -64,17 +64,6 @@ const Close = styled.button`
 `;
 
 Close.defaultProps = {
-  theme: themeDefault,
-};
-
-const CloseIcon = styled(FaAngleRight)`
-  height: 14px;
-  width: 14px;
-  top: -28px;
-  ${right}: -5px;
-`;
-
-CloseIcon.defaultProps = {
   theme: themeDefault,
 };
 
@@ -220,8 +209,9 @@ export default class SideNav extends React.Component<Props, State> {
           <SideBar onClick={this.handleToggle} shown={modalOpen === MODALS.SIDE_NAV}>
             <section data-test="NavBar-SideNav">
               <Close data-test="NavBar-SideNav-Close" onClick={this.handleToggle}>
-                <Stack flex align="center" spacing="tight">
-                  <Translate html t="common.hide" /> <CloseIcon />
+                <Stack flex align="center" spacing="none">
+                  <Translate html t="common.hide" />{" "}
+                  <ChevronRight customColor="#00a991" size="small" />
                 </Stack>
               </Close>
 

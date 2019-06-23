@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import MdExpandMore from "react-icons/lib/md/expand-more";
+import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled from "styled-components";
 import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
@@ -60,7 +60,7 @@ const Select = ({ id, value, onChange, children }: Props) => (
       {children}
     </StyledSelect>
     <Icon>
-      <MdExpandMore />
+      <ChevronDown size="small" color="secondary" />
     </Icon>
   </Container>
 );
