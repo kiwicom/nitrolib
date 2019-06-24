@@ -7,7 +7,6 @@ import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import ButtonGroup from "@kiwicom/orbit-components/lib/ButtonGroup";
 import Text from "@kiwicom/orbit-components/lib/Text";
-import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import linkMixin from "../../../../styles/mixins/link";
 import Translate from "../../../Translate";
@@ -19,9 +18,8 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   box-sizing: border-box;
-  width: 100%;
   z-index: 600;
   padding: ${rtlSpacing("10px 50px 10px 20px")};
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
@@ -30,6 +28,13 @@ const Container = styled.div`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   transition: bottom 0.25s ease-in;
   box-shadow: 0 -1px 6px 0 rgba(0, 0, 0, 0.2);
+
+  ${mq.desktop(
+    css`
+      flex-direction: row;
+      align-items: center;
+    `,
+  )};
 
   ${mq.largeMobile(css`
     padding: ${rtlSpacing("20px 50px 20px 20px")};
@@ -46,6 +51,14 @@ const Message = styled.p`
   ${linkMixin};
   line-height: 16px;
   margin-bottom: 20px;
+  width: 100%;
+  text-align: justify;
+
+  ${mq.desktop(
+    css`
+      padding-right: 12px;
+    `,
+  )};
 
   ${mq.largeMobile(css`
     line-height: 20px;
@@ -55,6 +68,16 @@ const Message = styled.p`
 Message.defaultProps = {
   theme: themeDefault,
 };
+
+const ButtonWrap = styled.div`
+  padding-bottom: 10px;
+  ${mq.desktop(
+    css`
+      padding-right: 30px;
+      padding-bottom: 0px;
+    `,
+  )};
+`;
 
 const AcceptButton = styled.a`
   position: absolute;
@@ -83,7 +106,7 @@ const CookiesBanner = ({ onAccept, onCustomize }: Props) => (
     <Message>
       <Translate t="content.cookies.banner.text" html />
     </Message>
-    <Stack justify="end" spaceAfter="medium">
+    <ButtonWrap>
       <ButtonGroup>
         <Button onClick={onCustomize} size="small" type="secondary">
           <Text size="small" weight="bold">
@@ -96,7 +119,7 @@ const CookiesBanner = ({ onAccept, onCustomize }: Props) => (
           </Text>
         </Button>
       </ButtonGroup>
-    </Stack>
+    </ButtonWrap>
     <AcceptButton onClick={onAccept}>
       <Close />
     </AcceptButton>
