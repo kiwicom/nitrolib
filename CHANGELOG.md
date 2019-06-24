@@ -1,3 +1,23 @@
+# [5.5.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.2.0...v5.5.0) (2019-06-24)
+
+
+### Bug Fixes
+
+* Lint, changelog dupes ([5895ad3](https://gitlab.skypicker.com/frontend/nitrolib/commit/5895ad3))
+* **bin:** Ignore node_modules in collect keys ([ca00874](https://gitlab.skypicker.com/frontend/nitrolib/commit/ca00874))
+* **components:** Limited number of fetching trips ([88483cd](https://gitlab.skypicker.com/frontend/nitrolib/commit/88483cd))
+* **components:** Trips query params and variables ([de27f94](https://gitlab.skypicker.com/frontend/nitrolib/commit/de27f94))
+* **services:** Enable `user_id` in `session/init` ([1ca024e](https://gitlab.skypicker.com/frontend/nitrolib/commit/1ca024e))
+
+
+### Features
+
+* **meta:** Update orbit version ([57f9b8d](https://gitlab.skypicker.com/frontend/nitrolib/commit/57f9b8d))
+* **services:** Add `email` to `log/logger`'s `Globals` ([cfc354d](https://gitlab.skypicker.com/frontend/nitrolib/commit/cfc354d))
+* **services:** Add connection info to `log/logger`'s `Globals` ([3052a39](https://gitlab.skypicker.com/frontend/nitrolib/commit/3052a39))
+
+
+
 ## [5.4.2](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.4.1...v5.4.2) (2019-06-20)
 
 
