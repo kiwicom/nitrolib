@@ -273,6 +273,56 @@ Contains:
 * recommended currencies
 * callback for changing the currency
 
+### GetAll
+
+**Import:**
+```js
+import * as getAll from "@kiwicom/nitro/lib/services/currency/getAll";
+```
+
+**Types:**
+```js
+declare export default function getAll(): Promise<FetchedCurrencies>;
+```
+
+See types:
+* [Currency](./records#currency)
+
+Fetches list of currencies and current rates and combines them.
+
+### Init
+
+**Import:**
+```js
+import * as init from "@kiwicom/nitro/lib/services/currency/init";
+```
+
+**Types:**
+```js
+export type Input = {|
+  currencies: Currencies,
+  initialCurrency: string,
+  countryCurrency: string,
+  languageCurrency: string,
+  affiliate: string,
+  brandCurrencies: string[],
+  mostUsedCurrencies?: string[],
+|};
+
+export type Payload = {|
+  currency: Currency,
+  available: Currencies,
+  recommended: Currency[],
+|};
+
+declare export default function init(input: Input): Payload;
+```
+
+See types:
+* [Currency](./records#currency)
+
+Resolves actual currency, available and recommended currencies for currency Provider.
+
 ## Fetch
 
 Contains utilities to be used with the `fetch` function.

@@ -1,0 +1,20 @@
+// @flow
+import type { Currency, Currencies } from "../../records/Currency";
+
+export type Input = {|
+  currencies: Currencies,
+  initialCurrency: string,
+  countryCurrency: string,
+  languageCurrency: string,
+  affiliate: string,
+  brandCurrencies: string[],
+  mostUsedCurrencies?: string[],
+|};
+
+export type Payload = {|
+  currency: Currency,
+  available: Currencies,
+  recommended: Currency[],
+|};
+
+declare export default function init(input: Input): Payload;

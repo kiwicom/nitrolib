@@ -6,12 +6,9 @@ import type { Brand } from "../../records/Brand";
 import type { Currency, Currencies } from "../../records/Currency";
 import { currencyDefault, MOST_USED_CURRENCIES } from "../../records/Currency";
 import type { Countries } from "../../records/Country";
-import filterCurrencies from "./services/filterCurrencies";
-import resolveCurrency from "./services/resolveCurrency";
 import getGeoCountryCall from "./services/getGeoCountry";
-import getCurrenciesCall from "./services/getCurrencies";
-import getCandidate from "./services/getCandidate";
-import getRecommended from "./services/getRecommended";
+import init from "../../services/currency/init";
+import getCurrenciesCall from "../../services/currency/getAll";
 import rewriteCurrencies from "../../services/currency/services/rewriteCurrencies";
 
 type Arg = {|
@@ -86,30 +83,15 @@ export default class CurrencyProvider extends React.PureComponent<Props, State> 
     const countryCurrency = props.countries[state.country].currency || "";
     const languageCurrency = props.langCurrency;
 
-    const candidate = getCandidate({
-      initial: props.initialCurrency,
-      country: countryCurrency,
-      lang: languageCurrency,
-    });
-
-    const available = filterCurrencies(
-      props.affiliate,
-      props.brand.payments.whitelisted_currencies,
-      state.all,
-    );
-
-    const recommended = getRecommended(
+    return init({
+      currencies: state.all,
+      initialCurrency: props.initialCurrency,
       countryCurrency,
       languageCurrency,
-      props.mostUsed,
-      available,
-    );
-
-    return {
-      currency: resolveCurrency(state.all, available, candidate),
-      available,
-      recommended,
-    };
+      affiliate: props.affiliate,
+      brandCurrencies: props.brand.payments.whitelisted_currencies,
+      mostUsedCurrencies: props.mostUsed,
+    });
   }
 
   handleChange = (code: string) => {

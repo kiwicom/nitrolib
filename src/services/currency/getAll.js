@@ -1,7 +1,7 @@
 // @flow strict
-import type { FetchedCurrencies } from "../../../records/Currency";
+import type { FetchedCurrencies } from "../../records/Currency";
 
-const getCurrencies = (): Promise<FetchedCurrencies> =>
+const getAll = (): Promise<FetchedCurrencies> =>
   Promise.all([
     fetch("https://finance-launchpad.skypicker.com/search")
       .then(res => res.json())
@@ -22,4 +22,4 @@ const getCurrencies = (): Promise<FetchedCurrencies> =>
       .reduce((acc, next) => ({ ...acc, [next.id]: next }), {}),
   );
 
-export default getCurrencies;
+export default getAll;
