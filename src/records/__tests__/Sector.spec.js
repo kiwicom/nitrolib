@@ -84,10 +84,12 @@ const allSectors = [
 
 describe("#Sector", () => {
   it("should return single sector by id", () => {
+    // $FlowExpected: TODO
     expect(getSector(flatten(input), "sector2")).toEqual(singleSector);
   });
 
   it("should return all sectors", () => {
+    // $FlowExpected: TODO
     expect(getSectors(flatten(input))).toEqual(allSectors);
   });
 });

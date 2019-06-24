@@ -1,7 +1,6 @@
 // @flow strict
-import type { ItineraryOneWayDeep } from "../../Itinerary";
 
-const itineraryOneWay: ItineraryOneWayDeep = {
+const itineraryOneWay = {
   id: "cheburek",
   price: {
     amount: "130",

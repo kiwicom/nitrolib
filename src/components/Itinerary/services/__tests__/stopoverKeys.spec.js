@@ -90,10 +90,12 @@ const expectedSecond = { t: __("result.night_in_destination"), values: { place: 
 
 describe("#stopoverKeys", () => {
   it("should return stopoverKey if place changed", () => {
+    // $FlowExpected: TODO
     expect(stopoverKeys(inputFirst)).toEqual(expectedFirst);
   });
 
   it("should return stopoverKey if places not changed", () => {
+    // $FlowExpected: TODO
     expect(stopoverKeys(inputSecond)).toEqual(expectedSecond);
   });
 });

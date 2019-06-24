@@ -152,6 +152,7 @@ const input = {
 
 describe("#differentStations", () => {
   it("should return all ids of segments with different stations", () => {
+    // $FlowExpected: TODO
     expect(differentStations(input)).toEqual(["segment2"]);
   });
 });

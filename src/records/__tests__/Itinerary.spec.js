@@ -103,6 +103,7 @@ const sectors = [
 
 const itineraryCommon = {
   id: "itinerary1",
+  cabinClasses: ["ECONOMY"],
   price: {
     amount: "130",
     currency: {
@@ -231,6 +232,7 @@ const itineraryDeepReturn: ItineraryReturnDeep = {
   inbound: sectors[1],
 };
 
+// $FlowExpected: TODO
 const itineraryDeepMulticity: ItineraryMulticityDeep = {
   ...itineraryCommon,
   type: "multicity",

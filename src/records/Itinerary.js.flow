@@ -5,6 +5,7 @@ import type { Sector, SectorDeep } from "./Sector";
 import type { Carrier, Segment } from "./Segment";
 import type { Money } from "./Money";
 import type { BaggageInfo } from "./BaggageInfo";
+import type { CabinClass } from "./CabinClass";
 
 export type Provider = {|
   id: string,
@@ -25,6 +26,7 @@ type Common = {|
   provider: Provider,
   duration: number,
   bagsInfo: BagsInfo,
+  cabinClasses: CabinClass[],
 |};
 
 type BookingProvider = {|

@@ -1,16 +1,12 @@
 // @flow strict
-export type LocationArea = {|
-  id: string,
-  name: string,
-  code: string,
-  slug: string,
-|};
+import type { City, Country } from "./City";
 
 export type Station = {|
   id: string,
   name: string,
+  slug: string,
   code: string,
-  city: LocationArea,
-  country: LocationArea,
+  city: City,
+  country: Country,
   type: "AIRPORT" | "BUS_STATION" | "TRAIN_STATION",
 |};

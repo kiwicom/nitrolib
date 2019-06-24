@@ -1,6 +1,8 @@
 // @flow strict
 import type { Station } from "./Station";
 import type { ItineraryNormalized } from "./Itinerary";
+import type { CabinClass } from "./CabinClass";
+import type { Image } from "./Image";
 
 export type Stop = {|
   station: Station,
@@ -19,6 +21,7 @@ export type Carrier = {|
   id: string,
   name: string,
   code: string,
+  logo: Image,
 |};
 
 type SeatDimenstion = {|
@@ -46,6 +49,7 @@ export type Segment = {|
   carrier: string, // normalized, Carrier
   operatingCarrier: string, // normalized, Carrier
   seatInfo: SeatInfo,
+  cabinClass: CabinClass,
 |};
 
 export type Segments = { [key: string]: Segment };

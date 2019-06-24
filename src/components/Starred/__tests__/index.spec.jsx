@@ -41,6 +41,7 @@ const starredList: StarredItem[] = [
       starType: "star",
     },
     lastPrice: 123,
+    // $FlowExpected: TODO
     itinerary: itineraryOneWay,
     priceUpdatedAt: new Date(),
     createdAt: new Date(),

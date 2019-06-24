@@ -136,10 +136,12 @@ const allSegments = [
 
 describe("#getSegment/getSegments", () => {
   it("should return single segment by id", () => {
+    // $FlowExpected: TODO
     expect(getSegment(flatten(input), "segment1")).toEqual(singleSegment);
   });
 
   it("should return all segments", () => {
+    // $FlowExpected: TODO
     expect(getSegments(flatten(input), ["segment1", "segment2"])).toEqual(allSegments);
   });
 });

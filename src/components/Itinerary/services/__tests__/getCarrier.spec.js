@@ -9,6 +9,7 @@ const input = [
 
 describe("#getCarrier", () => {
   it("should get carrier by id", () => {
+    // $FlowExpected: TODO
     expect(getCarrier(input, "DP")).toEqual([{ name: "Pobeda", code: "DP" }]);
   });
 });

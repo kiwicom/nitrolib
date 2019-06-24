@@ -1,4 +1,6 @@
-// @flow strict
+// @noflow
+
+// TODO: add flow when umbrella api will be ready to fetch
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { withKnobs } from "@storybook/addon-knobs/react";

@@ -1,8 +1,8 @@
-// @flow
-import type { ItineraryReturnDeep } from "../../Itinerary";
+// @flow strict
 
-const itineraryReturn: ItineraryReturnDeep = {
+const itineraryReturn = {
   id: "returnItinerary",
+  cabinClasses: ["ECONOMY"],
   price: {
     amount: "130",
     currency: {
@@ -141,6 +141,7 @@ const itineraryReturn: ItineraryReturnDeep = {
         type: "FLIGHT",
         code: "1",
         duration: 126,
+        cabinClass: "ECONOMY",
         layover: {
           duration: 30,
           guarantee: "KIWI_COM",

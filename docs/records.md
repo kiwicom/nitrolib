@@ -1042,6 +1042,7 @@ type Common = {|
   provider: Provider,
   duration: number,
   bagsInfo: BagsInfo,
+  cabinClasses: CabinClass[],
 |};
 
 type BookingProvider = {|
@@ -1144,6 +1145,7 @@ See types:
 * [Segment](./records#segment)
 * [Money](./records#money)
 * [BaggageInfo](./records#baggageinfo)
+* [CabinClass](./records#cabinclass)
 
 
 
@@ -1453,6 +1455,7 @@ export type Carrier = {|
   id: string,
   name: string,
   code: string,
+  logo: Image,
 |};
 
 type SeatDimenstion = {|
@@ -1480,6 +1483,7 @@ export type Segment = {|
   carrier: string, // normalized, Carrier
   operatingCarrier: string, // normalized, Carrier
   seatInfo: SeatInfo,
+  cabinClass: CabinClass,
 |};
 
 export type Segments = { [key: string]: Segment };
@@ -1497,6 +1501,8 @@ declare export var getSegments: (obj: ItineraryNormalized, ids: string[]) => Seg
 See types:
 * [Station](./records#station)
 * [Itinerary](./records#itinerary)
+* [CabinClass](./records#cabinclass)
+* [Image](./records#image)
 
 A part of [Itinerary](#Itinerary).
 
@@ -1602,22 +1608,19 @@ import type { Station } from "@kiwicom/nitro/lib/records/Station";
 
 **Types:**
 ```js
-export type LocationArea = {|
-  id: string,
-  name: string,
-  code: string,
-  slug: string,
-|};
-
 export type Station = {|
   id: string,
   name: string,
+  slug: string,
   code: string,
-  city: LocationArea,
-  country: LocationArea,
+  city: City,
+  country: Country,
   type: "AIRPORT" | "BUS_STATION" | "TRAIN_STATION",
 |};
 ```
+
+See types:
+* [City](./records#city)
 
 A part of [Segment](#segment) and [Sector](#sector).
 

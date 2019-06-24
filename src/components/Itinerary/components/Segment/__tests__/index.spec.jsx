@@ -86,16 +86,19 @@ const props = {
 
 describe("#Segment", () => {
   it("should show layover, if not last segment", () => {
+    // $FlowExpected: TODO
     const wrapper = mount(<Segment {...props} />);
     expect(wrapper.find("TripLayover").exists()).toBe(true);
   });
 
   it("shoud hide layover", () => {
+    // $FlowExpected: TODO
     const wrapper = mount(<Segment {...props} last />);
     expect(wrapper.find("TripLayover").exists()).toBe(false);
   });
 
   it("should have tooltip if station changed", () => {
+    // $FlowExpected: TODO
     const wrapper = mount(<Segment {...props} highlight />);
     expect(wrapper.find("TranslateTooltip").exists()).toBe(true);
   });
