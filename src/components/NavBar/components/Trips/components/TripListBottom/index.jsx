@@ -48,7 +48,7 @@ const TripListBottom = ({ list }: Props) => {
                 />
               ))}
           </TripsBottomWrapper>
-          <Stack inline align="center" spacing="none">
+          <Stack inline align="center" justify="center" spacing="none">
             <ButtonLink
               color="primary"
               marginLeft={25}
