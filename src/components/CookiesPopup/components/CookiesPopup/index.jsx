@@ -8,29 +8,32 @@ import Modal from "@kiwicom/orbit-components/lib/Modal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
+import Translate from "../../../Translate";
+
 type Props = {|
   onAccept: () => void,
-  onCustomize: () => void,
+  onCustomize: () => void
 |};
 
 const CookiesBanner = ({ onAccept, onCustomize }: Props) => (
   <Modal onClose={onAccept}>
     <ModalSection>
-      <Heading spaceAfter="medium">Cookies banner</Heading>
+      <Heading spaceAfter="medium">
+        <Translate t="content.cookies.banner.your_privacy.title" />
+      </Heading>
       <Text spaceAfter="large" element="p">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie dictum congue. Nam vel
-        lectus egestas, eleifend lorem ut, rutrum velit. Ut finibus semper gravida. Donec facilisis
-        varius iaculis. Aliquam quis semper dolor. Ut vestibulum purus sit amet lectus vehicula
-        sagittis. Mauris ut ullamcorper mi. Vestibulum feugiat tellus sit amet feugiat porttitor.
+        <Translate t="content.cookies.banner.your_privacy.text" html />
       </Text>
       <ButtonGroup>
         <Stack justify="end">
           <Button onClick={onCustomize} size="small" type="secondary">
-            <Text weight="bold">Customize my preferences</Text>
+            <Text weight="bold">
+              <Translate t="content.cookies.banner.customize" />
+            </Text>
           </Button>
           <Button onClick={onAccept} size="small">
             <Text type="white" weight="bold">
-              I agree
+              <Translate t="content.cookies.banner.accept" />
             </Text>
           </Button>
         </Stack>

@@ -11,17 +11,21 @@ import Heading from "@kiwicom/orbit-components/lib/Heading";
 import ButtonGroup from "@kiwicom/orbit-components/lib/ButtonGroup";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
+import Translate from "../../../Translate";
+
 const CookieContainer = styled.div`
   margin-bottom: 15px;
 `;
 
 const CookieHeader = styled.div`
-  border-bottom: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorModal};
+  border-bottom: 1px solid
+    ${({ theme }: ThemeProps) => theme.orbit.borderColorModal};
 `;
 
 const CookieDescription = styled.div`
   width: 100%;
-  border-bottom: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorModal};
+  border-bottom: 1px solid
+    ${({ theme }: ThemeProps) => theme.orbit.borderColorModal};
 
   ${mq.tablet(css`
     width: 65%;
@@ -59,29 +63,29 @@ type Props = {|
   onAccept: ({|
     performance: boolean,
     marketing: boolean,
-    advertisement: boolean,
+    advertisement: boolean
   |}) => void,
-  onClose: () => void,
+  onClose: () => void
 |};
 
 type State = {|
   performance: boolean,
   marketing: boolean,
-  advertisement: boolean,
+  advertisement: boolean
 |};
 
 class CookiesCustomize extends React.PureComponent<Props, State> {
   state = {
     performance: false,
     marketing: false,
-    advertisement: false,
+    advertisement: false
   };
 
   handleAcceptAll = () => {
     this.setState({
       performance: true,
       marketing: true,
-      advertisement: true,
+      advertisement: true
     });
   };
 
@@ -92,7 +96,7 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
     onAccept({
       performance,
       marketing,
-      advertisement,
+      advertisement
     });
   };
 
@@ -109,24 +113,22 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
         <ModalSection>
           <CookieContainer>
             <CookieHeader>
-              <Heading spaceAfter="medium">Cookie preferences</Heading>
+              <Heading spaceAfter="medium">
+                <Translate t="seo.content.title_cookies_settings" />
+              </Heading>
               <Text type="secondary" spaceAfter="large">
-                If you don't want to receive certain types of cookies on Kiwi.com, you can change
-                your cookie settings on this page. You can learn more about how and why we use
-                cookies in our Privacy Policy.
+                <Translate t="content.cookies_settings.general.content" />
               </Text>
             </CookieHeader>
             <CookieRow>
               <CookieCategory>
                 <Text weight="bold" spaceAfter="small">
-                  Necessary cookies
+                  <Translate t="content.cookies_settings.necessary.title" />
                 </Text>
               </CookieCategory>
               <CookieDescription>
                 <Text spaceAfter="medium" size="small">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie dictum
-                  congue. Nam vel lectus egestas, eleifend lorem ut, rutrum velit. Ut finibus semper
-                  gravida.
+                  <Translate t="content.cookies_settings.necessary.description" />
                 </Text>
                 <Stack spaceAfter="large">
                   <Radio label="Enabled" checked disabled />
@@ -136,14 +138,12 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
             <CookieRow>
               <CookieCategory>
                 <Text weight="bold" spaceAfter="small">
-                  Performance cookies
+                  <Translate t="content.cookies_settings.performance.title" />
                 </Text>
               </CookieCategory>
               <CookieDescription>
                 <Text spaceAfter="medium" size="small">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie dictum
-                  congue. Nam vel lectus egestas, eleifend lorem ut, rutrum velit. Ut finibus semper
-                  gravida.
+                  <Translate t="content.cookies_settings.performance.description" />
                 </Text>
                 <Stack inline spaceAfter="large">
                   <Radio
@@ -166,14 +166,12 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
             <CookieRow>
               <CookieCategory>
                 <Text weight="bold" spaceAfter="small">
-                  Marketing cookies
+                  <Translate t="content.cookies_settings.marketing.title" />
                 </Text>
               </CookieCategory>
               <CookieDescription>
                 <Text spaceAfter="medium" size="small">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie dictum
-                  congue. Nam vel lectus egestas, eleifend lorem ut, rutrum velit. Ut finibus semper
-                  gravida.
+                  <Translate t="content.cookies_settings.marketing.description" />
                 </Text>
                 <Stack inline spaceAfter="large">
                   <Radio
@@ -196,14 +194,12 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
             <CookieRow>
               <CookieCategory>
                 <Text weight="bold" spaceAfter="small">
-                  Third-Party advertisement
+                  <Translate t="content.cookies_settings.third_party_marketing.title" />
                 </Text>
               </CookieCategory>
               <CookieDescription>
                 <Text spaceAfter="medium" size="small">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie dictum
-                  congue. Nam vel lectus egestas, eleifend lorem ut, rutrum velit. Ut finibus semper
-                  gravida.
+                  <Translate t="content.cookies_settings.third_party_marketing.description" />
                 </Text>
                 <Stack inline spaceAfter="large">
                   <Radio
@@ -228,12 +224,12 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
             <Stack justify="end">
               <Button onClick={this.handleAcceptAll} size="small">
                 <Text type="white" weight="bold">
-                  Accept all
+                  <Translate t="content.cookies_settings.general.accept_all" />
                 </Text>
               </Button>
-              <Button onClick={this.handleAccept} size="small">
-                <Text type="white" weight="bold">
-                  Save settings
+              <Button onClick={this.handleAccept} size="small" type="secondary">
+                <Text weight="bold">
+                  <Translate t="content.cookies_settings.general.save_settings" />
                 </Text>
               </Button>
             </Stack>

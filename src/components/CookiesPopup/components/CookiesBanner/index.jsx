@@ -7,6 +7,7 @@ import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import ButtonGroup from "@kiwicom/orbit-components/lib/ButtonGroup";
 import Text from "@kiwicom/orbit-components/lib/Text";
+import Heading from "@kiwicom/orbit-components/lib/Heading";
 
 import linkMixin from "../../../../styles/mixins/link";
 import Translate from "../../../Translate";
@@ -33,7 +34,7 @@ const Container = styled.div`
     css`
       flex-direction: row;
       align-items: center;
-    `,
+    `
   )};
 
   ${mq.largeMobile(css`
@@ -57,7 +58,7 @@ const Message = styled.p`
   ${mq.desktop(
     css`
       padding-right: 12px;
-    `,
+    `
   )};
 
   ${mq.largeMobile(css`
@@ -75,7 +76,7 @@ const ButtonWrap = styled.div`
     css`
       padding-right: 30px;
       padding-bottom: 0px;
-    `,
+    `
   )};
 `;
 
@@ -103,19 +104,22 @@ type Props = {|
 
 const CookiesBanner = ({ onAccept, onCustomize }: Props) => (
   <Container>
+    <Heading spaceAfter="medium">
+      <Translate t="content.cookies.banner.your_privacy.title" />
+    </Heading>
     <Message>
-      <Translate t="content.cookies.banner.text" html />
+      <Translate t="content.cookies.banner.your_privacy.text" html />
     </Message>
     <ButtonWrap>
       <ButtonGroup>
         <Button onClick={onCustomize} size="small" type="secondary">
           <Text size="small" weight="bold">
-            Customize my preferences
+            <Translate t="content.cookies.banner.customize" />
           </Text>
         </Button>
         <Button onClick={onAccept} size="small">
           <Text size="small" type="white" weight="bold">
-            I agree
+            <Translate t="content.cookies.banner.accept" />
           </Text>
         </Button>
       </ButtonGroup>
