@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 9d476aed96c8319a67466b3d0429fd89
+ * @relayHash 524754192f7a576ece7ba047426015c6
  */
 
 /* eslint-disable */
@@ -211,17 +211,20 @@ v1 = [
   {
     "kind": "Variable",
     "name": "first",
-    "variableName": "first"
+    "variableName": "first",
+    "type": "Int"
   },
   {
     "kind": "Variable",
     "name": "only",
-    "variableName": "only"
+    "variableName": "only",
+    "type": "CustomerBookingsOnlyEnum"
   },
   {
     "kind": "Variable",
     "name": "order",
-    "variableName": "order"
+    "variableName": "order",
+    "type": "CustomerBookingsOrderEnum"
   }
 ],
 v2 = {
@@ -402,19 +405,32 @@ return {
                   },
                   {
                     "kind": "InlineFragment",
-                    "type": "BookingOneWay",
+                    "type": "BookingReturn",
                     "selections": [
                       (v3/*: any*/),
                       (v4/*: any*/),
                       {
                         "kind": "LinkedField",
                         "alias": null,
-                        "name": "trip",
+                        "name": "outbound",
                         "storageKey": null,
                         "args": null,
                         "concreteType": "Trip",
                         "plural": false,
                         "selections": (v9/*: any*/)
+                      },
+                      {
+                        "kind": "LinkedField",
+                        "alias": null,
+                        "name": "inbound",
+                        "storageKey": null,
+                        "args": null,
+                        "concreteType": "Trip",
+                        "plural": false,
+                        "selections": [
+                          (v8/*: any*/),
+                          (v7/*: any*/)
+                        ]
                       }
                     ]
                   },
@@ -471,32 +487,19 @@ return {
                   },
                   {
                     "kind": "InlineFragment",
-                    "type": "BookingReturn",
+                    "type": "BookingOneWay",
                     "selections": [
                       (v3/*: any*/),
                       (v4/*: any*/),
                       {
                         "kind": "LinkedField",
                         "alias": null,
-                        "name": "outbound",
+                        "name": "trip",
                         "storageKey": null,
                         "args": null,
                         "concreteType": "Trip",
                         "plural": false,
                         "selections": (v9/*: any*/)
-                      },
-                      {
-                        "kind": "LinkedField",
-                        "alias": null,
-                        "name": "inbound",
-                        "storageKey": null,
-                        "args": null,
-                        "concreteType": "Trip",
-                        "plural": false,
-                        "selections": [
-                          (v8/*: any*/),
-                          (v7/*: any*/)
-                        ]
                       }
                     ]
                   }

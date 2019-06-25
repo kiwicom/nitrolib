@@ -13,18 +13,12 @@ type OneWayTrips_item$ref = any;
 type ReturnTrips_item$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type SingleBookingTrip_trip$ref: FragmentReference;
-declare export opaque type SingleBookingTrip_trip$fragmentType: SingleBookingTrip_trip$ref;
 export type SingleBookingTrip_trip = {|
   +__typename: string,
   +id: string,
   +$fragmentRefs: OneWayTrips_item$ref & MulticityTrips_item$ref & ReturnTrips_item$ref,
   +$refType: SingleBookingTrip_trip$ref,
 |};
-export type SingleBookingTrip_trip$data = SingleBookingTrip_trip;
-export type SingleBookingTrip_trip$key = {
-  +$data?: SingleBookingTrip_trip$data,
-  +$fragmentRefs: SingleBookingTrip_trip$ref,
-};
 */
 
 

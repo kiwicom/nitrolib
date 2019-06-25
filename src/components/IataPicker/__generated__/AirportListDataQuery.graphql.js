@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 8db7cf6d18bb547a7837f9d02878d60a
+ * @relayHash f234cf5044f9b3503eaee064ef6855d7
  */
 
 /* eslint-disable */
@@ -71,12 +71,14 @@ v1 = [
     "name": "options",
     "value": {
       "locationType": "airport"
-    }
+    },
+    "type": "LocationsOptionsInput"
   },
   {
     "kind": "Variable",
     "name": "search",
-    "variableName": "input"
+    "variableName": "input",
+    "type": "String"
   }
 ],
 v2 = {

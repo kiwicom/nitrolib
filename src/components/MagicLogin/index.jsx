@@ -18,7 +18,7 @@ import IntlContext from "../../services/intl/context";
 import { API_REQUEST_FAILED, API_ERROR } from "../../consts/events";
 import * as loginEvents from "./consts/events";
 import { makeCall, makeEnvironment } from "../../services/utils/relay";
-import type { AuthUser, SocialProvider } from "../../records/Auth";
+import type { AuthUser, SocialProvider, AuthToken } from "../../records/Auth";
 import type { Event, Props as EventProps } from "../../records/Event";
 import type { Brand } from "../../records/Brand";
 import type { LangInfo } from "../../records/LangInfo";
@@ -31,6 +31,7 @@ type ContainerProps = {|
   onClose: () => void,
   onSignIn: (user: AuthUser) => void,
   onSocialLogin: (provider: SocialProvider) => Promise<void>,
+  onGetSimpleToken: AuthToken => void,
 |};
 
 type Props = {|
@@ -170,7 +171,7 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
   };
 
   render() {
-    const { type, onSignIn, brand, disableSocialLogin } = this.props;
+    const { type, onSignIn, brand, disableSocialLogin, onGetSimpleToken } = this.props;
     const { screen, email, isSendingEmail, error } = this.state;
 
     return (
@@ -245,7 +246,9 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
           screen === "magicLink" ||
           screen === "resetPassword") && <AccountCheckEmail reason={screen} email={email} />}
 
-        {screen === "getSingleBooking" && <GetSingleBooking onBack={this.handleToIntro} />}
+        {screen === "getSingleBooking" && (
+          <GetSingleBooking onBack={this.handleToIntro} onGetSimpleToken={onGetSimpleToken} />
+        )}
       </Modal>
     );
   }

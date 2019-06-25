@@ -4,9 +4,25 @@ import * as React from "react";
 
 import GetSingleBookingScreen from "../screens/GetSingleBooking";
 import * as validators from "../../../../services/input/validators";
+import createSimpleToken from "../../mutations/createSimpleToken";
+import type { AuthToken } from "../../../../records/Auth";
+import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
+import { GET_SIMPLE_TOKEN } from "../../consts/events";
+import LogContext from "../../../../services/log/context";
+import type { Event, Props as EventProps } from "../../../../records/Event";
+import { makeCall, makeEnvironment } from "../../../../services/utils/relay";
+import type { Context as IntlContextType } from "../../../../services/intl/context";
+import IntlContext from "../../../../services/intl/context";
+
+type OwnProps = {|
+  onBack: () => void,
+  onGetSimpleToken: AuthToken => void,
+|};
 
 type Props = {|
-  onBack: () => void,
+  ...OwnProps,
+  log: (event: Event, props: EventProps) => void,
+  intl: IntlContextType,
 |};
 
 type State = {|
@@ -21,7 +37,7 @@ type State = {|
   IATAError: string,
 |};
 
-class GetSingleBooking extends React.Component<Props, State> {
+class GetSingleBookingWithoutContext extends React.Component<Props, State> {
   state = {
     submitted: false,
     bookingId: "",
@@ -74,11 +90,14 @@ class GetSingleBooking extends React.Component<Props, State> {
 
   handleSubmit = (ev: SyntheticInputEvent<HTMLFormElement>) => {
     ev.preventDefault();
+    const { onGetSimpleToken, log, intl } = this.props;
     const { bookingId, email, departureDate, IATA } = this.state;
     const bookingIdError = validators.required(bookingId);
     const emailError = validators.email(email);
     const departureDateError = validators.required(departureDate);
     const IATAError = validators.iata(IATA);
+    const bid = Number(bookingId);
+
     this.setState({
       bookingIdError,
       emailError,
@@ -88,8 +107,41 @@ class GetSingleBooking extends React.Component<Props, State> {
     });
 
     if (IATAError || emailError || bookingIdError || departureDateError) {
-      // TODO
+      return;
     }
+
+    const input = {
+      email,
+      bookingId: bid,
+      origin: { iataCode: IATA, date: departureDate },
+    };
+    const environment = makeEnvironment(makeCall({ "Accept-Language": intl.language.iso }));
+
+    createSimpleToken(environment, { input })
+      .then(res => {
+        const token = res.createSimpleToken?.token;
+
+        if (token) {
+          log(GET_SIMPLE_TOKEN, {});
+          onGetSimpleToken({
+            type: "token",
+            bid,
+            token,
+          });
+          return;
+        }
+
+        log(API_REQUEST_FAILED, {
+          operation: "createSimpleToken",
+          error: res.createSimpleToken?.code || "",
+        });
+      })
+      .catch(err => {
+        log(API_ERROR, {
+          operation: "createSimpleToken",
+          error: String(err),
+        });
+      });
   };
 
   render() {
@@ -125,5 +177,12 @@ class GetSingleBooking extends React.Component<Props, State> {
     );
   }
 }
+
+const GetSingleBooking = (props: OwnProps) => {
+  const { log } = React.useContext(LogContext);
+  const intl = React.useContext(IntlContext);
+
+  return <GetSingleBookingWithoutContext {...props} intl={intl} log={log} />;
+};
 
 export default GetSingleBooking;

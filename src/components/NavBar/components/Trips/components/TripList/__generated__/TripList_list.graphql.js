@@ -13,7 +13,6 @@ type OneWayTrips_item$ref = any;
 type ReturnTrips_item$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type TripList_list$ref: FragmentReference;
-declare export opaque type TripList_list$fragmentType: TripList_list$ref;
 export type TripList_list = {|
   +edges: ?$ReadOnlyArray<?{|
     +node: ?{|
@@ -24,11 +23,6 @@ export type TripList_list = {|
   |}>,
   +$refType: TripList_list$ref,
 |};
-export type TripList_list$data = TripList_list;
-export type TripList_list$key = {
-  +$data?: TripList_list$data,
-  +$fragmentRefs: TripList_list$ref,
-};
 */
 
 

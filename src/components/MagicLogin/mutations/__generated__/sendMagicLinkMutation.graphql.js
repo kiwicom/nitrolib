@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 0b01db23daca21407bc9fa125b936014
+ * @relayHash f941ff8758d8f5bce374470d51b696b8
  */
 
 /* eslint-disable */
@@ -61,12 +61,14 @@ v1 = [
       {
         "kind": "Variable",
         "name": "brand",
-        "variableName": "brand"
+        "variableName": "brand",
+        "type": "Brand"
       },
       {
         "kind": "Variable",
         "name": "email",
-        "variableName": "email"
+        "variableName": "email",
+        "type": "String!"
       }
     ],
     "concreteType": "SendMagicLinkResponse",

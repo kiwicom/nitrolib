@@ -19,6 +19,7 @@ const defaultProps = {
   onSocialLogin: () => Promise.resolve(undefined),
   onSignIn: () => {},
   onClose: () => {},
+  onGetSimpleToken: () => {},
   initialScreen: "intro",
   type: "mmb",
 };

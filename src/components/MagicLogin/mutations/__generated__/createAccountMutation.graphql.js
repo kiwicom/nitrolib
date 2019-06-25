@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash a4f956ef6626982e699b611d9d5caf88
+ * @relayHash a3530f56fcd75d62b0f2654567d95bca
  */
 
 /* eslint-disable */
@@ -71,12 +71,14 @@ v1 = [
       {
         "kind": "Variable",
         "name": "brand",
-        "variableName": "brand"
+        "variableName": "brand",
+        "type": "Brand"
       },
       {
         "kind": "Variable",
         "name": "credentials",
-        "variableName": "credentials"
+        "variableName": "credentials",
+        "type": "CreateAccountInput!"
       }
     ],
     "concreteType": "CreateAccountResponse",

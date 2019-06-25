@@ -299,6 +299,7 @@ type Props = {|
   onClose: () => void,
   onSignIn: (user: AuthUser) => void,
   onSocialLogin: (provider: SocialProvider) => Promise<void>,
+  onGetSimpleToken: AuthToken => void,
 |};
 
 declare export default React.ComponentType<Props>;

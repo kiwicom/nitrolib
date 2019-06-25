@@ -109,6 +109,18 @@ export const REGISTRATION_SENT: Event = {
   },
 };
 
+export const GET_SIMPLE_TOKEN: Event = {
+  category: "Nitro",
+  subCategory: "MagicLogin",
+  action: "RegistrationSent",
+  destinations: {
+    exponea: true,
+    ga: false,
+    logmole: false,
+    bigquery: true,
+  },
+};
+
 export const LOGIN_ABANDONED: Event = {
   category: "Nitro",
   subCategory: "MagicLogin",

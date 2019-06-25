@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 21503140ddcfd844ec6af3ed55ad0e76
+ * @relayHash 3acb87c02a77d0610cd1cac3f953b8cb
  */
 
 /* eslint-disable */
@@ -167,7 +167,8 @@ v1 = [
   {
     "kind": "Variable",
     "name": "id",
-    "variableName": "bookingID"
+    "variableName": "bookingID",
+    "type": "Int!"
   }
 ],
 v2 = {
@@ -313,7 +314,7 @@ return {
           (v2/*: any*/),
           {
             "kind": "InlineFragment",
-            "type": "BookingOneWay",
+            "type": "BookingReturn",
             "selections": [
               (v3/*: any*/),
               (v4/*: any*/),
@@ -321,12 +322,25 @@ return {
               {
                 "kind": "LinkedField",
                 "alias": null,
-                "name": "trip",
+                "name": "outbound",
                 "storageKey": null,
                 "args": null,
                 "concreteType": "Trip",
                 "plural": false,
                 "selections": (v10/*: any*/)
+              },
+              {
+                "kind": "LinkedField",
+                "alias": null,
+                "name": "inbound",
+                "storageKey": null,
+                "args": null,
+                "concreteType": "Trip",
+                "plural": false,
+                "selections": [
+                  (v9/*: any*/),
+                  (v8/*: any*/)
+                ]
               }
             ]
           },
@@ -384,7 +398,7 @@ return {
           },
           {
             "kind": "InlineFragment",
-            "type": "BookingReturn",
+            "type": "BookingOneWay",
             "selections": [
               (v3/*: any*/),
               (v4/*: any*/),
@@ -392,25 +406,12 @@ return {
               {
                 "kind": "LinkedField",
                 "alias": null,
-                "name": "outbound",
+                "name": "trip",
                 "storageKey": null,
                 "args": null,
                 "concreteType": "Trip",
                 "plural": false,
                 "selections": (v10/*: any*/)
-              },
-              {
-                "kind": "LinkedField",
-                "alias": null,
-                "name": "inbound",
-                "storageKey": null,
-                "args": null,
-                "concreteType": "Trip",
-                "plural": false,
-                "selections": [
-                  (v9/*: any*/),
-                  (v8/*: any*/)
-                ]
               }
             ]
           }

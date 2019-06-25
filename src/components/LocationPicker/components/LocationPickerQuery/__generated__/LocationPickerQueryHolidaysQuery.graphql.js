@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 90316f1f340501a2a2f9be90e71f43fd
+ * @relayHash c90468d7d23b5b530d5b20a082ca1b68
  */
 
 /* eslint-disable */
@@ -93,12 +93,14 @@ v1 = [
   {
     "kind": "Literal",
     "name": "last",
-    "value": 50
+    "value": 50,
+    "type": "Int"
   },
   {
     "kind": "Variable",
     "name": "search",
-    "variableName": "input"
+    "variableName": "input",
+    "type": "String!"
   }
 ],
 v2 = {
@@ -171,12 +173,12 @@ return {
         "concreteType": "LocationConnection",
         "plural": false,
         "selections": [
-          (v2/*: any*/),
           {
             "kind": "FragmentSpread",
             "name": "LocationPickerResultList_list",
             "args": null
-          }
+          },
+          (v2/*: any*/)
         ]
       }
     ]

@@ -33,6 +33,7 @@ storiesOf("MagicLogin", module)
       onClose={action("Close")}
       onSignIn={action("Sign in")}
       onSocialLogin={action("Social login")}
+      onGetSimpleToken={action("Get single token")}
     />
   ))
   .add("sign up", () => (
@@ -42,6 +43,7 @@ storiesOf("MagicLogin", module)
       onClose={action("Close")}
       onSignIn={action("Sign in")}
       onSocialLogin={action("Social login")}
+      onGetSimpleToken={action("Get single token")}
     />
   ))
   .add("without socials", () => (
@@ -52,6 +54,7 @@ storiesOf("MagicLogin", module)
       onClose={action("Close")}
       onSignIn={action("Sign in")}
       onSocialLogin={action("Social login")}
+      onGetSimpleToken={action("Get single token")}
     />
   ))
   .add("Screen - Intro", () => (

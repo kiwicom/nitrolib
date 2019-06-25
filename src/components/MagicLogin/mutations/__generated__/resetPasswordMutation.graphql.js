@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash c051a58f256564c1dd2a7a8b26af5437
+ * @relayHash 901edd54c1ae0c82edccb97c99dc9539
  */
 
 /* eslint-disable */
@@ -61,12 +61,14 @@ v1 = [
       {
         "kind": "Variable",
         "name": "brand",
-        "variableName": "brand"
+        "variableName": "brand",
+        "type": "String"
       },
       {
         "kind": "Variable",
         "name": "email",
-        "variableName": "email"
+        "variableName": "email",
+        "type": "String!"
       }
     ],
     "concreteType": "ResetPasswordResponse",

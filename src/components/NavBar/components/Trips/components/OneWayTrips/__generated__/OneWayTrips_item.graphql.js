@@ -10,7 +10,6 @@
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type OneWayTrips_item$ref: FragmentReference;
-declare export opaque type OneWayTrips_item$fragmentType: OneWayTrips_item$ref;
 export type OneWayTrips_item = {|
   +databaseId: ?number,
   +destinationImageUrl: ?string,
@@ -36,11 +35,6 @@ export type OneWayTrips_item = {|
   +__typename: "BookingOneWay",
   +$refType: OneWayTrips_item$ref,
 |};
-export type OneWayTrips_item$data = OneWayTrips_item;
-export type OneWayTrips_item$key = {
-  +$data?: OneWayTrips_item$data,
-  +$fragmentRefs: OneWayTrips_item$ref,
-};
 */
 
 
