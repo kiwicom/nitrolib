@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import { createFragmentContainer, graphql } from "react-relay";
+import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import ItemWrapper from "../../primitives/ItemWrapper";
 import Translate from "../../../../../Translate";
@@ -20,6 +21,7 @@ type Props = {|
 const TripsBottomWrapper = styled.div`
   display: flex;
   width: 120px;
+  margin-${/* sc-custom "right" */ right}: ${({ theme }) => theme.orbit.spaceLarge};
   ${mq.mediumMobile(css`
     width: 180px;
   `)};
@@ -48,7 +50,7 @@ const TripListBottom = ({ list }: Props) => {
                 />
               ))}
           </TripsBottomWrapper>
-          <Stack inline align="center" justify="center" spacing="none">
+          <Stack inline align="center" spacing="none">
             <ButtonLink
               color="primary"
               marginLeft={25}

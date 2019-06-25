@@ -60,6 +60,6 @@ describe("#TripDataList", () => {
 
     wrapper.update();
 
-    expect(wrapper.find("TripInfoLine").exists()).toBe(true);
+    expect(wrapper.find("Stack").exists()).toBe(true);
   });
 });

@@ -30,6 +30,7 @@ type PropsAll = {| ...ThemeProps, ...Props |};
 const Button: ReactComponentFunctional<Props, ThemeProps> = styled.button`
   ${buttonMixin};
   display: flex;
+  align-items: center;
   color: ${({ theme, color }: PropsAll) =>
     (color === "primary" && `${theme.orbit.paletteProductNormal}`) ||
     (color === "warning" && `${theme.orbit.paletteRedNormal}`) ||

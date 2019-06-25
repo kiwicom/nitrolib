@@ -5,12 +5,11 @@ import RouteTwoStops from "@kiwicom/orbit-components/lib/icons/RouteTwoStops";
 import styled, { css } from "styled-components";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import parseISO from "date-fns/fp/parseISO";
+import Text from "@kiwicom/orbit-components/lib/Text";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import { themeDefault } from "../../../../../../records/Theme";
 import ItemWrapper from "../../primitives/ItemWrapper";
-import TripInfo from "../../primitives/TripInfo";
-import Column from "../../primitives/Column";
-import TripInfoLine from "../../primitives/TripInfoLine";
 import Translate from "../../../../../Translate";
 import Day from "../../../../../Day";
 
@@ -19,8 +18,8 @@ type Props = {|
   img?: string,
   arrivalTime: Date,
   departureTime: Date,
-  departureCity: ?string,
-  arrivalCity: ?string,
+  departureCity: string,
+  arrivalCity: string,
   passengerCount: number,
   countOtherCities: number,
   multicityFirst?: string,
@@ -32,9 +31,12 @@ const Img = styled.img`
   justify-content: center;
   overflow: hidden;
   height: 120px;
+  width: 100%;
+  max-width: 120px;
 
   ${mq.mediumMobile(css`
     height: 180px;
+    max-width: 180px;
   `)};
 `;
 
@@ -55,33 +57,35 @@ const TripItem = ({
   onSelect,
 }: Props) => (
   <ItemWrapper onClick={() => onSelect(bid)}>
-    <Img src={img} alt="img" />
-    <TripInfo>
-      <Column>
-        <TripInfoLine darker>
-          {departureCity}
-          {countOtherCities !== 0 && <RouteOneStop size="small" />}
-          {multicityFirst}
-          {+countOtherCities > 1 && (
-            <>
-              <RouteTwoStops size="medium" />
-              <Translate t="account.trips_others" values={{ others: countOtherCities }} />
-            </>
-          )}
-        </TripInfoLine>
-        <TripInfoLine fontSize="24" darker>
-          {arrivalCity}
-        </TripInfoLine>
-      </Column>
-      <Column>
-        <TripInfoLine>
-          <Day date={parseISO(departureTime)} /> - <Day date={parseISO(arrivalTime)} />
-        </TripInfoLine>
-        <TripInfoLine>
-          <Translate t="account.trips_passengers" values={{ passengers: passengerCount }} />
-        </TripInfoLine>
-      </Column>
-    </TripInfo>
+    <Stack flex align="center" spacing="comfy">
+      <Img src={img} alt="img" />
+      <Stack flex shrink justify="center" direction="column">
+        <Stack spacing="tight">
+          <Text weight="bold">
+            {departureCity}
+            {countOtherCities !== 0 && <RouteOneStop size="small" />}
+            {multicityFirst}
+            {+countOtherCities > 1 && (
+              <>
+                <RouteTwoStops size="medium" />
+                <Translate t="account.trips_others" values={{ others: countOtherCities }} />
+              </>
+            )}
+          </Text>
+          <Text size="large" weight="bold">
+            {arrivalCity}
+          </Text>
+        </Stack>
+        <Stack spacing="tight">
+          <Text>
+            <Day date={parseISO(departureTime)} /> - <Day date={parseISO(arrivalTime)} />
+          </Text>
+          <Text>
+            <Translate t="account.trips_passengers" values={{ passengers: passengerCount }} />
+          </Text>
+        </Stack>
+      </Stack>
+    </Stack>
   </ItemWrapper>
 );
 
