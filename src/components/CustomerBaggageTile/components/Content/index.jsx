@@ -5,7 +5,7 @@ import BaggagePersonalItemNone from "@kiwicom/orbit-components/lib/icons/Baggage
 import Text from "@kiwicom/orbit-components/lib/Text";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
-import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
+import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import BaggageItem from "../BaggageItem";
 import type { TileDefinition, OrderStatusType } from "../../../../records/Baggage";
@@ -21,7 +21,8 @@ type Props = {|
 |};
 
 const Wrapper = styled.div`
-  padding: 8px 0px 0px 28px;
+  padding-top: 8px;
+  padding-${/* sc-custom "left" */ left}: 28px;
   > div {
     margin-bottom: ${({ theme }): ThemeProps => theme.orbit.spaceXXXSmall};
   }
