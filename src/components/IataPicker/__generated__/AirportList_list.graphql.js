@@ -11,6 +11,7 @@ import type { ReaderFragment } from 'relay-runtime';
 type AirportResult_item$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type AirportList_list$ref: FragmentReference;
+declare export opaque type AirportList_list$fragmentType: AirportList_list$ref;
 export type AirportList_list = {|
   +edges: ?$ReadOnlyArray<?{|
     +node: ?{|
@@ -20,6 +21,11 @@ export type AirportList_list = {|
   |}>,
   +$refType: AirportList_list$ref,
 |};
+export type AirportList_list$data = AirportList_list;
+export type AirportList_list$key = {
+  +$data?: AirportList_list$data,
+  +$fragmentRefs: AirportList_list$ref,
+};
 */
 
 

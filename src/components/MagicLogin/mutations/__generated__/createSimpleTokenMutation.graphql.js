@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash a13b7c54bec11bde5ae56aa0e847abb4
+ * @relayHash b10b108b642ec90de515f7e790c4abc2
  */
 
 /* eslint-disable */
@@ -25,7 +25,6 @@ export type createSimpleTokenMutationVariables = {|
 export type createSimpleTokenMutationResponse = {|
   +createSimpleToken: ?{|
     +token?: ?string,
-    +directAccessURL?: ?string,
     +code?: ?SimpleTokenErrorCode,
   |}
 |};
@@ -44,7 +43,6 @@ mutation createSimpleTokenMutation(
     __typename
     ... on SimpleToken {
       token
-      directAccessURL
     }
     ... on SimpleTokenError {
       code
@@ -66,24 +64,10 @@ v1 = [
   {
     "kind": "Variable",
     "name": "input",
-    "variableName": "input",
-    "type": "CreateSimpleTokenInput!"
+    "variableName": "input"
   }
 ],
 v2 = {
-  "kind": "InlineFragment",
-  "type": "SimpleTokenError",
-  "selections": [
-    {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "code",
-      "args": null,
-      "storageKey": null
-    }
-  ]
-},
-v3 = {
   "kind": "InlineFragment",
   "type": "SimpleToken",
   "selections": [
@@ -93,11 +77,17 @@ v3 = {
       "name": "token",
       "args": null,
       "storageKey": null
-    },
+    }
+  ]
+},
+v3 = {
+  "kind": "InlineFragment",
+  "type": "SimpleTokenError",
+  "selections": [
     {
       "kind": "ScalarField",
       "alias": null,
-      "name": "directAccessURL",
+      "name": "code",
       "args": null,
       "storageKey": null
     }
@@ -158,11 +148,11 @@ return {
     "operationKind": "mutation",
     "name": "createSimpleTokenMutation",
     "id": null,
-    "text": "mutation createSimpleTokenMutation(\n  $input: CreateSimpleTokenInput!\n) {\n  createSimpleToken(input: $input) {\n    __typename\n    ... on SimpleToken {\n      token\n      directAccessURL\n    }\n    ... on SimpleTokenError {\n      code\n    }\n  }\n}\n",
+    "text": "mutation createSimpleTokenMutation(\n  $input: CreateSimpleTokenInput!\n) {\n  createSimpleToken(input: $input) {\n    __typename\n    ... on SimpleToken {\n      token\n    }\n    ... on SimpleTokenError {\n      code\n    }\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '9624dd914333d82ecfdd2ec762962778';
+(node/*: any*/).hash = '1706a77422e6dfd70842dab1ec1adcf1';
 module.exports = node;

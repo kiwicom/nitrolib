@@ -10,6 +10,7 @@
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type TripListBottom_list$ref: FragmentReference;
+declare export opaque type TripListBottom_list$fragmentType: TripListBottom_list$ref;
 export type TripListBottom_list = {|
   +edges: ?$ReadOnlyArray<?{|
     +node: ?{|
@@ -20,6 +21,11 @@ export type TripListBottom_list = {|
   |}>,
   +$refType: TripListBottom_list$ref,
 |};
+export type TripListBottom_list$data = TripListBottom_list;
+export type TripListBottom_list$key = {
+  +$data?: TripListBottom_list$data,
+  +$fragmentRefs: TripListBottom_list$ref,
+};
 */
 
 

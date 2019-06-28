@@ -10,6 +10,7 @@
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type AirportResult_item$ref: FragmentReference;
+declare export opaque type AirportResult_item$fragmentType: AirportResult_item$ref;
 export type AirportResult_item = {|
   +locationId: ?string,
   +name: ?string,
@@ -21,6 +22,11 @@ export type AirportResult_item = {|
   |},
   +$refType: AirportResult_item$ref,
 |};
+export type AirportResult_item$data = AirportResult_item;
+export type AirportResult_item$key = {
+  +$data?: AirportResult_item$data,
+  +$fragmentRefs: AirportResult_item$ref,
+};
 */
 
 
