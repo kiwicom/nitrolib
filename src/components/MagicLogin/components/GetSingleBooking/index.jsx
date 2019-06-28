@@ -1,18 +1,21 @@
 // @flow strict
 
 import * as React from "react";
+import format from "date-fns/format";
 
+import Text from "../../../Text";
 import GetSingleBookingScreen from "../screens/GetSingleBooking";
-import * as validators from "../../../../services/input/validators";
 import createSimpleToken from "../../mutations/createSimpleToken";
-import type { AuthToken } from "../../../../records/Auth";
+import * as validators from "../../../../services/input/validators";
 import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
 import { GET_SIMPLE_TOKEN } from "../../consts/events";
 import LogContext from "../../../../services/log/context";
-import type { Event, Props as EventProps } from "../../../../records/Event";
-import { makeCall, makeEnvironment } from "../../../../services/utils/relay";
-import type { Context as IntlContextType } from "../../../../services/intl/context";
 import IntlContext from "../../../../services/intl/context";
+import { makeCall, makeEnvironment } from "../../../../services/utils/relay";
+import type { AuthToken } from "../../../../records/Auth";
+import type { Event, Props as EventProps } from "../../../../records/Event";
+import type { Context as IntlContextType } from "../../../../services/intl/context";
+import errors from "../../../../consts/errors";
 
 type OwnProps = {|
   onBack: () => void,
@@ -26,6 +29,7 @@ type Props = {|
 |};
 
 type State = {|
+  error: ?string,
   submitted: boolean,
   bookingId: string,
   bookingIdError: string,
@@ -39,6 +43,7 @@ type State = {|
 
 class GetSingleBookingWithoutContext extends React.Component<Props, State> {
   state = {
+    error: null,
     submitted: false,
     bookingId: "",
     bookingIdError: "",
@@ -104,16 +109,18 @@ class GetSingleBookingWithoutContext extends React.Component<Props, State> {
       departureDateError,
       IATAError,
       submitted: true,
+      error: null,
     });
 
     if (IATAError || emailError || bookingIdError || departureDateError) {
       return;
     }
 
+    const date = departureDate ? format(departureDate, "yyyy-MM-dd") : null;
     const input = {
       email,
       bookingId: bid,
-      origin: { iataCode: IATA, date: departureDate },
+      origin: { iataCode: IATA, date },
     };
     const environment = makeEnvironment(makeCall({ "Accept-Language": intl.language.iso }));
 
@@ -131,16 +138,20 @@ class GetSingleBookingWithoutContext extends React.Component<Props, State> {
           return;
         }
 
+        const errorCode = res.createSimpleToken?.code || "";
+        const error = errorCode === "NOT_FOUND" ? errors.incorrectBidIATAInput : errors.general;
         log(API_REQUEST_FAILED, {
           operation: "createSimpleToken",
-          error: res.createSimpleToken?.code || "",
+          error: errorCode,
         });
+        this.setState({ error });
       })
       .catch(err => {
         log(API_ERROR, {
           operation: "createSimpleToken",
           error: String(err),
         });
+        this.setState({ error: errors.general });
       });
   };
 
@@ -155,6 +166,7 @@ class GetSingleBookingWithoutContext extends React.Component<Props, State> {
       IATAError,
       departureDateError,
       bookingIdError,
+      error,
     } = this.state;
 
     return (
@@ -167,6 +179,7 @@ class GetSingleBookingWithoutContext extends React.Component<Props, State> {
         emailError={emailError}
         departureDate={departureDate}
         departureDateError={departureDateError}
+        error={error ? <Text t={error} /> : null}
         onIATAChange={this.handleIATA}
         onEmailChange={this.handleEmail}
         onBookingIdChange={this.handleBookingId}

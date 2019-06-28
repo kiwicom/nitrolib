@@ -1,6 +1,7 @@
 // @flow strict
 
 import * as React from "react";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
@@ -23,6 +24,7 @@ type Props = {|
   emailError: string,
   IATA: string,
   IATAError: string,
+  error?: React.Node,
   onDepartureDateChange: (?Date) => void,
   onBookingIdChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
   onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
@@ -40,6 +42,7 @@ const GetSingleBooking = ({
   departureDateError,
   IATA,
   IATAError,
+  error,
   onBookingIdChange,
   onEmailChange,
   onDepartureDateChange,
@@ -59,6 +62,11 @@ const GetSingleBooking = ({
             </Heading>
             <Text t="account.sign_in.single_booking.description" />
           </Stack>
+          {error && (
+            <Alert type="critical" icon>
+              {error}
+            </Alert>
+          )}
           <Stack inline>
             <InputField
               type="number"
