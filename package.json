@@ -12,6 +12,7 @@
     "docs": "node etc/docs",
     "docs:check": "node etc/docs/check.js",
     "relay": "relay-compiler --src src/ --schema schema.graphql --extensions jsx js",
+    "relay:check": "yarn relay --validate",
     "relay:schema": "graphql get-schema",
     "test": "jest",
     "lint": "eslint './**/*.{js,jsx,js.flow}'",

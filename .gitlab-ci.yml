@@ -68,6 +68,11 @@ docs:
   script:
     - yarn docs:check
 
+relay:
+  stage: build
+  script:
+    - yarn relay:check
+
 release:
   stage: release
   image: kiwicom/s3cmd-plus-docker
