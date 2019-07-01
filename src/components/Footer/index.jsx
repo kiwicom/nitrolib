@@ -65,6 +65,10 @@ const LogoWrapper = styled.div`
   `)};
 `;
 
+LogoWrapper.defaultProps = {
+  theme: themeDefault,
+};
+
 const Logo = styled(LogoSVG)`
   vertical-align: middle;
 `;
@@ -85,6 +89,10 @@ const LinksAndIconsWrapper = styled.div`
   `)};
 `;
 
+LinksAndIconsWrapper.defaultProps = {
+  theme: themeDefault,
+};
+
 const LinksWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -101,6 +109,10 @@ const LinksWrapper = styled.div`
     margin-top: 0;
   `)};
 `;
+
+LinksWrapper.defaultProps = {
+  theme: themeDefault,
+};
 
 const Link = styled.a`
   text-decoration: none;
@@ -122,6 +134,10 @@ const Icons = styled.div`
     order: initial;
   `)};
 `;
+
+Icons.defaultProps = {
+  theme: themeDefault,
+};
 
 const IconsLink = styled.a`
   :not(:last-child) {
