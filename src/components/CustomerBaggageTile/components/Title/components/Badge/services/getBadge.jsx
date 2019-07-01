@@ -2,7 +2,6 @@
 import React from "react";
 import Badge from "@kiwicom/orbit-components/lib/Badge";
 import Money from "@kiwicom/orbit-components/lib/icons/Money";
-import Alert from "@kiwicom/orbit-components/lib/icons/Alert";
 import Reload from "@kiwicom/orbit-components/lib/icons/Reload";
 
 import { Consumer } from "../../../../../../../services/currency/context";
@@ -38,11 +37,7 @@ export default function getBadge(status: OrderStatusType, price: ?number) {
       );
     case "notAvailable":
       return (
-        <Badge
-          type="dark"
-          icon={<Alert size="small" />}
-          dataTest={`CustomerBaggageTile-Badge-${status}`}
-        >
+        <Badge type="neutral" dataTest={`CustomerBaggageTile-Badge-${status}`}>
           <Translate t="baggage_modal.badge.not_available" />
         </Badge>
       );
