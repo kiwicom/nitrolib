@@ -12,7 +12,6 @@ const itineraryMulticity: ItineraryMulticityDeep = {
       format: {
         format: "__price__ €",
         precision: 2,
-        isUncertain: false,
       },
       fallback: null,
       enabledOnAffilId: "",

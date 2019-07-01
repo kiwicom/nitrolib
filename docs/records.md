@@ -856,7 +856,6 @@ import type { Currency } from "@kiwicom/nitro/lib/records/Currency";
 type CurrencyFormat = {|
   format: string,
   precision: number,
-  isUncertain: boolean,
 |};
 
 export type FetchedCurrency = {|

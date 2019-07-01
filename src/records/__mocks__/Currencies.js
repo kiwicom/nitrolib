@@ -7,7 +7,6 @@ const currencies = {
     format: {
       format: "__price__ Kč",
       precision: 2,
-      isUncertain: false,
     },
     fallback: null,
     enabledOnAffilId: "",
@@ -20,7 +19,6 @@ const currencies = {
     format: {
       format: "__price__ kr",
       precision: 2,
-      isUncertain: true,
     },
     fallback: null,
     enabledOnAffilId: "",
@@ -33,7 +31,6 @@ const currencies = {
     format: {
       format: "£__price__",
       precision: 2,
-      isUncertain: false,
     },
     fallback: null,
     enabledOnAffilId: ["uk"],
@@ -46,7 +43,6 @@ const currencies = {
     format: {
       format: "__price__ €",
       precision: 2,
-      isUncertain: false,
     },
     fallback: null,
     enabledOnAffilId: "",
@@ -58,7 +54,6 @@ const currencies = {
     name: "Hong Kong dollar",
     format: {
       format: "HK$__price__",
-      isUncertain: false,
       precision: 2,
     },
     fallback: {
@@ -68,7 +63,6 @@ const currencies = {
       format: {
         format: "£__price__",
         precision: 2,
-        isUncertain: false,
       },
       fallback: null,
       enabledOnAffilId: ["uk"],
@@ -84,7 +78,6 @@ const currencies = {
     format: {
       format: "__price__ SEK",
       precision: 2,
-      isUncertain: false,
     },
     fallback: null,
     enabledOnAffilId: "",
@@ -96,7 +89,6 @@ const currencies = {
     code: "USD",
     format: {
       format: "$ __price__",
-      isUncertain: true,
       precision: 2,
     },
     fallback: null,
@@ -109,7 +101,6 @@ const currencies = {
     code: "AUD",
     format: {
       format: "AU$ __price__",
-      isUncertain: false,
       precision: 2,
     },
     fallback: null,

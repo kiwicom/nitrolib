@@ -12,7 +12,6 @@ const itineraryReturn: ItineraryReturnDeep = {
       format: {
         format: "__price__ €",
         precision: 2,
-        isUncertain: false,
       },
       fallback: null,
       enabledOnAffilId: "",
@@ -81,7 +80,6 @@ const itineraryReturn: ItineraryReturnDeep = {
         format: {
           format: "__price__ €",
           precision: 2,
-          isUncertain: false,
         },
         fallback: null,
         enabledOnAffilId: "",

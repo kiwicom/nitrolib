@@ -3,7 +3,6 @@
 type CurrencyFormat = {|
   format: string,
   precision: number,
-  isUncertain: boolean,
 |};
 
 export type FetchedCurrency = {|

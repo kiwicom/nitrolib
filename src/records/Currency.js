@@ -4,7 +4,6 @@ import * as R from "ramda";
 type CurrencyFormat = {|
   format: string,
   precision: number,
-  isUncertain: boolean,
 |};
 
 export type FetchedCurrency = {|
@@ -22,12 +21,12 @@ export type FetchedCurrencies = { [key: string]: FetchedCurrency };
 
 export type Currency = {|
   id: string,
-  name: string,
   code: string,
+  name: string,
   format: CurrencyFormat,
   fallback: Currency | null,
-  enabledOnAffilId: string | string[],
   rate: string,
+  enabledOnAffilId: string | string[],
 |};
 
 export type Currencies = {
@@ -59,7 +58,6 @@ export const currencyDefault: Currency = {
   format: {
     format: "__price__ €",
     precision: 2,
-    isUncertain: false,
   },
   fallback: null,
   enabledOnAffilId: "",

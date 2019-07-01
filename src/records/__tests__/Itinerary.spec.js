@@ -112,7 +112,6 @@ const itineraryCommon = {
       format: {
         format: "__price__ €",
         precision: 2,
-        isUncertain: false,
       },
       fallback: null,
       enabledOnAffilId: "",
@@ -185,7 +184,6 @@ const itineraryDeepOneWay: ItineraryOneWayDeep = {
         format: {
           format: "__price__ €",
           precision: 2,
-          isUncertain: false,
         },
         fallback: null,
         enabledOnAffilId: "",
@@ -216,7 +214,6 @@ const itineraryDeepReturn: ItineraryReturnDeep = {
         format: {
           format: "__price__ €",
           precision: 2,
-          isUncertain: false,
         },
         fallback: null,
         enabledOnAffilId: "",
