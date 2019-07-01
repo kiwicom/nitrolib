@@ -25,7 +25,7 @@ const props = {
   splitster: {
     HEADER_LINKS_ROOMS_PROVIDER_0: "roomsKiwiCode",
   },
-  context: "Pulkovo airport",
+  context: "search",
 };
 
 const LOCALES = {
