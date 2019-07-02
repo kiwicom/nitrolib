@@ -51,7 +51,7 @@ const clearStorage = () =>
     R.mapObjIndexed((_, key) => local.load(key) || ""), // || "" due to Flow
   )(UTMs);
 
-const saveStorage = (utms: UTM) =>
+const saveStorage = (utms: Query) =>
   R.compose(
     R.forEachObjIndexed((val, key) => {
       local.save(key, JSON.stringify(val));

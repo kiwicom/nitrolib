@@ -4,9 +4,11 @@ import fetchMock from "fetch-mock";
 import config from "../../../consts/config";
 import * as api from "../api";
 
+const mock = (fn: any) => fn;
+
 describe("#api", () => {
   beforeEach(() => {
-    fetchMock.reset();
+    mock(fetchMock).reset();
   });
 
   describe("getMyBookingToken()", () => {
@@ -22,13 +24,13 @@ describe("#api", () => {
     }/api/v0.1/users/get_simple_token/123?email=lol%40kek.bur&src=VIE&dtime=01%2F01%2F2020`;
 
     test("ok", async () => {
-      fetchMock.mock(bookingLoginUrl, { body: { simple_token: "token" }, status: 200 });
+      mock(fetchMock).mock(bookingLoginUrl, { body: { simple_token: "token" }, status: 200 });
       const res = await api.getMyBookingToken(input);
       expect(res).toBe("token");
     });
 
     test("not ok", async () => {
-      fetchMock.mock(bookingLoginUrl, { status: 400, body: { msg: "asdf" } });
+      mock(fetchMock).mock(bookingLoginUrl, { status: 400, body: { msg: "asdf" } });
       const res = await api.getMyBookingToken(input).catch(String);
       expect(res).toBe("Error: asdf");
     });
@@ -36,7 +38,7 @@ describe("#api", () => {
 
   describe("getTokenUser()", () => {
     test("ok", async () => {
-      fetchMock.mock(`${config.apiAuthUrl}/v1/user.get`, {
+      mock(fetchMock).mock(`${config.apiAuthUrl}/v1/user.get`, {
         body: [
           {
             brand: "kiwicom",
@@ -61,7 +63,7 @@ describe("#api", () => {
     });
 
     test("not ok", async () => {
-      fetchMock.mock(`${config.apiAuthUrl}/v1/user.get`, {
+      mock(fetchMock).mock(`${config.apiAuthUrl}/v1/user.get`, {
         body: { error_code: "INVALID_ARGUMENT_AUTH" },
         status: 200,
       });

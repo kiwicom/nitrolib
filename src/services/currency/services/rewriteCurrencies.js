@@ -1,9 +1,9 @@
 // @flow strict
 import * as R from "ramda";
 
-import type { Currencies, FetchedCurrencies, FetchedCurrency } from "../../../records/Currency";
+import type { FetchedCurrencies, FetchedCurrency } from "../../../records/Currency";
 
-const rewriteCurrencies = (currencies: FetchedCurrencies): Currencies =>
+const rewriteCurrencies = (currencies: FetchedCurrencies) =>
   R.map(currency => {
     const newCurrency = (currencyItem: FetchedCurrency) => {
       const { id, name, rate, enabledOnAffilId, format, round } = currencyItem;

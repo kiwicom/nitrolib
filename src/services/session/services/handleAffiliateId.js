@@ -7,7 +7,7 @@ import { AFFILIATE_ID } from "../../../consts/cookies";
 import type { Affiliate } from "../../../records/Affiliate";
 import { AFFILIATE_PARAMS } from "../../../consts/local";
 
-type Query = { [key: string]: string | string[] };
+type Query = { [key: string]: string };
 
 const handleAffiliateId = (fromUrl: ?string, rest: Query): Affiliate | null => {
   const params = R.map(String, rest);

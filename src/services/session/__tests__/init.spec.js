@@ -8,6 +8,8 @@ import handleSessionId from "../services/handleSessionId";
 import handleDeeplinkId from "../services/handleDeeplinkId";
 import handleUTMs from "../services/handleUTMs";
 
+const mock = (fn: any) => fn;
+
 jest.mock("query-string");
 jest.mock("../services/handleUserId");
 jest.mock("../services/handleAffiliateId");
@@ -18,7 +20,7 @@ jest.mock("../services/handleUTMs");
 
 describe("#init", () => {
   test("mount", () => {
-    qs.parse.mockReturnValue({
+    mock(qs.parse).mockReturnValue({
       userId: "kek",
       affilId: "bur",
       lol: "lmao",
