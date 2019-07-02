@@ -14,7 +14,7 @@ type Props = {|
 const Weeks = ({ value }: Props): React.Node => (
   <Stack align="center" justify="between" spacing="extraTight" spaceAfter="medium">
     {getWeekDays(value).map(weekDay => (
-      <DayWrapper key={weekDay} disabled>
+      <DayWrapper key={String(weekDay)} disabled>
         <Text size="small">
           <DayFormat format="iii" date={weekDay} />
         </Text>

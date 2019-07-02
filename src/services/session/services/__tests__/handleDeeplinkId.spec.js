@@ -3,13 +3,15 @@ import handleDeeplinkId from "../handleDeeplinkId";
 import * as session from "../../session";
 import { DEEPLINK_ID } from "../../../../consts/session";
 
+const mock = (fn: any) => fn;
+
 jest.mock("../../../../services/session/session");
 jest.mock("../../../../services/session/ids");
 
 describe("#handleDeeplinkId", () => {
   beforeEach(() => {
-    session.load.mockClear();
-    session.save.mockClear();
+    mock(session.load).mockClear();
+    mock(session.save).mockClear();
   });
 
   test("url", () => {
@@ -20,7 +22,7 @@ describe("#handleDeeplinkId", () => {
   });
 
   test("session", () => {
-    session.load.mockReturnValue("lol");
+    mock(session.load).mockReturnValue("lol");
 
     const res = handleDeeplinkId();
 
@@ -29,7 +31,7 @@ describe("#handleDeeplinkId", () => {
   });
 
   test("none", () => {
-    session.load.mockReturnValue(null);
+    mock(session.load).mockReturnValue(null);
 
     const res = handleDeeplinkId(null);
 

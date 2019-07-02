@@ -225,8 +225,8 @@ type RefProps = {
 
 // TODO find a nicer way to do this
 /* eslint-disable react/no-multi-comp */
-// $FlowExpected: forwardRef is legit
 const InputTextRef: React.ComponentType<RefProps> = React.forwardRef((props, ref) => (
+  // $FlowExpected: forwardRef is legit
   <InputText {...props} forwardedRef={ref} />
 ));
 

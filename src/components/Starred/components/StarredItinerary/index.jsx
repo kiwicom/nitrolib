@@ -134,12 +134,12 @@ const StarredItinerary = ({
     return priceUpdatedAt ? (
       <TranslateNode
         t="starred.price_update"
-        values={{ lastUpdate: <TimeInWords to={fromUnixTime(updated)} /> }}
+        values={{ lastUpdate: <TimeInWords to={fromUnixTime(Number(updated))} /> }}
       />
     ) : (
       <TranslateNode
         t="starred.created_at"
-        values={{ createdAt: <TimeInWords to={fromUnixTime(created)} /> }}
+        values={{ createdAt: <TimeInWords to={fromUnixTime(Number(created))} /> }}
       />
     );
   };

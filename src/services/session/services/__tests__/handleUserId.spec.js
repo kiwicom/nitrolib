@@ -3,6 +3,8 @@ import handleUserId from "../handleUserId";
 import * as cookies from "../../cookies";
 import { USER_ID } from "../../../../consts/cookies";
 
+const mock = (fn: any) => fn;
+
 jest.mock("../../../../services/session/cookies");
 jest.mock("../../../../services/session/ids");
 
@@ -15,7 +17,7 @@ describe("#handleUserId", () => {
   });
 
   test("cookies", () => {
-    cookies.load.mockReturnValue("lol");
+    mock(cookies.load).mockReturnValue("lol");
 
     const res = handleUserId();
 
@@ -24,7 +26,7 @@ describe("#handleUserId", () => {
   });
 
   test("none", () => {
-    cookies.load.mockReturnValue(null);
+    mock(cookies.load).mockReturnValue(null);
 
     const res = handleUserId(null);
 

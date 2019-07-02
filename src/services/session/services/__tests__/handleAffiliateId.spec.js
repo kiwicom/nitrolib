@@ -5,6 +5,8 @@ import * as local from "../../local";
 import { AFFILIATE_ID } from "../../../../consts/cookies";
 import { AFFILIATE_PARAMS } from "../../../../consts/local";
 
+const mock = (fn: any) => fn;
+
 jest.mock("../../cookies");
 jest.mock("../../local");
 
@@ -18,8 +20,8 @@ describe("#handleAffiliateId", () => {
   });
 
   test("cookies", () => {
-    cookies.load.mockReturnValue("lol");
-    local.load.mockReturnValue(JSON.stringify({ kek: "bur" }));
+    mock(cookies.load).mockReturnValue("lol");
+    mock(local.load).mockReturnValue(JSON.stringify({ kek: "bur" }));
 
     const res = handleAffiliateId(null, {});
 
@@ -29,8 +31,8 @@ describe("#handleAffiliateId", () => {
   });
 
   test("none", () => {
-    cookies.load.mockReturnValue(null);
-    local.load.mockReturnValue(null);
+    mock(cookies.load).mockReturnValue(null);
+    mock(local.load).mockReturnValue(null);
 
     const res = handleAffiliateId(null, {});
 
