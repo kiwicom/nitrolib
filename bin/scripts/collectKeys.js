@@ -6,7 +6,14 @@ const glob = require("glob");
 const babylon = require("@babel/parser");
 const traverse = require("@babel/traverse").default;
 
-const PLUGINS = ["jsx", "flow", "classProperties", "dynamicImport", "optionalChaining"];
+const PLUGINS = [
+  "jsx",
+  "flow",
+  "classProperties",
+  "dynamicImport",
+  "optionalChaining",
+  "nullishCoalescingOperator",
+];
 
 function collectFile(file) {
   try {
