@@ -5,15 +5,14 @@
 // IMPORTANT
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
-module.exports = {
-  resolve: {
-    extensions: [".js", ".jsx", ".json"],
-  },
-  module: {
-    rules: [{
-      test: /\.jsx?$/,
-      use: "babel-loader",
-      exclude: /node_modules/,
-    }]
-  }
+
+// storybook v5 export requires function, not an object
+module.exports = ({ config }) => {
+  config.module.rules.push({
+    test: /\.jsx?$/,
+    use: "babel-loader",
+    exclude: /node_modules/,
+  });
+
+  return config;
 };

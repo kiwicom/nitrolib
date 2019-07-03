@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { createFragmentContainer, graphql } from "react-relay";
+import { createFragmentContainer, graphql } from "@kiwicom/relay";
 
 import AirportResult from "../AirportResult";
 import type { AirportList_list } from "./__generated__/AirportList_list.graphql";

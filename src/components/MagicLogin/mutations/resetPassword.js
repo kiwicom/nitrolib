@@ -1,6 +1,7 @@
 // @flow strict
 
-import { graphql, commitMutation, Environment } from "react-relay";
+import { graphql, commitMutation } from "@kiwicom/relay";
+import type { Environment } from "@kiwicom/relay";
 
 import type {
   resetPasswordMutationVariables,
@@ -16,7 +17,7 @@ const resetPasswordMutation = graphql`
 `;
 
 const resetPassword = (
-  environment: typeof Environment,
+  environment: Environment,
   email: string,
   brand: string,
 ): Promise<resetPasswordMutationResponse> =>

@@ -2,9 +2,9 @@
 import * as React from "react";
 import { shallow, mount } from "enzyme";
 
-import AcceptAlert from "..";
-
 import { themeDefault } from "../../../records/Theme";
+
+import AcceptAlert from "..";
 
 describe("#AcceptAlert", () => {
   test("render", () => {

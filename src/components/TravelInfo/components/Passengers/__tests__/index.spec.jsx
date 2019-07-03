@@ -2,9 +2,9 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import Passengers from "..";
-
 import { themeDefault } from "../../../../../records/Theme";
+
+import Passengers from "..";
 
 describe("#Passengers", () => {
   test("render", () => {

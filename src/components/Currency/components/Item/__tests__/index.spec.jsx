@@ -2,10 +2,10 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import Item from "..";
-
 import currencies from "../../../../../records/__mocks__/Currencies";
 import { getCode, getSymbol } from "../../../../../records/Currency";
+
+import Item from "..";
 
 describe("#Currency/Item", () => {
   test("render", () => {

@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import type { Environment } from "react-relay";
+import type { Environment } from "@kiwicom/relay";
 
 import type { Auth, SocialProvider } from "../../records/Auth";
 import environment from "../environment";

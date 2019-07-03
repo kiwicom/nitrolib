@@ -1,6 +1,6 @@
 // @flow strict
 
-import { commitMutation, graphql } from "react-relay";
+import { commitMutation, graphql } from "@kiwicom/relay";
 
 import type {
   checkEmailMutationVariables,

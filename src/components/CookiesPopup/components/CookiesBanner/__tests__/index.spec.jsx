@@ -2,9 +2,9 @@
 import * as React from "react";
 import { shallow, mount } from "enzyme";
 
-import CookiesBanner from "..";
-
 import { themeDefault } from "../../../../../records/Theme";
+
+import CookiesBanner from "..";
 
 describe("#CookiesBanner", () => {
   test("render", () => {

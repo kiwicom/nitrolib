@@ -2,10 +2,10 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import Currency from "..";
-
 import { Provider } from "../../../services/currency/context";
 import currencies from "../../../records/__mocks__/Currencies";
+
+import Currency from "..";
 
 const current = currencies.eur;
 

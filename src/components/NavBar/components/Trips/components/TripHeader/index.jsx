@@ -1,6 +1,6 @@
 // @flow
 import * as React from "react";
-import { graphql, createFragmentContainer } from "react-relay";
+import { graphql, createFragmentContainer } from "@kiwicom/relay";
 
 import ButtonLink from "../../../../primitives/ButtonLink";
 import Translate from "../../../../../Translate";

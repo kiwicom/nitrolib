@@ -16,7 +16,7 @@ import IntlContext from "../../../../services/intl/context";
 import * as loginEvents from "../../consts/events";
 import { API_REQUEST_FAILED, API_ERROR } from "../../../../consts/events";
 import handleAffiliateId from "../../../../services/utils/handleAffiliateId";
-import { makeCall, makeEnvironment } from "../../../../services/utils/relay";
+import makeEnvironment from "../../../../services/utils/relay";
 import type { LangInfo } from "../../../../records/LangInfo";
 import type { Event, Props as EventProps } from "../../../../records/Event";
 
@@ -119,7 +119,7 @@ class KiwiLoginWithoutContext extends React.Component<Props, State> {
 
   handleForgotPassword = () => {
     const { email, brandId, onChangeScreen, langInfo, log } = this.props;
-    const environment = makeEnvironment(makeCall({ "Accept-Language": langInfo.iso }));
+    const environment = makeEnvironment({ "Accept-Language": langInfo.iso });
 
     this.setState({ error: null, passwordError: "" });
 

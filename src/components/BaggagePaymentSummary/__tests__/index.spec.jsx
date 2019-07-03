@@ -2,9 +2,9 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import BaggagePaymentSummary from "..";
-
 import { baggageData } from "../../../records/__mocks__/baggageData";
+
+import BaggagePaymentSummary from "..";
 
 const passengers = [
   {

@@ -3,7 +3,7 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
-import { createFragmentContainer, graphql } from "react-relay";
+import { createFragmentContainer, graphql } from "@kiwicom/relay";
 import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import ItemWrapper from "../../primitives/ItemWrapper";

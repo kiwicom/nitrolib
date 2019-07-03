@@ -12,7 +12,7 @@ import LogContext from "../../../../services/log/context";
 import IntlContext from "../../../../services/intl/context";
 import * as loginEvents from "../../consts/events";
 import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
-import { makeCall, makeEnvironment } from "../../../../services/utils/relay";
+import makeEnvironment from "../../../../services/utils/relay";
 import type { Context as IntlContextType } from "../../../../services/intl/context";
 import type { Event, Props as EventProps } from "../../../../records/Event";
 
@@ -111,7 +111,7 @@ class CreateAccountWithoutContext extends React.PureComponent<Props, State> {
 
     const { email, brandId, onSignUpConfirmation, intl, log } = this.props;
     const { password } = this.state;
-    const environment = makeEnvironment(makeCall({ "Accept-Language": intl.language.iso }));
+    const environment = makeEnvironment({ "Accept-Language": intl.language.iso });
 
     this.setState({ isCreatingAccount: true, error: null, ...defaultErrors });
 

@@ -4,13 +4,12 @@ import { shallow, mount } from "enzyme";
 import { css } from "styled-components";
 
 import currencies from "../../../../../records/__mocks__/Currencies";
-
-import List from "..";
-
 import { themeDefault } from "../../../../../records/Theme";
 import Code from "../../../primitives/Code";
 import Name from "../../../primitives/Name";
 import Sign from "../../../primitives/Sign";
+
+import List from "..";
 
 const active = currencies.eur;
 

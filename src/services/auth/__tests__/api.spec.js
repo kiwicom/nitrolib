@@ -4,11 +4,10 @@ import fetchMock from "fetch-mock";
 import config from "../../../consts/config";
 import * as api from "../api";
 
-const mock = (fn: any) => fn;
-
 describe("#api", () => {
   beforeEach(() => {
-    mock(fetchMock).reset();
+    // $FlowExpected: jest bug
+    fetchMock.reset();
   });
 
   describe("getMyBookingToken()", () => {
@@ -19,18 +18,18 @@ describe("#api", () => {
       departure: new Date(Date.UTC(2020, 0, 1)),
     };
 
-    const bookingLoginUrl = `${
-      config.bookingApiUrl
-    }/api/v0.1/users/get_simple_token/123?email=lol%40kek.bur&src=VIE&dtime=01%2F01%2F2020`;
+    const bookingLoginUrl = `${config.bookingApiUrl}/api/v0.1/users/get_simple_token/123?email=lol%40kek.bur&src=VIE&dtime=01%2F01%2F2020`;
 
     test("ok", async () => {
-      mock(fetchMock).mock(bookingLoginUrl, { body: { simple_token: "token" }, status: 200 });
+      // $FlowExpected: jest bug
+      fetchMock.mock(bookingLoginUrl, { body: { simple_token: "token" }, status: 200 });
       const res = await api.getMyBookingToken(input);
       expect(res).toBe("token");
     });
 
     test("not ok", async () => {
-      mock(fetchMock).mock(bookingLoginUrl, { status: 400, body: { msg: "asdf" } });
+      // $FlowExpected: jest bug
+      fetchMock.mock(bookingLoginUrl, { status: 400, body: { msg: "asdf" } });
       const res = await api.getMyBookingToken(input).catch(String);
       expect(res).toBe("Error: asdf");
     });
@@ -38,7 +37,8 @@ describe("#api", () => {
 
   describe("getTokenUser()", () => {
     test("ok", async () => {
-      mock(fetchMock).mock(`${config.apiAuthUrl}/v1/user.get`, {
+      // $FlowExpected: jest bug
+      fetchMock.mock(`${config.apiAuthUrl}/v1/user.get`, {
         body: [
           {
             brand: "kiwicom",
@@ -63,7 +63,8 @@ describe("#api", () => {
     });
 
     test("not ok", async () => {
-      mock(fetchMock).mock(`${config.apiAuthUrl}/v1/user.get`, {
+      // $FlowExpected: jest bug
+      fetchMock.mock(`${config.apiAuthUrl}/v1/user.get`, {
         body: { error_code: "INVALID_ARGUMENT_AUTH" },
         status: 200,
       });

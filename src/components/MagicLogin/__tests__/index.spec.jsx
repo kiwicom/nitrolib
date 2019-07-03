@@ -4,13 +4,13 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import MagicLogin from "..";
-
 import IntroScreen from "../components/Intro";
 import { brandDefault } from "../../../records/Brand";
 import { Provider as BrandProvider } from "../../../services/brand/context";
 import { Provider as LogProvider } from "../../../services/log/context";
 import * as loginEvents from "../consts/events";
+
+import MagicLogin from "..";
 
 jest.mock("../mutations/checkEmail");
 jest.mock("../mutations/sendMagicLink");

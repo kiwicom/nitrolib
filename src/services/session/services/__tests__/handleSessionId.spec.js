@@ -3,14 +3,13 @@ import handleSessionId from "../handleSessionId";
 import * as session from "../../session";
 import { SESSION_ID } from "../../../../consts/session";
 
-const mock = (fn: any) => fn;
-
 jest.mock("../../session");
 jest.mock("../../ids");
 
 describe("#handleSessionId", () => {
   test("session", () => {
-    mock(session.load).mockReturnValue("lol");
+    // $FlowExpected: jest bug
+    session.load.mockReturnValue("lol");
 
     const res = handleSessionId();
 
@@ -19,7 +18,8 @@ describe("#handleSessionId", () => {
   });
 
   test("none", () => {
-    mock(session.load).mockReturnValue(null);
+    // $FlowExpected: jest bug
+    session.load.mockReturnValue(null);
 
     const res = handleSessionId();
 

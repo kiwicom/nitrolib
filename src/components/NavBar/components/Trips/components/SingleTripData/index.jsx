@@ -1,9 +1,9 @@
 // @flow
 import * as React from "react";
-import { graphql, QueryRenderer } from "react-relay";
-import type { Environment } from "react-relay";
+import { graphql, QueryRenderer } from "@kiwicom/relay";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import styled from "styled-components";
+import type { Environment } from "@kiwicom/relay";
 
 import Translate from "../../../../../Translate";
 import TripContainer from "../../../../../TripsContainer";
@@ -14,7 +14,6 @@ import SingleTripBottom from "../SingleTripBottom";
 type Props = {|
   onSelect: (bid: string) => void,
   singleBid: number,
-  // DI
   env: Environment,
 |};
 
@@ -22,7 +21,7 @@ const StateContainer = styled.div`
   padding: 10px;
 `;
 
-const SingleTripData = ({ env, onSelect, singleBid }: Props) => (
+const SingleTripData = ({ onSelect, singleBid, env }: Props) => (
   <QueryRenderer
     environment={env}
     query={graphql`
@@ -33,28 +32,22 @@ const SingleTripData = ({ env, onSelect, singleBid }: Props) => (
       }
     `}
     variables={{ bookingID: singleBid }}
-    render={res => {
-      if (res.error) {
-        return (
-          <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
-            <StateContainer>
-              <Alert type="critical">{String(res.error)}</Alert>
-            </StateContainer>
-          </TripContainer>
-        );
-      }
-
-      if (!res.props) {
-        return (
-          <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
-            <StateContainer>
-              <Translate t="common.loading" />
-            </StateContainer>
-          </TripContainer>
-        );
-      }
-
-      const { singleBooking } = res.props;
+    onSystemError={res => (
+      <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
+        <StateContainer>
+          <Alert type="critical">{String(res.error)}</Alert>
+        </StateContainer>
+      </TripContainer>
+    )}
+    onLoading={() => (
+      <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
+        <StateContainer>
+          <Translate t="common.loading" />
+        </StateContainer>
+      </TripContainer>
+    )}
+    onResponse={res => {
+      const { singleBooking } = res;
       if (!singleBooking) {
         return (
           <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
@@ -66,19 +59,14 @@ const SingleTripData = ({ env, onSelect, singleBid }: Props) => (
           </TripContainer>
         );
       }
-
       return (
         <TripContainer
           header={<SingleTripHeader />}
           positionMenuTablet={0}
           positionMenuDesktop={50}
         >
-          {singleBooking && (
-            <>
-              <SingleBookingTrip trip={singleBooking} onSelect={onSelect} />
-              <SingleTripBottom />
-            </>
-          )}
+          <SingleBookingTrip trip={singleBooking} onSelect={onSelect} />
+          <SingleTripBottom />
         </TripContainer>
       );
     }}

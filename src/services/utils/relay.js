@@ -1,35 +1,16 @@
 // @flow strict
-import { Environment, Network, RecordSource, Store } from "relay-runtime";
+import { createEnvironment, createNetworkFetcher } from "@kiwicom/relay";
 
-export type Input = {
-  query: string,
-  variables: { [key: string]: string },
-};
+type Headers = { [key: string]: string };
 
-export type Call = (input: Input) => Promise<$FlowFixMe>;
-
-const makeFetchQuery = (call: Call) => (operation, variables) =>
-  call({
-    query: operation.text,
-    variables,
-  });
-
-const store = new Store(new RecordSource());
-
-export const makeCall = (headers: { [string]: string }) => (input: Input) =>
-  fetch("https://graphql.kiwi.com", {
-    method: "POST",
-    headers: {
+const makeEnvironment = (headers?: Headers, query?: string = "https://graphql.kiwi.com") =>
+  createEnvironment({
+    fetchFn: createNetworkFetcher(query, {
       ...headers,
       "Content-type": "application/json",
       Accept: "application/json",
       "X-Client": "nitro",
-    },
-    body: JSON.stringify(input),
-  }).then(res => res.json());
-
-export const makeEnvironment = (call: Call) =>
-  new Environment({
-    network: Network.create(makeFetchQuery(call)),
-    store,
+    }),
   });
+
+export default makeEnvironment;

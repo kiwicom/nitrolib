@@ -1,8 +1,9 @@
 // @flow strict
-import SingleTripHeader from "..";
 
 import * as React from "react";
 import { mount } from "enzyme";
+
+import SingleTripHeader from "..";
 
 describe("#SingleTripHeader", () => {
   it("should contain ButtonLinks", () => {

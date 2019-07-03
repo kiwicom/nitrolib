@@ -1,6 +1,7 @@
 // @flow strict
 
-import { commitMutation, Environment, graphql } from "react-relay";
+import { commitMutation, graphql } from "@kiwicom/relay";
+import type { Environment } from "@kiwicom/relay";
 
 import type {
   createAccountMutationVariables,
@@ -18,7 +19,7 @@ const createAccountMutation = graphql`
 `;
 
 const createAccount = (
-  environment: typeof Environment,
+  environment: Environment,
   brand: string,
   credentials: createAccountInput,
 ): Promise<createAccountMutationResponse> =>
@@ -30,7 +31,6 @@ const createAccount = (
 
     commitMutation(environment, {
       mutation: createAccountMutation,
-      // $FlowExpected: Broken definition
       variables,
       onCompleted: resolve,
       onError: reject,

@@ -11,7 +11,7 @@ import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
 import { GET_SIMPLE_TOKEN } from "../../consts/events";
 import LogContext from "../../../../services/log/context";
 import IntlContext from "../../../../services/intl/context";
-import { makeCall, makeEnvironment } from "../../../../services/utils/relay";
+import makeEnvironment from "../../../../services/utils/relay";
 import type { AuthToken } from "../../../../records/Auth";
 import type { Event, Props as EventProps } from "../../../../records/Event";
 import type { Context as IntlContextType } from "../../../../services/intl/context";
@@ -122,7 +122,7 @@ class GetSingleBookingWithoutContext extends React.Component<Props, State> {
       bookingId: bid,
       origin: { iataCode: IATA, date },
     };
-    const environment = makeEnvironment(makeCall({ "Accept-Language": intl.language.iso }));
+    const environment = makeEnvironment({ "Accept-Language": intl.language.iso });
 
     createSimpleToken(environment, { input })
       .then(res => {

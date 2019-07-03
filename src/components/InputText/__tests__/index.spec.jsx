@@ -1,10 +1,10 @@
 // @flow strict
 import * as React from "react";
 import { shallow, mount } from "enzyme";
+import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
 
 import IconText from "../../IconText";
 
-import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
 import "jest-styled-components";
 
 import { InputText } from "..";

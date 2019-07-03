@@ -1,9 +1,8 @@
 // @flow strict
 import * as React from "react";
+import { mount } from "enzyme";
 
 import Button from "..";
-
-import { mount } from "enzyme";
 
 describe("#Button", () => {
   it("should has ariaLabel", () => {

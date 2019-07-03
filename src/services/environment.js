@@ -1,16 +1,12 @@
-// @flow strict
-import { makeEnvironment } from "./utils/relay";
-import type { Input } from "./utils/relay";
+// @flow
+import { createEnvironment, createNetworkFetcher } from "@kiwicom/relay";
 
-const call = (input: Input) =>
-  fetch("https://graphql.kiwi.com", {
-    method: "POST",
-    headers: {
-      // Add authentication and other headers here
-      "Content-type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify(input),
-  }).then(res => res.json());
+const environment = createEnvironment({
+  fetchFn: createNetworkFetcher("https://graphql.kiwi.com", {
+    "Content-type": "application/json",
+    Accept: "application/json",
+    "X-Client": "nitro",
+  }),
+});
 
-export default makeEnvironment(call);
+export default environment;

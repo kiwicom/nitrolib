@@ -5,10 +5,9 @@ import { ThemeProvider } from "styled-components";
 import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
 
 import { baggageData } from "../../../records/__mocks__/baggageData";
+import Container from "../components/Container";
 
 import BaggageOverview from "..";
-
-import Container from "../components/Container";
 
 const passengers = [
   {

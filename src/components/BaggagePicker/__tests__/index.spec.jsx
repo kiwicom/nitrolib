@@ -5,11 +5,11 @@ import { mount } from "enzyme";
 import { ThemeProvider } from "styled-components";
 import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
 
-import BaggagePicker from "..";
-
 import { baggageData } from "../../../records/__mocks__/baggageData";
 // $FlowExpected: JSON file without types
 import airlines from "../../../../stories/fixtures/airlines.json";
+
+import BaggagePicker from "..";
 
 const props = {
   passengerCategory: "adult",

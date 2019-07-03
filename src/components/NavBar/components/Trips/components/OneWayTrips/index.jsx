@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { createFragmentContainer, graphql } from "react-relay";
+import { createFragmentContainer, graphql } from "@kiwicom/relay";
 
 import TripItem from "../TripItem";
 import type { OneWayTrips_item } from "./__generated__/OneWayTrips_item.graphql";

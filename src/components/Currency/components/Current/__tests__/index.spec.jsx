@@ -3,10 +3,9 @@ import * as React from "react";
 import { mount } from "enzyme";
 
 import currencies from "../../../../../records/__mocks__/Currencies";
+import { themeDefault } from "../../../../../records/Theme";
 
 import Current from "..";
-
-import { themeDefault } from "../../../../../records/Theme";
 
 describe("#Currency/Current", () => {
   test("render", () => {

@@ -1,6 +1,7 @@
 // @flow strict
 
-import { graphql, commitMutation, Environment } from "react-relay";
+import { graphql, commitMutation } from "@kiwicom/relay";
+import type { Environment } from "@kiwicom/relay";
 
 import type {
   createSimpleTokenMutationVariables,
@@ -21,7 +22,7 @@ const createSimpleTokenMutation = graphql`
 `;
 
 const createSimpleToken = (
-  environment: typeof Environment,
+  environment: Environment,
   variables: createSimpleTokenMutationVariables,
 ): Promise<createSimpleTokenMutationResponse> =>
   new Promise((resolve, reject) => {

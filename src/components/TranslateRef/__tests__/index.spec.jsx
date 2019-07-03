@@ -3,10 +3,10 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import TranslateRef from "..";
-
 import { Provider } from "../../../services/intl/context";
 import { intlDefault } from "../../../records/Intl";
+
+import TranslateRef from "..";
 
 describe("#TranslateRef", () => {
   test("translate call", () => {

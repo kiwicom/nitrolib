@@ -3,10 +3,10 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import TranslateNode from "..";
-
 import { Provider } from "../../../services/intl/context";
 import { intlDefault } from "../../../records/Intl";
+
+import TranslateNode from "..";
 
 describe("#TranslateNode", () => {
   test("translate call", () => {

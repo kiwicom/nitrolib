@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { createFragmentContainer, graphql } from "react-relay";
+import { createFragmentContainer, graphql } from "@kiwicom/relay";
 import styled from "styled-components";
 import CountryFlag from "@kiwicom/orbit-components/lib/CountryFlag";
 
@@ -63,7 +63,6 @@ class AirportResult extends React.PureComponent<Props> {
 
     return (
       <Container onClick={this.handleClick} selected={selected}>
-        {/* $FlowExpected: CountryFlag's types are way too explicit */}
         <CountryFlag code={country.toLowerCase()} />
         <Name>{`${String(item.city?.name)} (${String(item.locationId)})`}</Name>
       </Container>

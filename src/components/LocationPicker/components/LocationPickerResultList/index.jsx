@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { createFragmentContainer, graphql } from "react-relay";
+import { createFragmentContainer, graphql } from "@kiwicom/relay";
 
 import type { LocationPickerResultList_list } from "./__generated__/LocationPickerResultList_list.graphql";
 import LocationPickerRow from "../LocationPickerRow";
@@ -18,7 +18,6 @@ const LocationPickerResultList = ({ list, selectedId, onSelect }: Props): React.
         .map(edge => edge?.node)
         .filter(Boolean)
         .map(item => (
-          // $FlowExpected: Relay
           <LocationPickerRow
             item={item}
             key={item.id}

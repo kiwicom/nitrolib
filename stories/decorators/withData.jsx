@@ -7,7 +7,7 @@ import { withKnobs, select } from "@storybook/addon-knobs/react";
 import cookie from "js-cookie";
 
 import { UA_SESSION_TOKEN } from "../../src/consts/cookies";
-import { makeCall, makeEnvironment } from "../../src/services/utils/relay";
+import makeEnvironment from "../../src/services/utils/relay";
 import { Provider as BrandProvider } from "../../src/services/brand/context";
 import { Provider as IntlProvider } from "../../src/services/intl/context";
 import { Provider as FetchedProvider } from "../../src/services/fetched/context";
@@ -154,11 +154,9 @@ const withData = (storyFn: () => React.Node) => {
               },
             },
             loading: false,
-            environment: makeEnvironment(
-              makeCall({
-                Authorization: cookie.get(UA_SESSION_TOKEN) || "",
-              }),
-            ),
+            environment: makeEnvironment({
+              Authorization: cookie.get(UA_SESSION_TOKEN) || "",
+            }),
             onMyBooking: () => Promise.resolve(),
             onRegister: () => Promise.resolve(),
             onSocialAuth: () => Promise.resolve(),

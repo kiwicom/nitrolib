@@ -4,9 +4,9 @@ import { mount } from "enzyme";
 import { ThemeProvider } from "styled-components";
 import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
 
-import CustomerBaggageTile from "..";
-
 import { baggageData } from "../../../records/__mocks__/baggageData";
+
+import CustomerBaggageTile from "..";
 
 const props = {
   firstName: "Oliver",

@@ -2,9 +2,9 @@
 import * as React from "react";
 import { shallow, mount } from "enzyme";
 
-import { AirportResultUnwrapped as AirportResult } from "..";
-
 import { themeDefault } from "../../../records/Theme";
+
+import { AirportResultUnwrapped as AirportResult } from "..";
 
 const item: any = {
   locationId: "VIE",

@@ -15,4 +15,9 @@ export type SearchForm = {|
   children: number,
 |};
 
-export type HeaderLinksContext = "holidays" | "search" | "booking" | "Kiwi.com" | "Pulkovo airport";
+export type HeaderLinksContext =
+  | "holidays"
+  | "booking"
+  | "kiwicom"
+  | "pulkovoairport"
+  | "kayakholidays";

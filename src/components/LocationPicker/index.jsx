@@ -1,7 +1,6 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import type { Environment } from "react-relay";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 
 import environmentReal from "../../services/environment";
@@ -45,8 +44,6 @@ type Props = {|
     | "country"
     | "station"
     | "subdivision",
-  // defaulted
-  environment: Environment,
 |};
 
 type State = {|
@@ -96,7 +93,7 @@ class LocationPicker extends React.Component<Props, State> {
   };
 
   render() {
-    const { value, label, environment, queryName, locationType, error } = this.props;
+    const { value, label, queryName, locationType, error } = this.props;
     const { active, input } = this.state;
 
     const placeholder = value ? getPlaceholder(value) : "";
@@ -118,7 +115,7 @@ class LocationPicker extends React.Component<Props, State> {
               <>
                 <Spacer />
                 <LocationPickerQuery
-                  {...{ environment, input, value, options, queryName }}
+                  {...{ input, value, options, queryName }}
                   onSelect={this.handleSelect}
                 />
               </>

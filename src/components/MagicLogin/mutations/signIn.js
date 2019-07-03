@@ -1,5 +1,5 @@
 // @flow strict
-import { graphql, commitMutation } from "react-relay";
+import { graphql, commitMutation } from "@kiwicom/relay";
 
 import type {
   signInMutationVariables,

@@ -3,7 +3,7 @@ import * as React from "react";
 import CountryFlag from "@kiwicom/orbit-components/lib/CountryFlag";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import TextWrapper from "@kiwicom/orbit-components/lib/Text";
-import { createFragmentContainer, graphql } from "react-relay";
+import { createFragmentContainer, graphql } from "@kiwicom/relay";
 import Trip from "@kiwicom/orbit-components/lib/icons/Trip";
 import Map from "@kiwicom/orbit-components/lib/icons/Map";
 import LocationIcon from "@kiwicom/orbit-components/lib/icons/Location";
@@ -46,7 +46,6 @@ const LocationPickerRow = ({ item, selected, onSelect }: Props) => {
     <PickerRow onClick={() => onSelect(toLocation(item))} selected={selected}>
       <Stack spacing="condensed" flex align="center">
         <Icon color="secondary" />
-        {/* $FlowExpected: TODO describe */}
         <TextWrapper weight="bold">
           {name} {slug}
         </TextWrapper>

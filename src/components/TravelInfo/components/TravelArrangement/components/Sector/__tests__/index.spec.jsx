@@ -2,9 +2,9 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import Sector from "..";
-
 import { themeDefault } from "../../../../../../../records/Theme";
+
+import Sector from "..";
 
 describe("#Sector", () => {
   test("render - landing", () => {

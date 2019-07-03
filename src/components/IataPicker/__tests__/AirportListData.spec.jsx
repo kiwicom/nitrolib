@@ -1,68 +1,56 @@
 // @flow strict
 import * as React from "react";
 import { mount } from "enzyme";
+import { createMockEnvironment, MockPayloadGenerator } from "relay-test-utils";
 
-import { makeEnvironment } from "../../../services/utils/relay";
 import AirportListData from "../AirportListData";
-
-const res = {
-  data: {
-    allLocations: {
-      edges: [
-        {
-          node: {
-            id: "VIE",
-            locationId: "VIE",
-            name: "Vienna airport",
-            type: "airport",
-            city: {
-              name: "Vienna",
-            },
-            country: {
-              locationId: "at",
-            },
-          },
-        },
-      ],
-    },
-  },
-};
 
 describe("#AirportListData", () => {
   test("render error", async () => {
-    const promise = Promise.reject(new Error("error"));
-    const environment = makeEnvironment(() => promise);
+    const environment = createMockEnvironment();
 
-    const wrapper = mount(
-      <AirportListData value="VIE" onSelect={jest.fn()} environment={environment} />,
-    );
+    const wrapper = mount(<AirportListData env={environment} value="VIE" onSelect={jest.fn()} />);
 
-    await promise.catch(() => null);
+    environment.mock.rejectMostRecentOperation(new Error("error"));
+
+    wrapper.update();
 
     expect(wrapper.find("ReactRelayQueryRenderer").exists()).toBe(true);
   });
 
   test("render loading", () => {
-    const promise = Promise.resolve(res);
-    const environment = makeEnvironment(() => promise);
+    const environment = createMockEnvironment();
 
-    const wrapper = mount(
-      <AirportListData value="VIE" onSelect={jest.fn()} environment={environment} />,
-    );
+    const wrapper = mount(<AirportListData env={environment} value="VIE" onSelect={jest.fn()} />);
 
-    expect(wrapper.text()).toBe(null);
+    expect(wrapper.text()).toBe("");
   });
 
   test("render results", async () => {
-    const promise = Promise.resolve(res);
-    const environment = makeEnvironment(() => promise);
+    const environment = createMockEnvironment();
 
-    const wrapper = mount(
-      <AirportListData value="VIE" onSelect={jest.fn()} environment={environment} />,
+    const wrapper = mount(<AirportListData env={environment} value="VIE" onSelect={jest.fn()} />);
+
+    environment.mock.resolveMostRecentOperation(operation =>
+      MockPayloadGenerator.generate(operation, {
+        Location() {
+          return {
+            locationId: "VIE",
+            city: {
+              name: "Vienna",
+            },
+          };
+        },
+      }),
     );
 
-    await promise;
+    wrapper.update();
 
-    expect(wrapper.text()).toBe("Vienna (VIE)");
+    expect(
+      wrapper
+        .find("AirportResult__Name")
+        .children()
+        .text(),
+    ).toBe("Vienna (VIE)");
   });
 });

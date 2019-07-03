@@ -2,10 +2,10 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import InitCurrency from "..";
-
 import { brandDefault } from "../../../records/Brand";
 import currencies from "../../../records/__mocks__/Currencies";
+
+import InitCurrency from "..";
 
 const fetchedCurrencies = {
   eur: {

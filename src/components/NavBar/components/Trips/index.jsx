@@ -1,11 +1,11 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
-import type { Environment } from "react-relay";
 import Passenger from "@kiwicom/orbit-components/lib/icons/Passenger";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import type { Environment } from "@kiwicom/relay";
 
 import Button from "../Button";
 import ClickOutside from "../../../ClickOutside";
@@ -74,7 +74,7 @@ const Trips = ({ auth, env, onSelect, inverted }: Props) => (
             }}
           >
             {auth.type === "token" ? (
-              <SingleTripData singleBid={auth.bid} env={env} onSelect={onSelect} />
+              <SingleTripData env={env} singleBid={auth.bid} onSelect={onSelect} />
             ) : (
               <TripDataList env={env} onSelect={onSelect} />
             )}

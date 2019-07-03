@@ -4,10 +4,9 @@ import { mount } from "enzyme";
 
 import { Provider } from "../../../services/starred/context";
 import type { StarredItem } from "../../../records/Starred";
+import itineraryOneWay from "../../../records/__mocks__/Itinerary/ItineraryOneWay";
 
 import Starred from "..";
-
-import itineraryOneWay from "../../../records/__mocks__/Itinerary/ItineraryOneWay";
 
 const starredList: StarredItem[] = [
   {

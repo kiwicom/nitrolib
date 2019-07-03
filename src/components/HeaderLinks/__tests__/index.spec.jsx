@@ -2,9 +2,9 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import HeaderLinks from "..";
-
 import { props, response } from "../__mocks__/api";
+
+import HeaderLinks from "..";
 
 describe("HeaderLinks", () => {
   test("should render correctly", () => {

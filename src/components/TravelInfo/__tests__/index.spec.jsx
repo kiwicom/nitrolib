@@ -2,9 +2,9 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import TravelInfo from "..";
-
 import { themeDefault } from "../../../records/Theme";
+
+import TravelInfo from "..";
 
 describe("#TravelInfo", () => {
   test("render", () => {

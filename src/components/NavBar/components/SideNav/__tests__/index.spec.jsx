@@ -2,9 +2,9 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import SideNav from "..";
-
 import * as MODALS from "../../../../../consts/modals";
+
+import SideNav from "..";
 
 describe("#SideNav", () => {
   test("render", () => {

@@ -1,8 +1,8 @@
 // @flow
 import * as React from "react";
-import { graphql, QueryRenderer } from "react-relay";
-import type { Environment } from "react-relay";
+import { graphql, QueryRenderer } from "@kiwicom/relay";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
+import type { Environment } from "@kiwicom/relay";
 
 import Translate from "../../../../../Translate";
 import TripHeader from "../TripHeader";
@@ -12,11 +12,10 @@ import TripListBottom from "../TripListBottom";
 
 type Props = {|
   onSelect: (bid: string) => void,
-  // DI
   env: Environment,
 |};
 
-const TripDataList = ({ env, onSelect }: Props) => (
+const TripDataList = ({ onSelect, env }: Props) => (
   <QueryRenderer
     environment={env}
     query={graphql`
@@ -32,24 +31,18 @@ const TripDataList = ({ env, onSelect }: Props) => (
       }
     `}
     variables={{ only: "FUTURE", order: "ASC" }}
-    render={res => {
-      if (res.error) {
-        return (
-          <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
-            <Alert type="critical">{String(res.error)}</Alert>
-          </TripContainer>
-        );
-      }
-
-      if (!res.props) {
-        return (
-          <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
-            <Translate t="common.loading" />
-          </TripContainer>
-        );
-      }
-
-      const { customerBookings } = res.props;
+    onSystemError={res => (
+      <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
+        <Alert type="critical">{String(res.error)}</Alert>
+      </TripContainer>
+    )}
+    onLoading={() => (
+      <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
+        <Translate t="common.loading" />
+      </TripContainer>
+    )}
+    onResponse={res => {
+      const { customerBookings } = res;
       if (!customerBookings) {
         return (
           <TripContainer padding positionMenuTablet={0} positionMenuDesktop={50}>
@@ -59,7 +52,6 @@ const TripDataList = ({ env, onSelect }: Props) => (
           </TripContainer>
         );
       }
-
       return (
         <TripContainer
           header={<TripHeader list={customerBookings} />}

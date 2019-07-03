@@ -2,9 +2,9 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import BrandName from "..";
-
 import { brandDefault } from "../../../records/Brand";
+
+import BrandName from "..";
 
 describe("#BrandName", () => {
   test("render", () => {

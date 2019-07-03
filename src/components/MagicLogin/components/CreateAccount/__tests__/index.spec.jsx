@@ -4,9 +4,9 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import CreateAccount from "..";
-
 import CreateAccountScreen from "../../screens/CreateAccount";
+
+import CreateAccount from "..";
 
 jest.mock("../../../mutations/createAccount");
 

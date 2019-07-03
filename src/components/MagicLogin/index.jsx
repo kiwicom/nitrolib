@@ -17,7 +17,7 @@ import LogContext from "../../services/log/context";
 import IntlContext from "../../services/intl/context";
 import { API_REQUEST_FAILED, API_ERROR } from "../../consts/events";
 import * as loginEvents from "./consts/events";
-import { makeCall, makeEnvironment } from "../../services/utils/relay";
+import makeEnvironment from "../../services/utils/relay";
 import type { AuthUser, SocialProvider, AuthToken } from "../../records/Auth";
 import type { Event, Props as EventProps } from "../../records/Event";
 import type { Brand } from "../../records/Brand";
@@ -133,7 +133,7 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
   handleMagicLink = () => {
     const { email } = this.state;
     const { brand, log, langInfo } = this.props;
-    const environment = makeEnvironment(makeCall({ "Accept-Language": langInfo.iso }));
+    const environment = makeEnvironment({ "Accept-Language": langInfo.iso });
 
     this.setState({ isSendingEmail: true, error: "" });
 

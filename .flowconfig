@@ -16,6 +16,10 @@ sketchy-null=off
 [libs]
 types/
 
+[untyped]
+# Due to flow error in @kiwicom/relay
+<PROJECT_ROOT>/node_modules/@kiwicom/relay/src/commitMutation.js.flow
+
 [options]
 emoji=true
 
@@ -24,6 +28,9 @@ suppress_type=$FlowFixMe
 
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue: https://github.com/facebook/flow/issues/[0-9]+
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpected: .+
+# added because of @kiwicom/relay
+suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError: .+
+
 
 esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable

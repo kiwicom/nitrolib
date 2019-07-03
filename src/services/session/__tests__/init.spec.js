@@ -8,8 +8,6 @@ import handleSessionId from "../services/handleSessionId";
 import handleDeeplinkId from "../services/handleDeeplinkId";
 import handleUTMs from "../services/handleUTMs";
 
-const mock = (fn: any) => fn;
-
 jest.mock("query-string");
 jest.mock("../services/handleUserId");
 jest.mock("../services/handleAffiliateId");
@@ -20,7 +18,8 @@ jest.mock("../services/handleUTMs");
 
 describe("#init", () => {
   test("mount", () => {
-    mock(qs.parse).mockReturnValue({
+    // $FlowExpected: jest bug
+    qs.parse.mockReturnValue({
       userId: "kek",
       affilId: "bur",
       lol: "lmao",
