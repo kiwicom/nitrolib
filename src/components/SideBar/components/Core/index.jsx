@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
-import ReactDOM from "react-dom";
 import styled, { css } from "styled-components";
+import Portal from "@kiwicom/orbit-components/lib/Portal";
 import { right, left, translate3d } from "@kiwicom/orbit-components/lib/utils/rtl";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
@@ -95,26 +95,27 @@ export default class Core extends React.Component<Props> {
   render() {
     const { status, inverted, unmasked, onClick, children } = this.props;
 
-    return ReactDOM.createPortal(
-      <Container
-        inverted={inverted}
-        shown={status !== "exited"}
-        entered={!unmasked && status === "entered"}
-        ref={this.ref}
-        onClick={(ev: SyntheticEvent<HTMLDivElement>) => {
-          if (unmasked) return;
-          if (this.ref.current === ev.target) {
-            onClick();
-          }
-        }}
-        role="button"
-        tabIndex="0"
-      >
-        <Wrapper inverted={inverted} shown={status !== "exiting" && status !== "exited"}>
-          {children}
-        </Wrapper>
-      </Container>,
-      this.el,
+    return (
+      <Portal>
+        <Container
+          inverted={inverted}
+          shown={status !== "exited"}
+          entered={!unmasked && status === "entered"}
+          ref={this.ref}
+          onClick={(ev: SyntheticEvent<HTMLDivElement>) => {
+            if (unmasked) return;
+            if (this.ref.current === ev.target) {
+              onClick();
+            }
+          }}
+          role="button"
+          tabIndex="0"
+        >
+          <Wrapper inverted={inverted} shown={status !== "exiting" && status !== "exited"}>
+            {children}
+          </Wrapper>
+        </Container>
+      </Portal>
     );
   }
 }

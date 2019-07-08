@@ -251,7 +251,6 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                   value={fields.iata.value}
                   onSelect={this.handleSelectIata}
                   error={intl.translate(fields.iata.error)}
-                  showState={submitted}
                 />
               </FieldWrap>
               <FieldWrap>

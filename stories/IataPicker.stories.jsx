@@ -18,13 +18,4 @@ storiesOf("IataPicker", module)
       onSelect={action("Select")}
       error={text("Error", "", GROUP_ID)}
     />
-  ))
-  .add("with orbit UI", () => (
-    <IataPicker
-      id="test"
-      value={text("Value", "", GROUP_ID)}
-      onSelect={action("Select")}
-      error={text("Error", "", GROUP_ID)}
-      useLegacyUI={false}
-    />
   ));

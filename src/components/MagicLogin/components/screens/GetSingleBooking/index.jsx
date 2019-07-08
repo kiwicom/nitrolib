@@ -101,7 +101,6 @@ const GetSingleBooking = ({
                 value={IATA}
                 onSelect={onIATAChange}
                 error={IATAError}
-                useLegacyUI={false}
               />
             </Stack>
           </div>
