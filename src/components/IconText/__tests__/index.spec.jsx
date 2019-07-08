@@ -10,7 +10,7 @@ describe("#IconText", () => {
     const wrapper = shallow(<IconText icon={<Airplane />}>Kek</IconText>);
     expect(
       wrapper
-        .find("IconText__Text")
+        .find("Text")
         .render()
         .text(),
     ).toBe("Kek");

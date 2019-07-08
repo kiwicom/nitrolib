@@ -1,37 +1,7 @@
 // @flow strict
 import * as React from "react";
-import styled from "styled-components";
-import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
-
-import { themeDefault } from "../../records/Theme";
-import type { ThemeProps } from "../../records/Theme";
-
-const Container = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-`;
-
-Container.defaultProps = {
-  theme: themeDefault,
-};
-
-const IconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  padding-${/* sc-custom "right" */ right}: 10px;
-`;
-
-const Text = styled.span`
-  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
-  height: 24px;
-  line-height: 24px;
-  white-space: nowrap;
-`;
-
-Text.defaultProps = {
-  theme: themeDefault,
-};
+import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Text from "@kiwicom/orbit-components/lib/Text";
 
 type Props = {|
   icon: React.Node,
@@ -39,10 +9,10 @@ type Props = {|
 |};
 
 const IconText = ({ icon, children }: Props) => (
-  <Container>
-    <IconWrapper>{icon}</IconWrapper>
+  <Stack flex align="center" spacing="condensed">
+    {icon}
     <Text>{children}</Text>
-  </Container>
+  </Stack>
 );
 
 export default IconText;
