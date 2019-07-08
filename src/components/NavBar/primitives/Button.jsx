@@ -55,8 +55,7 @@ const Button: ReactComponentFunctional<Props, ThemeProps> = styled.button`
     fontSize ? `${fontSize}px` : `${theme.orbit.fontSizeTextSmall}`};
   ${({ disabled }) => disabled && `opacity: 0.5`};
   &:visited,
-  &:active,
-  &:link {
+  &:active {
     color: ${({ theme, color }: PropsAll) =>
       (color === "primary" && `${theme.orbit.paletteProductNormalActive}`) ||
       (color === "warning" && `${theme.orbit.paletteRedNormalActive}`) ||

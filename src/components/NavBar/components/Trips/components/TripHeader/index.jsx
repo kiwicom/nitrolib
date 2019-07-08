@@ -33,9 +33,9 @@ const TripHeader = ({ list }: Props) => {
           </ButtonLink>
           <ButtonLink
             marginRight={20}
-            color="primary"
             bold
             href={`/${intl.language.id}/account#past`}
+            color="primary"
           >
             <Translate t="account.past_trips" />
           </ButtonLink>
