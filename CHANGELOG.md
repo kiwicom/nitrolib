@@ -1,3 +1,25 @@
+# [5.7.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.5.0...v5.7.0) (2019-07-09)
+
+
+### Bug Fixes
+
+* Update relay fragments ([4d59510](https://gitlab.skypicker.com/frontend/nitrolib/commit/4d59510))
+* **components:** Handle submit errors for simple token & format date ([cea4603](https://gitlab.skypicker.com/frontend/nitrolib/commit/cea4603))
+* **components:** Headerlinks story, Footer mq ([a607c41](https://gitlab.skypicker.com/frontend/nitrolib/commit/a607c41))
+* **components:** Trips first parametr, button color ([9058097](https://gitlab.skypicker.com/frontend/nitrolib/commit/9058097))
+* **services:** Currency getAll fix ([7f8ab0f](https://gitlab.skypicker.com/frontend/nitrolib/commit/7f8ab0f))
+
+
+### Features
+
+* **components:** Add new SingleBooking screen to login & date picker ([7375299](https://gitlab.skypicker.com/frontend/nitrolib/commit/7375299))
+* **components:** Make IATA picker orbit friendly ([485e956](https://gitlab.skypicker.com/frontend/nitrolib/commit/485e956))
+* **components:** orbit inputField by default in Iatapicker, IconText and Sidebar refactor ([65ea036](https://gitlab.skypicker.com/frontend/nitrolib/commit/65ea036))
+* **components:** Update GraphQL to support getSimpleToken mutation ([59669b2](https://gitlab.skypicker.com/frontend/nitrolib/commit/59669b2))
+* **components:** WithData decorator extended with AuthProvider ([0960ff2](https://gitlab.skypicker.com/frontend/nitrolib/commit/0960ff2))
+
+
+
 ## [5.6.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.5.0...v5.6.1) (2019-07-01)
 
 
