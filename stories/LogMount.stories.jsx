@@ -7,7 +7,7 @@ import LogMount from "../src/components/LogMount";
 
 const event = {
   action: "Lol",
-  category: "Nitro",
+  category: "General",
   destinations: {
     bigquery: false,
     exponea: false,

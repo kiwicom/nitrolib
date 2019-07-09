@@ -2,7 +2,7 @@
 import type { Event } from "../../../records/Event";
 
 export const MAGIC_LOGIN_MODAL_SHOWN: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "MagicLogin",
   action: "ModalShown",
   destinations: {
@@ -14,7 +14,7 @@ export const MAGIC_LOGIN_MODAL_SHOWN: Event = {
 };
 
 export const SCREEN_CHANGED: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "MagicLogin",
   action: "ScreenChanged",
   destinations: {
@@ -26,7 +26,7 @@ export const SCREEN_CHANGED: Event = {
 };
 
 export const LOGGED_WITH_ACCOUNT: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "MagicLogin",
   action: "LoggedInWithAccount",
   destinations: {
@@ -38,7 +38,7 @@ export const LOGGED_WITH_ACCOUNT: Event = {
 };
 
 export const ASK_FOR_MAGIC_LINK: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "MagicLogin",
   action: "AskForMagicLink",
   destinations: {
@@ -50,7 +50,7 @@ export const ASK_FOR_MAGIC_LINK: Event = {
 };
 
 export const MAGIC_LINK_SENT: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "MagicLogin",
   action: "MagicLinkSent",
   destinations: {
@@ -62,7 +62,7 @@ export const MAGIC_LINK_SENT: Event = {
 };
 
 export const CHANGE_EMAIL: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "MagicLogin",
   action: "ChangeEmail",
   destinations: {
@@ -74,7 +74,7 @@ export const CHANGE_EMAIL: Event = {
 };
 
 export const LOGIN_VIA_SOCIAL: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "MagicLogin",
   action: "LoginViaSocialProvider",
   destinations: {
@@ -86,7 +86,7 @@ export const LOGIN_VIA_SOCIAL: Event = {
 };
 
 export const CONTINUE_WITH_REGISTER: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "MagicLogin",
   action: "ContinueWithRegister",
   destinations: {
@@ -98,7 +98,7 @@ export const CONTINUE_WITH_REGISTER: Event = {
 };
 
 export const REGISTRATION_SENT: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "MagicLogin",
   action: "RegistrationSent",
   destinations: {
@@ -110,7 +110,7 @@ export const REGISTRATION_SENT: Event = {
 };
 
 export const GET_SIMPLE_TOKEN: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "MagicLogin",
   action: "RegistrationSent",
   destinations: {
@@ -122,7 +122,7 @@ export const GET_SIMPLE_TOKEN: Event = {
 };
 
 export const LOGIN_ABANDONED: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "MagicLogin",
   action: "LoginAbandoned",
   destinations: {
@@ -134,7 +134,7 @@ export const LOGIN_ABANDONED: Event = {
 };
 
 export const LOGIN_PATH_FULFILLED = {
-  category: "Nitro",
+  category: "General",
   subCategory: "MagicLogin",
   action: "LoginPathFulfilled",
   destinations: {

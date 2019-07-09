@@ -3,7 +3,7 @@ import type { Event } from "../../../records/Event";
 
 // eslint-disable-next-line import/prefer-default-export
 export const HEADER_LINKS_ERROR: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "Header links",
   action: "Error",
   destinations: {

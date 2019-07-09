@@ -2,7 +2,7 @@
 import type { Event } from "../records/Event";
 
 export const API_ERROR: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "API",
   action: "Error",
   destinations: {
@@ -14,7 +14,7 @@ export const API_ERROR: Event = {
 };
 
 export const API_REQUEST: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "API",
   action: "Request",
   destinations: {
@@ -26,7 +26,7 @@ export const API_REQUEST: Event = {
 };
 
 export const API_SUCCESS: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "API",
   action: "Success",
   destinations: {
@@ -38,7 +38,7 @@ export const API_SUCCESS: Event = {
 };
 
 export const API_REQUEST_FAILED: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "API",
   action: "Failed",
   destinations: {
@@ -50,7 +50,7 @@ export const API_REQUEST_FAILED: Event = {
 };
 
 export const MODAL_OPEN: Event = {
-  category: "Nitro",
+  category: "General",
   subCategory: "Modal",
   action: "Open",
   destinations: {
