@@ -1,3 +1,12 @@
+## [5.7.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.7.0...v5.7.1) (2019-07-09)
+
+
+### Bug Fixes
+
+* **services:** Logging Nitro prefix -> General ([ed2236b](https://gitlab.skypicker.com/frontend/nitrolib/commit/ed2236b))
+
+
+
 # [5.7.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.5.0...v5.7.0) (2019-07-09)
 
 
