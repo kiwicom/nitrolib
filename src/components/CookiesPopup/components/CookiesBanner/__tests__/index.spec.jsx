@@ -8,7 +8,9 @@ import { themeDefault } from "../../../../../records/Theme";
 
 describe("#CookiesBanner", () => {
   test("render", () => {
-    const wrapper = mount(<CookiesBanner onAccept={jest.fn()} />);
+    const wrapper = mount(
+      <CookiesBanner onAccept={jest.fn()} onCustomize={jest.fn()} />
+    );
 
     expect(wrapper.find("CookiesBanner__Container")).toHaveStyleRule(
       "background",
@@ -21,10 +23,30 @@ describe("#CookiesBanner", () => {
   test("click accept", () => {
     const onAccept = jest.fn();
 
-    const wrapper = shallow(<CookiesBanner onAccept={onAccept} />);
+    const wrapper = shallow(
+      <CookiesBanner onAccept={onAccept} onCustomize={jest.fn()} />
+    );
 
-    wrapper.find("CookiesBanner__AcceptButton").simulate("click");
+    wrapper
+      .find("Button")
+      .last()
+      .simulate("click");
 
     expect(onAccept).toBeCalled();
+  });
+
+  test("click customize", () => {
+    const onCustomize = jest.fn();
+
+    const wrapper = shallow(
+      <CookiesBanner onAccept={jest.fn()} onCustomize={onCustomize} />
+    );
+
+    wrapper
+      .find("Button")
+      .first()
+      .simulate("click");
+
+    expect(onCustomize).toBeCalled();
   });
 });

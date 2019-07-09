@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import styled, { css } from "styled-components";
-import MdClose from "react-icons/lib/md/close";
+import Close from "@kiwicom/orbit-components/lib/icons/Close";
 import { rtlSpacing, right } from "@kiwicom/orbit-components/lib/utils/rtl";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Button from "@kiwicom/orbit-components/lib/Button";
@@ -45,7 +45,7 @@ const Container = styled.div`
 `;
 
 Container.defaultProps = {
-  theme: themeDefault,
+  theme: themeDefault
 };
 
 const Message = styled.p`
@@ -67,7 +67,7 @@ const Message = styled.p`
 `;
 
 Message.defaultProps = {
-  theme: themeDefault,
+  theme: themeDefault
 };
 
 const ButtonWrap = styled.div`
@@ -80,6 +80,10 @@ const ButtonWrap = styled.div`
   )};
 `;
 
+ButtonWrap.defaultProps = {
+  theme: themeDefault
+};
+
 const AcceptButton = styled.a`
   position: absolute;
   top: 0;
@@ -89,17 +93,12 @@ const AcceptButton = styled.a`
 `;
 
 AcceptButton.defaultProps = {
-  theme: themeDefault,
+  theme: themeDefault
 };
-
-const Close = styled(MdClose)`
-  height: 20px;
-  width: 20px;
-`;
 
 type Props = {|
   onAccept: () => void,
-  onCustomize: () => void,
+  onCustomize: () => void
 |};
 
 const CookiesBanner = ({ onAccept, onCustomize }: Props) => (
@@ -125,7 +124,7 @@ const CookiesBanner = ({ onAccept, onCustomize }: Props) => (
       </ButtonGroup>
     </ButtonWrap>
     <AcceptButton onClick={onAccept}>
-      <Close />
+      <Close color="secondary" />
     </AcceptButton>
   </Container>
 );

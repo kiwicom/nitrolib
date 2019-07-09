@@ -2,28 +2,30 @@
 import * as React from "react";
 import { shallow, mount } from "enzyme";
 
-import CookiesBanner from "..";
+import CookiesPopup from "..";
 
 import { themeDefault } from "../../../../../records/Theme";
 
 describe("#CookiesPopup", () => {
   test("render", () => {
-    const wrapper = mount(<CookiesBanner onAccept={jest.fn()} />);
-
-    expect(wrapper.find("CookiesBanner__Container")).toHaveStyleRule(
-      "background",
-      themeDefault.orbit.paletteInkDark
+    const wrapper = mount(
+      <CookiesPopup onAccept={jest.fn()} onCustomize={jest.fn()} />
     );
 
-    expect(wrapper.find("CookiesBanner__Container").exists()).toBe(true);
+    expect(wrapper.find("Modal__ModalWrapperContent").exists()).toBe(true);
   });
 
   test("click accept", () => {
     const onAccept = jest.fn();
 
-    const wrapper = shallow(<CookiesBanner onAccept={onAccept} />);
+    const wrapper = shallow(
+      <CookiesPopup onAccept={onAccept} onCustomize={jest.fn()} />
+    );
 
-    wrapper.find("CookiesBanner__AcceptButton").simulate("click");
+    wrapper
+      .find("Button")
+      .last()
+      .simulate("click");
 
     expect(onAccept).toBeCalled();
   });

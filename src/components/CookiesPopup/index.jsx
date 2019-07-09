@@ -30,11 +30,11 @@ class CookiesPopup extends React.PureComponent<Props, State> {
   };
 
   handleAccept = (
-    cookiePolicy: {
+    cookiePolicy: {|
       performance: boolean,
       marketing: boolean,
       advertisement: boolean
-    } = {
+    |} = {
       performance: true,
       marketing: true,
       advertisement: true

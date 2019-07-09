@@ -94,7 +94,7 @@
     "@emotion/core": "^10.0.7",
     "@kiwicom/eslint-config-nitro": "^2.0.0",
     "@kiwicom/orbit-components": "^0.48.0",
-    "@kiwicom/translations": "^1.316.0",
+    "@kiwicom/translations": "^1.334.0",
     "@storybook/addon-actions": "^5.0.0",
     "@storybook/addon-info": "^5.0.0",
     "@storybook/addon-knobs": "^5.0.0",

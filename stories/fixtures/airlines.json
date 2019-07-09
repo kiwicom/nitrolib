@@ -77,10 +77,28 @@
     "name": "Flibco",
     "type": "bus"
   },
+  "UNIONIV": {
+    "id": "UNIONIV",
+    "lcc": null,
+    "name": "Union Ivkoni",
+    "type": "bus"
+  },
+  "SY": {
+    "id": "SY",
+    "lcc": 1,
+    "name": "Sun Country Airlines",
+    "type": "airline"
+  },
   "SR": {
     "id": "SR",
     "lcc": 0,
     "name": "Sundair",
+    "type": "airline"
+  },
+  "6D": {
+    "id": "6D",
+    "lcc": 0,
+    "name": "Pelita",
     "type": "airline"
   },
   "LONGTEST": {
@@ -88,6 +106,42 @@
     "lcc": 0,
     "name": "Long iata code test",
     "type": "bus"
+  },
+  "BUTAAIR": {
+    "id": "BUTAAIR",
+    "lcc": 1,
+    "name": "Buta Airways",
+    "type": "airline"
+  },
+  "ZP": {
+    "id": "ZP",
+    "lcc": 0,
+    "name": "Paranair",
+    "type": "airline"
+  },
+  "6R": {
+    "id": "6R",
+    "lcc": 1,
+    "name": "Alrosa",
+    "type": "airline"
+  },
+  "QQ": {
+    "id": "QQ",
+    "lcc": 0,
+    "name": "Alliance Airlines",
+    "type": "airline"
+  },
+  "M9": {
+    "id": "M9",
+    "lcc": 0,
+    "name": "Motor Sich",
+    "type": "airline"
+  },
+  "LY": {
+    "id": "LY",
+    "lcc": 1,
+    "name": "El Al Israel Airlines",
+    "type": "airline"
   },
   "SAGALES": {
     "id": "SAGALES",
@@ -113,6 +167,1428 @@
     "name": "Nomago",
     "type": "bus"
   },
+  "FLIXTRAIN": {
+    "id": "FLIXTRAIN",
+    "lcc": 0,
+    "name": "Flixtrain",
+    "type": "train"
+  },
+  "GREYHOUND": {
+    "id": "GREYHOUND",
+    "lcc": 0,
+    "name": "Greyhound",
+    "type": "bus"
+  },
+  "NATEXPRESS": {
+    "id": "NATEXPRESS",
+    "lcc": 0,
+    "name": "National Express",
+    "type": "bus"
+  },
+  "SINDBAD": {
+    "id": "SINDBAD",
+    "lcc": null,
+    "name": "Sindbad",
+    "type": "bus"
+  },
+  "ARYSTAN": {
+    "id": "ARYSTAN",
+    "lcc": null,
+    "name": "FlyArystan",
+    "type": "airline"
+  },
+  "FLIXBUS": {
+    "id": "FLIXBUS",
+    "lcc": 0,
+    "name": "Flixbus",
+    "type": "bus"
+  },
+  "IW": {
+    "id": "IW",
+    "lcc": 0,
+    "name": "Wings Air",
+    "type": "airline"
+  },
+  "GDE": {
+    "id": "GDE",
+    "lcc": null,
+    "name": "Great Dane Airlines",
+    "type": "airline"
+  },
+  "CHIHUAHUEN": {
+    "id": "CHIHUAHUEN",
+    "lcc": null,
+    "name": "Transportes Chihuahuenses",
+    "type": "bus"
+  },
+  "QS": {
+    "id": "QS",
+    "lcc": 1,
+    "name": "SmartWings",
+    "type": "airline"
+  },
+  "SNCB": {
+    "id": "SNCB",
+    "lcc": 0,
+    "name": "SNCB",
+    "type": "train"
+  },
+  "YD": {
+    "id": "YD",
+    "lcc": 0,
+    "name": "Gomelavia",
+    "type": "airline"
+  },
+  "ICBUS": {
+    "id": "ICBUS",
+    "lcc": 0,
+    "name": "IC Bus",
+    "type": "bus"
+  },
+  "DEINBUS": {
+    "id": "DEINBUS",
+    "lcc": 0,
+    "name": "DeinBus",
+    "type": "bus"
+  },
+  "ORESUNDST": {
+    "id": "ORESUNDST",
+    "lcc": 0,
+    "name": "Oresundstag",
+    "type": "train"
+  },
+  "LEBUSDIR": {
+    "id": "LEBUSDIR",
+    "lcc": 0,
+    "name": "Le Bus Direct",
+    "type": "bus"
+  },
+  "TRANSFERO": {
+    "id": "TRANSFERO",
+    "lcc": 0,
+    "name": "Transfero",
+    "type": "bus"
+  },
+  "AIRBUSEX": {
+    "id": "AIRBUSEX",
+    "lcc": null,
+    "name": "Airport Bus Express",
+    "type": "bus"
+  },
+  "REGIOJETT": {
+    "id": "REGIOJETT",
+    "lcc": 0,
+    "name": "Regiojet Train",
+    "type": "train"
+  },
+  "IRCITYLINK": {
+    "id": "IRCITYLINK",
+    "lcc": null,
+    "name": "Irish Citylink",
+    "type": "bus"
+  },
+  "BN": {
+    "id": "BN",
+    "lcc": 0,
+    "name": "Horizon Airlines",
+    "type": "airline"
+  },
+  "LEOEXT": {
+    "id": "LEOEXT",
+    "lcc": null,
+    "name": "LEOEXPRESS Train",
+    "type": "train"
+  },
+  "LEOEXB": {
+    "id": "LEOEXB",
+    "lcc": null,
+    "name": "LEOEXPRESS Bus",
+    "type": "bus"
+  },
+  "FIUMICINO": {
+    "id": "FIUMICINO",
+    "lcc": null,
+    "name": "Fiumicino express",
+    "type": "bus"
+  },
+  "MARINO": {
+    "id": "MARINO",
+    "lcc": 0,
+    "name": "Marino Bus",
+    "type": "bus"
+  },
+  "TERAVSN": {
+    "id": "TERAVSN",
+    "lcc": null,
+    "name": "Terravision",
+    "type": "bus"
+  },
+  "EXPRTRANS": {
+    "id": "EXPRTRANS",
+    "lcc": null,
+    "name": "Ekspres transfer",
+    "type": "bus"
+  },
+  "AIRBUEX": {
+    "id": "AIRBUEX",
+    "lcc": null,
+    "name": "Airport Bus Express",
+    "type": "bus"
+  },
+  "NM": {
+    "id": "NM",
+    "lcc": 0,
+    "name": "Air Madrid",
+    "type": "airline"
+  },
+  "CITYLINK": {
+    "id": "CITYLINK",
+    "lcc": null,
+    "name": "Citylink",
+    "type": "bus"
+  },
+  "APPENINO": {
+    "id": "APPENINO",
+    "lcc": null,
+    "name": "Appenino shuttle ",
+    "type": "bus"
+  },
+  "4R": {
+    "id": "4R",
+    "lcc": 0,
+    "name": "Renfe",
+    "type": "train"
+  },
+  "FE": {
+    "id": "FE",
+    "lcc": null,
+    "name": "Far Eastern Air Transport",
+    "type": "airline"
+  },
+  "LEOEXM": {
+    "id": "LEOEXM",
+    "lcc": 0,
+    "name": "LEOEXPRESS Minibus",
+    "type": "bus"
+  },
+  "BLUELINE": {
+    "id": "BLUELINE",
+    "lcc": null,
+    "name": "Blue Line",
+    "type": "bus"
+  },
+  "4P": {
+    "id": "4P",
+    "lcc": 0,
+    "name": "Regional sky",
+    "type": "airline"
+  },
+  "LUFTHBUS": {
+    "id": "LUFTHBUS",
+    "lcc": null,
+    "name": "Lufthansa express bus",
+    "type": "bus"
+  },
+  "9B": {
+    "id": "9B",
+    "lcc": 0,
+    "name": "AccesRail",
+    "type": "train"
+  },
+  "ESTLOREK": {
+    "id": "ESTLOREK",
+    "lcc": null,
+    "name": "EST Lorek",
+    "type": "bus"
+  },
+  "SLOVAKLNS": {
+    "id": "SLOVAKLNS",
+    "lcc": null,
+    "name": "Slovak Lines ",
+    "type": "bus"
+  },
+  "LZ": {
+    "id": "LZ",
+    "lcc": 0,
+    "name": "belleair",
+    "type": "airline"
+  },
+  "CZECHRAILB": {
+    "id": "CZECHRAILB",
+    "lcc": null,
+    "name": "Czech Rail bus",
+    "type": "bus"
+  },
+  "EXPRESSBUS": {
+    "id": "EXPRESSBUS",
+    "lcc": null,
+    "name": "ExpressBus",
+    "type": "bus"
+  },
+  "H8": {
+    "id": "H8",
+    "lcc": 0,
+    "name": "Latin American Wings",
+    "type": "airline"
+  },
+  "TRANSJUG": {
+    "id": "TRANSJUG",
+    "lcc": null,
+    "name": "Trans Jug",
+    "type": "bus"
+  },
+  "SVENSKABUS": {
+    "id": "SVENSKABUS",
+    "lcc": null,
+    "name": "Svenska Buss",
+    "type": "bus"
+  },
+  "STANSTDEXP": {
+    "id": "STANSTDEXP",
+    "lcc": null,
+    "name": "Stansted Express",
+    "type": "train"
+  },
+  "LF": {
+    "id": "LF",
+    "lcc": 0,
+    "name": "Contour Airlines",
+    "type": "airline"
+  },
+  "VIARAILCAD": {
+    "id": "VIARAILCAD",
+    "lcc": null,
+    "name": "VIA Rail Canada",
+    "type": "train"
+  },
+  "SJRAIL": {
+    "id": "SJRAIL",
+    "lcc": null,
+    "name": "Swedish Railways",
+    "type": "train"
+  },
+  "OP": {
+    "id": "OP",
+    "lcc": null,
+    "name": "PassionAir",
+    "type": "airline"
+  },
+  "QU": {
+    "id": "QU",
+    "lcc": null,
+    "name": "Azur Air Ukraine",
+    "type": "airline"
+  },
+  "EZ": {
+    "id": "EZ",
+    "lcc": 0,
+    "name": "Evergreen International Airlines",
+    "type": "airline"
+  },
+  "SUNLINES": {
+    "id": "SUNLINES",
+    "lcc": null,
+    "name": "Sun lines",
+    "type": "bus"
+  },
+  "MEMENTO": {
+    "id": "MEMENTO",
+    "lcc": null,
+    "name": "MementoBUS",
+    "type": "bus"
+  },
+  "ANDBUS": {
+    "id": "ANDBUS",
+    "lcc": null,
+    "name": "Andbus",
+    "type": "bus"
+  },
+  "BG": {
+    "id": "BG",
+    "lcc": 1,
+    "name": "Biman Bangladesh Airlines",
+    "type": "airline"
+  },
+  "EJR": {
+    "id": "EJR",
+    "lcc": null,
+    "name": "EJR – East Japan Rail Company",
+    "type": "train"
+  },
+  "VIEAPLINES": {
+    "id": "VIEAPLINES",
+    "lcc": null,
+    "name": "Vienna Airport Lines",
+    "type": "bus"
+  },
+  "REGIOJET": {
+    "id": "REGIOJET",
+    "lcc": 0,
+    "name": "RegioJet",
+    "type": "bus"
+  },
+  "GOOPTI": {
+    "id": "GOOPTI",
+    "lcc": null,
+    "name": "GoOpti",
+    "type": "bus"
+  },
+  "CAT": {
+    "id": "CAT",
+    "lcc": null,
+    "name": "CAT- City Airport Train",
+    "type": "train"
+  },
+  "OXFORDBUS": {
+    "id": "OXFORDBUS",
+    "lcc": null,
+    "name": "Oxford Bus Company",
+    "type": "bus"
+  },
+  "PKSZCZECIN": {
+    "id": "PKSZCZECIN",
+    "lcc": null,
+    "name": "PKS Szczencin",
+    "type": "bus"
+  },
+  "REGIOJETB": {
+    "id": "REGIOJETB",
+    "lcc": 0,
+    "name": "Regiojet Bus",
+    "type": "bus"
+  },
+  "Z8": {
+    "id": "Z8",
+    "lcc": 1,
+    "name": "Amaszonas",
+    "type": "airline"
+  },
+  "NETTBUSS": {
+    "id": "NETTBUSS",
+    "lcc": null,
+    "name": "Nettbuss",
+    "type": "bus"
+  },
+  "OLLEX": {
+    "id": "OLLEX",
+    "lcc": null,
+    "name": "Ollex (express)",
+    "type": "bus"
+  },
+  "2C": {
+    "id": "2C",
+    "lcc": 0,
+    "name": "SNCF",
+    "type": "train"
+  },
+  "WK": {
+    "id": "WK",
+    "lcc": 0,
+    "name": "Edelweiss Air",
+    "type": "airline"
+  },
+  "CITYBUSEXP": {
+    "id": "CITYBUSEXP",
+    "lcc": null,
+    "name": "CityBusExpress",
+    "type": "bus"
+  },
+  "DOMO": {
+    "id": "DOMO",
+    "lcc": null,
+    "name": "Domo Swiss Express",
+    "type": "bus"
+  },
+  "WAGNERTRNS": {
+    "id": "WAGNERTRNS",
+    "lcc": null,
+    "name": "Wagner Transport",
+    "type": "bus"
+  },
+  "MAROZZI": {
+    "id": "MAROZZI",
+    "lcc": null,
+    "name": "Marozzi",
+    "type": "bus"
+  },
+  "GLOBTOUR": {
+    "id": "GLOBTOUR",
+    "lcc": null,
+    "name": "Globtour",
+    "type": "bus"
+  },
+  "GOBUS": {
+    "id": "GOBUS",
+    "lcc": null,
+    "name": "Gobus",
+    "type": "bus"
+  },
+  "GALICJAEX": {
+    "id": "GALICJAEX",
+    "lcc": null,
+    "name": "Galicja Express",
+    "type": "bus"
+  },
+  "BUS4YOU": {
+    "id": "BUS4YOU",
+    "lcc": null,
+    "name": "Bus4You",
+    "type": "bus"
+  },
+  "ARRIVA": {
+    "id": "ARRIVA",
+    "lcc": null,
+    "name": "Arriva",
+    "type": "bus"
+  },
+  "BUSPLANA": {
+    "id": "BUSPLANA",
+    "lcc": null,
+    "name": "Busplana",
+    "type": "bus"
+  },
+  "SKANETRAF": {
+    "id": "SKANETRAF",
+    "lcc": null,
+    "name": "Skanetrafiken",
+    "type": "train"
+  },
+  "NSB": {
+    "id": "NSB",
+    "lcc": null,
+    "name": "NSB",
+    "type": "train"
+  },
+  "VASTTRAF": {
+    "id": "VASTTRAF",
+    "lcc": null,
+    "name": "Vasttrafik",
+    "type": "train"
+  },
+  "LTKRONOBUS": {
+    "id": "LTKRONOBUS",
+    "lcc": null,
+    "name": "LT Kronoberg",
+    "type": "bus"
+  },
+  "TGVLYRIA": {
+    "id": "TGVLYRIA",
+    "lcc": null,
+    "name": "TGV Lyria",
+    "type": "train"
+  },
+  "THELLO": {
+    "id": "THELLO",
+    "lcc": null,
+    "name": "Thello",
+    "type": "train"
+  },
+  "THALYS": {
+    "id": "THALYS",
+    "lcc": null,
+    "name": "Thalys",
+    "type": "train"
+  },
+  "NSI": {
+    "id": "NSI",
+    "lcc": null,
+    "name": "NS",
+    "type": "train"
+  },
+  "RZD": {
+    "id": "RZD",
+    "lcc": null,
+    "name": "Russian Railways ",
+    "type": "train"
+  },
+  "AMTRAKT": {
+    "id": "AMTRAKT",
+    "lcc": null,
+    "name": "Amtrak train ",
+    "type": "train"
+  },
+  "BELARURAIL": {
+    "id": "BELARURAIL",
+    "lcc": null,
+    "name": "Belarusian Railway",
+    "type": "train"
+  },
+  "GRANDEXP": {
+    "id": "GRANDEXP",
+    "lcc": null,
+    "name": "Grand Express",
+    "type": "train"
+  },
+  "COMBOIOS": {
+    "id": "COMBOIOS",
+    "lcc": null,
+    "name": "Comboios de Portugal",
+    "type": "train"
+  },
+  "MAV": {
+    "id": "MAV",
+    "lcc": null,
+    "name": "MAV",
+    "type": "train"
+  },
+  "SBB": {
+    "id": "SBB",
+    "lcc": null,
+    "name": "SBB",
+    "type": "train"
+  },
+  "KLIAEKSP": {
+    "id": "KLIAEKSP",
+    "lcc": null,
+    "name": "KLIA Ekspress",
+    "type": "bus"
+  },
+  "AEH": {
+    "id": "AEH",
+    "lcc": null,
+    "name": " Aero4M",
+    "type": "airline"
+  },
+  "EILAT": {
+    "id": "EILAT",
+    "lcc": null,
+    "name": "Eilat Shuttle",
+    "type": "bus"
+  },
+  "GEORGIBUS": {
+    "id": "GEORGIBUS",
+    "lcc": null,
+    "name": "Georgian Bus",
+    "type": "bus"
+  },
+  "NAVETTE": {
+    "id": "NAVETTE",
+    "lcc": null,
+    "name": "Navette de Vatry",
+    "type": "bus"
+  },
+  "INTERGLOB": {
+    "id": "INTERGLOB",
+    "lcc": null,
+    "name": "Follow me! Interglobus",
+    "type": "bus"
+  },
+  "MICCOLIS": {
+    "id": "MICCOLIS",
+    "lcc": null,
+    "name": "Miccolis",
+    "type": "bus"
+  },
+  "CILENTO": {
+    "id": "CILENTO",
+    "lcc": null,
+    "name": "Cilento",
+    "type": "bus"
+  },
+  "LTKRONOTRN": {
+    "id": "LTKRONOTRN",
+    "lcc": null,
+    "name": "LT Kronoberg",
+    "type": "train"
+  },
+  "EUROSTAR": {
+    "id": "EUROSTAR",
+    "lcc": null,
+    "name": "Eurostar",
+    "type": "train"
+  },
+  "RHONEXP": {
+    "id": "RHONEXP",
+    "lcc": null,
+    "name": "Rhônexpress",
+    "type": "train"
+  },
+  "SMSFLUG": {
+    "id": "SMSFLUG",
+    "lcc": null,
+    "name": "SMS Flughafen",
+    "type": "bus"
+  },
+  "MINIBUD": {
+    "id": "MINIBUD",
+    "lcc": null,
+    "name": "Minibud Ltd.",
+    "type": "bus"
+  },
+  "AEROBUSLIS": {
+    "id": "AEROBUSLIS",
+    "lcc": null,
+    "name": "Aerobus Lisbon",
+    "type": "bus"
+  },
+  "CFLB": {
+    "id": "CFLB",
+    "lcc": null,
+    "name": "CFL",
+    "type": "bus"
+  },
+  "MEGABUS": {
+    "id": "MEGABUS",
+    "lcc": null,
+    "name": "Megabus",
+    "type": "bus"
+  },
+  "GETBUS": {
+    "id": "GETBUS",
+    "lcc": null,
+    "name": "Get Bus",
+    "type": "bus"
+  },
+  "SITBUS": {
+    "id": "SITBUS",
+    "lcc": null,
+    "name": "Sit Bus Shuttle",
+    "type": "bus"
+  },
+  "AMTRAKB": {
+    "id": "AMTRAKB",
+    "lcc": null,
+    "name": "Amtrak bus",
+    "type": "bus"
+  },
+  "100RUMOS": {
+    "id": "100RUMOS",
+    "lcc": null,
+    "name": "100Rumos",
+    "type": "bus"
+  },
+  "HOOSIER": {
+    "id": "HOOSIER",
+    "lcc": null,
+    "name": "Hoosier ride",
+    "type": "bus"
+  },
+  "DSB": {
+    "id": "DSB",
+    "lcc": null,
+    "name": "DSB",
+    "type": "train"
+  },
+  "ETN": {
+    "id": "ETN",
+    "lcc": null,
+    "name": "ETN",
+    "type": "bus"
+  },
+  "SC": {
+    "id": "SC",
+    "lcc": 0,
+    "name": "Shandong Airlines",
+    "type": "airline"
+  },
+  "QUICKLLAMA": {
+    "id": "QUICKLLAMA",
+    "lcc": null,
+    "name": "QuickLlama",
+    "type": "bus"
+  },
+  "SALTLAKEEX": {
+    "id": "SALTLAKEEX",
+    "lcc": null,
+    "name": "Salt Lake Express",
+    "type": "bus"
+  },
+  "ADIRONDACK": {
+    "id": "ADIRONDACK",
+    "lcc": null,
+    "name": "Adirondack Trailways",
+    "type": "bus"
+  },
+  "ARPTSUPERS": {
+    "id": "ARPTSUPERS",
+    "lcc": null,
+    "name": "Airport Supersaver",
+    "type": "bus"
+  },
+  "PRESTIA": {
+    "id": "PRESTIA",
+    "lcc": null,
+    "name": "Prestia e Comande",
+    "type": "bus"
+  },
+  "BEAUVAIS": {
+    "id": "BEAUVAIS",
+    "lcc": null,
+    "name": "Beauvaisbus",
+    "type": "bus"
+  },
+  "FLYBUS": {
+    "id": "FLYBUS",
+    "lcc": null,
+    "name": "Flybus Iceland",
+    "type": "bus"
+  },
+  "AIRBEXP": {
+    "id": "AIRBEXP",
+    "lcc": null,
+    "name": "Airport Bus Express",
+    "type": "bus"
+  },
+  "CFLT": {
+    "id": "CFLT",
+    "lcc": null,
+    "name": "CFL",
+    "type": "train"
+  },
+  "VIRGINIABR": {
+    "id": "VIRGINIABR",
+    "lcc": null,
+    "name": "Virginia Breeze",
+    "type": "bus"
+  },
+  "NYCAIRPORT": {
+    "id": "NYCAIRPORT",
+    "lcc": null,
+    "name": "NYC Airporter",
+    "type": "bus"
+  },
+  "PARKSOFHAM": {
+    "id": "PARKSOFHAM",
+    "lcc": null,
+    "name": "Park's of Hamilton",
+    "type": "bus"
+  },
+  "PKP": {
+    "id": "PKP",
+    "lcc": null,
+    "name": "PKP Intercity",
+    "type": "train"
+  },
+  "KP": {
+    "id": "KP",
+    "lcc": 0,
+    "name": "ASKY Airlines",
+    "type": "airline"
+  },
+  "MALTATRANS": {
+    "id": "MALTATRANS",
+    "lcc": null,
+    "name": "Maltatransfer",
+    "type": null
+  },
+  "BMCAEROBUS": {
+    "id": "BMCAEROBUS",
+    "lcc": null,
+    "name": "BMC Aerobus",
+    "type": "bus"
+  },
+  "OUIGO": {
+    "id": "OUIGO",
+    "lcc": 0,
+    "name": "Ouigo",
+    "type": "train"
+  },
+  "ZSSK": {
+    "id": "ZSSK",
+    "lcc": null,
+    "name": "Slovak rail",
+    "type": "train"
+  },
+  "BLAB": {
+    "id": "BLAB",
+    "lcc": null,
+    "name": "BlaBlabus",
+    "type": "bus"
+  },
+  "ADO": {
+    "id": "ADO",
+    "lcc": null,
+    "name": "ADO",
+    "type": "bus"
+  },
+  "JEFFERSON": {
+    "id": "JEFFERSON",
+    "lcc": null,
+    "name": "Jefferson Lines",
+    "type": "bus"
+  },
+  "3Q": {
+    "id": "3Q",
+    "lcc": 0,
+    "name": "Yunnan Airlines",
+    "type": "airline"
+  },
+  "BJ": {
+    "id": "BJ",
+    "lcc": 0,
+    "name": "NouvelAir",
+    "type": "airline"
+  },
+  "6W": {
+    "id": "6W",
+    "lcc": 1,
+    "name": "FlyBosnia",
+    "type": "airline"
+  },
+  "IP": {
+    "id": "IP",
+    "lcc": 0,
+    "name": "Island Spirit",
+    "type": "airline"
+  },
+  "ALSA": {
+    "id": "ALSA",
+    "lcc": 0,
+    "name": "Alsa",
+    "type": "bus"
+  },
+  "BURLINGTON": {
+    "id": "BURLINGTON",
+    "lcc": null,
+    "name": "Burlington Trailways",
+    "type": "bus"
+  },
+  "VTTRANSLIN": {
+    "id": "VTTRANSLIN",
+    "lcc": null,
+    "name": "Vermont Translines",
+    "type": "bus"
+  },
+  "CZECHRAIL": {
+    "id": "CZECHRAIL",
+    "lcc": null,
+    "name": "Czech Rail",
+    "type": "train"
+  },
+  "FD": {
+    "id": "FD",
+    "lcc": 0,
+    "name": "Thai AirAsia",
+    "type": "airline"
+  },
+  "7H": {
+    "id": "7H",
+    "lcc": 1,
+    "name": "Ravn Alaska",
+    "type": "airline"
+  },
+  "MENORCA": {
+    "id": "MENORCA",
+    "lcc": null,
+    "name": "Berlinas Menorca",
+    "type": "bus"
+  },
+  "DUBLINBUS": {
+    "id": "DUBLINBUS",
+    "lcc": null,
+    "name": "Dublin Bus",
+    "type": "bus"
+  },
+  "LAMEZIA": {
+    "id": "LAMEZIA",
+    "lcc": null,
+    "name": "Lamezia Multiservizi",
+    "type": "bus"
+  },
+  "VYRAIL": {
+    "id": "VYRAIL",
+    "lcc": null,
+    "name": "Vy",
+    "type": "train"
+  },
+  "EIREAGLE": {
+    "id": "EIREAGLE",
+    "lcc": null,
+    "name": "Eireagle",
+    "type": "bus"
+  },
+  "GTOURSSA": {
+    "id": "GTOURSSA",
+    "lcc": null,
+    "name": "Giosy tours SA",
+    "type": "bus"
+  },
+  "WESTFALEN": {
+    "id": "WESTFALEN",
+    "lcc": null,
+    "name": "Westfalen Bahn",
+    "type": "train"
+  },
+  "NORDWEST": {
+    "id": "NORDWEST",
+    "lcc": null,
+    "name": "NordWestBahn",
+    "type": "train"
+  },
+  "KORAIL": {
+    "id": "KORAIL",
+    "lcc": null,
+    "name": "Korail",
+    "type": "train"
+  },
+  "YCAT": {
+    "id": "YCAT",
+    "lcc": null,
+    "name": "Yuma County Area Transit",
+    "type": "bus"
+  },
+  "4U": {
+    "id": "4U",
+    "lcc": 1,
+    "name": "germanwings",
+    "type": "airline"
+  },
+  "OUIBUS": {
+    "id": "OUIBUS",
+    "lcc": 0,
+    "name": "Ouibus",
+    "type": "bus"
+  },
+  "DALATRAFIK": {
+    "id": "DALATRAFIK",
+    "lcc": null,
+    "name": "Dalatrafik",
+    "type": "bus"
+  },
+  "FLYGBUSSAR": {
+    "id": "FLYGBUSSAR",
+    "lcc": null,
+    "name": "Flygbussarna",
+    "type": "bus"
+  },
+  "EUROTRANS": {
+    "id": "EUROTRANS",
+    "lcc": null,
+    "name": "AD EuroTrans",
+    "type": "bus"
+  },
+  "ARRIVAUK": {
+    "id": "ARRIVAUK",
+    "lcc": null,
+    "name": "Arriva United Kingdom",
+    "type": "bus"
+  },
+  "MTRNORDIC": {
+    "id": "MTRNORDIC",
+    "lcc": null,
+    "name": "MTR Nordic",
+    "type": "train"
+  },
+  "IZY": {
+    "id": "IZY",
+    "lcc": null,
+    "name": "IZY",
+    "type": "train"
+  },
+  "5W": {
+    "id": "5W",
+    "lcc": 0,
+    "name": "WESTBahn",
+    "type": "train"
+  },
+  "TAGKOMPANI": {
+    "id": "TAGKOMPANI",
+    "lcc": null,
+    "name": "Tagkompaniet",
+    "type": "train"
+  },
+  "BARONSBUS": {
+    "id": "BARONSBUS",
+    "lcc": null,
+    "name": "Barons Bus",
+    "type": "bus"
+  },
+  "NYTRAILWAY": {
+    "id": "NYTRAILWAY",
+    "lcc": null,
+    "name": "New York Trailways",
+    "type": "bus"
+  },
+  "FULLINGTON": {
+    "id": "FULLINGTON",
+    "lcc": null,
+    "name": "Fullington Trailways",
+    "type": "bus"
+  },
+  "CAPITALCOL": {
+    "id": "CAPITALCOL",
+    "lcc": null,
+    "name": "Capital - Colonial Trailways",
+    "type": "bus"
+  },
+  "YORKSTIGER": {
+    "id": "YORKSTIGER",
+    "lcc": null,
+    "name": "Yorkshire Tiger",
+    "type": "bus"
+  },
+  "FIRSTBUS": {
+    "id": "FIRSTBUS",
+    "lcc": null,
+    "name": "First Bus",
+    "type": "bus"
+  },
+  "HIGHPEAK": {
+    "id": "HIGHPEAK",
+    "lcc": null,
+    "name": "High Peak",
+    "type": "bus"
+  },
+  "YELLOWBUS": {
+    "id": "YELLOWBUS",
+    "lcc": null,
+    "name": "Yellow Buses",
+    "type": "bus"
+  },
+  "BATHBUS": {
+    "id": "BATHBUS",
+    "lcc": null,
+    "name": "Bath Bus Company",
+    "type": "bus"
+  },
+  "BLEKINGEB": {
+    "id": "BLEKINGEB",
+    "lcc": null,
+    "name": "Blekingetrafiken bus",
+    "type": "bus"
+  },
+  "VRRAIL": {
+    "id": "VRRAIL",
+    "lcc": null,
+    "name": "VR",
+    "type": "train"
+  },
+  "OBB": {
+    "id": "OBB",
+    "lcc": null,
+    "name": "OBB",
+    "type": "train"
+  },
+  "SLORAIL": {
+    "id": "SLORAIL",
+    "lcc": null,
+    "name": "Slovenian Railways",
+    "type": "train"
+  },
+  "ULT": {
+    "id": "ULT",
+    "lcc": null,
+    "name": "Public Traffic Uppland train",
+    "type": "train"
+  },
+  "MEGABUST": {
+    "id": "MEGABUST",
+    "lcc": null,
+    "name": "Megabus train",
+    "type": "train"
+  },
+  "MEGABUSB": {
+    "id": "MEGABUSB",
+    "lcc": null,
+    "name": "Megabus bus",
+    "type": "bus"
+  },
+  "CITYZAP": {
+    "id": "CITYZAP",
+    "lcc": null,
+    "name": "Cityzap",
+    "type": "bus"
+  },
+  "COASTLINER": {
+    "id": "COASTLINER",
+    "lcc": null,
+    "name": "Coastliner",
+    "type": "bus"
+  },
+  "GREENLINE": {
+    "id": "GREENLINE",
+    "lcc": null,
+    "name": "Green Line",
+    "type": "bus"
+  },
+  "STAGECOACB": {
+    "id": "STAGECOACB",
+    "lcc": null,
+    "name": "Stagecoach bus",
+    "type": "bus"
+  },
+  "OXFORDTUBE": {
+    "id": "OXFORDTUBE",
+    "lcc": null,
+    "name": "Oxford Tube",
+    "type": "bus"
+  },
+  "ENNO": {
+    "id": "ENNO",
+    "lcc": null,
+    "name": "Enno",
+    "type": "train"
+  },
+  "METRONOM": {
+    "id": "METRONOM",
+    "lcc": null,
+    "name": "Metronom",
+    "type": "train"
+  },
+  "SUDTHURING": {
+    "id": "SUDTHURING",
+    "lcc": null,
+    "name": "Sud-Thuringen-Bahn",
+    "type": "train"
+  },
+  "VIAS": {
+    "id": "VIAS",
+    "lcc": null,
+    "name": "Vias",
+    "type": "train"
+  },
+  "MERIBOBBRB": {
+    "id": "MERIBOBBRB",
+    "lcc": null,
+    "name": "Meridian, BOB, BRB",
+    "type": "train"
+  },
+  "EUROBAHN": {
+    "id": "EUROBAHN",
+    "lcc": null,
+    "name": "Eurobahn",
+    "type": "train"
+  },
+  "LANDERBAHN": {
+    "id": "LANDERBAHN",
+    "lcc": null,
+    "name": "Landerbahn",
+    "type": "train"
+  },
+  "ABELLIO": {
+    "id": "ABELLIO",
+    "lcc": null,
+    "name": "Abellio",
+    "type": "train"
+  },
+  "CZECHRAILT": {
+    "id": "CZECHRAILT",
+    "lcc": null,
+    "name": "Czech Rail train",
+    "type": "train"
+  },
+  "SLT": {
+    "id": "SLT",
+    "lcc": null,
+    "name": "Stockholm Public Transport train",
+    "type": "train"
+  },
+  "BT": {
+    "id": "BT",
+    "lcc": 1,
+    "name": "airBaltic",
+    "type": "airline"
+  },
+  "HZ": {
+    "id": "HZ",
+    "lcc": 0,
+    "name": "Aurora Airlines",
+    "type": "airline"
+  },
+  "MM": {
+    "id": "MM",
+    "lcc": 1,
+    "name": "Peach Aviation",
+    "type": "airline"
+  },
+  "7T": {
+    "id": "7T",
+    "lcc": 0,
+    "name": "Trenitalia",
+    "type": "train"
+  },
+  "ARDATUR": {
+    "id": "ARDATUR",
+    "lcc": null,
+    "name": "Arda Tur",
+    "type": "bus"
+  },
+  "CRNJAT": {
+    "id": "CRNJAT",
+    "lcc": null,
+    "name": "Crnja tours",
+    "type": "bus"
+  },
+  "GDNEX": {
+    "id": "GDNEX",
+    "lcc": null,
+    "name": "GDN Express",
+    "type": "bus"
+  },
+  "GLOBALBIO": {
+    "id": "GLOBALBIO",
+    "lcc": null,
+    "name": "Global biomet ",
+    "type": "bus"
+  },
+  "CHRISTRAN": {
+    "id": "CHRISTRAN",
+    "lcc": null,
+    "name": "Christian Transfers",
+    "type": "bus"
+  },
+  "YELLOWTRAN": {
+    "id": "YELLOWTRAN",
+    "lcc": null,
+    "name": "Yellow Transfers",
+    "type": "bus"
+  },
+  "2A": {
+    "id": "2A",
+    "lcc": 0,
+    "name": "Deutsche Bahn",
+    "type": "train"
+  },
+  "AUTNA": {
+    "id": "AUTNA",
+    "lcc": null,
+    "name": "Autna SL - Spain",
+    "type": "bus"
+  },
+  "BIGBUS": {
+    "id": "BIGBUS",
+    "lcc": null,
+    "name": "Bigbus",
+    "type": "bus"
+  },
+  "POLREGIO": {
+    "id": "POLREGIO",
+    "lcc": null,
+    "name": "PolRegio",
+    "type": "train"
+  },
+  "MAGICSHUT": {
+    "id": "MAGICSHUT",
+    "lcc": null,
+    "name": "Magical Shuttle",
+    "type": "bus"
+  },
+  "RT": {
+    "id": "RT",
+    "lcc": 0,
+    "name": "JSC UVT Aero",
+    "type": "airline"
+  },
+  "F3": {
+    "id": "F3",
+    "lcc": 0,
+    "name": "Flyadeal",
+    "type": "airline"
+  },
+  "OKBUS": {
+    "id": "OKBUS",
+    "lcc": null,
+    "name": "OK bus",
+    "type": "bus"
+  },
+  "MOUNTAINLI": {
+    "id": "MOUNTAINLI",
+    "lcc": null,
+    "name": "Mountain Line Transit Authority",
+    "type": "bus"
+  },
+  "BOLTBUS": {
+    "id": "BOLTBUS",
+    "lcc": null,
+    "name": "BoltBus",
+    "type": "bus"
+  },
+  "SWISSTOURS": {
+    "id": "SWISSTOURS",
+    "lcc": null,
+    "name": "SwissTours",
+    "type": "train"
+  },
+  "AUTOLIFEDE": {
+    "id": "AUTOLIFEDE",
+    "lcc": null,
+    "name": "Autolinee federico",
+    "type": "bus"
+  },
+  "CHINARAIL": {
+    "id": "CHINARAIL",
+    "lcc": null,
+    "name": "China Railway",
+    "type": "train"
+  },
+  "AEROBUSBCN": {
+    "id": "AEROBUSBCN",
+    "lcc": null,
+    "name": "Aerobus Barcelona",
+    "type": "bus"
+  },
+  "ROMAEX": {
+    "id": "ROMAEX",
+    "lcc": null,
+    "name": "Roma Express",
+    "type": "bus"
+  },
+  "BALEARIA": {
+    "id": "BALEARIA",
+    "lcc": null,
+    "name": "Balearia",
+    "type": "ferry"
+  },
+  "NH": {
+    "id": "NH",
+    "lcc": 0,
+    "name": "All Nippon Airways",
+    "type": "airline"
+  },
+  "5G": {
+    "id": "5G",
+    "lcc": 0,
+    "name": "MAYAir",
+    "type": "airline"
+  },
+  "WD": {
+    "id": "WD",
+    "lcc": 0,
+    "name": "Amsterdam Airlines",
+    "type": "airline"
+  },
+  "Z4": {
+    "id": "Z4",
+    "lcc": 0,
+    "name": "Ibom Air",
+    "type": "airline"
+  },
+  "ITALONTV": {
+    "id": "ITALONTV",
+    "lcc": null,
+    "name": "Italo NTV",
+    "type": "train"
+  },
+  "ITALOBUS": {
+    "id": "ITALOBUS",
+    "lcc": null,
+    "name": "Italobus",
+    "type": "bus"
+  },
+  "W7": {
+    "id": "W7",
+    "lcc": 0,
+    "name": "Wings of Lebanon",
+    "type": "airline"
+  },
+  "FLYGBUSAC": {
+    "id": "FLYGBUSAC",
+    "lcc": null,
+    "name": "Flygbussarna Airport Coaches",
+    "type": "bus"
+  },
+  "KARATS": {
+    "id": "KARATS",
+    "lcc": null,
+    "name": "Karat - S",
+    "type": "bus"
+  },
+  "ZB": {
+    "id": "ZB",
+    "lcc": 1,
+    "name": "Air Albania",
+    "type": "airline"
+  },
   "WR": {
     "id": "WR",
     "lcc": 1,
@@ -124,12 +1600,6 @@
     "lcc": 0,
     "name": "Cyprus Airways",
     "type": "airline"
-  },
-  "FLIXTRAIN": {
-    "id": "FLIXTRAIN",
-    "lcc": 0,
-    "name": "Flixtrain",
-    "type": "train"
   },
   "P2": {
     "id": "P2",
@@ -154,12 +1624,6 @@
     "lcc": null,
     "name": "Scandinavian Airlines Ireland",
     "type": "airline"
-  },
-  "GREYHOUND": {
-    "id": "GREYHOUND",
-    "lcc": 0,
-    "name": "Greyhound",
-    "type": "bus"
   },
   "QV": {
     "id": "QV",
@@ -191,12 +1655,6 @@
     "name": "Armenia Aircompany",
     "type": "airline"
   },
-  "NATEXPRESS": {
-    "id": "NATEXPRESS",
-    "lcc": 0,
-    "name": "National Express",
-    "type": "bus"
-  },
   "A0": {
     "id": "A0",
     "lcc": 1,
@@ -207,6 +1665,36 @@
     "id": "JG",
     "lcc": 1,
     "name": "JetGo",
+    "type": "airline"
+  },
+  "P4": {
+    "id": "P4",
+    "lcc": 0,
+    "name": "Air Peace Limited",
+    "type": "airline"
+  },
+  "RS": {
+    "id": "RS",
+    "lcc": 0,
+    "name": "Air Seoul",
+    "type": "airline"
+  },
+  "TRIPSTAIR": {
+    "id": "TRIPSTAIR",
+    "lcc": null,
+    "name": "Tripst Air",
+    "type": "airline"
+  },
+  "CORTINAEXP": {
+    "id": "CORTINAEXP",
+    "lcc": null,
+    "name": "Cortina Express",
+    "type": "airline"
+  },
+  "PW": {
+    "id": "PW",
+    "lcc": 0,
+    "name": "Precision Air",
     "type": "airline"
   },
   "M8": {
@@ -225,12 +1713,6 @@
     "id": "5T",
     "lcc": 0,
     "name": "Canadian North",
-    "type": "airline"
-  },
-  "6D": {
-    "id": "6D",
-    "lcc": 0,
-    "name": "Pelita",
     "type": "airline"
   },
   "GU": {
@@ -293,12 +1775,6 @@
     "name": "PAL Express",
     "type": "airline"
   },
-  "BUTAAIR": {
-    "id": "BUTAAIR",
-    "lcc": 1,
-    "name": "Buta Airways",
-    "type": "airline"
-  },
   "CU": {
     "id": "CU",
     "lcc": 0,
@@ -329,35 +1805,11 @@
     "name": "People's Viennaline PE",
     "type": "airline"
   },
-  "YD": {
-    "id": "YD",
-    "lcc": 0,
-    "name": "Gomelavia",
-    "type": "airline"
-  },
   "GJ": {
     "id": "GJ",
     "lcc": 0,
     "name": "Loong Air",
     "type": "airline"
-  },
-  "FLIXBUS": {
-    "id": "FLIXBUS",
-    "lcc": 0,
-    "name": "Flixbus",
-    "type": "bus"
-  },
-  "CHIHUAHUEN": {
-    "id": "CHIHUAHUEN",
-    "lcc": null,
-    "name": "Transportes Chihuahuenses",
-    "type": "bus"
-  },
-  "SNCB": {
-    "id": "SNCB",
-    "lcc": 0,
-    "name": "SNCB",
-    "type": "train"
   },
   "S9": {
     "id": "S9",
@@ -455,30 +1907,6 @@
     "name": "Tassili Airlines",
     "type": "airline"
   },
-  "ICBUS": {
-    "id": "ICBUS",
-    "lcc": 0,
-    "name": "IC Bus",
-    "type": "bus"
-  },
-  "DEINBUS": {
-    "id": "DEINBUS",
-    "lcc": 0,
-    "name": "DeinBus",
-    "type": "bus"
-  },
-  "ORESUNDST": {
-    "id": "ORESUNDST",
-    "lcc": 0,
-    "name": "Oresundstag",
-    "type": "train"
-  },
-  "LEBUSDIR": {
-    "id": "LEBUSDIR",
-    "lcc": 0,
-    "name": "Le Bus Direct",
-    "type": "bus"
-  },
   "XU": {
     "id": "XU",
     "lcc": 1,
@@ -544,24 +1972,6 @@
     "lcc": 0,
     "name": "Norwegian Air UK",
     "type": "airline"
-  },
-  "RT": {
-    "id": "RT",
-    "lcc": 0,
-    "name": "JSC UVT Aero",
-    "type": "airline"
-  },
-  "F3": {
-    "id": "F3",
-    "lcc": 0,
-    "name": "Flyadeal",
-    "type": "airline"
-  },
-  "TRANSFERO": {
-    "id": "TRANSFERO",
-    "lcc": 0,
-    "name": "Transfero",
-    "type": "bus"
   },
   "Y2": {
     "id": "Y2",
@@ -634,12 +2044,6 @@
     "lcc": 1,
     "name": "Anadolujet",
     "type": "airline"
-  },
-  "REGIOJETT": {
-    "id": "REGIOJETT",
-    "lcc": 0,
-    "name": "Regiojet Train",
-    "type": "train"
   },
   "LT": {
     "id": "LT",
@@ -742,12 +2146,6 @@
     "lcc": 0,
     "name": "MHS Aviation GmbH",
     "type": "airline"
-  },
-  "IRCITYLINK": {
-    "id": "IRCITYLINK",
-    "lcc": null,
-    "name": "Irish Citylink",
-    "type": "bus"
   },
   "VRG": {
     "id": "VRG",
@@ -887,6 +2285,12 @@
     "name": "Jet2",
     "type": "airline"
   },
+  "BU": {
+    "id": "BU",
+    "lcc": 0,
+    "name": "Baikotovitchestrian Airlines ",
+    "type": "airline"
+  },
   "PP": {
     "id": "PP",
     "lcc": 0,
@@ -935,12 +2339,6 @@
     "name": "Komiaviatrans",
     "type": "airline"
   },
-  "LEOEXT": {
-    "id": "LEOEXT",
-    "lcc": null,
-    "name": "LEOEXPRESS Train",
-    "type": "train"
-  },
   "PJ": {
     "id": "PJ",
     "lcc": 0,
@@ -965,22 +2363,10 @@
     "name": "Med-View Airline",
     "type": "airline"
   },
-  "LEOEXB": {
-    "id": "LEOEXB",
-    "lcc": null,
-    "name": "LEOEXPRESS Bus",
-    "type": "bus"
-  },
   "KJ": {
     "id": "KJ",
     "lcc": 0,
     "name": "British Mediterranean Airways",
-    "type": "airline"
-  },
-  "BN": {
-    "id": "BN",
-    "lcc": 0,
-    "name": "Horizon Airlines",
     "type": "airline"
   },
   "LG": {
@@ -1007,23 +2393,11 @@
     "name": "Nordic Regional Airlines",
     "type": "airline"
   },
-  "FIUMICINO": {
-    "id": "FIUMICINO",
-    "lcc": null,
-    "name": "Fiumicino express",
-    "type": "bus"
-  },
   "3J": {
     "id": "3J",
     "lcc": 0,
     "name": "Jubba Airways",
     "type": "airline"
-  },
-  "MARINO": {
-    "id": "MARINO",
-    "lcc": 0,
-    "name": "Marino Bus",
-    "type": "bus"
   },
   "U1": {
     "id": "U1",
@@ -1055,23 +2429,11 @@
     "name": "AlbaStar",
     "type": "airline"
   },
-  "TERAVSN": {
-    "id": "TERAVSN",
-    "lcc": null,
-    "name": "Terravision",
-    "type": "bus"
-  },
   "MU": {
     "id": "MU",
     "lcc": 0,
     "name": "China Eastern Airlines",
     "type": "airline"
-  },
-  "EXPRTRANS": {
-    "id": "EXPRTRANS",
-    "lcc": null,
-    "name": "Ekspres transfer",
-    "type": "bus"
   },
   "7E": {
     "id": "7E",
@@ -1223,12 +2585,6 @@
     "name": "Air Zimbabwe",
     "type": "airline"
   },
-  "NM": {
-    "id": "NM",
-    "lcc": 0,
-    "name": "Air Madrid",
-    "type": "airline"
-  },
   "FJ": {
     "id": "FJ",
     "lcc": 0,
@@ -1319,12 +2675,6 @@
     "name": "Helvetic Airways",
     "type": "airline"
   },
-  "CITYLINK": {
-    "id": "CITYLINK",
-    "lcc": null,
-    "name": "Citylink",
-    "type": "bus"
-  },
   "FB": {
     "id": "FB",
     "lcc": 0,
@@ -1336,12 +2686,6 @@
     "lcc": 0,
     "name": "Orchid Airlines",
     "type": "airline"
-  },
-  "APPENINO": {
-    "id": "APPENINO",
-    "lcc": null,
-    "name": "Appenino shuttle ",
-    "type": "bus"
   },
   "EO": {
     "id": "EO",
@@ -1371,12 +2715,6 @@
     "id": "LU",
     "lcc": 0,
     "name": "LAN Express",
-    "type": "airline"
-  },
-  "SY": {
-    "id": "SY",
-    "lcc": 1,
-    "name": "Sun Country Airlines",
     "type": "airline"
   },
   "WX": {
@@ -1511,18 +2849,6 @@
     "name": "Bering Air",
     "type": "airline"
   },
-  "4R": {
-    "id": "4R",
-    "lcc": 0,
-    "name": "Renfe",
-    "type": "train"
-  },
-  "FE": {
-    "id": "FE",
-    "lcc": null,
-    "name": "Far Eastern Air Transport",
-    "type": "airline"
-  },
   "DQ": {
     "id": "DQ",
     "lcc": 0,
@@ -1606,12 +2932,6 @@
     "lcc": 0,
     "name": "Line Blue",
     "type": "airline"
-  },
-  "LEOEXM": {
-    "id": "LEOEXM",
-    "lcc": 0,
-    "name": "LEOEXPRESS Minibus",
-    "type": "bus"
   },
   "5U": {
     "id": "5U",
@@ -1793,12 +3113,6 @@
     "name": "Lauda Air",
     "type": "airline"
   },
-  "4P": {
-    "id": "4P",
-    "lcc": 0,
-    "name": "Regional sky",
-    "type": "airline"
-  },
   "O2": {
     "id": "O2",
     "lcc": 0,
@@ -1853,12 +3167,6 @@
     "name": "Moskovia Airlines",
     "type": "airline"
   },
-  "M9": {
-    "id": "M9",
-    "lcc": 0,
-    "name": "Motor Sich",
-    "type": "airline"
-  },
   "NC": {
     "id": "NC",
     "lcc": 0,
@@ -1871,23 +3179,11 @@
     "name": "Royal Falcon",
     "type": "airline"
   },
-  "BU": {
-    "id": "BU",
-    "lcc": 0,
-    "name": "Baikotovitchestrian Airlines ",
-    "type": "airline"
-  },
   "8J": {
     "id": "8J",
     "lcc": 0,
     "name": "Eco Jet",
     "type": "airline"
-  },
-  "LUFTHBUS": {
-    "id": "LUFTHBUS",
-    "lcc": null,
-    "name": "Lufthansa express bus",
-    "type": "bus"
   },
   "PI": {
     "id": "PI",
@@ -1895,35 +3191,17 @@
     "name": "Polar Airlines",
     "type": "airline"
   },
-  "9B": {
-    "id": "9B",
-    "lcc": 0,
-    "name": "AccesRail",
-    "type": "train"
-  },
   "I9": {
     "id": "I9",
     "lcc": 0,
     "name": "Air Italy",
     "type": "airline"
   },
-  "ESTLOREK": {
-    "id": "ESTLOREK",
-    "lcc": null,
-    "name": "EST Lorek",
-    "type": "bus"
-  },
   "MQ": {
     "id": "MQ",
     "lcc": 0,
     "name": "Envoy Air as American Eagle",
     "type": "airline"
-  },
-  "SLOVAKLNS": {
-    "id": "SLOVAKLNS",
-    "lcc": null,
-    "name": "Slovak Lines ",
-    "type": "bus"
   },
   "PH": {
     "id": "PH",
@@ -1947,12 +3225,6 @@
     "id": "SZ",
     "lcc": 0,
     "name": "Somon Air",
-    "type": "airline"
-  },
-  "OK": {
-    "id": "OK",
-    "lcc": 0,
-    "name": "Czech Airlines",
     "type": "airline"
   },
   "A9": {
@@ -2087,12 +3359,6 @@
     "name": "Plus Ultra Lineas Aereas",
     "type": "airline"
   },
-  "LZ": {
-    "id": "LZ",
-    "lcc": 0,
-    "name": "belleair",
-    "type": "airline"
-  },
   "JH": {
     "id": "JH",
     "lcc": 0,
@@ -2105,12 +3371,6 @@
     "name": "STP Airways",
     "type": "airline"
   },
-  "QQ": {
-    "id": "QQ",
-    "lcc": 0,
-    "name": "Alliance Airlines",
-    "type": "airline"
-  },
   "MN": {
     "id": "MN",
     "lcc": 1,
@@ -2121,12 +3381,6 @@
     "id": "NU",
     "lcc": 0,
     "name": "Japan Transocean Air",
-    "type": "airline"
-  },
-  "EK": {
-    "id": "EK",
-    "lcc": 0,
-    "name": "Emirates",
     "type": "airline"
   },
   "IK": {
@@ -2158,12 +3412,6 @@
     "lcc": 0,
     "name": "Cathay Pacific",
     "type": "airline"
-  },
-  "CZECHRAILB": {
-    "id": "CZECHRAILB",
-    "lcc": null,
-    "name": "Czech Rail bus",
-    "type": "bus"
   },
   "GM": {
     "id": "GM",
@@ -2205,6 +3453,18 @@
     "id": "ZS",
     "lcc": 0,
     "name": "Sama Airlines",
+    "type": "airline"
+  },
+  "EK": {
+    "id": "EK",
+    "lcc": 0,
+    "name": "Emirates",
+    "type": "airline"
+  },
+  "OK": {
+    "id": "OK",
+    "lcc": 0,
+    "name": "Czech Airlines",
     "type": "airline"
   },
   "FT": {
@@ -2260,12 +3520,6 @@
     "lcc": 0,
     "name": "Yangon Airways",
     "type": "airline"
-  },
-  "EXPRESSBUS": {
-    "id": "EXPRESSBUS",
-    "lcc": null,
-    "name": "ExpressBus",
-    "type": "bus"
   },
   "XZ": {
     "id": "XZ",
@@ -2387,12 +3641,6 @@
     "name": "Uni Air",
     "type": "airline"
   },
-  "H8": {
-    "id": "H8",
-    "lcc": 0,
-    "name": "Latin American Wings",
-    "type": "airline"
-  },
   "5F": {
     "id": "5F",
     "lcc": 1,
@@ -2482,12 +3730,6 @@
     "lcc": 0,
     "name": "VLM Airlines",
     "type": "airline"
-  },
-  "SVENSKABUS": {
-    "id": "SVENSKABUS",
-    "lcc": null,
-    "name": "Svenska Buss",
-    "type": "bus"
   },
   "V6": {
     "id": "V6",
@@ -2728,12 +3970,6 @@
     "lcc": 0,
     "name": "Star1 Airlines",
     "type": "airline"
-  },
-  "STANSTDEXP": {
-    "id": "STANSTDEXP",
-    "lcc": null,
-    "name": "Stansted Express",
-    "type": "train"
   },
   "1B": {
     "id": "1B",
@@ -3005,12 +4241,6 @@
     "name": "SATA Air Acores",
     "type": "airline"
   },
-  "LF": {
-    "id": "LF",
-    "lcc": 0,
-    "name": "Contour Airlines",
-    "type": "airline"
-  },
   "WQ": {
     "id": "WQ",
     "lcc": 0,
@@ -3065,23 +4295,11 @@
     "name": "Buquebus Líneas Aéreas",
     "type": "airline"
   },
-  "VIARAILCAD": {
-    "id": "VIARAILCAD",
-    "lcc": null,
-    "name": "VIA Rail Canada",
-    "type": "train"
-  },
   "HI": {
     "id": "HI",
     "lcc": 0,
     "name": "Papillon Grand Canyon Helicopters",
     "type": "airline"
-  },
-  "SJRAIL": {
-    "id": "SJRAIL",
-    "lcc": null,
-    "name": "Swedish Railways",
-    "type": "train"
   },
   "YR": {
     "id": "YR",
@@ -3317,30 +4535,6 @@
     "name": "Air Norway",
     "type": "airline"
   },
-  "OP": {
-    "id": "OP",
-    "lcc": null,
-    "name": "PassionAir",
-    "type": "airline"
-  },
-  "QU": {
-    "id": "QU",
-    "lcc": null,
-    "name": "Azur Air Ukraine",
-    "type": "airline"
-  },
-  "EZ": {
-    "id": "EZ",
-    "lcc": 0,
-    "name": "Evergreen International Airlines",
-    "type": "airline"
-  },
-  "SUNLINES": {
-    "id": "SUNLINES",
-    "lcc": null,
-    "name": "Sun lines",
-    "type": "bus"
-  },
   "ZY": {
     "id": "ZY",
     "lcc": 0,
@@ -3363,12 +4557,6 @@
     "id": "C5",
     "lcc": 0,
     "name": "CommutAir",
-    "type": "airline"
-  },
-  "C3": {
-    "id": "C3",
-    "lcc": 0,
-    "name": "Contact Air",
     "type": "airline"
   },
   "CS": {
@@ -3533,12 +4721,6 @@
     "name": "Fly Brasil",
     "type": "airline"
   },
-  "1F": {
-    "id": "1F",
-    "lcc": 0,
-    "name": "CB Airways UK ( Interliging Flights )",
-    "type": "airline"
-  },
   "T6": {
     "id": "T6",
     "lcc": 0,
@@ -3549,6 +4731,12 @@
     "id": "N0",
     "lcc": 0,
     "name": "Norte Lineas Aereas",
+    "type": "airline"
+  },
+  "C3": {
+    "id": "C3",
+    "lcc": 0,
+    "name": "Trade Air",
     "type": "airline"
   },
   "H9": {
@@ -3635,34 +4823,16 @@
     "name": "Branson Air Express",
     "type": "airline"
   },
-  "E9": {
-    "id": "E9",
-    "lcc": 0,
-    "name": "Evelop Airlines",
-    "type": "airline"
-  },
   "DA": {
     "id": "DA",
     "lcc": 0,
     "name": "Aerolinea de Antioquia",
     "type": "airline"
   },
-  "MEMENTO": {
-    "id": "MEMENTO",
-    "lcc": null,
-    "name": "MementoBUS",
-    "type": "bus"
-  },
   "2O": {
     "id": "2O",
     "lcc": 0,
     "name": "Island Air Kodiak",
-    "type": "airline"
-  },
-  "BG": {
-    "id": "BG",
-    "lcc": 1,
-    "name": "Biman Bangladesh Airlines",
     "type": "airline"
   },
   "WV": {
@@ -3677,23 +4847,11 @@
     "name": "Air Caraïbes",
     "type": "airline"
   },
-  "ANDBUS": {
-    "id": "ANDBUS",
-    "lcc": null,
-    "name": "Andbus",
-    "type": "bus"
-  },
   "VC": {
     "id": "VC",
     "lcc": 0,
     "name": "Via Air",
     "type": "airline"
-  },
-  "EJR": {
-    "id": "EJR",
-    "lcc": null,
-    "name": "EJR – East Japan Rail Company",
-    "type": "train"
   },
   "IR": {
     "id": "IR",
@@ -3713,23 +4871,11 @@
     "name": "SGA Airlines",
     "type": "airline"
   },
-  "VIEAPLINES": {
-    "id": "VIEAPLINES",
-    "lcc": null,
-    "name": "Vienna Airport Lines",
-    "type": "bus"
-  },
   "JM": {
     "id": "JM",
     "lcc": 0,
     "name": "Jambojet",
     "type": "airline"
-  },
-  "REGIOJET": {
-    "id": "REGIOJET",
-    "lcc": 0,
-    "name": "RegioJet",
-    "type": "bus"
   },
   "IZ": {
     "id": "IZ",
@@ -3809,23 +4955,11 @@
     "name": "SunExpress",
     "type": "airline"
   },
-  "IW": {
-    "id": "IW",
-    "lcc": 0,
-    "name": "Wings Air",
-    "type": "airline"
-  },
   "CZ": {
     "id": "CZ",
     "lcc": 0,
     "name": "China Southern Airlines",
     "type": "airline"
-  },
-  "GOOPTI": {
-    "id": "GOOPTI",
-    "lcc": null,
-    "name": "GoOpti",
-    "type": "bus"
   },
   "LIZ": {
     "id": "LIZ",
@@ -3838,18 +4972,6 @@
     "lcc": null,
     "name": "Air Chathams Limited 3C",
     "type": "airline"
-  },
-  "CAT": {
-    "id": "CAT",
-    "lcc": null,
-    "name": "CAT- City Airport Train",
-    "type": "train"
-  },
-  "OXFORDBUS": {
-    "id": "OXFORDBUS",
-    "lcc": null,
-    "name": "Oxford Bus Company",
-    "type": "bus"
   },
   "LPA": {
     "id": "LPA",
@@ -3917,18 +5039,6 @@
     "name": "Bek Air",
     "type": "airline"
   },
-  "Z8": {
-    "id": "Z8",
-    "lcc": 1,
-    "name": "Amaszonas",
-    "type": "airline"
-  },
-  "PKSZCZECIN": {
-    "id": "PKSZCZECIN",
-    "lcc": null,
-    "name": "PKS Szczencin",
-    "type": "bus"
-  },
   "TROPOCEAN": {
     "id": "TROPOCEAN",
     "lcc": null,
@@ -3947,11 +5057,23 @@
     "name": "Air Tahiti Nui",
     "type": "airline"
   },
-  "REGIOJETB": {
-    "id": "REGIOJETB",
+  "CJ": {
+    "id": "CJ",
     "lcc": 0,
-    "name": "Regiojet Bus",
-    "type": "bus"
+    "name": "BA CityFlyer",
+    "type": "airline"
+  },
+  "VB": {
+    "id": "VB",
+    "lcc": 1,
+    "name": "VivaAerobus",
+    "type": "airline"
+  },
+  "OB": {
+    "id": "OB",
+    "lcc": 1,
+    "name": "Boliviana de Aviación",
+    "type": "airline"
   },
   "AO": {
     "id": "AO",
@@ -3995,12 +5117,6 @@
     "name": "Laser Air",
     "type": "airline"
   },
-  "CJ": {
-    "id": "CJ",
-    "lcc": 0,
-    "name": "BA CityFlyer",
-    "type": "airline"
-  },
   "9L": {
     "id": "9L",
     "lcc": 0,
@@ -4031,12 +5147,6 @@
     "name": "Vietnam Airlines",
     "type": "airline"
   },
-  "OB": {
-    "id": "OB",
-    "lcc": 1,
-    "name": "Boliviana de Aviación",
-    "type": "airline"
-  },
   "OS": {
     "id": "OS",
     "lcc": 0,
@@ -4047,12 +5157,6 @@
     "id": "C7",
     "lcc": 1,
     "name": "Cinnamon Air",
-    "type": "airline"
-  },
-  "VB": {
-    "id": "VB",
-    "lcc": 1,
-    "name": "VivaAerobus",
     "type": "airline"
   },
   "UX": {
@@ -4121,23 +5225,11 @@
     "name": "Central Mountain Air",
     "type": "airline"
   },
-  "NETTBUSS": {
-    "id": "NETTBUSS",
-    "lcc": null,
-    "name": "Nettbuss",
-    "type": "bus"
-  },
   "5D": {
     "id": "5D",
     "lcc": 0,
     "name": "Aerolitoral",
     "type": "airline"
-  },
-  "OLLEX": {
-    "id": "OLLEX",
-    "lcc": null,
-    "name": "Ollex (express)",
-    "type": "bus"
   },
   "EF": {
     "id": "EF",
@@ -4193,18 +5285,6 @@
     "name": "Ural Airlines",
     "type": "airline"
   },
-  "2C": {
-    "id": "2C",
-    "lcc": 0,
-    "name": "SNCF",
-    "type": "train"
-  },
-  "WK": {
-    "id": "WK",
-    "lcc": 0,
-    "name": "Edelweiss Air",
-    "type": "airline"
-  },
   "ATV": {
     "id": "ATV",
     "lcc": null,
@@ -4228,30 +5308,6 @@
     "lcc": 1,
     "name": "Southwest Airlines",
     "type": "airline"
-  },
-  "CITYBUSEXP": {
-    "id": "CITYBUSEXP",
-    "lcc": null,
-    "name": "CityBusExpress",
-    "type": "bus"
-  },
-  "DOMO": {
-    "id": "DOMO",
-    "lcc": null,
-    "name": "Domo Swiss Express",
-    "type": "bus"
-  },
-  "WAGNERTRNS": {
-    "id": "WAGNERTRNS",
-    "lcc": null,
-    "name": "Wagner Transport",
-    "type": "bus"
-  },
-  "MAROZZI": {
-    "id": "MAROZZI",
-    "lcc": null,
-    "name": "Marozzi",
-    "type": "bus"
   },
   "NK": {
     "id": "NK",
@@ -4313,71 +5369,11 @@
     "name": "Skyward Express Limited",
     "type": "airline"
   },
-  "GLOBTOUR": {
-    "id": "GLOBTOUR",
-    "lcc": null,
-    "name": "Globtour",
-    "type": "bus"
-  },
-  "GOBUS": {
-    "id": "GOBUS",
-    "lcc": null,
-    "name": "Gobus",
-    "type": "bus"
-  },
-  "GALICJAEX": {
-    "id": "GALICJAEX",
-    "lcc": null,
-    "name": "Galicja Express",
-    "type": "bus"
-  },
-  "BUS4YOU": {
-    "id": "BUS4YOU",
-    "lcc": null,
-    "name": "Bus4You",
-    "type": "bus"
-  },
-  "ARRIVA": {
-    "id": "ARRIVA",
-    "lcc": null,
-    "name": "Arriva",
-    "type": "bus"
-  },
-  "BUSPLANA": {
-    "id": "BUSPLANA",
-    "lcc": null,
-    "name": "Busplana",
-    "type": "bus"
-  },
-  "SKANETRAF": {
-    "id": "SKANETRAF",
-    "lcc": null,
-    "name": "Skanetrafiken",
-    "type": "train"
-  },
-  "NSB": {
-    "id": "NSB",
-    "lcc": null,
-    "name": "NSB",
-    "type": "train"
-  },
-  "VASTTRAF": {
-    "id": "VASTTRAF",
-    "lcc": null,
-    "name": "Vasttrafik",
-    "type": "train"
-  },
   "H3": {
     "id": "H3",
     "lcc": 0,
     "name": "Harbour Air (Priv)",
     "type": "airline"
-  },
-  "LTKRONOBUS": {
-    "id": "LTKRONOBUS",
-    "lcc": null,
-    "name": "LT Kronoberg",
-    "type": "bus"
   },
   "SBK": {
     "id": "SBK",
@@ -4433,29 +5429,11 @@
     "name": "Divi Divi Air",
     "type": "airline"
   },
-  "TGVLYRIA": {
-    "id": "TGVLYRIA",
-    "lcc": null,
-    "name": "TGV Lyria",
-    "type": "train"
-  },
-  "THELLO": {
-    "id": "THELLO",
-    "lcc": null,
-    "name": "Thello",
-    "type": "train"
-  },
   "GRUMAIR": {
     "id": "GRUMAIR",
     "lcc": null,
     "name": "Grumeti Air",
     "type": "airline"
-  },
-  "THALYS": {
-    "id": "THALYS",
-    "lcc": null,
-    "name": "Thalys",
-    "type": "train"
   },
   "O4": {
     "id": "O4",
@@ -4469,24 +5447,6 @@
     "name": "Sky Pasada",
     "type": "airline"
   },
-  "NSI": {
-    "id": "NSI",
-    "lcc": null,
-    "name": "NS",
-    "type": "train"
-  },
-  "RZD": {
-    "id": "RZD",
-    "lcc": null,
-    "name": "Russian Railways ",
-    "type": "train"
-  },
-  "AMTRAKT": {
-    "id": "AMTRAKT",
-    "lcc": null,
-    "name": "Amtrak train ",
-    "type": "train"
-  },
   "BP": {
     "id": "BP",
     "lcc": 0,
@@ -4498,42 +5458,6 @@
     "lcc": 0,
     "name": "Royal Brunei Airlines",
     "type": "airline"
-  },
-  "BELARURAIL": {
-    "id": "BELARURAIL",
-    "lcc": null,
-    "name": "Belarusian Railway",
-    "type": "train"
-  },
-  "GRANDEXP": {
-    "id": "GRANDEXP",
-    "lcc": null,
-    "name": "Grand Express",
-    "type": "train"
-  },
-  "COMBOIOS": {
-    "id": "COMBOIOS",
-    "lcc": null,
-    "name": "Comboios de Portugal",
-    "type": "train"
-  },
-  "MAV": {
-    "id": "MAV",
-    "lcc": null,
-    "name": "MAV",
-    "type": "train"
-  },
-  "SBB": {
-    "id": "SBB",
-    "lcc": null,
-    "name": "SBB",
-    "type": "train"
-  },
-  "KLIAEKSP": {
-    "id": "KLIAEKSP",
-    "lcc": null,
-    "name": "KLIA Ekspress",
-    "type": "bus"
   },
   "V8": {
     "id": "V8",
@@ -4547,65 +5471,17 @@
     "name": "Air Marshall Islands",
     "type": "airline"
   },
-  "AEH": {
-    "id": "AEH",
-    "lcc": null,
-    "name": " Aero4M",
-    "type": "airline"
-  },
-  "EILAT": {
-    "id": "EILAT",
-    "lcc": null,
-    "name": "Eilat Shuttle",
-    "type": "bus"
-  },
   "ZJ": {
     "id": "ZJ",
     "lcc": 0,
     "name": "Zambezi Airlines (ZMA)",
     "type": "airline"
   },
-  "GEORGIBUS": {
-    "id": "GEORGIBUS",
-    "lcc": null,
-    "name": "Georgian Bus",
-    "type": "bus"
-  },
-  "NAVETTE": {
-    "id": "NAVETTE",
-    "lcc": null,
-    "name": "Navette de Vatry",
-    "type": "bus"
-  },
-  "INTERGLOB": {
-    "id": "INTERGLOB",
-    "lcc": null,
-    "name": "Follow me! Interglobus",
-    "type": "bus"
-  },
-  "MICCOLIS": {
-    "id": "MICCOLIS",
-    "lcc": null,
-    "name": "Miccolis",
-    "type": "bus"
-  },
-  "CILENTO": {
-    "id": "CILENTO",
-    "lcc": null,
-    "name": "Cilento",
-    "type": "bus"
-  },
   "GP": {
     "id": "GP",
     "lcc": 0,
     "name": "APG Airlines",
     "type": "airline"
-  },
-  "LTKRONOTRN": {
-    "id": "LTKRONOTRN",
-    "lcc": null,
-    "name": "LT Kronoberg",
-    "type": "train"
   },
   "S7": {
     "id": "S7",
@@ -4635,12 +5511,6 @@
     "id": "6F",
     "lcc": 1,
     "name": "Primera Air Nordic",
-    "type": "airline"
-  },
-  "ZP": {
-    "id": "ZP",
-    "lcc": 0,
-    "name": "Amaszonas del Paraguay S.A. Lineas Aereas",
     "type": "airline"
   },
   "EMETEBE": {
@@ -4673,23 +5543,11 @@
     "name": "Unity Air",
     "type": "airline"
   },
-  "EUROSTAR": {
-    "id": "EUROSTAR",
-    "lcc": null,
-    "name": "Eurostar",
-    "type": "train"
-  },
   "FLYSAFARI": {
     "id": "FLYSAFARI",
     "lcc": null,
     "name": "Fly Safari Airlink",
     "type": "airline"
-  },
-  "RHONEXP": {
-    "id": "RHONEXP",
-    "lcc": null,
-    "name": "Rhônexpress",
-    "type": "train"
   },
   "RV": {
     "id": "RV",
@@ -4715,18 +5573,6 @@
     "name": "Yeti Airways",
     "type": "airline"
   },
-  "SMSFLUG": {
-    "id": "SMSFLUG",
-    "lcc": null,
-    "name": "SMS Flughafen",
-    "type": "bus"
-  },
-  "MINIBUD": {
-    "id": "MINIBUD",
-    "lcc": null,
-    "name": "Minibud Ltd.",
-    "type": "bus"
-  },
   "FLZ": {
     "id": "FLZ",
     "lcc": null,
@@ -4744,36 +5590,6 @@
     "lcc": null,
     "name": "Grenadine Airways",
     "type": "airline"
-  },
-  "AEROBUSLIS": {
-    "id": "AEROBUSLIS",
-    "lcc": null,
-    "name": "Aerobus Lisbon",
-    "type": "bus"
-  },
-  "CFLB": {
-    "id": "CFLB",
-    "lcc": null,
-    "name": "CFL",
-    "type": "bus"
-  },
-  "MEGABUS": {
-    "id": "MEGABUS",
-    "lcc": null,
-    "name": "Megabus",
-    "type": "bus"
-  },
-  "GETBUS": {
-    "id": "GETBUS",
-    "lcc": null,
-    "name": "Get Bus",
-    "type": "bus"
-  },
-  "SITBUS": {
-    "id": "SITBUS",
-    "lcc": null,
-    "name": "Sit Bus Shuttle",
-    "type": "bus"
   },
   "9H": {
     "id": "9H",
@@ -4793,71 +5609,11 @@
     "name": "Bhutan Airlines",
     "type": "airline"
   },
-  "AMTRAKB": {
-    "id": "AMTRAKB",
-    "lcc": null,
-    "name": "Amtrak bus",
-    "type": "bus"
-  },
-  "100RUMOS": {
-    "id": "100RUMOS",
-    "lcc": null,
-    "name": "100Rumos",
-    "type": "bus"
-  },
-  "HOOSIER": {
-    "id": "HOOSIER",
-    "lcc": null,
-    "name": "Hoosier ride",
-    "type": "bus"
-  },
-  "DSB": {
-    "id": "DSB",
-    "lcc": null,
-    "name": "DSB",
-    "type": "train"
-  },
-  "ETN": {
-    "id": "ETN",
-    "lcc": null,
-    "name": "ETN",
-    "type": "bus"
-  },
-  "SC": {
-    "id": "SC",
-    "lcc": 0,
-    "name": "Shandong Airlines",
-    "type": "airline"
-  },
-  "GDE": {
-    "id": "GDE",
-    "lcc": null,
-    "name": "Great Dane Airlines",
-    "type": "airline"
-  },
-  "QUICKLLAMA": {
-    "id": "QUICKLLAMA",
-    "lcc": null,
-    "name": "QuickLlama",
-    "type": "bus"
-  },
   "QN": {
     "id": "QN",
     "lcc": null,
     "name": "Skytrans",
     "type": "airline"
-  },
-  "SALTLAKEEX": {
-    "id": "SALTLAKEEX",
-    "lcc": null,
-    "name": "Salt Lake Express",
-    "type": "bus"
-  },
-  "ADIRONDACK": {
-    "id": "ADIRONDACK",
-    "lcc": null,
-    "name": "Adirondack Trailways",
-    "type": "bus"
   },
   "U3": {
     "id": "U3",
@@ -4913,47 +5669,11 @@
     "name": "Fly Baghdad Airlines",
     "type": "airline"
   },
-  "ARPTSUPERS": {
-    "id": "ARPTSUPERS",
-    "lcc": null,
-    "name": "Airport Supersaver",
-    "type": "bus"
-  },
   "R3": {
     "id": "R3",
     "lcc": 1,
     "name": "Yakutia Airlines",
     "type": "airline"
-  },
-  "PRESTIA": {
-    "id": "PRESTIA",
-    "lcc": null,
-    "name": "Prestia e Comande",
-    "type": "bus"
-  },
-  "BEAUVAIS": {
-    "id": "BEAUVAIS",
-    "lcc": null,
-    "name": "Beauvaisbus",
-    "type": "bus"
-  },
-  "FLYBUS": {
-    "id": "FLYBUS",
-    "lcc": null,
-    "name": "Flybus Iceland",
-    "type": "bus"
-  },
-  "AIRBEXP": {
-    "id": "AIRBEXP",
-    "lcc": null,
-    "name": "Airport Bus Express",
-    "type": "bus"
-  },
-  "CFLT": {
-    "id": "CFLT",
-    "lcc": null,
-    "name": "CFL",
-    "type": "train"
   },
   "R6": {
     "id": "R6",
@@ -4984,18 +5704,6 @@
     "lcc": 0,
     "name": "CanXplorer",
     "type": "airline"
-  },
-  "VIRGINIABR": {
-    "id": "VIRGINIABR",
-    "lcc": null,
-    "name": "Virginia Breeze",
-    "type": "bus"
-  },
-  "NYCAIRPORT": {
-    "id": "NYCAIRPORT",
-    "lcc": null,
-    "name": "NYC Airporter",
-    "type": "bus"
   },
   "DF": {
     "id": "DF",
@@ -5033,12 +5741,6 @@
     "name": "Sharp Airlines",
     "type": "airline"
   },
-  "PARKSOFHAM": {
-    "id": "PARKSOFHAM",
-    "lcc": null,
-    "name": "Park's of Hamilton",
-    "type": "bus"
-  },
   "V5": {
     "id": "V5",
     "lcc": 0,
@@ -5075,29 +5777,11 @@
     "name": "Windrose Airlines",
     "type": "airline"
   },
-  "KP": {
-    "id": "KP",
-    "lcc": 0,
-    "name": "ASKY Airlines",
-    "type": "airline"
-  },
-  "PKP": {
-    "id": "PKP",
-    "lcc": null,
-    "name": "PKP Intercity",
-    "type": "train"
-  },
   "EG": {
     "id": "EG",
     "lcc": 0,
     "name": "Ernest Airlines",
     "type": "airline"
-  },
-  "MALTATRANS": {
-    "id": "MALTATRANS",
-    "lcc": null,
-    "name": "Maltatransfer",
-    "type": null
   },
   "HP": {
     "id": "HP",
@@ -5170,12 +5854,6 @@
     "lcc": 0,
     "name": "Uzbekistan Airways",
     "type": "airline"
-  },
-  "BMCAEROBUS": {
-    "id": "BMCAEROBUS",
-    "lcc": null,
-    "name": "BMC Aerobus",
-    "type": "bus"
   },
   "8V": {
     "id": "8V",
@@ -5339,18 +6017,6 @@
     "name": "Viva Air",
     "type": "airline"
   },
-  "OUIGO": {
-    "id": "OUIGO",
-    "lcc": 0,
-    "name": "Ouigo",
-    "type": "train"
-  },
-  "ZSSK": {
-    "id": "ZSSK",
-    "lcc": null,
-    "name": "Slovak rail",
-    "type": "train"
-  },
   "ML": {
     "id": "ML",
     "lcc": 1,
@@ -5375,23 +6041,11 @@
     "name": "Peruvian Airlines",
     "type": "airline"
   },
-  "ADO": {
-    "id": "ADO",
-    "lcc": null,
-    "name": "ADO",
-    "type": "bus"
-  },
   "FA": {
     "id": "FA",
     "lcc": 1,
     "name": "Fly Safair",
     "type": "airline"
-  },
-  "BLAB": {
-    "id": "BLAB",
-    "lcc": null,
-    "name": "Blablabus",
-    "type": "bus"
   },
   "ER": {
     "id": "ER",
@@ -5399,16 +6053,16 @@
     "name": "SereneAir",
     "type": "airline"
   },
+  "1F": {
+    "id": "1F",
+    "lcc": 0,
+    "name": "CB Airways UK ( Interliging Flights )",
+    "type": "airline"
+  },
   "JA": {
     "id": "JA",
     "lcc": 0,
     "name": "JetSMART",
-    "type": "airline"
-  },
-  "6R": {
-    "id": "6R",
-    "lcc": 1,
-    "name": "Alrosa",
     "type": "airline"
   },
   "J1": {
@@ -5463,6 +6117,12 @@
     "id": "UL",
     "lcc": 0,
     "name": "SriLankan Airlines",
+    "type": "airline"
+  },
+  "Z6": {
+    "id": "Z6",
+    "lcc": 1,
+    "name": "Dniproavia",
     "type": "airline"
   },
   "9N": {
@@ -5567,12 +6227,6 @@
     "name": "SkyWise",
     "type": "airline"
   },
-  "JEFFERSON": {
-    "id": "JEFFERSON",
-    "lcc": null,
-    "name": "Jefferson Lines",
-    "type": "bus"
-  },
   "SG": {
     "id": "SG",
     "lcc": 1,
@@ -5657,12 +6311,6 @@
     "name": "Perimeter Aviation",
     "type": "airline"
   },
-  "3Q": {
-    "id": "3Q",
-    "lcc": 0,
-    "name": "Yunnan Airlines",
-    "type": "airline"
-  },
   "LJ": {
     "id": "LJ",
     "lcc": 1,
@@ -5745,12 +6393,6 @@
     "id": "5Z",
     "lcc": 1,
     "name": "Cem Air",
-    "type": "airline"
-  },
-  "Z6": {
-    "id": "Z6",
-    "lcc": 1,
-    "name": "Dniproavia",
     "type": "airline"
   },
   "XN": {
@@ -5903,12 +6545,6 @@
     "name": "Hi Fly",
     "type": "airline"
   },
-  "BJ": {
-    "id": "BJ",
-    "lcc": 0,
-    "name": "NouvelAir",
-    "type": "airline"
-  },
   "CM": {
     "id": "CM",
     "lcc": 0,
@@ -5957,12 +6593,6 @@
     "name": "Air Antilles Express",
     "type": "airline"
   },
-  "6W": {
-    "id": "6W",
-    "lcc": 1,
-    "name": "FlyBosnia",
-    "type": "airline"
-  },
   "QK": {
     "id": "QK",
     "lcc": 0,
@@ -6005,12 +6635,6 @@
     "name": "Kalstar Aviation",
     "type": "airline"
   },
-  "QS": {
-    "id": "QS",
-    "lcc": 1,
-    "name": "SmartWings",
-    "type": "airline"
-  },
   "TR": {
     "id": "TR",
     "lcc": 1,
@@ -6027,12 +6651,6 @@
     "id": "3M",
     "lcc": 1,
     "name": "Silver Airways",
-    "type": "airline"
-  },
-  "IP": {
-    "id": "IP",
-    "lcc": 0,
-    "name": "Island Spirit",
     "type": "airline"
   },
   "1D": {
@@ -6179,12 +6797,6 @@
     "name": "SATENA",
     "type": "airline"
   },
-  "FD": {
-    "id": "FD",
-    "lcc": 0,
-    "name": "Thai AirAsia",
-    "type": "airline"
-  },
   "FZ": {
     "id": "FZ",
     "lcc": 1,
@@ -6203,12 +6815,6 @@
     "name": "Turkish Airlines",
     "type": "airline"
   },
-  "7H": {
-    "id": "7H",
-    "lcc": 1,
-    "name": "Ravn Alaska",
-    "type": "airline"
-  },
   "D8": {
     "id": "D8",
     "lcc": 0,
@@ -6220,12 +6826,6 @@
     "lcc": 0,
     "name": "Adria Airways",
     "type": "airline"
-  },
-  "BURLINGTON": {
-    "id": "BURLINGTON",
-    "lcc": null,
-    "name": "Burlington Trailways",
-    "type": "bus"
   },
   "2Z": {
     "id": "2Z",
@@ -6261,12 +6861,6 @@
     "id": "RP",
     "lcc": 0,
     "name": "Chautauqua Airlines",
-    "type": "airline"
-  },
-  "LY": {
-    "id": "LY",
-    "lcc": 1,
-    "name": "El Al Israel Airlines",
     "type": "airline"
   },
   "F9": {
@@ -6335,12 +6929,6 @@
     "name": "Bangkok Airways",
     "type": "airline"
   },
-  "VTTRANSLIN": {
-    "id": "VTTRANSLIN",
-    "lcc": null,
-    "name": "Vermont Translines",
-    "type": "bus"
-  },
   "DD": {
     "id": "DD",
     "lcc": 1,
@@ -6365,12 +6953,6 @@
     "name": "Fastjet",
     "type": "airline"
   },
-  "JT": {
-    "id": "JT",
-    "lcc": 1,
-    "name": "Lion Air",
-    "type": "airline"
-  },
   "YB": {
     "id": "YB",
     "lcc": 1,
@@ -6388,12 +6970,6 @@
     "lcc": 1,
     "name": "Thai Lion Air",
     "type": "airline"
-  },
-  "CZECHRAIL": {
-    "id": "CZECHRAIL",
-    "lcc": null,
-    "name": "Czech Rail",
-    "type": "train"
   },
   "C9": {
     "id": "C9",
@@ -6453,24 +7029,6 @@
     "id": "QZ",
     "lcc": 0,
     "name": "Indonesia AirAsia",
-    "type": "airline"
-  },
-  "U2": {
-    "id": "U2",
-    "lcc": 1,
-    "name": "easyJet",
-    "type": "airline"
-  },
-  "ALSA": {
-    "id": "ALSA",
-    "lcc": 0,
-    "name": "Alsa",
-    "type": "bus"
-  },
-  "4U": {
-    "id": "4U",
-    "lcc": 1,
-    "name": "germanwings",
     "type": "airline"
   },
   "3K": {
@@ -6611,30 +7169,6 @@
     "name": "Chengdu Airlines",
     "type": "airline"
   },
-  "MENORCA": {
-    "id": "MENORCA",
-    "lcc": null,
-    "name": "Berlinas Menorca",
-    "type": "bus"
-  },
-  "DUBLINBUS": {
-    "id": "DUBLINBUS",
-    "lcc": null,
-    "name": "Dublin Bus",
-    "type": "bus"
-  },
-  "LAMEZIA": {
-    "id": "LAMEZIA",
-    "lcc": null,
-    "name": "Lamezia Multiservizi",
-    "type": "bus"
-  },
-  "VYRAIL": {
-    "id": "VYRAIL",
-    "lcc": null,
-    "name": "Vy",
-    "type": "train"
-  },
   "EMT": {
     "id": "EMT",
     "lcc": null,
@@ -6645,6 +7179,18 @@
     "id": "FKK",
     "lcc": null,
     "name": "Unity Air",
+    "type": "airline"
+  },
+  "U2": {
+    "id": "U2",
+    "lcc": 1,
+    "name": "easyJet",
+    "type": "airline"
+  },
+  "JT": {
+    "id": "JT",
+    "lcc": 1,
+    "name": "Lion Air",
     "type": "airline"
   },
   "KA": {
@@ -6683,95 +7229,11 @@
     "name": "East African",
     "type": "airline"
   },
-  "EIREAGLE": {
-    "id": "EIREAGLE",
-    "lcc": null,
-    "name": "Eireagle",
-    "type": "bus"
-  },
-  "GTOURSSA": {
-    "id": "GTOURSSA",
-    "lcc": null,
-    "name": "Giosy tours SA",
-    "type": "bus"
-  },
-  "WESTFALEN": {
-    "id": "WESTFALEN",
-    "lcc": null,
-    "name": "Westfalen Bahn",
-    "type": "train"
-  },
-  "NORDWEST": {
-    "id": "NORDWEST",
-    "lcc": null,
-    "name": "NordWestBahn",
-    "type": "train"
-  },
-  "KORAIL": {
-    "id": "KORAIL",
-    "lcc": null,
-    "name": "Korail",
-    "type": "train"
-  },
-  "YCAT": {
-    "id": "YCAT",
-    "lcc": null,
-    "name": "Yuma County Area Transit",
-    "type": "bus"
-  },
-  "DALATRAFIK": {
-    "id": "DALATRAFIK",
-    "lcc": null,
-    "name": "Dalatrafik",
-    "type": "bus"
-  },
-  "FLYGBUSSAR": {
-    "id": "FLYGBUSSAR",
-    "lcc": null,
-    "name": "Flygbussarna",
-    "type": "bus"
-  },
-  "BT": {
-    "id": "BT",
-    "lcc": 1,
-    "name": "airBaltic",
-    "type": "airline"
-  },
-  "HZ": {
-    "id": "HZ",
-    "lcc": 0,
-    "name": "Aurora Airlines",
-    "type": "airline"
-  },
-  "MM": {
-    "id": "MM",
-    "lcc": 1,
-    "name": "Peach Aviation",
-    "type": "airline"
-  },
   "HH": {
     "id": "HH",
     "lcc": 0,
     "name": "Taban Airlines",
     "type": "airline"
-  },
-  "EUROTRANS": {
-    "id": "EUROTRANS",
-    "lcc": null,
-    "name": "AD EuroTrans",
-    "type": "bus"
-  },
-  "ARRIVAUK": {
-    "id": "ARRIVAUK",
-    "lcc": null,
-    "name": "Arriva United Kingdom",
-    "type": "bus"
-  },
-  "MTRNORDIC": {
-    "id": "MTRNORDIC",
-    "lcc": null,
-    "name": "MTR Nordic",
-    "type": "train"
   },
   "OL": {
     "id": "OL",
@@ -6779,47 +7241,11 @@
     "name": "Samoa Airways",
     "type": "airline"
   },
-  "IZY": {
-    "id": "IZY",
-    "lcc": null,
-    "name": "IZY",
-    "type": "train"
-  },
-  "5W": {
-    "id": "5W",
-    "lcc": 0,
-    "name": "WESTBahn",
-    "type": "train"
-  },
-  "TAGKOMPANI": {
-    "id": "TAGKOMPANI",
-    "lcc": null,
-    "name": "Tagkompaniet",
-    "type": "train"
-  },
   "GL": {
     "id": "GL",
     "lcc": 0,
     "name": "Air Greenland",
     "type": "airline"
-  },
-  "BARONSBUS": {
-    "id": "BARONSBUS",
-    "lcc": null,
-    "name": "Barons Bus",
-    "type": "bus"
-  },
-  "NYTRAILWAY": {
-    "id": "NYTRAILWAY",
-    "lcc": null,
-    "name": "New York Trailways",
-    "type": "bus"
-  },
-  "OUIBUS": {
-    "id": "OUIBUS",
-    "lcc": 0,
-    "name": "Ouibus",
-    "type": "bus"
   },
   "LM": {
     "id": "LM",
@@ -6833,59 +7259,11 @@
     "name": "Shree Airlines",
     "type": "airline"
   },
-  "FULLINGTON": {
-    "id": "FULLINGTON",
-    "lcc": null,
-    "name": "Fullington Trailways",
-    "type": "bus"
-  },
-  "CAPITALCOL": {
-    "id": "CAPITALCOL",
-    "lcc": null,
-    "name": "Capital - Colonial Trailways",
-    "type": "bus"
-  },
   "BL": {
     "id": "BL",
     "lcc": 0,
     "name": "Jetstar Pacific",
     "type": "airline"
-  },
-  "YORKSTIGER": {
-    "id": "YORKSTIGER",
-    "lcc": null,
-    "name": "Yorkshire Tiger",
-    "type": "bus"
-  },
-  "FIRSTBUS": {
-    "id": "FIRSTBUS",
-    "lcc": null,
-    "name": "First Bus",
-    "type": "bus"
-  },
-  "HIGHPEAK": {
-    "id": "HIGHPEAK",
-    "lcc": null,
-    "name": "High Peak",
-    "type": "bus"
-  },
-  "YELLOWBUS": {
-    "id": "YELLOWBUS",
-    "lcc": null,
-    "name": "Yellow Buses",
-    "type": "bus"
-  },
-  "BATHBUS": {
-    "id": "BATHBUS",
-    "lcc": null,
-    "name": "Bath Bus Company",
-    "type": "bus"
-  },
-  "BLEKINGEB": {
-    "id": "BLEKINGEB",
-    "lcc": null,
-    "name": "Blekingetrafiken bus",
-    "type": "bus"
   },
   "IJ": {
     "id": "IJ",
@@ -6893,137 +7271,11 @@
     "name": "Spring Airlines Japan",
     "type": "airline"
   },
-  "VRRAIL": {
-    "id": "VRRAIL",
-    "lcc": null,
-    "name": "VR",
-    "type": "train"
-  },
   "BE": {
     "id": "BE",
     "lcc": 1,
     "name": "flybe",
     "type": "airline"
-  },
-  "OBB": {
-    "id": "OBB",
-    "lcc": null,
-    "name": "OBB",
-    "type": "train"
-  },
-  "SLORAIL": {
-    "id": "SLORAIL",
-    "lcc": null,
-    "name": "Slovenian Railways",
-    "type": "train"
-  },
-  "ULT": {
-    "id": "ULT",
-    "lcc": null,
-    "name": "Public Traffic Uppland train",
-    "type": "train"
-  },
-  "MEGABUST": {
-    "id": "MEGABUST",
-    "lcc": null,
-    "name": "Megabus train",
-    "type": "train"
-  },
-  "MEGABUSB": {
-    "id": "MEGABUSB",
-    "lcc": null,
-    "name": "Megabus bus",
-    "type": "bus"
-  },
-  "CITYZAP": {
-    "id": "CITYZAP",
-    "lcc": null,
-    "name": "Cityzap",
-    "type": "bus"
-  },
-  "COASTLINER": {
-    "id": "COASTLINER",
-    "lcc": null,
-    "name": "Coastliner",
-    "type": "bus"
-  },
-  "GREENLINE": {
-    "id": "GREENLINE",
-    "lcc": null,
-    "name": "Green Line",
-    "type": "bus"
-  },
-  "STAGECOACB": {
-    "id": "STAGECOACB",
-    "lcc": null,
-    "name": "Stagecoach bus",
-    "type": "bus"
-  },
-  "OXFORDTUBE": {
-    "id": "OXFORDTUBE",
-    "lcc": null,
-    "name": "Oxford Tube",
-    "type": "bus"
-  },
-  "ENNO": {
-    "id": "ENNO",
-    "lcc": null,
-    "name": "Enno",
-    "type": "train"
-  },
-  "METRONOM": {
-    "id": "METRONOM",
-    "lcc": null,
-    "name": "Metronom",
-    "type": "train"
-  },
-  "SUDTHURING": {
-    "id": "SUDTHURING",
-    "lcc": null,
-    "name": "Sud-Thuringen-Bahn",
-    "type": "train"
-  },
-  "VIAS": {
-    "id": "VIAS",
-    "lcc": null,
-    "name": "Vias",
-    "type": "train"
-  },
-  "MERIBOBBRB": {
-    "id": "MERIBOBBRB",
-    "lcc": null,
-    "name": "Meridian, BOB, BRB",
-    "type": "train"
-  },
-  "EUROBAHN": {
-    "id": "EUROBAHN",
-    "lcc": null,
-    "name": "Eurobahn",
-    "type": "train"
-  },
-  "LANDERBAHN": {
-    "id": "LANDERBAHN",
-    "lcc": null,
-    "name": "Landerbahn",
-    "type": "train"
-  },
-  "ABELLIO": {
-    "id": "ABELLIO",
-    "lcc": null,
-    "name": "Abellio",
-    "type": "train"
-  },
-  "CZECHRAILT": {
-    "id": "CZECHRAILT",
-    "lcc": null,
-    "name": "Czech Rail train",
-    "type": "train"
-  },
-  "SLT": {
-    "id": "SLT",
-    "lcc": null,
-    "name": "Stockholm Public Transport train",
-    "type": "train"
   },
   "S0": {
     "id": "S0",
@@ -7175,220 +7427,16 @@
     "name": "SATA Azores Airlines",
     "type": "airline"
   },
-  "7T": {
-    "id": "7T",
-    "lcc": 0,
-    "name": "Trenitalia",
-    "type": "train"
-  },
-  "ARDATUR": {
-    "id": "ARDATUR",
-    "lcc": null,
-    "name": "Arda Tur",
-    "type": "bus"
-  },
-  "MAGICSHUT": {
-    "id": "MAGICSHUT",
-    "lcc": null,
-    "name": "Magical Shuttle",
-    "type": "bus"
-  },
-  "CRNJAT": {
-    "id": "CRNJAT",
-    "lcc": null,
-    "name": "Crnja tours",
-    "type": "bus"
-  },
   "VS": {
     "id": "VS",
     "lcc": 0,
     "name": "Virgin Atlantic Airways",
     "type": "airline"
   },
-  "GDNEX": {
-    "id": "GDNEX",
-    "lcc": null,
-    "name": "GDN Express",
-    "type": "bus"
-  },
-  "GLOBALBIO": {
-    "id": "GLOBALBIO",
-    "lcc": null,
-    "name": "Global biomet ",
-    "type": "bus"
-  },
-  "CHRISTRAN": {
-    "id": "CHRISTRAN",
-    "lcc": null,
-    "name": "Christian Transfers",
-    "type": "bus"
-  },
-  "YELLOWTRAN": {
-    "id": "YELLOWTRAN",
-    "lcc": null,
-    "name": "Yellow Transfers",
-    "type": "bus"
-  },
   "GQ": {
     "id": "GQ",
     "lcc": 0,
     "name": "Sky Express",
-    "type": "airline"
-  },
-  "2A": {
-    "id": "2A",
-    "lcc": 0,
-    "name": "Deutsche Bahn",
-    "type": "train"
-  },
-  "AUTNA": {
-    "id": "AUTNA",
-    "lcc": null,
-    "name": "Autna SL - Spain",
-    "type": "bus"
-  },
-  "BIGBUS": {
-    "id": "BIGBUS",
-    "lcc": null,
-    "name": "Bigbus",
-    "type": "bus"
-  },
-  "POLREGIO": {
-    "id": "POLREGIO",
-    "lcc": null,
-    "name": "PolRegio",
-    "type": "train"
-  },
-  "OKBUS": {
-    "id": "OKBUS",
-    "lcc": null,
-    "name": "OK bus",
-    "type": "bus"
-  },
-  "MOUNTAINLI": {
-    "id": "MOUNTAINLI",
-    "lcc": null,
-    "name": "Mountain Line Transit Authority",
-    "type": "bus"
-  },
-  "BOLTBUS": {
-    "id": "BOLTBUS",
-    "lcc": null,
-    "name": "BoltBus",
-    "type": "bus"
-  },
-  "SWISSTOURS": {
-    "id": "SWISSTOURS",
-    "lcc": null,
-    "name": "SwissTours",
-    "type": "train"
-  },
-  "AUTOLIFEDE": {
-    "id": "AUTOLIFEDE",
-    "lcc": null,
-    "name": "Autolinee federico",
-    "type": "bus"
-  },
-  "CHINARAIL": {
-    "id": "CHINARAIL",
-    "lcc": null,
-    "name": "China Railway",
-    "type": "train"
-  },
-  "NH": {
-    "id": "NH",
-    "lcc": 0,
-    "name": "All Nippon Airways",
-    "type": "airline"
-  },
-  "AEROBUSBCN": {
-    "id": "AEROBUSBCN",
-    "lcc": null,
-    "name": "Aerobus Barcelona",
-    "type": "bus"
-  },
-  "ROMAEX": {
-    "id": "ROMAEX",
-    "lcc": null,
-    "name": "Roma Express",
-    "type": "bus"
-  },
-  "BALEARIA": {
-    "id": "BALEARIA",
-    "lcc": null,
-    "name": "Balearia",
-    "type": "ferry"
-  },
-  "5G": {
-    "id": "5G",
-    "lcc": 0,
-    "name": "MAYAir",
-    "type": "airline"
-  },
-  "WD": {
-    "id": "WD",
-    "lcc": 0,
-    "name": "Amsterdam Airlines",
-    "type": "airline"
-  },
-  "Z4": {
-    "id": "Z4",
-    "lcc": 0,
-    "name": "Ibom Air",
-    "type": "airline"
-  },
-  "ZB": {
-    "id": "ZB",
-    "lcc": 1,
-    "name": "Air Albania",
-    "type": "airline"
-  },
-  "P4": {
-    "id": "P4",
-    "lcc": 0,
-    "name": "Air Peace Limited",
-    "type": "airline"
-  },
-  "ITALONTV": {
-    "id": "ITALONTV",
-    "lcc": null,
-    "name": "Italo NTV",
-    "type": "train"
-  },
-  "ITALOBUS": {
-    "id": "ITALOBUS",
-    "lcc": null,
-    "name": "Italobus",
-    "type": "bus"
-  },
-  "W7": {
-    "id": "W7",
-    "lcc": 0,
-    "name": "Wings of Lebanon",
-    "type": "airline"
-  },
-  "RS": {
-    "id": "RS",
-    "lcc": 0,
-    "name": "Air Seoul",
-    "type": "airline"
-  },
-  "FLYGBUSAC": {
-    "id": "FLYGBUSAC",
-    "lcc": null,
-    "name": "Flygbussarna Airport Coaches",
-    "type": "bus"
-  },
-  "TRIPSTAIR": {
-    "id": "TRIPSTAIR",
-    "lcc": null,
-    "name": "Tripst Air",
-    "type": "airline"
-  },
-  "CORTINAEXP": {
-    "id": "CORTINAEXP",
-    "lcc": null,
-    "name": "Cortina Express",
     "type": "airline"
   },
   "GX": {
@@ -7397,22 +7445,16 @@
     "name": "GX airlines",
     "type": "airline"
   },
-  "PW": {
-    "id": "PW",
-    "lcc": 0,
-    "name": "Precision Air",
-    "type": "airline"
-  },
   "TT": {
     "id": "TT",
     "lcc": 1,
     "name": "Tiger Airways Australia",
     "type": "airline"
   },
-  "KARATS": {
-    "id": "KARATS",
-    "lcc": null,
-    "name": "Karat - S",
-    "type": "bus"
+  "E9": {
+    "id": "E9",
+    "lcc": 0,
+    "name": "Evelop Airlines",
+    "type": "airline"
   }
 }

@@ -2,17 +2,25 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import CookiesConsent from "..";
+import CookiesPopup from "..";
 
 describe("#CookiesConsent", () => {
   test("render - cookies not accepted", () => {
-    const wrapper = shallow(<CookiesConsent onAccept={jest.fn()} />);
+    const wrapper = shallow(<CookiesPopup onAccept={jest.fn()} />);
 
-    expect(wrapper.find("[data-test='CookiesConsent']").exists()).toBe(true);
+    expect(wrapper.find("[data-test='CookiesPopup']").exists()).toBe(true);
+  });
+
+  test("render banner", () => {
+    const wrapper = shallow(
+      <CookiesPopup onAccept={jest.fn()} type="banner" />
+    );
+
+    expect(wrapper.find("[data-test='CookiesPopup']").exists()).toBe(true);
   });
 
   test("render - cookies accepted", () => {
-    const wrapper = shallow(<CookiesConsent onAccept={jest.fn()} />);
+    const wrapper = shallow(<CookiesPopup onAccept={jest.fn()} />);
 
     wrapper.setState({ accepted: true });
 
@@ -21,7 +29,7 @@ describe("#CookiesConsent", () => {
 
   test("accept cookies", () => {
     const onAccept = jest.fn();
-    const wrapper = shallow(<CookiesConsent onAccept={onAccept} />);
+    const wrapper = shallow(<CookiesPopup onAccept={onAccept} />);
 
     wrapper.instance().handleAccept();
 

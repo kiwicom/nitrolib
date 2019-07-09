@@ -852,7 +852,12 @@ import CookiesPopup from "@kiwicom/nitro/lib/components/CookiesPopup";
 **Types:**
 ```js
 type Props = {|
-  onAccept: () => void,
+  onAccept: ({|
+    performance: boolean,
+    marketing: boolean,
+    advertisement: boolean
+  |}) => void,
+  type?: "popup" | "banner"
 |};
 
 declare export default React.ComponentType<Props>;

@@ -1376,7 +1376,7 @@
   dependencies:
     ramda "^0.26.1"
 
-"@kiwicom/translations@^1.316.0":
+"@kiwicom/translations@^1.334.0":
   version "1.340.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.340.0.tgz#0e6f3bf0ec54e25881124af766529609f0dd5dfc"
   integrity sha512-QsEhDq+aMQnSVsGshGw/W7yxADFrKNHX+E71vbcvX7QjQVCKKQBifx2LPZ8/ntehy+UY0WRPoqxHG51eHN1Oug==

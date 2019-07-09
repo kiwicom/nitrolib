@@ -12,6 +12,8 @@ import ButtonGroup from "@kiwicom/orbit-components/lib/ButtonGroup";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import Translate from "../../../Translate";
+import { themeDefault } from "../../../../records/Theme";
+import type { ThemeProps } from "../../../../records/Theme";
 
 const CookieContainer = styled.div`
   margin-bottom: 15px;
@@ -22,6 +24,10 @@ const CookieHeader = styled.div`
     ${({ theme }: ThemeProps) => theme.orbit.borderColorModal};
 `;
 
+CookieHeader.defaultProps = {
+  theme: themeDefault
+};
+
 const CookieDescription = styled.div`
   width: 100%;
   border-bottom: 1px solid
@@ -31,6 +37,10 @@ const CookieDescription = styled.div`
     width: 65%;
   `)};
 `;
+
+CookieDescription.defaultProps = {
+  theme: themeDefault
+};
 
 const CookieRow = styled.div`
   display: flex;
@@ -50,6 +60,10 @@ const CookieRow = styled.div`
   }
 `;
 
+CookieRow.defaultProps = {
+  theme: themeDefault
+};
+
 const CookieCategory = styled.div`
   width: 100%;
   padding-right: 10px;
@@ -58,6 +72,10 @@ const CookieCategory = styled.div`
     width: 35%;
   `)};
 `;
+
+CookieCategory.defaultProps = {
+  theme: themeDefault
+};
 
 type Props = {|
   onAccept: ({|
@@ -87,6 +105,8 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
       marketing: true,
       advertisement: true
     });
+
+    this.handleAccept();
   };
 
   handleAccept = () => {
