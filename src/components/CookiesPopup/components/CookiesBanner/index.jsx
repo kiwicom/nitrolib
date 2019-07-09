@@ -8,6 +8,7 @@ import Button from "@kiwicom/orbit-components/lib/Button";
 import ButtonGroup from "@kiwicom/orbit-components/lib/ButtonGroup";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import linkMixin from "../../../../styles/mixins/link";
 import Translate from "../../../Translate";
@@ -16,11 +17,8 @@ import type { ThemeProps } from "../../../../records/Theme";
 
 const Container = styled.div`
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: flex-end;
   box-sizing: border-box;
+  // TODO: rewrite after z-index global changes
   z-index: 600;
   padding: ${rtlSpacing("10px 50px 10px 20px")};
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
@@ -30,17 +28,14 @@ const Container = styled.div`
   transition: bottom 0.25s ease-in;
   box-shadow: 0 -1px 6px 0 rgba(0, 0, 0, 0.2);
 
-  ${mq.desktop(
-    css`
-      flex-direction: row;
-      align-items: center;
-    `,
-  )};
-
   ${mq.largeMobile(css`
     padding: ${rtlSpacing("20px 50px 20px 20px")};
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormalActive};
     background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
+  `)};
+
+  ${mq.desktop(css`
+    padding: 20px;
   `)};
 `;
 
@@ -55,32 +50,12 @@ const Message = styled.p`
   width: 100%;
   text-align: justify;
 
-  ${mq.desktop(
-    css`
-      padding-right: 12px;
-    `,
-  )};
-
   ${mq.largeMobile(css`
     line-height: 20px;
   `)};
 `;
 
 Message.defaultProps = {
-  theme: themeDefault,
-};
-
-const ButtonWrap = styled.div`
-  padding-bottom: 10px;
-  ${mq.desktop(
-    css`
-      padding-right: 30px;
-      padding-bottom: 0px;
-    `,
-  )};
-`;
-
-ButtonWrap.defaultProps = {
   theme: themeDefault,
 };
 
@@ -103,29 +78,38 @@ type Props = {|
 
 const CookiesBanner = ({ onAccept, onCustomize }: Props) => (
   <Container>
-    <Heading spaceAfter="medium">
-      <Translate t="content.cookies.banner.your_privacy.title" />
-    </Heading>
-    <Message>
-      <Translate t="content.cookies.banner.your_privacy.text" html />
-    </Message>
-    <ButtonWrap>
-      <ButtonGroup>
-        <Button onClick={onCustomize} size="small" type="secondary">
-          <Text size="small" weight="bold">
-            <Translate t="content.cookies.banner.customize" />
-          </Text>
-        </Button>
-        <Button onClick={onAccept} size="small">
-          <Text size="small" type="white" weight="bold">
-            <Translate t="content.cookies.banner.accept" />
-          </Text>
-        </Button>
-      </ButtonGroup>
-    </ButtonWrap>
-    <AcceptButton onClick={onAccept}>
-      <Close color="secondary" />
-    </AcceptButton>
+    <Stack
+      justify="between"
+      direction="column"
+      flex
+      align="end"
+      spacing="comfy"
+      desktop={{ align: "center", direction: "row", spacing: "natural" }}
+    >
+      <Heading spaceAfter="medium">
+        <Translate t="content.cookies.banner.your_privacy.title" />
+      </Heading>
+      <Message>
+        <Translate t="content.cookies.banner.your_privacy.text" html />
+      </Message>
+      <Stack inline justify="end">
+        <ButtonGroup>
+          <Button onClick={onCustomize} size="small" type="secondary">
+            <Text size="small" weight="bold">
+              <Translate t="content.cookies.banner.customize" />
+            </Text>
+          </Button>
+          <Button onClick={onAccept} size="small">
+            <Text size="small" type="white" weight="bold">
+              <Translate t="content.cookies.banner.accept" />
+            </Text>
+          </Button>
+        </ButtonGroup>
+      </Stack>
+      <AcceptButton onClick={onAccept}>
+        <Close color="secondary" />
+      </AcceptButton>
+    </Stack>
   </Container>
 );
 
