@@ -1,7 +1,5 @@
 // @flow strict
 import * as React from "react";
-import styled, { css } from "styled-components";
-import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Modal from "@kiwicom/orbit-components/lib/Modal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Radio from "@kiwicom/orbit-components/lib/Radio";
@@ -10,70 +8,10 @@ import Text from "@kiwicom/orbit-components/lib/Text";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import ButtonGroup from "@kiwicom/orbit-components/lib/ButtonGroup";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Separator from "@kiwicom/orbit-components/lib/Separator";
 
+import Cookie from "./components/Cookie";
 import Translate from "../../../Translate";
-import { themeDefault } from "../../../../records/Theme";
-import type { ThemeProps } from "../../../../records/Theme";
-
-const CookieContainer = styled.div`
-  margin-bottom: 15px;
-`;
-
-const CookieHeader = styled.div`
-  border-bottom: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorModal};
-`;
-
-CookieHeader.defaultProps = {
-  theme: themeDefault,
-};
-
-const CookieDescription = styled.div`
-  width: 100%;
-  border-bottom: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorModal};
-
-  ${mq.tablet(css`
-    width: 65%;
-  `)};
-`;
-
-CookieDescription.defaultProps = {
-  theme: themeDefault,
-};
-
-const CookieRow = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  padding-top: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};
-
-  ${mq.tablet(css`
-    flex-direction: row;
-  `)};
-
-  &:last-of-type {
-    ${CookieDescription} {
-      border-bottom: none;
-    }
-  }
-`;
-
-CookieRow.defaultProps = {
-  theme: themeDefault,
-};
-
-const CookieCategory = styled.div`
-  width: 100%;
-  padding-right: 10px;
-
-  ${mq.tablet(css`
-    width: 35%;
-  `)};
-`;
-
-CookieCategory.defaultProps = {
-  theme: themeDefault,
-};
 
 type Props = {|
   onAccept: ({|
@@ -129,115 +67,91 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
     return (
       <Modal onClose={onClose}>
         <ModalSection>
-          <CookieContainer>
-            <CookieHeader>
-              <Heading spaceAfter="medium">
-                <Translate t="seo.content.title_cookies_settings" />
-              </Heading>
-              <Text type="secondary" spaceAfter="large">
-                <Translate t="content.cookies_settings.general.content" />
-              </Text>
-            </CookieHeader>
-            <CookieRow>
-              <CookieCategory>
-                <Text weight="bold" spaceAfter="small">
-                  <Translate t="content.cookies_settings.necessary.title" />
-                </Text>
-              </CookieCategory>
-              <CookieDescription>
-                <Text spaceAfter="medium" size="small">
-                  <Translate t="content.cookies_settings.necessary.description" />
-                </Text>
-                <Stack spaceAfter="large">
-                  <Radio label="Enabled" checked disabled />
-                </Stack>
-              </CookieDescription>
-            </CookieRow>
-            <CookieRow>
-              <CookieCategory>
-                <Text weight="bold" spaceAfter="small">
-                  <Translate t="content.cookies_settings.performance.title" />
-                </Text>
-              </CookieCategory>
-              <CookieDescription>
-                <Text spaceAfter="medium" size="small">
-                  <Translate t="content.cookies_settings.performance.description" />
-                </Text>
-                <Stack inline spaceAfter="large">
-                  <Radio
-                    label="Enabled"
-                    checked={performance}
-                    name="performance"
-                    value="1"
-                    onChange={this.handleChange}
-                  />{" "}
-                  <Radio
-                    label="Disabled"
-                    checked={!performance}
-                    name="performance"
-                    value="0"
-                    onChange={this.handleChange}
-                  />
-                </Stack>
-              </CookieDescription>
-            </CookieRow>
-            <CookieRow>
-              <CookieCategory>
-                <Text weight="bold" spaceAfter="small">
-                  <Translate t="content.cookies_settings.marketing.title" />
-                </Text>
-              </CookieCategory>
-              <CookieDescription>
-                <Text spaceAfter="medium" size="small">
-                  <Translate t="content.cookies_settings.marketing.description" />
-                </Text>
-                <Stack inline spaceAfter="large">
-                  <Radio
-                    label="Enabled"
-                    checked={marketing}
-                    name="marketing"
-                    value="1"
-                    onChange={this.handleChange}
-                  />{" "}
-                  <Radio
-                    label="Disabled"
-                    checked={!marketing}
-                    name="marketing"
-                    value="0"
-                    onChange={this.handleChange}
-                  />
-                </Stack>
-              </CookieDescription>
-            </CookieRow>
-            <CookieRow>
-              <CookieCategory>
-                <Text weight="bold" spaceAfter="small">
-                  <Translate t="content.cookies_settings.third_party_marketing.title" />
-                </Text>
-              </CookieCategory>
-              <CookieDescription>
-                <Text spaceAfter="medium" size="small">
-                  <Translate t="content.cookies_settings.third_party_marketing.description" />
-                </Text>
-                <Stack inline spaceAfter="large">
-                  <Radio
-                    label="Enabled"
-                    checked={advertisement}
-                    name="advertisement"
-                    value="1"
-                    onChange={this.handleChange}
-                  />{" "}
-                  <Radio
-                    label="Disabled"
-                    checked={!advertisement}
-                    name="advertisement"
-                    value="0"
-                    onChange={this.handleChange}
-                  />
-                </Stack>
-              </CookieDescription>
-            </CookieRow>
-          </CookieContainer>
+          <Heading spaceAfter="medium">
+            <Translate t="seo.content.title_cookies_settings" />
+          </Heading>
+          <Text type="secondary" spaceAfter="large">
+            <Translate t="content.cookies_settings.general.content" />
+          </Text>
+          <Separator spaceAfter="medium" />
+          {/* Necessary cookies */}
+          <Stack spaceAfter="large">
+            <Cookie
+              category="content.cookies_settings.necessary.title"
+              description="content.cookies_settings.necessary.description"
+            >
+              <Stack spaceAfter="large">
+                <Radio label="Enabled" checked disabled />
+              </Stack>
+            </Cookie>
+            {/* Performance cookies */}
+            <Cookie
+              category="content.cookies_settings.performance.title"
+              description="content.cookies_settings.performance.description"
+            >
+              <Stack inline spaceAfter="large">
+                <Radio
+                  label="Enabled"
+                  checked={performance}
+                  name="performance"
+                  value="1"
+                  onChange={this.handleChange}
+                />{" "}
+                <Radio
+                  label="Disabled"
+                  checked={!performance}
+                  name="performance"
+                  value="0"
+                  onChange={this.handleChange}
+                />
+              </Stack>
+            </Cookie>
+            {/* Marketing cookies */}
+            <Cookie
+              category="content.cookies_settings.marketing.title"
+              description="content.cookies_settings.marketing.description"
+            >
+              <Stack inline spaceAfter="large">
+                <Radio
+                  label="Enabled"
+                  checked={marketing}
+                  name="marketing"
+                  value="1"
+                  onChange={this.handleChange}
+                />{" "}
+                <Radio
+                  label="Disabled"
+                  checked={!marketing}
+                  name="marketing"
+                  value="0"
+                  onChange={this.handleChange}
+                />
+              </Stack>
+            </Cookie>
+            {/* Third-party marketing cookies */}
+            <Cookie
+              category="content.cookies_settings.third_party_marketing.title"
+              description="content.cookies_settings.third_party_marketing.description"
+              borderOff
+            >
+              <Stack inline spaceAfter="large">
+                <Radio
+                  label="Enabled"
+                  checked={advertisement}
+                  name="advertisement"
+                  value="1"
+                  onChange={this.handleChange}
+                />{" "}
+                <Radio
+                  label="Disabled"
+                  checked={!advertisement}
+                  name="advertisement"
+                  value="0"
+                  onChange={this.handleChange}
+                />
+              </Stack>
+            </Cookie>
+          </Stack>
           <ButtonGroup>
             <Stack justify="end">
               <Button onClick={this.handleAcceptAll} size="small">
