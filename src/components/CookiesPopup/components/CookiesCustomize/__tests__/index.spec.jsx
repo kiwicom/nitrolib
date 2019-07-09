@@ -4,13 +4,9 @@ import { shallow, mount } from "enzyme";
 
 import CookiesCustomize from "..";
 
-import { themeDefault } from "../../../../../records/Theme";
-
 describe("#CookiesCustomize", () => {
   test("render", () => {
-    const wrapper = mount(
-      <CookiesCustomize onAccept={jest.fn()} onClose={jest.fn()} />
-    );
+    const wrapper = mount(<CookiesCustomize onAccept={jest.fn()} onClose={jest.fn()} />);
 
     expect(wrapper.find("Modal__ModalWrapperContent").exists()).toBe(true);
   });
@@ -18,9 +14,7 @@ describe("#CookiesCustomize", () => {
   test("click accept", () => {
     const onAccept = jest.fn();
 
-    const wrapper = shallow(
-      <CookiesCustomize onAccept={onAccept} onClose={jest.fn()} />
-    );
+    const wrapper = shallow(<CookiesCustomize onAccept={onAccept} onClose={jest.fn()} />);
 
     wrapper
       .find("Button")
@@ -33,9 +27,7 @@ describe("#CookiesCustomize", () => {
   test("click Close", () => {
     const onAccept = jest.fn();
 
-    const wrapper = shallow(
-      <CookiesCustomize onAccept={onAccept} onClose={jest.fn()} />
-    );
+    const wrapper = shallow(<CookiesCustomize onAccept={onAccept} onClose={jest.fn()} />);
 
     wrapper
       .find("Button")

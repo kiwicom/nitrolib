@@ -4,13 +4,9 @@ import { shallow, mount } from "enzyme";
 
 import CookiesPopup from "..";
 
-import { themeDefault } from "../../../../../records/Theme";
-
 describe("#CookiesPopup", () => {
   test("render", () => {
-    const wrapper = mount(
-      <CookiesPopup onAccept={jest.fn()} onCustomize={jest.fn()} />
-    );
+    const wrapper = mount(<CookiesPopup onAccept={jest.fn()} onCustomize={jest.fn()} />);
 
     expect(wrapper.find("Modal__ModalWrapperContent").exists()).toBe(true);
   });
@@ -18,9 +14,7 @@ describe("#CookiesPopup", () => {
   test("click accept", () => {
     const onAccept = jest.fn();
 
-    const wrapper = shallow(
-      <CookiesPopup onAccept={onAccept} onCustomize={jest.fn()} />
-    );
+    const wrapper = shallow(<CookiesPopup onAccept={onAccept} onCustomize={jest.fn()} />);
 
     wrapper
       .find("Button")

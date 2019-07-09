@@ -5,9 +5,9 @@ type Props = {|
   onAccept: ({|
     performance: boolean,
     marketing: boolean,
-    advertisement: boolean
+    advertisement: boolean,
   |}) => void,
-  type?: "popup" | "banner"
+  type?: "popup" | "banner",
 |};
 
 declare export default React.ComponentType<Props>;

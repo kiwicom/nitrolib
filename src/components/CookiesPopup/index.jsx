@@ -9,36 +9,36 @@ type Props = {|
   onAccept: ({|
     performance: boolean,
     marketing: boolean,
-    advertisement: boolean
+    advertisement: boolean,
   |}) => void,
-  type: "popup" | "banner"
+  type: "popup" | "banner",
 |};
 
 type State = {|
   accepted: boolean,
-  customize: boolean
+  customize: boolean,
 |};
 
 class CookiesPopup extends React.PureComponent<Props, State> {
   static defaultProps = {
-    type: "popup"
+    type: "popup",
   };
 
   state = {
     accepted: false,
-    customize: false
+    customize: false,
   };
 
   handleAccept = (
     cookiePolicy: {|
       performance: boolean,
       marketing: boolean,
-      advertisement: boolean
+      advertisement: boolean,
     |} = {
       performance: true,
       marketing: true,
-      advertisement: true
-    }
+      advertisement: true,
+    },
   ) => {
     const { onAccept } = this.props;
     this.setState({ accepted: true, customize: false });
@@ -68,23 +68,12 @@ class CookiesPopup extends React.PureComponent<Props, State> {
         data-test="CookiesPopup"
       >
         {customize && (
-          <CookiesCustomize
-            onClose={this.closeCustomize}
-            onAccept={this.handleAccept}
-          />
+          <CookiesCustomize onClose={this.closeCustomize} onAccept={this.handleAccept} />
         )}
         {type === "popup" ? (
-          !customize && (
-            <Popup
-              onAccept={this.handleAccept}
-              onCustomize={this.openCustomize}
-            />
-          )
+          !customize && <Popup onAccept={this.handleAccept} onCustomize={this.openCustomize} />
         ) : (
-          <CookiesBanner
-            onAccept={this.handleAccept}
-            onCustomize={this.openCustomize}
-          />
+          <CookiesBanner onAccept={this.handleAccept} onCustomize={this.openCustomize} />
         )}
       </section>
     );

@@ -12,9 +12,7 @@ describe("#CookiesConsent", () => {
   });
 
   test("render banner", () => {
-    const wrapper = shallow(
-      <CookiesPopup onAccept={jest.fn()} type="banner" />
-    );
+    const wrapper = shallow(<CookiesPopup onAccept={jest.fn()} type="banner" />);
 
     expect(wrapper.find("[data-test='CookiesPopup']").exists()).toBe(true);
   });

@@ -34,7 +34,7 @@ const Container = styled.div`
     css`
       flex-direction: row;
       align-items: center;
-    `
+    `,
   )};
 
   ${mq.largeMobile(css`
@@ -45,7 +45,7 @@ const Container = styled.div`
 `;
 
 Container.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const Message = styled.p`
@@ -58,7 +58,7 @@ const Message = styled.p`
   ${mq.desktop(
     css`
       padding-right: 12px;
-    `
+    `,
   )};
 
   ${mq.largeMobile(css`
@@ -67,7 +67,7 @@ const Message = styled.p`
 `;
 
 Message.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const ButtonWrap = styled.div`
@@ -76,12 +76,12 @@ const ButtonWrap = styled.div`
     css`
       padding-right: 30px;
       padding-bottom: 0px;
-    `
+    `,
   )};
 `;
 
 ButtonWrap.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const AcceptButton = styled.a`
@@ -93,12 +93,12 @@ const AcceptButton = styled.a`
 `;
 
 AcceptButton.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 type Props = {|
   onAccept: () => void,
-  onCustomize: () => void
+  onCustomize: () => void,
 |};
 
 const CookiesBanner = ({ onAccept, onCustomize }: Props) => (

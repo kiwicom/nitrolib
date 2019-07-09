@@ -8,13 +8,11 @@ import { themeDefault } from "../../../../../records/Theme";
 
 describe("#CookiesBanner", () => {
   test("render", () => {
-    const wrapper = mount(
-      <CookiesBanner onAccept={jest.fn()} onCustomize={jest.fn()} />
-    );
+    const wrapper = mount(<CookiesBanner onAccept={jest.fn()} onCustomize={jest.fn()} />);
 
     expect(wrapper.find("CookiesBanner__Container")).toHaveStyleRule(
       "background",
-      themeDefault.orbit.paletteInkDark
+      themeDefault.orbit.paletteInkDark,
     );
 
     expect(wrapper.find("CookiesBanner__Container").exists()).toBe(true);
@@ -23,9 +21,7 @@ describe("#CookiesBanner", () => {
   test("click accept", () => {
     const onAccept = jest.fn();
 
-    const wrapper = shallow(
-      <CookiesBanner onAccept={onAccept} onCustomize={jest.fn()} />
-    );
+    const wrapper = shallow(<CookiesBanner onAccept={onAccept} onCustomize={jest.fn()} />);
 
     wrapper
       .find("Button")
@@ -38,9 +34,7 @@ describe("#CookiesBanner", () => {
   test("click customize", () => {
     const onCustomize = jest.fn();
 
-    const wrapper = shallow(
-      <CookiesBanner onAccept={jest.fn()} onCustomize={onCustomize} />
-    );
+    const wrapper = shallow(<CookiesBanner onAccept={jest.fn()} onCustomize={onCustomize} />);
 
     wrapper
       .find("Button")

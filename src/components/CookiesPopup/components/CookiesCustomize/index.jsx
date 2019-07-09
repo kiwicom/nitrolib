@@ -20,18 +20,16 @@ const CookieContainer = styled.div`
 `;
 
 const CookieHeader = styled.div`
-  border-bottom: 1px solid
-    ${({ theme }: ThemeProps) => theme.orbit.borderColorModal};
+  border-bottom: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorModal};
 `;
 
 CookieHeader.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const CookieDescription = styled.div`
   width: 100%;
-  border-bottom: 1px solid
-    ${({ theme }: ThemeProps) => theme.orbit.borderColorModal};
+  border-bottom: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorModal};
 
   ${mq.tablet(css`
     width: 65%;
@@ -39,7 +37,7 @@ const CookieDescription = styled.div`
 `;
 
 CookieDescription.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const CookieRow = styled.div`
@@ -61,7 +59,7 @@ const CookieRow = styled.div`
 `;
 
 CookieRow.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const CookieCategory = styled.div`
@@ -74,36 +72,36 @@ const CookieCategory = styled.div`
 `;
 
 CookieCategory.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 type Props = {|
   onAccept: ({|
     performance: boolean,
     marketing: boolean,
-    advertisement: boolean
+    advertisement: boolean,
   |}) => void,
-  onClose: () => void
+  onClose: () => void,
 |};
 
 type State = {|
   performance: boolean,
   marketing: boolean,
-  advertisement: boolean
+  advertisement: boolean,
 |};
 
 class CookiesCustomize extends React.PureComponent<Props, State> {
   state = {
     performance: false,
     marketing: false,
-    advertisement: false
+    advertisement: false,
   };
 
   handleAcceptAll = () => {
     this.setState({
       performance: true,
       marketing: true,
-      advertisement: true
+      advertisement: true,
     });
 
     this.handleAccept();
@@ -116,7 +114,7 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
     onAccept({
       performance,
       marketing,
-      advertisement
+      advertisement,
     });
   };
 
