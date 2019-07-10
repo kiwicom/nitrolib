@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import type { Context } from "../../services/intl/context";
+import type { Context } from "../../services/log/context";
 
 type Props = {|
   children: (ctx: Context) => React.Node,
