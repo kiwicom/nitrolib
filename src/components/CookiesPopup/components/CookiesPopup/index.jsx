@@ -12,7 +12,7 @@ import Translate from "../../../Translate";
 
 type Props = {|
   onAccept: () => void,
-  onCustomize: () => void,
+  onCustomize: () => void
 |};
 
 const CookiesBanner = ({ onAccept, onCustomize }: Props) => (
@@ -31,7 +31,7 @@ const CookiesBanner = ({ onAccept, onCustomize }: Props) => (
               <Translate t="content.cookies.banner.customize" />
             </Text>
           </Button>
-          <Button onClick={onAccept} size="small">
+          <Button onClick={() => onAccept()} size="small">
             <Text type="white" weight="bold">
               <Translate t="content.cookies.banner.accept" />
             </Text>
