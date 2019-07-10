@@ -155,14 +155,14 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
           </Stack>
           <ButtonGroup>
             <Stack justify="end">
-              <Button onClick={this.handleAcceptAll} size="small">
-                <Text type="white" weight="bold">
-                  <Translate t="content.cookies_settings.general.accept_all" />
-                </Text>
-              </Button>
               <Button onClick={this.handleAccept} size="small" type="secondary">
                 <Text weight="bold">
                   <Translate t="content.cookies_settings.general.save_settings" />
+                </Text>
+              </Button>
+              <Button onClick={this.handleAcceptAll} size="small">
+                <Text type="white" weight="bold">
+                  <Translate t="content.cookies_settings.general.accept_all" />
                 </Text>
               </Button>
             </Stack>

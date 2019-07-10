@@ -12,7 +12,7 @@ import Translate from "../../../Translate";
 
 type Props = {|
   onAccept: () => void,
-  onCustomize: () => void
+  onCustomize: () => void,
 |};
 
 const CookiesBanner = ({ onAccept, onCustomize }: Props) => (

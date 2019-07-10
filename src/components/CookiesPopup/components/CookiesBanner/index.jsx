@@ -40,7 +40,7 @@ const Container = styled.div`
 `;
 
 Container.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const Message = styled.p`
@@ -56,7 +56,7 @@ const Message = styled.p`
 `;
 
 Message.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 const AcceptButton = styled.a`
@@ -68,12 +68,12 @@ const AcceptButton = styled.a`
 `;
 
 AcceptButton.defaultProps = {
-  theme: themeDefault
+  theme: themeDefault,
 };
 
 type Props = {|
   onAccept: () => void,
-  onCustomize: () => void
+  onCustomize: () => void,
 |};
 
 const CookiesBanner = ({ onAccept, onCustomize }: Props) => (
