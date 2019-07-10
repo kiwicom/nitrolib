@@ -61,7 +61,7 @@ const TripItem = ({
       <Img src={img} alt="img" />
       <Stack flex shrink justify="center" direction="column">
         <Stack spacing="tight">
-          <Text weight="bold">
+          <Text size="large" weight="bold">
             {departureCity}
             {countOtherCities !== 0 && <RouteOneStop size="small" />}
             {multicityFirst}
@@ -77,10 +77,10 @@ const TripItem = ({
           </Text>
         </Stack>
         <Stack spacing="tight">
-          <Text>
+          <Text weight="bold">
             <Day date={parseISO(departureTime)} /> - <Day date={parseISO(arrivalTime)} />
           </Text>
-          <Text>
+          <Text weight="bold">
             <Translate t="account.trips_passengers" values={{ passengers: passengerCount }} />
           </Text>
         </Stack>
