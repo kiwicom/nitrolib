@@ -32,6 +32,8 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [InitIntl](#initintl)
 * [InitLog](#initlog)
 * [InitStarred](#initstarred)
+* [InputEmail](#inputemail)
+* [InputPhone](#inputphone)
 * [Itinerary](#itinerary)
 * [LogMount](#logmount)
 * [Mobile](#mobile)
@@ -1235,6 +1237,86 @@ See types:
 * [Starred](./records#starred)
 
 Just mount it and it works!
+
+### InputEmail
+
+**Import:**
+```js
+import InputEmail from "@kiwicom/nitro/lib/components/InputEmail";
+```
+
+**Types:**
+```js
+type Props = {|
+  ...SpaceAfter,
+  size?: "small" | "normal",
+  name?: string,
+  label?: Translation,
+  inlineLabel?: boolean,
+  value?: (() => string | number) | string | number,
+  placeholder?: Translation,
+  help?: React.Node,
+  prefix?: React$Node,
+  suffix?: React$Node,
+  tabIndex?: string,
+  id?: string,
+  onChange?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
+  onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
+  onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
+  onKeyDown?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,
+  onKeyUp?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=InputEmail).
+
+Nitro `Email` Wrapper for `InputField` from ***Orbit-components***
+
+- Email validation by `validator.js`
+- Translation for required: `forms.this_field_must_be_filled`
+- Translation for validation: `forms.wrong_format_email`
+
+### InputPhone
+
+**Import:**
+```js
+import InputPhone from "@kiwicom/nitro/lib/components/InputPhone";
+```
+
+**Types:**
+```js
+type Props = {|
+  ...SpaceAfter,
+  size?: "small" | "normal",
+  name?: string,
+  label?: Translation,
+  inlineLabel?: boolean,
+  value?: (() => string | number) | string | number,
+  placeholder?: Translation,
+  help?: React.Node,
+  prefix?: React$Node,
+  suffix?: React$Node,
+  tabIndex?: string,
+  id?: string,
+  onChange?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
+  onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
+  onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
+  onKeyDown?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,
+  onKeyUp?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=InputPhone).
+
+Nitro `Phone` Wrapper for `InputField` from ***Orbit-components***
+
+- Phone validation by `libphonenumber-js`
+- Translation for required: `forms.this_field_must_be_filled`
+- Translation for validation: `forms.errors.invalid_phone` and `forms.errors.not_supported`
 
 ### Itinerary
 

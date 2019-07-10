@@ -15,7 +15,16 @@ describe("#validators", () => {
 
   test("email", () => {
     expect(fns.email("lol@kek.bur")).toBe("");
+    expect(fns.email("keket_@kiwi.com")).toBe("");
     expect(fns.email("asd")).toBe("forms.wrong_format_email");
+  });
+
+  test("phone", () => {
+    expect(fns.phone("+420228880669")).toBe("");
+    expect(fns.phone("+74993504126")).toBe("");
+    expect(fns.phone("+48223970842")).toBe("");
+    expect(fns.phone("+81345790139")).toBe("");
+    expect(fns.phone("+4202288806")).toBe("forms.errors.invalid_phone");
   });
 
   test("iata", () => {

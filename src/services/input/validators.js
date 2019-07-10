@@ -2,6 +2,7 @@
 import isEmail from "validator/lib/isEmail";
 import isAfter from "date-fns/isAfter";
 import addYears from "date-fns/addYears";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 
 export type Error = string;
 
@@ -9,6 +10,13 @@ export type Error = string;
 export const required = (val: mixed): Error => (val ? "" : __("forms.this_field_must_be_filled"));
 
 export const email = (val: string): Error => (isEmail(val) ? "" : __("forms.wrong_format_email"));
+
+export const phone = (val: string): Error => {
+  if (parsePhoneNumberFromString(val)) {
+    return parsePhoneNumberFromString(val).isValid() ? "" : __("forms.errors.invalid_phone");
+  }
+  return __("forms.errors.not_supported");
+};
 
 export type YearAfterOpts = {|
   offset: number,

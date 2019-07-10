@@ -1,0 +1,26 @@
+// @flow strict
+import * as React from "react";
+import type { spaceAfter as SpaceAfter } from "@kiwicom/orbit-components/lib/common/getSpacingToken";
+import type { Translation } from "@kiwicom/orbit-components/lib/common/common.js.flow";
+
+type Props = {|
+  ...SpaceAfter,
+  size?: "small" | "normal",
+  name?: string,
+  label?: Translation,
+  inlineLabel?: boolean,
+  value?: (() => string | number) | string | number,
+  placeholder?: Translation,
+  help?: React.Node,
+  prefix?: React$Node,
+  suffix?: React$Node,
+  tabIndex?: string,
+  id?: string,
+  onChange?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
+  onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
+  onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
+  onKeyDown?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,
+  onKeyUp?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,
+|};
+
+declare export default React.ComponentType<Props>;

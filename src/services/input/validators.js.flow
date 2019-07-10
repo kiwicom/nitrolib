@@ -5,6 +5,8 @@ declare export var required: (val: mixed) => Error;
 
 declare export var email: (val: string) => Error;
 
+declare export var phone: (val: string) => Error;
+
 export type YearAfterOpts = {|
   offset: number,
   now: Date,
