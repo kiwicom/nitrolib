@@ -17,22 +17,22 @@ type Props = {|
   onAccept: ({|
     performance: boolean,
     marketing: boolean,
-    advertisement: boolean
+    advertisement: boolean,
   |}) => void,
-  onClose: () => void
+  onClose: () => void,
 |};
 
 type State = {|
   performance: boolean,
   marketing: boolean,
-  advertisement: boolean
+  advertisement: boolean,
 |};
 
 class CookiesCustomize extends React.PureComponent<Props, State> {
   state = {
     performance: false,
     marketing: false,
-    advertisement: false
+    advertisement: false,
   };
 
   handleAcceptAll = () => {
@@ -40,9 +40,9 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
       {
         performance: true,
         marketing: true,
-        advertisement: true
+        advertisement: true,
       },
-      this.handleAccept
+      this.handleAccept,
     );
   };
 
@@ -53,7 +53,7 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
     onAccept({
       performance,
       marketing,
-      advertisement
+      advertisement,
     });
   };
 
