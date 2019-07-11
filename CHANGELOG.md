@@ -1,3 +1,16 @@
+## [5.7.3](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.7.2...v5.7.3) (2019-07-11)
+
+
+### Bug Fixes
+
+* **components:** InitLog Context type import ([b964c31](https://gitlab.skypicker.com/frontend/nitrolib/commit/b964c31))
+* **components:** TripItem font-weight ([77aa89f](https://gitlab.skypicker.com/frontend/nitrolib/commit/77aa89f))
+* Button order and feedback from UX ([d38eb46](https://gitlab.skypicker.com/frontend/nitrolib/commit/d38eb46))
+* Cookies popup default value fixes ([e2a35cd](https://gitlab.skypicker.com/frontend/nitrolib/commit/e2a35cd))
+* Cookies popup rtl ([2d995d4](https://gitlab.skypicker.com/frontend/nitrolib/commit/2d995d4))
+
+
+
 ## [5.7.2](https://gitlab.skypicker.com/frontend/nitrolib/compare/v0.66.1...v5.7.2) (2019-07-09)
 
 
