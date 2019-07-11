@@ -1,3 +1,12 @@
+# [5.8.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.7.4...v5.8.0) (2019-07-11)
+
+
+### Features
+
+* **components:** InputEmail and InputPhone Wrappers for InputField ([7426fbc](https://gitlab.skypicker.com/frontend/nitrolib/commit/7426fbc))
+
+
+
 ## [5.7.4](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.7.1...v5.7.4) (2019-07-11)
 
 
