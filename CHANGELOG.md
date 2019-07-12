@@ -1,3 +1,18 @@
+# [5.9.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.7.3...v5.9.0) (2019-07-12)
+
+
+### Bug Fixes
+
+* **components:** Translation collecting for Cookies popup ([6f5cfe5](https://gitlab.skypicker.com/frontend/nitrolib/commit/6f5cfe5))
+
+
+### Features
+
+* **components:** InputEmail and InputPhone Wrappers for InputField ([7426fbc](https://gitlab.skypicker.com/frontend/nitrolib/commit/7426fbc))
+* **components:** InputEmail email corrector is on ([a7a013c](https://gitlab.skypicker.com/frontend/nitrolib/commit/a7a013c))
+
+
+
 # [5.8.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.7.4...v5.8.0) (2019-07-11)
 
 
