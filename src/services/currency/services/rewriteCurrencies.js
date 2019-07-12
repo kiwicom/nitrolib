@@ -14,7 +14,7 @@ const rewriteCurrencies = (currencies: FetchedCurrencies): Currencies =>
         fallback: null,
         format: {
           format,
-          precision: Number(precision ?? round),
+          precision: Number(precision || round),
         },
         rate: String(rate),
         enabledOnAffilId,
