@@ -1376,10 +1376,10 @@
   dependencies:
     ramda "^0.26.1"
 
-"@kiwicom/translations@^1.334.0":
-  version "1.340.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.340.0.tgz#0e6f3bf0ec54e25881124af766529609f0dd5dfc"
-  integrity sha512-QsEhDq+aMQnSVsGshGw/W7yxADFrKNHX+E71vbcvX7QjQVCKKQBifx2LPZ8/ntehy+UY0WRPoqxHG51eHN1Oug==
+"@kiwicom/translations@^1.346.0":
+  version "1.346.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.346.0.tgz#6be6d61fce59100a6aeb6a44202b8e47bfe98047"
+  integrity sha512-GfliPE8F/HGhk0GPMswmj79D15QHGRo0m6VNoAvx0BuQeQlMeXX2YjFwWVw2BiunSGUtYQCCX3z9/fK4xeoRxg==
 
 "@marionebl/sander@^0.6.0":
   version "0.6.1"

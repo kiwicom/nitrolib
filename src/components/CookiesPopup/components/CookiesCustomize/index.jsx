@@ -78,8 +78,8 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
           {/* Necessary cookies */}
           <Stack spaceAfter="large">
             <Cookie
-              category="content.cookies_settings.necessary.title"
-              description="content.cookies_settings.necessary.description"
+              category={__("content.cookies_settings.necessary.title")}
+              description={__("content.cookies_settings.necessary.description")}
             >
               <Stack spaceAfter="large">
                 <Radio label="Enabled" checked disabled />
@@ -87,8 +87,8 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
             </Cookie>
             {/* Performance cookies */}
             <Cookie
-              category="content.cookies_settings.performance.title"
-              description="content.cookies_settings.performance.description"
+              category={__("content.cookies_settings.performance.title")}
+              description={__("content.cookies_settings.performance.description")}
             >
               <Stack inline spaceAfter="large">
                 <Radio
@@ -109,8 +109,8 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
             </Cookie>
             {/* Marketing cookies */}
             <Cookie
-              category="content.cookies_settings.marketing.title"
-              description="content.cookies_settings.marketing.description"
+              category={__("content.cookies_settings.marketing.title")}
+              description={__("content.cookies_settings.marketing.description")}
             >
               <Stack inline spaceAfter="large">
                 <Radio
@@ -131,8 +131,8 @@ class CookiesCustomize extends React.PureComponent<Props, State> {
             </Cookie>
             {/* Third-party marketing cookies */}
             <Cookie
-              category="content.cookies_settings.third_party_marketing.title"
-              description="content.cookies_settings.third_party_marketing.description"
+              category={__("content.cookies_settings.third_party_marketing.title")}
+              description={__("content.cookies_settings.third_party_marketing.description")}
               borderOff
             >
               <Stack inline spaceAfter="large">
