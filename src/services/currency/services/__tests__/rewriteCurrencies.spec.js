@@ -10,7 +10,7 @@ const fetched = {
     id: "eur",
     name: "Euro",
     rate: 1,
-    round: "2",
+    precision: "2",
     uncertainFormat: false,
   },
   czk: {
@@ -20,7 +20,7 @@ const fetched = {
     id: "czk",
     name: "Koruna",
     rate: 0.3,
-    round: "2",
+    precision: "2",
     uncertainFormat: false,
   },
   hkd: {
@@ -30,7 +30,7 @@ const fetched = {
     id: "hkd",
     name: "Hong Kong dollar",
     rate: 0.109077,
-    round: "2",
+    precision: "2",
     uncertainFormat: false,
   },
   gbp: {
@@ -40,7 +40,7 @@ const fetched = {
     fallback: "",
     enabledOnAffilId: ["uk"],
     rate: 1.14355,
-    round: "2",
+    precision: "2",
     uncertainFormat: false,
   },
 };

@@ -13,7 +13,8 @@ export type FetchedCurrency = {|
   id: string,
   name: string,
   rate: number,
-  round: string,
+  round?: string,
+  precision: string,
   uncertainFormat: boolean,
 |};
 
