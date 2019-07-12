@@ -1261,7 +1261,7 @@ type Props = {|
   tabIndex?: string,
   autoComplete?: string,
   id?: string,
-  onChange?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
+  onChange?: (value: string) => void,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onKeyDown?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,
@@ -1279,7 +1279,6 @@ Nitro `Email` Wrapper for `InputField` from ***Orbit-components***
 - Translation for required: `forms.this_field_must_be_filled`
 - Translation for validation: `forms.wrong_format_email`
 - Has `emailCorrector` function which suggests correct email spelling address, via `help` prop from `InputField`
--
 
 ### InputPhone
 
@@ -1304,7 +1303,7 @@ type Props = {|
   tabIndex?: string,
   autoComplete?: string,
   id?: string,
-  onChange?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
+  onChange: ({ error: string, value: string }) => void,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onKeyDown?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,

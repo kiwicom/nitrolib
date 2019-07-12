@@ -4,28 +4,34 @@ import { shallow } from "enzyme";
 
 import InputPhone from "..";
 
-describe("#InputEmail", () => {
+describe("#InputPhone", () => {
   test("render", () => {
-    const wrapper = shallow(<InputPhone id="test" value="+420228880669" onChange={jest.fn()} />);
+    const wrapper = shallow(<InputPhone id="test" value="" onChange={jest.fn()} />);
 
     expect(wrapper.find("InputField").exists()).toBe(true);
   });
 
   test("error wrong format", () => {
-    const wrapper = shallow(<InputPhone id="test" value="+420228880" onChange={jest.fn()} />);
+    const onChange = jest.fn();
+    const wrapper = shallow(<InputPhone id="test" value="" onChange={onChange} />);
+    wrapper.simulate("change", { target: { value: "+420228880" } });
 
-    expect(wrapper.find("InputField").prop("error")).toBe("forms.errors.invalid_phone");
+    expect(onChange).toBeCalledWith({ error: "forms.errors.invalid_phone", value: "+420228880" });
   });
 
   test("error not supported", () => {
-    const wrapper = shallow(<InputPhone id="test" value="321" onChange={jest.fn()} />);
+    const onChange = jest.fn();
+    const wrapper = shallow(<InputPhone id="test" value="" onChange={onChange} />);
+    wrapper.simulate("change", { target: { value: "231" } });
 
-    expect(wrapper.find("InputField").prop("error")).toBe("forms.errors.not_supported");
+    expect(onChange).toBeCalledWith({ error: "forms.errors.not_supported", value: "231" });
   });
 
   test("error required", () => {
-    const wrapper = shallow(<InputPhone id="test" value="" onChange={jest.fn()} />);
+    const onChange = jest.fn();
+    const wrapper = shallow(<InputPhone id="test" value="" onChange={onChange} />);
+    wrapper.simulate("change", { target: { value: "" } });
 
-    expect(wrapper.find("InputField").prop("error")).toBe("forms.this_field_must_be_filled");
+    expect(onChange).toBeCalledWith({ error: "forms.this_field_must_be_filled", value: "" });
   });
 });

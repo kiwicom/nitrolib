@@ -4,24 +4,28 @@ import { shallow } from "enzyme";
 
 import InputEmail from "..";
 
-const Email = "kek@kiwi.com";
-
 describe("#InputEmail", () => {
   test("render", () => {
-    const wrapper = shallow(<InputEmail id="test" value={Email} onChange={jest.fn()} />);
+    const wrapper = shallow(
+      <InputEmail id="test" value="johndoe@gmail.com" onChange={jest.fn()} />,
+    );
 
     expect(wrapper.find("InputField").exists()).toBe(true);
   });
 
   test("error wrong format", () => {
-    const wrapper = shallow(<InputEmail id="test" value="kek@-.com" onChange={jest.fn()} />);
+    const onChange = jest.fn();
+    const wrapper = shallow(<InputEmail id="test" value="" onChange={onChange} />);
 
-    expect(wrapper.find("InputField").prop("error")).toBe("forms.wrong_format_email");
+    wrapper.simulate("change", { target: { value: "keket@-.com" } });
+    expect(onChange).toBeCalledWith({ error: "forms.wrong_format_email", value: "keket@-.com" });
   });
 
   test("error required", () => {
-    const wrapper = shallow(<InputEmail id="test" value="" onChange={jest.fn()} />);
+    const onChange = jest.fn();
+    const wrapper = shallow(<InputEmail id="test" value="" onChange={onChange} />);
 
-    expect(wrapper.find("InputField").prop("error")).toBe("forms.this_field_must_be_filled");
+    wrapper.simulate("change", { target: { value: "" } });
+    expect(onChange).toBeCalledWith({ error: "forms.this_field_must_be_filled", value: "" });
   });
 });
