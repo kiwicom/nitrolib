@@ -15,6 +15,7 @@ type Props = {|
   prefix?: React$Node,
   suffix?: React$Node,
   tabIndex?: string,
+  autoComplete?: string,
   id?: string,
   onChange?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,

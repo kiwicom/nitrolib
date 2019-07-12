@@ -25,6 +25,7 @@ type Props = {|
   suffix?: React$Node,
   tabIndex?: string,
   id?: string,
+  autoComplete?: string,
   onChange?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
@@ -47,6 +48,7 @@ const InputPhone = (props: Props) => {
     spaceAfter,
     tabIndex,
     size,
+    autoComplete,
     value,
     id,
     inlineLabel,
@@ -66,6 +68,7 @@ const InputPhone = (props: Props) => {
       onFocus={onFocus}
       onChange={onChange}
       onKeyDown={onKeyDown}
+      autoComplete={autoComplete}
       help={help}
       onKeyUp={onKeyUp}
       prefix={prefix}

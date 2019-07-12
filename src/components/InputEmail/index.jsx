@@ -6,6 +6,7 @@ import type { Translation } from "@kiwicom/orbit-components/lib/common/common.js
 
 import { email, required } from "../../services/input/validators";
 import compose from "../../services/input/composeValidator";
+import emailCorrector from "../../services/input/emailCorrector";
 
 const validator = compose(
   email,
@@ -20,11 +21,11 @@ type Props = {|
   inlineLabel?: boolean,
   value?: (() => string | number) | string | number,
   placeholder?: Translation,
-  help?: React.Node,
   prefix?: React$Node,
   suffix?: React$Node,
   tabIndex?: string,
   id?: string,
+  autoComplete?: string,
   onChange?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
@@ -43,7 +44,7 @@ const InputEmail = (props: Props) => {
     placeholder,
     prefix,
     suffix,
-    help,
+    autoComplete,
     spaceAfter,
     tabIndex,
     size,
@@ -66,12 +67,13 @@ const InputEmail = (props: Props) => {
       onFocus={onFocus}
       onChange={onChange}
       onKeyDown={onKeyDown}
-      help={help}
       onKeyUp={onKeyUp}
       prefix={prefix}
       suffix={suffix}
       placeholder={placeholder}
       spaceAfter={spaceAfter}
+      autoComplete={autoComplete}
+      help={emailCorrector(String(value))}
       value={value}
       label={label}
       inlineLabel={inlineLabel}

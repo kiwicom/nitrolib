@@ -1259,6 +1259,7 @@ type Props = {|
   prefix?: React$Node,
   suffix?: React$Node,
   tabIndex?: string,
+  autoComplete?: string,
   id?: string,
   onChange?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
@@ -1277,6 +1278,8 @@ Nitro `Email` Wrapper for `InputField` from ***Orbit-components***
 - Email validation by `validator.js`
 - Translation for required: `forms.this_field_must_be_filled`
 - Translation for validation: `forms.wrong_format_email`
+- Has `emailCorrector` function which suggests correct email spelling address, via `help` prop from `InputField`
+-
 
 ### InputPhone
 
@@ -1299,6 +1302,7 @@ type Props = {|
   prefix?: React$Node,
   suffix?: React$Node,
   tabIndex?: string,
+  autoComplete?: string,
   id?: string,
   onChange?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
