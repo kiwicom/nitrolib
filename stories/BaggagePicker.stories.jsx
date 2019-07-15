@@ -90,8 +90,8 @@ storiesOf("BaggagePicker", module)
           "Baggage",
         )}
         passengerBaggage={{
-          handBag: select("Handbag", handBagOptions, 1, "Baggage"),
-          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
+          handBag: select("Handbag", handBagOptions, 2, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 2, "Baggage"),
         }}
         shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}
@@ -107,8 +107,8 @@ storiesOf("BaggagePicker", module)
           "Baggage",
         )}
         passengerBaggage={{
-          handBag: select("Handbag", handBagOptions, 1, "Baggage"),
-          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
+          handBag: select("Handbag", handBagOptions, 2, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 2, "Baggage"),
         }}
         shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         {...props}

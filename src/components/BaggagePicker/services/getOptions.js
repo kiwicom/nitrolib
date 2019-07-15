@@ -50,7 +50,7 @@ export default function getOptions(args: GetOptionsArgs): OptionBaggage[] {
     const currentComb = indexedCombinations.find(c => c.originalIndex === currentCombination);
     const currentCombinationPrice = currentComb ? currentComb.price.amount : 0;
     return options
-      .filter(o => o.price.amount >= currentCombinationPrice)
+      .filter(o => o.price.amount > currentCombinationPrice)
       .map(option => {
         const priceAmount = option.price.amount;
         const copyOption = R.clone([option])[0];
