@@ -5,14 +5,14 @@ import { action } from "@storybook/addon-actions";
 import { withInfo } from "@storybook/addon-info";
 import { text } from "@storybook/addon-knobs/react";
 
-import InputEmail from "../src/components/InputPhone";
+import InputPhone from "../src/components/InputPhone";
 
 const GROUP_ID = "Component";
 
 storiesOf("InputPhone", module)
-  .addDecorator(withInfo({ inline: true }))
+  .addDecorator(withInfo({ inline: true, propTables: ["kek"] }))
   .add("default", () => (
-    <InputEmail
+    <InputPhone
       id="test"
       value={text("Value", "", GROUP_ID)}
       onChange={action("On change")}
