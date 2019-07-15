@@ -32,71 +32,59 @@ type Props = {|
   onKeyUp?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,
 |};
 
-type State = {|
-  error: string,
-|};
+const InputPhone = ({ onChange, ...props }: Props) => {
+  const [state, setState] = React.useState({ error: "" });
 
-class InputPhone extends React.Component<Props, State> {
-  state = {
-    error: "",
-  };
-
-  handleChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
+  const handleChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
     const { value } = ev.target;
     const error = validator(value);
 
-    const { onChange } = this.props;
-
-    this.setState({ error: validator(value) });
+    setState({ error: validator(value) });
 
     onChange({ value, error });
   };
-
-  render() {
-    const {
-      onBlur,
-      onFocus,
-      onKeyDown,
-      name,
-      onKeyUp,
-      placeholder,
-      prefix,
-      suffix,
-      help,
-      spaceAfter,
-      tabIndex,
-      size,
-      value,
-      id,
-      inlineLabel,
-      label,
-    } = this.props;
-    const { error } = this.state;
-    return (
-      <InputField
-        id={id}
-        type="text"
-        required
-        name={name}
-        size={size}
-        error={error}
-        onBlur={onBlur}
-        tabIndex={tabIndex}
-        onFocus={onFocus}
-        onChange={this.handleChange}
-        onKeyDown={onKeyDown}
-        help={help}
-        onKeyUp={onKeyUp}
-        prefix={prefix}
-        suffix={suffix}
-        placeholder={placeholder}
-        spaceAfter={spaceAfter}
-        value={value}
-        label={label}
-        inlineLabel={inlineLabel}
-      />
-    );
-  }
-}
+  const {
+    onBlur,
+    onFocus,
+    onKeyDown,
+    name,
+    onKeyUp,
+    placeholder,
+    prefix,
+    suffix,
+    help,
+    spaceAfter,
+    tabIndex,
+    size,
+    value,
+    id,
+    inlineLabel,
+    label,
+  } = props;
+  return (
+    <InputField
+      id={id}
+      type="text"
+      required
+      name={name}
+      size={size}
+      error={state.error}
+      onBlur={onBlur}
+      tabIndex={tabIndex}
+      onFocus={onFocus}
+      onChange={handleChange}
+      onKeyDown={onKeyDown}
+      help={help}
+      onKeyUp={onKeyUp}
+      prefix={prefix}
+      suffix={suffix}
+      placeholder={placeholder}
+      spaceAfter={spaceAfter}
+      value={value}
+      label={label}
+      inlineLabel={inlineLabel}
+    />
+  );
+};
 
 export default InputPhone;

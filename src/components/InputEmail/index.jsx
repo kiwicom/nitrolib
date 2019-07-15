@@ -32,71 +32,59 @@ type Props = {|
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
 |};
 
-type State = {|
-  error: string,
-  help: string,
-|};
+const InputEmail = ({ onChange, ...props }: Props) => {
+  const [state, setState] = React.useState({ error: "", help: "" });
 
-class InputEmail extends React.Component<Props, State> {
-  state = {
-    error: "",
-    help: "",
-  };
-
-  handleChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
+  const handleChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
     const value = normalize(ev.target.value);
-    const error = validator(value);
     const help = corrector(value);
+    const error = validator(value);
 
-    const { onChange } = this.props;
-
-    this.setState({ error, help });
+    setState({ error, help });
 
     onChange({ value, error });
   };
 
-  render() {
-    const {
-      onBlur,
-      onFocus,
-      name,
-      placeholder,
-      prefix,
-      suffix,
-      autoComplete,
-      spaceAfter,
-      tabIndex,
-      size,
-      value,
-      id,
-      inlineLabel,
-      label,
-    } = this.props;
-    const { error, help } = this.state;
-    return (
-      <InputField
-        id={id}
-        type="email"
-        required
-        name={name}
-        size={size}
-        error={error}
-        onBlur={onBlur}
-        tabIndex={tabIndex}
-        onFocus={onFocus}
-        onChange={this.handleChange}
-        prefix={prefix}
-        suffix={suffix}
-        placeholder={placeholder}
-        spaceAfter={spaceAfter}
-        autoComplete={autoComplete}
-        help={help}
-        value={value}
-        label={label}
-        inlineLabel={inlineLabel}
-      />
-    );
-  }
-}
+  const {
+    onBlur,
+    onFocus,
+    name,
+    placeholder,
+    prefix,
+    suffix,
+    autoComplete,
+    spaceAfter,
+    tabIndex,
+    size,
+    value,
+    id,
+    inlineLabel,
+    label,
+  } = props;
+
+  return (
+    <InputField
+      id={id}
+      type="email"
+      required
+      name={name}
+      size={size}
+      error={state.error}
+      onBlur={onBlur}
+      tabIndex={tabIndex}
+      onFocus={onFocus}
+      onChange={handleChange}
+      prefix={prefix}
+      suffix={suffix}
+      placeholder={placeholder}
+      spaceAfter={spaceAfter}
+      autoComplete={autoComplete}
+      help={state.help}
+      value={value}
+      label={label}
+      inlineLabel={inlineLabel}
+    />
+  );
+};
 
 export default InputEmail;
