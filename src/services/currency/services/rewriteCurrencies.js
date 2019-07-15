@@ -6,7 +6,7 @@ import type { Currencies, FetchedCurrencies, FetchedCurrency } from "../../../re
 const rewriteCurrencies = (currencies: FetchedCurrencies): Currencies =>
   R.map(currency => {
     const newCurrency = (currencyItem: FetchedCurrency) => {
-      const { id, name, rate, enabledOnAffilId, format, round } = currencyItem;
+      const { id, name, rate, enabledOnAffilId, format, precision, round } = currencyItem;
       return {
         id,
         name,
@@ -14,7 +14,7 @@ const rewriteCurrencies = (currencies: FetchedCurrencies): Currencies =>
         fallback: null,
         format: {
           format,
-          precision: Number(round),
+          precision: Number(precision || round),
         },
         rate: String(rate),
         enabledOnAffilId,
