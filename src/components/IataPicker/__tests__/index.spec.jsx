@@ -22,7 +22,7 @@ describe("#IataPicker", () => {
   test("render with Orbit UI", () => {
     const wrapper = render(<IataPicker id="test" value="VIE" onSelect={jest.fn()} error="" />);
 
-    expect(wrapper.find("label").text()).toBe("account.iata_labelaccount.iata_help");
+    expect(wrapper.find("label").text()).toBe("common.iata_codeaccount.iata_help");
   });
 
   test("handle change", () => {
