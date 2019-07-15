@@ -39,7 +39,7 @@ const InputPhone = ({ onChange, ...props }: Props) => {
     const { value } = ev.target;
     const error = validator(value);
 
-    setState({ error: validator(value) });
+    setState({ error });
 
     onChange({ value, error });
   };
