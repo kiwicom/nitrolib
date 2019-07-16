@@ -24,7 +24,6 @@ Link.defaultProps = {
 
 const Container = styled.div`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
-  margin-top: 10px;
   cursor: pointer;
 
   .menuIcon {
@@ -49,10 +48,6 @@ Container.defaultProps = {
   theme: themeDefault,
 };
 
-const Item = styled.span`
-  line-height: 20px;
-`;
-
 type Props = {|
   // $FlowExpected: TODO
   Icon: React.ComponentType<$SubType<{ className: string }>>,
@@ -66,12 +61,12 @@ const MenuItem = ({ onClick, Icon, text, link }: Props) => (
     {link !== "" ? (
       <Link href={link} itemProp="url">
         <Icon className="menuIcon" />
-        <Item itemProp="name">{text}</Item>
+        {text}
       </Link>
     ) : (
       <Link>
         <Icon className="menuIcon" />
-        <Item itemProp="name">{text}</Item>
+        {text}
       </Link>
     )}
   </Container>

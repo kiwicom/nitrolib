@@ -3,7 +3,7 @@
 import * as React from "react";
 import * as R from "ramda";
 
-import { Consumer } from "../../services/intl/context";
+import { useIntl } from "../../services/intl/context";
 
 type Props = {
   t: string,
@@ -12,22 +12,17 @@ type Props = {
   transform: (value: string) => string,
 };
 
-const TranslateNode = ({ t, values, transform }: Props) => (
-  <Consumer>
-    {intl =>
-      transform(intl.translate(t))
-        .split("__")
-        .filter(Boolean)
-        .map((word, i) =>
-          values[word] ? (
-            <span key={i}>{values[word]}</span>
-          ) : (
-            <span key={i} dangerouslySetInnerHTML={{ __html: word }} />
-          ),
-        )
-    }
-  </Consumer>
-);
+const TranslateNode = ({ t, values, transform }: Props): React.Node[] =>
+  transform(useIntl().translate(t))
+    .split("__")
+    .filter(Boolean)
+    .map((word, i) =>
+      values[word] ? (
+        <span key={i}>{values[word]}</span>
+      ) : (
+        <span key={i} dangerouslySetInnerHTML={{ __html: word }} />
+      ),
+    );
 
 TranslateNode.defaultProps = {
   transform: R.identity,

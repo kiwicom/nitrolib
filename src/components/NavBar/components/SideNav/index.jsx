@@ -8,13 +8,14 @@ import Portal from "@kiwicom/orbit-components/lib/Portal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import { right, rtlSpacing } from "@kiwicom/orbit-components/lib/utils/rtl";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Separator from "@kiwicom/orbit-components/lib/Separator";
 
 import Translate from "../../../Translate";
 import ClientOnly from "../../../ClientOnly";
 import Mobile from "../../../Mobile";
 import Language from "../../../Language";
-import { Consumer as BrandConsumer } from "../../../../services/brand/context";
-import { Consumer as AuthConsumer } from "../../../../services/auth/context";
+import { useBrand } from "../../../../services/brand/context";
+import { useAuth } from "../../../../services/auth/context";
 import type { ThemeProps } from "../../../../records/Theme";
 import { themeDefault } from "../../../../records/Theme";
 import Currency from "../../../Currency";
@@ -33,11 +34,7 @@ type InvertedProps = {|
 |};
 
 const MediaIcons = styled.div`
-  margin-top: 20px;
-`;
-
-const CurrencySpacing = styled.div`
-  margin-top: 10px;
+  padding-top: 10px;
 `;
 
 const Content = styled.div`
@@ -90,16 +87,6 @@ MenuOpen.defaultProps = {
   theme: themeDefault,
 };
 
-const Separator = styled.div`
-  width: 100%;
-  border-top: 1px dotted ${({ theme }: ThemeProps) => theme.orbit.paletteCloudNormal};
-  margin: 24px 0;
-`;
-
-Separator.defaultProps = {
-  theme: themeDefault,
-};
-
 const Link = styled.a`
   padding: 10px 0;
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
@@ -119,10 +106,6 @@ Link.defaultProps = {
   theme: themeDefault,
 };
 
-type State = {|
-  modalOpen: "" | "chat" | "subscription" | "debug" | "sideNav", // FIXME use modal context
-|};
-
 type Props = {|
   subscription: React.Node,
   debug?: React.Node,
@@ -133,305 +116,284 @@ type Props = {|
   onSetModal: (modal: ModalType) => void,
 |};
 
-export default class SideNav extends React.Component<Props, State> {
-  static defaultProps = {
-    debug: false,
-  };
-
-  state = {
+const SideNav = ({
+  subscription,
+  debug,
+  onSaveLanguage,
+  portal,
+  inverted,
+  onSetModal,
+  onOpenModal,
+}: Props) => {
+  const [state, setState] = React.useState({
     modalOpen: MODALS.NONE,
-  };
+  });
 
-  handleToggle = () => {
-    const { onSetModal } = this.props;
-    const { modalOpen } = this.state;
+  const { modalOpen } = state;
+  const { auth, onSignOut } = useAuth();
+  const brand = useBrand();
+  const company = getPagesItems(brand);
+  const socialMedia = getSocialMediaItems(brand);
 
+  const handleToggle = () => {
     if (modalOpen === MODALS.SIDE_NAV) {
       onSetModal(MODALS.NONE);
-      this.setState({ modalOpen: MODALS.NONE });
+      setState({ modalOpen: MODALS.NONE });
     } else {
       onSetModal(MODALS.SIDE_NAV);
-      this.setState({ modalOpen: MODALS.SIDE_NAV });
+      setState({ modalOpen: MODALS.SIDE_NAV });
     }
   };
 
-  handleOpenSignIn = () => {
-    const { onOpenModal } = this.props;
+  const handleOpenSignIn = () => {
     onOpenModal(MODALS.SIGN_IN);
 
-    this.setState({ modalOpen: MODALS.NONE });
+    setState({ modalOpen: MODALS.NONE });
   };
 
-  handleOpenRegister = () => {
-    const { onOpenModal } = this.props;
+  const handleOpenRegister = () => {
     onOpenModal(MODALS.REGISTER);
 
-    this.setState({ modalOpen: MODALS.NONE });
+    setState({ modalOpen: MODALS.NONE });
   };
 
-  handleOpenSubscription = () => {
-    const { onSetModal } = this.props;
+  const handleOpenSubscription = () => {
     onSetModal(MODALS.SUBSCRIPTION);
 
-    this.setState({ modalOpen: MODALS.SUBSCRIPTION });
+    setState({ modalOpen: MODALS.SUBSCRIPTION });
   };
 
-  handleOpenDebug = () => {
-    const { onSetModal } = this.props;
+  const handleOpenDebug = () => {
     onSetModal(MODALS.DEBUG);
 
-    this.setState({ modalOpen: MODALS.DEBUG });
+    setState({ modalOpen: MODALS.DEBUG });
   };
 
-  handleCloseModal = () => {
-    const { onSetModal } = this.props;
+  const handleCloseModal = () => {
     onSetModal(MODALS.NONE);
 
-    this.setState({ modalOpen: MODALS.NONE });
+    setState({ modalOpen: MODALS.NONE });
   };
 
-  render = () => {
-    const { subscription, debug, onSaveLanguage, portal, inverted } = this.props;
-    const { modalOpen } = this.state;
+  return (
+    <>
+      <MenuOpen
+        aria-label="open"
+        data-test="NavBar-SideNav-Open"
+        onClick={handleToggle}
+        inverted={inverted}
+      >
+        <MenuHamburger />
+      </MenuOpen>
+      <ClientOnly>
+        <SideBar onClick={handleToggle} shown={modalOpen === MODALS.SIDE_NAV}>
+          <section data-test="NavBar-SideNav">
+            <Close data-test="NavBar-SideNav-Close" onClick={handleToggle}>
+              <Stack flex align="center" spacing="none">
+                <Translate html t="common.hide" />{" "}
+                <ChevronRight customColor="#00a991" size="small" />
+              </Stack>
+            </Close>
 
-    return (
-      // TODO: common.open translation does not exists yet
-      <>
-        <MenuOpen
-          aria-label="open"
-          data-test="NavBar-SideNav-Open"
-          onClick={this.handleToggle}
-          inverted={inverted}
-        >
-          <MenuHamburger />
-        </MenuOpen>
-        <ClientOnly>
-          <SideBar onClick={this.handleToggle} shown={modalOpen === MODALS.SIDE_NAV}>
-            <section data-test="NavBar-SideNav">
-              <Close data-test="NavBar-SideNav-Close" onClick={this.handleToggle}>
-                <Stack flex align="center" spacing="none">
-                  <Translate html t="common.hide" />{" "}
-                  <ChevronRight customColor="#00a991" size="small" />
-                </Stack>
-              </Close>
-
-              <Content>
-                {/* DEV FEATURES */}
-                {debug && (
-                  <MenuGroup text="Dev features">
-                    <MenuItem
-                      Icon={icons.Settings}
-                      onClick={this.handleOpenDebug}
-                      text="Show debug window"
-                    />
-                  </MenuGroup>
-                )}
-
-                <Separator />
-
-                {/* Languages and Currencies */}
-                <Mobile display="flex">
+            <Content>
+              {/* DEV FEATURES */}
+              {debug && (
+                <MenuGroup text="Dev features">
+                  <MenuItem
+                    Icon={icons.Settings}
+                    onClick={handleOpenDebug}
+                    text="Show debug window"
+                  />
+                </MenuGroup>
+              )}
+              <Separator spaceAfter="large" />
+              {/* Languages and Currencies */}
+              <Mobile display="flex">
+                <Stack flex direction="column" spacing="none">
                   <MenuGroup>
                     <Language onChange={onSaveLanguage} native />
-                    <CurrencySpacing>
-                      <Currency native />
-                    </CurrencySpacing>
-                    <Separator />
+                    <Currency native />
                   </MenuGroup>
-                </Mobile>
-
-                {/* SIGN-IN/UP/OUT */}
-                <AuthConsumer>
-                  {({ auth, onSignOut }) => (
-                    <MenuGroup>
-                      {auth !== null ? (
-                        <MenuItem
-                          Icon={icons.AccountCircle}
-                          onClick={() => {
-                            onSignOut();
-                            this.handleToggle();
-                          }}
-                          text={<Translate t="account.log_out" />}
-                        />
-                      ) : (
-                        <>
-                          <MenuItem
-                            Icon={icons.AccountCircle}
-                            onClick={this.handleOpenSignIn}
-                            text={<Translate t="account.sign_in" />}
-                          />
-                          <MenuItem
-                            Icon={icons.AccountCircle}
-                            onClick={this.handleOpenRegister}
-                            text={<Translate t="account.sign_up" />}
-                          />
-                        </>
-                      )}
-                    </MenuGroup>
+                  <Separator spaceAfter="large" />
+                </Stack>
+              </Mobile>
+              {/* SIGN-IN/UP/OUT */}
+              <MenuGroup>
+                {auth !== null ? (
+                  <MenuItem
+                    Icon={icons.AccountCircle}
+                    onClick={() => {
+                      onSignOut();
+                      handleToggle();
+                    }}
+                    text={<Translate t="account.log_out" />}
+                  />
+                ) : (
+                  <>
+                    <MenuItem
+                      Icon={icons.AccountCircle}
+                      onClick={handleOpenSignIn}
+                      text={<Translate t="account.sign_in" />}
+                    />
+                    <MenuItem
+                      Icon={icons.AccountCircle}
+                      onClick={handleOpenRegister}
+                      text={<Translate t="account.sign_up" />}
+                    />
+                  </>
+                )}
+              </MenuGroup>
+              <Separator spaceAfter="large" />
+              <>
+                {/* EXPLORE */}
+                <MenuGroup text={<Translate t="sidenav.connect" />}>
+                  {company.invite && (
+                    <BrandedMenuItem
+                      title={company.invite.title}
+                      Icon={company.invite.Icon}
+                      link={company.invite.link}
+                    />
                   )}
-                </AuthConsumer>
 
-                <Separator />
+                  {/* Newsletter */}
+                  {brand.communication.newsletter.enabled && (
+                    <MenuItem
+                      Icon={icons.ContactEmail}
+                      onClick={handleOpenSubscription}
+                      text={<Translate t="common.subscribe" />}
+                    />
+                  )}
 
-                <BrandConsumer>
-                  {brand => {
-                    const company = getPagesItems(brand);
-                    const socialMedia = getSocialMediaItems(brand);
+                  {company.stories && (
+                    <BrandedMenuItem
+                      title={company.stories.title}
+                      Icon={company.stories.Icon}
+                      link={company.stories.link}
+                    />
+                  )}
 
-                    return (
-                      <>
-                        {/* EXPLORE */}
-                        <MenuGroup text={<Translate t="sidenav.connect" />}>
-                          {company.invite && (
-                            <BrandedMenuItem
-                              title={company.invite.title}
-                              Icon={company.invite.Icon}
-                              link={company.invite.link}
-                            />
-                          )}
+                  {/* --- Social links --- */}
+                  <MediaIcons>
+                    {socialMedia.map(({ link, Icon, label }) => (
+                      <Link
+                        key={link}
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={label && <Translate t={label} />}
+                      >
+                        {Icon && <Icon className="socialIcon" />}
+                      </Link>
+                    ))}
+                  </MediaIcons>
+                </MenuGroup>
 
-                          {/* Newsletter */}
-                          {brand.communication.newsletter.enabled && (
-                            <MenuItem
-                              Icon={icons.ContactEmail}
-                              onClick={this.handleOpenSubscription}
-                              text={<Translate t="common.subscribe" />}
-                            />
-                          )}
+                <Separator spaceAfter="large" />
 
-                          {company.stories && (
-                            <BrandedMenuItem
-                              title={company.stories.title}
-                              Icon={company.stories.Icon}
-                              link={company.stories.link}
-                            />
-                          )}
+                {/* COMPANY */}
+                <MenuGroup text={<Translate t="sidenav.company" />}>
+                  {company.about && (
+                    <BrandedMenuItem
+                      title={company.about.title}
+                      Icon={company.about.Icon}
+                      link={company.about.link}
+                    />
+                  )}
+                  {company.careers && (
+                    <BrandedMenuItem
+                      title={company.careers.title}
+                      Icon={company.careers.Icon}
+                      link={company.careers.link}
+                    />
+                  )}
+                  {brand.id === "kiwicom" && (
+                    <>
+                      <MenuItem
+                        Icon={icons.KiwicomCare}
+                        link="https://care.kiwi.com/"
+                        text="Care Kiwi.com"
+                      />
+                      <MenuItem
+                        Icon={icons.Code}
+                        link="https://code.kiwi.com/"
+                        text="Code Kiwi.com"
+                      />
+                    </>
+                  )}
+                  {company.guarantee && (
+                    <BrandedMenuItem
+                      title={company.guarantee.title}
+                      Icon={company.guarantee.Icon}
+                      link={company.guarantee.link}
+                    />
+                  )}
+                  {company.media && (
+                    <BrandedMenuItem
+                      title={company.media.title}
+                      Icon={company.media.Icon}
+                      link={company.media.link}
+                    />
+                  )}
+                </MenuGroup>
 
-                          {/* --- Social links --- */}
-                          <MediaIcons>
-                            {socialMedia.map(({ link, Icon, label }) => (
-                              <Link
-                                key={link}
-                                href={link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label={label && <Translate t={label} />}
-                              >
-                                {Icon && <Icon className="socialIcon" />}
-                              </Link>
-                            ))}
-                          </MediaIcons>
-                        </MenuGroup>
+                <Separator spaceAfter="large" />
+                <MenuGroup text={<Translate t="content.pages.legal.title" />}>
+                  {company.terms && (
+                    <BrandedMenuItem
+                      title={company.terms.title}
+                      Icon={company.terms.Icon}
+                      link={company.terms.link}
+                    />
+                  )}
+                  {company.gdpr_terms && (
+                    <BrandedMenuItem
+                      title={company.gdpr_terms.title}
+                      Icon={company.gdpr_terms.Icon}
+                      link={company.gdpr_terms.link}
+                    />
+                  )}
+                  {company.privacy && (
+                    <BrandedMenuItem
+                      title={company.privacy.title}
+                      Icon={company.privacy.Icon}
+                      link={company.privacy.link}
+                    />
+                  )}
+                  {company.security && (
+                    <BrandedMenuItem
+                      title={company.security.title}
+                      Icon={company.security.Icon}
+                      link={company.security.link}
+                    />
+                  )}
+                  <MenuItem
+                    text={<Translate t="seo.content.title_cookies_settings" />}
+                    link="/pages/cookies_settings"
+                    Icon={icons.Settings}
+                  />
+                </MenuGroup>
+              </>
+            </Content>
+          </section>
+        </SideBar>
+      </ClientOnly>
+      {/* MODALS */}
+      {modalOpen === MODALS.SUBSCRIPTION && (
+        <Portal element={portal}>
+          <Modal onClose={handleCloseModal}>
+            <ModalSection>{subscription}</ModalSection>
+          </Modal>
+        </Portal>
+      )}
+      {modalOpen === MODALS.DEBUG && (
+        <Portal element={portal}>
+          <Modal onClose={handleCloseModal}>
+            <ModalSection>{debug || null}</ModalSection>
+          </Modal>
+        </Portal>
+      )}
+    </>
+  );
+};
 
-                        <Separator />
-
-                        {/* COMPANY */}
-                        <MenuGroup text={<Translate t="sidenav.company" />}>
-                          {company.about && (
-                            <BrandedMenuItem
-                              title={company.about.title}
-                              Icon={company.about.Icon}
-                              link={company.about.link}
-                            />
-                          )}
-                          {company.careers && (
-                            <BrandedMenuItem
-                              title={company.careers.title}
-                              Icon={company.careers.Icon}
-                              link={company.careers.link}
-                            />
-                          )}
-                          {brand.id === "kiwicom" && (
-                            <>
-                              <MenuItem
-                                Icon={icons.KiwicomCare}
-                                link="https://care.kiwi.com/"
-                                text="Care Kiwi.com"
-                              />
-                              <MenuItem
-                                Icon={icons.Code}
-                                link="https://code.kiwi.com/"
-                                text="Code Kiwi.com"
-                              />
-                            </>
-                          )}
-                          {company.guarantee && (
-                            <BrandedMenuItem
-                              title={company.guarantee.title}
-                              Icon={company.guarantee.Icon}
-                              link={company.guarantee.link}
-                            />
-                          )}
-                          {company.media && (
-                            <BrandedMenuItem
-                              title={company.media.title}
-                              Icon={company.media.Icon}
-                              link={company.media.link}
-                            />
-                          )}
-                        </MenuGroup>
-
-                        <Separator />
-
-                        <MenuGroup text={<Translate t="content.pages.legal.title" />}>
-                          {company.terms && (
-                            <BrandedMenuItem
-                              title={company.terms.title}
-                              Icon={company.terms.Icon}
-                              link={company.terms.link}
-                            />
-                          )}
-                          {company.gdpr_terms && (
-                            <BrandedMenuItem
-                              title={company.gdpr_terms.title}
-                              Icon={company.gdpr_terms.Icon}
-                              link={company.gdpr_terms.link}
-                            />
-                          )}
-                          {company.privacy && (
-                            <BrandedMenuItem
-                              title={company.privacy.title}
-                              Icon={company.privacy.Icon}
-                              link={company.privacy.link}
-                            />
-                          )}
-                          {company.security && (
-                            <BrandedMenuItem
-                              title={company.security.title}
-                              Icon={company.security.Icon}
-                              link={company.security.link}
-                            />
-                          )}
-                          <MenuItem
-                            text={<Translate t="seo.content.title_cookies_settings" />}
-                            link="/pages/cookies_settings"
-                            Icon={icons.Settings}
-                          />
-                        </MenuGroup>
-                      </>
-                    );
-                  }}
-                </BrandConsumer>
-              </Content>
-            </section>
-          </SideBar>
-        </ClientOnly>
-        {/* MODALS */}
-        {modalOpen === MODALS.SUBSCRIPTION && (
-          <Portal element={portal}>
-            <Modal onClose={this.handleCloseModal}>
-              <ModalSection>{subscription}</ModalSection>
-            </Modal>
-          </Portal>
-        )}
-        {modalOpen === MODALS.DEBUG && (
-          <Portal element={portal}>
-            <Modal onClose={this.handleCloseModal}>
-              <ModalSection>{debug || null}</ModalSection>
-            </Modal>
-          </Portal>
-        )}
-      </>
-    );
-  };
-}
+export default SideNav;
