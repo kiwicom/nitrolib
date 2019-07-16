@@ -25,7 +25,7 @@ describe("getOptions", () => {
     });
     expect(handBagOptions[0].pickerType).toEqual("handBag");
     const option = handBagOptions.find(o => o.originalIndex === 3);
-    expect(option?.price.amount).toEqual(0);
+    expect(option?.price.amount).toEqual(15.15);
 
     const holdBagOptions = getOptions({
       ...args,

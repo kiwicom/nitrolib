@@ -46,10 +46,11 @@ export default function getOptions(args: GetOptionsArgs): OptionBaggage[] {
     items: getOptionItems(bagDefinitions, c.indices),
   }));
 
-  if (context === "mmb" && typeof currentCombination === "number") {
-    const currentComb = indexedCombinations.find(c => c.originalIndex === currentCombination);
+  const currentComb: ?OptionBaggage = options.find(c => c.originalIndex === currentCombination);
+
+  if (context === "mmb" && currentComb) {
     const currentCombinationPrice = currentComb ? currentComb.price.amount : 0;
-    return options
+    const expensiveOptions = options
       .filter(o => o.price.amount > currentCombinationPrice)
       .map(option => {
         const priceAmount = option.price.amount;
@@ -59,6 +60,7 @@ export default function getOptions(args: GetOptionsArgs): OptionBaggage[] {
           .toNumber();
         return copyOption;
       });
+    return [currentComb, ...expensiveOptions];
   }
 
   return options;
