@@ -38,7 +38,15 @@ describe("getPassengersFromId", () => {
     const passengers = getPassengersFromId([2, 1], passengersData);
 
     expect(passengers).toHaveLength(2);
+    expect(passengers[0].firstName).toBe("Donald");
+    expect(passengers[1].lastName).toBe("Obama");
+  });
+
+  test("return same passengers multiple times", () => {
+    const passengers = getPassengersFromId([1, 1, 2, 2, 2, 3], passengersData);
+    expect(passengers).toHaveLength(6);
     expect(passengers[0].firstName).toBe("Barrack");
-    expect(passengers[1].middleName).toBe("John");
+    expect(passengers[0].middleName).toBe("Hussein");
+    expect(passengers[5].lastName).toBe("Bush");
   });
 });

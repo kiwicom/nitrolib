@@ -1,5 +1,6 @@
 // @flow strict
 import * as React from "react";
+import * as R from "ramda";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
@@ -49,6 +50,8 @@ const BaggageItem = ({
   restrictions,
   FAQLinksHandler,
 }: Props) => {
+  const uniqPassengers = passengers && R.uniq(passengers);
+
   return (
     <Stack
       flex
@@ -138,7 +141,7 @@ const BaggageItem = ({
                   type="secondary"
                   dataTest="BaggageOverview-BaggageItem-Passengers"
                 >
-                  {getPassengerNames(passengers)}
+                  {getPassengerNames(uniqPassengers)}
                 </Text>
               </CenteringFixWrapper>
             </>
