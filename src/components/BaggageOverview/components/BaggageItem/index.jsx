@@ -130,7 +130,7 @@ const BaggageItem = ({
             shrink: true,
           }}
         >
-          {passengers && (
+          {uniqPassengers && (
             <>
               <CenteringFixWrapper>
                 <AccountCircle size="small" color="secondary" />
