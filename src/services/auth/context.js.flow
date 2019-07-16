@@ -31,6 +31,8 @@ export type Context = {|
 
 declare var context: React.Context<Context>;
 
+declare export function useAuth(): Context;
+
 export const { Consumer, Provider } = context;
 
 export default context;

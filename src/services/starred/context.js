@@ -31,4 +31,6 @@ const contextDefault: Context = {
 
 const context: React.Context<Context> = React.createContext(contextDefault);
 
+export const useStarred = () => React.useContext(context);
+
 export const { Consumer, Provider } = context;

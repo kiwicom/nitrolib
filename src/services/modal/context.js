@@ -11,6 +11,8 @@ const context: React.Context<Context> = React.createContext({
   onChange: () => {},
 });
 
+export const useModal = () => React.useContext(context);
+
 export const { Consumer, Provider } = context;
 
 export default context;

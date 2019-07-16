@@ -32,4 +32,6 @@ const context: React.Context<Context> = React.createContext(contextDefault);
 
 export const { Consumer, Provider } = context;
 
+export const useAuth = () => React.useContext(context);
+
 export default context;

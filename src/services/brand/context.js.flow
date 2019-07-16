@@ -5,6 +5,8 @@ import type { Brand } from "../../records/Brand";
 
 declare var context: React.Context<Brand>;
 
+declare export function useBrand(): Brand;
+
 export const { Consumer, Provider } = context;
 
 export default context;

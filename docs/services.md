@@ -169,6 +169,8 @@ export type Context = {|
 
 declare var context: React.Context<Context>;
 
+declare export function useAuth(): Context;
+
 export const { Consumer, Provider } = context;
 
 export default context;
@@ -197,6 +199,8 @@ import * as context from "@kiwicom/nitro/lib/services/brand/context";
 **Types:**
 ```js
 declare var context: React.Context<Brand>;
+
+declare export function useBrand(): Brand;
 
 export const { Consumer, Provider } = context;
 
@@ -258,6 +262,8 @@ export type Context = {|
 |};
 
 declare var context: React.Context<Context>;
+
+declare export function useCurrency(): Context;
 
 export const { Consumer, Provider } = context;
 
@@ -479,6 +485,8 @@ export type Context = {|
 
 declare var context: React.Context<Context>;
 
+declare export function useIntl(): Context;
+
 export const { Consumer, Provider } = context;
 
 export default context;
@@ -604,6 +612,8 @@ export type Context = {|
 
 declare var context: React.Context<Context>;
 
+declare export function useLog(): Context;
+
 export const { Provider, Consumer } = context;
 
 export default context;
@@ -720,6 +730,8 @@ export type Context = {|
 
 declare var context: React.Context<Context>;
 
+declare export function useModal(): Context;
+
 export const { Consumer, Provider } = context;
 
 export default context;
@@ -781,6 +793,8 @@ import * as context from "@kiwicom/nitro/lib/services/session/context";
 **Types:**
 ```js
 declare var context: React.Context<Session>;
+
+declare export function useSession(): Session;
 
 export const { Consumer, Provider } = context;
 
@@ -928,6 +942,8 @@ export type Context = {|
 |};
 
 declare var context: React.Context<Context>;
+
+declare export function useStarred(): Context;
 
 export const { Consumer, Provider } = context;
 ```
