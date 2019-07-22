@@ -1,18 +1,21 @@
 // @flow strict
-import * as R from "ramda";
-
 import type { BaggagePassengerType, Passenger } from "../../../../../records/Baggage";
 
 export default function getPassengersFromId(
   paxIds: number[],
   passengersArray: Passenger[],
 ): BaggagePassengerType[] {
-  return R.innerJoin((passenger, paxId) => passenger.paxId === paxId, passengersArray, paxIds).map(
-    p => ({
-      paxId: p.paxId,
-      firstName: p.firstName,
-      middleName: p.middleName,
-      lastName: p.lastName,
-    }),
-  );
+  return paxIds
+    .map(paxId => {
+      const passenger: ?Passenger = passengersArray.find(p => p.paxId === paxId);
+      return (
+        passenger && {
+          paxId: passenger.paxId,
+          firstName: passenger.firstName,
+          middleName: passenger.middleName,
+          lastName: passenger.lastName,
+        }
+      );
+    })
+    .filter(Boolean);
 }
