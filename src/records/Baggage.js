@@ -71,7 +71,7 @@ export type ItemType = {|
 |};
 
 export type OptionBaggage = {|
-  originalIndex: number,
+  index: number,
   pickerType: BaggageCategory,
   price: PriceType,
   items: { [key: string]: ItemType },

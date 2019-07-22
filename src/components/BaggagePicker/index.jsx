@@ -133,19 +133,19 @@ const BaggagePicker = ({
         </Text>
       )}
       {showedOptions.length > 0 && !hasOnlyEmptyOption ? (
-        showedOptions.map((item, index) => (
+        showedOptions.map(item => (
           <Option
-            key={item.originalIndex}
+            key={item.index}
             airlines={airlines}
-            dataTest={`BaggagePicker-Option-${index}`}
+            dataTest={`BaggagePicker-Option-${item.index}`}
             pickerType={pickerType}
             items={item.items}
             price={item.price}
-            isChecked={item.originalIndex === passengerBaggage[pickerType]}
+            isChecked={item.index === passengerBaggage[pickerType]}
             shouldShowRecheckNote={shouldShowRecheckNote}
             prioBoardingLinkHandler={prioBoardingLinkHandler}
-            isCurrentCombination={item.originalIndex === currentCombination}
-            onClick={() => changeBagCombination(pickerType, item.originalIndex)}
+            isCurrentCombination={item.index === currentCombination}
+            onClick={() => changeBagCombination(pickerType, item.index)}
             isPersonalItemPresent={getPersonalItemPresence({ pickerType, options })}
           />
         ))

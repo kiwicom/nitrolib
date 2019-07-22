@@ -61,7 +61,7 @@ describe("#BaggagePicker", () => {
         <BaggagePicker {...props} baggage={baggageDataCopy} />
       </ThemeProvider>,
     );
-    expect(wrapper.find("[data-test='BaggagePicker-Option-0']").exists()).toBe(true);
+    expect(wrapper.find("[data-test='BaggagePicker-Option-2']").exists()).toBe(true);
     const Button = wrapper.find("[data-test='BaggagePicker-ShowButton']");
     expect(Button.exists()).toBe(false);
   });

@@ -670,7 +670,7 @@ See types:
 * ```"BaggagePicker-RecheckAlert"```
 * ```"BaggagePicker-ShowButton"```
 * ```{`BaggagePicker-${pickerType}`}```
-* ```{`BaggagePicker-Option-${index}`}```
+* ```{`BaggagePicker-Option-${item.index}`}```
 * ```{`BaggagePicker-OptionItem-${category}`}```
 
 - renders baggage picker
