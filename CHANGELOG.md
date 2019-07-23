@@ -1,3 +1,12 @@
+## [6.0.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.0.0...v6.0.1) (2019-07-23)
+
+
+### Bug Fixes
+
+* **components:** Indexing of baggage options ([8098a69](https://gitlab.skypicker.com/frontend/nitrolib/commit/8098a69))
+
+
+
 # [6.0.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.9.2...v6.0.0) (2019-07-23)
 
 
