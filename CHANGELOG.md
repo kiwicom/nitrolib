@@ -1,3 +1,24 @@
+## [5.9.2](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.8.0...v5.9.2) (2019-07-23)
+
+
+### Bug Fixes
+
+* **components:** BaggagePicker show current option ([d8392c9](https://gitlab.skypicker.com/frontend/nitrolib/commit/d8392c9))
+* **components:** IataPicker label ([188438b](https://gitlab.skypicker.com/frontend/nitrolib/commit/188438b))
+* **components:** InputEmail and InputPhone callbacks ([c41a72b](https://gitlab.skypicker.com/frontend/nitrolib/commit/c41a72b))
+* **components:** InputPhone redundant ([0a05dd8](https://gitlab.skypicker.com/frontend/nitrolib/commit/0a05dd8))
+* **components:** Removed NavBar Help button color warning ([032e061](https://gitlab.skypicker.com/frontend/nitrolib/commit/032e061))
+* **components:** Translation collecting for Cookies popup ([6f5cfe5](https://gitlab.skypicker.com/frontend/nitrolib/commit/6f5cfe5))
+* **components:** Update shown options in BaggagePicker ([06256ab](https://gitlab.skypicker.com/frontend/nitrolib/commit/06256ab))
+
+
+### Features
+
+* **components:** InputEmail email corrector is on ([a7a013c](https://gitlab.skypicker.com/frontend/nitrolib/commit/a7a013c))
+* **components:** InputEmail, InputPhone hooks ([43da75c](https://gitlab.skypicker.com/frontend/nitrolib/commit/43da75c))
+
+
+
 ## [5.9.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.8.0...v5.9.1) (2019-07-16)
 
 
