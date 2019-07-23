@@ -1,8 +1,6 @@
 // @flow strict
 import * as React from "react";
 import { mount } from "enzyme";
-import { ThemeProvider } from "styled-components";
-import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
 
 import PriorityBoardingInfo from "..";
 
