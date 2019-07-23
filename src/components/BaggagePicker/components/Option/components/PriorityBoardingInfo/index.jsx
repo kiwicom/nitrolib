@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import styled, { css, ThemeConsumer } from "styled-components";
+import styled, { css } from "styled-components";
 import PriorityBoarding from "@kiwicom/orbit-components/lib/icons/PriorityBoarding";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
@@ -33,16 +33,6 @@ IconWrapper.defaultProps = {
   theme: themeDefault,
 };
 
-const RtlFix = styled.span`
-  > svg {
-    transform: ${({ isRtl }) => (isRtl ? "rotate(180deg)" : "rotate(0deg)")};
-  }
-`;
-
-RtlFix.defaultProps = {
-  isRtl: false,
-};
-
 type Props = {
   airlines: Airline[],
   prioBoardingLinkHandler?: (arg: Airline[]) => void,
@@ -58,13 +48,7 @@ const PriorityBoardingInfo = ({ airlines, prioBoardingLinkHandler }: Props) => (
       dataTest="BaggagePicker-PriorityBoardingInfo"
     >
       <IconWrapper>
-        <ThemeConsumer>
-          {({ rtl }) => (
-            <RtlFix isRtl={rtl}>
-              <PriorityBoarding color="secondary" size="small" />
-            </RtlFix>
-          )}
-        </ThemeConsumer>
+        <PriorityBoarding reverseOnRtl color="secondary" size="small" />
       </IconWrapper>
       <Text size="small" element="p">
         <Translate

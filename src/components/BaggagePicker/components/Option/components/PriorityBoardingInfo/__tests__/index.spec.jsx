@@ -23,19 +23,11 @@ const props = {
 
 describe("#PriorityBoardingInfo", () => {
   test("renders", () => {
-    const wrapper = mount(
-      <ThemeProvider theme={defaultTheme}>
-        <PriorityBoardingInfo {...props} />
-      </ThemeProvider>,
-    );
+    const wrapper = mount(<PriorityBoardingInfo {...props} />);
     expect(wrapper.find("PriorityBoardingInfo").exists()).toBe(true);
   });
   test("renders proper text", () => {
-    const wrapper = mount(
-      <ThemeProvider theme={defaultTheme}>
-        <PriorityBoardingInfo {...props} />
-      </ThemeProvider>,
-    );
+    const wrapper = mount(<PriorityBoardingInfo {...props} />);
     const TextArr = wrapper.find("Text");
     expect(TextArr.first().text()).toBe("baggage_modal.priority_boarding baggage_modal.learn_more");
   });
