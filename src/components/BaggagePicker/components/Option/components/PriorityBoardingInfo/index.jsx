@@ -1,10 +1,9 @@
 // @flow strict
 import * as React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import PriorityBoarding from "@kiwicom/orbit-components/lib/icons/PriorityBoarding";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
-import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Text from "@kiwicom/orbit-components/lib/Text";
 
 import Translate from "../../../../../Translate";
