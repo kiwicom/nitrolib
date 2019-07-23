@@ -1,3 +1,13 @@
+# [6.0.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.9.2...v6.0.0) (2019-07-23)
+
+
+### Features
+
+* Added kiwicom/relay ([1e5697f](https://gitlab.skypicker.com/frontend/nitrolib/commit/1e5697f))
+* Flow update to latest ([b0bc041](https://gitlab.skypicker.com/frontend/nitrolib/commit/b0bc041))
+
+
+
 ## [5.9.2](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.8.0...v5.9.2) (2019-07-23)
 
 
