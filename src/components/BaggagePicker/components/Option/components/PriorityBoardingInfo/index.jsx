@@ -44,7 +44,7 @@ const PriorityBoardingInfo = ({ airlines, prioBoardingLinkHandler }: Props) => (
       flex
       direction="row"
       spacing="condensed"
-      align="center"
+      largeMobile={{ align: "center" }}
       dataTest="BaggagePicker-PriorityBoardingInfo"
     >
       <IconWrapper>
