@@ -52,7 +52,7 @@ const Title = styled.p`
   max-width: 120px;
   line-height: 24px;
   margin: 0;
-  ${mq.largeMobile(css`
+  ${mq.mediumMobile(css`
     max-width: 200px;
   `)};
   ${mq.desktop(css`

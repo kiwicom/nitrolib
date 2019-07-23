@@ -22,16 +22,20 @@ const IconWrapper = styled.div`
   border-top: 1px solid ${({ theme }: ThemeProps) => theme.orbit.borderColorInput};
   min-width: 24px;
   text-align: center;
-  padding: 6px 0px;
+  padding-top: 6px;
 
-  ${mq.largeMobile(css`
-    padding: 4px 0px;
-  `)};
+  svg {
+    vertical-align: start;
+  }
 `;
 
 IconWrapper.defaultProps = {
   theme: themeDefault,
 };
+
+const TextWrapper = styled.div`
+  padding-top: 10px;
+`;
 
 type Props = {
   airlines: Airline[],
@@ -40,34 +44,30 @@ type Props = {
 
 const PriorityBoardingInfo = ({ airlines, prioBoardingLinkHandler }: Props) => (
   <FixWrapper>
-    <Stack
-      flex
-      direction="row"
-      spacing="condensed"
-      largeMobile={{ align: "center" }}
-      dataTest="BaggagePicker-PriorityBoardingInfo"
-    >
+    <Stack flex direction="row" spacing="condensed" dataTest="BaggagePicker-PriorityBoardingInfo">
       <IconWrapper>
         <PriorityBoarding reverseOnRtl color="secondary" size="small" />
       </IconWrapper>
-      <Text size="small" element="p">
-        <Translate
-          t="baggage_modal.priority_boarding"
-          values={{ airlines: airlines.map(a => a.name).join(", ") }}
-        />{" "}
-        <TextLink
-          external={false}
-          onClick={e => {
-            if (prioBoardingLinkHandler) {
-              e.stopPropagation();
-              prioBoardingLinkHandler(airlines);
-            }
-          }}
-          type="secondary"
-        >
-          <Translate t="baggage_modal.learn_more" />
-        </TextLink>
-      </Text>
+      <TextWrapper>
+        <Text size="small" element="p">
+          <Translate
+            t="baggage_modal.priority_boarding"
+            values={{ airlines: airlines.map(a => a.name).join(", ") }}
+          />{" "}
+          <TextLink
+            external={false}
+            onClick={e => {
+              if (prioBoardingLinkHandler) {
+                e.stopPropagation();
+                prioBoardingLinkHandler(airlines);
+              }
+            }}
+            type="secondary"
+          >
+            <Translate t="baggage_modal.learn_more" />
+          </TextLink>
+        </Text>
+      </TextWrapper>
     </Stack>
   </FixWrapper>
 );
