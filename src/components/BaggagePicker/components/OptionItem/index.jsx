@@ -110,8 +110,8 @@ const OptionItem = ({
                   )}
                   {category === "holdBag" &&
                     typeof restrictions.weight === "number" &&
-                  {getTextFromCategory(category, x => x.toLowerCase())}
                     `${restrictions.weight} kg `}
+                  {getTextFromCategory(category)}
                 </Title>
               </Text>
               <BaggageSizeText isMobile>{getBaggageSize(restrictions, rtl)}</BaggageSizeText>
