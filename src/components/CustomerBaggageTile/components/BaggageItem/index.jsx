@@ -69,7 +69,7 @@ const BaggageItem = ({ category, restrictions, isCurrent, orderStatus }: Props) 
             <Stack grow flex align="center" spacing="condensed">
               {getIconFromCategory(category, "small", "primary")}
               <Text element="span" weight={textWeight}>
-                {typeof restrictions.weight === "number" && `${restrictions.weight}kg `}
+                {typeof restrictions.weight === "number" && `${restrictions.weight} kg `}
                 {getTextFromCategory(category)}
               </Text>
             </Stack>

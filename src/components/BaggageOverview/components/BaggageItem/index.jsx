@@ -82,7 +82,7 @@ const BaggageItem = ({
               {`${amount}× `}
               {category === "holdBag" &&
                 typeof restrictions.weight === "number" &&
-                `${restrictions.weight}kg `}
+                `${restrictions.weight} kg `}
               {getTextFromCategory(category, x => x.toLowerCase())}
             </Text>
           </CenteringFixWrapper>
