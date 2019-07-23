@@ -30,23 +30,19 @@ export default function getOptions(args: GetOptionsArgs): OptionBaggage[] {
   const bagDefinitions = definitions[pickerType];
   const combinationsCopy = R.clone([combinations])[0];
 
-  const indexedCombinations: { ...Combination, originalIndex: number }[] = combinationsCopy[
-    pickerType
-  ]
-    .map((item, index) => ({ ...item, originalIndex: index }))
-    .filter(i =>
-      // $FlowExpected: Includes is missing in module ramda
-      R.includes(passengerCategory, i.conditions.passengerGroups),
-    );
+  const passengersCombination: Combination[] = combinationsCopy[pickerType].filter(i =>
+    // $FlowExpected: Includes is missing in module ramda
+    R.includes(passengerCategory, i.conditions.passengerGroups),
+  );
 
-  const options: OptionBaggage[] = indexedCombinations.map(c => ({
-    originalIndex: c.originalIndex,
+  const options: OptionBaggage[] = passengersCombination.map(c => ({
+    index: c.index,
     pickerType,
     price: c.price,
     items: getOptionItems(bagDefinitions, c.indices),
   }));
 
-  const currentComb: ?OptionBaggage = options.find(c => c.originalIndex === currentCombination);
+  const currentComb: ?OptionBaggage = options.find(c => c.index === currentCombination);
 
   if (context === "mmb" && currentComb) {
     const currentCombinationPrice = currentComb ? currentComb.price.amount : 0;

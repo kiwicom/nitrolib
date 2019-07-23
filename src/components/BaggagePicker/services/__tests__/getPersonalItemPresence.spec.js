@@ -4,7 +4,7 @@ import getPersonalItemPresence from "../getPersonalItemPresence";
 
 const options = [
   {
-    originalIndex: 0,
+    index: 0,
     pickerType: "handBag",
     price: {
       currency: "EUR",
@@ -48,7 +48,7 @@ const options = [
     },
   },
   {
-    originalIndex: 1,
+    index: 1,
     pickerType: "holdBag",
     price: {
       currency: "EUR",
@@ -80,7 +80,7 @@ const options = [
 
 const optionsWithoutPersonalItems = [
   {
-    originalIndex: 0,
+    index: 0,
     pickerType: "handBag",
     price: {
       currency: "EUR",
