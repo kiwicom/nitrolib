@@ -49,14 +49,17 @@ BaggageSizeText.defaultProps = {
 };
 
 const Title = styled.p`
-  max-width: 120px;
+  max-width: 110px;
   line-height: 24px;
   margin: 0;
   ${mq.mediumMobile(css`
     max-width: 200px;
   `)};
+  ${mq.tablet(css`
+    max-width: 290px;
+  `)};
   ${mq.desktop(css`
-    max-width: unset;
+    max-width: none;
   `)};
 `;
 
