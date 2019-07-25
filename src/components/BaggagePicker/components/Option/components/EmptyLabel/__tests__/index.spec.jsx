@@ -4,7 +4,7 @@ import { mount } from "enzyme";
 import ThemeProvider from "@kiwicom/orbit-components/lib/ThemeProvider";
 import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
 
-import EmptyLabel from "../index";
+import EmptyLabel from "..";
 
 const props = {
   isCurrentCombination: false,
