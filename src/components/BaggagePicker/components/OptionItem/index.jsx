@@ -48,7 +48,22 @@ BaggageSizeText.defaultProps = {
   isMobile: false,
 };
 
-const Title = styled.span`
+const Title = styled.p`
+  max-width: 110px;
+  line-height: 24px;
+  margin: 0;
+  ${mq.mediumMobile(css`
+    max-width: 200px;
+  `)};
+  ${mq.tablet(css`
+    max-width: 290px;
+  `)};
+  ${mq.desktop(css`
+    max-width: none;
+  `)};
+`;
+
+const CurrentItem = styled.span`
   line-height: 24px;
 `;
 
@@ -78,7 +93,14 @@ const OptionItem = ({
   return (
     <ThemeConsumer>
       {({ rtl }) => (
-        <Stack flex shrink align="start" dataTest={`BaggagePicker-OptionItem-${category}`}>
+        <Stack
+          flex
+          shrink
+          align="start"
+          dataTest={`BaggagePicker-OptionItem-${category}`}
+          spacing="none"
+          mediumMobile={{ spacing: "tight" }}
+        >
           <Stack inline spacing="condensed" mediumMobile={{ shrink: true, inline: false }}>
             {getIconFromCategory(category, "medium", "primary")}
             <Stack inline direction="column" spacing="none">
@@ -91,8 +113,8 @@ const OptionItem = ({
                   )}
                   {category === "holdBag" &&
                     typeof restrictions.weight === "number" &&
-                    `${restrictions.weight}kg `}
-                  {getTextFromCategory(category, x => x.toLowerCase())}
+                    `${restrictions.weight} kg `}
+                  {getTextFromCategory(category)}
                 </Title>
               </Text>
               <BaggageSizeText isMobile>{getBaggageSize(restrictions, rtl)}</BaggageSizeText>
@@ -104,7 +126,9 @@ const OptionItem = ({
             largeMobile={{ justify: "between", shrink: true, basis: "100%" }}
           >
             <BaggageSizeText>{getBaggageSize(restrictions, rtl)}</BaggageSizeText>
-            <Title>{isFirstItem && getFirstItemInfo(isCurrentCombination, price.amount)}</Title>
+            <CurrentItem>
+              {isFirstItem && getFirstItemInfo(isCurrentCombination, price.amount)}
+            </CurrentItem>
           </Stack>
         </Stack>
       )}

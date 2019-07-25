@@ -94,7 +94,7 @@ const Option = ({
 
   return (
     <Wrapper onClick={onClick} checked={isChecked} data-test={dataTest}>
-      <Stack flex>
+      <Stack flex spacing="condensed" mediumMobile={{ spacing: "natural" }}>
         <RadioWrapper>
           <Radio checked={isChecked} onChange={onClick} />
         </RadioWrapper>
