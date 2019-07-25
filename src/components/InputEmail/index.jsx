@@ -8,6 +8,7 @@ import { email as normalize } from "../../services/input/normalizers";
 import { email, required } from "../../services/input/validators";
 import compose from "../../services/input/composeValidator";
 import corrector from "../../services/input/emailCorrector";
+import Translate from "../Translate";
 
 const validator = compose(
   email,
@@ -69,7 +70,7 @@ const InputEmail = ({ onChange, ...props }: Props) => {
       required
       name={name}
       size={size}
-      error={state.error}
+      error={<Translate t={state.error} />}
       onBlur={onBlur}
       tabIndex={tabIndex}
       onFocus={onFocus}

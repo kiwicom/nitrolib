@@ -4,6 +4,7 @@ import InputField from "@kiwicom/orbit-components/lib/InputField";
 import type { spaceAfter as SpaceAfter } from "@kiwicom/orbit-components/lib/common/getSpacingToken";
 import type { Translation } from "@kiwicom/orbit-components/lib/common/common.js.flow";
 
+import Translate from "../Translate";
 import { phone, required } from "../../services/input/validators";
 import compose from "../../services/input/composeValidator";
 
@@ -68,7 +69,7 @@ const InputPhone = ({ onChange, ...props }: Props) => {
       required
       name={name}
       size={size}
-      error={state.error}
+      error={<Translate t={state.error} />}
       onBlur={onBlur}
       tabIndex={tabIndex}
       onFocus={onFocus}

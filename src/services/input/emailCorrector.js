@@ -54,6 +54,7 @@ const TLD = [
   "com.sg",
   "com.tw",
   "cz",
+  "cn",
   "de",
   "dk",
   "edu",

@@ -1273,6 +1273,9 @@ declare export default React.ComponentType<Props>;
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=InputEmail).
 
+**Context needs:**
+* [intl](./services#intl)
+
 Nitro `Email` Wrapper for `InputField` from ***Orbit-components***
 
 - Email validation by `validator.js`
@@ -1314,6 +1317,9 @@ declare export default React.ComponentType<Props>;
 ```
 
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=InputPhone).
+
+**Context needs:**
+* [intl](./services#intl)
 
 Nitro `Phone` Wrapper for `InputField` from ***Orbit-components***
 
