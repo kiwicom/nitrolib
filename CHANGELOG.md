@@ -1,3 +1,13 @@
+## [6.0.3](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.0.2...v6.0.3) (2019-07-25)
+
+
+### Bug Fixes
+
+* Lock file ([269161d](https://gitlab.skypicker.com/frontend/nitrolib/commit/269161d))
+* **components:** InputEmail onChange ([a1a62b6](https://gitlab.skypicker.com/frontend/nitrolib/commit/a1a62b6))
+
+
+
 ## 6.0.2 (2019-07-25)
 
 
