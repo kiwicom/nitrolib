@@ -1261,7 +1261,7 @@ type Props = {|
   tabIndex?: string,
   autoComplete?: string,
   id?: string,
-  onChange?: (value: string) => void,
+  onChange: ({ value: string, error: string }) => void,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onKeyDown?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,
