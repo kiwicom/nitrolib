@@ -1,3 +1,12 @@
+## [6.0.4](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.0.3...v6.0.4) (2019-07-26)
+
+
+### Bug Fixes
+
+* **components:** InputEmail and InputPhone translation errors, corrector ([bf5a402](https://gitlab.skypicker.com/frontend/nitrolib/commit/bf5a402))
+
+
+
 ## [6.0.3](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.0.2...v6.0.3) (2019-07-25)
 
 
