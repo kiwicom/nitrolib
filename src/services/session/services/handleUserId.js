@@ -2,10 +2,11 @@
 import * as cookies from "../cookies";
 import { USER_ID } from "../../../consts/cookies";
 import { makeUserId } from "../ids";
+import isUUID from "../../utils/isUUID";
 
 const handleUserId = (fromUrl: ?string): string => {
   // URL 1st
-  if (fromUrl) {
+  if (fromUrl && isUUID(String(fromUrl))) {
     cookies.save(USER_ID, fromUrl);
     return fromUrl;
   }

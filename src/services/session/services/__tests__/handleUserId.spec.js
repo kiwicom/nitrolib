@@ -8,10 +8,10 @@ jest.mock("../../../../services/session/ids");
 
 describe("#handleUserId", () => {
   test("url", () => {
-    const res = handleUserId("lol");
+    const res = handleUserId("84b01832-ea96-43b5-bf45-045a22fa46a9");
 
-    expect(res).toBe("lol");
-    expect(cookies.save).toBeCalledWith(USER_ID, "lol");
+    expect(res).toBe("84b01832-ea96-43b5-bf45-045a22fa46a9");
+    expect(cookies.save).toBeCalledWith(USER_ID, "84b01832-ea96-43b5-bf45-045a22fa46a9");
   });
 
   test("cookies", () => {

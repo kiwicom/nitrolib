@@ -20,7 +20,8 @@ describe("#init", () => {
   test("mount", () => {
     // $FlowExpected: jest bug
     qs.parse.mockReturnValue({
-      userId: "kek",
+      // UUID v4 string
+      userId: "84b01832-ea96-43b5-bf45-045a22fa46a9",
       affilId: "bur",
       lol: "lmao",
       deeplinkId: "ugh",
@@ -39,7 +40,7 @@ describe("#init", () => {
 
     const res = init();
 
-    expect(handleUserId).toBeCalledWith("kek");
+    expect(handleUserId).toBeCalledWith("84b01832-ea96-43b5-bf45-045a22fa46a9");
     expect(handleAffiliateId).toBeCalledWith("bur", { lol: "lmao", utm_source: "omg" });
     expect(handleSessionId).toBeCalledWith();
     expect(handleDeeplinkId).toBeCalledWith("ugh");
