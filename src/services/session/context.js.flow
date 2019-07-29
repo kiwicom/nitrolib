@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import type { Session } from "../../records/Session";
+import { Session } from "../../records/Session";
 
 declare var context: React.Context<Session>;
 

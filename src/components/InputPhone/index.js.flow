@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
-import type { spaceAfter as SpaceAfter } from "@kiwicom/orbit-components/lib/common/getSpacingToken";
-import type { Translation } from "@kiwicom/orbit-components/lib/common/common.js.flow";
+import { spaceAfter as SpaceAfter } from "@kiwicom/orbit-components/lib/common/getSpacingToken";
+import { Translation } from "@kiwicom/orbit-components/lib/common/common.js.flow";
 
 type Props = {|
   ...SpaceAfter,

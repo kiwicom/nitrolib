@@ -1,4 +1,4 @@
 // @flow strict
-import type { Currencies, FetchedCurrencies } from "../../../records/Currency";
+import { Currencies, FetchedCurrencies } from "../../../records/Currency";
 
 declare export default (fetched: FetchedCurrencies) => Currencies;

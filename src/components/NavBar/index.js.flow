@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import type { Modal } from "../../consts/modals";
+import { Modal } from "../../consts/modals";
 
 type Props = {|
   starred: React.Node,

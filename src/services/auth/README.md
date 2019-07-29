@@ -10,7 +10,7 @@ A fresh setup might look something like:
 // ...
 import InitAuth from "@kiwicom/nitro/lib/components/InitAuth";
 import { Provider as AuthProvider } from "@kiwicom/nitro/lib/services/auth/context";
-import type { Brand } from "@kiwicom/nitro/lib/records/Brand";
+import { Brand } from "@kiwicom/nitro/lib/records/Brand";
 // ...
 
 const AUTH_COOKIE = "AUTH_TOKEN"; // or whatever you save it as

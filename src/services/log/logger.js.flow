@@ -1,7 +1,7 @@
 // @flow strict
-import type { Globals } from "../../records/Loglady";
-import type { Event, EventPayload, Props } from "../../records/Event";
-import type { Settings as ApiSettings } from "./api";
+import { Globals } from "../../records/Loglady";
+import { Event, EventPayload, Props } from "../../records/Event";
+import { Settings as ApiSettings } from "./api";
 
 export type Statics = {|
   project: string,

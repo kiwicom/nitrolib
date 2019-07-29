@@ -1,9 +1,9 @@
 // @flow strict
 import * as React from "react";
 
-import type { Brand } from "../../records/Brand";
-import type { Currencies, FetchedCurrencies, Currency } from "../../records/Currency";
-import type { Countries } from "../../records/Country";
+import { Brand } from "../../records/Brand";
+import { Currencies, FetchedCurrencies, Currency } from "../../records/Currency";
+import { Countries } from "../../records/Country";
 
 type Arg = {|
   currency: Currency,

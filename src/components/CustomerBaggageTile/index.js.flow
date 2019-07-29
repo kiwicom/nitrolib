@@ -1,5 +1,5 @@
 // @flow strict
-import type { BaggageType, Gender, Definition } from "../../records/Baggage";
+import { BaggageType, Gender, Definition } from "../../records/Baggage";
 
 type Props = {|
   firstName: string,

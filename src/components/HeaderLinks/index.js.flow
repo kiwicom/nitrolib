@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import type { HeaderLink, SearchForm, HeaderLinksContext } from "./records/HeaderLink";
+import { HeaderLink, SearchForm, HeaderLinksContext } from "./records/HeaderLink";
 
 type Splitster = {
   // FIXME add a firm structure

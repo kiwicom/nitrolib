@@ -3,7 +3,7 @@
 Make sure these tasks run without errors:
 * `yarn test`
 * `yarn lint`
-* `yarn flow check`
+* `yarn types`
 
 ## Development
 

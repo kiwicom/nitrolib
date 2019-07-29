@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import type { StarredItem } from "../../records/Starred";
+import { StarredItem } from "../../records/Starred";
 
 type Args = {|
   list: StarredItem[],

@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-type Props = {|
+type Props = {||
   value: Date,
   onChange: (date: Date) => void,
   label: string,

@@ -1,8 +1,8 @@
 // @flow strict
 import * as React from "react";
 
-import type { BaggageCategory, PassengerGroup, BaggageType } from "../../records/Baggage";
-import type { Airline } from "../../records/Airline";
+import { BaggageCategory, PassengerGroup, BaggageType } from "../../records/Baggage";
+import { Airline } from "../../records/Airline";
 
 type Props = {|
   changeBagCombination: (picker: BaggageCategory, item: number) => void,

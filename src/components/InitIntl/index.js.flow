@@ -1,8 +1,8 @@
 // @flow strict
 import * as React from "react";
 
-import type { IntlRaw } from "../../records/Intl";
-import type { Context } from "../../services/intl/context";
+import { IntlRaw } from "../../records/Intl";
+import { Context } from "../../services/intl/context";
 
 type Props = {|
   raw: IntlRaw,

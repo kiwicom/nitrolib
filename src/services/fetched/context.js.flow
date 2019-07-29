@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import type { Fetched } from "../../records/Fetched";
+import { Fetched } from "../../records/Fetched";
 
 declare var context: React.Context<Fetched>;
 

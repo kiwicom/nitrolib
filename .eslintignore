@@ -4,3 +4,4 @@ lib
 dist-storybook
 flow-typed
 *.graphql.js
+*.js.flow

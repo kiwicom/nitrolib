@@ -1,9 +1,9 @@
 // @flow strict
 import * as React from "react";
-import type { Environment } from "@kiwicom/relay";
+import { Environment } from "@kiwicom/relay";
 
-import type { Auth, SocialProvider } from "../../records/Auth";
-import type { Brand } from "../../records/Brand";
+import { Auth, SocialProvider } from "../../records/Auth";
+import { Brand } from "../../records/Brand";
 
 type MyBookingInput = {|
   bid: string,

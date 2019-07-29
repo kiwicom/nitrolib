@@ -1,5 +1,5 @@
 // @flow strict
-import type { BaggageType } from "../../records/Baggage";
+import { BaggageType } from "../../records/Baggage";
 
 type Passenger = {|
   paxId: number,

@@ -1,0 +1,20 @@
+import * as React from "react";
+import { shallow } from "enzyme";
+
+import { langInfoDefault } from "../../../records/LangInfo";
+import { brandLanguageDefault } from "../../../records/BrandLanguage";
+import NativePicker from "../NativePicker";
+
+describe("#Language/NativePicker", () => {
+  test("render", () => {
+    const wrapper = shallow(
+      <NativePicker
+        current={langInfoDefault}
+        languages={[brandLanguageDefault.languages.en]}
+        onChange={jest.fn()}
+      />,
+    );
+
+    expect(wrapper.find("NativeGroupedSelect").exists()).toBe(true);
+  });
+});

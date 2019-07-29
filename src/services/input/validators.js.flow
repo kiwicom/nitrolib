@@ -1,4 +1,3 @@
-// @flow strict
 export type Error = string; // "" means no error
 
 declare export var required: (val: mixed) => Error;

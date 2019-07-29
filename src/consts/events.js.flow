@@ -1,5 +1,5 @@
 // @flow strict
-import type { Event } from "../records/Event";
+import { Event } from "../records/Event";
 
 declare export var API_ERROR: Event;
 declare export var API_REQUEST: Event;

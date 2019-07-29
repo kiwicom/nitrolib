@@ -13,7 +13,7 @@ const makeFilename = (locale, hash) => `translations/${locale}_${hash}.json`;
 type Intl = {|
   locale: string,
   translations: { [key: string]: string },
-|};
+};
 */
 
 const getLocale = (locale, folder) /* : Promise<Intl> */ =>

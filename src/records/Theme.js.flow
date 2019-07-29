@@ -1,7 +1,7 @@
 // @flow strict
-import type { Theme } from "@kiwicom/orbit-components/lib/defaultTheme";
+import { Theme } from "@kiwicom/orbit-components/lib/defaultTheme";
 
-import type { Brand } from "./Brand";
+import { Brand } from "./Brand";
 
 export type ThemeProps = {| theme: Theme |};
 

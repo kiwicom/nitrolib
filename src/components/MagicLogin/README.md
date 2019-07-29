@@ -34,8 +34,8 @@ Modal component handling the whole login flow with magic link.
 import * as React from "react"
 import { connect } from "react-redux"
 import MagicLogin from "@kiwicom/nitro/lib/components/MagicLogin"
-import type { Connector } from "react-redux"
-import type { AuthUser } from "@kiwicom/nitro/lib/records/Auth"
+import { Connector } from "react-redux"
+import { AuthUser } from "@kiwicom/nitro/lib/records/Auth"
 
 type Provider = "facebook" | "google"
 
@@ -51,7 +51,7 @@ type OwnProps = {|
   onClose: () => void,
 |}
 
-type Props = {|
+type Props = {
   ...ConnectorHandlers,
   ...OwnProps,
 |}

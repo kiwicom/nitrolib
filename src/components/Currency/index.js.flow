@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import type { Modal as ModalType } from "../../consts/modals";
+import { Modal as ModalType } from "../../consts/modals";
 
 type Props = {|
   positionMenuTablet?: number,

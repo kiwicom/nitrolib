@@ -3,12 +3,13 @@
 Located in `@kiwicom/nitro/lib/consts/<const>`.
 
 **List:**
-* [Config](#config)
-* [Cookies](#cookies)
-* [Events](#events)
-* [Local](#local)
-* [Modals](#modals)
-* [Session](#session)
+- [Constants](#constants)
+  - [Config](#config)
+  - [Cookies](#cookies)
+  - [Events](#events)
+  - [Local](#local)
+  - [Modals](#modals)
+  - [Session](#session)
 
 ## Config
 
@@ -19,7 +20,7 @@ import * as config from "@kiwicom/nitro/lib/consts/config";
 
 **Types:**
 ```js
-declare export default {|
+declare export default {
   apiDateFormat: string,
   apiUrl: string,
   apiBookingUrl: string,
@@ -91,7 +92,7 @@ declare export default {|
   dailyQueriesStat: string,
   priceUpdatesStat: string,
   graphQLUrl: string,
-|};
+};
 ```
 
 ## Cookies

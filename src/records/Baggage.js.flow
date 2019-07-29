@@ -1,5 +1,5 @@
 // @flow strict
-import type { PriceType } from "./Price";
+import { PriceType } from "./Price";
 
 export type BaggageCategory = "holdBag" | "handBag";
 export type BaggageSubCategory = "holdBag" | "personalItem" | "cabinBag";

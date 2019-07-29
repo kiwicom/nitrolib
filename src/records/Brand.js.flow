@@ -439,4 +439,445 @@ export type Brand = {|
 
 export type Brands = { [key: string]: Brand };
 
+declare export var brandDefault: Brand;// @flow strict
+export type Brand = {|
+  domain: string,
+  home_redirect_url: string,
+  communication: {|
+    push_notifications_sending: {|
+      filter_out: string[],
+      enabled: boolean,
+    |},
+    newsletter: {|
+      enabled: boolean,
+    |},
+    email_sending: {|
+      support_sender_address: string,
+      info_sender_address: string,
+      human_resources_address: string,
+      at_the_airport_address: string,
+      guarantee_address: string,
+      sender_name: string,
+      filter_out: string[],
+      main_sender_address: string,
+      enabled: boolean,
+      help_request_address: string,
+      business_address: string,
+      refund_reply_address: string,
+      archive_email_proxy_list: [string, string, string, string, string, string, string, string],
+      marketing_address: string,
+      signing_domain: string,
+      legal_address: string,
+    |},
+    sms_sending: {|
+      twilio_number: string,
+      sender_name: string,
+      filter_out: string[],
+      enabled: boolean,
+      nexmo_number: string,
+      company_name: string,
+    |},
+  |},
+  api: {|
+    helpcenter: string,
+  |},
+  booked_at: string,
+  partner: string,
+  id: string,
+  support_247: boolean,
+  contacts: {|
+    phones: {|
+      enabled: boolean,
+      locales: {
+        [lang: string]: {|
+          number: string,
+          id: string,
+          native_support: string,
+        |},
+      },
+    |},
+    emails: {|
+      enabled: boolean,
+      locales: {
+        [lang: string]: {|
+          webFormAlias?: string,
+          webFormEmail: string,
+          id?: string,
+          email?: string,
+        |},
+      },
+    |},
+    chat: {|
+      enabled: boolean,
+    |},
+  |},
+  base_url: string,
+  content: {|
+    eticket: {|
+      credit_cards: {|
+        primary_string: string,
+        show_signature: boolean,
+        secondary_string: string,
+      |},
+    |},
+    media: {|
+      instagram: {|
+        link: string,
+        enabled: boolean,
+      |},
+      twitter: {|
+        link: string,
+        enabled: boolean,
+      |},
+      youtube: {|
+        enabled: boolean,
+      |},
+      linkedin: {|
+        link: string,
+        enabled: boolean,
+      |},
+      blog: {|
+        enabled: boolean,
+      |},
+      facebook: {|
+        link: string,
+        enabled: boolean,
+      |},
+    |},
+    search: {|
+      sorting: {|
+        enabled: boolean,
+      |},
+      modes: {|
+        return: {
+          enabled: boolean,
+        },
+        oneway: {
+          enabled: boolean,
+        },
+        salesman: {
+          enabled: boolean,
+        },
+        multicity: {
+          enabled: boolean,
+        },
+      |},
+    |},
+    legal: {|
+      booking_agreement: {|
+        t_key: string,
+      |},
+      cookies: {|
+        t_key: string,
+      |},
+      terms: {|
+        t_key: string,
+      |},
+      privacy: {|
+        t_key: string,
+      |},
+    |},
+    general: {|
+      trustpilot: {|
+        link: string,
+        enabled: boolean,
+      |},
+    |},
+    promotion: {|
+      uber: {|
+        link: string,
+        code: string,
+        enabled: boolean,
+      |},
+      rentalcars: {},
+      mobile_apps: {|
+        download: {|
+          link: string,
+          enabled: boolean,
+        |},
+        android: {|
+          link: string,
+          enabled: boolean,
+          id: string,
+        |},
+        ios: {|
+          link: string,
+          enabled: boolean,
+          id: string,
+        |},
+      |},
+      car_rental: {|
+        mail_link_base_url: string,
+        mail_link: string,
+        enabled: boolean,
+        external: boolean,
+        email_enabled: boolean,
+      |},
+      accommodation: {|
+        mail_link_base_url: string,
+        enabled: boolean,
+        external: boolean,
+        email_enabled: boolean,
+      |},
+    |},
+    pages: {|
+      about: {|
+        fully_qualified: boolean,
+        link: string,
+        enabled: boolean,
+      |},
+      terms: {|
+        fully_qualified: boolean,
+        link: string,
+        enabled: boolean,
+      |},
+      invite: {|
+        link: string,
+        enabled: boolean,
+      |},
+      privacy: {|
+        fully_qualified: boolean,
+        link: string,
+        enabled: boolean,
+      |},
+      top_routes: {|
+        fully_qualified: boolean,
+        link: string,
+        enabled: boolean,
+      |},
+      media: {|
+        fully_qualified: boolean,
+        link: string,
+        enabled: boolean,
+      |},
+      brand: {|
+        fully_qualified: boolean,
+        link: string,
+        enabled: boolean,
+      |},
+      gdpr_terms: {|
+        fully_qualified: boolean,
+        link: string,
+        enabled: boolean,
+      |},
+      faq: {|
+        fully_qualified: boolean,
+        link: string,
+        enabled: boolean,
+      |},
+      stories: {|
+        link: string,
+        enabled: boolean,
+      |},
+      branding: {|
+        link: string,
+        enabled: boolean,
+      |},
+      security: {|
+        link: string,
+        enabled: boolean,
+      |},
+      careers: {|
+        fully_qualified: boolean,
+        link: string,
+        enabled: boolean,
+      |},
+      guarantee: {|
+        fully_qualified: boolean,
+        link: string,
+        enabled: boolean,
+      |},
+    |},
+  |},
+  theme: {|
+    colors: {|
+      "danger-900": string,
+      "primary-800": string,
+      "danger-300": string,
+      "google-800": string,
+      "accent-500": string,
+      "grey-500": string,
+      "danger-800": string,
+      "accent-200": string,
+      "success-300": string,
+      "primary-900": string,
+      "danger-400": string,
+      "accent-100": string,
+      "grey-400": string,
+      "neutral-200": string,
+      "neutral-500": string,
+      "primary-300": string,
+      "success-200": string,
+      "warning-400": string,
+      "grey-200": string,
+      "neutral-400": string,
+      "warning-500": string,
+      "trip-start": string,
+      "google-500": string,
+      "neutral-700": string,
+      "accent-800": string,
+      "neutral-300": string,
+      "accent-900": string,
+      "neutral-600": string,
+      "danger-500": string,
+      "accent-300": string,
+      "danger-200": string,
+      "insurance-plus": string,
+      "grey-700": string,
+      white: string,
+      "grey-900": string,
+      "grey-600": string,
+      "neutral-900": string,
+      "facebook-500": string,
+      "grey-100": string,
+      "warning-300": string,
+      "success-400": string,
+      "warning-600": string,
+      "warning-800": string,
+      "facebook-600": string,
+      "primary-600": string,
+      "grey-800": string,
+      "success-700": string,
+      "warning-700": string,
+      "primary-100": string,
+      "neutral-100": string,
+      "text-secondary": string,
+      "mail-footer-500": string,
+      "success-100": string,
+      "warning-100": string,
+      "mail-button-500": string,
+      "google-600": string,
+      "primary-400": string,
+      "success-900": string,
+      "warning-200": string,
+      "mail-header-500": string,
+      "facebook-800": string,
+      "primary-200": string,
+      "success-500": string,
+      "primary-500": string,
+      "text-primary": string,
+      "accent-600": string,
+      "brand-info": string,
+      "danger-700": string,
+      "warning-900": string,
+      "trip-end": string,
+      "accent-700": string,
+      "neutral-800": string,
+      "danger-600": string,
+      "success-800": string,
+      "danger-100": string,
+      "success-600": string,
+      "accent-400": string,
+      "primary-700": string,
+    |},
+    palette: {|
+      productNormal: string,
+      productNormalHover: string,
+      productLight: string,
+      productDark: string,
+      productLightHover: string,
+      productLightActive: string,
+      productNormalActive: string,
+      productDarkHover?: string,
+      productDarkActive?: string,
+    |},
+  |},
+  company_name: string,
+  localization: {|
+    languages: {|
+      default: string,
+      locales: {
+        [lang: string]: {|
+          enabled: boolean,
+          mailing: boolean,
+        |},
+      },
+    |},
+  |},
+  auth: {|
+    credentials: boolean,
+    social_google: {|
+      enabled: boolean,
+    |},
+    social_facebook: {|
+      enabled: boolean,
+    |},
+  |},
+  web_title: string,
+  affilid: string,
+  services: {|
+    add_bags: {|
+      enabled: boolean,
+    |},
+    refunds: {|
+      enabled: boolean,
+    |},
+    change_flights: {|
+      enabled: boolean,
+    |},
+    watchdog: {|
+      enabled: boolean,
+    |},
+    insurance: {|
+      enabled: boolean,
+    |},
+    guarantee: {|
+      enabled: boolean,
+    |},
+  |},
+  fallbackDomain: string,
+  name: string,
+  web_link: string,
+  payments: {|
+    zooz_id: string,
+    refund_methods: {|
+      origin: {|
+        enabled: boolean,
+      |},
+      credits: {|
+        enabled: boolean,
+      |},
+      pay_pal: {|
+        enabled: boolean,
+      |},
+      voucher: {|
+        enabled: boolean,
+      |},
+      bank_transfer: {|
+        enabled: boolean,
+      |},
+    |},
+    whitelisted_currencies: string[],
+    payment_methods: {|
+      alipay: {|
+        enabled: boolean,
+      |},
+      sofort: {|
+        enabled: boolean,
+      |},
+      cup: {|
+        enabled: boolean,
+      |},
+      paypal: {|
+        enabled: boolean,
+      |},
+      credits: {|
+        enabled: boolean,
+      |},
+      yandex: {|
+        enabled: boolean,
+      |},
+      trustly: {|
+        enabled: boolean,
+      |},
+      card: {|
+        enabled: boolean,
+      |},
+    |},
+  |},
+  powered_by_kiwi: boolean,
+|};
+
+export type Brands = { [key: string]: Brand };
+
 declare export var brandDefault: Brand;

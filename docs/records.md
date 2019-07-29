@@ -2,39 +2,40 @@
 
 Located in `@kiwicom/nitro/lib/records/<record>`.
 
-* [Affiliate](#affiliate)
-* [Airline](#airline)
-* [Auth](#auth)
-* [Baggage](#baggage)
-* [BaggageInfo](#baggageinfo)
-* [Brand](#brand)
-* [BrandLanguage](#brandlanguage)
-* [Continents](#continents)
-* [Country](#country)
-* [Currency](#currency)
-* [Event](#event)
-* [Fetched](#fetched)
-* [Intl](#intl)
-* [Itinerary](#itinerary)
-* [LangInfo](#langinfo)
-* [Languages](#languages)
-* [Location](#location)
-* [Loglady](#loglady)
-* [Price](#price)
-* [Sector](#sector)
-* [Segment](#segment)
-* [Session](#session)
-* [Starred](#starred)
-* [Station](#station)
-* [Theme](#theme)
-* [User](#user)
+- [Records](#records)
+  - [Affiliate](#affiliate)
+  - [Airline](#airline)
+  - [Auth](#auth)
+  - [Baggage](#baggage)
+  - [BaggageInfo](#baggageinfo)
+  - [Brand](#brand)
+  - [BrandLanguage](#brandlanguage)
+  - [Continents](#continents)
+  - [Country](#country)
+  - [Currency](#currency)
+  - [Event](#event)
+  - [Fetched](#fetched)
+  - [Intl](#intl)
+  - [Itinerary](#itinerary)
+  - [LangInfo](#langinfo)
+  - [Languages](#languages)
+  - [Location](#location)
+  - [Loglady](#loglady)
+  - [Price](#price)
+  - [Sector](#sector)
+  - [Segment](#segment)
+  - [Session](#session)
+  - [Starred](#starred)
+  - [Station](#station)
+  - [Theme](#theme)
+  - [User](#user)
 
 ## Affiliate
 
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Affiliate";
-import type { Affiliate } from "@kiwicom/nitro/lib/records/Affiliate";
+import { Affiliate } from "@kiwicom/nitro/lib/records/Affiliate";
 ```
 
 **Types:**
@@ -42,7 +43,7 @@ import type { Affiliate } from "@kiwicom/nitro/lib/records/Affiliate";
 export type Affiliate = {|
   id: string,
   params: { [key: string]: string },
-|};
+};
 ```
 
 Holds information specific for the given affiliate.
@@ -52,7 +53,7 @@ Holds information specific for the given affiliate.
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Airline";
-import type { Airline } from "@kiwicom/nitro/lib/records/Airline";
+import { Airline } from "@kiwicom/nitro/lib/records/Airline";
 ```
 
 **Types:**
@@ -61,7 +62,7 @@ export type Airline = {|
   id: string,
   lcc: number,
   name: string,
-|};
+};
 
 export type Airlines = {
   [key: string]: Airline,
@@ -77,7 +78,7 @@ _TODO_
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Auth";
-import type { Auth } from "@kiwicom/nitro/lib/records/Auth";
+import { Auth } from "@kiwicom/nitro/lib/records/Auth";
 ```
 
 **Types:**
@@ -86,19 +87,19 @@ export type AuthUser = {|
   type: "user",
   user: User,
   token: string,
-|};
+};
 
 export type AuthMagic = {|
   type: "magic",
   email: string,
   token: string,
-|};
+};
 
 export type AuthToken = {|
   type: "token",
   bid: number,
   token: string,
-|};
+};
 
 export type Auth = AuthUser | AuthMagic | AuthToken;
 
@@ -119,7 +120,7 @@ _TODO_
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Baggage";
-import type { Baggage } from "@kiwicom/nitro/lib/records/Baggage";
+import { Baggage } from "@kiwicom/nitro/lib/records/Baggage";
 ```
 
 **Types:**
@@ -137,7 +138,7 @@ export type Restrictions = {|
   width: ?number,
   length: ?number,
   dimensionsSum: ?number,
-|};
+};
 
 export type Conditions = {
   isPriority?: string[],
@@ -149,30 +150,30 @@ export type Definition = {|
   price: PriceType,
   restrictions: Restrictions,
   conditions: Conditions,
-|};
+};
 
 export type TileDefinition = {|
   ...Definition,
   originalIndex?: number,
   isCurrent?: boolean,
-|};
+};
 
 export type Definitions = {|
   handBag: Definition[],
   holdBag: Definition[],
-|};
+};
 
 export type Combination = {|
   index: number,
   indices: number[],
   price: PriceType,
   conditions: Conditions,
-|};
+};
 
 export type Combinations = {|
   handBag: Combination[],
   holdBag: Combination[],
-|};
+};
 
 export type BaggageType = {
   definitions: Definitions,
@@ -182,7 +183,7 @@ export type BaggageType = {
 export type TileItem = {|
   category: BaggageSubCategory,
   restrictions: Restrictions,
-|};
+};
 
 export type ItemType = {|
   ...TileItem,
@@ -191,14 +192,14 @@ export type ItemType = {|
     isPriority?: string[],
     passengerGroups: PassengerGroup[],
   },
-|};
+};
 
 export type OptionBaggage = {|
   index: number,
   pickerType: BaggageCategory,
   price: PriceType,
   items: { [key: string]: ItemType },
-|};
+};
 
 export type FAQLinksHandlerType = BaggageSubCategory => void;
 
@@ -207,7 +208,7 @@ export type BaggagePassengerType = {|
   firstName: string,
   middleName?: string,
   lastName: string,
-|};
+};
 
 export type Passenger = {|
   ...BaggagePassengerType,
@@ -215,14 +216,14 @@ export type Passenger = {|
     holdBag: number, // index of baggage combination
     handBag: number, // index of baggage combination
   },
-|};
+};
 
 export type DefinitionWithPassenger = {|
   originalIndex: number,
   category: BaggageSubCategory,
   restrictions: Restrictions,
   passengers: BaggagePassengerType[],
-|};
+};
 ```
 
 See types:
@@ -237,7 +238,7 @@ Baggage
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/BaggageInfo";
-import type { BaggageInfo } from "@kiwicom/nitro/lib/records/BaggageInfo";
+import { BaggageInfo } from "@kiwicom/nitro/lib/records/BaggageInfo";
 ```
 
 **Types:**
@@ -249,25 +250,25 @@ type WeightUnit = "KG" | "POUND";
 type SizeValue = {|
   value: string,
   unit: SizeUnit,
-|};
+};
 
 type WeightValue = {|
   value: string,
   unit: WeightUnit,
-|};
+};
 
 export type BaggageInfo = {|
   height: SizeValue,
   length: SizeValue,
   width: SizeValue,
   weight: WeightValue,
-|};
+};
 
 export type BagsInfo = {|
   hasNoCheckedBags: boolean,
   checkedBag: BaggageInfo,
   handBag: BaggageInfo,
-|};
+};
 ```
 
 _TODO_
@@ -277,7 +278,7 @@ _TODO_
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Brand";
-import type { Brand } from "@kiwicom/nitro/lib/records/Brand";
+import { Brand } from "@kiwicom/nitro/lib/records/Brand";
 ```
 
 **Types:**
@@ -289,10 +290,10 @@ export type Brand = {|
     push_notifications_sending: {|
       filter_out: string[],
       enabled: boolean,
-    |},
+    },
     newsletter: {|
       enabled: boolean,
-    |},
+    },
     email_sending: {|
       support_sender_address: string,
       info_sender_address: string,
@@ -310,7 +311,7 @@ export type Brand = {|
       marketing_address: string,
       signing_domain: string,
       legal_address: string,
-    |},
+    },
     sms_sending: {|
       twilio_number: string,
       sender_name: string,
@@ -318,11 +319,11 @@ export type Brand = {|
       enabled: boolean,
       nexmo_number: string,
       company_name: string,
-    |},
-  |},
+    },
+  },
   api: {|
     helpcenter: string,
-  |},
+  },
   booked_at: string,
   partner: string,
   id: string,
@@ -335,9 +336,9 @@ export type Brand = {|
           number: string,
           id: string,
           native_support: string,
-        |},
+        },
       },
-    |},
+    },
     emails: {|
       enabled: boolean,
       locales: {
@@ -346,13 +347,13 @@ export type Brand = {|
           webFormEmail: string,
           id?: string,
           email?: string,
-        |},
+        },
       },
-    |},
+    },
     chat: {|
       enabled: boolean,
-    |},
-  |},
+    },
+  },
   base_url: string,
   content: {|
     eticket: {|
@@ -360,36 +361,36 @@ export type Brand = {|
         primary_string: string,
         show_signature: boolean,
         secondary_string: string,
-      |},
-    |},
+      },
+    },
     media: {|
       instagram: {|
         link: string,
         enabled: boolean,
-      |},
+      },
       twitter: {|
         link: string,
         enabled: boolean,
-      |},
+      },
       youtube: {|
         enabled: boolean,
-      |},
+      },
       linkedin: {|
         link: string,
         enabled: boolean,
-      |},
+      },
       blog: {|
         enabled: boolean,
-      |},
+      },
       facebook: {|
         link: string,
         enabled: boolean,
-      |},
-    |},
+      },
+    },
     search: {|
       sorting: {|
         enabled: boolean,
-      |},
+      },
       modes: {|
         return: {
           enabled: boolean,
@@ -403,134 +404,134 @@ export type Brand = {|
         multicity: {
           enabled: boolean,
         },
-      |},
-    |},
+      },
+    },
     legal: {|
       booking_agreement: {|
         t_key: string,
-      |},
+      },
       cookies: {|
         t_key: string,
-      |},
+      },
       terms: {|
         t_key: string,
-      |},
+      },
       privacy: {|
         t_key: string,
-      |},
-    |},
+      },
+    },
     general: {|
       trustpilot: {|
         link: string,
         enabled: boolean,
-      |},
-    |},
+      },
+    },
     promotion: {|
       uber: {|
         link: string,
         code: string,
         enabled: boolean,
-      |},
+      },
       rentalcars: {},
       mobile_apps: {|
         download: {|
           link: string,
           enabled: boolean,
-        |},
+        },
         android: {|
           link: string,
           enabled: boolean,
           id: string,
-        |},
+        },
         ios: {|
           link: string,
           enabled: boolean,
           id: string,
-        |},
-      |},
+        },
+      },
       car_rental: {|
         mail_link_base_url: string,
         mail_link: string,
         enabled: boolean,
         external: boolean,
         email_enabled: boolean,
-      |},
+      },
       accommodation: {|
         mail_link_base_url: string,
         enabled: boolean,
         external: boolean,
         email_enabled: boolean,
-      |},
-    |},
+      },
+    },
     pages: {|
       about: {|
         fully_qualified: boolean,
         link: string,
         enabled: boolean,
-      |},
+      },
       terms: {|
         fully_qualified: boolean,
         link: string,
         enabled: boolean,
-      |},
+      },
       invite: {|
         link: string,
         enabled: boolean,
-      |},
+      },
       privacy: {|
         fully_qualified: boolean,
         link: string,
         enabled: boolean,
-      |},
+      },
       top_routes: {|
         fully_qualified: boolean,
         link: string,
         enabled: boolean,
-      |},
+      },
       media: {|
         fully_qualified: boolean,
         link: string,
         enabled: boolean,
-      |},
+      },
       brand: {|
         fully_qualified: boolean,
         link: string,
         enabled: boolean,
-      |},
+      },
       gdpr_terms: {|
         fully_qualified: boolean,
         link: string,
         enabled: boolean,
-      |},
+      },
       faq: {|
         fully_qualified: boolean,
         link: string,
         enabled: boolean,
-      |},
+      },
       stories: {|
         link: string,
         enabled: boolean,
-      |},
+      },
       branding: {|
         link: string,
         enabled: boolean,
-      |},
+      },
       security: {|
         link: string,
         enabled: boolean,
-      |},
+      },
       careers: {|
         fully_qualified: boolean,
         link: string,
         enabled: boolean,
-      |},
+      },
       guarantee: {|
         fully_qualified: boolean,
         link: string,
         enabled: boolean,
-      |},
-    |},
-  |},
+      },
+    },
+  },
   theme: {|
     colors: {|
       "danger-900": string,
@@ -611,7 +612,7 @@ export type Brand = {|
       "success-600": string,
       "accent-400": string,
       "primary-700": string,
-    |},
+    },
     palette: {|
       productNormal: string,
       productNormalHover: string,
@@ -622,8 +623,8 @@ export type Brand = {|
       productNormalActive: string,
       productDarkHover?: string,
       productDarkActive?: string,
-    |},
-  |},
+    },
+  },
   company_name: string,
   localization: {|
     languages: {|
@@ -632,41 +633,41 @@ export type Brand = {|
         [lang: string]: {|
           enabled: boolean,
           mailing: boolean,
-        |},
+        },
       },
-    |},
-  |},
+    },
+  },
   auth: {|
     credentials: boolean,
     social_google: {|
       enabled: boolean,
-    |},
+    },
     social_facebook: {|
       enabled: boolean,
-    |},
-  |},
+    },
+  },
   web_title: string,
   affilid: string,
   services: {|
     add_bags: {|
       enabled: boolean,
-    |},
+    },
     refunds: {|
       enabled: boolean,
-    |},
+    },
     change_flights: {|
       enabled: boolean,
-    |},
+    },
     watchdog: {|
       enabled: boolean,
-    |},
+    },
     insurance: {|
       enabled: boolean,
-    |},
+    },
     guarantee: {|
       enabled: boolean,
-    |},
-  |},
+    },
+  },
   fallbackDomain: string,
   name: string,
   web_link: string,
@@ -675,50 +676,50 @@ export type Brand = {|
     refund_methods: {|
       origin: {|
         enabled: boolean,
-      |},
+      },
       credits: {|
         enabled: boolean,
-      |},
+      },
       pay_pal: {|
         enabled: boolean,
-      |},
+      },
       voucher: {|
         enabled: boolean,
-      |},
+      },
       bank_transfer: {|
         enabled: boolean,
-      |},
-    |},
+      },
+    },
     whitelisted_currencies: string[],
     payment_methods: {|
       alipay: {|
         enabled: boolean,
-      |},
+      },
       sofort: {|
         enabled: boolean,
-      |},
+      },
       cup: {|
         enabled: boolean,
-      |},
+      },
       paypal: {|
         enabled: boolean,
-      |},
+      },
       credits: {|
         enabled: boolean,
-      |},
+      },
       yandex: {|
         enabled: boolean,
-      |},
+      },
       trustly: {|
         enabled: boolean,
-      |},
+      },
       card: {|
         enabled: boolean,
-      |},
-    |},
-  |},
+      },
+    },
+  },
   powered_by_kiwi: boolean,
-|};
+};
 
 export type Brands = { [key: string]: Brand };
 
@@ -732,7 +733,7 @@ _TODO_
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/BrandLanguage";
-import type { BrandLanguage } from "@kiwicom/nitro/lib/records/BrandLanguage";
+import { BrandLanguage } from "@kiwicom/nitro/lib/records/BrandLanguage";
 ```
 
 **Types:**
@@ -741,7 +742,7 @@ export type BrandLanguage = {|
   defaultLocale: string,
   languages: Languages,
   continents: string[],
-|};
+};
 
 export type BrandLanguages = {
   [brandId: string]: {
@@ -762,7 +763,7 @@ _TODO_
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Continents";
-import type { Continents } from "@kiwicom/nitro/lib/records/Continents";
+import { Continents } from "@kiwicom/nitro/lib/records/Continents";
 ```
 
 **Types:**
@@ -774,7 +775,7 @@ declare export var tKeys: {|
   ap: string,
   eu: string,
   mea: string,
-|};
+};
 
 declare export var continentsDefault: Continents;
 ```
@@ -786,7 +787,7 @@ _TODO_
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Country";
-import type { Country } from "@kiwicom/nitro/lib/records/Country";
+import { Country } from "@kiwicom/nitro/lib/records/Country";
 ```
 
 **Types:**
@@ -834,7 +835,7 @@ export type Country = {|
   UK: string,
   VN: string,
   HE: string,
-|};
+};
 
 export type Countries = { [key: string]: Country };
 
@@ -848,7 +849,7 @@ _TODO_
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Currency";
-import type { Currency } from "@kiwicom/nitro/lib/records/Currency";
+import { Currency } from "@kiwicom/nitro/lib/records/Currency";
 ```
 
 **Types:**
@@ -856,7 +857,7 @@ import type { Currency } from "@kiwicom/nitro/lib/records/Currency";
 type CurrencyFormat = {|
   format: string,
   precision: number,
-|};
+};
 
 export type FetchedCurrency = {|
   enabledOnAffilId: string | string[],
@@ -868,7 +869,7 @@ export type FetchedCurrency = {|
   round?: string,
   precision: string,
   uncertainFormat: boolean,
-|};
+};
 
 export type FetchedCurrencies = { [key: string]: FetchedCurrency };
 
@@ -880,7 +881,7 @@ export type Currency = {|
   fallback: Currency | null,
   enabledOnAffilId: string | string[],
   rate: string,
-|};
+};
 
 export type Currencies = {
   [key: string]: Currency,
@@ -905,7 +906,7 @@ _TODO_
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Event";
-import type { Event } from "@kiwicom/nitro/lib/records/Event";
+import { Event } from "@kiwicom/nitro/lib/records/Event";
 ```
 
 **Types:**
@@ -937,8 +938,8 @@ export type Event = {|
     ga: boolean,
     logmole: boolean,
     bigquery: boolean,
-  |},
-|};
+  },
+};
 
 export type Props = { [key: string]: string | number | boolean };
 
@@ -946,7 +947,7 @@ export type EventPayload = {|
   ...Event,
   timestamp: number,
   props: Props,
-|};
+};
 
 declare export var make: (event: Event, props: Props, now?: number) => EventPayload;
 ```
@@ -958,7 +959,7 @@ A data type for our [Loglady](https://loglady.skypicker.com/api-docs/) tracking 
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Fetched";
-import type { Fetched } from "@kiwicom/nitro/lib/records/Fetched";
+import { Fetched } from "@kiwicom/nitro/lib/records/Fetched";
 ```
 
 **Types:**
@@ -968,7 +969,7 @@ export type Fetched = {|
   countries: Countries,
   continents: Continents,
   brandLanguage: BrandLanguage,
-|};
+};
 
 declare export var fetchedDefault: Fetched;
 ```
@@ -986,7 +987,7 @@ _TODO_
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Intl";
-import type { Intl } from "@kiwicom/nitro/lib/records/Intl";
+import { Intl } from "@kiwicom/nitro/lib/records/Intl";
 ```
 
 **Types:**
@@ -994,13 +995,13 @@ import type { Intl } from "@kiwicom/nitro/lib/records/Intl";
 export type IntlRaw = {|
   language: LangInfo,
   translations: Translations,
-|};
+};
 
 export type Intl = {|
   ...IntlRaw,
   translate: Translate,
   getLocale: Promise<$FlowFixMe>, // Resolves 'date-fns' locale
-|};
+};
 
 export type IntlsRaw = { [key: string]: IntlRaw };
 export type Intls = { [key: string]: Intl };
@@ -1018,7 +1019,7 @@ Holds all necessary **i18n** data & functions.
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Itinerary";
-import type { Itinerary } from "@kiwicom/nitro/lib/records/Itinerary";
+import { Itinerary } from "@kiwicom/nitro/lib/records/Itinerary";
 ```
 
 **Types:**
@@ -1028,13 +1029,13 @@ export type Provider = {|
   name: string,
   code: string,
   hasHighProbabilityOfPriceChange: boolean,
-|};
+};
 
 type BagsInfo = {|
   hasNoCheckedBags: boolean,
   checkedBag: BaggageInfo,
   handBag: BaggageInfo,
-|};
+};
 
 type Common = {|
   id: string,
@@ -1042,24 +1043,24 @@ type Common = {|
   provider: Provider,
   duration: number,
   bagsInfo: BagsInfo,
-|};
+};
 
 type BookingProvider = {|
   name: string,
   siteName: string,
-|};
+};
 type BookingOption = {|
   provider: BookingProvider,
   price: Money,
   token: string,
-|};
+};
 
 export type ItineraryOneWay = {|
   ...Common,
   type: "oneWay",
   bookingOptions: BookingOption,
   sector: string, // normalized, Sector
-|};
+};
 
 export type ItineraryReturn = {|
   ...Common,
@@ -1067,12 +1068,12 @@ export type ItineraryReturn = {|
   bookingOptions: BookingOption,
   outbound: string, //  normalized, Sector
   inbound: string, //  normalized, Sector
-|};
+};
 
 export type ItineraryOneWayDeep = {|
   ...ItineraryOneWay,
   sector: SectorDeep,
-|};
+};
 
 declare export var itineraryOneWay: {
   sector: Schema,
@@ -1082,7 +1083,7 @@ export type ItineraryReturnDeep = {|
   ...ItineraryReturn,
   outbound: SectorDeep,
   inbound: SectorDeep,
-|};
+};
 
 declare export var itineraryReturn: {
   outbound: Schema,
@@ -1093,12 +1094,12 @@ export type ItineraryMulticity = {|
   ...Common,
   type: "multicity",
   sectors: string[], // normalized, Sector[]
-|};
+};
 
 export type ItineraryMulticityDeep = {|
   ...ItineraryMulticity,
   sectors: SectorDeep[],
-|};
+};
 
 declare export var itineraryMulticity: {
   sectors: Schema,
@@ -1108,12 +1109,12 @@ export type ItineraryNomad = {|
   ...Common,
   type: "nomad",
   sectors: string[], // normalized, Sector[]
-|};
+};
 
 export type ItineraryNomadDeep = {|
   ...ItineraryNomad,
   sectors: SectorDeep[],
-|};
+};
 
 declare export var itineraryNomad: {
   sectors: Schema,
@@ -1133,8 +1134,8 @@ export type ItineraryNormalized = {|
     sector: { [id: string]: Sector },
     segment: { [id: string]: Segment },
     carrier: { [id: string]: Carrier },
-  |},
-|};
+  },
+};
 
 declare export var flatten: (data: ItineraryDeep) => ItineraryNormalized;
 ```
@@ -1152,7 +1153,7 @@ See types:
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/LangInfo";
-import type { LangInfo } from "@kiwicom/nitro/lib/records/LangInfo";
+import { LangInfo } from "@kiwicom/nitro/lib/records/LangInfo";
 ```
 
 **Types:**
@@ -1204,7 +1205,7 @@ export type LangInfo = {|
   decimalSeparator: string,
   thousandsSeparator: string,
   separateFourDigits: string,
-|};
+};
 
 export type LangInfos = { [id: string]: LangInfo };
 
@@ -1222,7 +1223,7 @@ _TODO_
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Languages";
-import type { Languages } from "@kiwicom/nitro/lib/records/Languages";
+import { Languages } from "@kiwicom/nitro/lib/records/Languages";
 ```
 
 **Types:**
@@ -1233,7 +1234,7 @@ export type Language = {|
   flag: string,
   defaultCountry: string,
   continent: string | string[],
-|};
+};
 
 export type Languages = { [key: string]: Language };
 
@@ -1242,7 +1243,7 @@ declare export var getByContinent: (languages: Language[], continent: string) =>
 export type LanguageNames = {|
   primary: string,
   secondary: string,
-|};
+};
 
 declare export var getNames: (lang: Language) => LanguageNames;
 ```
@@ -1254,7 +1255,7 @@ _TODO_
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Location";
-import type { Location } from "@kiwicom/nitro/lib/records/Location";
+import { Location } from "@kiwicom/nitro/lib/records/Location";
 ```
 
 **Types:**
@@ -1264,7 +1265,7 @@ export type LocationArea = {|
   name: string,
   slug: string,
   code: string,
-|};
+};
 
 type Common = {|
   id: string,
@@ -1274,33 +1275,33 @@ type Common = {|
   location: {|
     lat: number,
     lng: number,
-  |},
-|};
+  },
+};
 
 export type LocationCountry = {|
   ...Common,
   type: "country" | "special" | string,
-|};
+};
 
 export type LocationSubdivision = {|
   ...Common,
   type: "subdivision" | "autonomous_territory",
   country: LocationArea,
-|};
+};
 
 export type LocationCity = {|
   ...Common,
   type: "city",
   country: LocationArea,
   subdivision: LocationArea,
-|};
+};
 
 export type LocationAirport = {|
   ...Common,
   type: "airport" | "station",
   country: LocationArea,
   city: LocationArea,
-|};
+};
 
 export type Location = LocationCountry | LocationSubdivision | LocationCity | LocationAirport;
 ```
@@ -1312,7 +1313,7 @@ export type Location = LocationCountry | LocationSubdivision | LocationCity | Lo
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Loglady";
-import type { Loglady } from "@kiwicom/nitro/lib/records/Loglady";
+import { Loglady } from "@kiwicom/nitro/lib/records/Loglady";
 ```
 
 **Types:**
@@ -1346,12 +1347,12 @@ export type Globals = {|
   connectionType?: string,
   connectionSpeed?: number,
   connectionSpeedMax?: number,
-|};
+};
 
 export type Loglady = {|
   events: EventPayload[],
   global: Globals,
-|};
+};
 ```
 
 See types:
@@ -1364,7 +1365,7 @@ A data type for our [Loglady](https://loglady.skypicker.com/api-docs/) tracking 
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Price";
-import type { Price } from "@kiwicom/nitro/lib/records/Price";
+import { Price } from "@kiwicom/nitro/lib/records/Price";
 ```
 
 **Types:**
@@ -1388,7 +1389,7 @@ Price
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Sector";
-import type { Sector } from "@kiwicom/nitro/lib/records/Sector";
+import { Sector } from "@kiwicom/nitro/lib/records/Sector";
 ```
 
 **Types:**
@@ -1397,7 +1398,7 @@ export type Stopover = {|
   nightsCount: number,
   arrival: Station,
   departure: Station,
-|};
+};
 
 export type Sector = {|
   id: string,
@@ -1405,13 +1406,13 @@ export type Sector = {|
   carriers: string[], // normalized, Carrier[]
   duration: number,
   stopover: Stopover,
-|};
+};
 
 export type SectorDeep = {|
   ...Sector,
   segments: SegmentDeep[],
   carriers: Carrier[],
-|};
+};
 
 // eslint-disable-next-line import/prefer-default-export
 declare export var getSector: (obj: ItineraryNormalized, id: string) => Sector;
@@ -1430,7 +1431,7 @@ A part of [Itinerary](#Itinerary).
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Segment";
-import type { Segment } from "@kiwicom/nitro/lib/records/Segment";
+import { Segment } from "@kiwicom/nitro/lib/records/Segment";
 ```
 
 **Types:**
@@ -1438,7 +1439,7 @@ import type { Segment } from "@kiwicom/nitro/lib/records/Segment";
 export type Stop = {|
   station: Station,
   time: Date,
-|};
+};
 
 type Guarantee = "KIWI_COM" | "CARRIER";
 
@@ -1447,18 +1448,18 @@ export type Layover = {|
   guarantee: Guarantee,
   isStationChange: boolean,
   isBaggageRecheck: boolean,
-|};
+};
 
 export type Carrier = {|
   id: string,
   name: string,
   code: string,
-|};
+};
 
 type SeatDimenstion = {|
   value: string,
   unit: "CM" | "INCH" | "DEGREE",
-|};
+};
 
 export type SeatInfo = {|
   pitch: SeatDimenstion,
@@ -1467,7 +1468,7 @@ export type SeatInfo = {|
   hasPower: boolean,
   hasAudioVideo: boolean,
   hasWifi: boolean,
-|};
+};
 
 export type Segment = {|
   id: string,
@@ -1480,7 +1481,7 @@ export type Segment = {|
   carrier: string, // normalized, Carrier
   operatingCarrier: string, // normalized, Carrier
   seatInfo: SeatInfo,
-|};
+};
 
 export type Segments = { [key: string]: Segment };
 
@@ -1488,7 +1489,7 @@ export type SegmentDeep = {|
   ...Segment,
   carrier: Carrier,
   operatingCarrier: Carrier,
-|};
+};
 
 declare export var getSegment: (obj: ItineraryNormalized, id: string) => Segment;
 declare export var getSegments: (obj: ItineraryNormalized, ids: string[]) => Segment[];
@@ -1505,7 +1506,7 @@ A part of [Itinerary](#Itinerary).
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Session";
-import type { Session } from "@kiwicom/nitro/lib/records/Session";
+import { Session } from "@kiwicom/nitro/lib/records/Session";
 ```
 
 **Types:**
@@ -1517,7 +1518,7 @@ export type Session = {|
   deeplinkId?: string, // TODO not optional in v4
   affiliate: Affiliate | null,
   UTMs: { [key: string]: string },
-|};
+};
 
 declare export var sessionDefault: Session;
 ```
@@ -1532,7 +1533,7 @@ Contains **user** and **request** specific information.
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Starred";
-import type { Starred } from "@kiwicom/nitro/lib/records/Starred";
+import { Starred } from "@kiwicom/nitro/lib/records/Starred";
 ```
 
 **Types:**
@@ -1543,7 +1544,7 @@ export type PassengersCount = {|
   adults: number,
   children: number,
   infants: number,
-|};
+};
 
 export type StarredFormData = {|
   origin: string,
@@ -1559,7 +1560,7 @@ export type StarredFormData = {|
   places: Array<{ id: string, slug: string }>,
   returnUrl: string,
   starType: string,
-|};
+};
 
 export type StarredItem = {|
   id: string,
@@ -1569,7 +1570,7 @@ export type StarredItem = {|
   priceUpdatedAt: Date,
   createdAt: Date,
   updatedAt: Date,
-|};
+};
 
 export type ShareDialog = {|
   itinerary: ItineraryDeep,
@@ -1580,7 +1581,7 @@ export type ShareDialog = {|
   isMobile: boolean,
   onSetNotice: () => void,
   onClose: () => void,
-|};
+};
 
 declare export var isMulti: (object: PassengersCount) => boolean;
 declare export var getSum: (object: PassengersCount) => number;
@@ -1597,7 +1598,7 @@ _TODO_
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Station";
-import type { Station } from "@kiwicom/nitro/lib/records/Station";
+import { Station } from "@kiwicom/nitro/lib/records/Station";
 ```
 
 **Types:**
@@ -1607,7 +1608,7 @@ export type LocationArea = {|
   name: string,
   code: string,
   slug: string,
-|};
+};
 
 export type Station = {|
   id: string,
@@ -1616,7 +1617,7 @@ export type Station = {|
   city: LocationArea,
   country: LocationArea,
   type: "AIRPORT" | "BUS_STATION" | "TRAIN_STATION",
-|};
+};
 ```
 
 A part of [Segment](#segment) and [Sector](#sector).
@@ -1626,12 +1627,12 @@ A part of [Segment](#segment) and [Sector](#sector).
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/Theme";
-import type { Theme } from "@kiwicom/nitro/lib/records/Theme";
+import { Theme } from "@kiwicom/nitro/lib/records/Theme";
 ```
 
 **Types:**
 ```js
-export type ThemeProps = {| theme: Theme |};
+export type ThemeProps = {| theme: Theme };
 
 declare export var themeDefault: Theme;
 
@@ -1648,7 +1649,7 @@ _TODO_
 **Imports:**
 ```js
 import * as fns from "@kiwicom/nitro/lib/records/User";
-import type { User } from "@kiwicom/nitro/lib/records/User";
+import { User } from "@kiwicom/nitro/lib/records/User";
 ```
 
 **Types:**
@@ -1656,7 +1657,7 @@ import type { User } from "@kiwicom/nitro/lib/records/User";
 type Balance = {|
   amount: string,
   currency: string,
-|};
+};
 
 export type User = {|
   id: string,
@@ -1669,7 +1670,7 @@ export type User = {|
   cardDiscount: number,
   balanceDiscount: number,
   balances: Balance[],
-|};
+};
 
 declare export var userDefault: User | null;
 
@@ -1680,7 +1681,7 @@ export type MapUserInput = {|
   first_name: string,
   last_name: string,
   affiliate_id: string,
-|};
+};
 
 declare export var mapUser: (input: MapUserInput) => User;
 ```

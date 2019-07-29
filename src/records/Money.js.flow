@@ -1,5 +1,5 @@
 // @flow strict
-import type { Currency } from "./Currency";
+import { Currency } from "./Currency";
 
 export type Money = {|
   amount: string,

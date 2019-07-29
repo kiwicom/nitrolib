@@ -1,5 +1,5 @@
 // @flow strict
-import type { Loglady } from "../../records/Loglady";
+import { Loglady } from "../../records/Loglady";
 
 export type Settings = {
   devUrl?: string, // Fires a 2nd, not returned, log call to this URL if supplied

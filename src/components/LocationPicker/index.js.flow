@@ -1,8 +1,8 @@
 // @flow strict
 import * as React from "react";
-import type { Environment } from "@kiwicom/relay";
+import { Environment } from "@kiwicom/relay";
 
-import type { Location } from "../../records/Location";
+import { Location } from "../../records/Location";
 
 type Props = {|
   value: Location | null,

@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import type { StarredItem, ShareDialog } from "../../records/Starred";
+import { StarredItem, ShareDialog } from "../../records/Starred";
 
 export type Context = {|
   list: StarredItem[],

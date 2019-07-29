@@ -1,8 +1,8 @@
 // @flow strict
-import type { Airlines } from "./Airline";
-import type { Countries } from "./Country";
-import type { Continents } from "./Continents";
-import type { BrandLanguage } from "./BrandLanguage";
+import { Airlines } from "./Airline";
+import { Countries } from "./Country";
+import { Continents } from "./Continents";
+import { BrandLanguage } from "./BrandLanguage";
 
 export type Fetched = {|
   airlines: Airlines,

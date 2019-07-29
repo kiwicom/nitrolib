@@ -1,5 +1,5 @@
 // @flow strict
-import type { Globals } from "../../records/Loglady";
+import { Globals } from "../../records/Loglady";
 
 type Static = {|
   brandingId: string,

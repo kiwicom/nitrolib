@@ -1,6 +1,6 @@
 // @flow strict
-import type { LangInfo } from "./LangInfo";
-import type { Translations, Translate } from "../services/intl/translate";
+import { LangInfo } from "./LangInfo";
+import { Translations, Translate } from "../services/intl/translate";
 
 export type IntlRaw = {|
   language: LangInfo,

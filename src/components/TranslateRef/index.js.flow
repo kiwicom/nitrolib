@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import type { Values } from "../../services/intl/translate";
+import { Values } from "../../services/intl/translate";
 
 type Props = {|
   t: string,

@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import type { Event, Props } from "../../records/Event";
+import { Event, Props } from "../../records/Event";
 
 export type Context = {|
   log: (event: Event, props: Props) => void,

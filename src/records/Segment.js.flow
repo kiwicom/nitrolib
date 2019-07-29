@@ -1,6 +1,6 @@
 // @flow strict
-import type { Station } from "./Station";
-import type { ItineraryNormalized } from "./Itinerary";
+import { Station } from "./Station";
+import { ItineraryNormalized } from "./Itinerary";
 
 export type Stop = {|
   station: Station,

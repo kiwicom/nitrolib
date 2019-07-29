@@ -1,6 +1,6 @@
 // @flow strict
-import type { User } from "../../records/User";
-import type { AuthUser } from "../../records/Auth";
+import { User } from "../../records/User";
+import { AuthUser } from "../../records/Auth";
 
 declare export function getTokenUser(token: string): Promise<User>;
 

@@ -1,10 +1,10 @@
 // @flow strict
-import type { Schema } from "normalizr";
+import { Schema } from "normalizr";
 
-import type { Sector, SectorDeep } from "./Sector";
-import type { Carrier, Segment } from "./Segment";
-import type { Money } from "./Money";
-import type { BaggageInfo } from "./BaggageInfo";
+import { Sector, SectorDeep } from "./Sector";
+import { Carrier, Segment } from "./Segment";
+import { Money } from "./Money";
+import { BaggageInfo } from "./BaggageInfo";
 
 export type Provider = {|
   id: string,

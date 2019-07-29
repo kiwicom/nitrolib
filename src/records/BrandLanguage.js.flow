@@ -1,5 +1,5 @@
 // @flow strict
-import type { Languages } from "./Languages";
+import { Languages } from "./Languages";
 
 export type BrandLanguage = {|
   defaultLocale: string,
@@ -7,10 +7,10 @@ export type BrandLanguage = {|
   continents: string[],
 |};
 
-export type BrandLanguages = {
-  [brandId: string]: {
+export type BrandLanguages = {|
+  [brandId: string]: {|
     [localeId: string]: BrandLanguage,
-  },
-};
+  |},
+|};
 
 declare export var brandLanguageDefault: BrandLanguage;

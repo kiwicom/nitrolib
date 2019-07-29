@@ -5,8 +5,8 @@ export type Airline = {|
   name: string,
 |};
 
-export type Airlines = {
+export type Airlines = {|
   [key: string]: Airline,
-};
+|};
 
 declare export var airlineDefault: Airline;

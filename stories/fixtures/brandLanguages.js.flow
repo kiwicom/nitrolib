@@ -1,4 +1,4 @@
 // @flow strict
-import type { BrandLanguages } from "../../src/records/BrandLanguage";
+import { BrandLanguages } from "../../src/records/BrandLanguage";
 
 declare export default BrandLanguages;

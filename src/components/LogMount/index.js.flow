@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 
-import type { Event, Props as EventProps } from "../../records/Event";
+import { Event, Props as EventProps } from "../../records/Event";
 
 type Props = {|
   event: Event,

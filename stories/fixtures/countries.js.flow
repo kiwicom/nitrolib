@@ -1,4 +1,4 @@
 // @flow strict
-import type { Countries } from "../../src/records/Country";
+import { Countries } from "../../src/records/Country";
 
 declare export default Countries;

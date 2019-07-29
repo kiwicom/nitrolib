@@ -1,5 +1,5 @@
 // @flow strict
-import type { ItineraryDeep } from "./Itinerary";
+import { ItineraryDeep } from "./Itinerary";
 
 export type CabinClass = "economy" | "business" | "first" | "premium";
 

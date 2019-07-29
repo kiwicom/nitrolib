@@ -23,7 +23,7 @@ function getRecordDoc(record) {
     "**Imports:**",
     "```js",
     `import * as fns from "@kiwicom/nitro/lib/records/${record}";`,
-    `import type { ${record} } from "@kiwicom/nitro/lib/records/${record}";`,
+    `import { ${record} } from "@kiwicom/nitro/lib/records/${record}";`,
     "```",
     "",
     flow,

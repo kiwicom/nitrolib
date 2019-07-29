@@ -1,5 +1,5 @@
 // @flow strict
-import type { Affiliate } from "./Affiliate";
+import { Affiliate } from "./Affiliate";
 
 export type Session = {|
   userId: string,

@@ -1,7 +1,7 @@
 // @flow strict
-import type { Station } from "./Station";
-import type { SegmentDeep, Carrier } from "./Segment";
-import type { ItineraryNormalized } from "./Itinerary";
+import { Station } from "./Station";
+import { SegmentDeep, Carrier } from "./Segment";
+import { ItineraryNormalized } from "./Itinerary";
 
 export type Stopover = {|
   nightsCount: number,

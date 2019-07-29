@@ -1,5 +1,5 @@
 // @flow strict
-import type { Cookie } from "../../consts/cookies";
+import { Cookie } from "../../consts/cookies";
 
 type Options = {|
   expires?: number | Date,

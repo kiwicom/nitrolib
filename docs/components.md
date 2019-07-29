@@ -16,37 +16,49 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 
 **Utilities:**
 
-* [BaggageOverview](#baggageoverview)
-* [BaggagePaymentSummary](#baggagepaymentsummary)
-* [BaggagePicker](#baggagepicker)
-* [BookingSavingsBanner](#bookingsavingsbanner)
-* [Button](#button)
-* [ClickOutside](#clickoutside)
-* [ClientOnly](#clientonly)
-* [CloseByKey](#closebykey)
-* [CookiesPopup](#cookiespopup)
-* [CustomerBaggageTile](#customerbaggagetile)
-* [Desktop](#desktop)
-* [InitAuth](#initauth)
-* [InitCurrency](#initcurrency)
-* [InitIntl](#initintl)
-* [InitLog](#initlog)
-* [InitStarred](#initstarred)
-* [InputEmail](#inputemail)
-* [InputPhone](#inputphone)
-* [Itinerary](#itinerary)
-* [LogMount](#logmount)
-* [Mobile](#mobile)
-* [Price](#price)
-* [Starred](#starred)
-* [Text](#text)
-* [TextNode](#textnode)
-* [Toggle](#toggle)
-* [Translate](#translate)
-* [TranslateNode](#translatenode)
-* [TranslateRef](#translateref)
-* [Value](#value)
-* [ValueBind](#valuebind)
+- [Components](#components)
+  - [Features](#features)
+    - [CookiesConsent](#cookiesconsent)
+    - [Currency](#currency)
+    - [DatePicker](#datepicker)
+    - [Footer](#footer)
+    - [HeaderLinks](#headerlinks)
+    - [LocationPicker](#locationpicker)
+    - [MagicLogin](#magiclogin)
+    - [NavBar](#navbar)
+    - [SideBar](#sidebar)
+  - [Utilities](#utilities)
+    - [BaggageOverview](#baggageoverview)
+    - [BaggagePaymentSummary](#baggagepaymentsummary)
+    - [BaggagePicker](#baggagepicker)
+    - [BookingSavingsBanner](#bookingsavingsbanner)
+    - [Button](#button)
+    - [ClickOutside](#clickoutside)
+    - [ClientOnly](#clientonly)
+    - [CloseByKey](#closebykey)
+    - [CookiesPopup](#cookiespopup)
+    - [CustomerBaggageTile](#customerbaggagetile)
+    - [Desktop](#desktop)
+    - [InitAuth](#initauth)
+    - [InitCurrency](#initcurrency)
+    - [InitIntl](#initintl)
+    - [InitLog](#initlog)
+    - [InitStarred](#initstarred)
+    - [InputEmail](#inputemail)
+    - [InputPhone](#inputphone)
+    - [Itinerary](#itinerary)
+    - [LogMount](#logmount)
+    - [Mobile](#mobile)
+    - [Price](#price)
+    - [Starred](#starred)
+    - [Text](#text)
+    - [TextNode](#textnode)
+    - [Toggle](#toggle)
+    - [Translate](#translate)
+    - [TranslateNode](#translatenode)
+    - [TranslateRef](#translateref)
+    - [Value](#value)
+    - [ValueBind](#valuebind)
 
 ## Features
 
@@ -61,9 +73,9 @@ import CookiesConsent from "@kiwicom/nitro/lib/components/CookiesConsent";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   onAccept: () => void,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -87,7 +99,7 @@ import Currency from "@kiwicom/nitro/lib/components/Currency";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   positionMenuTablet?: number,
   positionMenuDesktop?: number,
   inverted?: boolean,
@@ -95,7 +107,7 @@ type Props = {|
   // defaulted
   native?: boolean,
   loading?: React.Node,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -125,14 +137,14 @@ import DatePicker from "@kiwicom/nitro/lib/components/DatePicker";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   value: Date,
   onChange: (date: Date) => void,
   label: string,
   icon?: React.Node,
   min: Date,
   max: Date,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -154,7 +166,7 @@ import Footer from "@kiwicom/nitro/lib/components/Footer";
 
 **Types:**
 ```js
-type Props = {||};
+type Props = {};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -178,12 +190,12 @@ type Splitster = {
   [key: string]: string,
 };
 
-type Response = {|
+type Response = {}
   splitster: Splitster,
   items: HeaderLink[],
-|};
+{};
 
-type Props = {|
+type Props = {
   languageId: string,
   currencyId: string,
   searchForm: SearchForm | null,
@@ -193,7 +205,7 @@ type Props = {|
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO DI actual API call
   context?: HeaderLinksContext,
-|};
+};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -216,7 +228,7 @@ import LocationPicker from "@kiwicom/nitro/lib/components/LocationPicker";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   value: Location | null,
   onChange: (loc: Location) => void,
   label: React.Node,
@@ -232,7 +244,7 @@ type Props = {|
     | "country"
     | "station"
     | "subdivision",
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -295,7 +307,7 @@ import MagicLogin from "@kiwicom/nitro/lib/components/MagicLogin";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   initialScreen: "intro" | "signUp",
   type: "mmb" | "help" | "refer",
   disableSocialLogin?: boolean,
@@ -303,7 +315,7 @@ type Props = {|
   onSignIn: (user: AuthUser) => void,
   onSocialLogin: (provider: SocialProvider) => Promise<void>,
   onGetSimpleToken: AuthToken => void,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -374,29 +386,29 @@ Modal component handling the whole login flow with magic link.
 import * as React from "react"
 import { connect } from "react-redux"
 import MagicLogin from "@kiwicom/nitro/lib/components/MagicLogin"
-import type { Connector } from "react-redux"
-import type { AuthUser } from "@kiwicom/nitro/lib/records/Auth"
+import { Connector } from "react-redux"
+import { AuthUser } from "@kiwicom/nitro/lib/records/Auth"
 
 type Provider = "facebook" | "google"
 
-type ConnectorHandlers = {|
+type ConnectorHandlers = {}
   onSocialLogin: (provider: Provider) => Promise<*>,
   onSignIn: (userInfo: AuthUser) => void,
-|}
+{}
 
-type OwnProps = {|
+type OwnProps = {}
   disableSocialLogin: boolean,
   initialScreen: "intro" | "signUp",
   type: "mmb" | "help" | "refer",
   onClose: () => void,
-|}
+{}
 
-type Props = {|
+type Props = {}
   ...ConnectorHandlers,
   ...OwnProps,
-|}
+{}
 
-// onSignIn fn should handle usual action which takes place after successful login via email & password  
+// onSignIn fn should handle usual action which takes place after successful login via email & password
 const onSignIn = (user) => ({ type: LOGIN_SUCCESS, res: user })
 // onSocialLogin fn should trigger full OAuth login process thought specified provider
 const onSocialLogin = (provider: Provider) => {}
@@ -420,7 +432,7 @@ import NavBar from "@kiwicom/nitro/lib/components/NavBar";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   starred: React.Node,
   subscription: React.Node,
   portal: string,
@@ -433,7 +445,7 @@ type Props = {|
   headerLinks?: React.Node, // null
   debug?: React.Node, // null
   inverted?: boolean, // false
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -468,13 +480,13 @@ import SideBar from "@kiwicom/nitro/lib/components/SideBar";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   shown: boolean,
   inverted?: boolean, // opens from the other side
   unmasked?: boolean, // removes outer mask and disables onClick
   onClick: () => void,
   children: React.Node,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -502,12 +514,12 @@ FAQLinksHandlerType,
   OverviewContextType,
 } from "../../records/Baggage";
 
-type Props = {|
+type Props = {}
   definitions?: Definition[],
   definitionsWithPassengers?: DefinitionWithPassenger[],
   FAQLinksHandler?: FAQLinksHandlerType,
   context: OverviewContextType,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -569,7 +581,7 @@ import BaggagePaymentSummary from "@kiwicom/nitro/lib/components/BaggagePaymentS
 
 **Types:**
 ```js
-type Passenger = {|
+type Passenger = {}
   paxId: number,
   firstName: string,
   lastName: string,
@@ -577,12 +589,12 @@ type Passenger = {|
     holdBag: number,
     handBag: number,
   },
-|};
+{};
 
-type Props = {|
+type Props = {}
   passengers: Passenger[],
   baggage: BaggageType,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -634,7 +646,7 @@ import BaggagePicker from "@kiwicom/nitro/lib/components/BaggagePicker";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   changeBagCombination: (picker: BaggageCategory, item: number) => void,
   passengerCategory: PassengerGroup,
   passengerBaggage: { handBag: number, holdBag: number },
@@ -645,7 +657,7 @@ type Props = {|
   context: "booking" | "mmb",
   currentCombination?: number,
   prioBoardingLinkHandler?: (arg: Airline[]) => void,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -703,12 +715,12 @@ import BookingSavingsBanner from "@kiwicom/nitro/lib/components/BookingSavingsBa
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   amount: number,
   currency: string,
   onLearnMoreClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers redirection to learn more article
   onMoreTripsClick: (e: SyntheticEvent<HTMLButtonElement>) => void, // Triggers modal with alternative trips
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -734,13 +746,13 @@ import Button from "@kiwicom/nitro/lib/components/Button";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   ...$Diff<PropsOrbit, { children: ?React.Node }>,
   t: string,
   values?: { [key: string]: string | number },
   html?: boolean,
   transform?: (value: string) => string,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -763,13 +775,13 @@ import ClickOutside from "@kiwicom/nitro/lib/components/ClickOutside";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   className?: string,
   onClickOutside: (ev: MouseEvent) => void,
   children: React.Node | React.Node[],
   // defaulted
   active?: boolean, // true
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -796,11 +808,11 @@ import ClientOnly from "@kiwicom/nitro/lib/components/ClientOnly";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   children: React.Node,
   // defaulted
   loader?: React.Node, // null
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -830,12 +842,12 @@ import CloseByKey from "@kiwicom/nitro/lib/components/CloseByKey";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   onClose: (ev: KeyboardEvent) => void,
   children: React.Node,
   // defaulted
   closeKey?: string, // Escape
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -853,14 +865,14 @@ import CookiesPopup from "@kiwicom/nitro/lib/components/CookiesPopup";
 
 **Types:**
 ```js
-type Props = {|
-  onAccept: ({|
+type Props = {}
+  onAccept: ({}
     performance: boolean,
     marketing: boolean,
     advertisement: boolean,
-  |}) => void,
+  {}) => void,
   type?: "popup" | "banner",
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -884,7 +896,7 @@ import CustomerBaggageTile from "@kiwicom/nitro/lib/components/CustomerBaggageTi
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   firstName: string,
   middleName?: string,
   lastName: string,
@@ -902,7 +914,7 @@ type Props = {|
   newDefinitions?: Definition[],
   onClick?: () => void,
   baggage: BaggageType,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -961,11 +973,11 @@ import Desktop from "@kiwicom/nitro/lib/components/Desktop";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   children: React.Node | React.Node[],
   // defaulted
   display?: "block" | "inline" | "inline-block" | "flex", // block
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -995,21 +1007,21 @@ import InitAuth from "@kiwicom/nitro/lib/components/InitAuth";
 
 **Types:**
 ```js
-type MyBookingInput = {|
+type MyBookingInput = {}
   bid: string,
   email: string,
   iata: string,
   departure: Date,
-|};
+{};
 
-type RegisterInput = {|
+type RegisterInput = {}
   firstName: string,
   lastName: string,
   email: string,
   password: string,
-|};
+{};
 
-type Arg = {|
+type Arg = {}
   auth: Auth | null,
   loading: boolean,
   environment: Environment,
@@ -1018,9 +1030,9 @@ type Arg = {|
   onSocialAuth: (provider: SocialProvider) => Promise<void>,
   onSignIn: (email: string, password: string) => Promise<void>,
   onSignOut: () => void,
-|};
+{};
 
-type Props = {|
+type Props = {}
   token: string | null,
   brand: Brand,
   redirectURL: string,
@@ -1030,7 +1042,7 @@ type Props = {|
   onSignIn: (token: string) => void,
   onSignOut: () => void,
   children: (arg: Arg) => React.Node,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1059,14 +1071,14 @@ import InitCurrency from "@kiwicom/nitro/lib/components/InitCurrency";
 
 **Types:**
 ```js
-type Arg = {|
+type Arg = {}
   currency: Currency,
   available: Currencies,
   recommended: Currency[],
   onChange: (code: string) => void,
-|};
+{};
 
-type Props = {|
+type Props = {}
   brand: Brand,
   countries: Countries,
   affiliate: string,
@@ -1080,7 +1092,7 @@ type Props = {|
   // DI
   getCurrencies?: () => Promise<FetchedCurrencies>,
   getGeoCountry?: (ip: string) => Promise<string>,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1101,12 +1113,12 @@ import InitIntl from "@kiwicom/nitro/lib/components/InitIntl";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   raw: IntlRaw,
   children: (arg: Context) => React.Node,
   // defaulted
   getLocale?: Promise<$FlowFixMe>, // resolves en-US by default
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1120,7 +1132,7 @@ See types:
 Useful for initiating the **intl** context from raw intl data.
 
 ```js
-import type { IntlRaw } from "@kiwicom/nitro/lib/records/Intl";
+import { IntlRaw } from "@kiwicom/nitro/lib/records/Intl";
 
 const raw: IntlRaw = window.__INTL__; // intl data from the server
 
@@ -1143,7 +1155,7 @@ if (node) {
 On the server:
 
 ```js
-import type { IntlRaw } from "@kiwicom/nitro/lib/records/Intl";
+import { IntlRaw } from "@kiwicom/nitro/lib/records/Intl";
 
 import { locales } from "./data";
 
@@ -1174,9 +1186,9 @@ import InitLog from "@kiwicom/nitro/lib/components/InitLog";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   children: (ctx: Context) => React.Node,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1219,16 +1231,16 @@ import InitStarred from "@kiwicom/nitro/lib/components/InitStarred";
 
 **Types:**
 ```js
-type Args = {|
+type Args = {}
   list: StarredItem[],
   onRemove: (arg: string, e: SyntheticEvent<HTMLDivElement>) => void,
   onAdd: (arg: StarredItem) => void,
   onClear: (e: SyntheticEvent<HTMLDivElement>) => void,
-|};
+{};
 
-type Props = {|
+type Props = {}
   children: (args: Args) => React.Node,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1247,7 +1259,7 @@ import InputEmail from "@kiwicom/nitro/lib/components/InputEmail";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   ...SpaceAfter,
   size?: "small" | "normal",
   name?: string,
@@ -1266,7 +1278,7 @@ type Props = {|
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onKeyDown?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,
   onKeyUp?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1292,7 +1304,7 @@ import InputPhone from "@kiwicom/nitro/lib/components/InputPhone";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   ...SpaceAfter,
   size?: "small" | "normal",
   name?: string,
@@ -1311,7 +1323,7 @@ type Props = {|
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onKeyDown?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,
   onKeyUp?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1336,9 +1348,9 @@ import Itinerary from "@kiwicom/nitro/lib/components/Itinerary";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   itinerary: ItineraryNormalized,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1379,11 +1391,11 @@ import LogMount from "@kiwicom/nitro/lib/components/LogMount";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   event: Event,
   // defaulted
   props?: EventProps,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1409,11 +1421,11 @@ import Mobile from "@kiwicom/nitro/lib/components/Mobile";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   children: React.Node | React.Node[],
   // defaulted
   display?: "block" | "inline" | "inline-block" | "flex", // block
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1443,9 +1455,9 @@ import Price from "@kiwicom/nitro/lib/components/Price";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   value: number,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1480,11 +1492,11 @@ import Starred from "@kiwicom/nitro/lib/components/Starred";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   positionMenuDesktop?: number,
   positionMenuTablet?: number,
   inverted?: boolean,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1505,13 +1517,13 @@ import Text from "@kiwicom/nitro/lib/components/Text";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   ...$Diff<PropsOrbit, { children: React.Node }>,
   t: string,
   values?: { [key: string]: string | number },
   html?: boolean,
   transform?: (value: string) => string,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1534,12 +1546,12 @@ import TextNode from "@kiwicom/nitro/lib/components/TextNode";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   ...$Diff<PropsOrbit, { children: React.Node }>,
   t: string,
   values: { [key: string]: React.Node },
   transform?: (value: string) => string,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1562,16 +1574,16 @@ import Toggle from "@kiwicom/nitro/lib/components/Toggle";
 
 **Types:**
 ```js
-type Data = {|
+type Data = {}
   open: boolean,
   onToggle: () => void,
-|};
+{};
 
-type Props = {|
+type Props = {}
   children: (data: Data) => React.Node,
   // defaulted
   initial?: boolean, // false
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1603,13 +1615,13 @@ import Translate from "@kiwicom/nitro/lib/components/Translate";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   t: string,
   // defaulted
   values?: { [key: string]: string | number }, // {}
   html?: boolean, // false
   transform?: (value: string) => string, // identity
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1641,12 +1653,12 @@ import TranslateNode from "@kiwicom/nitro/lib/components/TranslateNode";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   t: string,
   values: { [key: string]: React.Node },
   // defaulted
   transform?: (value: string) => string, // identity
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1681,12 +1693,12 @@ import TranslateRef from "@kiwicom/nitro/lib/components/TranslateRef";
 
 **Types:**
 ```js
-type Props = {|
+type Props = {}
   t: string,
   values?: Values,
   render: (ref: string, index: number) => React.Node,
   transform?: (value: string) => string,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1719,16 +1731,16 @@ import Value from "@kiwicom/nitro/lib/components/Value";
 
 **Types:**
 ```js
-type Data = {|
+type Data = {}
   value: string,
   onChange: (value?: string) => void, // 'value' defaults to ""
-|};
+{};
 
-type Props = {|
+type Props = {}
   children: (data: Data) => React.Node,
   // defaulted
   initial?: string, // ""
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```
@@ -1747,7 +1759,7 @@ const AuthModals = ({ query }: Props) => (
       <>
         <ModalLogin open={value === "login"} onClose={onChange} />
         <ModalRegister open={value === "register"} onClose={onChange} />
-        
+
         <ValueBind value="login" onChange={onChange}>
           {({ onClick }) => <Button onClick={onClick}>Login</Button>}
         </ValueBind>
@@ -1769,15 +1781,15 @@ import ValueBind from "@kiwicom/nitro/lib/components/ValueBind";
 
 **Types:**
 ```js
-type Data = {|
+type Data = {}
   onClick: () => void,
-|};
+{};
 
-type Props = {|
+type Props = {}
   value: string,
   onChange: (value: string) => void,
   children: (data: Data) => React.Node,
-|};
+{};
 
 declare export default React.ComponentType<Props>;
 ```

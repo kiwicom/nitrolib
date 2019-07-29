@@ -1,5 +1,5 @@
 // @flow strict
-import type { EventPayload } from "./Event";
+import { EventPayload } from "./Event";
 
 export type Globals = {|
   project?: string,

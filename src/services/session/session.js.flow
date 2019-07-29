@@ -1,5 +1,5 @@
 // @flow strict
-import type { Session } from "../../consts/session";
+import { Session } from "../../consts/session";
 
 declare export var load: (key: Session) => ?string;
 

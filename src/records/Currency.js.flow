@@ -29,9 +29,9 @@ export type Currency = {|
   rate: string,
 |};
 
-export type Currencies = {
+export type Currencies = {|
   [key: string]: Currency,
-};
+|};
 
 declare export var getCode: (code: string) => string;
 declare export var getSymbol: (format: string) => string;

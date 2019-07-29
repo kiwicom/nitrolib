@@ -1,0 +1,40 @@
+import * as fns from "../validators";
+
+describe("#validators", () => {
+  test("required", () => {
+    expect(fns.required("asd")).toBe();
+    expect(fns.required(123)).toBe();
+    expect(fns.required({})).toBe();
+    expect(fns.required(new Date())).toBe();
+    expect(fns.required(null)).toBe("forms.this_field_must_be_filled");
+    expect(fns.required()).toBe("forms.this_field_must_be_filled");
+    expect(fns.required()).toBe("forms.this_field_must_be_filled");
+    expect(fns.required(0)).toBe("forms.this_field_must_be_filled");
+  });
+
+  test("email", () => {
+    expect(fns.email("lol@kek.bur")).toBe();
+    expect(fns.email("keket_@kiwi.com")).toBe();
+    expect(fns.email("asd")).toBe("forms.wrong_format_email");
+  });
+
+  test("phone", () => {
+    expect(fns.phone("+420228880669")).toBe();
+    expect(fns.phone("+74993504126")).toBe();
+    expect(fns.phone("+48223970842")).toBe();
+    expect(fns.phone("+81345790139")).toBe();
+    expect(fns.phone("+4202288806")).toBe("forms.errors.invalid_phone");
+  });
+
+  test("iata", () => {
+    expect(fns.iata("lol@kek.bur")).toBe("forms.enter_iata_code");
+    expect(fns.iata("VIE")).toBe();
+  });
+
+  test("departure", () => {
+    const NOW = new Date(Date.UTC(2020, 0, 1));
+
+    expect(fns.departure(new Date(Date.UTC(2019, 0, 1)), NOW)).toBe("common.error");
+    expect(fns.departure(new Date(Date.UTC(2019, 0, 2)), NOW)).toBe();
+  });
+});

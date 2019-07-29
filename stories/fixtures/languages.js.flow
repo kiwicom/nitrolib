@@ -1,4 +1,4 @@
 // @flow strict
-import type { LangInfos } from "../../src/records/LangInfo";
+import { LangInfos } from "../../src/records/LangInfo";
 
 declare export default LangInfos;

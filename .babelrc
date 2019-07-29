@@ -1,7 +1,7 @@
 {
   "presets": [
     "@babel/react",
-    "@babel/flow",
+    "@babel/typescript",
     [
       "@babel/env",
       {
@@ -15,11 +15,8 @@
     "@babel/transform-runtime",
     "@babel/transform-react-constant-elements",
     "@babel/proposal-class-properties",
-    "@babel/proposal-optional-chaining",
-    "@babel/proposal-nullish-coalescing-operator",
     "@babel/plugin-syntax-dynamic-import",
     "id",
-    "relay",
     [
       "styled-components",
       {

@@ -1,8 +1,8 @@
 // @flow strict
-import type { Local } from "../../consts/local";
+import { Local } from "../../consts/local";
 
-declare export var load: (key: Local) => ?string;
+let export var load: (key: Local) => ?string;
 
-declare export var save: (key: Local, value: string) => void;
+let export var save: (key: Local, value: string) => void;
 
-declare export var remove: (key: Local) => void;
+let export var remove: (key: Local) => void;

@@ -1,5 +1,5 @@
 // @flow
-import type { Currency, Currencies } from "../../records/Currency";
+import { Currency, Currencies } from "../../records/Currency";
 
 export type Input = {|
   currencies: Currencies,

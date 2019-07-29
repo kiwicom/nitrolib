@@ -1,5 +1,4 @@
-// @flow strict
-import * as React from "react";
+""import * as React from "react";
 import styled from "styled-components";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
@@ -7,11 +6,11 @@ import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
 
 import IconText from "../IconText";
 import Translate from "../Translate";
-import type { Change } from "../InputText";
+import { Change } from "../InputText";
 import ClickOutside from "../ClickOutside";
 import { Consumer as IntlConsumer } from "../../services/intl/context";
 import { themeDefault } from "../../records/Theme";
-import type { ThemeProps } from "../../records/Theme";
+import { ThemeProps } from "../../records/Theme";
 import AirportListData from "./AirportListData";
 
 const Container = styled.div`
@@ -34,7 +33,7 @@ ResultWrapper.defaultProps = {
   theme: themeDefault,
 };
 
-type Props = {|
+type Props = {
   id: string,
   value: string,
   onSelect: (value: string) => void,
@@ -99,6 +98,7 @@ export default class IataPicker extends React.PureComponent<Props, State> {
                 onChange={this.handleInputChange}
                 onFocus={this.handleFocus}
                 onKeyDown={this.handleKeyDown}
+                autoCom
                 label={
                   <IconText icon={<Airplane color="primary" size="small" />}>
                     <Translate t="common.iata_code" />

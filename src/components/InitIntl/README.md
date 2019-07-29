@@ -3,7 +3,7 @@
 Useful for initiating the **intl** context from raw intl data.
 
 ```js
-import type { IntlRaw } from "@kiwicom/nitro/lib/records/Intl";
+import { IntlRaw } from "@kiwicom/nitro/lib/records/Intl";
 
 const raw: IntlRaw = window.__INTL__; // intl data from the server
 
@@ -26,7 +26,7 @@ if (node) {
 On the server:
 
 ```js
-import type { IntlRaw } from "@kiwicom/nitro/lib/records/Intl";
+import { IntlRaw } from "@kiwicom/nitro/lib/records/Intl";
 
 import { locales } from "./data";
 

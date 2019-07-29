@@ -1,9 +1,9 @@
 // @flow strict
 import * as React from "react";
 
-import type { Brand } from "../../records/Brand";
+import { Brand } from "../../records/Brand";
 
-declare var context: React.Context<Brand>;
+declare export var context: React.Context<Brand>;
 
 export const { Consumer, Provider } = context;
 

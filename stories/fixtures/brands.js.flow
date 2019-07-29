@@ -1,4 +1,4 @@
 // @flow strict
-import type { Brands } from "../../src/records/Brand";
+import { Brands } from "../../src/records/Brand";
 
 declare export default Brands;

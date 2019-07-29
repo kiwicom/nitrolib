@@ -1,5 +1,4 @@
 // @flow strict
-
 type SizeUnit = "CM" | "INCH";
 
 type WeightUnit = "KG" | "POUND";

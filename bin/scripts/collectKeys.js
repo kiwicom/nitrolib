@@ -1,5 +1,5 @@
-// @noflow
 /* eslint-disable no-console, fp/no-throw */
+// @noflow
 const fs = require("fs");
 const R = require("ramda");
 const glob = require("glob");

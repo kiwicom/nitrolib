@@ -53,10 +53,10 @@ stylelint:
   script:
     - yarn lint:css
 
-flow:
+ts:
   stage: build
   script:
-    - yarn flow check
+    - yarn types
 
 keys:
   stage: build

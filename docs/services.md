@@ -29,7 +29,7 @@ A fresh setup might look something like:
 // ...
 import InitAuth from "@kiwicom/nitro/lib/components/InitAuth";
 import { Provider as AuthProvider } from "@kiwicom/nitro/lib/services/auth/context";
-import type { Brand } from "@kiwicom/nitro/lib/records/Brand";
+import { Brand } from "@kiwicom/nitro/lib/records/Brand";
 // ...
 
 const AUTH_COOKIE = "AUTH_TOKEN"; // or whatever you save it as
@@ -92,31 +92,31 @@ import * as api from "@kiwicom/nitro/lib/services/auth/api";
 ```js
 declare export function getTokenUser(token: string): Promise<User>;
 
-export type MyBookingInput = {|
+export type MyBookingInput = {}
   bid: string,
   email: string,
   iata: string,
   departure: Date,
-|};
+{};
 
 declare export function getMyBookingToken(input: MyBookingInput): Promise<string>;
 
-type LoginInput = {|
+type LoginInput = {}
   email: string,
   password: string,
   brand: string,
-|};
+{};
 
 declare export function signIn(input: LoginInput): Promise<AuthUser>;
 
 declare export function logout(token: string): Promise<void>;
 
-export type RegisterInput = {|
+export type RegisterInput = {}
   firstName: string,
   lastName: string,
   email: string,
   password: string,
-|};
+{};
 
 declare export function register(brand: string, input: RegisterInput): Promise<void>;
 
@@ -142,21 +142,21 @@ import * as context from "@kiwicom/nitro/lib/services/auth/context";
 
 **Types:**
 ```js
-type MyBookingInput = {|
+type MyBookingInput = {}
   bid: string,
   email: string,
   iata: string,
   departure: Date,
-|};
+{};
 
-type RegisterInput = {|
+type RegisterInput = {}
   firstName: string,
   lastName: string,
   email: string,
   password: string,
-|};
+{};
 
-export type Context = {|
+export type Context = {}
   auth: Auth | null,
   loading: boolean,
   environment: Environment,
@@ -165,7 +165,7 @@ export type Context = {|
   onSocialAuth: (provider: SocialProvider) => Promise<void>,
   onSignIn: (email: string, password: string) => Promise<void>,
   onSignOut: () => void,
-|};
+{};
 
 declare var context: React.Context<Context>;
 
@@ -250,12 +250,12 @@ import * as context from "@kiwicom/nitro/lib/services/currency/context";
 
 **Types:**
 ```js
-export type Context = {|
+export type Context = {}
   currency: Currency,
   available: Currencies,
   recommended: Currency[],
   onChange: (code: string) => void,
-|};
+{};
 
 declare var context: React.Context<Context>;
 
@@ -301,7 +301,7 @@ import * as init from "@kiwicom/nitro/lib/services/currency/init";
 
 **Types:**
 ```js
-export type Input = {|
+export type Input = {}
   currencies: Currencies,
   initialCurrency: string,
   countryCurrency: string,
@@ -309,13 +309,13 @@ export type Input = {|
   affiliate: string,
   brandCurrencies: string[],
   mostUsedCurrencies?: string[],
-|};
+{};
 
-export type Payload = {|
+export type Payload = {}
   currency: Currency,
   available: Currencies,
   recommended: Currency[],
-|};
+{};
 
 declare export default function init(input: Input): Payload;
 ```
@@ -356,18 +356,18 @@ import * as headers from "@kiwicom/nitro/lib/services/fetch/headers";
 
 **Types:**
 ```js
-declare export var JSON_GET: {|
+declare export var JSON_GET: {}
   Accept: string,
-|};
+{};
 
-declare export var JSON_SEND: {|
+declare export var JSON_SEND: {}
   "Content-Type": string,
-|};
+{};
 
-declare export var JSON_BOTH: {|
+declare export var JSON_BOTH: {}
   Accept: string,
   "Content-Type": string,
-|};
+{};
 ```
 
 Just utility objects to be used in the `headers` option when using `fetch`.
@@ -439,10 +439,10 @@ declare export var email: (val: string) => Error;
 
 declare export var phone: (val: string) => Error;
 
-export type YearAfterOpts = {|
+export type YearAfterOpts = {}
   offset: number,
   now: Date,
-|};
+{};
 
 declare export var yearAfter: (arg: YearAfterOpts) => (val: Date) => Error;
 
@@ -472,10 +472,10 @@ import * as context from "@kiwicom/nitro/lib/services/intl/context";
 
 **Types:**
 ```js
-export type Context = {|
+export type Context = {}
   ...Intl,
   onDebug: () => void,
-|};
+{};
 
 declare var context: React.Context<Context>;
 
@@ -598,9 +598,9 @@ import * as context from "@kiwicom/nitro/lib/services/log/context";
 
 **Types:**
 ```js
-export type Context = {|
+export type Context = {}
   log: (event: Event, props: Props) => void,
-|};
+{};
 
 declare var context: React.Context<Context>;
 
@@ -623,7 +623,7 @@ import * as globals from "@kiwicom/nitro/lib/services/log/globals";
 
 **Types:**
 ```js
-type Static = {|
+type Static = {}
   brandingId: string,
   UTMs: { [key: string]: string },
   affilParams: { [key: string]: string },
@@ -636,7 +636,7 @@ type Static = {|
   pageViewId?: string,
   bid?: number,
   splitster?: { [key: string]: string },
-|};
+{};
 
 declare export default (statics: Static) => Globals;
 ```
@@ -659,7 +659,7 @@ import * as logger from "@kiwicom/nitro/lib/services/log/logger";
 
 **Types:**
 ```js
-export type Statics = {|
+export type Statics = {}
   project: string,
   module: string,
   pageName: string,
@@ -670,13 +670,13 @@ export type Statics = {|
   splitster: { [key: string]: string },
   affilParams: { [key: string]: string },
   UTMs: { [key: string]: string },
-|};
+{};
 
 declare export var statics: Statics;
 
-export type Settings = {|
+export type Settings = {}
   api: ApiSettings,
-|};
+{};
 
 declare export var settings: Settings;
 
@@ -713,10 +713,10 @@ import * as context from "@kiwicom/nitro/lib/services/modal/context";
 
 **Types:**
 ```js
-export type Context = {|
+export type Context = {}
   value: string,
   onChange: (value?: string) => void,
-|};
+{};
 
 declare var context: React.Context<Context>;
 
@@ -742,22 +742,22 @@ import * as analyseHeaders from "@kiwicom/nitro/lib/services/server/analyseHeade
 
 **Types:**
 ```js
-export type CookieSizes = {|
+export type CookieSizes = {}
   total: number,
   splitster: number,
   recentSearch: number,
   other: number,
-|};
+{};
 
 export type Headers = { [string]: string };
 
-export type AnalysePayload = {|
+export type AnalysePayload = {}
   total: number,
   url: number,
   headers: number,
   cookies: CookieSizes,
   cookiesToRemove: string[],
-|};
+{};
 
 declare export default (h: Headers, url: string, limit?: number) => AnalysePayload;
 ```
@@ -801,12 +801,12 @@ import * as cookies from "@kiwicom/nitro/lib/services/session/cookies";
 
 **Types:**
 ```js
-type Options = {|
+type Options = {}
   expires?: number | Date,
   domain?: string,
   path?: string,
   secure?: boolean,
-|};
+{};
 
 declare export var load: (key: Cookie) => ?string;
 
@@ -914,7 +914,7 @@ import * as context from "@kiwicom/nitro/lib/services/starred/context";
 
 **Types:**
 ```js
-export type Context = {|
+export type Context = {}
   list: StarredItem[],
   isMobile: boolean,
   lang: string,
@@ -925,7 +925,7 @@ export type Context = {|
   onSetNotice: () => void,
   renderShareDialog: (arg: ShareDialog) => React.Node,
   makeShareUrl: (arg: StarredItem) => string,
-|};
+{};
 
 declare var context: React.Context<Context>;
 
