@@ -16,10 +16,7 @@ const AirportList = ({ list, onSelect }: Props): React.Node[] | null =>
     : list.edges
         .map(edge => edge && edge.node)
         .filter(Boolean)
-        .map(item => (
-          // $FlowExpected: Relay type issue
-          <AirportResult key={item.locationId} item={item} onClick={onSelect} />
-        ));
+        .map(item => <AirportResult key={item.locationId} item={item} onClick={onSelect} />);
 
 export default createFragmentContainer(AirportList, {
   list: graphql`

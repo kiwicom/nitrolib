@@ -105,8 +105,8 @@ export default class IataPicker extends React.PureComponent<Props, State> {
                   </IconText>
                 }
                 placeholder={intl.translate(__("account.iata_placeholder"))}
-                help={intl.translate(__("account.iata_help"))}
-                error={intl.translate(error)}
+                help={value && intl.translate(__("account.iata_help"))}
+                error={value && intl.translate(error)}
               />
               {open && value !== "" && (
                 <ResultWrapper>
