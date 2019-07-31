@@ -95,7 +95,7 @@ storiesOf("CustomerBaggageTile", module)
   ))
   .add("with middle name and DOB", () => (
     <Wrapper>
-      <CustomerBaggageTile {...props} dayOfBirth="10-05-1983" middleName="Olix" />
+      <CustomerBaggageTile {...props} dayOfBirth="10/05/1983" middleName="Olix" />
     </Wrapper>
   ))
   .add("without personal item", () => (

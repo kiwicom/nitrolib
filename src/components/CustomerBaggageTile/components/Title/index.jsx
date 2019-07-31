@@ -58,7 +58,7 @@ const Title = ({
   price,
 }: TitleProps) => (
   <Wrapper data-test="CustomerBaggageTile-Title">
-    <Stack inline align="center" spacing="condensed">
+    <Stack inline mediumMobile={{ align: "center" }} align="start" spacing="condensed">
       {icon}
       <Text element="span" weight="bold" size="large">
         {`${firstName}
