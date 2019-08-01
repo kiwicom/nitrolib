@@ -67,7 +67,7 @@ export const getGlobals = (): Globals => ({
   viewportHeight: window.innerHeight,
   timestamp: Date.now(),
   connectionType: window.navigator?.connection?.type,
-  connectionSpeed: window.navigator?.connection?.downlinkMax,
+  connectionSpeed: window.navigator?.connection?.downlink,
   connectionSpeedMax: window.navigator?.connection?.downlinkMax,
 });
 
