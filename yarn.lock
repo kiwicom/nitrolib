@@ -9061,12 +9061,12 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-libphonenumber-js@^1.6.8:
-  version "1.7.20"
-  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.7.20.tgz#2050a7df68f0ff0255f9f41ec0b9263f370eb58f"
-  integrity sha512-rjgSW5SEzkFwm84eXGjzZSOjLnzewcjQb8NwELXKki08CqkPi8ubqPzMheONEr2trcwieAIGWQt90MdIt4gfiA==
+libphonenumber-js@Strajk/libphonenumber-js#05c2d0a300f4ba78ebcb85c80b53dfc196948be0:
+  version "1.7.15"
+  resolved "https://codeload.github.com/Strajk/libphonenumber-js/tar.gz/05c2d0a300f4ba78ebcb85c80b53dfc196948be0"
   dependencies:
     minimist "^1.2.0"
+    semver-compare "^1.0.0"
     xml2js "^0.4.17"
 
 lighthouse-logger@^1.0.0:

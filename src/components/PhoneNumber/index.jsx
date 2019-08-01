@@ -1,5 +1,5 @@
 // @flow strict
-import { parsePhoneNumber } from "libphonenumber-js";
+import { parsePhoneNumber } from "libphonenumber-js/bundle/libphonenumber-max";
 
 type Props = {|
   tel: string,
