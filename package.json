@@ -1,6 +1,6 @@
 {
   "name": "@kiwicom/nitro",
-  "version": "6.0.4",
+  "version": "6.0.5",
   "description": "Nitro's components.",
   "scripts": {
     "start": "yarn storybook",

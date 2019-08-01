@@ -1,3 +1,12 @@
+## [6.0.5](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.0.4...v6.0.5) (2019-08-01)
+
+
+### Bug Fixes
+
+* **components:** IataPicker states ([c4f9013](https://gitlab.skypicker.com/frontend/nitrolib/commit/c4f9013))
+
+
+
 ## [6.0.4](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.0.3...v6.0.4) (2019-07-26)
 
 
