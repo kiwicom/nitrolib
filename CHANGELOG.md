@@ -1,3 +1,19 @@
+# [6.1.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.0.5...v6.1.0) (2019-08-02)
+
+
+### Bug Fixes
+
+* **services:** Log connectionSpeed ([e5375c4](https://gitlab.skypicker.com/frontend/nitrolib/commit/e5375c4))
+* Use modified version of libphonenumber-js to make cypress pass ([710c5ed](https://gitlab.skypicker.com/frontend/nitrolib/commit/710c5ed))
+
+
+### Features
+
+* **records:** Added hooks support ([fb84534](https://gitlab.skypicker.com/frontend/nitrolib/commit/fb84534))
+* Make magic link prop "onGetSimpleToken" optional ([fb9bb7e](https://gitlab.skypicker.com/frontend/nitrolib/commit/fb9bb7e))
+
+
+
 ## [6.0.6](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.0.5...v6.0.6) (2019-08-02)
 
 
