@@ -14,6 +14,8 @@ const context: React.Context<Context> = React.createContext({
   onDebug: () => {},
 });
 
+export const useIntl = () => React.useContext(context);
+
 export const { Consumer, Provider } = context;
 
 export default context;

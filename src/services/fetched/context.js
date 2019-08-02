@@ -6,6 +6,8 @@ import type { Fetched } from "../../records/Fetched";
 
 const context: React.Context<Fetched> = React.createContext(fetchedDefault);
 
+export const useFetched = () => React.useContext(context);
+
 export const { Consumer, Provider } = context;
 
 export default context;

@@ -2,9 +2,10 @@
 import * as React from "react";
 import styled from "styled-components";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
+import Text from "@kiwicom/orbit-components/lib/Text";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import { themeDefault } from "../../../../records/Theme";
-import type { ThemeProps } from "../../../../records/Theme";
 
 type Props = {
   text?: React.Node,
@@ -19,21 +20,14 @@ Menu.defaultProps = {
   theme: themeDefault,
 };
 
-const Title = styled.span`
-  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
-  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
-  text-transform: uppercase;
-  line-height: 16px;
-`;
-
-Title.defaultProps = {
-  theme: themeDefault,
-};
-
 const MenuGroup = ({ text, children }: Props) => (
   <Menu itemScope itemType="http://www.schema.org/SiteNavigationElement">
-    {text && <Title>{text}</Title>}
-    {children}
+    {text && (
+      <Text uppercase weight="bold" size="small" spaceAfter="normal">
+        {text}
+      </Text>
+    )}
+    <Stack spaceAfter="large">{children}</Stack>
   </Menu>
 );
 

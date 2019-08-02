@@ -9,6 +9,8 @@ export type Context = {|
 
 declare var context: React.Context<Context>;
 
+declare export function useLog(): Context;
+
 export const { Provider, Consumer } = context;
 
 export default context;

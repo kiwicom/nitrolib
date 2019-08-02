@@ -2,8 +2,6 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import * as MODALS from "../../../../../consts/modals";
-
 import SideNav from "..";
 
 describe("#SideNav", () => {
@@ -34,9 +32,13 @@ describe("#SideNav", () => {
         onSetModal={jest.fn()}
       />,
     );
-    wrapper.instance().handleToggle();
 
-    expect(wrapper.state("modalOpen")).toEqual(MODALS.SIDE_NAV);
+    wrapper
+      .find("SideNav__MenuOpen")
+      .props()
+      .onClick();
+
+    expect(wrapper.find("SideBar").prop("shown")).toBe(true);
   });
 
   test("opens subscription", () => {
@@ -52,9 +54,14 @@ describe("#SideNav", () => {
       />,
     );
 
-    wrapper.instance().handleOpenSubscription();
+    wrapper
+      .find("MenuGroup")
+      .at(2)
+      .childAt(1)
+      .props()
+      .onClick();
 
-    expect(wrapper.state("modalOpen")).toBe("subscription");
+    expect(wrapper.find("ModalSection").contains("subscription")).toBe(true);
     expect(setModal).toBeCalledTimes(1);
     expect(setModal).toBeCalledWith("subscription");
   });
@@ -73,9 +80,14 @@ describe("#SideNav", () => {
       />,
     );
 
-    wrapper.instance().handleOpenDebug();
+    wrapper
+      .find("MenuGroup")
+      .at(0)
+      .childAt(0)
+      .props()
+      .onClick();
 
-    expect(wrapper.state("modalOpen")).toBe("debug");
+    expect(wrapper.find("ModalSection").contains("debug")).toBe(true);
     expect(setModal).toBeCalledTimes(1);
     expect(setModal).toBeCalledWith("debug");
   });
@@ -92,13 +104,19 @@ describe("#SideNav", () => {
         onSetModal={setModal}
       />,
     );
-    wrapper.instance().handleToggle();
+    wrapper
+      .find("SideNav__MenuOpen")
+      .props()
+      .onClick();
 
     expect(setModal).toBeCalledWith("sideNav");
 
     setModal.mockClear();
 
-    wrapper.instance().handleToggle();
+    wrapper
+      .find("SideNav__MenuOpen")
+      .props()
+      .onClick();
 
     expect(setModal).toBeCalledWith("");
   });
