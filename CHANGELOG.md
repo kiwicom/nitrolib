@@ -1,3 +1,12 @@
+## [6.0.6](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.0.5...v6.0.6) (2019-08-02)
+
+
+### Bug Fixes
+
+* **services:** Log connectionSpeed ([e5375c4](https://gitlab.skypicker.com/frontend/nitrolib/commit/e5375c4))
+
+
+
 ## [6.0.5](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.0.4...v6.0.5) (2019-08-01)
 
 
