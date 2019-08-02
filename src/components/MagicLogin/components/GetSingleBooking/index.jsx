@@ -19,6 +19,7 @@ import errors from "../../../../consts/errors";
 
 type OwnProps = {|
   onBack: () => void,
+  onClose: boolean => void,
   onGetSimpleToken?: AuthToken => void,
 |};
 
@@ -41,7 +42,7 @@ type State = {|
   IATAError: string,
 |};
 
-class GetSingleBookingWithoutContext extends React.Component<Props, State> {
+export class GetSingleBookingWithoutContext extends React.Component<Props, State> {
   state = {
     error: null,
     submitted: false,
@@ -94,7 +95,9 @@ class GetSingleBookingWithoutContext extends React.Component<Props, State> {
   };
 
   handleSimpleToken = (payload: AuthToken) => {
-    const { onGetSimpleToken } = this.props;
+    const { onGetSimpleToken, onClose } = this.props;
+
+    onClose(true);
 
     if (onGetSimpleToken) {
       onGetSimpleToken(payload);

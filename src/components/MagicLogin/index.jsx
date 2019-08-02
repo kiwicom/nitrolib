@@ -247,7 +247,11 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
           screen === "resetPassword") && <AccountCheckEmail reason={screen} email={email} />}
 
         {screen === "getSingleBooking" && (
-          <GetSingleBooking onBack={this.handleToIntro} onGetSimpleToken={onGetSimpleToken} />
+          <GetSingleBooking
+            onBack={this.handleToIntro}
+            onClose={this.handleClose}
+            onGetSimpleToken={onGetSimpleToken}
+          />
         )}
       </Modal>
     );
