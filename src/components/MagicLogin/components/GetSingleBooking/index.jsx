@@ -19,7 +19,7 @@ import errors from "../../../../consts/errors";
 
 type OwnProps = {|
   onBack: () => void,
-  onGetSimpleToken: AuthToken => void,
+  onGetSimpleToken?: AuthToken => void,
 |};
 
 type Props = {|
@@ -93,9 +93,20 @@ class GetSingleBookingWithoutContext extends React.Component<Props, State> {
     });
   };
 
+  handleSimpleToken = (payload: AuthToken) => {
+    const { onGetSimpleToken } = this.props;
+
+    if (onGetSimpleToken) {
+      onGetSimpleToken(payload);
+      return;
+    }
+
+    window.location = `${window.location.origin}/manage/${payload.bid}/${payload.token}`;
+  };
+
   handleSubmit = (ev: SyntheticInputEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    const { onGetSimpleToken, log, intl } = this.props;
+    const { log, intl } = this.props;
     const { bookingId, email, departureDate, IATA } = this.state;
     const bookingIdError = validators.required(bookingId);
     const emailError = validators.email(email);
@@ -130,7 +141,7 @@ class GetSingleBookingWithoutContext extends React.Component<Props, State> {
 
         if (token) {
           log(GET_SIMPLE_TOKEN, {});
-          onGetSimpleToken({
+          this.handleSimpleToken({
             type: "token",
             bid,
             token,

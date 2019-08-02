@@ -31,7 +31,7 @@ type ContainerProps = {|
   onClose: () => void,
   onSignIn: (user: AuthUser) => void,
   onSocialLogin: (provider: SocialProvider) => Promise<void>,
-  onGetSimpleToken: AuthToken => void,
+  onGetSimpleToken?: AuthToken => void,
 |};
 
 type Props = {|
