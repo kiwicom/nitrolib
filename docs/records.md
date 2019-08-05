@@ -936,7 +936,7 @@ export type Event = {|
     exponea: boolean,
     ga: boolean,
     logmole: boolean,
-    bigquery: boolean,
+    bigQuery: boolean,
   |},
 |};
 

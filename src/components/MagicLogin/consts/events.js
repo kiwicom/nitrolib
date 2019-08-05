@@ -9,7 +9,7 @@ export const MAGIC_LOGIN_MODAL_SHOWN: Event = {
     exponea: true,
     ga: false,
     logmole: false,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -21,7 +21,7 @@ export const SCREEN_CHANGED: Event = {
     exponea: true,
     ga: false,
     logmole: false,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -33,7 +33,7 @@ export const LOGGED_WITH_ACCOUNT: Event = {
     exponea: true,
     ga: false,
     logmole: false,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -45,7 +45,7 @@ export const ASK_FOR_MAGIC_LINK: Event = {
     exponea: true,
     ga: false,
     logmole: false,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -57,7 +57,7 @@ export const MAGIC_LINK_SENT: Event = {
     exponea: true,
     ga: false,
     logmole: false,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -69,7 +69,7 @@ export const CHANGE_EMAIL: Event = {
     exponea: true,
     ga: false,
     logmole: false,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -81,7 +81,7 @@ export const LOGIN_VIA_SOCIAL: Event = {
     exponea: true,
     ga: false,
     logmole: false,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -93,7 +93,7 @@ export const CONTINUE_WITH_REGISTER: Event = {
     exponea: true,
     ga: false,
     logmole: false,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -105,7 +105,7 @@ export const REGISTRATION_SENT: Event = {
     exponea: true,
     ga: false,
     logmole: false,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -117,7 +117,7 @@ export const SIMPLE_TOKEN_RETRIEVED: Event = {
     exponea: true,
     ga: false,
     logmole: false,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -129,7 +129,7 @@ export const GET_SIMPLE_TOKEN: Event = {
     exponea: true,
     ga: false,
     logmole: false,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -141,7 +141,7 @@ export const LOGIN_ABANDONED: Event = {
     exponea: true,
     ga: false,
     logmole: false,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -153,6 +153,6 @@ export const LOGIN_PATH_FULFILLED = {
     exponea: true,
     ga: false,
     logmole: false,
-    bigquery: true,
+    bigQuery: true,
   },
 };

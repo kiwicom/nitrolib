@@ -9,7 +9,7 @@ const event = {
   action: "Lol",
   category: "General",
   destinations: {
-    bigquery: false,
+    bigQuery: false,
     exponea: false,
     logmole: false,
     ga: false,

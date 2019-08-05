@@ -9061,9 +9061,9 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-libphonenumber-js@Strajk/libphonenumber-js#05c2d0a300f4ba78ebcb85c80b53dfc196948be0:
+libphonenumber-js@Strajk/libphonenumber-js#ad217ed7f8f166f69aa37e0a97d4aa7a9cf837af:
   version "1.7.15"
-  resolved "https://codeload.github.com/Strajk/libphonenumber-js/tar.gz/05c2d0a300f4ba78ebcb85c80b53dfc196948be0"
+  resolved "https://codeload.github.com/Strajk/libphonenumber-js/tar.gz/ad217ed7f8f166f69aa37e0a97d4aa7a9cf837af"
   dependencies:
     minimist "^1.2.0"
     semver-compare "^1.0.0"

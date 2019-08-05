@@ -9,7 +9,7 @@ export const API_ERROR: Event = {
     exponea: false,
     ga: false,
     logmole: true,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -21,7 +21,7 @@ export const API_REQUEST: Event = {
     exponea: false,
     ga: false,
     logmole: true,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -33,7 +33,7 @@ export const API_SUCCESS: Event = {
     exponea: false,
     ga: false,
     logmole: true,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -45,7 +45,7 @@ export const API_REQUEST_FAILED: Event = {
     exponea: false,
     ga: false,
     logmole: true,
-    bigquery: true,
+    bigQuery: true,
   },
 };
 
@@ -57,6 +57,6 @@ export const MODAL_OPEN: Event = {
     exponea: false,
     ga: false,
     logmole: true,
-    bigquery: true,
+    bigQuery: true,
   },
 };
