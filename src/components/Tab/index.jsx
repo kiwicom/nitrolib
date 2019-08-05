@@ -63,7 +63,7 @@ const Container = styled.button`
   }
 
   &:disabled {
-    color: ${({ theme }: ContainerProps) => theme.orbit.paletteInkDark};
+    color: ${({ theme }: ContainerProps) => theme.orbit.paletteInkNormal};
   }
 `;
 

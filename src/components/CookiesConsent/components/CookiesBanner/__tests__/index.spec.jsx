@@ -12,7 +12,7 @@ describe("#CookiesBanner", () => {
 
     expect(wrapper.find("CookiesBanner__Container")).toHaveStyleRule(
       "background",
-      themeDefault.orbit.paletteInkDark,
+      themeDefault.orbit.paletteInkNormal,
     );
 
     expect(wrapper.find("CookiesBanner__Container").exists()).toBe(true);

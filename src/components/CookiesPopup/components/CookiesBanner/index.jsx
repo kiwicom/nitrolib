@@ -22,7 +22,7 @@ const Container = styled.div`
   padding: ${rtlSpacing("10px 30px 10px 20px")};
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   line-height: 20px;
-  background: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
+  background: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   transition: bottom 0.25s ease-in;
   box-shadow: 0 -1px 6px 0 rgba(0, 0, 0, 0.2);

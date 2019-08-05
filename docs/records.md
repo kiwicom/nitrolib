@@ -617,6 +617,7 @@ export type Brand = {|
       productNormalHover: string,
       productLight: string,
       productDark: string,
+      productDarker?: string,
       productLightHover: string,
       productLightActive: string,
       productNormalActive: string,

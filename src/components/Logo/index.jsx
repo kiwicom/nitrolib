@@ -10,7 +10,7 @@ import { themeDefault } from "../../records/Theme";
 import SvgLogo from "./SvgLogo";
 
 const PoweredByKiwi = styled.span`
-  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkDark};
+  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   position: relative;
   font-size: 10px;
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
