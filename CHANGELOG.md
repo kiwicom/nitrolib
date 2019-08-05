@@ -1,3 +1,14 @@
+## [6.1.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.1.0...v6.1.1) (2019-08-05)
+
+
+### Bug Fixes
+
+* Event bigquery to bigQuery ([dee46db](https://gitlab.skypicker.com/frontend/nitrolib/commit/dee46db))
+* Improve tracked events in MagicLogin ([b43f5cf](https://gitlab.skypicker.com/frontend/nitrolib/commit/b43f5cf))
+* Use modified & proper version of libphonenumber-js ([282392b](https://gitlab.skypicker.com/frontend/nitrolib/commit/282392b))
+
+
+
 # [6.1.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.0.5...v6.1.0) (2019-08-02)
 
 
