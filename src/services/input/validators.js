@@ -2,7 +2,7 @@
 import isEmail from "validator/lib/isEmail";
 import isAfter from "date-fns/isAfter";
 import addYears from "date-fns/addYears";
-import { parsePhoneNumberFromString } from "libphonenumber-js/bundle/libphonenumber-max";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 
 export type Error = string;
 
