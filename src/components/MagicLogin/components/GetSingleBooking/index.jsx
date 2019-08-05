@@ -8,7 +8,7 @@ import GetSingleBookingScreen from "../screens/GetSingleBooking";
 import createSimpleToken from "../../mutations/createSimpleToken";
 import * as validators from "../../../../services/input/validators";
 import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
-import { GET_SIMPLE_TOKEN } from "../../consts/events";
+import { SIMPLE_TOKEN_RETRIEVED } from "../../consts/events";
 import LogContext from "../../../../services/log/context";
 import IntlContext from "../../../../services/intl/context";
 import makeEnvironment from "../../../../services/utils/relay";
@@ -19,6 +19,7 @@ import errors from "../../../../consts/errors";
 
 type OwnProps = {|
   onBack: () => void,
+  onClose: boolean => void,
   onGetSimpleToken?: AuthToken => void,
 |};
 
@@ -41,7 +42,7 @@ type State = {|
   IATAError: string,
 |};
 
-class GetSingleBookingWithoutContext extends React.Component<Props, State> {
+export class GetSingleBookingWithoutContext extends React.Component<Props, State> {
   state = {
     error: null,
     submitted: false,
@@ -94,7 +95,9 @@ class GetSingleBookingWithoutContext extends React.Component<Props, State> {
   };
 
   handleSimpleToken = (payload: AuthToken) => {
-    const { onGetSimpleToken } = this.props;
+    const { onGetSimpleToken, onClose } = this.props;
+
+    onClose(true);
 
     if (onGetSimpleToken) {
       onGetSimpleToken(payload);
@@ -140,7 +143,7 @@ class GetSingleBookingWithoutContext extends React.Component<Props, State> {
         const token = res.createSimpleToken?.token;
 
         if (token) {
-          log(GET_SIMPLE_TOKEN, {});
+          log(SIMPLE_TOKEN_RETRIEVED, {});
           this.handleSimpleToken({
             type: "token",
             bid,

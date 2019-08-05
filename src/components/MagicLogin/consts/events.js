@@ -109,10 +109,22 @@ export const REGISTRATION_SENT: Event = {
   },
 };
 
+export const SIMPLE_TOKEN_RETRIEVED: Event = {
+  category: "General",
+  subCategory: "MagicLogin",
+  action: "SimpleTokenRetrieved",
+  destinations: {
+    exponea: true,
+    ga: false,
+    logmole: false,
+    bigquery: true,
+  },
+};
+
 export const GET_SIMPLE_TOKEN: Event = {
   category: "General",
   subCategory: "MagicLogin",
-  action: "RegistrationSent",
+  action: "GetSimpleToken",
   destinations: {
     exponea: true,
     ga: false,

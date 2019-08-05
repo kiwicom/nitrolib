@@ -344,7 +344,7 @@ Modal component handling the whole login flow with magic link.
 
 **Docs**
 
-[WIKI - New login flow with magic link](https://kiwi.wiki/frontend/wiki/#/teams/account/login/magic-link-login)
+[WIKI - New login flow with magic link](https://kiwi.wiki/frontend/wiki/docs/features/acc_newLogin/)
 
 **Props**
 
@@ -366,6 +366,7 @@ Modal component handling the whole login flow with magic link.
   - `MagicLogin-CheckEmail` - this is shown upon successful request to reset password or when e-mail with magic link is sent.
 - `MagicLogin-CloseButton` - close button for the whole login modal.
 - `MagicLogin-AskForMagic` - button that sends e-mail with magic link when clicked
+- `MagicLogin-GetSingleBooking` - alternative one-time sign in form into single booking via bid & IATA code
 - Also, all inputs should have its own `data-test` attribute corresponding to their purpose - `MagicLogin-Email`, `MagicLogin-Password`
 
 **Example**
