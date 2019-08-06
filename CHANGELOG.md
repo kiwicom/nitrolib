@@ -1,3 +1,7 @@
+## [6.1.2](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.1.1...v6.1.2) (2019-08-06)
+
+
+
 ## [6.1.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.1.0...v6.1.1) (2019-08-05)
 
 
