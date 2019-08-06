@@ -1,3 +1,12 @@
+## [6.1.3](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.1.1...v6.1.3) (2019-08-06)
+
+
+### Bug Fixes
+
+* Make login via IATA work for in IE in MagicLogin component ([9e1cd6d](https://gitlab.skypicker.com/frontend/nitrolib/commit/9e1cd6d))
+
+
+
 ## [6.1.2](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.1.1...v6.1.2) (2019-08-06)
 
 
