@@ -3,6 +3,7 @@
 import * as React from "react";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Grid from "@kiwicom/orbit-components/lib/utils/Grid";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
@@ -67,35 +68,41 @@ const GetSingleBooking = ({
               {error}
             </Alert>
           )}
-          <Stack inline>
-            <InputField
-              type="number"
-              label={intl.translate(__("account.sign_in.bid_number_label"))}
-              placeholder={intl.translate(__("account.sign_in.bid_number_placeholder"))}
-              value={bookingId}
-              error={intl.translate(bookingIdError)}
-              onChange={onBookingIdChange}
-              dataTest="MagicLogin-BookingId"
-            />
-            <InputField
-              label={intl.translate(__("account.sign_in.incorrect_email_label"))}
-              placeholder={intl.translate(__("account.sign_in.incorrect_email_placeholder"))}
-              value={email}
-              error={intl.translate(emailError)}
-              onChange={onEmailChange}
-              dataTest="MagicLogin-Email"
-            />
+          <Stack>
+            <Grid
+              gap="20px"
+              tablet={{
+                columns: "35% 60%",
+                gap: "5%",
+              }}
+            >
+              <InputField
+                type="number"
+                label={intl.translate(__("account.sign_in.bid_number_label"))}
+                placeholder={intl.translate(__("account.sign_in.bid_number_placeholder"))}
+                value={bookingId}
+                error={intl.translate(bookingIdError)}
+                onChange={onBookingIdChange}
+                dataTest="MagicLogin-BookingId"
+              />
+              <InputField
+                label={intl.translate(__("account.sign_in.incorrect_email_label"))}
+                placeholder={intl.translate(__("account.sign_in.incorrect_email_placeholder"))}
+                value={email}
+                error={intl.translate(emailError)}
+                onChange={onEmailChange}
+                dataTest="MagicLogin-Email"
+              />
+            </Grid>
           </Stack>
-          <Stack inline>
-            <DateInput
-              value={departureDate}
-              error={intl.translate(departureDateError)}
-              onChange={onDepartureDateChange}
-              label={__("account.sign_in.departure_date_label")}
-            />
-          </Stack>
+          <DateInput
+            value={departureDate}
+            error={intl.translate(departureDateError)}
+            onChange={onDepartureDateChange}
+            label={__("account.sign_in.departure_date_label")}
+          />
           <div>
-            <Stack inline spaceAfter="large">
+            <Stack shrink spaceAfter="large">
               <IataPicker
                 id="MagicLogin-IATA"
                 value={IATA}
