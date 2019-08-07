@@ -1509,10 +1509,10 @@
     relay-compiler "^5.0.0"
     relay-runtime "^5.0.0"
 
-"@kiwicom/translations@^1.369.0":
-  version "1.369.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.369.0.tgz#3202b05a661fd180a45c7a24cf72e93b41caa180"
-  integrity sha512-64FP2iuy/ht0oFDc+nUbqyLmYEWFG6I9hNNPNjWHYQJ+CvJ5fXp+rCZN9yxGniy0ld6ydVdNG6d3Y1H/lfSRNw==
+"@kiwicom/translations@^1.375.0":
+  version "1.375.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.375.0.tgz#695fa9aca2142bb5c46073748f552f053fa578a7"
+  integrity sha512-z8b94JT4sXXodrS7+CWXqSfvDengHwhgIAa6A92v6xkP/kTAJuI3mYkh7pxb2m/Hl8uMMBDKNV3siU9HCvvxEQ==
 
 "@marionebl/sander@^0.6.0":
   version "0.6.1"
@@ -14960,3 +14960,8 @@ z-schema@^3.18.2:
     validator "^10.0.0"
   optionalDependencies:
     commander "^2.7.1"
+
+zxcvbn@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/zxcvbn/-/zxcvbn-4.4.2.tgz#28ec17cf09743edcab056ddd8b1b06262cc73c30"
+  integrity sha1-KOwXzwl0PtyrBW3dixsGJizHPDA=

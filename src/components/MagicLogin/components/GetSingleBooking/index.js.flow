@@ -1,0 +1,22 @@
+// @flow strict
+import * as React from "react";
+
+type Props = {|
+  departureDate: ?Date,
+  departureDateError: string,
+  bookingId: string,
+  bookingIdError: string,
+  email: string,
+  emailError: string,
+  IATA: string,
+  IATAError: string,
+  error?: React.Node,
+  onDepartureDateChange: (?Date) => void,
+  onBookingIdChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onIATAChange: (value: string) => void,
+  onBack: () => void,
+  onSubmit: (ev: SyntheticInputEvent<HTMLFormElement>) => void,
+|};
+
+declare export default React.ComponentType<Props>;

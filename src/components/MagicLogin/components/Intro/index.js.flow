@@ -1,0 +1,21 @@
+// @flow strict
+import * as React from "react";
+
+type LoginType = "mmb" | "help" | "refer";
+
+type Props = {|
+  type?: LoginType,
+  email: string,
+  error?: React.Node,
+  emailError?: string,
+  isLoading?: boolean,
+  disableSocialLogin?: boolean,
+  onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onEmailBlur: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onContinue: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onIncorrectEmail: () => void,
+|};
+
+declare export default React.ComponentType<Props>;

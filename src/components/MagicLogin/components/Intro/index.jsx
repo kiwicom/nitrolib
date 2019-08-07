@@ -1,166 +1,149 @@
 // @flow strict
-
 import * as React from "react";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
+import Heading from "@kiwicom/orbit-components/lib/Heading";
+import InputField from "@kiwicom/orbit-components/lib/InputField";
+import Button from "@kiwicom/orbit-components/lib/Button";
+import TextLink from "@kiwicom/orbit-components/lib/TextLink";
+import Illustration from "@kiwicom/orbit-components/lib/Illustration";
+import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
+import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
+import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
-import AccountLogin from "../screens/Intro";
-import checkEmail from "../../mutations/checkEmail";
-import errors from "../../../../consts/errors";
-import type { Screen } from "../../records/Screen";
+import Translate from "../../../Translate";
 import Text from "../../../Text";
-import * as events from "../../../../consts/events";
-import LogContext from "../../../../services/log/context";
-import type { Context as LogContextType } from "../../../../services/log/context";
-import * as validators from "../../../../services/input/validators";
-import { GET_SIMPLE_TOKEN } from "../../consts/events";
+import { Consumer as IntlConsumer } from "../../../../services/intl/context";
+import { Consumer as BrandConsumer } from "../../../../services/brand/context";
+
+type LoginType = "mmb" | "help" | "refer";
 
 type Props = {|
+  type?: LoginType,
   email: string,
-  brandId: string,
-  type: "mmb" | "help" | "refer",
+  error?: React.Node,
+  emailError?: string,
+  isLoading?: boolean,
   disableSocialLogin?: boolean,
-  magicLinkError: string,
-  onGoogleLogin: () => void,
-  onFacebookLogin: () => void,
+  onGoogleLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onFacebookLogin: (ev: SyntheticEvent<HTMLButtonElement>) => void,
   onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
-  onChangeScreen: (screen: Screen) => void,
-  onSendMagicLink: () => void,
+  onEmailBlur: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onContinue: (ev: SyntheticEvent<HTMLButtonElement>) => void,
+  onIncorrectEmail: () => void,
 |};
 
-type State = {|
-  isLoading: boolean,
-  error: ?string,
-  validateEmail: boolean,
-|};
+const ILLUSTRATION = {
+  help: "Help",
+  refer: "ReferAFriend",
+  mmb: "Login",
+};
 
-export default class IntroScreen extends React.Component<Props, State> {
-  static contextType = LogContext;
+const TITLE_TKEY = {
+  help: __("account.login_title.get_help"),
+  refer: __("account.login_title.refer"),
+  mmb: __("account.manage_your_bookings"),
+};
 
-  state = {
-    error: null,
-    isLoading: false,
-    validateEmail: false,
-  };
+const DESC_TKEY = {
+  help: __("account.login_description.help"),
+  refer: __("account.login_description.refer"),
+  mmb: __("account.sign_in_description"),
+};
 
-  context: LogContextType;
+const Intro = ({
+  type = "mmb",
+  email,
+  error,
+  isLoading,
+  emailError,
+  disableSocialLogin,
+  onGoogleLogin,
+  onFacebookLogin,
+  onEmailChange,
+  onEmailBlur,
+  onContinue,
+  onIncorrectEmail,
+}: Props) => (
+  <IntlConsumer>
+    {intl => (
+      <BrandConsumer>
+        {brand => (
+          <>
+            <ModalSection>
+              <Illustration name={ILLUSTRATION[type]} size="small" spaceAfter="small" />
+              <Heading element="h2" spaceAfter="small">
+                <Translate t={TITLE_TKEY[type]} />
+              </Heading>
+              <Text t={DESC_TKEY[type]} values={{ brandName: brand.name }} />
+            </ModalSection>
+            <ModalSection dataTest="MagicLogin-Intro">
+              <form onSubmit={onContinue}>
+                <Stack>
+                  {error && (
+                    <Alert type="critical" icon>
+                      {error}
+                    </Alert>
+                  )}
+                  <Text weight="bold" t="account.sign_in_hint" />
+                  <Stack spaceAfter="small" spacing="condensed" align="end">
+                    <InputField
+                      label={intl.translate(__("account.email"))}
+                      placeholder={intl.translate(__("account.email_placeholder"))}
+                      value={email}
+                      error={emailError && intl.translate(emailError)}
+                      onChange={onEmailChange}
+                      onBlur={onEmailBlur}
+                      name="email"
+                      dataTest="MagicLogin-Email"
+                    />
+                    <Button submit loading={isLoading}>
+                      <Translate t="account.continue" />
+                    </Button>
+                  </Stack>
+                </Stack>
+              </form>
+            </ModalSection>
+            {!disableSocialLogin && (
+              <ModalSection suppressed dataTest="MagicLogin-LoginViaSocials">
+                <Text weight="bold" spaceAfter="medium" t="account.or_social_account" />
+                <Stack spacing="natural" align="end">
+                  <Button
+                    type="facebook"
+                    block
+                    bordered
+                    icon={<FacebookIcon />}
+                    onClick={onFacebookLogin}
+                  >
+                    <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
+                  </Button>
+                  <Button
+                    type="google"
+                    block
+                    bordered
+                    icon={<GoogleIcon />}
+                    onClick={onGoogleLogin}
+                  >
+                    <Translate t="account.log_in_with" values={{ provider: "Google" }} />
+                  </Button>
+                </Stack>
+              </ModalSection>
+            )}
+            <ModalSection>
+              <TextLink
+                type="secondary"
+                size="small"
+                dataTest="MagicLogin-IncorrectEmail"
+                onClick={onIncorrectEmail}
+              >
+                <Translate t="account.incorrect_booking_email" />
+              </TextLink>
+            </ModalSection>
+          </>
+        )}
+      </BrandConsumer>
+    )}
+  </IntlConsumer>
+);
 
-  handleEmailBlur = () => {
-    this.setState({ validateEmail: true });
-  };
-
-  handleIncorrectEmail = () => {
-    const { onChangeScreen } = this.props;
-    const { log } = this.context;
-
-    log(GET_SIMPLE_TOKEN, {});
-
-    onChangeScreen("getSingleBooking");
-  };
-
-  handleCheckEmail = (e: SyntheticEvent<HTMLButtonElement>) => {
-    const { email, brandId, onChangeScreen, onSendMagicLink } = this.props;
-    const { log } = this.context;
-
-    e.preventDefault();
-
-    if (this.validateInput()) {
-      return;
-    }
-
-    this.setState({ isLoading: true, error: "" });
-
-    log(events.API_REQUEST, { operation: "checkEmail" });
-
-    checkEmail(email, brandId)
-      .then(res => {
-        this.setState({ isLoading: false });
-
-        const result = res.checkEmail?.result;
-
-        if (!result) {
-          log(events.API_REQUEST_FAILED, { operation: "checkEmail" });
-          this.setState({ error: errors.general });
-          return;
-        }
-
-        log(events.API_SUCCESS, { operation: "checkEmail" });
-
-        if (result.hasFacebook) {
-          onChangeScreen("facebookLogin");
-          return;
-        }
-
-        if (result.hasGoogle) {
-          onChangeScreen("googleLogin");
-          return;
-        }
-
-        if (result.hasKiwiAccount) {
-          onChangeScreen("kiwiLogin");
-          return;
-        }
-
-        if (result.hasBooking) {
-          onSendMagicLink();
-          return;
-        }
-
-        onChangeScreen("noAccount");
-      })
-      .catch(err => {
-        log(events.API_ERROR, { error: String(err), operation: "checkEmail" });
-        this.setState({ isLoading: false, error: errors.general });
-      });
-  };
-
-  validateInput = () => {
-    const { email } = this.props;
-    const error = email ? validators.email(email) : errors.requiredField;
-
-    this.setState({ error, validateEmail: true });
-
-    return Boolean(error);
-  };
-
-  getEmailError = () => {
-    const { email } = this.props;
-    const { validateEmail } = this.state;
-
-    if (!validateEmail) {
-      return "";
-    }
-
-    return email ? validators.email(email) : errors.requiredField;
-  };
-
-  render() {
-    const {
-      email,
-      type,
-      disableSocialLogin,
-      magicLinkError,
-      onGoogleLogin,
-      onFacebookLogin,
-      onEmailChange,
-    } = this.props;
-    const { isLoading, error } = this.state;
-
-    const submitError = error || magicLinkError;
-
-    return (
-      <AccountLogin
-        email={email}
-        error={submitError ? <Text t={submitError} /> : null}
-        emailError={this.getEmailError()}
-        isLoading={isLoading}
-        type={type}
-        disableSocialLogin={disableSocialLogin}
-        onEmailChange={onEmailChange}
-        onEmailBlur={this.handleEmailBlur}
-        onGoogleLogin={onGoogleLogin}
-        onFacebookLogin={onFacebookLogin}
-        onContinue={this.handleCheckEmail}
-        onIncorrectEmail={this.handleIncorrectEmail}
-      />
-    );
-  }
-}
+export default Intro;

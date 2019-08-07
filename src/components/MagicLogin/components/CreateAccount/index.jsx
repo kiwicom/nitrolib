@@ -1,226 +1,131 @@
 // @flow strict
-
 import * as React from "react";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
+import Heading from "@kiwicom/orbit-components/lib/Heading";
+import InputField from "@kiwicom/orbit-components/lib/InputField";
+import Button from "@kiwicom/orbit-components/lib/Button";
+import Illustration from "@kiwicom/orbit-components/lib/Illustration";
+import Header from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
+import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
+import styled from "styled-components";
 
-import errors from "../../../../consts/errors";
-import * as validators from "../../../../services/input/validators";
-import CreateAccount from "../screens/CreateAccount";
+import { themeDefault, type ThemeProps } from "../../../../records/Theme";
+import PasswordValidationBox from "../PasswordValidationBox";
+import { Consumer } from "../../../../services/intl/context";
+import Translate from "../../../Translate";
 import Text from "../../../Text";
-import createAccount from "../../mutations/createAccount";
-import type { CreateAccountError } from "../../mutations/__generated__/createAccountMutation.graphql";
-import LogContext from "../../../../services/log/context";
-import IntlContext from "../../../../services/intl/context";
-import * as loginEvents from "../../consts/events";
-import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
-import makeEnvironment from "../../../../services/utils/relay";
-import type { Context as IntlContextType } from "../../../../services/intl/context";
-import type { Event, Props as EventProps } from "../../../../records/Event";
-
-type OwnProps = {|
-  email: string,
-  brandId: string,
-  onEmailChange: (e: SyntheticInputEvent<HTMLInputElement>) => void,
-  onSignUpConfirmation: () => void,
-|};
+import type { PasswordStrengthEnum } from "../PasswordValidationBox";
 
 type Props = {|
-  ...OwnProps,
-  log: (event: Event, props: EventProps) => void,
-  intl: IntlContextType,
-|};
-
-type State = {|
-  error: ?string,
+  email: string,
   password: string,
+  error?: React.Node,
   passwordConfirm: string,
-  isCreatingAccount: boolean,
-  validatePassword: boolean,
-  validateEmail: boolean,
-  passwordError: ?string,
-  passwordConfirmError: ?string,
+  emailHint?: string,
+  emailError?: string,
+  passwordConfirmError?: string,
+  passwordStrength: PasswordStrengthEnum,
+  isLoading?: boolean,
+  onEmailBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onPasswordChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onPasswordBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onPasswordConfirmChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onPasswordConfirmBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onContinue: (ev: SyntheticEvent<HTMLFormElement>) => void,
 |};
 
-// TODO no errors in state, just in render
-const defaultErrors = {
-  passwordError: null,
-  passwordConfirmError: null,
-};
-
-const submitErrors = {
-  ACCOUNT_EXISTS: errors.accountExists,
-  WEAK_PASSWORD: errors.weakPassword,
-  INVALID_EMAIL: errors.invalidEmail,
-  "%future added value": errors.general,
-};
-
-class CreateAccountWithoutContext extends React.PureComponent<Props, State> {
-  state = {
-    ...defaultErrors,
-    error: null,
-    password: "",
-    passwordConfirm: "",
-    isCreatingAccount: false,
-    validatePassword: false, // eslint-disable-line react/no-unused-state
-    validateEmail: false,
-  };
-
-  handleEmailBlur = () => {
-    this.setState({ validateEmail: true });
-  };
-
-  handlePasswordChange = (e: SyntheticInputEvent<HTMLInputElement>) => {
-    this.setState({ password: e.target.value }, this.checkPasswordValidity);
-  };
-
-  handlePasswordBlur = () => {
-    // eslint-disable-next-line react/no-unused-state
-    this.setState({ validatePassword: true }, this.checkPasswordValidity);
-  };
-
-  handlePasswordConfirmChange = (e: SyntheticInputEvent<HTMLInputElement>) => {
-    this.setState({ passwordConfirm: e.target.value });
-    this.setState(({ password, passwordConfirm, passwordConfirmError }) => {
-      if (passwordConfirmError === null) {
-        return null;
-      }
-
-      if (password !== passwordConfirm) {
-        return { passwordConfirmError: errors.passwordMismatch };
-      }
-
-      return { passwordConfirmError: "" };
-    });
-  };
-
-  handlePasswordConfirmBlur = () => {
-    this.setState(({ password, passwordConfirm }) => {
-      if (password !== passwordConfirm) {
-        return { passwordConfirmError: errors.passwordMismatch };
-      }
-
-      return { passwordConfirmError: "" };
-    });
-  };
-
-  handleContinue = (e: SyntheticEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (this.validateInput()) {
-      return;
-    }
-
-    const { email, brandId, onSignUpConfirmation, intl, log } = this.props;
-    const { password } = this.state;
-    const environment = makeEnvironment({ "Accept-Language": intl.language.iso });
-
-    this.setState({ isCreatingAccount: true, error: null, ...defaultErrors });
-
-    createAccount(environment, brandId, { email, password })
-      .then(res => {
-        this.setState({ isCreatingAccount: false });
-
-        if (!res.createAccount?.success) {
-          log(API_REQUEST_FAILED, {
-            operation: "createAccount",
-            error: res.createAccount?.error || "",
-          });
-          this.setSubmitError(res.createAccount?.error);
-          return;
-        }
-
-        log(loginEvents.REGISTRATION_SENT, {});
-        onSignUpConfirmation();
-      })
-      .catch(err => {
-        this.setState({ isCreatingAccount: false });
-
-        log(API_ERROR, { error: String(err), operation: "createAccount" });
-        this.setSubmitError(null);
-      });
-  };
-
-  getPasswordConfirmError = () => {
-    const { password, passwordConfirm } = this.state;
-
-    if (!passwordConfirm) {
-      return errors.requiredField;
-    }
-
-    return password === passwordConfirm ? "" : errors.passwordMismatch;
-  };
-
-  validateInput = () => {
-    const { email } = this.props;
-    const { password } = this.state;
-    const emailError = email ? validators.email(email) : errors.requiredField;
-    const passwordError = password ? validators.password(password) : errors.requiredField;
-    const passwordConfirmError = this.getPasswordConfirmError();
-
-    this.setState({
-      validateEmail: true,
-      validatePassword: true, // eslint-disable-line react/no-unused-state
-      passwordError,
-      passwordConfirmError,
-      error: emailError || passwordError || passwordConfirmError,
-    });
-
-    return emailError || passwordError || passwordConfirmError;
-  };
-
-  checkPasswordValidity = () => {
-    this.setState(({ validatePassword, password }) => ({
-      passwordError: validatePassword ? validators.password(password) : null,
-    }));
-  };
-
-  setSubmitError = (responseError: ?CreateAccountError) => {
-    const error = responseError ? submitErrors[responseError] : errors.general;
-
-    this.setState({ error });
-  };
-
-  render() {
-    const { email, onEmailChange, intl } = this.props;
-    const {
-      password,
-      passwordConfirm,
-      isCreatingAccount,
-      error,
-      validateEmail,
-      passwordError,
-      passwordConfirmError,
-    } = this.state;
-    const emailError = validateEmail ? intl.translate(validators.email(email)) : "";
-    const passError = passwordError ? intl.translate(passwordError) : "";
-    const passConfirmError = passwordConfirmError ? intl.translate(passwordConfirmError) : "";
-
-    return (
-      <CreateAccount
-        email={email}
-        password={password}
-        error={error ? <Text t={error} values={{ text: email }} /> : null}
-        passwordConfirm={passwordConfirm}
-        emailError={emailError}
-        passwordError={passError}
-        passwordConfirmError={passConfirmError}
-        isLoading={isCreatingAccount}
-        onEmailChange={onEmailChange}
-        onEmailBlur={this.handleEmailBlur}
-        onPasswordChange={this.handlePasswordChange}
-        onPasswordBlur={this.handlePasswordBlur}
-        onPasswordConfirmChange={this.handlePasswordConfirmChange}
-        onPasswordConfirmBlur={this.handlePasswordConfirmBlur}
-        onContinue={this.handleContinue}
-      />
-    );
+// Adjusts the spacing for the password and validator inside the stack
+const PasswordFieldWrapper = styled.div`
+  div {
+    margin-bottom: ${({ theme }: ThemeProps) => theme.orbit.spaceSmall};
   }
-}
+`;
 
-const CreateAccountScreen = (props: OwnProps) => {
-  const { log } = React.useContext(LogContext);
-  const intl = React.useContext(IntlContext);
-
-  return <CreateAccountWithoutContext {...props} intl={intl} log={log} />;
+PasswordFieldWrapper.defaultProps = {
+  theme: themeDefault,
 };
 
-export default CreateAccountScreen;
+const CreateAccount = ({
+  email,
+  onEmailBlur,
+  onEmailChange,
+  onContinue,
+  password,
+  error,
+  emailHint,
+  emailError,
+  passwordStrength,
+  passwordConfirmError,
+  isLoading,
+  passwordConfirm,
+  onPasswordChange,
+  onPasswordBlur,
+  onPasswordConfirmChange,
+  onPasswordConfirmBlur,
+}: Props) => (
+  <Consumer>
+    {intl => (
+      <>
+        <Header>
+          <Illustration name="EnjoyApp" size="small" />
+          <Heading element="h2">
+            <Translate t="account.create_account" />
+          </Heading>
+          <Text t="account.create_account_description" />
+        </Header>
+        <Section dataTest="MagicLogin-CreateAccount">
+          <form onSubmit={onContinue}>
+            <Stack spacing="comfy">
+              {error && (
+                <Alert type="critical" icon>
+                  {error}
+                </Alert>
+              )}
+              <InputField
+                label={intl.translate(__("account.email"))}
+                placeholder={intl.translate(__("account.email_placeholder"))}
+                error={emailError}
+                help={emailHint}
+                value={email}
+                onChange={onEmailChange}
+                onBlur={onEmailBlur}
+                name="email"
+                dataTest="MagicLogin-Email"
+              />
+              <PasswordFieldWrapper>
+                <InputField
+                  label={intl.translate(__("account.password"))}
+                  type="password"
+                  name="passwordNew"
+                  value={password}
+                  onChange={onPasswordChange}
+                  onBlur={onPasswordBlur}
+                  dataTest="MagicLogin-Password"
+                />
+                <PasswordValidationBox passwordStrength={passwordStrength} />
+              </PasswordFieldWrapper>
+              <InputField
+                label={intl.translate(__("account.password_confirmaiton"))}
+                error={passwordConfirmError}
+                type="password"
+                name="passwordRepeat"
+                value={passwordConfirm}
+                onChange={onPasswordConfirmChange}
+                onBlur={onPasswordConfirmBlur}
+                dataTest="MagicLogin-PasswordConfirm"
+              />
+              <Button submit loading={isLoading}>
+                <Translate t="account.create" />
+              </Button>
+              <Text size="small" t="account.registration_privacy_policy" html />
+            </Stack>
+          </form>
+        </Section>
+      </>
+    )}
+  </Consumer>
+);
+
+export default CreateAccount;

@@ -3,12 +3,12 @@
 import * as React from "react";
 import Modal from "@kiwicom/orbit-components/lib/Modal";
 
-import NoAccount from "./components/screens/NoAccount";
-import SocialLogin from "./components/screens/SocialLogin";
-import AccountCheckEmail from "./components/screens/CheckEmail";
-import KiwiLoginScreen from "./components/KiwiLogin";
-import IntroScreen from "./components/Intro";
-import CreateAccountScreen from "./components/CreateAccount";
+import NoAccount from "./components/NoAccount";
+import SocialLogin from "./components/SocialLogin";
+import AccountCheckEmail from "./components/CheckEmail";
+import KiwiLoginScreen from "./screens/KiwiLogin";
+import IntroScreen from "./screens/Intro";
+import CreateAccountScreen from "./screens/CreateAccount";
 import sendMagicLink from "./mutations/sendMagicLink";
 import type { Screen } from "./records/Screen";
 import errors from "../../consts/errors";
@@ -22,7 +22,7 @@ import type { AuthUser, SocialProvider, AuthToken } from "../../records/Auth";
 import type { Event, Props as EventProps } from "../../records/Event";
 import type { Brand } from "../../records/Brand";
 import type { LangInfo } from "../../records/LangInfo";
-import GetSingleBooking from "./components/GetSingleBooking/index";
+import GetSingleBooking from "./screens/GetSingleBooking/index";
 
 type ContainerProps = {|
   initialScreen: "intro" | "signUp",
@@ -80,7 +80,9 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
     const successfulScreens = ["signUpConfirmation", "magicLink", "resetPassword"];
 
     if (successfulClose || screen === "magicLink") {
-      log(loginEvents.LOGIN_PATH_FULFILLED, { withMagicLink: screen === "magicLink" });
+      log(loginEvents.LOGIN_PATH_FULFILLED, {
+        withMagicLink: screen === "magicLink",
+      });
     }
 
     if (!(successfulClose || successfulScreens.includes(screen))) {

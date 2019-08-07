@@ -1,0 +1,10 @@
+// @flow strict
+import * as React from "react";
+
+export type PasswordStrengthEnum = "WEAK" | "MEDIUM" | "STRONG";
+
+type Props = {|
+  +passwordStrength: PasswordStrengthEnum,
+|};
+
+declare export default React.ComponentType<Props>;

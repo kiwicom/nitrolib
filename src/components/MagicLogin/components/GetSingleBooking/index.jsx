@@ -1,215 +1,130 @@
 // @flow strict
 
 import * as React from "react";
-import format from "date-fns/format";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Grid from "@kiwicom/orbit-components/lib/utils/Grid";
+import Heading from "@kiwicom/orbit-components/lib/Heading";
+import InputField from "@kiwicom/orbit-components/lib/InputField";
+import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
+import ChevronLeft from "@kiwicom/orbit-components/lib/icons/ChevronLeft";
 
+import Translate from "../../../Translate";
 import Text from "../../../Text";
-import GetSingleBookingScreen from "../screens/GetSingleBooking";
-import createSimpleToken from "../../mutations/createSimpleToken";
-import * as validators from "../../../../services/input/validators";
-import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
-import { SIMPLE_TOKEN_RETRIEVED } from "../../consts/events";
-import LogContext from "../../../../services/log/context";
+import Button from "../../../Button";
 import IntlContext from "../../../../services/intl/context";
-import makeEnvironment from "../../../../services/utils/relay";
-import type { AuthToken } from "../../../../records/Auth";
-import type { Event, Props as EventProps } from "../../../../records/Event";
-import type { Context as IntlContextType } from "../../../../services/intl/context";
-import errors from "../../../../consts/errors";
-
-type OwnProps = {|
-  onBack: () => void,
-  onClose: boolean => void,
-  onGetSimpleToken?: AuthToken => void,
-|};
+import DateInput from "../../../DateInput/index";
+import IataPicker from "../../../IataPicker";
 
 type Props = {|
-  ...OwnProps,
-  log: (event: Event, props: EventProps) => void,
-  intl: IntlContextType,
-|};
-
-type State = {|
-  error: ?string,
-  submitted: boolean,
+  departureDate: ?Date,
+  departureDateError: string,
   bookingId: string,
   bookingIdError: string,
   email: string,
   emailError: string,
-  departureDate: ?Date,
-  departureDateError: string,
   IATA: string,
   IATAError: string,
+  error?: React.Node,
+  onDepartureDateChange: (?Date) => void,
+  onBookingIdChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onEmailChange: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onIATAChange: (value: string) => void,
+  onBack: () => void,
+  onSubmit: () => void,
 |};
 
-export class GetSingleBookingWithoutContext extends React.Component<Props, State> {
-  state = {
-    error: null,
-    submitted: false,
-    bookingId: "",
-    bookingIdError: "",
-    email: "",
-    emailError: "",
-    departureDate: null,
-    departureDateError: "",
-    IATA: "",
-    IATAError: "",
-  };
-
-  handleBookingId = (ev: SyntheticInputEvent<HTMLInputElement>) => {
-    const { value } = ev.target;
-    const { submitted } = this.state;
-
-    this.setState({
-      bookingId: value,
-      bookingIdError: submitted ? validators.required(value) : "",
-    });
-  };
-
-  handleEmail = (ev: SyntheticInputEvent<HTMLInputElement>) => {
-    const { value } = ev.target;
-    const { submitted } = this.state;
-
-    this.setState({
-      email: value,
-      emailError: submitted ? validators.email(value) : "",
-    });
-  };
-
-  handleDepartureDate = (departureDate: ?Date) => {
-    const { submitted } = this.state;
-
-    this.setState({
-      departureDate,
-      departureDateError: submitted ? validators.required(departureDate) : "",
-    });
-  };
-
-  handleIATA = (value: string) => {
-    const { submitted } = this.state;
-
-    this.setState({
-      IATA: value,
-      IATAError: submitted ? validators.iata(value) : "",
-    });
-  };
-
-  handleSimpleToken = (payload: AuthToken) => {
-    const { onGetSimpleToken, onClose } = this.props;
-
-    onClose(true);
-
-    if (onGetSimpleToken) {
-      onGetSimpleToken(payload);
-      return;
-    }
-
-    window.location = `${window.location.origin}/manage/${payload.bid}/${payload.token}`;
-  };
-
-  handleSubmit = (ev: SyntheticInputEvent<HTMLFormElement>) => {
-    ev.preventDefault();
-    const { log, intl } = this.props;
-    const { bookingId, email, departureDate, IATA } = this.state;
-    const bookingIdError = validators.required(bookingId);
-    const emailError = validators.email(email);
-    const departureDateError = validators.required(departureDate);
-    const IATAError = validators.iata(IATA);
-    const bid = Number(bookingId);
-
-    this.setState({
-      bookingIdError,
-      emailError,
-      departureDateError,
-      IATAError,
-      submitted: true,
-      error: null,
-    });
-
-    if (IATAError || emailError || bookingIdError || departureDateError) {
-      return;
-    }
-
-    const date = departureDate ? format(departureDate, "yyyy-MM-dd") : null;
-    const input = {
-      email,
-      bookingId: bid,
-      origin: { iataCode: IATA, date },
-    };
-    const environment = makeEnvironment({ "Accept-Language": intl.language.iso });
-
-    createSimpleToken(environment, { input })
-      .then(res => {
-        const token = res.createSimpleToken?.token;
-
-        if (token) {
-          log(SIMPLE_TOKEN_RETRIEVED, {});
-          this.handleSimpleToken({
-            type: "token",
-            bid,
-            token,
-          });
-          return;
-        }
-
-        const errorCode = res.createSimpleToken?.code || "";
-        const error = errorCode === "NOT_FOUND" ? errors.incorrectBidIATAInput : errors.general;
-        log(API_REQUEST_FAILED, {
-          operation: "createSimpleToken",
-          error: errorCode,
-        });
-        this.setState({ error });
-      })
-      .catch(err => {
-        log(API_ERROR, {
-          operation: "createSimpleToken",
-          error: String(err),
-        });
-        this.setState({ error: errors.general });
-      });
-  };
-
-  render() {
-    const { onBack } = this.props;
-    const {
-      bookingId,
-      email,
-      departureDate,
-      IATA,
-      emailError,
-      IATAError,
-      departureDateError,
-      bookingIdError,
-      error,
-    } = this.state;
-
-    return (
-      <GetSingleBookingScreen
-        bookingId={bookingId}
-        bookingIdError={bookingIdError}
-        IATA={IATA}
-        IATAError={IATAError}
-        email={email}
-        emailError={emailError}
-        departureDate={departureDate}
-        departureDateError={departureDateError}
-        error={error ? <Text t={error} /> : null}
-        onIATAChange={this.handleIATA}
-        onEmailChange={this.handleEmail}
-        onBookingIdChange={this.handleBookingId}
-        onDepartureDateChange={this.handleDepartureDate}
-        onBack={onBack}
-        onSubmit={this.handleSubmit}
-      />
-    );
-  }
-}
-
-const GetSingleBooking = (props: OwnProps) => {
-  const { log } = React.useContext(LogContext);
+const GetSingleBooking = ({
+  bookingId,
+  bookingIdError,
+  email,
+  emailError,
+  departureDate,
+  departureDateError,
+  IATA,
+  IATAError,
+  error,
+  onBookingIdChange,
+  onEmailChange,
+  onDepartureDateChange,
+  onIATAChange,
+  onBack,
+  onSubmit,
+}: Props) => {
   const intl = React.useContext(IntlContext);
 
-  return <GetSingleBookingWithoutContext {...props} intl={intl} log={log} />;
+  return (
+    <ModalSection dataTest="MagicLogin-GetSingleBooking">
+      <form onSubmit={onSubmit}>
+        <Stack direction="column">
+          <Stack direction="column" spacing="tight">
+            <Heading element="h2">
+              <Translate t="account.sign_in.single_booking.title" />
+            </Heading>
+            <Text t="account.sign_in.single_booking.description" />
+          </Stack>
+          {error && (
+            <Alert type="critical" icon>
+              {error}
+            </Alert>
+          )}
+          <Stack>
+            <Grid
+              gap="20px"
+              tablet={{
+                columns: "35% 60%",
+                gap: "5%",
+              }}
+            >
+              <InputField
+                type="number"
+                label={intl.translate(__("account.sign_in.bid_number_label"))}
+                placeholder={intl.translate(__("account.sign_in.bid_number_placeholder"))}
+                value={bookingId}
+                error={intl.translate(bookingIdError)}
+                onChange={onBookingIdChange}
+                dataTest="MagicLogin-BookingId"
+              />
+              <InputField
+                label={intl.translate(__("account.sign_in.incorrect_email_label"))}
+                placeholder={intl.translate(__("account.sign_in.incorrect_email_placeholder"))}
+                value={email}
+                error={intl.translate(emailError)}
+                onChange={onEmailChange}
+                dataTest="MagicLogin-Email"
+              />
+            </Grid>
+          </Stack>
+          <DateInput
+            value={departureDate}
+            error={intl.translate(departureDateError)}
+            onChange={onDepartureDateChange}
+            label={__("account.sign_in.departure_date_label")}
+          />
+          <div>
+            <Stack shrink spaceAfter="large">
+              <IataPicker
+                id="MagicLogin-IATA"
+                value={IATA}
+                onSelect={onIATAChange}
+                error={IATAError}
+              />
+            </Stack>
+          </div>
+          <Stack direction="row" justify="between">
+            <Button
+              t="account.back"
+              type="secondary"
+              iconLeft={<ChevronLeft />}
+              onClick={onBack}
+              dataTest="MagicLogin-GetSingleBookingBack"
+            />
+            <Button t="submit" submit dataTest="MagicLogin-GetSingleBookingSubmit" />
+          </Stack>
+        </Stack>
+      </form>
+    </ModalSection>
+  );
 };
 
 export default GetSingleBooking;

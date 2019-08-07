@@ -1,99 +1,69 @@
-// @flow
-/* eslint-env node */
-
+// @flow strict
 import * as React from "react";
 import { mount } from "enzyme";
 
-import AccountLogin from "../../screens/Intro";
+import AccountLogin from "..";
 
-import Intro from "..";
-
-jest.mock("../../../mutations/checkEmail");
-
-const defaultProps = {
-  email: "joe.doe@example.com",
-  brandId: "",
-  type: "mmb",
-  magicLinkError: "",
-  onGoogleLogin: () => {},
-  onFacebookLogin: () => {},
+const commonProps = {
+  email: "",
   onEmailChange: () => {},
-  onChangeScreen: () => {},
-  onSendMagicLink: () => {},
+  onEmailBlur: () => {},
+  onFacebookLogin: () => {},
+  onGoogleLogin: () => {},
+  onContinue: () => {},
+  onIncorrectEmail: () => {},
 };
 
-describe("#Intro", () => {
-  it("should render", () => {
-    const wrapper = mount(<Intro {...defaultProps} />);
+describe("#AccountLogin", () => {
+  test("render", () => {
+    const wrapper = mount(<AccountLogin {...commonProps} />);
 
-    expect(wrapper.find(AccountLogin).exists()).toBe(true);
+    expect(wrapper.find("Illustration").prop("name")).toBe("Login");
+    expect(
+      wrapper
+        .find("Heading")
+        .find("Translate")
+        .prop("t"),
+    ).toBe("account.manage_your_bookings");
   });
 
-  it("handles loading properly on success", done => {
-    const wrapper = mount(<Intro {...defaultProps} />);
+  test("render error", () => {
+    const wrapper = mount(<AccountLogin {...commonProps} error="Kek" />);
 
-    wrapper.find("form").simulate("submit");
-
-    expect(wrapper.state("isLoading")).toBe(true);
-
-    setImmediate(() => {
-      expect(wrapper.state("isLoading")).toBe(false);
-      done();
-    });
+    expect(wrapper.find("Alert").prop("type")).toBe("critical");
   });
 
-  it("handles network error on submit", done => {
-    const wrapper = mount(<Intro {...defaultProps} email="error@example.com" />);
+  [
+    {
+      type: "mmb",
+      description: "account.sign_in_description",
+      illustration: "Login",
+      title: "account.manage_your_bookings",
+    },
+    {
+      type: "help",
+      description: "account.login_description.help",
+      illustration: "Help",
+      title: "account.login_title.get_help",
+    },
+    {
+      type: "refer",
+      description: "account.login_description.refer",
+      illustration: "ReferAFriend",
+      title: "account.login_title.refer",
+    },
+  ].forEach(({ type, description, illustration, title }) =>
+    test(`type ${type}`, () => {
+      const wrapper = mount(<AccountLogin {...commonProps} type={type} />);
 
-    wrapper.find("form").simulate("submit");
-    expect(wrapper.state("isLoading")).toBe(true);
-
-    setImmediate(() => {
-      expect(wrapper.state("isLoading")).toBe(false);
-      expect(wrapper.state("error")).toBe("common.api_error");
-      done();
-    });
-  });
-
-  it("handles e-mail check for account only with booking", done => {
-    const onChangeScreen = jest.fn();
-    const onSendMagicLink = jest.fn();
-    const wrapper = mount(
-      <Intro
-        {...defaultProps}
-        email="withBooking@example.com"
-        onChangeScreen={onChangeScreen}
-        onSendMagicLink={onSendMagicLink}
-      />,
-    );
-
-    wrapper.find("form").simulate("submit");
-
-    setImmediate(() => {
-      expect(onChangeScreen).not.toHaveBeenCalled();
-      expect(onSendMagicLink).toHaveBeenCalled();
-      done();
-    });
-  });
-
-  it("handles e-mail check for account connected to Facebook", done => {
-    const onChangeScreen = jest.fn();
-    const onSendMagicLink = jest.fn();
-    const wrapper = mount(
-      <Intro
-        {...defaultProps}
-        email="withFacebook@example.com"
-        onChangeScreen={onChangeScreen}
-        onSendMagicLink={onSendMagicLink}
-      />,
-    );
-
-    wrapper.find("form").simulate("submit");
-
-    setImmediate(() => {
-      expect(onChangeScreen).toHaveBeenCalled();
-      expect(onSendMagicLink).not.toHaveBeenCalled();
-      done();
-    });
-  });
+      expect(wrapper.find("Illustration").prop("name")).toBe(illustration);
+      expect(
+        wrapper
+          .find("Heading")
+          .find("Translate")
+          .prop("t"),
+      ).toBe(title);
+      expect(wrapper.find(`[t="${description}"]`).exists()).toBe(true);
+    }),
+  );
 });
