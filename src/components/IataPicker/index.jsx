@@ -37,7 +37,7 @@ ResultWrapper.defaultProps = {
 type Props = {|
   id: string,
   value: string,
-  withIcon?: boolean,
+  withIcon: boolean,
   onSelect: (value: string) => void,
   error: string,
 |};
