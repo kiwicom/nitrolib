@@ -2,7 +2,7 @@
 import * as React from "react";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
-import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
+import Modal, { ModalHeader } from "@kiwicom/orbit-components/lib/Modal";
 
 import Text from "../../../../Text";
 import Translate from "../../../../Translate";
@@ -12,20 +12,32 @@ type Props = {|
   reason: "magicLink" | "signUpConfirmation" | "resetPassword",
 |};
 
-const CheckEmail = ({ email, reason }: Props) => (
-  <Section dataTest="MagicLogin-CheckEmail">
-    <Heading element="h2" spaceAfter="small">
-      <Translate t="account.check_email" />
-    </Heading>
+const Description = ({ reason, email }: Props) => {
+  switch (reason) {
+    case "signUpConfirmation":
+      return <Text t="account.check_email_sign_up" values={{ email }} />;
 
-    <Illustration name="Mailbox" size="medium" spaceAfter="large" />
+    case "resetPassword":
+      return <Text t="account.you_will_recieve_password" />;
 
-    {reason === "magicLink" && <Text t="account.check_email_magic_link" values={{ email }} />}
+    default:
+      return <Text t="account.check_email_magic_link" values={{ email }} />;
+  }
+};
 
-    {reason === "signUpConfirmation" && <Text t="account.check_email_sign_up" values={{ email }} />}
-
-    {reason === "resetPassword" && <Text t="account.you_will_recieve_password" />}
-  </Section>
+const CheckEmail = ({ reason, email }: Props) => (
+  <Modal>
+    <ModalHeader
+      dataTest="MagicLogin-CheckEmail"
+      title={
+        <Heading element="h2" spaceAfter="small">
+          <Translate t="account.check_email" />
+        </Heading>
+      }
+      description={<Description reason={reason} email={email} />}
+      illustration={<Illustration name="Mailbox" size="medium" spaceAfter="large" />}
+    />
+  </Modal>
 );
 
 export default CheckEmail;

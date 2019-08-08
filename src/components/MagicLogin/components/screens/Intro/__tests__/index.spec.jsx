@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { mount } from "enzyme";
+import { mount, shallow } from "enzyme";
 
 import AccountLogin from "..";
 
@@ -16,15 +16,14 @@ const commonProps = {
 
 describe("#AccountLogin", () => {
   test("render", () => {
-    const wrapper = mount(<AccountLogin {...commonProps} />);
+    const wrapper = shallow(<AccountLogin {...commonProps} />);
 
-    expect(wrapper.find("Illustration").prop("name")).toBe("Login");
     expect(
       wrapper
-        .find("Heading")
-        .find("Translate")
-        .prop("t"),
-    ).toBe("account.manage_your_bookings");
+        .find("ModalHeader")
+        .first()
+        .prop("illustration").props.name,
+    ).toBe("Login");
   });
 
   test("render error", () => {

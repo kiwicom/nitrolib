@@ -4,17 +4,28 @@ import * as React from "react";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Grid from "@kiwicom/orbit-components/lib/utils/Grid";
-import Heading from "@kiwicom/orbit-components/lib/Heading";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
-import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
+import Modal, { ModalSection, ModalHeader } from "@kiwicom/orbit-components/lib/Modal";
 import ChevronLeft from "@kiwicom/orbit-components/lib/icons/ChevronLeft";
+import styled, { css } from "styled-components";
+import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import Translate from "../../../../Translate";
-import Text from "../../../../Text";
 import Button from "../../../../Button";
-import IntlContext from "../../../../../services/intl/context";
+import { useIntl } from "../../../../../services/intl/context";
 import DateInput from "../../../../DateInput/index";
 import IataPicker from "../../../../IataPicker";
+import { themeDefault } from "../../../../../records/Theme";
+
+const Wrapper = styled.div`
+  width: 100%;
+  ${mq.tablet(css`
+    width: 48.5%;
+  `)};
+`;
+
+Wrapper.defaultProps = {
+  theme: themeDefault,
+};
 
 type Props = {|
   departureDate: ?Date,
@@ -51,18 +62,16 @@ const GetSingleBooking = ({
   onBack,
   onSubmit,
 }: Props) => {
-  const intl = React.useContext(IntlContext);
+  const intl = useIntl();
 
   return (
-    <ModalSection dataTest="MagicLogin-GetSingleBooking">
+    <Modal>
       <form onSubmit={onSubmit}>
-        <Stack direction="column">
-          <Stack direction="column" spacing="tight">
-            <Heading element="h2">
-              <Translate t="account.sign_in.single_booking.title" />
-            </Heading>
-            <Text t="account.sign_in.single_booking.description" />
-          </Stack>
+        <ModalHeader
+          title="account.sign_in.single_booking.title"
+          description="account.sign_in.single_booking.description"
+        />
+        <ModalSection dataTest="MagicLogin-GetSingleBooking">
           {error && (
             <Alert type="critical" icon>
               {error}
@@ -72,8 +81,7 @@ const GetSingleBooking = ({
             <Grid
               gap="20px"
               tablet={{
-                columns: "35% 60%",
-                gap: "5%",
+                columns: "1fr 1fr",
               }}
             >
               <InputField
@@ -94,36 +102,35 @@ const GetSingleBooking = ({
                 dataTest="MagicLogin-Email"
               />
             </Grid>
-          </Stack>
-          <DateInput
-            value={departureDate}
-            error={intl.translate(departureDateError)}
-            onChange={onDepartureDateChange}
-            label={__("account.sign_in.departure_date_label")}
-          />
-          <div>
-            <Stack shrink spaceAfter="large">
+            <DateInput
+              value={departureDate}
+              error={intl.translate(departureDateError)}
+              onChange={onDepartureDateChange}
+              label={__("account.sign_in.departure_date_label")}
+            />
+            {/* TODO: could not make Stack with basis to 50% */}
+            <Wrapper>
               <IataPicker
                 id="MagicLogin-IATA"
                 value={IATA}
                 onSelect={onIATAChange}
                 error={IATAError}
               />
+            </Wrapper>
+            <Stack direction="row" justify="between">
+              <Button
+                t="account.back"
+                type="secondary"
+                iconLeft={<ChevronLeft />}
+                onClick={onBack}
+                dataTest="MagicLogin-GetSingleBookingBack"
+              />
+              <Button t="submit" submit dataTest="MagicLogin-GetSingleBookingSubmit" />
             </Stack>
-          </div>
-          <Stack direction="row" justify="between">
-            <Button
-              t="account.back"
-              type="secondary"
-              iconLeft={<ChevronLeft />}
-              onClick={onBack}
-              dataTest="MagicLogin-GetSingleBookingBack"
-            />
-            <Button t="submit" submit dataTest="MagicLogin-GetSingleBookingSubmit" />
           </Stack>
-        </Stack>
+        </ModalSection>
       </form>
-    </ModalSection>
+    </Modal>
   );
 };
 

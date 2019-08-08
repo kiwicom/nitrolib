@@ -5,8 +5,7 @@ import Heading from "@kiwicom/orbit-components/lib/Heading";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
-import Header from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
-import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
+import Modal, { ModalHeader, ModalSection } from "@kiwicom/orbit-components/lib/Modal";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import { Consumer } from "../../../../../services/intl/context";
@@ -52,15 +51,14 @@ const CreateAccount = ({
 }: Props) => (
   <Consumer>
     {intl => (
-      <>
-        <Header>
-          <Illustration name="EnjoyApp" size="small" />
+      <Modal>
+        <ModalHeader illustration={<Illustration name="EnjoyApp" size="small" />}>
           <Heading element="h2">
             <Translate t="account.create_account" />
           </Heading>
           <Text t="account.create_account_description" />
-        </Header>
-        <Section dataTest="MagicLogin-CreateAccount">
+        </ModalHeader>
+        <ModalSection dataTest="MagicLogin-CreateAccount">
           <form onSubmit={onContinue}>
             <Stack spacing="comfy">
               {error && (
@@ -105,8 +103,8 @@ const CreateAccount = ({
               <Text size="small" t="account.registration_privacy_policy" html />
             </Stack>
           </form>
-        </Section>
-      </>
+        </ModalSection>
+      </Modal>
     )}
   </Consumer>
 );

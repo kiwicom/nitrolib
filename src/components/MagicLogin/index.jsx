@@ -12,9 +12,9 @@ import CreateAccountScreen from "./components/CreateAccount";
 import sendMagicLink from "./mutations/sendMagicLink";
 import type { Screen } from "./records/Screen";
 import errors from "../../consts/errors";
-import BrandContext from "../../services/brand/context";
-import LogContext from "../../services/log/context";
-import IntlContext from "../../services/intl/context";
+import { useBrand } from "../../services/brand/context";
+import { useLog } from "../../services/log/context";
+import { useIntl } from "../../services/intl/context";
 import { API_REQUEST_FAILED, API_ERROR } from "../../consts/events";
 import * as loginEvents from "./consts/events";
 import makeEnvironment from "../../services/utils/relay";
@@ -259,9 +259,9 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
 }
 
 const MagicLogin = (props: ContainerProps) => {
-  const { log } = React.useContext(LogContext);
-  const brand = React.useContext(BrandContext);
-  const { language } = React.useContext(IntlContext);
+  const { log } = useLog();
+  const brand = useBrand();
+  const { language } = useIntl();
 
   return <MagicLoginWithoutContext {...props} brand={brand} log={log} langInfo={language} />;
 };

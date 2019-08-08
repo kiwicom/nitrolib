@@ -16,6 +16,7 @@ import AirportListData from "./AirportListData";
 
 const Container = styled.div`
   position: relative;
+  width: 100%;
 `;
 
 const ResultWrapper = styled.div`
@@ -89,34 +90,36 @@ export default class IataPicker extends React.PureComponent<Props, State> {
     const { open } = this.state;
 
     return (
-      <IntlConsumer>
-        {intl => (
-          <ClickOutside active={open} onClickOutside={this.handleClickOutside}>
-            <Container data-test="IATAPicker">
-              <InputField
-                id={id}
-                value={value}
-                onChange={this.handleInputChange}
-                onFocus={this.handleFocus}
-                onKeyDown={this.handleKeyDown}
-                label={
-                  <IconText icon={<Airplane color="primary" size="small" />}>
-                    <Translate t="common.iata_code" />
-                  </IconText>
-                }
-                placeholder={intl.translate(__("account.iata_placeholder"))}
-                help={value && intl.translate(__("account.iata_help"))}
-                error={value && intl.translate(error)}
-              />
-              {open && value !== "" && (
-                <ResultWrapper>
-                  <AirportListData value={value} onSelect={this.handleSelect} />
-                </ResultWrapper>
-              )}
-            </Container>
-          </ClickOutside>
-        )}
-      </IntlConsumer>
+      <Container data-test="IATAPicker">
+        <ClickOutside active={open} onClickOutside={this.handleClickOutside}>
+          <IntlConsumer>
+            {intl => (
+              <>
+                <InputField
+                  id={id}
+                  value={value}
+                  onChange={this.handleInputChange}
+                  onFocus={this.handleFocus}
+                  onKeyDown={this.handleKeyDown}
+                  label={
+                    <IconText icon={<Airplane color="primary" size="small" />}>
+                      <Translate t="common.iata_code" />
+                    </IconText>
+                  }
+                  placeholder={intl.translate(__("account.iata_placeholder"))}
+                  help={value && intl.translate(__("account.iata_help"))}
+                  error={value && intl.translate(error)}
+                />
+                {open && value !== "" && (
+                  <ResultWrapper>
+                    <AirportListData value={value} onSelect={this.handleSelect} />
+                  </ResultWrapper>
+                )}
+              </>
+            )}
+          </IntlConsumer>
+        </ClickOutside>
+      </Container>
     );
   }
 }

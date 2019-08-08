@@ -5,8 +5,7 @@ import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
-import Header from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
-import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
+import Modal, { ModalHeader, ModalSection } from "@kiwicom/orbit-components/lib/Modal";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import Translate from "../../../../Translate";
@@ -30,34 +29,38 @@ const PROVIDER = {
 };
 
 const SocialLogin = ({ onAskSignInLink, onSocialLogin, email, pairedWith }: Props) => (
-  <>
-    <Header>
-      <Illustration name="Login" size="small" />
-      <Heading element="h2">
-        <Translate
-          t="account.login_title.paired_with_social"
+  <Modal>
+    <ModalHeader
+      illustration={<Illustration name="Login" size="small" />}
+      title={
+        <Heading element="h2">
+          <Translate
+            t="account.login_title.paired_with_social"
+            values={{ provider: PROVIDER[pairedWith] }}
+          />
+        </Heading>
+      }
+      description={
+        <Text
+          t="account.login_description.paired_with_social"
           values={{ provider: PROVIDER[pairedWith] }}
         />
-      </Heading>
-      <Text
-        t="account.login_description.paired_with_social"
-        values={{ provider: PROVIDER[pairedWith] }}
-      />
-    </Header>
-    <Section dataTest="MagicLogin-SocialLogin">
+      }
+    />
+    <ModalSection dataTest="MagicLogin-SocialLogin">
       <Stack flex direction="column" spacing="condensed" desktop={{ direction: "row" }}>
         <Button type={pairedWith} bordered icon={BUTTON_ICON[pairedWith]} onClick={onSocialLogin}>
           <Translate t="account.log_in_with" values={{ provider: PROVIDER[pairedWith] }} />
         </Button>
       </Stack>
-    </Section>
-    <Section>
+    </ModalSection>
+    <ModalSection>
       <Text spaceAfter="normal" t="account.send_link_to" values={{ email }} />
       <Button type="secondary" onClick={onAskSignInLink}>
         <Translate t="account.ask_sign_in_link" />
       </Button>
-    </Section>
-  </>
+    </ModalSection>
+  </Modal>
 );
 
 export default SocialLogin;

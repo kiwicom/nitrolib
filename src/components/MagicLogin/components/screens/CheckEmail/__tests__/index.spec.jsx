@@ -12,8 +12,14 @@ describe("#AccountCheckEmail", () => {
   ].forEach(([reason, tKey]) =>
     test(`render - ${reason}`, () => {
       const wrapper = shallow(<AccountCheckEmail email="foo@bar.com" reason={reason} />);
+      console.log(wrapper.debug());
 
-      expect(wrapper.find("Text").prop("t")).toBe(tKey);
+      expect(
+        wrapper
+          .find("ModalHeader")
+          .prop("description")
+          .render(),
+      ).toBe(tKey);
     }),
   );
 });

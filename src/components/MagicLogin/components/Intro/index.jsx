@@ -142,6 +142,7 @@ export default class IntroScreen extends React.Component<Props, State> {
       onFacebookLogin,
       onEmailChange,
     } = this.props;
+
     const { isLoading, error } = this.state;
 
     const submitError = error || magicLinkError;
