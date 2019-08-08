@@ -28,6 +28,7 @@ type Props = {|
   tabIndex?: string,
   id?: string,
   autoComplete?: string,
+  error: string,
   onChange: ({ value: string, error: string }) => void,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
@@ -57,6 +58,7 @@ const InputEmail = ({ onChange, ...props }: Props) => {
     spaceAfter,
     tabIndex,
     size,
+    error,
     value,
     id,
     inlineLabel,
@@ -70,7 +72,7 @@ const InputEmail = ({ onChange, ...props }: Props) => {
       required
       name={name}
       size={size}
-      error={<Translate t={state.error} />}
+      error={state.error && <Translate t={error} />}
       onBlur={onBlur}
       tabIndex={tabIndex}
       onFocus={onFocus}

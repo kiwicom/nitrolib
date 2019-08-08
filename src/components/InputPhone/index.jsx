@@ -27,6 +27,7 @@ type Props = {|
   tabIndex?: string,
   id?: string,
   onChange: ({ error: string, value: string }) => void,
+  error: string,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onKeyDown?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,
@@ -58,6 +59,7 @@ const InputPhone = ({ onChange, ...props }: Props) => {
     tabIndex,
     size,
     value,
+    error,
     id,
     inlineLabel,
     label,
@@ -69,7 +71,7 @@ const InputPhone = ({ onChange, ...props }: Props) => {
       required
       name={name}
       size={size}
-      error={<Translate t={state.error} />}
+      error={state.error && <Translate t={error} />}
       onBlur={onBlur}
       tabIndex={tabIndex}
       onFocus={onFocus}
