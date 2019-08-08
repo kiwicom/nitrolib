@@ -15,6 +15,7 @@ storiesOf("InputPhone", module)
     <InputPhone
       id="test"
       value={text("Value", "", GROUP_ID)}
+      error={(text("Error"), "", GROUP_ID)}
       onChange={action("On change")}
       onFocus={action("On focus")}
       onBlur={action("On blur")}
