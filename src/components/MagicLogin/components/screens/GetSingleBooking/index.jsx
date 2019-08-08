@@ -57,12 +57,14 @@ const GetSingleBooking = ({
     <ModalSection dataTest="MagicLogin-GetSingleBooking">
       <form onSubmit={onSubmit}>
         <Stack direction="column">
-          <Stack direction="column" spacing="tight">
-            <Heading element="h2">
-              <Translate t="account.sign_in.single_booking.title" />
-            </Heading>
-            <Text t="account.sign_in.single_booking.description" />
-          </Stack>
+          <div>
+            <Stack direction="column" spacing="tight" spaceAfter="normal">
+              <Heading element="h2">
+                <Translate t="account.sign_in.single_booking.title" />
+              </Heading>
+              <Text t="account.sign_in.single_booking.description" />
+            </Stack>
+          </div>
           {error && (
             <Alert type="critical" icon>
               {error}
@@ -101,16 +103,25 @@ const GetSingleBooking = ({
             onChange={onDepartureDateChange}
             label={__("account.sign_in.departure_date_label")}
           />
-          <div>
-            <Stack shrink spaceAfter="large">
+          <Stack spaceAfter="large">
+            <Grid
+              gap="20px"
+              tablet={{
+                columns: "48% 48%",
+                gap: "4%",
+              }}
+            >
               <IataPicker
                 id="MagicLogin-IATA"
                 value={IATA}
+                withIcon={false}
                 onSelect={onIATAChange}
                 error={IATAError}
               />
-            </Stack>
-          </div>
+            </Grid>
+          </Stack>
+          {/* necessary empty stack to make space below IATA input */}
+          <Stack spaceAfter="medium">{null}</Stack>
           <Stack direction="row" justify="between">
             <Button
               t="account.back"

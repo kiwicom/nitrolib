@@ -37,6 +37,7 @@ ResultWrapper.defaultProps = {
 type Props = {|
   id: string,
   value: string,
+  withIcon: boolean,
   onSelect: (value: string) => void,
   error: string,
 |};
@@ -48,6 +49,10 @@ type State = {|
 export default class IataPicker extends React.PureComponent<Props, State> {
   state = {
     open: false,
+  };
+
+  static defaultProps = {
+    withIcon: true,
   };
 
   handleChange = ({ value }: Change) => {
@@ -85,7 +90,7 @@ export default class IataPicker extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { id, value, error } = this.props;
+    const { id, value, error, withIcon } = this.props;
     const { open } = this.state;
 
     return (
@@ -100,9 +105,13 @@ export default class IataPicker extends React.PureComponent<Props, State> {
                 onFocus={this.handleFocus}
                 onKeyDown={this.handleKeyDown}
                 label={
-                  <IconText icon={<Airplane color="primary" size="small" />}>
+                  withIcon ? (
+                    <IconText icon={<Airplane color="primary" size="small" />}>
+                      <Translate t="common.iata_code" />
+                    </IconText>
+                  ) : (
                     <Translate t="common.iata_code" />
-                  </IconText>
+                  )
                 }
                 placeholder={intl.translate(__("account.iata_placeholder"))}
                 help={value && intl.translate(__("account.iata_help"))}
