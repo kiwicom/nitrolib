@@ -1,3 +1,14 @@
+## [6.1.4](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.1.3...v6.1.4) (2019-08-09)
+
+
+### Bug Fixes
+
+* **components:** InputEmail and InputPhone errors ([db7511f](https://gitlab.skypicker.com/frontend/nitrolib/commit/db7511f))
+* **components:** InputEmail, InputPhone stories ([c4fe656](https://gitlab.skypicker.com/frontend/nitrolib/commit/c4fe656))
+* Make IATA autocomplete work in MagicLogin for IE11 ([a66f397](https://gitlab.skypicker.com/frontend/nitrolib/commit/a66f397))
+
+
+
 ## [6.1.3](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.1.1...v6.1.3) (2019-08-06)
 
 
