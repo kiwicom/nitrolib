@@ -1,6 +1,8 @@
 // @flow strict
 import * as React from "react";
 
+import type { PasswordStrengthEnum } from "../../../../../records/Auth";
+
 type Props = {|
   email: string,
   password: string,
@@ -8,7 +10,7 @@ type Props = {|
   passwordConfirm: string,
   emailHint?: string,
   emailError?: string,
-  passwordError?: string,
+  passwordStrength: PasswordStrengthEnum,
   passwordConfirmError?: string,
   isLoading?: boolean,
   onEmailBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,

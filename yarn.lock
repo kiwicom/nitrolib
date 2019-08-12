@@ -1509,10 +1509,10 @@
     relay-compiler "^5.0.0"
     relay-runtime "^5.0.0"
 
-"@kiwicom/translations@^1.369.0":
-  version "1.369.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.369.0.tgz#3202b05a661fd180a45c7a24cf72e93b41caa180"
-  integrity sha512-64FP2iuy/ht0oFDc+nUbqyLmYEWFG6I9hNNPNjWHYQJ+CvJ5fXp+rCZN9yxGniy0ld6ydVdNG6d3Y1H/lfSRNw==
+"@kiwicom/translations@^1.376.0":
+  version "1.376.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.376.0.tgz#7357a2f8cb6b07ce5ca06616be9c8e28deaf9e2a"
+  integrity sha512-qFvr/Ul20m2GYxJOEoS8BUk7g44kQLxEROsXCZxuJ3prZReB0uWeMJb5TCF3K27YYVMGOd1eDMh9A0QjrgXGhg==
 
 "@marionebl/sander@^0.6.0":
   version "0.6.1"

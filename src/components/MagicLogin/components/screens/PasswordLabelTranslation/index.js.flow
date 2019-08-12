@@ -1,0 +1,8 @@
+// @flow strict
+import type { PasswordStrengthEnum } from "../../../../../records/Auth";
+
+type Props = {|
+  +label: PasswordStrengthEnum,
+|};
+
+declare export default React.ComponentType<Props>;

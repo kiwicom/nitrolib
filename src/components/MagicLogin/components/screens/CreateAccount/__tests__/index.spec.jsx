@@ -11,6 +11,7 @@ describe("#CreateAccount", () => {
         email=""
         password=""
         passwordConfirm=""
+        passwordStrength="WEAK"
         onEmailChange={() => {}}
         onPasswordChange={() => {}}
         onPasswordConfirmChange={() => {}}
@@ -29,11 +30,11 @@ describe("#CreateAccount", () => {
         passwordConfirm=""
         onEmailChange={() => {}}
         onPasswordChange={() => {}}
+        passwordStrength="WEAK"
         onPasswordConfirmChange={() => {}}
         onContinue={() => {}}
         error="Kek"
         emailError="Wrong format of e-mail"
-        passwordError="Password should be more complex"
         passwordConfirmError="Passwords do not match"
       />,
     );
@@ -46,12 +47,6 @@ describe("#CreateAccount", () => {
         .first()
         .prop("error"),
     ).toBe("Wrong format of e-mail");
-    expect(
-      wrapper
-        .find(`[data-test="MagicLogin-Password"]`)
-        .first()
-        .prop("error"),
-    ).toBe("Password should be more complex");
     expect(
       wrapper
         .find(`[data-test="MagicLogin-PasswordConfirm"]`)

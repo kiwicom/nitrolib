@@ -457,6 +457,8 @@ declare export var iata: (val: string) => Error;
 declare export var departure: (val: Date, now?: Date) => Error;
 
 declare export var password: (value: string) => Error;
+
+declare export var passwordScore: (value: string, userInput: ?(string[])) => number;
 ```
 
 Validators return error _translation keys_ for wrong inputs.
