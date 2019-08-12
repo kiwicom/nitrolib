@@ -9,11 +9,12 @@ import ChevronLeft from "@kiwicom/orbit-components/lib/icons/ChevronLeft";
 import ModalHeader from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Modal from "@kiwicom/orbit-components/lib/Modal";
 
 import Translate from "../../../../Translate";
 import Text from "../../../../Text";
-import BrandContext from "../../../../../services/brand/context";
-import IntlContext from "../../../../../services/intl/context";
+import { useBrand } from "../../../../../services/brand/context";
+import { useIntl } from "../../../../../services/intl/context";
 
 type Props = {|
   onBack: (SyntheticEvent<HTMLButtonElement>) => void,
@@ -23,11 +24,11 @@ type Props = {|
 |};
 
 const NoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }: Props) => {
-  const brand = React.useContext(BrandContext);
-  const intl = React.useContext(IntlContext);
+  const brand = useBrand();
+  const intl = useIntl();
 
   return (
-    <>
+    <Modal>
       <ModalHeader
         title={intl.translate(__("account.no_bookings_or_account"))}
         description={intl.translate(__("account.no_bookings_or_account_description"), {
@@ -56,7 +57,7 @@ const NoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }: Props
           </Button>
         </Stack>
       </ModalSection>
-    </>
+    </Modal>
   );
 };
 

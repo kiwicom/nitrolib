@@ -4,8 +4,8 @@ import * as React from "react";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import ModalHeader from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
 
-import BrandContext from "../../../../services/brand/context";
-import IntlContext from "../../../../services/intl/context";
+import { useBrand } from "../../../../services/brand/context";
+import { useIntl } from "../../../../services/intl/context";
 
 const ILLUSTRATION = {
   help: "Help",
@@ -32,8 +32,8 @@ type Props = {|
 |};
 
 const TailoredHeader = ({ type }: Props) => {
-  const intl = React.useContext(IntlContext);
-  const brand = React.useContext(BrandContext);
+  const intl = useIntl();
+  const brand = useBrand();
 
   return (
     <ModalHeader

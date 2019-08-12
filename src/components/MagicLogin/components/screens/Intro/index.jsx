@@ -7,6 +7,7 @@ import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Modal from "@kiwicom/orbit-components/lib/Modal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
 import Translate from "../../../../Translate";
@@ -45,7 +46,7 @@ const Intro = ({
   const intl = React.useContext(IntlContext);
 
   return (
-    <>
+    <Modal>
       {tailoredHeader}
       <ModalSection dataTest="MagicLogin-Intro">
         <form onSubmit={onContinue}>
@@ -103,7 +104,7 @@ const Intro = ({
           <Translate t="account.incorrect_booking_email" />
         </TextLink>
       </ModalSection>
-    </>
+    </Modal>
   );
 };
 

@@ -10,9 +10,9 @@ import errors from "../../../../consts/errors";
 import type { Screen } from "../../records/Screen";
 import type { AuthUser } from "../../../../records/Auth";
 import toUser from "../../services/toUser";
-import LogContext from "../../../../services/log/context";
+import { useLog } from "../../../../services/log/context";
 import type { Context as LogContextType } from "../../../../services/log/context";
-import IntlContext from "../../../../services/intl/context";
+import { useIntl } from "../../../../services/intl/context";
 import * as loginEvents from "../../consts/events";
 import { API_REQUEST_FAILED, API_ERROR } from "../../../../consts/events";
 import handleAffiliateId from "../../../../services/utils/handleAffiliateId";
@@ -179,8 +179,8 @@ class KiwiLoginWithoutContext extends React.Component<Props, State> {
 }
 
 const KiwiLogin = (props: OwnProps) => {
-  const { log } = React.useContext(LogContext);
-  const { language } = React.useContext(IntlContext);
+  const { log } = useLog();
+  const { language } = useIntl();
 
   return <KiwiLoginWithoutContext {...props} log={log} langInfo={language} />;
 };

@@ -6,10 +6,11 @@ import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Edit from "@kiwicom/orbit-components/lib/icons/Edit";
+import Modal from "@kiwicom/orbit-components/lib/Modal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import IntlContext from "../../../../../services/intl/context";
+import { useIntl } from "../../../../../services/intl/context";
 import Translate from "../../../../Translate";
 import Text from "../../../../Text";
 
@@ -42,10 +43,10 @@ const Password = ({
   onForgotPassword,
   onSignIn,
 }: Props) => {
-  const intl = React.useContext(IntlContext);
+  const intl = useIntl();
 
   return (
-    <>
+    <Modal>
       {tailoredHeader}
       <ModalSection dataTest="MagicLogin-Password">
         <form onSubmit={onSignIn}>
@@ -92,7 +93,7 @@ const Password = ({
           <Translate t="account.ask_sign_in_link" />
         </Button>
       </ModalSection>
-    </>
+    </Modal>
   );
 };
 
