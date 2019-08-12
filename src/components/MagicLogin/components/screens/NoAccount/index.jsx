@@ -9,7 +9,6 @@ import ChevronLeft from "@kiwicom/orbit-components/lib/icons/ChevronLeft";
 import ModalHeader from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
-import Modal from "@kiwicom/orbit-components/lib/Modal";
 
 import Translate from "../../../../Translate";
 import Text from "../../../../Text";
@@ -28,7 +27,7 @@ const NoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }: Props
   const intl = useIntl();
 
   return (
-    <Modal>
+    <>
       <ModalHeader
         title={intl.translate(__("account.no_bookings_or_account"))}
         description={intl.translate(__("account.no_bookings_or_account_description"), {
@@ -57,7 +56,7 @@ const NoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }: Props
           </Button>
         </Stack>
       </ModalSection>
-    </Modal>
+    </>
   );
 };
 

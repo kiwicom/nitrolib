@@ -4,7 +4,6 @@ import Alert from "@kiwicom/orbit-components/lib/Alert";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
-import Modal from "@kiwicom/orbit-components/lib/Modal";
 import ModalHeader from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
@@ -53,7 +52,7 @@ const CreateAccount = ({
   const intl = useIntl();
 
   return (
-    <Modal>
+    <>
       <ModalHeader
         title={intl.translate(__("account.create_account"))}
         description={intl.translate(__("account.create_account_description"))}
@@ -105,7 +104,7 @@ const CreateAccount = ({
           </Stack>
         </form>
       </ModalSection>
-    </Modal>
+    </>
   );
 };
 

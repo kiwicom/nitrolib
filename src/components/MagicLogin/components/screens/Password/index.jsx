@@ -6,7 +6,6 @@ import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Edit from "@kiwicom/orbit-components/lib/icons/Edit";
-import Modal from "@kiwicom/orbit-components/lib/Modal";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
@@ -46,7 +45,7 @@ const Password = ({
   const intl = useIntl();
 
   return (
-    <Modal>
+    <>
       {tailoredHeader}
       <ModalSection dataTest="MagicLogin-Password">
         <form onSubmit={onSignIn}>
@@ -93,7 +92,7 @@ const Password = ({
           <Translate t="account.ask_sign_in_link" />
         </Button>
       </ModalSection>
-    </Modal>
+    </>
   );
 };
 

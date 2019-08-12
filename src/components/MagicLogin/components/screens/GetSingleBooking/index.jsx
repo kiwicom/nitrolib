@@ -5,7 +5,6 @@ import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Grid from "@kiwicom/orbit-components/lib/utils/Grid";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
-import Modal from "@kiwicom/orbit-components/lib/Modal";
 import ModalHeader from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import ChevronLeft from "@kiwicom/orbit-components/lib/icons/ChevronLeft";
@@ -53,7 +52,7 @@ const GetSingleBooking = ({
   const intl = React.useContext(IntlContext);
 
   return (
-    <Modal>
+    <>
       <ModalHeader
         title={intl.translate(__("account.sign_in.single_booking.title"))}
         description={intl.translate(__("account.sign_in.single_booking.description"))}
@@ -131,7 +130,7 @@ const GetSingleBooking = ({
           </Stack>
         </form>
       </ModalSection>
-    </Modal>
+    </>
   );
 };
 
