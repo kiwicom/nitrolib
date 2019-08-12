@@ -4,13 +4,11 @@ import * as React from "react";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Grid from "@kiwicom/orbit-components/lib/utils/Grid";
-import Heading from "@kiwicom/orbit-components/lib/Heading";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
+import ModalHeader from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import ChevronLeft from "@kiwicom/orbit-components/lib/icons/ChevronLeft";
 
-import Translate from "../../../../Translate";
-import Text from "../../../../Text";
 import Button from "../../../../Button";
 import IntlContext from "../../../../../services/intl/context";
 import DateInput from "../../../../DateInput/index";
@@ -54,87 +52,85 @@ const GetSingleBooking = ({
   const intl = React.useContext(IntlContext);
 
   return (
-    <ModalSection dataTest="MagicLogin-GetSingleBooking">
-      <form onSubmit={onSubmit}>
-        <Stack direction="column">
-          <div>
-            <Stack direction="column" spacing="tight" spaceAfter="normal">
-              <Heading element="h2">
-                <Translate t="account.sign_in.single_booking.title" />
-              </Heading>
-              <Text t="account.sign_in.single_booking.description" />
+    <>
+      <ModalHeader
+        title={intl.translate(__("account.sign_in.single_booking.title"))}
+        description={intl.translate(__("account.sign_in.single_booking.description"))}
+      />
+      <ModalSection dataTest="MagicLogin-GetSingleBooking">
+        <form onSubmit={onSubmit}>
+          <Stack direction="column">
+            {error && (
+              <Alert type="critical" icon>
+                {error}
+              </Alert>
+            )}
+            <Stack>
+              <Grid
+                gap="20px"
+                tablet={{
+                  columns: "35% 60%",
+                  gap: "5%",
+                }}
+              >
+                <InputField
+                  type="number"
+                  label={intl.translate(__("account.sign_in.bid_number_label"))}
+                  placeholder={intl.translate(__("account.sign_in.bid_number_placeholder"))}
+                  value={bookingId}
+                  error={intl.translate(bookingIdError)}
+                  onChange={onBookingIdChange}
+                  dataTest="MagicLogin-BookingId"
+                />
+                <InputField
+                  label={intl.translate(__("account.sign_in.incorrect_email_label"))}
+                  placeholder={intl.translate(__("account.sign_in.incorrect_email_placeholder"))}
+                  value={email}
+                  error={intl.translate(emailError)}
+                  onChange={onEmailChange}
+                  dataTest="MagicLogin-Email"
+                />
+              </Grid>
             </Stack>
-          </div>
-          {error && (
-            <Alert type="critical" icon>
-              {error}
-            </Alert>
-          )}
-          <Stack>
-            <Grid
-              gap="20px"
-              tablet={{
-                columns: "35% 60%",
-                gap: "5%",
-              }}
-            >
-              <InputField
-                type="number"
-                label={intl.translate(__("account.sign_in.bid_number_label"))}
-                placeholder={intl.translate(__("account.sign_in.bid_number_placeholder"))}
-                value={bookingId}
-                error={intl.translate(bookingIdError)}
-                onChange={onBookingIdChange}
-                dataTest="MagicLogin-BookingId"
-              />
-              <InputField
-                label={intl.translate(__("account.sign_in.incorrect_email_label"))}
-                placeholder={intl.translate(__("account.sign_in.incorrect_email_placeholder"))}
-                value={email}
-                error={intl.translate(emailError)}
-                onChange={onEmailChange}
-                dataTest="MagicLogin-Email"
-              />
-            </Grid>
-          </Stack>
-          <DateInput
-            value={departureDate}
-            error={intl.translate(departureDateError)}
-            onChange={onDepartureDateChange}
-            label={__("account.sign_in.departure_date_label")}
-          />
-          <Stack spaceAfter="large">
-            <Grid
-              gap="20px"
-              tablet={{
-                columns: "48% 48%",
-                gap: "4%",
-              }}
-            >
-              <IataPicker
-                id="MagicLogin-IATA"
-                value={IATA}
-                withIcon={false}
-                onSelect={onIATAChange}
-                error={IATAError}
-              />
-            </Grid>
-          </Stack>
-          {/* necessary empty stack to make space below IATA input */}
-          <Stack spaceAfter="medium">{null}</Stack>
-          <Stack direction="row" justify="between">
-            <Button
-              t="account.back"
-              type="secondary"
-              iconLeft={<ChevronLeft />}
-              onClick={onBack}
-              dataTest="MagicLogin-GetSingleBookingBack"
+            <DateInput
+              value={departureDate}
+              error={intl.translate(departureDateError)}
+              onChange={onDepartureDateChange}
+              label={__("account.sign_in.departure_date_label")}
             />
-            <Button t="submit" submit dataTest="MagicLogin-GetSingleBookingSubmit" />
+            <Stack spaceAfter="large">
+              <Grid
+                gap="20px"
+                tablet={{
+                  columns: "48% 48%",
+                  gap: "4%",
+                }}
+              >
+                <IataPicker
+                  id="MagicLogin-IATA"
+                  value={IATA}
+                  withIcon={false}
+                  onSelect={onIATAChange}
+                  error={IATAError}
+                />
+              </Grid>
+            </Stack>
+            {/* necessary empty stack to make space below IATA input */}
+            <Stack spaceAfter="medium">{null}</Stack>
+            <Stack direction="row" justify="between">
+              <Button
+                t="account.back"
+                type="secondary"
+                iconLeft={<ChevronLeft />}
+                onClick={onBack}
+                dataTest="MagicLogin-GetSingleBookingBack"
+              />
+              <Button t="submit" submit dataTest="MagicLogin-GetSingleBookingSubmit" />
+            </Stack>
           </Stack>
-        </Stack>
-      </form>
-    </ModalSection>
+        </form>
+      </ModalSection>
+    </>
   );
 };
 

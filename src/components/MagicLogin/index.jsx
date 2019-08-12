@@ -23,10 +23,11 @@ import type { Event, Props as EventProps } from "../../records/Event";
 import type { Brand } from "../../records/Brand";
 import type { LangInfo } from "../../records/LangInfo";
 import GetSingleBooking from "./components/GetSingleBooking/index";
+import TailoredHeader, { type LoginType } from "./components/TailoredHeader";
 
 type ContainerProps = {|
   initialScreen: "intro" | "signUp",
-  type: "mmb" | "help" | "refer",
+  type: LoginType,
   disableSocialLogin: boolean,
   onClose: () => void,
   onSignIn: (user: AuthUser) => void,
@@ -182,8 +183,8 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
             email={email}
             brandId={brand.id}
             magicLinkError={error}
-            type={type}
             disableSocialLogin={disableSocialLogin}
+            tailoredHeader={<TailoredHeader type={type} />}
             onEmailChange={this.handleEmailChange}
             onGoogleLogin={this.handleGoogleLogin}
             onFacebookLogin={this.handleFacebookLogin}
@@ -217,6 +218,7 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
             magicLinkError={error}
             brandId={brand.id}
             isSendingEmail={isSendingEmail}
+            tailoredHeader={<TailoredHeader type={type} />}
             onChangeScreen={this.handleChangeScreen}
             onAskSignInLink={this.handleMagicLink}
             onClose={this.handleClose}

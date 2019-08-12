@@ -1,15 +1,14 @@
 // @flow strict
 import * as React from "react";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
-import Heading from "@kiwicom/orbit-components/lib/Heading";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
-import Header from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
-import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
+import ModalHeader from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
+import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import { Consumer } from "../../../../../services/intl/context";
+import IntlContext from "../../../../../services/intl/context";
 import Translate from "../../../../Translate";
 import Text from "../../../../Text";
 
@@ -49,66 +48,64 @@ const CreateAccount = ({
   onPasswordBlur,
   onPasswordConfirmChange,
   onPasswordConfirmBlur,
-}: Props) => (
-  <Consumer>
-    {intl => (
-      <>
-        <Header>
-          <Illustration name="EnjoyApp" size="small" />
-          <Heading element="h2">
-            <Translate t="account.create_account" />
-          </Heading>
-          <Text t="account.create_account_description" />
-        </Header>
-        <Section dataTest="MagicLogin-CreateAccount">
-          <form onSubmit={onContinue}>
-            <Stack spacing="comfy">
-              {error && (
-                <Alert type="critical" icon>
-                  {error}
-                </Alert>
-              )}
-              <InputField
-                label={intl.translate(__("account.email"))}
-                placeholder={intl.translate(__("account.email_placeholder"))}
-                error={emailError}
-                help={emailHint}
-                value={email}
-                onChange={onEmailChange}
-                onBlur={onEmailBlur}
-                name="email"
-                dataTest="MagicLogin-Email"
-              />
-              <InputField
-                label={intl.translate(__("account.password"))}
-                error={passwordError}
-                type="password"
-                name="passwordNew"
-                value={password}
-                onChange={onPasswordChange}
-                onBlur={onPasswordBlur}
-                dataTest="MagicLogin-Password"
-              />
-              <InputField
-                label={intl.translate(__("account.password_confirmaiton"))}
-                error={passwordConfirmError}
-                type="password"
-                name="passwordRepeat"
-                value={passwordConfirm}
-                onChange={onPasswordConfirmChange}
-                onBlur={onPasswordConfirmBlur}
-                dataTest="MagicLogin-PasswordConfirm"
-              />
-              <Button submit loading={isLoading}>
-                <Translate t="account.create" />
-              </Button>
-              <Text size="small" t="account.registration_privacy_policy" html />
-            </Stack>
-          </form>
-        </Section>
-      </>
-    )}
-  </Consumer>
-);
+}: Props) => {
+  const intl = React.useContext(IntlContext);
+
+  return (
+    <>
+      <ModalHeader
+        title={intl.translate(__("account.create_account"))}
+        description={intl.translate(__("account.create_account_description"))}
+        illustration={<Illustration name="EnjoyApp" size="small" />}
+      />
+      <ModalSection dataTest="MagicLogin-CreateAccount">
+        <form onSubmit={onContinue}>
+          <Stack spacing="comfy">
+            {error && (
+              <Alert type="critical" icon>
+                {error}
+              </Alert>
+            )}
+            <InputField
+              label={intl.translate(__("account.email"))}
+              placeholder={intl.translate(__("account.email_placeholder"))}
+              error={emailError}
+              help={emailHint}
+              value={email}
+              onChange={onEmailChange}
+              onBlur={onEmailBlur}
+              name="email"
+              dataTest="MagicLogin-Email"
+            />
+            <InputField
+              label={intl.translate(__("account.password"))}
+              error={passwordError}
+              type="password"
+              name="passwordNew"
+              value={password}
+              onChange={onPasswordChange}
+              onBlur={onPasswordBlur}
+              dataTest="MagicLogin-Password"
+            />
+            <InputField
+              label={intl.translate(__("account.password_confirmaiton"))}
+              error={passwordConfirmError}
+              type="password"
+              name="passwordRepeat"
+              value={passwordConfirm}
+              onChange={onPasswordConfirmChange}
+              onBlur={onPasswordConfirmBlur}
+              dataTest="MagicLogin-PasswordConfirm"
+            />
+            <Button submit loading={isLoading}>
+              <Translate t="account.create" />
+            </Button>
+            <Text size="small" t="account.registration_privacy_policy" html />
+          </Stack>
+        </form>
+      </ModalSection>
+    </>
+  );
+};
 
 export default CreateAccount;

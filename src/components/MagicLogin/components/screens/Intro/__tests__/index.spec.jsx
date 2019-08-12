@@ -2,10 +2,11 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import AccountLogin from "..";
+import IntroScreen from "..";
 
 const commonProps = {
   email: "",
+  tailoredHeader: <div />,
   onEmailChange: () => {},
   onEmailBlur: () => {},
   onFacebookLogin: () => {},
@@ -14,56 +15,16 @@ const commonProps = {
   onIncorrectEmail: () => {},
 };
 
-describe("#AccountLogin", () => {
+describe("#IntroScreen", () => {
   test("render", () => {
-    const wrapper = mount(<AccountLogin {...commonProps} />);
+    const wrapper = mount(<IntroScreen {...commonProps} />);
 
-    expect(wrapper.find("Illustration").prop("name")).toBe("Login");
-    expect(
-      wrapper
-        .find("Heading")
-        .find("Translate")
-        .prop("t"),
-    ).toBe("account.manage_your_bookings");
+    expect(wrapper.find(`[data-test="MagicLogin-LoginViaSocials"]`).exists()).toBe(true);
   });
 
   test("render error", () => {
-    const wrapper = mount(<AccountLogin {...commonProps} error="Kek" />);
+    const wrapper = mount(<IntroScreen {...commonProps} error="Kek" />);
 
     expect(wrapper.find("Alert").prop("type")).toBe("critical");
   });
-
-  [
-    {
-      type: "mmb",
-      description: "account.sign_in_description",
-      illustration: "Login",
-      title: "account.manage_your_bookings",
-    },
-    {
-      type: "help",
-      description: "account.login_description.help",
-      illustration: "Help",
-      title: "account.login_title.get_help",
-    },
-    {
-      type: "refer",
-      description: "account.login_description.refer",
-      illustration: "ReferAFriend",
-      title: "account.login_title.refer",
-    },
-  ].forEach(({ type, description, illustration, title }) =>
-    test(`type ${type}`, () => {
-      const wrapper = mount(<AccountLogin {...commonProps} type={type} />);
-
-      expect(wrapper.find("Illustration").prop("name")).toBe(illustration);
-      expect(
-        wrapper
-          .find("Heading")
-          .find("Translate")
-          .prop("t"),
-      ).toBe(title);
-      expect(wrapper.find(`[t="${description}"]`).exists()).toBe(true);
-    }),
-  );
 });

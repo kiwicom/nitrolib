@@ -4,6 +4,8 @@ import Text from "@kiwicom/orbit-components/lib/Text";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import { mount } from "enzyme";
 
+import TailoredHeader from "../../../TailoredHeader";
+
 import Password from "..";
 
 const defaultProps = {
@@ -14,6 +16,7 @@ const defaultProps = {
   onSignIn: () => {},
   password: "kek",
   email: "kek@bur.com",
+  tailoredHeader: <TailoredHeader type="mmb" />,
 };
 
 describe("#Password", () => {

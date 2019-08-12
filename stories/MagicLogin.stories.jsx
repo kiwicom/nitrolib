@@ -13,6 +13,7 @@ import CheckEmail from "../src/components/MagicLogin/components/screens/CheckEma
 import CreateAccount from "../src/components/MagicLogin/components/screens/CreateAccount";
 import SocialLogin from "../src/components/MagicLogin/components/screens/SocialLogin";
 import GetSingleBooking from "../src/components/MagicLogin/components/screens/GetSingleBooking";
+import TailoredHeader from "../src/components/MagicLogin/components/TailoredHeader";
 import withData from "./decorators/withData";
 
 const type = {
@@ -59,9 +60,9 @@ storiesOf("MagicLogin", module)
   ))
   .add("Screen - Intro", () => (
     <Intro
-      type="help"
       email=""
       error={<Text t="common.api_error" />}
+      tailoredHeader={<TailoredHeader type="mmb" />}
       onEmailChange={() => {}}
       onEmailBlur={() => {}}
       onFacebookLogin={() => {}}
@@ -81,6 +82,7 @@ storiesOf("MagicLogin", module)
   ))
   .add("Screen - Password", () => (
     <Password
+      tailoredHeader={<TailoredHeader type="mmb" />}
       onAskSignInLink={() => {}}
       onChangeEmail={() => {}}
       onPasswordChange={() => {}}

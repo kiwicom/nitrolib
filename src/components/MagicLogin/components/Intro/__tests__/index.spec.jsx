@@ -5,6 +5,7 @@ import * as React from "react";
 import { mount } from "enzyme";
 
 import AccountLogin from "../../screens/Intro";
+import TailoredHeader from "../../TailoredHeader";
 
 import Intro from "..";
 
@@ -13,8 +14,8 @@ jest.mock("../../../mutations/checkEmail");
 const defaultProps = {
   email: "joe.doe@example.com",
   brandId: "",
-  type: "mmb",
   magicLinkError: "",
+  tailoredHeader: <TailoredHeader type="mmb" />,
   onGoogleLogin: () => {},
   onFacebookLogin: () => {},
   onEmailChange: () => {},

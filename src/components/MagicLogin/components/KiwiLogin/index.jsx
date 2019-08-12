@@ -25,6 +25,7 @@ type OwnProps = {|
   magicLinkError: string,
   isSendingEmail: boolean,
   brandId: string,
+  tailoredHeader: React.Node,
   onResetMagicLinkError: () => void,
   onClose: boolean => void,
   onChangeScreen: Screen => void,
@@ -153,7 +154,7 @@ class KiwiLoginWithoutContext extends React.Component<Props, State> {
   };
 
   render() {
-    const { email, magicLinkError, isSendingEmail } = this.props;
+    const { email, magicLinkError, isSendingEmail, tailoredHeader } = this.props;
     const { error, password, isSigningIn, passwordError } = this.state;
 
     const formError = error || magicLinkError;
@@ -166,6 +167,7 @@ class KiwiLoginWithoutContext extends React.Component<Props, State> {
         isSendingEmail={isSendingEmail}
         password={password}
         passwordError={passwordError}
+        tailoredHeader={tailoredHeader}
         onChangeEmail={this.handleChangeEmail}
         onAskSignInLink={this.handleSignInLink}
         onForgotPassword={this.handleForgotPassword}
