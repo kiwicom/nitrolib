@@ -2,8 +2,6 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import { brandDefault } from "../../../../../../records/Brand";
-
 import NoAccount from "..";
 
 describe("#NoAccount", () => {
@@ -16,10 +14,7 @@ describe("#NoAccount", () => {
         onGoogleLogin={() => {}}
       />,
     );
-    const registerLink = shallow(<span>{wrapper.prop("children")(brandDefault)}</span>).find(
-      `[t="account.register"]`,
-    );
 
-    expect(registerLink.exists()).toBe(true);
+    expect(wrapper.find(`[t="account.register"]`).exists()).toBe(true);
   });
 });

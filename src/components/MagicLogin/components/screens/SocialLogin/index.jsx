@@ -1,16 +1,17 @@
 // @flow strict
 import * as React from "react";
-import Heading from "@kiwicom/orbit-components/lib/Heading";
 import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
-import Header from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
-import Section from "@kiwicom/orbit-components/lib/Modal/ModalSection";
+import ModalHeader from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
+import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Modal from "@kiwicom/orbit-components/lib/Modal";
 
 import Translate from "../../../../Translate";
 import Text from "../../../../Text";
+import { useIntl } from "../../../../../services/intl/context";
 
 type Props = {|
   email: string,
@@ -29,35 +30,34 @@ const PROVIDER = {
   facebook: "Facebook",
 };
 
-const SocialLogin = ({ onAskSignInLink, onSocialLogin, email, pairedWith }: Props) => (
-  <>
-    <Header>
-      <Illustration name="Login" size="small" />
-      <Heading element="h2">
-        <Translate
-          t="account.login_title.paired_with_social"
-          values={{ provider: PROVIDER[pairedWith] }}
-        />
-      </Heading>
-      <Text
-        t="account.login_description.paired_with_social"
-        values={{ provider: PROVIDER[pairedWith] }}
+const SocialLogin = ({ onAskSignInLink, onSocialLogin, email, pairedWith }: Props) => {
+  const provider = PROVIDER[pairedWith];
+  const intl = useIntl();
+
+  return (
+    <Modal>
+      <ModalHeader
+        title={intl.translate(__("account.login_title.paired_with_social"), { provider })}
+        description={intl.translate(__("account.login_description.paired_with_social"), {
+          provider,
+        })}
+        illustration={<Illustration name="Login" size="small" />}
       />
-    </Header>
-    <Section dataTest="MagicLogin-SocialLogin">
-      <Stack flex direction="column" spacing="condensed" desktop={{ direction: "row" }}>
-        <Button type={pairedWith} bordered icon={BUTTON_ICON[pairedWith]} onClick={onSocialLogin}>
-          <Translate t="account.log_in_with" values={{ provider: PROVIDER[pairedWith] }} />
+      <ModalSection dataTest="MagicLogin-SocialLogin">
+        <Stack flex direction="column" spacing="condensed" desktop={{ direction: "row" }}>
+          <Button type={pairedWith} bordered icon={BUTTON_ICON[pairedWith]} onClick={onSocialLogin}>
+            <Translate t="account.log_in_with" values={{ provider: PROVIDER[pairedWith] }} />
+          </Button>
+        </Stack>
+      </ModalSection>
+      <ModalSection>
+        <Text spaceAfter="normal" t="account.send_link_to" values={{ email }} />
+        <Button type="secondary" onClick={onAskSignInLink}>
+          <Translate t="account.ask_sign_in_link" />
         </Button>
-      </Stack>
-    </Section>
-    <Section>
-      <Text spaceAfter="normal" t="account.send_link_to" values={{ email }} />
-      <Button type="secondary" onClick={onAskSignInLink}>
-        <Translate t="account.ask_sign_in_link" />
-      </Button>
-    </Section>
-  </>
-);
+      </ModalSection>
+    </Modal>
+  );
+};
 
 export default SocialLogin;

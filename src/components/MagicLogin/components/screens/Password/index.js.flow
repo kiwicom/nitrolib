@@ -8,6 +8,7 @@ type Props = {|
   passwordError?: string,
   isSigningIn?: boolean,
   isSendingEmail?: boolean,
+  tailoredHeader: React.Node,
   onChangeEmail: (ev: SyntheticEvent<HTMLLinkElement>) => void,
   onForgotPassword: (ev: SyntheticEvent<HTMLLinkElement>) => void,
   onAskSignInLink: (ev: SyntheticEvent<HTMLButtonElement>) => void,

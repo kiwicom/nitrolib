@@ -5,6 +5,7 @@ import * as React from "react";
 import { mount } from "enzyme";
 
 import Password from "../../screens/Password";
+import TailoredHeader from "../../TailoredHeader";
 
 import KiwiLogin from "..";
 
@@ -16,6 +17,7 @@ const defaultProps = {
   magicLinkError: "",
   isSendingEmail: false,
   brandId: "",
+  tailoredHeader: <TailoredHeader type="mmb" />,
   onResetMagicLinkError: () => {},
   onClose: () => {},
   onChangeScreen: () => {},

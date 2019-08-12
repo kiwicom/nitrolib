@@ -9,8 +9,8 @@ import createSimpleToken from "../../mutations/createSimpleToken";
 import * as validators from "../../../../services/input/validators";
 import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
 import { SIMPLE_TOKEN_RETRIEVED } from "../../consts/events";
-import LogContext from "../../../../services/log/context";
-import IntlContext from "../../../../services/intl/context";
+import { useLog } from "../../../../services/log/context";
+import { useIntl } from "../../../../services/intl/context";
 import makeEnvironment from "../../../../services/utils/relay";
 import type { AuthToken } from "../../../../records/Auth";
 import type { Event, Props as EventProps } from "../../../../records/Event";
@@ -206,8 +206,8 @@ export class GetSingleBookingWithoutContext extends React.Component<Props, State
 }
 
 const GetSingleBooking = (props: OwnProps) => {
-  const { log } = React.useContext(LogContext);
-  const intl = React.useContext(IntlContext);
+  const { log } = useLog();
+  const intl = useIntl();
 
   return <GetSingleBookingWithoutContext {...props} intl={intl} log={log} />;
 };

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import AccountLogin from "../screens/Intro";
+import IntroScreen from "../screens/Intro";
 import checkEmail from "../../mutations/checkEmail";
 import errors from "../../../../consts/errors";
 import type { Screen } from "../../records/Screen";
@@ -16,7 +16,7 @@ import { GET_SIMPLE_TOKEN } from "../../consts/events";
 type Props = {|
   email: string,
   brandId: string,
-  type: "mmb" | "help" | "refer",
+  tailoredHeader: React.Node,
   disableSocialLogin?: boolean,
   magicLinkError: string,
   onGoogleLogin: () => void,
@@ -32,7 +32,7 @@ type State = {|
   validateEmail: boolean,
 |};
 
-export default class IntroScreen extends React.Component<Props, State> {
+export default class Intro extends React.Component<Props, State> {
   static contextType = LogContext;
 
   state = {
@@ -135,9 +135,9 @@ export default class IntroScreen extends React.Component<Props, State> {
   render() {
     const {
       email,
-      type,
       disableSocialLogin,
       magicLinkError,
+      tailoredHeader,
       onGoogleLogin,
       onFacebookLogin,
       onEmailChange,
@@ -147,13 +147,13 @@ export default class IntroScreen extends React.Component<Props, State> {
     const submitError = error || magicLinkError;
 
     return (
-      <AccountLogin
+      <IntroScreen
         email={email}
         error={submitError ? <Text t={submitError} /> : null}
         emailError={this.getEmailError()}
         isLoading={isLoading}
-        type={type}
         disableSocialLogin={disableSocialLogin}
+        tailoredHeader={tailoredHeader}
         onEmailChange={onEmailChange}
         onEmailBlur={this.handleEmailBlur}
         onGoogleLogin={onGoogleLogin}
