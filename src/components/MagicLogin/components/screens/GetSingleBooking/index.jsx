@@ -102,8 +102,8 @@ const GetSingleBooking = ({
               <Grid
                 gap="20px"
                 tablet={{
-                  columns: "48% 48%",
-                  gap: "4%",
+                  columns: "1fr 1fr",
+                  gap: "5%",
                 }}
               >
                 <IataPicker
