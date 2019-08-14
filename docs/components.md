@@ -338,6 +338,9 @@ See types:
 * ```"MagicLogin-Password"```
 * ```"MagicLogin-PasswordConfirm"```
 * ```"MagicLogin-PasswordInput"```
+* ```"MagicLogin-PasswordStrengthBar"```
+* ```"MagicLogin-PasswordValidationStrengthLabel"```
+* ```"MagicLogin-PasswordValidationTooltip"```
 * ```"MagicLogin-SocialLogin"```
 
 Modal component handling the whole login flow with magic link.

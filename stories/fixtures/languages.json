@@ -283,7 +283,7 @@
     "dimension": "__x__ cm",
     "weight": "__x__ kg",
     "latinInputs": true,
-    "currency": "krw",
+    "currency": "jpy",
     "direction": "ltr",
     "flag": "jp",
     "fontSubsets": "greek,latin-ext",

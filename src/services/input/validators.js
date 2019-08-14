@@ -35,13 +35,16 @@ export const departure = (val: Date, now: Date = new Date()): Error =>
 const PASSWORD_MIN_LENGTH = 8;
 const PASSWORD_STRENGTH_LEVEL = 2;
 
+export const passwordScore = (value: string, userInput?: string[]): number => {
+  const score = window.zxcvbn ? window.zxcvbn(value, userInput).score : 0;
+  return score;
+};
+
 export const password = (value: string): Error => {
   if (value.length < PASSWORD_MIN_LENGTH) return __("account.password_too_short");
 
-  if (window.zxcvbn) {
-    const strength = window.zxcvbn(value);
-    if (strength.score < PASSWORD_STRENGTH_LEVEL) return __("account.password_too_simple");
-  }
+  const score = passwordScore(value);
+  if (score < PASSWORD_STRENGTH_LEVEL) return __("account.password_too_simple");
 
   return "";
 };

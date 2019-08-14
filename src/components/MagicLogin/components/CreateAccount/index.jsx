@@ -3,8 +3,8 @@
 import * as React from "react";
 
 import errors from "../../../../consts/errors";
+import addScript from "../../../../services/utils/addScript";
 import * as validators from "../../../../services/input/validators";
-import CreateAccount from "../screens/CreateAccount";
 import Text from "../../../Text";
 import createAccount from "../../mutations/createAccount";
 import type { CreateAccountError } from "../../mutations/__generated__/createAccountMutation.graphql";
@@ -15,6 +15,11 @@ import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
 import makeEnvironment from "../../../../services/utils/relay";
 import type { Context as IntlContextType } from "../../../../services/intl/context";
 import type { Event, Props as EventProps } from "../../../../records/Event";
+import type { PasswordStrengthEnum } from "../../../../records/Auth";
+import CreateAccount from "../screens/CreateAccount";
+import { PASSWORD_SCORE_TO_STRENGTH } from "../../consts/password";
+
+const ZXCVBN_URL = "https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js";
 
 type OwnProps = {|
   email: string,
@@ -34,7 +39,7 @@ type State = {|
   password: string,
   passwordConfirm: string,
   isCreatingAccount: boolean,
-  validatePassword: boolean,
+  passwordStrength: PasswordStrengthEnum,
   validateEmail: boolean,
   passwordError: ?string,
   passwordConfirmError: ?string,
@@ -59,22 +64,28 @@ class CreateAccountWithoutContext extends React.PureComponent<Props, State> {
     error: null,
     password: "",
     passwordConfirm: "",
+    passwordStrength: "WEAK",
     isCreatingAccount: false,
-    validatePassword: false, // eslint-disable-line react/no-unused-state
     validateEmail: false,
   };
+
+  componentDidMount() {
+    if (!window.zxcvbn) {
+      addScript(ZXCVBN_URL);
+    }
+  }
 
   handleEmailBlur = () => {
     this.setState({ validateEmail: true });
   };
 
   handlePasswordChange = (e: SyntheticInputEvent<HTMLInputElement>) => {
-    this.setState({ password: e.target.value }, this.checkPasswordValidity);
+    this.setState({ password: e.target.value }, this.getPasswordStrength);
   };
 
   handlePasswordBlur = () => {
     // eslint-disable-next-line react/no-unused-state
-    this.setState({ validatePassword: true }, this.checkPasswordValidity);
+    this.setState(this.getPasswordStrength);
   };
 
   handlePasswordConfirmChange = (e: SyntheticInputEvent<HTMLInputElement>) => {
@@ -111,7 +122,9 @@ class CreateAccountWithoutContext extends React.PureComponent<Props, State> {
 
     const { email, brandId, onSignUpConfirmation, intl, log } = this.props;
     const { password } = this.state;
-    const environment = makeEnvironment({ "Accept-Language": intl.language.iso });
+    const environment = makeEnvironment({
+      "Accept-Language": intl.language.iso,
+    });
 
     this.setState({ isCreatingAccount: true, error: null, ...defaultErrors });
 
@@ -158,8 +171,6 @@ class CreateAccountWithoutContext extends React.PureComponent<Props, State> {
 
     this.setState({
       validateEmail: true,
-      validatePassword: true, // eslint-disable-line react/no-unused-state
-      passwordError,
       passwordConfirmError,
       error: emailError || passwordError || passwordConfirmError,
     });
@@ -167,10 +178,17 @@ class CreateAccountWithoutContext extends React.PureComponent<Props, State> {
     return emailError || passwordError || passwordConfirmError;
   };
 
-  checkPasswordValidity = () => {
-    this.setState(({ validatePassword, password }) => ({
-      passwordError: validatePassword ? validators.password(password) : null,
-    }));
+  getPasswordStrength = () => {
+    const { password } = this.state;
+    const { email } = this.props;
+    const userInput = ["skypicker", "kiwi", email];
+
+    // Score from 0 to 4 according to zxcvbn
+    const score = validators.passwordScore(password, userInput);
+    const passwordStrength = PASSWORD_SCORE_TO_STRENGTH[String(score)];
+    this.setState({
+      passwordStrength: passwordStrength || "WEAK",
+    });
   };
 
   setSubmitError = (responseError: ?CreateAccountError) => {
@@ -186,14 +204,12 @@ class CreateAccountWithoutContext extends React.PureComponent<Props, State> {
       passwordConfirm,
       isCreatingAccount,
       error,
+      passwordStrength,
       validateEmail,
-      passwordError,
       passwordConfirmError,
     } = this.state;
     const emailError = validateEmail ? intl.translate(validators.email(email)) : "";
-    const passError = passwordError ? intl.translate(passwordError) : "";
     const passConfirmError = passwordConfirmError ? intl.translate(passwordConfirmError) : "";
-
     return (
       <CreateAccount
         email={email}
@@ -201,7 +217,7 @@ class CreateAccountWithoutContext extends React.PureComponent<Props, State> {
         error={error ? <Text t={error} values={{ text: email }} /> : null}
         passwordConfirm={passwordConfirm}
         emailError={emailError}
-        passwordError={passError}
+        passwordStrength={passwordStrength}
         passwordConfirmError={passConfirmError}
         isLoading={isCreatingAccount}
         onEmailChange={onEmailChange}

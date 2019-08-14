@@ -88,6 +88,8 @@ export type AuthUser = {|
   token: string,
 |};
 
+export type PasswordStrengthEnum = "WEAK" | "MEDIUM" | "STRONG";
+
 export type AuthMagic = {|
   type: "magic",
   email: string,

@@ -10,7 +10,7 @@ import Intro from "../src/components/MagicLogin/components/screens/Intro";
 import Password from "../src/components/MagicLogin/components/screens/Password";
 import NoAccount from "../src/components/MagicLogin/components/screens/NoAccount";
 import CheckEmail from "../src/components/MagicLogin/components/screens/CheckEmail";
-import CreateAccount from "../src/components/MagicLogin/components/screens/CreateAccount";
+import CreateAccount from "../src/components/MagicLogin/components/CreateAccount";
 import SocialLogin from "../src/components/MagicLogin/components/screens/SocialLogin";
 import GetSingleBooking from "../src/components/MagicLogin/components/screens/GetSingleBooking";
 import TailoredHeader from "../src/components/MagicLogin/components/TailoredHeader";
@@ -104,18 +104,10 @@ storiesOf("MagicLogin", module)
   ))
   .add("Screen - CreateAccount", () => (
     <CreateAccount
-      email=""
-      password=""
-      passwordConfirm=""
+      brandId="kiwicom"
+      email="testemail@kiwi.com"
+      onSignUpConfirmation={() => {}}
       onEmailChange={() => {}}
-      onPasswordChange={() => {}}
-      onPasswordConfirmChange={() => {}}
-      onContinue={() => {}}
-      error={<Text t="account.password_too_simple" />}
-      emailError="Incorrect format of e-mail"
-      passwordError="Password too simple"
-      passwordConfirmError="Passwords doesn't match"
-      isLoading
     />
   ))
   .add("Screen - GetSingleBooking", () => (

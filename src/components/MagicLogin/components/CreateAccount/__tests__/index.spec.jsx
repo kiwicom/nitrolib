@@ -4,7 +4,7 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import CreateAccountScreen from "../../screens/CreateAccount";
+import CreateAccountComponent from "../../screens/CreateAccount";
 
 import CreateAccount from "..";
 
@@ -21,20 +21,26 @@ describe("#CreateAccount", () => {
   it("renders CreateAccount screen", () => {
     const wrapper = mount(<CreateAccount {...defaultProps} />);
 
-    expect(wrapper.find(CreateAccountScreen).exists()).toBe(true);
+    expect(wrapper.find(CreateAccountComponent).exists()).toBe(true);
   });
 
-  it("check password validity only after input blur", () => {
+  it("check password hinter for different password", () => {
     const wrapper = mount(<CreateAccount {...defaultProps} />);
 
-    wrapper
-      .find(`input[data-test="MagicLogin-Password"]`)
-      .simulate("change", { target: { value: "123" } });
-    expect(wrapper.find(CreateAccountScreen).prop("passwordError")).toBe("");
-    wrapper.find(`input[data-test="MagicLogin-Password"]`).simulate("blur");
-    expect(wrapper.find(CreateAccountScreen).prop("passwordError")).toBe(
-      "account.password_too_short",
-    );
+    const passwordField = wrapper.find(`input[data-test="MagicLogin-Password"]`);
+    const passwordHint = wrapper.find("[data-test='MagicLogin-PasswordValidationStrengthLabel']");
+
+    passwordField.simulate("change", { target: { value: "123" } });
+    expect(passwordHint.text()).toEqual("account.password_validation.strength_label.weak");
+
+    global.zxcvbn = jest.fn().mockImplementation(() => ({
+      score: 3,
+    }));
+
+    passwordField.simulate("change", {
+      target: { value: "mediumPasswordWhatever2993" },
+    });
+    expect(passwordHint.text()).toEqual("account.password_validation.strength_label.medium");
   });
 
   it("check integrity of the password", () => {
@@ -47,11 +53,11 @@ describe("#CreateAccount", () => {
       .find(`input[data-test="MagicLogin-PasswordConfirm"]`)
       .simulate("change", { target: { value: "abc" } });
     // no error before input loses focus
-    expect(wrapper.find(CreateAccountScreen).prop("passwordConfirmError")).toBe("");
+    expect(wrapper.find(CreateAccountComponent).prop("passwordConfirmError")).toBe("");
 
     wrapper.find(`input[data-test="MagicLogin-PasswordConfirm"]`).simulate("blur");
     // error is detected when input lost focus and passwords don't match
-    expect(wrapper.find(CreateAccountScreen).prop("passwordConfirmError")).toBe(
+    expect(wrapper.find(CreateAccountComponent).prop("passwordConfirmError")).toBe(
       "account.password_confirm_not_matching",
     );
 
@@ -59,7 +65,7 @@ describe("#CreateAccount", () => {
       .find(`input[data-test="MagicLogin-PasswordConfirm"]`)
       .simulate("change", { target: { value: "123" } });
     // error is removed immediately as user is typing, without blur event
-    expect(wrapper.find(CreateAccountScreen).prop("passwordConfirmError")).toBe("");
+    expect(wrapper.find(CreateAccountComponent).prop("passwordConfirmError")).toBe("");
   });
 
   it("handles successful submit", done => {
