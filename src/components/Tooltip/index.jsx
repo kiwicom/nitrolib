@@ -85,25 +85,25 @@ const Tip = styled.span`
         `
           ${right({ theme })}: 0;
           border-${right({ theme })}-width: 0;
-          border-${left({ theme })}-color: ${theme.orbit.paletteInkDark};
+          border-${left({ theme })}-color: ${theme.orbit.paletteInkNormal};
         `) ||
       (position === "right" &&
         `
           ${left({ theme })}: 0;
           border-${left({ theme })}-width: 0;
-          border-${right({ theme })}-color: ${theme.orbit.paletteInkDark};
+          border-${right({ theme })}-color: ${theme.orbit.paletteInkNormal};
         `) ||
       (position === "top" &&
         `
           bottom: 0;
           border-bottom-width: 0;
-          border-top-color: ${theme.orbit.paletteInkDark};
+          border-top-color: ${theme.orbit.paletteInkNormal};
         `) ||
       (position === "bottom" &&
         `
           top: 0;
           border-top-width: 0;
-          border-bottom-color: ${theme.orbit.paletteInkDark};
+          border-bottom-color: ${theme.orbit.paletteInkNormal};
         `)};
 
     ${({ position }) =>
