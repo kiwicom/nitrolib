@@ -6,9 +6,9 @@ export const MAGIC_LOGIN_MODAL_SHOWN: Event = {
   subCategory: "MagicLogin",
   action: "ModalShown",
   destinations: {
-    exponea: true,
+    exponea: false,
     ga: false,
-    logmole: false,
+    logmole: true,
     bigQuery: true,
   },
 };
@@ -18,9 +18,9 @@ export const SCREEN_CHANGED: Event = {
   subCategory: "MagicLogin",
   action: "ScreenChanged",
   destinations: {
-    exponea: true,
+    exponea: false,
     ga: false,
-    logmole: false,
+    logmole: true,
     bigQuery: true,
   },
 };
@@ -30,9 +30,9 @@ export const LOGGED_WITH_ACCOUNT: Event = {
   subCategory: "MagicLogin",
   action: "LoggedInWithAccount",
   destinations: {
-    exponea: true,
+    exponea: false,
     ga: false,
-    logmole: false,
+    logmole: true,
     bigQuery: true,
   },
 };
@@ -42,9 +42,9 @@ export const ASK_FOR_MAGIC_LINK: Event = {
   subCategory: "MagicLogin",
   action: "AskForMagicLink",
   destinations: {
-    exponea: true,
+    exponea: false,
     ga: false,
-    logmole: false,
+    logmole: true,
     bigQuery: true,
   },
 };
@@ -54,9 +54,9 @@ export const MAGIC_LINK_SENT: Event = {
   subCategory: "MagicLogin",
   action: "MagicLinkSent",
   destinations: {
-    exponea: true,
+    exponea: false,
     ga: false,
-    logmole: false,
+    logmole: true,
     bigQuery: true,
   },
 };
@@ -66,9 +66,9 @@ export const CHANGE_EMAIL: Event = {
   subCategory: "MagicLogin",
   action: "ChangeEmail",
   destinations: {
-    exponea: true,
+    exponea: false,
     ga: false,
-    logmole: false,
+    logmole: true,
     bigQuery: true,
   },
 };
@@ -78,9 +78,9 @@ export const LOGIN_VIA_SOCIAL: Event = {
   subCategory: "MagicLogin",
   action: "LoginViaSocialProvider",
   destinations: {
-    exponea: true,
+    exponea: false,
     ga: false,
-    logmole: false,
+    logmole: true,
     bigQuery: true,
   },
 };
@@ -90,9 +90,9 @@ export const CONTINUE_WITH_REGISTER: Event = {
   subCategory: "MagicLogin",
   action: "ContinueWithRegister",
   destinations: {
-    exponea: true,
+    exponea: false,
     ga: false,
-    logmole: false,
+    logmole: true,
     bigQuery: true,
   },
 };
@@ -102,9 +102,9 @@ export const REGISTRATION_SENT: Event = {
   subCategory: "MagicLogin",
   action: "RegistrationSent",
   destinations: {
-    exponea: true,
+    exponea: false,
     ga: false,
-    logmole: false,
+    logmole: true,
     bigQuery: true,
   },
 };
@@ -114,9 +114,9 @@ export const SIMPLE_TOKEN_RETRIEVED: Event = {
   subCategory: "MagicLogin",
   action: "SimpleTokenRetrieved",
   destinations: {
-    exponea: true,
+    exponea: false,
     ga: false,
-    logmole: false,
+    logmole: true,
     bigQuery: true,
   },
 };
@@ -126,9 +126,9 @@ export const GET_SIMPLE_TOKEN: Event = {
   subCategory: "MagicLogin",
   action: "GetSimpleToken",
   destinations: {
-    exponea: true,
+    exponea: false,
     ga: false,
-    logmole: false,
+    logmole: true,
     bigQuery: true,
   },
 };
@@ -138,9 +138,9 @@ export const LOGIN_ABANDONED: Event = {
   subCategory: "MagicLogin",
   action: "LoginAbandoned",
   destinations: {
-    exponea: true,
+    exponea: false,
     ga: false,
-    logmole: false,
+    logmole: true,
     bigQuery: true,
   },
 };
@@ -150,9 +150,9 @@ export const LOGIN_PATH_FULFILLED = {
   subCategory: "MagicLogin",
   action: "LoginPathFulfilled",
   destinations: {
-    exponea: true,
+    exponea: false,
     ga: false,
-    logmole: false,
+    logmole: true,
     bigQuery: true,
   },
 };
