@@ -1,3 +1,16 @@
+## [6.1.5](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.1.4...v6.1.5) (2019-08-14)
+
+
+### Bug Fixes
+
+* **components:** MagicLogin grid ([bec51c2](https://gitlab.skypicker.com/frontend/nitrolib/commit/bec51c2))
+* **components:** MagicLogin Modal ([2221f3a](https://gitlab.skypicker.com/frontend/nitrolib/commit/2221f3a))
+* Change destinations for MagicLogin tracking ([8a83eeb](https://gitlab.skypicker.com/frontend/nitrolib/commit/8a83eeb))
+* Change type of amount prop in user balances to match kiwi frontend ([5b51de0](https://gitlab.skypicker.com/frontend/nitrolib/commit/5b51de0))
+* **components:** Tooltip bg ([64f2330](https://gitlab.skypicker.com/frontend/nitrolib/commit/64f2330))
+
+
+
 ## [6.1.4](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.1.3...v6.1.4) (2019-08-09)
 
 
