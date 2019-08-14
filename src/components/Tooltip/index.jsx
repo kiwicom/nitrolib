@@ -128,7 +128,7 @@ const TipContent = styled.span`
   line-height: 30px;
   padding: 0px 8px;
   color: ${({ theme }) => theme.orbit.paletteWhite};
-  background-color: ${({ theme }) => theme.orbit.paletteInkDark};
+  background-color: ${({ theme }) => theme.orbit.paletteInkNormal};
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
 `;
 
