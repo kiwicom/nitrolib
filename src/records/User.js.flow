@@ -1,6 +1,6 @@
 // @flow strict
 type Balance = {|
-  amount: string,
+  amount: number,
   currency: string,
 |};
 

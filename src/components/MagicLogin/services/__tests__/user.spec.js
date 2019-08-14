@@ -44,7 +44,7 @@ describe("#toUser", () => {
         cardDiscount: 0,
         balances: [
           {
-            amount: "1",
+            amount: 1,
             currency: "eur",
           },
         ],

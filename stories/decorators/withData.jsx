@@ -150,7 +150,7 @@ const withData = (storyFn: () => React.Node) => {
                 affiliateId: "",
                 cardDiscount: 4,
                 balanceDiscount: 4,
-                balances: [{ amount: "4", currency: "EUR" }],
+                balances: [{ amount: 4, currency: "EUR" }],
               },
             },
             loading: false,

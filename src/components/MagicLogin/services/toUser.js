@@ -37,7 +37,7 @@ const toUser = (user: RelayInput): AuthUser => ({
     cardDiscount: user.bookingIdentity?.discounts?.card || 0,
     balanceDiscount: user.bookingIdentity?.discounts?.credits || 0,
     balances: (user.bookingIdentity?.balances || []).filter(Boolean).map(balance => ({
-      amount: balance.amount || "0",
+      amount: Number(balance.amount) || 0,
       currency: balance.currencyId || "EUR",
     })),
   },

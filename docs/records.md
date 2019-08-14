@@ -1655,7 +1655,7 @@ import type { User } from "@kiwicom/nitro/lib/records/User";
 **Types:**
 ```js
 type Balance = {|
-  amount: string,
+  amount: number,
   currency: string,
 |};
 
