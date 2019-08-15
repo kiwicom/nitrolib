@@ -641,6 +641,12 @@
     "name": "China Eastern Airlines",
     "type": "airline"
   },
+  "4Z": {
+    "id": "4Z",
+    "lcc": 0,
+    "name": "Airlink (SAA)",
+    "type": "airline"
+  },
   "LO": {
     "id": "LO",
     "lcc": 0,
@@ -1043,12 +1049,6 @@
     "name": "Azur Air Ukraine",
     "type": "airline"
   },
-  "LV": {
-    "id": "LV",
-    "lcc": 0,
-    "name": "Level",
-    "type": "airline"
-  },
   "EZ": {
     "id": "EZ",
     "lcc": 0,
@@ -1161,6 +1161,12 @@
     "id": "AY",
     "lcc": 0,
     "name": "Finnair",
+    "type": "airline"
+  },
+  "4X": {
+    "id": "4X",
+    "lcc": 0,
+    "name": "Red Jet Mexico",
     "type": "airline"
   },
   "DG": {
@@ -2435,6 +2441,12 @@
     "name": "Viva Air",
     "type": "airline"
   },
+  "Y8": {
+    "id": "Y8",
+    "lcc": 0,
+    "name": "Marusya Airways",
+    "type": "airline"
+  },
   "PQ": {
     "id": "PQ",
     "lcc": 0,
@@ -2727,12 +2739,6 @@
     "id": "NY",
     "lcc": 1,
     "name": "Air Iceland Connect",
-    "type": "airline"
-  },
-  "4Z": {
-    "id": "4Z",
-    "lcc": 0,
-    "name": "Airlink (SAA)",
     "type": "airline"
   },
   "ZE": {
@@ -3035,6 +3041,12 @@
     "name": "Auric Air",
     "type": "airline"
   },
+  "6P": {
+    "id": "6P",
+    "lcc": 0,
+    "name": "Gryphon Airlines",
+    "type": "airline"
+  },
   "PK": {
     "id": "PK",
     "lcc": 0,
@@ -3143,12 +3155,6 @@
     "name": "Atlas Air",
     "type": "airline"
   },
-  "I0": {
-    "id": "I0",
-    "lcc": null,
-    "name": "LEVEL operated by Iberia",
-    "type": "airline"
-  },
   "QH": {
     "id": "QH",
     "lcc": 0,
@@ -3213,12 +3219,6 @@
     "id": "FB",
     "lcc": 0,
     "name": "Bulgaria Air",
-    "type": "airline"
-  },
-  "OPENSKIES": {
-    "id": "OPENSKIES",
-    "lcc": 1,
-    "name": "Openskies",
     "type": "airline"
   },
   "OI": {
@@ -3315,6 +3315,12 @@
     "id": "EN",
     "lcc": 0,
     "name": "Air Dolomiti",
+    "type": "airline"
+  },
+  "GH": {
+    "id": "GH",
+    "lcc": 0,
+    "name": "Globus",
     "type": "airline"
   },
   "BS": {
@@ -3611,6 +3617,12 @@
     "name": "Kenmore Air",
     "type": "airline"
   },
+  "E1": {
+    "id": "E1",
+    "lcc": 0,
+    "name": "Usa Sky Cargo",
+    "type": "airline"
+  },
   "LN": {
     "id": "LN",
     "lcc": 0,
@@ -3881,16 +3893,16 @@
     "name": "Chair Airlines",
     "type": "airline"
   },
-  "OY": {
-    "id": "OY",
-    "lcc": 0,
-    "name": "Andes Líneas Aéreas",
-    "type": "airline"
-  },
   "BK": {
     "id": "BK",
     "lcc": 0,
     "name": "Okay Airways",
+    "type": "airline"
+  },
+  "EK": {
+    "id": "EK",
+    "lcc": 0,
+    "name": "Emirates",
     "type": "airline"
   },
   "MQ": {
@@ -3945,12 +3957,6 @@
     "id": "PZ",
     "lcc": 0,
     "name": "LATAM Paraguay",
-    "type": "airline"
-  },
-  "EK": {
-    "id": "EK",
-    "lcc": 0,
-    "name": "Emirates",
     "type": "airline"
   },
   "FS": {
@@ -4203,12 +4209,6 @@
     "id": "9Y",
     "lcc": 0,
     "name": "Air Kazakhstan",
-    "type": "airline"
-  },
-  "6P": {
-    "id": "6P",
-    "lcc": 0,
-    "name": "Gryphon Airlines",
     "type": "airline"
   },
   "TI": {
@@ -4503,6 +4503,12 @@
     "id": "ZN",
     "lcc": 0,
     "name": "Zenith International Airline",
+    "type": "airline"
+  },
+  "QY": {
+    "id": "QY",
+    "lcc": 0,
+    "name": "Red Jet Canada",
     "type": "airline"
   },
   "QJ": {
@@ -4821,12 +4827,6 @@
     "id": "CL",
     "lcc": 0,
     "name": "Lufthansa CityLine",
-    "type": "airline"
-  },
-  "GH": {
-    "id": "GH",
-    "lcc": 0,
-    "name": "Globus",
     "type": "airline"
   },
   "WJ": {
@@ -5171,30 +5171,6 @@
     "name": "GNB Linhas Aereas",
     "type": "airline"
   },
-  "E1": {
-    "id": "E1",
-    "lcc": 0,
-    "name": "Usa Sky Cargo",
-    "type": "airline"
-  },
-  "QY": {
-    "id": "QY",
-    "lcc": 0,
-    "name": "Red Jet Canada",
-    "type": "airline"
-  },
-  "4X": {
-    "id": "4X",
-    "lcc": 0,
-    "name": "Red Jet Mexico",
-    "type": "airline"
-  },
-  "Y8": {
-    "id": "Y8",
-    "lcc": 0,
-    "name": "Marusya Airways",
-    "type": "airline"
-  },
   "2D": {
     "id": "2D",
     "lcc": 0,
@@ -5415,12 +5391,6 @@
     "id": "CZ",
     "lcc": 0,
     "name": "China Southern Airlines",
-    "type": "airline"
-  },
-  "TROPOCEAN": {
-    "id": "TROPOCEAN",
-    "lcc": null,
-    "name": "Tropic Ocean Airways",
     "type": "airline"
   },
   "AO": {
@@ -5669,30 +5639,6 @@
     "name": "Spirit Airlines",
     "type": "airline"
   },
-  "GOVERNORS": {
-    "id": "GOVERNORS",
-    "lcc": null,
-    "name": "Governors Aviation",
-    "type": "airline"
-  },
-  "STEWISLAND": {
-    "id": "STEWISLAND",
-    "lcc": null,
-    "name": "Stewart Island Flights",
-    "type": "airline"
-  },
-  "GRUMAIR": {
-    "id": "GRUMAIR",
-    "lcc": null,
-    "name": "Grumeti Air",
-    "type": "airline"
-  },
-  "SKYPASADA": {
-    "id": "SKYPASADA",
-    "lcc": null,
-    "name": "Sky Pasada",
-    "type": "airline"
-  },
   "SM": {
     "id": "SM",
     "lcc": 1,
@@ -5723,16 +5669,34 @@
     "name": "Emetebe Airlines",
     "type": "airline"
   },
-  "ASSALAAM": {
-    "id": "ASSALAAM",
+  "STEWISLAND": {
+    "id": "STEWISLAND",
     "lcc": null,
-    "name": "As Salaam Air",
+    "name": "Stewart Island Flights",
+    "type": "airline"
+  },
+  "SKYPASADA": {
+    "id": "SKYPASADA",
+    "lcc": null,
+    "name": "Sky Pasada",
+    "type": "airline"
+  },
+  "GRUMAIR": {
+    "id": "GRUMAIR",
+    "lcc": null,
+    "name": "Grumeti Air",
     "type": "airline"
   },
   "UNIAIR": {
     "id": "UNIAIR",
     "lcc": null,
     "name": "Unity Air",
+    "type": "airline"
+  },
+  "ASSALAAM": {
+    "id": "ASSALAAM",
+    "lcc": null,
+    "name": "As Salaam Air",
     "type": "airline"
   },
   "FLYSAFARI": {
@@ -5903,22 +5867,10 @@
     "name": "S7 Airlines",
     "type": "airline"
   },
-  "FLYTRISTAR": {
-    "id": "FLYTRISTAR",
-    "lcc": null,
-    "name": "Fly Tristar Services",
-    "type": "airline"
-  },
   "C0": {
     "id": "C0",
     "lcc": 0,
     "name": "Centralwings",
-    "type": "airline"
-  },
-  "GRENADINE": {
-    "id": "GRENADINE",
-    "lcc": null,
-    "name": "Grenadine Airways",
     "type": "airline"
   },
   "9H": {
@@ -6003,6 +5955,18 @@
     "id": "IF",
     "lcc": 0,
     "name": "Fly Baghdad Airlines",
+    "type": "airline"
+  },
+  "GT": {
+    "id": "GT",
+    "lcc": 1,
+    "name": "Air Guilin",
+    "type": "airline"
+  },
+  "GRENADINE": {
+    "id": "GRENADINE",
+    "lcc": null,
+    "name": "Grenadine Airways",
     "type": "airline"
   },
   "R3": {
@@ -6561,12 +6525,6 @@
     "id": "9C",
     "lcc": 1,
     "name": "Spring Airlines",
-    "type": "airline"
-  },
-  "GT": {
-    "id": "GT",
-    "lcc": 1,
-    "name": "Air Guilin",
     "type": "airline"
   },
   "MJ": {
@@ -7563,6 +7521,48 @@
     "id": "E9",
     "lcc": 0,
     "name": "Evelop Airlines",
+    "type": "airline"
+  },
+  "I0": {
+    "id": "I0",
+    "lcc": null,
+    "name": "LEVEL operated by Iberia",
+    "type": "airline"
+  },
+  "LV": {
+    "id": "LV",
+    "lcc": 0,
+    "name": "Level",
+    "type": "airline"
+  },
+  "OPENSKIES": {
+    "id": "OPENSKIES",
+    "lcc": 1,
+    "name": "Openskies",
+    "type": "airline"
+  },
+  "TROPOCEAN": {
+    "id": "TROPOCEAN",
+    "lcc": null,
+    "name": "Tropic Ocean Airways",
+    "type": "airline"
+  },
+  "GOVERNORS": {
+    "id": "GOVERNORS",
+    "lcc": null,
+    "name": "Governors Aviation",
+    "type": "airline"
+  },
+  "FLYTRISTAR": {
+    "id": "FLYTRISTAR",
+    "lcc": null,
+    "name": "Fly Tristar Services",
+    "type": "airline"
+  },
+  "OY": {
+    "id": "OY",
+    "lcc": 0,
+    "name": "Andes Líneas Aéreas",
     "type": "airline"
   }
 }
