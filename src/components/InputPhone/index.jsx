@@ -5,13 +5,8 @@ import type { spaceAfter as SpaceAfter } from "@kiwicom/orbit-components/lib/com
 import type { Translation } from "@kiwicom/orbit-components/lib/common/common.js.flow";
 
 import Translate from "../Translate";
-import { phone, required } from "../../services/input/validators";
-import compose from "../../services/input/composeValidator";
-
-const validator = compose(
-  phone,
-  required,
-);
+import { validate } from "../../services/input/phoneValidator";
+import { phone as normalizer } from "../../services/input/normalizers";
 
 type Props = {|
   ...SpaceAfter,
@@ -26,6 +21,8 @@ type Props = {|
   suffix?: React.Node,
   tabIndex?: string,
   id?: string,
+  maxLength?: number,
+  minLength?: number,
   onChange: ({ error: string, value: string }) => void,
   error: string,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
@@ -35,16 +32,14 @@ type Props = {|
 |};
 
 const InputPhone = ({ onChange, ...props }: Props) => {
-  const [state, setState] = React.useState({ error: "" });
-
   const handleChange = (ev: SyntheticInputEvent<HTMLInputElement>) => {
-    const { value } = ev.target;
-    const error = validator(value);
+    const value = normalizer(ev.target.value);
 
-    setState({ error });
-
-    onChange({ value, error });
+    return validate(value)
+      .then(res => onChange({ value, error: res }))
+      .catch(err => Promise.reject(err));
   };
+
   const {
     onBlur,
     onFocus,
@@ -58,6 +53,8 @@ const InputPhone = ({ onChange, ...props }: Props) => {
     spaceAfter,
     tabIndex,
     size,
+    maxLength,
+    minLength,
     value,
     error,
     id,
@@ -71,8 +68,10 @@ const InputPhone = ({ onChange, ...props }: Props) => {
       required
       name={name}
       size={size}
-      error={state.error && <Translate t={error} />}
+      error={error && <Translate t={error} />}
       onBlur={onBlur}
+      maxLength={maxLength}
+      minLength={minLength}
       tabIndex={tabIndex}
       onFocus={onFocus}
       onChange={handleChange}

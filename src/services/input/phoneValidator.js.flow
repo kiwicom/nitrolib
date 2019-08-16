@@ -1,0 +1,6 @@
+// @flow strict
+import type { FetchedPhone } from "../../records/Phone";
+
+declare export function call(phone: string): Promise<FetchedPhone>;
+
+declare export var validate: (val: string) => Promise<string>;

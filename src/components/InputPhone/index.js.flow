@@ -16,6 +16,8 @@ type Props = {|
   suffix?: React$Node,
   tabIndex?: string,
   autoComplete?: string,
+  maxLength?: number,
+  minLength?: number,
   id?: string,
   error: string,
   onChange: ({ error: string, value: string }) => void,

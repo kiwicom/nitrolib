@@ -1,10 +1,10 @@
-// @flow strict
-import { parsePhoneNumber } from "libphonenumber-js";
+// // @flow
+// import { parsePhoneNumber } from "libphonenumber-js";
 
-type Props = {|
-  tel: string,
-|};
+// type Props = {|
+//   tel: string,
+// |};
 
-const PhoneNumber = ({ tel }: Props) => parsePhoneNumber(tel).formatInternational();
+// const PhoneNumber = ({ tel }: Props) => parsePhoneNumber(tel).formatInternational();
 
-export default PhoneNumber;
+// export default PhoneNumber;
