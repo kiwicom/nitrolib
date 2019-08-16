@@ -1,3 +1,12 @@
+## [6.1.6](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.1.5...v6.1.6) (2019-08-16)
+
+
+### Bug Fixes
+
+* **components:** Orbit paletteInkNormal ([234a47e](https://gitlab.skypicker.com/frontend/nitrolib/commit/234a47e))
+
+
+
 ## [6.1.5](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.1.4...v6.1.5) (2019-08-14)
 
 
