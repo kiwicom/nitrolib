@@ -6,6 +6,7 @@ import Close from "@kiwicom/orbit-components/lib/icons/Close";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
+import { themeDefault } from "../../../../../../records/Theme";
 import Translate from "../../../../../Translate";
 import type { BaggageCategory } from "../../../../../../records/Baggage";
 
@@ -24,6 +25,10 @@ const TextWrapper = styled.div`
     max-width: none;
   `)};
 `;
+
+TextWrapper.defaultProps = {
+  theme: themeDefault,
+};
 
 const LineHeightFix = styled.div`
   > p {

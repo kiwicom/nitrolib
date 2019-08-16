@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { mount } from "enzyme";
+import { shallow } from "enzyme";
 
 import PassengerBaggages from "..";
 
@@ -62,12 +62,14 @@ const props = {
 
 describe("#BaggagePaymentSummary", () => {
   test("renders", () => {
-    const wrapper = mount(<PassengerBaggages {...props} />);
-    expect(wrapper.find("[data-test='BaggagePaymentSummary-PassengerBaggages-1']").exists()).toBe(
-      true,
-    );
+    const wrapper = shallow(<PassengerBaggages {...props} />);
     expect(
-      wrapper.find("[data-test='BaggagePaymentSummary-PassengerBaggages-1-Price']").text(),
-    ).toBe("40 €");
+      wrapper
+        .find("Stack")
+        .first()
+        .prop("dataTest"),
+    ).toBe("BaggagePaymentSummary-PassengerBaggages-1");
+
+    expect(wrapper.find("Price").prop("value")).toBe(40);
   });
 });

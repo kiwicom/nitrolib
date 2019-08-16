@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { mount } from "enzyme";
+import { shallow } from "enzyme";
 
 import TotalPayment from "..";
 
@@ -10,18 +10,23 @@ const props = {
 
 describe("#TotalPayment", () => {
   test("renders", () => {
-    const wrapper = mount(<TotalPayment {...props} />);
+    const wrapper = shallow(<TotalPayment {...props} />);
     expect(
       wrapper
         .find("Text")
         .first()
-        .text(),
+        .dive()
+        .find("Translate")
+        .prop("t"),
     ).toEqual("baggage_modal.payment.total");
+
     expect(
       wrapper
         .find("Text")
         .last()
-        .text(),
-    ).toEqual("50 €");
+        .dive()
+        .find("Price")
+        .prop("value"),
+    ).toEqual(50);
   });
 });

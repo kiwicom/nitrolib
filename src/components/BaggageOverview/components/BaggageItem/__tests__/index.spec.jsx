@@ -1,8 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { ThemeProvider } from "styled-components";
-import { mount } from "enzyme";
-import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
+import { shallow } from "enzyme";
 
 import BaggageItem from "..";
 
@@ -41,21 +39,32 @@ const props = {
 
 describe("#BaggageItem", () => {
   test("renders ", () => {
-    const wrapper = mount(
-      <ThemeProvider theme={defaultTheme}>
-        <BaggageItem {...props} />
-      </ThemeProvider>,
-    );
-    expect(wrapper.find("[data-test='BaggageOverview-BaggageItem-holdBag']").exists()).toBe(true);
+    const wrapper = shallow(<BaggageItem {...props} />);
+
+    expect(
+      wrapper
+        .find("Stack")
+        .first()
+        .prop("dataTest"),
+    ).toBe("BaggageOverview-BaggageItem-holdBag");
   });
+
   test("renders with passengers names", () => {
-    const wrapper = mount(
-      <ThemeProvider theme={defaultTheme}>
-        <BaggageItem {...props} passengers={passengers} />
-      </ThemeProvider>,
-    );
-    const PassengersText = wrapper.find("[data-test='BaggageOverview-BaggageItem-Passengers']");
-    expect(PassengersText.exists()).toBe(true);
-    expect(PassengersText.text()).toBe("B. H. Obama, D. J. Trump, G. Bush");
+    const wrapper = shallow(<BaggageItem {...props} passengers={passengers} />);
+
+    expect(
+      wrapper
+        .find("Text")
+        .at(1)
+        .prop("dataTest"),
+    ).toBe("BaggageOverview-BaggageItem-Passengers");
+
+    expect(
+      wrapper
+        .find("Text")
+        .at(1)
+        .dive()
+        .text(),
+    ).toBe("B. H. Obama, D. J. Trump, G. Bush");
   });
 });

@@ -63,6 +63,10 @@ const Title = styled.p`
   `)};
 `;
 
+Title.defaultProps = {
+  theme: themeDefault,
+};
+
 const CurrentItem = styled.span`
   line-height: 24px;
 `;
@@ -90,6 +94,7 @@ const OptionItem = ({
         <Price value={priceValue} />
       </Text>
     );
+
   return (
     <ThemeConsumer>
       {({ rtl }) => (

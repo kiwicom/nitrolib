@@ -1,8 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { mount } from "enzyme";
-import { ThemeProvider } from "styled-components";
-import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
+import { shallow } from "enzyme";
 
 import BaggageOption from "..";
 
@@ -70,71 +68,50 @@ const props = {
 
 describe("#BaggageOption", () => {
   test("render priority boarding", () => {
-    const wrapper = mount(
-      <ThemeProvider theme={defaultTheme}>
-        <BaggageOption {...props} />
-      </ThemeProvider>,
-    );
+    const wrapper = shallow(<BaggageOption {...props} />);
     expect(wrapper.find("PriorityBoardingInfo").exists()).toBe(true);
   });
 
   test("render alert", () => {
-    const wrapper = mount(
-      <ThemeProvider theme={defaultTheme}>
-        <BaggageOption {...props} isChecked />
-      </ThemeProvider>,
-    );
+    const wrapper = shallow(<BaggageOption {...props} isChecked />);
 
     expect(wrapper.find("Alert").exists()).toEqual(true);
   });
 
   test("render checked Radio", () => {
-    const wrapper = mount(
-      <ThemeProvider theme={defaultTheme}>
-        <BaggageOption {...props} isChecked />
-      </ThemeProvider>,
-    );
+    const wrapper = shallow(<BaggageOption {...props} isChecked />);
     expect(wrapper.find("Radio").exists()).toBe(true);
     const radioProps = wrapper.find("Radio").props() || {};
     expect(radioProps.checked).toBe(true);
   });
 
   test("render no-personal item info", () => {
-    const wrapper = mount(
-      <ThemeProvider theme={defaultTheme}>
-        <>
-          <BaggageOption {...props} items={{ "1": handBagExample }} isPersonalItemPresent />,
-        </>
-      </ThemeProvider>,
+    const wrapper = shallow(
+      <BaggageOption {...props} items={{ "1": handBagExample }} isPersonalItemPresent />,
     );
     expect(wrapper.find("BaggagePersonalItemNone").exists()).toBe(true);
   });
 
   test("render empty option for handBag", () => {
-    const wrapper = mount(
-      <ThemeProvider theme={defaultTheme}>
-        <BaggageOption {...props} items={{}} />
-      </ThemeProvider>,
-    );
+    const wrapper = shallow(<BaggageOption {...props} items={{}} />);
+
     expect(
       wrapper
-        .find("Text")
-        .first()
-        .text(),
+        .find("EmptyLabel")
+        .dive()
+        .find("Translate")
+        .prop("t"),
     ).toEqual("baggage_modal.select.no_cabin_baggage");
   });
 
   test("render empty option for handBag", () => {
-    const wrapper = mount(
-      <ThemeProvider theme={defaultTheme}>
-        <BaggageOption {...props} items={{}} pickerType="holdBag" />
-      </ThemeProvider>,
-    );
+    const wrapper = shallow(<BaggageOption {...props} items={{}} pickerType="holdBag" />);
     expect(
       wrapper
-        .find("Text")
-        .first()
-        .text(),
+        .find("EmptyLabel")
+        .dive()
+        .find("Translate")
+        .prop("t"),
     ).toEqual("baggage_modal.select.no_checked_baggage");
   });
 });

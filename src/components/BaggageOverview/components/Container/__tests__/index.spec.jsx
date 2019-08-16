@@ -1,8 +1,6 @@
 // @flow strict
 import * as React from "react";
-import { mount } from "enzyme";
-import { ThemeProvider } from "styled-components";
-import defaultTheme from "@kiwicom/orbit-components/lib/defaultTheme";
+import { shallow } from "enzyme";
 
 import { baggageData } from "../../../../../records/__mocks__/baggageData";
 import BaggageOverview from "../../..";
@@ -49,14 +47,10 @@ const propsWithCombinations = {
 
 describe("#Container", () => {
   test("renders", () => {
-    const wrapper = mount(
-      <ThemeProvider theme={defaultTheme}>
-        <Container {...propsWithCombinations}>{props => <BaggageOverview {...props} />}</Container>
-      </ThemeProvider>,
+    const wrapper = shallow(
+      <Container {...propsWithCombinations}>{props => <BaggageOverview {...props} />}</Container>,
     );
+
     expect(wrapper.find("BaggageOverview").exists()).toBe(true);
-    const PassengersText = wrapper.find("[data-test='BaggageOverview-BaggageItem-Passengers']");
-    expect(PassengersText.exists()).toBe(true);
-    expect(PassengersText.first().text()).toBe("D. J. Trump, G. Bush");
   });
 });
