@@ -23,7 +23,7 @@ type Props = {|
   id?: string,
   maxLength?: number,
   minLength?: number,
-  onChange: ({ error: string, value: string }) => void,
+  onChange: ({ error: string, value: string, code?: string }) => void,
   error: string,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
@@ -36,7 +36,7 @@ const InputPhone = ({ onChange, ...props }: Props) => {
     const value = normalizer(ev.target.value);
 
     return validate(value)
-      .then(res => onChange({ value, error: res }))
+      .then(res => onChange({ value, error: res.error, code: res.code }))
       .catch(err => Promise.reject(err));
   };
 

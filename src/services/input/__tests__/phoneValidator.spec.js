@@ -18,6 +18,7 @@ describe("#phoneValidator", () => {
     country: "CZ",
     type: "MOBILE",
     allowSMS: true,
+    formatInternational: "+420 773 103 102",
   };
 
   test("call", async () => {
@@ -35,7 +36,7 @@ describe("#phoneValidator", () => {
 
     const validate = await fns.validate("+420773103102");
 
-    expect(validate).toEqual("");
+    expect(validate).toEqual({ code: "cz", error: "" });
   });
 
   test("phone-not-validated: invalid phone", async () => {
@@ -46,11 +47,12 @@ describe("#phoneValidator", () => {
       number: "+420774345",
       country: "CZ",
       allowSMS: false,
+      formatInternational: "+420 774345",
     });
 
     const validate = await fns.validate("+420774345");
 
-    expect(validate).toEqual("forms.errors.invalid_phone");
+    expect(validate).toEqual({ error: "forms.errors.invalid_phone" });
   });
 
   test("phone-not-validated: form must be fullfield", async () => {
@@ -59,6 +61,6 @@ describe("#phoneValidator", () => {
 
     const validate = await fns.validate("+42").then(r => r);
 
-    expect(validate).toEqual("forms.errors.invalid_value");
+    expect(validate).toEqual({ error: "forms.errors.invalid_value" });
   });
 });

@@ -439,9 +439,11 @@ import * as phoneValidator from "@kiwicom/nitro/lib/services/input/phoneValidato
 
 **Types:**
 ```js
+export type Validator = {| error: string, code?: string |}; // "" means no error
+
 declare export function call(phone: string): Promise<FetchedPhone>;
 
-declare export var validate: (val: string) => Promise<string>;
+declare export var validate: (val: string) => Promise<Validator>;
 ```
 
 See types:

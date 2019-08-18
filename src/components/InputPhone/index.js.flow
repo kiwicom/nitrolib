@@ -20,7 +20,7 @@ type Props = {|
   minLength?: number,
   id?: string,
   error: string,
-  onChange: ({ error: string, value: string }) => void,
+  onChange: ({ error: string, value: string, code?: string }) => void,
   onFocus?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onBlur?: (ev: SyntheticInputEvent<HTMLInputElement>) => void | Promise<any>,
   onKeyDown?: (ev: SyntheticKeyboardEvent<HTMLInputElement>) => void | Promise<any>,

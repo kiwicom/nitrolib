@@ -3,6 +3,11 @@ import { JSON_BOTH } from "../fetch/headers";
 import { handleJSON } from "../fetch/handlers";
 import type { FetchedPhone } from "../../records/Phone";
 
+export type Validator = {|
+  error: string,
+  code?: string,
+|};
+
 export const call = async (phone: string): Promise<FetchedPhone> => {
   const res = await fetch(`https://worker.check-phone.workers.dev/${phone}`, {
     method: "POST",
@@ -16,20 +21,20 @@ export const call = async (phone: string): Promise<FetchedPhone> => {
   return res;
 };
 
-export const validate = async (val: string): Promise<string> => {
+export const validate = async (val: string): Promise<Validator> => {
   if (val === "") {
-    return __("forms.this_field_must_be_filled");
+    return { error: __("forms.this_field_must_be_filled") };
   }
 
-  if (val.length < 4) {
-    return __("forms.errors.invalid_value");
+  if (val.length <= 5) {
+    return { error: __("forms.errors.invalid_value") };
   }
 
-  const { allowSMS } = await call(val);
+  const { allowSMS, country } = await call(val);
 
   if (allowSMS) {
-    return "";
+    return { error: "", code: country.toLowerCase() };
   }
 
-  return __("forms.errors.invalid_phone");
+  return { error: __("forms.errors.invalid_phone") };
 };

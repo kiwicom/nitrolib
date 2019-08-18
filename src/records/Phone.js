@@ -17,4 +17,5 @@ export type FetchedPhone = {|
   country: string,
   type?: NumberType,
   allowSMS: boolean,
+  formatInternational: string,
 |};
