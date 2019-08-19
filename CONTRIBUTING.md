@@ -7,8 +7,6 @@ Make sure these tasks run without errors:
 
 ## Development
 
-First, create a `tkeys.json` file, with `{}` as content, at the root and then install dependencies with `yarn --frozen-lockfile`.
-
 Run `yarn start` and enjoy! If you're doing **GraphQL** stuff, also run `yarn relay --watch`.
 
 ### Tests
