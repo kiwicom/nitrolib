@@ -2,3 +2,5 @@
 declare export var email: (value: string) => string;
 
 declare export var numbers: (val: string) => string;
+
+declare export var phone: (val: string) => string;

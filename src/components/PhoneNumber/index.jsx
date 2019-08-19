@@ -1,10 +1,20 @@
 // @flow strict
-import { parsePhoneNumber } from "libphonenumber-js";
+import * as React from "react";
+
+import { call } from "../../services/input/phoneValidator";
 
 type Props = {|
   tel: string,
 |};
 
-const PhoneNumber = ({ tel }: Props) => parsePhoneNumber(tel).formatInternational();
+const PhoneNumber = ({ tel }: Props) => {
+  const [number, setNumber] = React.useState("");
+
+  React.useEffect(() => {
+    call(tel).then(res => setNumber(res.formatInternational));
+  });
+
+  return <div>{number}</div>;
+};
 
 export default PhoneNumber;

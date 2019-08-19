@@ -424,9 +424,32 @@ import * as normalizers from "@kiwicom/nitro/lib/services/input/normalizers";
 declare export var email: (value: string) => string;
 
 declare export var numbers: (val: string) => string;
+
+declare export var phone: (val: string) => string;
 ```
 
 
+
+### PhoneValidator
+
+**Import:**
+```js
+import * as phoneValidator from "@kiwicom/nitro/lib/services/input/phoneValidator";
+```
+
+**Types:**
+```js
+export type Validator = {| error: string, code?: string |}; // "" means no error
+
+declare export function call(phone: string): Promise<FetchedPhone>;
+
+declare export var validate: (val: string) => Promise<Validator>;
+```
+
+See types:
+* [Phone](./records#phone)
+
+#todo
 
 ### Validators
 
@@ -442,8 +465,6 @@ export type Error = string; // "" means no error
 declare export var required: (val: mixed) => Error;
 
 declare export var email: (val: string) => Error;
-
-declare export var phone: (val: string) => Error;
 
 export type YearAfterOpts = {|
   offset: number,
