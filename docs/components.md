@@ -19,6 +19,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [BaggageOverview](#baggageoverview)
 * [BaggagePaymentSummary](#baggagepaymentsummary)
 * [BaggagePicker](#baggagepicker)
+* [BaggagePickerBRBRedesign](#baggagepickerbrbredesign)
 * [BookingSavingsBanner](#bookingsavingsbanner)
 * [Button](#button)
 * [ClickOutside](#clickoutside)
@@ -695,6 +696,91 @@ See types:
   prioBoardingLinkHandler={airlines => console.log("prioAirlines", airlines)}
   pickerType="handBag"
   shouldShowRecheckNote={false}
+/>
+```
+
+### BaggagePickerBRBRedesign
+
+**Import:**
+```js
+import BaggagePickerBRBRedesign from "@kiwicom/nitro/lib/components/BaggagePickerBRBRedesign";
+```
+
+**Types:**
+```js
+type Props = {|
+  changeBagCombination: (picker: BaggageCategory, item: number) => void,
+  passengerCategory: PassengerGroup,
+  passengerBaggage: { handBag: number, holdBag: number },
+  baggage: BaggageType,
+  shouldShowRecheckNote?: boolean,
+  airlines: { [string]: Airline },
+  pickerType: BaggageCategory,
+  context: "booking" | "mmb",
+  currentCombination?: number,
+  prioBoardingLinkHandler?: (arg: Airline[]) => void,
+  shouldShowAddBlueRibbonBag: boolean,
+  blueRibbonBagPrice: PriceType,
+  isBlueRibbonBagAdded: boolean,
+  addBlueRibbonBag: () => void,
+  removeBlueRibbonBag: () => void,
+  openBlueribbonBagsSmartFAQ: () => void,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+See types:
+* [Baggage](./records#baggage)
+* [Airline](./records#airline)
+* [Price](./records#price)
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=BaggagePickerBRBRedesign).
+
+**Context needs:**
+* [currency](./services#currency)
+* [intl](./services#intl)
+
+**Selectors `data-test`:**
+* ```"BaggagePickerBRBRedesign-AddBlueRibbonBagButton"```
+* ```"BaggagePickerBRBRedesign-AddBlueRibbonBags"```
+* ```"BaggagePickerBRBRedesign-EmptyLabel"```
+* ```"BaggagePickerBRBRedesign-EmptyOption"```
+* ```"BaggagePickerBRBRedesign-NoPersonalItemLabel"```
+* ```"BaggagePickerBRBRedesign-OptionItem-Current"```
+* ```"BaggagePickerBRBRedesign-OptionItem-Price"```
+* ```"BaggagePickerBRBRedesign-PriorityBoardingInfo"```
+* ```"BaggagePickerBRBRedesign-RecheckAlert"```
+* ```"BaggagePickerBRBRedesign-RemoveBlueRibbonBagButton"```
+* ```"BaggagePickerBRBRedesign-ShowButton"```
+* ```{`BaggagePickerBRBRedesign-${pickerType}`}```
+* ```{`BaggagePickerBRBRedesign-Option-${item.index}`}```
+* ```{`BaggagePickerBRBRedesign-OptionItem-${category}`}```
+
+- renders baggage picker, forked from [BaggagePicker](#baggagepicker) to allow different offering of Blue Ribbon Bags protection.
+
+**Example:**
+
+```js
+<BaggagePickerBRBRedesign
+  airlines={airlines}
+  baggage={baggageData}
+  context="context"
+  changeBagCombination={(type, index) => {}}
+  passengerBaggage={{
+    handBag: 1,
+    holdBag: 1
+  }}
+  passengerCategory="adult"
+  prioBoardingLinkHandler={airlines => console.log("prioAirlines", airlines)}
+  pickerType="handBag"
+  shouldShowRecheckNote={false}
+  shouldShowAddBlueRibbonBag={true}
+  blueRibbonBagPrice={{amount: 4.99}}
+  isBlueRibbonBagAdded={isAdded}
+  addBlueRibbonBag={add}
+  removeBlueRibbonBag={remove}
+  openBlueribbonBagsSmartFAQ={() => {console.log("opening SmartFAQ article")}}
 />
 ```
 

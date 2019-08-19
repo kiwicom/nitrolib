@@ -1,0 +1,27 @@
+// @flow strict
+import * as React from "react";
+
+import type { BaggageCategory, PassengerGroup, BaggageType } from "../../records/Baggage";
+import type { Airline } from "../../records/Airline";
+import type { PriceType } from "../../records/Price";
+
+type Props = {|
+  changeBagCombination: (picker: BaggageCategory, item: number) => void,
+  passengerCategory: PassengerGroup,
+  passengerBaggage: { handBag: number, holdBag: number },
+  baggage: BaggageType,
+  shouldShowRecheckNote?: boolean,
+  airlines: { [string]: Airline },
+  pickerType: BaggageCategory,
+  context: "booking" | "mmb",
+  currentCombination?: number,
+  prioBoardingLinkHandler?: (arg: Airline[]) => void,
+  shouldShowAddBlueRibbonBag: boolean,
+  blueRibbonBagPrice: PriceType,
+  isBlueRibbonBagAdded: boolean,
+  addBlueRibbonBag: () => void,
+  removeBlueRibbonBag: () => void,
+  openBlueribbonBagsSmartFAQ: () => void,
+|};
+
+declare export default React.ComponentType<Props>;
