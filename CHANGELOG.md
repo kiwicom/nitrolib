@@ -1,3 +1,18 @@
+# [7.0.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.1.6...v7.0.0) (2019-08-19)
+
+
+### Bug Fixes
+
+* **components:** Baggage tests fixes ([62af5e4](https://gitlab.skypicker.com/frontend/nitrolib/commit/62af5e4))
+
+
+### Features
+
+* **components:** BaggagePickerBRBRedesign ([4167b56](https://gitlab.skypicker.com/frontend/nitrolib/commit/4167b56))
+* **components:** InputPhone validator ([1cce672](https://gitlab.skypicker.com/frontend/nitrolib/commit/1cce672))
+
+
+
 ## [6.1.6](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.1.5...v6.1.6) (2019-08-16)
 
 
