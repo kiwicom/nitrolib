@@ -1,7 +1,5 @@
 // @flow strict
 import * as React from "react";
-import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
-import Button from "@kiwicom/orbit-components/lib/Button";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
 import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
@@ -10,8 +8,8 @@ import ModalHeader from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import Translate from "../../../../Translate";
 import Text from "../../../../Text";
+import Button from "../../../../Button";
 import { useBrand } from "../../../../../services/brand/context";
 import { useIntl } from "../../../../../services/intl/context";
 
@@ -37,23 +35,37 @@ const NoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }: Props
       />
       <ModalSection dataTest="MagicLogin-NoAccount">
         <Stack spacing="natural" direction="column">
-          <Button onClick={onRegister}>
-            <Translate t="account.register" />
-          </Button>
-          <ButtonLink type="secondary" iconLeft={<ChevronLeft />} onClick={onBack}>
-            <Translate t="account.back" />
-          </ButtonLink>
+          <Button t="account.register" onClick={onRegister} />
+          <Button
+            t="account.back"
+            type="secondary"
+            iconLeft={<ChevronLeft />}
+            onClick={onBack}
+            dataTest="MagicLogin-NoAccountBack"
+          />
         </Stack>
       </ModalSection>
       <ModalSection suppressed>
         <Text t="account.or_social_account" weight="bold" spaceAfter="medium" />
         <Stack spacing="natural" flex>
-          <Button type="facebook" block bordered icon={<FacebookIcon />} onClick={onFacebookLogin}>
-            <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
-          </Button>
-          <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
-            <Translate t="account.log_in_with" values={{ provider: "Google" }} />
-          </Button>
+          <Button
+            t="account.log_in_with"
+            values={{ provider: "Facebook" }}
+            type="facebook"
+            block
+            bordered
+            icon={<FacebookIcon />}
+            onClick={onFacebookLogin}
+          />
+          <Button
+            t="account.log_in_with"
+            values={{ provider: "Google" }}
+            type="google"
+            block
+            bordered
+            icon={<GoogleIcon />}
+            onClick={onGoogleLogin}
+          />
         </Stack>
       </ModalSection>
     </>

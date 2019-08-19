@@ -335,6 +335,7 @@ See types:
 * ```"MagicLogin-Intro"```
 * ```"MagicLogin-LoginViaSocials"```
 * ```"MagicLogin-NoAccount"```
+* ```"MagicLogin-NoAccountBack"```
 * ```"MagicLogin-Password"```
 * ```"MagicLogin-Password"```
 * ```"MagicLogin-PasswordConfirm"```

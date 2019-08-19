@@ -77,7 +77,14 @@ const Intro = ({
       {!disableSocialLogin && (
         <ModalSection suppressed dataTest="MagicLogin-LoginViaSocials">
           <Text weight="bold" spaceAfter="medium" t="account.or_social_account" />
-          <Stack spacing="natural" align="end">
+          <Stack
+            direction="column"
+            mediumMobile={{
+              direction: "row",
+              align: "end",
+            }}
+            spacing="natural"
+          >
             <Button
               type="facebook"
               block
