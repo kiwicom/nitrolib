@@ -108,6 +108,7 @@ declare export var AFFILIATE_ID: "SKYPICKER_AFFILIATE";
 declare export var COOKIES_CONSENT: "cookiesConsent";
 declare export var USER_ID: "SKYPICKER_VISITOR_UNIQID";
 declare export var UA_SESSION_TOKEN: "ua_session_token";
+declare export var KW_AUTH_TOKEN: "kwAuthToken";
 
 export type Cookie = string; // TODO specific once everyone uses this
 ```

@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 5cf886d3ecf0a6d5a8ac0c8aef50d8c8
+ * @relayHash c96e5ec3b3aa82f7fd2e6b6593f99a56
  */
 
 /* eslint-disable */
@@ -27,6 +27,7 @@ export type signInMutationResponse = {|
         +emailVerified: ?boolean,
       |},
       +bookingIdentity: ?{|
+        +searchApiToken: ?string,
         +discounts: ?{|
           +card: ?number,
           +credits: ?number,
@@ -65,6 +66,7 @@ mutation signInMutation(
         emailVerified
       }
       bookingIdentity {
+        searchApiToken
         discounts {
           card
           credits
@@ -212,6 +214,13 @@ v1 = [
             "plural": false,
             "selections": [
               {
+                "kind": "ScalarField",
+                "alias": null,
+                "name": "searchApiToken",
+                "args": null,
+                "storageKey": null
+              },
+              {
                 "kind": "LinkedField",
                 "alias": null,
                 "name": "discounts",
@@ -295,11 +304,11 @@ return {
     "operationKind": "mutation",
     "name": "signInMutation",
     "id": null,
-    "text": "mutation signInMutation(\n  $email: String!\n  $password: String!\n  $brand: Brand!\n) {\n  signIn(email: $email, password: $password, brand: $brand) {\n    success\n    user {\n      token\n      identity {\n        id(opaque: false)\n        email\n        firstName\n        lastName\n        emailVerified\n      }\n      bookingIdentity {\n        discounts {\n          card\n          credits\n        }\n        affiliateId\n        balances {\n          amount\n          currencyId\n        }\n      }\n    }\n  }\n}\n",
+    "text": "mutation signInMutation(\n  $email: String!\n  $password: String!\n  $brand: Brand!\n) {\n  signIn(email: $email, password: $password, brand: $brand) {\n    success\n    user {\n      token\n      identity {\n        id(opaque: false)\n        email\n        firstName\n        lastName\n        emailVerified\n      }\n      bookingIdentity {\n        searchApiToken\n        discounts {\n          card\n          credits\n        }\n        affiliateId\n        balances {\n          amount\n          currencyId\n        }\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'f8a31b5a643218a5ebc812c70387de9f';
+(node/*: any*/).hash = '9d03070e55f887c62fbba618775fd5d8';
 module.exports = node;

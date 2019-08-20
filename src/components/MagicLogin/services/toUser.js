@@ -13,6 +13,7 @@ type RelayInput = {|
   |},
   +bookingIdentity: ?{|
     +affiliateId: ?string,
+    +searchApiToken: ?string,
     +discounts: ?{|
       +credits: ?number,
       +card: ?number,
@@ -33,6 +34,7 @@ const toUser = (user: RelayInput): AuthUser => ({
     verified: user.identity?.emailVerified || false,
     firstname: user.identity?.firstName || "",
     lastname: user.identity?.lastName || "",
+    apiToken: user.bookingIdentity?.searchApiToken || "",
     affiliateId: user.bookingIdentity?.affiliateId || "",
     cardDiscount: user.bookingIdentity?.discounts?.card || 0,
     balanceDiscount: user.bookingIdentity?.discounts?.credits || 0,

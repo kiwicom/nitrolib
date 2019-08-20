@@ -6,6 +6,7 @@ const authConsumerUser = {
     id: "ujy9jXLZufUW7g7sbFbdhq",
     email: "ellie@kiwi.com",
     verified: true,
+    apiToken: "b8a5902abe78bc773e7e1abcd65a00b91923451111",
     firstname: "Ellie",
     lastname: "Palo",
     affiliateId: "lanthi",

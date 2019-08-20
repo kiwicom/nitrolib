@@ -1,5 +1,5 @@
 # source: https://graphql.kiwi.com
-# timestamp: Tue Jun 25 2019 12:08:16 GMT+0200 (CEST)
+# timestamp: Tue Aug 20 2019 22:41:24 GMT+0200 (Central European Summer Time)
 
 schema {
   query: RootQuery
@@ -525,13 +525,21 @@ type Booking {
   customerSupport: BookingCustomerSupport
   onlineCheckinIsAvailable: Boolean
   insurancePrices: [InsurancePrice]
-  authToken: String
+  authToken: String @deprecated(reason: "Use correctly named \"simpleToken\" arg instead.")
+
+  """
+  Simple token that lets you fetch a unique booking without authorization.
+  """
+  simpleToken: String
 
   """Nearest upcoming leg by arrival time."""
   upcomingLeg(
     """Filter out only legs with specified guarantee."""
     guarantee: CoveredBy
   ): Leg
+
+  """Check-in information (status, dates)"""
+  checkIn: CheckIn
   oneWay: BookingOneWay
   return: BookingReturn
   multicity: BookingMulticity
@@ -643,18 +651,27 @@ type BookingHoliday implements BookingInterface & Node {
   customerSupport: BookingCustomerSupport
   onlineCheckinIsAvailable: Boolean
   insurancePrices: [InsurancePrice]
-  authToken: String
+  authToken: String @deprecated(reason: "Use correctly named \"simpleToken\" arg instead.")
+
+  """
+  Simple token that lets you fetch a unique booking without authorization.
+  """
+  simpleToken: String
 
   """Nearest upcoming leg by arrival time."""
   upcomingLeg(
     """Filter out only legs with specified guarantee."""
     guarantee: CoveredBy
   ): Leg
-  accommodation: HolidayAccommodation
-  travelInfo: HolidayTravelInfo
+
+  """Check-in information (status, dates)"""
+  checkIn: CheckIn
+  accommodation: HolidayAccommodation @deprecated(reason: "Holidays are off, no data returned.")
+  travelInfo: HolidayTravelInfo @deprecated(reason: "Holidays are off, no data returned.")
 }
 
 type BookingIdentity {
+  searchApiToken: String
   affiliateId: String
 
   """Discounts for booking payments in % from base price."""
@@ -720,13 +737,21 @@ interface BookingInterface {
   customerSupport: BookingCustomerSupport
   onlineCheckinIsAvailable: Boolean
   insurancePrices: [InsurancePrice]
-  authToken: String
+  authToken: String @deprecated(reason: "Use correctly named \"simpleToken\" arg instead.")
+
+  """
+  Simple token that lets you fetch a unique booking without authorization.
+  """
+  simpleToken: String
 
   """Nearest upcoming leg by arrival time."""
   upcomingLeg(
     """Filter out only legs with specified guarantee."""
     guarantee: CoveredBy
   ): Leg
+
+  """Check-in information (status, dates)"""
+  checkIn: CheckIn
 }
 
 """A connection to a list of items."""
@@ -795,13 +820,21 @@ type BookingMulticity implements BookingInterface & Node {
   customerSupport: BookingCustomerSupport
   onlineCheckinIsAvailable: Boolean
   insurancePrices: [InsurancePrice]
-  authToken: String
+  authToken: String @deprecated(reason: "Use correctly named \"simpleToken\" arg instead.")
+
+  """
+  Simple token that lets you fetch a unique booking without authorization.
+  """
+  simpleToken: String
 
   """Nearest upcoming leg by arrival time."""
   upcomingLeg(
     """Filter out only legs with specified guarantee."""
     guarantee: CoveredBy
   ): Leg
+
+  """Check-in information (status, dates)"""
+  checkIn: CheckIn
 
   """Initial origin."""
   start: RouteStop
@@ -864,13 +897,21 @@ type BookingOneWay implements BookingInterface & Node {
   customerSupport: BookingCustomerSupport
   onlineCheckinIsAvailable: Boolean
   insurancePrices: [InsurancePrice]
-  authToken: String
+  authToken: String @deprecated(reason: "Use correctly named \"simpleToken\" arg instead.")
+
+  """
+  Simple token that lets you fetch a unique booking without authorization.
+  """
+  simpleToken: String
 
   """Nearest upcoming leg by arrival time."""
   upcomingLeg(
     """Filter out only legs with specified guarantee."""
     guarantee: CoveredBy
   ): Leg
+
+  """Check-in information (status, dates)"""
+  checkIn: CheckIn
   trip: Trip
 }
 
@@ -923,13 +964,21 @@ type BookingReturn implements BookingInterface & Node {
   customerSupport: BookingCustomerSupport
   onlineCheckinIsAvailable: Boolean
   insurancePrices: [InsurancePrice]
-  authToken: String
+  authToken: String @deprecated(reason: "Use correctly named \"simpleToken\" arg instead.")
+
+  """
+  Simple token that lets you fetch a unique booking without authorization.
+  """
+  simpleToken: String
 
   """Nearest upcoming leg by arrival time."""
   upcomingLeg(
     """Filter out only legs with specified guarantee."""
     guarantee: CoveredBy
   ): Leg
+
+  """Check-in information (status, dates)"""
+  checkIn: CheckIn
 
   """Trip from origin to destination."""
   outbound: Trip
@@ -996,9 +1045,54 @@ type CheckEmailResult {
   hasBooking: Boolean
 }
 
+type CheckIn {
+  """Check-in status and dates per each segment of the booking"""
+  segments: [CheckInInfo]
+}
+
 type CheckinClosingTimelineEvent implements TimelineEvent {
   """Time of appearance in the timeline."""
   timestamp: DateTime
+}
+
+"""
+Object that gives you information about the check-in, such as the status and the date it opens or closes
+"""
+type CheckInInfo {
+  """Status of the check-in"""
+  status: CheckInStatuses
+
+  """Date that the check-in is available from"""
+  openAt: Date
+
+  """Date that the check-in is closed and cannot be performed anymore"""
+  closeAt: Date
+
+  """Date that marks the deadline of check-in in at the airport"""
+  airportDeadlineAt: Date
+
+  """ID of the segment the check-in belongs to"""
+  segmentCode: String
+}
+
+"""The possible Check-In statuses"""
+enum CheckInStatuses {
+  UNAVAILABLE
+  RESTRICTED
+  PROVIDE_DETAILS
+  WAITING_FOR_CHECKIN
+  WAITING_FOR_DETAILS
+  PROCESSING
+  DONE
+  FAILED
+  MISSED
+  CANCELED
+  SOME_CHECKINS_PROCESSING_SOME_MISSED
+  SOME_CHECKINS_DONE_SOME_MISSED
+  SOME_CHECKINS_MISSED_SOME_FAILED
+  SOME_CHECKINS_DONE_SOME_PROCESSING
+  SOME_CHECKINS_DONE_SOME_WAITING_FOR_DETAILS
+  OTHER
 }
 
 type ChildrenType {
@@ -1570,7 +1664,7 @@ type ExtraCharges {
   currency: String
 }
 
-type FAQArticle {
+type FAQArticle implements FAQItemInterface {
   """
   The globally unique ID of an object. You can unmask this ID to get original
   value but please note that this unmasked ID is not globally unique anymore and
@@ -1578,14 +1672,14 @@ type FAQArticle {
   """
   id(opaque: Boolean = true): ID!
 
-  """Original numeric id of the article"""
-  originalId: Int
-
-  """Title of the article"""
+  """Title of the FAQ article or category."""
   title: String
 
-  """Perex of the article"""
+  """Perex of the FAQ article or category."""
   perex: String
+
+  """Original numeric id of the article"""
+  originalId: Int @deprecated(reason: "Use field \"id\" instead with the opaque: false parameter")
 
   """Content of the article"""
   content: String
@@ -1615,7 +1709,9 @@ type FAQArticleEdge {
   cursor: String!
 }
 
-type FAQCategory {
+union FAQArticleResponse = FAQArticle | FAQError
+
+type FAQCategory implements FAQItemInterface {
   """
   The globally unique ID of an object. You can unmask this ID to get original
   value but please note that this unmasked ID is not globally unique anymore and
@@ -1623,24 +1719,29 @@ type FAQCategory {
   """
   id(opaque: Boolean = true): ID!
 
-  """Original numeric id of the FAQ category"""
-  originalId: Int
-
-  """Title of the FAQ category"""
+  """Title of the FAQ article or category."""
   title: String
 
-  """Perex of the FAQ category"""
+  """Perex of the FAQ article or category."""
   perex: String
 
-  """List of subcategories"""
-  subcategories: [FAQCategory]
+  """Original numeric id of the FAQ category"""
+  originalId: Int @deprecated(reason: "Use field \"id\" instead with the opaque: false parameter")
 
   """List of ancestor categories in the tree from the root."""
   ancestors: [FAQCategory]
 
+  """List of FAQ categories & articles ordered by relevancy."""
+  children: [FAQItemInterface]
+
+  """List of subcategories"""
+  subcategories: [FAQCategory] @deprecated(reason: "Use \"children\" field instead.")
+
   """List of FAQ articles"""
-  FAQs: [FAQArticle]
+  FAQs: [FAQArticle] @deprecated(reason: "Use \"children\" field instead.")
 }
+
+union FAQCategoryResponse = FAQCategory | FAQError
 
 enum FAQCommentType {
   CONFUSING
@@ -1650,11 +1751,64 @@ enum FAQCommentType {
   OTHER
 }
 
+type FAQError {
+  """Code indicating the error type."""
+  code: FAQErrorCode
+
+  """Message with a further explanation of the error."""
+  message: String
+}
+
+"""Possible FAQ queries Error codes"""
+enum FAQErrorCode {
+  """Unknown error."""
+  UNKNOWN
+
+  """User is not authorized."""
+  NOT_AUTHORIZED
+
+  """Booking was not found with given args."""
+  BOOKING_NOT_FOUND
+
+  """No FAQ article or category was found with given args."""
+  NO_FAQ_ITEM
+}
+
 type FAQFeedbackResponse {
   article: FAQArticle
 
   """true if posting the response failed due to rate limit exhaustion"""
   isRateLimitExhausted: Boolean
+}
+
+"""
+Lookup FAQ article or category by its unique id, originalId or slug. At least one field has to be specified.
+"""
+input FAQInputQuery {
+  id: ID
+
+  """
+  Original numerical database id unique only for given type, not globally as ID.
+  """
+  originalId: Int
+
+  """Human-readable keyword representing FAQ item in URL"""
+  slug: String
+}
+
+interface FAQItemInterface {
+  """
+  The globally unique ID of an object. You can unmask this ID to get original
+  value but please note that this unmasked ID is not globally unique anymore and
+  therefore it cannot be used as a cache key.
+  """
+  id(opaque: Boolean = true): ID!
+
+  """Title of the FAQ article or category."""
+  title: String
+
+  """Perex of the FAQ article or category."""
+  perex: String
 }
 
 enum FAQSection {
@@ -2117,6 +2271,13 @@ type HotelRoom implements HotelRoomInterface {
 
   """Type of the hotel room."""
   type: String
+
+  """
+  Note that this number should not be used to display number of person for
+  booking a room. This will simply say how many persons will fit in the room
+  type. There could be different price for one person living in a double room vs
+  two pepole living in a double room
+  """
   maxPersons: Int
   bedding: [HotelRoomBedding]
 
@@ -2158,6 +2319,21 @@ type HotelRoomAvailability implements HotelRoomAvailabilityInterface {
   """The amount of available rooms for this type"""
   availableRoomsCount: Int
 
+  """
+  Note that this name is different from HotelRoomDescription.title. This name
+  contains information also about the block type.
+  """
+  name: String
+
+  """
+  Note that this is different from HotelRoomInterface.maxPersons.
+  HotelRoomInterface.maxPersons will show you max number of guests on the room
+  type. This maxOccupancy will show you max number of guests for the
+  reservation. There could be different price for a double room with one person
+  living in it, vs two people living in it.
+  """
+  maxOccupancy: Int
+
   """Original block ID used to open Booking.com page."""
   originalId: String @deprecated(reason: "Use \"id\" field whenever possible.")
   room: HotelRoom
@@ -2178,6 +2354,8 @@ interface HotelRoomAvailabilityInterface {
   incrementalPriceWithExtraCharges: [HotelPrice]
   room: HotelRoomInterface
   availableRoomsCount: Int
+  name: String
+  maxOccupancy: Int
 }
 
 type HotelRoomBedding {
@@ -2857,9 +3035,12 @@ type RoomsConfigurationOutput {
 
 """Root Mutation."""
 type RootMutation {
-  _addFAQArticleComment(
-    """ID of FAQ article to receive vote."""
-    id: ID!
+  addFAQArticleComment(
+    """Masked ID of FAQ article to receive vote."""
+    id: ID
+
+    """Original ID of FAQ article to receive vote (Unmasked)."""
+    originalId: Int
 
     """Value indicating the comment type."""
     type: FAQCommentType!
@@ -2867,16 +3048,6 @@ type RootMutation {
     """Comment text"""
     comment: String!
   ): FAQFeedbackResponse
-  addFAQArticleComment(
-    """ID of FAQ article to receive vote."""
-    id: ID!
-
-    """Value indicating the comment type."""
-    type: FAQCommentType!
-
-    """Comment text"""
-    comment: String!
-  ): FAQArticle
 
   """Check whether given e-mail has any associated account or bookings."""
   checkEmail(email: String!, brand: Brand = "kiwicom"): CheckEmailResponse
@@ -2913,8 +3084,11 @@ type RootMutation {
     passengers: [PassengerInput!]!
   ): UpdatePassenger
   voteFAQArticle(
-    """ID of FAQ article to receive vote."""
-    id: ID!
+    """Masked ID of FAQ article to receive vote."""
+    id: ID
+
+    """Original ID of FAQ article to receive vote (Unmasked)."""
+    originalId: Int
 
     """Type of vote for article (up/down)"""
     vote: VoteType
@@ -3026,7 +3200,17 @@ type RootQuery {
   bookingTimeline(
     """Only Booking id can be used as ID."""
     id: ID!
+
+    """
+    DEPRECATED: use correctly named "simpleToken" arg instead.Simple token that
+    lets you fetch a unique booking without authorization.
+    """
     authToken: String
+
+    """
+    Simple token that lets you fetch a unique booking without authorization.
+    """
+    simpleToken: String
     brand: String = "kiwicom"
   ): BookingTimeline
 
@@ -3072,14 +3256,24 @@ type RootQuery {
 
   """Retrieve single FAQ article."""
   FAQArticle(
-    """ID of FAQ article to retrieve."""
-    id: ID!
-  ): FAQArticle
+    """
+    Masked ID of the FAQ article to retrieve. If both IDs are provided, this one will be used
+    """
+    id: ID
+
+    """Original ID of the FAQ article to retrieve (Unmasked)"""
+    originalId: Int
+  ): FAQArticle @deprecated(reason: "Use \"selfService.FAQArticle\" query instead.")
 
   """Retrieve specific FAQ category and its subcategories & articles."""
   FAQCategory(
-    """ID of FAQ category to retrieve."""
-    id: ID!
+    """
+    Masked ID of the FAQ category to retrieve.  If both IDs are provided, this one will be used
+    """
+    id: ID
+
+    """Original ID of the FAQ category to retrieve (Unmasked)"""
+    originalId: Int
   ): FAQCategory
 
   """Retrieve category by section."""
@@ -3089,6 +3283,9 @@ type RootQuery {
     """
     section: FAQSection!
   ): FAQCategory
+
+  """Query that wraps all the Self Service queries"""
+  selfService: SelfServiceQueries
 
   """Geography info by an IP address"""
   geoIP(ip: IP!): GeoIP
@@ -3148,9 +3345,15 @@ type RootQuery {
     id: Int!
 
     """
-    Simple token that lets you fetch a unique booking without authorization.
+    DEPRECATED: use correctly named "simpleToken" arg instead.Simple token that
+    lets you fetch a unique booking without authorization.
     """
     authToken: String
+
+    """
+    Simple token that lets you fetch a unique booking without authorization.
+    """
+    simpleToken: String
     brand: String = "kiwicom"
   ): BookingInterface
 
@@ -3196,6 +3399,18 @@ type RouteStop {
 
   """Gate for the route stop"""
   gate: String
+}
+
+"""All the queries related to Self Service. The FAQ queries are here"""
+type SelfServiceQueries {
+  """Retrieve FAQ category according to current customer's booking status."""
+  FAQsByBooking(
+    """Booking ID to fetch the FAQs from"""
+    bid: Int
+  ): FAQCategoryResponse
+
+  """Retrieve single FAQ article."""
+  FAQArticle(findBy: FAQInputQuery!): FAQArticleResponse
 }
 
 type SendMagicLinkResponse {
@@ -3319,6 +3534,21 @@ type Stay22HotelRoomAvailability implements HotelRoomAvailabilityInterface {
 
   """The amount of available rooms for this type"""
   availableRoomsCount: Int
+
+  """
+  Note that this name is different from HotelRoomDescription.title. This name
+  contains information also about the block type.
+  """
+  name: String
+
+  """
+  Note that this is different from HotelRoomInterface.maxPersons.
+  HotelRoomInterface.maxPersons will show you max number of guests on the room
+  type. This maxOccupancy will show you max number of guests for the
+  reservation. There could be different price for a double room with one person
+  living in it, vs two people living in it.
+  """
+  maxOccupancy: Int
   room: Stay22HotelRoom
 }
 

@@ -21,6 +21,7 @@ const signInMutation = graphql`
           emailVerified
         }
         bookingIdentity {
+          searchApiToken  
           discounts {
             card
             credits

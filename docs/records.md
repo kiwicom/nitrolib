@@ -1667,7 +1667,7 @@ export type User = {|
   verified: boolean,
   firstname: string,
   lastname: string,
-  // apiToken: string,
+  apiToken: string,
   affiliateId: string,
   cardDiscount: number,
   balanceDiscount: number,

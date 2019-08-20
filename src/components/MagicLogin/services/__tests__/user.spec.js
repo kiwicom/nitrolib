@@ -8,6 +8,7 @@ const bookingIdentity = {
     credits: 0,
   },
   affiliateId: "lanthi",
+  searchApiToken: "b8a5902abe78bc773e7e1abcd65a00b91923451111",
   balances: [
     {
       amount: "1",
