@@ -5,12 +5,14 @@ import { action } from "@storybook/addon-actions";
 import { withInfo } from "@storybook/addon-info";
 import { text } from "@storybook/addon-knobs/react";
 
+import withData from "./decorators/withData";
 import InputPhone from "../src/components/InputPhone";
 
 const GROUP_ID = "Component";
 
 storiesOf("InputPhone", module)
   .addDecorator(withInfo({ inline: true }))
+  .addDecorator(withData)
   .add("default", () => (
     <InputPhone
       id="test"

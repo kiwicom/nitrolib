@@ -798,6 +798,8 @@ export type Country = {|
   id: string,
   currency: string,
   continent: string | string[],
+  callingCode: string,
+  slug: string,
   AR: string,
   BG: string,
   BR: string,

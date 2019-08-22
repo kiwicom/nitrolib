@@ -1414,6 +1414,7 @@ declare export default React.ComponentType<Props>;
 [Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=InputPhone).
 
 **Context needs:**
+* [fetched](./services#fetched)
 * [intl](./services#intl)
 
 Nitro `Phone` Wrapper for `InputField` from ***Orbit-components***
