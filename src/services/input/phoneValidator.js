@@ -2,6 +2,7 @@
 import { JSON_BOTH } from "../fetch/headers";
 import { handleJSON } from "../fetch/handlers";
 import type { FetchedPhone } from "../../records/Phone";
+import config from "../../consts/config";
 
 export type Validator = {|
   error: string,
@@ -9,10 +10,10 @@ export type Validator = {|
 |};
 
 // eslint-disable-next-line no-undef
-const source = process.env.PHONE_CHECK_SERVICE_URL || `https://check-phone.kiwi.com`;
+const source = process.env.PHONE_CHECK_SERVICE_URL || config.phoneWorker;
 
 export const call = async (phone: string): Promise<FetchedPhone> => {
-  const res = await fetch(`${source}/${phone}`, {
+  const res = await fetch(`${source}${phone}`, {
     method: "POST",
     headers: {
       ...JSON_BOTH,

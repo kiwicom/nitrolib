@@ -9,7 +9,7 @@ describe("#phoneValidator", () => {
     fetchMock.reset();
   });
 
-  const url = `https://worker.check-phone.workers.dev/+420773103102`;
+  const url = `https://check-phone.kiwi.com/+420773103102`;
 
   const response = {
     countryCallingCode: "420",
@@ -41,7 +41,7 @@ describe("#phoneValidator", () => {
 
   test("phone-not-validated: invalid phone", async () => {
     // $FlowExpected: jest bug
-    fetchMock.mock(`https://worker.check-phone.workers.dev/+420774345`, {
+    fetchMock.mock(`https://check-phone.kiwi.com/+420774345`, {
       countryCallingCode: "420",
       nationalNumber: "774345",
       number: "+420774345",
@@ -57,7 +57,7 @@ describe("#phoneValidator", () => {
 
   test("phone-not-validated: form must be fullfield", async () => {
     // $FlowExpected: jest bug
-    fetchMock.mock(`https://worker.check-phone.workers.dev/+42`, { status: 400 });
+    fetchMock.mock(`https://check-phone.kiwi.com/+42`, { status: 400 });
 
     const validate = await fns.validate("+42").then(r => r);
 

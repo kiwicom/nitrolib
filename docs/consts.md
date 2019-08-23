@@ -29,6 +29,7 @@ declare export default {|
   apiLocations: string,
   umbrellaUrl: string,
   mockApiUrl: string,
+  phoneWorker: string,
   logstashApiUrl: string,
   priceAlertUrl: string,
   cdnUrl: string,

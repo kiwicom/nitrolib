@@ -12,6 +12,7 @@ const config = {
   logstashApiUrl: "https://logg.kiwi.com/logmole",
   priceAlertUrl: "https://r-price-alerts.skypicker.com",
   cdnUrl: "https://cdn1.skypicker.com",
+  phoneWorker: "https://check-phone.kiwi.com/",
   contentTeamImagesUrl:
     "https://googledrive.com/host/0B6NowGirW9poflZ3RlVHa1dGSlRjdHAxenZUdWZiazFFSGNNajZVUXdSVERXNWs5T0p0aEE/",
   facebook: "kiwicom247",
