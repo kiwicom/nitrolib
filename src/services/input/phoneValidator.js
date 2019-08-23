@@ -8,8 +8,11 @@ export type Validator = {|
   code?: string,
 |};
 
+// eslint-disable-next-line no-undef
+const source = process.env.PHONE_CHECK_SERVICE_URL || `https://check-phone.kiwi.com`;
+
 export const call = async (phone: string): Promise<FetchedPhone> => {
-  const res = await fetch(`https://worker.check-phone.workers.dev/${phone}`, {
+  const res = await fetch(`${source}/${phone}`, {
     method: "POST",
     headers: {
       ...JSON_BOTH,
