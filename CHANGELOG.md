@@ -1,3 +1,14 @@
+## [7.0.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.0.0...v7.0.1) (2019-08-26)
+
+
+### Bug Fixes
+
+* Make buttons in MagicLogin work correctly ([89c4e2e](https://gitlab.skypicker.com/frontend/nitrolib/commit/89c4e2e))
+* **services:** PhoneValidator api source ([d076ac5](https://gitlab.skypicker.com/frontend/nitrolib/commit/d076ac5))
+* **services:** PhoneValidator tests ([8259619](https://gitlab.skypicker.com/frontend/nitrolib/commit/8259619))
+
+
+
 # [7.0.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.1.6...v7.0.0) (2019-08-19)
 
 
