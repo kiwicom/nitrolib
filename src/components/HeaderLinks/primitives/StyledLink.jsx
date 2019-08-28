@@ -4,6 +4,7 @@ import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
 import { themeDefault } from "../../../records/Theme";
 import type { ThemeProps } from "../../../records/Theme";
+import { pseudoBorder } from "../../../styles/mixins/border";
 
 type LinkProps = {|
   ...ThemeProps,
@@ -14,35 +15,31 @@ type LinkProps = {|
 const StyledLink = styled.a`
   text-decoration: none;
   cursor: pointer;
+  position: relative;
+  font-weight: ${({ theme }) => theme.orbit.fontWeightNormal};
+  transition: text-shadow ${({ theme }: ThemeProps) => theme.orbit.durationFast};
 
   &:link,
   &:visited {
-    color: ${({ active, theme }: LinkProps) =>
-      active ? theme.orbit.paletteProductNormal : theme.orbit.paletteInkNormal};
-    i {
-      color: ${({ theme }) => theme.orbit.paletteInkNormal};
-    }
+    color: ${({ theme, inverted }) =>
+      inverted ? theme.orbit.paletteWhite : theme.orbit.paletteInkNormal};
+    ${({ active, inverted }: LinkProps) =>
+      active && !inverted && `text-shadow: 0 0 0.65px #333, 0 0 0.65px #333`};
+  }
 
-    &:hover {
-      color: ${({ theme }: LinkProps) => theme.orbit.paletteProductNormal};
-      i {
-        color: ${({ theme }) => theme.orbit.paletteInkNormal};
-      }
-    }
+  &:hover {
+    ${({ inverted }: LinkProps) => !inverted && `text-shadow: 0 0 0.65px #333, 0 0 0.65px #333`};
+  }
+
+  &:after {
+    opacity: 0;
+    content: "";
+    transition: opacity ${({ theme }: ThemeProps) => theme.orbit.durationFast};
   }
 
   ${mq.desktop(css`
-    &:link,
-    &:visited {
-      color: ${({ active, theme, inverted }: LinkProps) =>
-        inverted
-          ? (active && theme.orbit.paletteWhiteActive) || theme.orbit.paletteWhite
-          : (active && theme.orbit.paletteProductNormal) || theme.orbit.paletteInkNormal};
-
-      &:hover {
-        color: ${({ theme, inverted }: LinkProps) =>
-          inverted ? theme.orbit.paletteWhiteHover : theme.orbit.paletteProductNormal};
-      }
+    &:hover {
+      ${({ inverted }: LinkProps) => !inverted && pseudoBorder};
     }
   `)}
 `;

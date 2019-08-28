@@ -1,16 +1,15 @@
 // @flow strict
 import * as React from "react";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
+import Button from "@kiwicom/orbit-components/lib/Button";
 
-import Desktop from "../../../Desktop";
-import Mobile from "../../../Mobile";
-import Translate from "../../../Translate";
+import Text from "../../../Text";
 import ValueBind from "../../../ValueBind";
 import { useModal } from "../../../../services/modal/context";
 import { useAuth } from "../../../../services/auth/context";
-import Button from "../Button";
-import Trips from "../Trips";
+// import Trips from "../Trips";
 import SideNav from "../SideNav";
+import Account from "../Account";
 import * as MODALS from "../../../../consts/modals";
 import type { Modal } from "../../../../consts/modals";
 
@@ -30,10 +29,11 @@ const Menu = ({
   portal,
   inverted,
   onSaveLanguage,
+  // eslint-disable-next-line no-unused-vars
   onSelectTrip,
   onSetModal,
 }: Props) => {
-  const { auth, environment } = useAuth();
+  const { auth } = useAuth();
   const { onChange } = useModal();
 
   return (
@@ -41,26 +41,15 @@ const Menu = ({
       {auth === null ? (
         <ValueBind value={MODALS.MY_BOOKING} onChange={onChange}>
           {({ onClick }) => (
-            <>
-              <Desktop display="flex">
-                <Button onClick={onClick} color={inverted ? "white" : "secondary"}>
-                  <Translate t="account.my_bookings_action" />
-                </Button>
-              </Desktop>
-              <Mobile display="flex">
-                <Button
-                  color={inverted ? "white" : "secondary"}
-                  ariaLabel="account.my_bookings_action"
-                  onClick={onClick}
-                >
-                  <AccountCircle />
-                </Button>
-              </Mobile>
-            </>
+            <Button onClick={onClick} iconLeft={<AccountCircle />} type="secondary" size="small">
+              <Text t="account.sign_in" weight="bold" size="small" />
+            </Button>
           )}
         </ValueBind>
       ) : (
-        <Trips auth={auth} env={environment} inverted={inverted} onSelect={onSelectTrip} />
+        // Deprecated: Account should open Account page, without Trips dropdown
+        // <Trips auth={auth} env={environment} inverted={inverted} onSelect={onSelectTrip} />
+        <Account auth={auth} inverted={inverted} />
       )}
       <SideNav
         subscription={subscription}

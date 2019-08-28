@@ -77,14 +77,22 @@ const NavBar = ({
   onLogoClick,
 }: Props) => (
   <Container inverted={inverted}>
-    <Stack justify="between" align="center" dataTest="NavBar">
-      <Stack flex shrink inline align="center">
+    <Stack justify="between" align="center" spacing="none" dataTest="NavBar">
+      <Stack
+        flex
+        shrink
+        inline
+        align="center"
+        spacing="none"
+        mediumMobile={{ spacing: "compact" }}
+        desktop={{ spacing: "extraLoose" }}
+      >
         <Logo inverted={inverted} onClick={onLogoClick} />
         {headerLinks}
       </Stack>
-      <Stack inline align="center" justify="end" spacing="tight" tablet={{ spacing: "natural" }}>
-        <Desktop display="flex">
-          <Stack flex align="center">
+      <Stack inline align="center" justify="end" spacing="compact" tablet={{ spacing: "loose" }}>
+        <Desktop>
+          <Stack flex align="center" spacing="loose">
             <Language
               positionMenuDesktop={270}
               positionMenuTablet={5}

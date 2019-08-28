@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from "react";
-import AirplaneUp from "@kiwicom/orbit-components/lib/icons/AirplaneUp";
+import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
@@ -123,7 +123,7 @@ export default class HeaderLinks extends React.Component<Props, State> {
                     </Popup>
                   )}
                   <IconWrapper aria-label="open" act={open} inverted={inverted} onClick={onToggle}>
-                    <AirplaneUp />
+                    <Airplane />
                     <ChevronDown size="small" />
                   </IconWrapper>
                 </>
@@ -133,7 +133,7 @@ export default class HeaderLinks extends React.Component<Props, State> {
         </Mobile>
         <Desktop>
           {services && services.length > 0 && (
-            <Stack flex>
+            <Stack flex spacing="loose">
               <Links inverted={inverted} services={services} active={active} />
             </Stack>
           )}

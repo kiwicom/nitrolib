@@ -1667,6 +1667,7 @@ export type User = {|
   verified: boolean,
   firstname: string,
   lastname: string,
+  photo?: string,
   // apiToken: string,
   affiliateId: string,
   cardDiscount: number,
@@ -1681,6 +1682,7 @@ export type MapUserInput = {|
   email: string,
   email_verified: boolean,
   first_name: string,
+  photo?: string,
   last_name: string,
   affiliate_id: string,
 |};

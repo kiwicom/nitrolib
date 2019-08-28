@@ -15,7 +15,8 @@ type ActiveProps = {|
 const IconWrapper = styled.i`
   color: ${({ theme, inverted, act }: ActiveProps) =>
     inverted && (!act ? theme.orbit.paletteWhite : theme.orbit.paletteInkNormal)};
-  display: block;
+  display: flex;
+  align-items: center;
   cursor: pointer;
   padding-${/* sc-custom "right" */ right}: 10px;
   ${({ act }) =>

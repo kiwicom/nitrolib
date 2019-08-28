@@ -11,7 +11,7 @@ export const padding = {
 
 export const navbar = {
   size: 64,
-  height: 50,
+  height: 64,
 };
 
 export const logo = {

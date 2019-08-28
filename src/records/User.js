@@ -6,6 +6,8 @@ export type User = {|
   firstname: string,
   lastname: string,
   affiliateId: string,
+  // TODO: should not be optional, just temporary decision
+  photo?: string,
   // apiToken: string,
   // cardDiscount: number,
   // balanceDiscount: number,
@@ -19,6 +21,8 @@ export type MapUserInput = {|
   email: string,
   email_verified: boolean,
   first_name: string,
+  // TODO: should not be optional, just temporary decision
+  photo?: string,
   last_name: string,
   affiliate_id: string,
 |};

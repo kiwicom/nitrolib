@@ -52,4 +52,16 @@ const borderMixin = css`
   ${({ state }: StateProps) => state === "base" && borderHoverMixin};
 `;
 
+export const pseudoBorder = css`
+  &:after {
+    position: absolute;
+    content: "";
+    top: 36px;
+    height: 3px;
+    background: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
+    width: 100%;
+    opacity: 1;
+  }
+`;
+
 export default borderMixin;
