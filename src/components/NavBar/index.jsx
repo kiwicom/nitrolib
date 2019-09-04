@@ -61,6 +61,7 @@ type Props = {|
   headerLinks: React.Node,
   debug: React.Node,
   inverted: boolean,
+  hiddenLogoDefault: boolean,
 |};
 
 const NavBar = ({
@@ -70,6 +71,7 @@ const NavBar = ({
   debug,
   portal,
   inverted,
+  hiddenLogoDefault,
   onOpenFaq,
   onSetModal,
   onSaveLanguage,
@@ -87,7 +89,7 @@ const NavBar = ({
         mediumMobile={{ spacing: "compact" }}
         desktop={{ spacing: "extraLoose" }}
       >
-        <Logo inverted={inverted} onClick={onLogoClick} />
+        <Logo inverted={inverted} onClick={onLogoClick} hiddenDefault={hiddenLogoDefault} />
         {headerLinks}
       </Stack>
       <Stack inline align="center" justify="end" spacing="compact" tablet={{ spacing: "loose" }}>
@@ -131,6 +133,7 @@ NavBar.defaultProps = {
   headerLinks: null,
   debug: null,
   inverted: false,
+  hiddenLogoDefault: false,
 };
 
 export default NavBar;

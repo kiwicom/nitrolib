@@ -75,6 +75,7 @@ LogoStyledMobile.defaultProps = {
 
 const Link = styled.a`
   display: flex;
+  ${({ hiddenDefault }) => hiddenDefault && `width: 0px; opacity: 0;`};
 `;
 
 const logoBaseUrl = "https://images.kiwi.com/whitelabels";
@@ -86,6 +87,7 @@ type Props = {|
   title: string,
   poweredByKiwi: boolean,
   inverted?: boolean,
+  hiddenDefault?: boolean,
   onClick: (ev: SyntheticMouseEvent<HTMLAnchorElement>) => void,
 |};
 
@@ -96,10 +98,17 @@ export const Logo = ({
   poweredByKiwi,
   languageId,
   inverted,
+  hiddenDefault,
   onClick,
 }: Props) =>
   id === "kiwicom" ? (
-    <Link data-test="Logo" href={`${redirectUrl}${languageId}/`} onClick={onClick}>
+    <Link
+      data-test="Logo"
+      animation="Logo"
+      href={`${redirectUrl}${languageId}/`}
+      onClick={onClick}
+      hiddenDefault={hiddenDefault}
+    >
       <SvgLogo height={logo.height} width={logo.width} title={title} inverted={inverted} />
     </Link>
   ) : (

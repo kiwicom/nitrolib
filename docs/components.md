@@ -439,6 +439,7 @@ type Props = {|
   headerLinks?: React.Node, // null
   debug?: React.Node, // null
   inverted?: boolean, // false
+  hiddenLogoDefault?: boolean, // false
 |};
 
 declare export default React.ComponentType<Props>;
