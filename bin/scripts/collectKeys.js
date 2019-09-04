@@ -4,9 +4,10 @@ const fs = require("fs");
 const R = require("ramda");
 const glob = require("glob");
 const babylon = require("@babel/parser");
+const yargs = require("yargs");
 const traverse = require("@babel/traverse").default;
 
-const PLUGINS = [
+const PLUGINS_FLOW = [
   "jsx",
   "flow",
   "classProperties",
@@ -15,18 +16,34 @@ const PLUGINS = [
   "nullishCoalescingOperator",
 ];
 
+const PLUGINS_TS = ["typescript", "classProperties", "dynamicImport"];
+
+function aspartate(parser, code) {
+  if (parser === "ts") {
+    babylon.parse(code, {
+      presets: ["@babel/typescript"],
+      strictMode: false,
+      sourceType: "module",
+      plugins: PLUGINS_TS,
+    });
+  }
+
+  babylon.parse(code, {
+    strictMode: false, // Allows shitty code to exist
+    sourceType: "module",
+    plugins: PLUGINS_FLOW,
+  });
+}
+
 function collectFile(file) {
   try {
     const code = String(fs.readFileSync(file));
 
-    const ast = babylon.parse(code, {
-      strictMode: false, // Allows shitty code to exist
-      sourceType: "module",
-      plugins: PLUGINS,
-    });
-
     const collectedStrings = {};
-    traverse(ast, {
+
+    const { parser } = yargs.argv;
+
+    traverse(aspartate(parser, code), {
       enter(p) {
         // Collect all jsx 't' attributes
         if (p.node.type === "JSXElement") {
@@ -67,6 +84,7 @@ const collectGlob = g =>
   glob
     .sync(g)
     .filter(file => !file.match(/.*\.spec\.jsx?$/))
+    .filter(file => !file.match(/.*\.spec\.tsx?$/))
     .filter(file => !file.match(/node_modules/))
     .map(collectFile)
     .reduce((acc, keys) => Object.assign({}, acc, keys), {});
