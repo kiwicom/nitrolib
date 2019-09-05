@@ -1,3 +1,18 @@
+# [7.1.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.0.1...v7.1.0) (2019-09-05)
+
+
+### Bug Fixes
+
+* **components:** MagicLogin CreateAccount screen ([8ba24e2](https://gitlab.skypicker.com/frontend/nitrolib/commit/8ba24e2))
+
+
+### Features
+
+* **components:** Navbar new Account ([8e9b3bf](https://gitlab.skypicker.com/frontend/nitrolib/commit/8e9b3bf))
+* **components:** Prepare navbar for logo animation ([092fde6](https://gitlab.skypicker.com/frontend/nitrolib/commit/092fde6))
+
+
+
 ## [7.0.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.0.0...v7.0.1) (2019-08-26)
 
 
