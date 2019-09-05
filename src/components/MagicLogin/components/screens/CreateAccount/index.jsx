@@ -55,13 +55,16 @@ const CreateAccount = ({
   <Consumer>
     {intl => (
       <>
-        <ModalHeader>
-          <Illustration name="EnjoyApp" size="small" />
-          <Heading element="h2">
-            <Translate t="account.create_account" />
-          </Heading>
-          <Text t="account.create_account_description" />
-        </ModalHeader>
+        <ModalHeader
+          illustration={<Illustration name="EnjoyApp" size="small" />}
+          title={
+            <Heading element="h2">
+              <Translate t="account.create_account" />
+            </Heading>
+          }
+          description={<Text t="account.create_account_description" />}
+        />
+
         <ModalSection dataTest="MagicLogin-CreateAccount">
           <form onSubmit={onContinue}>
             <Stack spacing="comfy">
