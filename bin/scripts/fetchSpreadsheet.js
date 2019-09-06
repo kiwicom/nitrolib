@@ -3,6 +3,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const fetch = require("isomorphic-fetch");
 
+const { makeGranularSync } = require("./utils/makeGranular");
 const countries = require("./utils/countries");
 const pkg = require("../../package");
 
@@ -26,24 +27,38 @@ const whitelist = [
   // "team",
 ];
 
-function write(name, data) {
-  if (name === "countries") {
-    fs.outputJsonSync(path.join(OUT, "countries.json"), data, {
-      spaces: 2,
-    });
+function write(name, data, granular) {
+  if (!granular) {
+    if (name === "countries") {
+      fs.outputJsonSync(path.join(OUT, "countries.json"), data, {
+        spaces: 2,
+      });
 
-    fs.outputJsonSync(path.join(OUT, "continents.json"), countries.getContinents(data), {
+      fs.outputJsonSync(path.join(OUT, "continents.json"), countries.getContinents(data), {
+        spaces: 2,
+      });
+      return;
+    }
+
+    fs.outputJsonSync(path.join(OUT, `${name}.json`), data, {
       spaces: 2,
     });
-    return;
+  } else {
+    if (name === "countries") {
+      makeGranularSync(data, "countries");
+
+      fs.outputJsonSync(path.join(OUT, "continents.json"), countries.getContinents(data), {
+        spaces: 2,
+      });
+
+      return;
+    }
+
+    makeGranularSync(data, name);
   }
-
-  fs.outputJsonSync(path.join(OUT, `${name}.json`), data, {
-    spaces: 2,
-  });
 }
 
-function fetchSpreadsheet() /* : Promise<void[]> */ {
+function fetchSpreadsheet(granular) /* : Promise<void[]> */ {
   return Promise.all(
     whitelist.map(name =>
       fetch(`https://nitro-hankey.skypicker.com/${name}`, {
@@ -59,7 +74,7 @@ function fetchSpreadsheet() /* : Promise<void[]> */ {
           return res.json();
         })
         .then(data => {
-          write(name, data);
+          write(name, data, granular);
         }),
     ),
   );

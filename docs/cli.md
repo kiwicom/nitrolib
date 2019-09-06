@@ -40,6 +40,7 @@ Fetches translations.
 
 **Flags:**
 * `path` _optional_ - path to a custom translations folder
+* `granular` _optional_ - creates `brandLanguages` folder, which contains `brandName/brand.json` folders
 
 **Requires:**
 * The `data/tkeys.json` file to exist due to translation whitelisting, see the `keys` command
@@ -62,6 +63,9 @@ Fetches production data.
 
 **Example:**
 * `yarn nitro fetch` - fetches data
+
+**Flags:**
+* `granular` _optional_ - creates next folders: `brands, airlines, countries, languages` instead of single json.files
 
 **Files:**
 * `airlines.json` - contains basic information about supported airlines, see [Airline.js](./records#airline)

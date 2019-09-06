@@ -48,4 +48,75 @@ const mapLanguages = () =>
     });
   });
 
-module.exports = mapLanguages;
+const mapLanguagesGran = () => {
+  // read all folders
+  const allBrands = fs.readdirSync(path.join(OUT, "brands"), (_, file) => file);
+  const allLanguages = fs.readdirSync(path.join(OUT, "languages"), (_, file) => file);
+  const allCountries = fs.readdirSync(path.join(OUT, "countries"), (_, file) => file);
+  const allTranslations = fs.readJson(path.join(OUT, "translationsFiles.json"));
+
+  Promise.all([allBrands, allLanguages, allCountries, allTranslations]).then(
+    ([brands, languages, countries, tFiles]) => {
+      const withIds = R.reduce(
+        (acc, { id, ...rest }) => R.merge(acc, { [id]: { id, ...rest } }),
+        {},
+      );
+
+      const getBrands = R.compose(
+        withIds,
+        R.map(brand => fs.readJsonSync(path.join(OUT, "brands", brand))),
+      )(brands);
+
+      const getLanguages = R.compose(
+        withIds,
+        R.map(lang => fs.readJsonSync(path.join(OUT, "languages", lang))),
+      )(languages);
+
+      const getCountries = R.compose(
+        withIds,
+        R.map(country => fs.readJsonSync(path.join(OUT, "countries", country))),
+      )(countries);
+
+      const locales = R.map(ln => fs.readJsonSync(path.join(OUT, tFiles[ln.phraseApp])))(
+        getLanguages,
+      );
+
+      const brandLangs = languageUtils.getBrandLanguages(
+        getBrands,
+        R.map(
+          language => ({
+            id: language.id,
+            name: language.displayName,
+            flag: language.flag || language.id,
+            defaultCountry: language.defaultCountry,
+          }),
+          getLanguages,
+        ),
+        getCountries,
+      );
+
+      const data = R.map(
+        brandLang =>
+          R.map(
+            translations => languageUtils.translateAndSortContinents(brandLang, translations),
+            locales,
+          ),
+        brandLangs,
+      );
+
+      return R.compose(
+        R.map(item =>
+          fs.outputJsonSync(path.join(OUT, "brandLanguages", item, `${item}.json`), data[item], {
+            spaces: 2,
+          }),
+        ),
+        R.keys,
+      )(data);
+    },
+  );
+};
+
+module.exports = {
+  mapLanguages,
+  mapLanguagesGran,
+};

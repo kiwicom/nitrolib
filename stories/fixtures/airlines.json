@@ -6011,12 +6011,6 @@
     "name": "Avies",
     "type": "airline"
   },
-  "R6": {
-    "id": "R6",
-    "lcc": 0,
-    "name": "RACSA",
-    "type": "airline"
-  },
   "T2": {
     "id": "T2",
     "lcc": 0,
@@ -6183,6 +6177,12 @@
     "id": "Z6",
     "lcc": 1,
     "name": "Dniproavia",
+    "type": "airline"
+  },
+  "R6": {
+    "id": "R6",
+    "lcc": 0,
+    "name": "DAT LT",
     "type": "airline"
   },
   "HY": {
@@ -6867,12 +6867,6 @@
     "id": "LK",
     "lcc": 0,
     "name": "Lao Skyway",
-    "type": "airline"
-  },
-  "X3": {
-    "id": "X3",
-    "lcc": 1,
-    "name": "TUI fly Deutschland",
     "type": "airline"
   },
   "F9": {
@@ -7677,6 +7671,12 @@
     "id": "E4",
     "lcc": 0,
     "name": "Enter Air",
+    "type": "airline"
+  },
+  "X3": {
+    "id": "X3",
+    "lcc": 1,
+    "name": "TUI fly Deutschland",
     "type": "airline"
   }
 }

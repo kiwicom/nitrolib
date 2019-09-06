@@ -23,6 +23,7 @@ const languages = fs.readJsonSync(path.join(DATA, "languages.json"));
 
 // Translations
 const translationsFiles = fs.readJsonSync(path.join(DATA, "translationsFiles.json"));
+
 const translations = Object.keys(languages)
   .filter(lang => LANG_WHITELIST[lang])
   .map(lang => languages[lang].phraseApp)
@@ -50,12 +51,14 @@ const brandLanguagesFiltered = R.map(
   filterLangs,
   fs.readJsonSync(path.join(DATA, "brandLanguages.json")),
 );
+
 fs.outputJsonSync(path.join(FIXTURES, "brandLanguages.json"), brandLanguagesFiltered, {
   spaces: 2,
 });
 
 // Languages
 const languagesFiltered = filterLangs(fs.readJsonSync(path.join(DATA, "languages.json")));
+
 fs.outputJsonSync(path.join(FIXTURES, "languages.json"), languagesFiltered, {
   spaces: 2,
 });

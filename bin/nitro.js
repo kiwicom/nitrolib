@@ -11,9 +11,9 @@ const R = require("ramda");
 const collectKeys = require("./scripts/collectKeys");
 const fetchBrandConfig = require("./scripts/fetchBrandConfig");
 const fetchSpreadsheet = require("./scripts/fetchSpreadsheet");
-const getTranslations = require("./scripts/getTranslations");
+const { getTranslations, getTranslationsGranular } = require("./scripts/getTranslations");
 const missingKeys = require("./scripts/missingKeys");
-const mapLanguages = require("./scripts/mapLanguages");
+const { mapLanguages, mapLanguagesGran } = require("./scripts/mapLanguages");
 
 const command = process.argv[2];
 
@@ -112,8 +112,16 @@ const TRANSLATIONS_NEEDS = [
   path.join(OUT, "tkeys.json"),
 ];
 
-function translations(tFile) {
+const TRANSLATION_GRANS = [
+  path.join(OUT, "brands"),
+  path.join(OUT, "languages"),
+  path.join(OUT, "countries"),
+  path.join(OUT, "tkeys.json"),
+];
+
+function translations(tFile, granular) {
   const TRANSLATIONS = tFile || TRANSLATIONS_FE;
+
   if (!fs.existsSync(TRANSLATIONS)) {
     error(
       `Translations not found at '${TRANSLATIONS}'${
@@ -124,34 +132,56 @@ function translations(tFile) {
     return;
   }
 
-  const good = TRANSLATIONS_NEEDS.reduce((ok, need) => {
-    if (!fs.existsSync(need)) {
-      error(
-        `Task 'translations' requires running the 'keys' and 'fetch' commands first! Missing file: ${need}`,
-      );
-      return false;
-    }
-    return ok;
-  }, true);
+  const good = granular
+    ? TRANSLATION_GRANS.reduce((ok, need) => {
+        if (!fs.existsSync(need)) {
+          error(
+            `Task 'translations' requires running the 'keys' and 'fetch' commands first! Missing file: ${need}`,
+          );
+          return false;
+        }
+        return ok;
+      }, true)
+    : TRANSLATIONS_NEEDS.reduce((ok, need) => {
+        if (!fs.existsSync(need)) {
+          error(
+            `Task 'translations' requires running the 'keys' and 'fetch' commands first! Missing file: ${need}`,
+          );
+          return false;
+        }
+        return ok;
+      }, true);
 
   if (!good) {
     process.exit(1);
     return;
   }
 
-  getTranslations(TKEYS, TRANSLATIONS)
-    .then(mapLanguages)
-    .then(() => {
-      log("DONE!");
-    })
-    .catch(err => {
-      log(chalk.bold.red("ERROR"));
-      error(err);
-    });
+  if (granular) {
+    getTranslationsGranular(TKEYS, TRANSLATIONS)
+      .then(mapLanguagesGran)
+      .then(() => {
+        log("DONE!");
+      })
+      .catch(err => {
+        log(chalk.bold.red("ERROR"));
+        error(err);
+      });
+  } else {
+    getTranslations(TKEYS, TRANSLATIONS)
+      .then(mapLanguages)
+      .then(() => {
+        log("DONE!");
+      })
+      .catch(err => {
+        log(chalk.bold.red("ERROR"));
+        error(err);
+      });
+  }
 }
 
-function fetch() {
-  Promise.all([fetchSpreadsheet(), fetchBrandConfig()])
+function fetch(granular) {
+  Promise.all([fetchSpreadsheet(granular), fetchBrandConfig(granular)])
     .then(() => {
       log("DONE!");
     })
@@ -170,9 +200,9 @@ if (command === commands["keys-check"]) {
 }
 
 if (command === commands.translations) {
-  translations(yargs.argv.path);
+  translations(yargs.argv.path, yargs.argv.granular);
 }
 
 if (command === commands.fetch) {
-  fetch();
+  fetch(yargs.argv.granular);
 }

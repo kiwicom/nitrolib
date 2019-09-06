@@ -21,6 +21,7 @@ const getBrandLanguages = (brands, languages, countries) =>
   R.map(brand => {
     const langs = brand.localization.languages;
     const enabledLanguageIds = getEnabledLanguageIds(langs.locales);
+
     const enabledLanguages = sortObjectByName(
       R.mapObjIndexed(
         language =>
