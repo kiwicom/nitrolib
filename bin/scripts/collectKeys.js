@@ -20,7 +20,7 @@ const PLUGINS_TS = ["typescript", "classProperties", "dynamicImport"];
 
 function aspartate(parser, code) {
   if (parser === "ts") {
-    babylon.parse(code, {
+    return babylon.parse(code, {
       presets: ["@babel/typescript"],
       strictMode: false,
       sourceType: "module",
@@ -28,7 +28,7 @@ function aspartate(parser, code) {
     });
   }
 
-  babylon.parse(code, {
+  return babylon.parse(code, {
     strictMode: false, // Allows shitty code to exist
     sourceType: "module",
     plugins: PLUGINS_FLOW,
