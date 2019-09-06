@@ -115,17 +115,22 @@ export default class HeaderLinks extends React.Component<Props, State> {
                 <>
                   {open && (
                     <Popup>
-                      {services && services.length > 0 && (
-                        <Stack direction="column" spacing="comfy">
-                          <Links inverted={inverted} services={services} active={active} />
-                        </Stack>
-                      )}
+                      <Stack direction="column" spacing="comfy">
+                        <Links inverted={inverted} services={services} active={active} />
+                      </Stack>
                     </Popup>
                   )}
-                  <IconWrapper aria-label="open" act={open} inverted={inverted} onClick={onToggle}>
-                    <Airplane />
-                    <ChevronDown size="small" />
-                  </IconWrapper>
+                  {services && services.length > 0 && (
+                    <IconWrapper
+                      aria-label="open"
+                      act={open}
+                      inverted={inverted}
+                      onClick={onToggle}
+                    >
+                      <Airplane />
+                      <ChevronDown size="small" />
+                    </IconWrapper>
+                  )}
                 </>
               </ClickOutside>
             )}
