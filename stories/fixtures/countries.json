@@ -41,7 +41,9 @@
     "TW": "安道尔",
     "UK": "Андорра",
     "VN": "Andorra",
-    "HE": "אנדורה"
+    "HE": "אנדורה",
+    "slug": "andorra",
+    "callingCode": "376"
   },
   "ae": {
     "id": "ae",
@@ -85,7 +87,9 @@
     "TW": "阿拉伯联合酋长国",
     "UK": "Обʼєднані Арабські Емірати",
     "VN": "Các Tiểu Vương quốc A-rập Thống nhất",
-    "HE": "איחוד האמירויות הערביות"
+    "HE": "איחוד האמירויות הערביות",
+    "slug": "united-arab-emirates",
+    "callingCode": "971"
   },
   "af": {
     "id": "af",
@@ -129,7 +133,9 @@
     "TW": "阿富汗",
     "UK": "Афганістан",
     "VN": "Áp-ga-ni-xtan",
-    "HE": "אפגניסטן"
+    "HE": "אפגניסטן",
+    "slug": "afghanistan",
+    "callingCode": "93"
   },
   "ag": {
     "id": "ag",
@@ -173,7 +179,9 @@
     "TW": "安提瓜和巴布达",
     "UK": "Антигуа і Барбуда",
     "VN": "An-ti-gu-a và Ba-bu-đa",
-    "HE": "אנטיגואה וברבודה"
+    "HE": "אנטיגואה וברבודה",
+    "slug": "antigua-and-barbuda",
+    "callingCode": "1"
   },
   "ai": {
     "id": "ai",
@@ -217,7 +225,9 @@
     "TW": "安圭拉",
     "UK": "Ангілья",
     "VN": "Anguilla",
-    "HE": "אנגילה"
+    "HE": "אנגילה",
+    "slug": "anguilla",
+    "callingCode": "1"
   },
   "al": {
     "id": "al",
@@ -261,7 +271,9 @@
     "TW": "阿尔巴尼亚",
     "UK": "Албанія",
     "VN": "An-ba-ni",
-    "HE": "אלבניה"
+    "HE": "אלבניה",
+    "slug": "albania",
+    "callingCode": "355"
   },
   "am": {
     "id": "am",
@@ -305,7 +317,9 @@
     "TW": "亚美尼亚",
     "UK": "Вірменія",
     "VN": "Ác-mê-ni-a",
-    "HE": "ארמניה"
+    "HE": "ארמניה",
+    "slug": "armenia",
+    "callingCode": "374"
   },
   "an": {
     "id": "an",
@@ -349,7 +363,9 @@
     "TW": "荷属安的列斯群岛",
     "UK": "Нідерландські Антильські Острови",
     "VN": "Tây Ấn Hà Lan",
-    "HE": "אנטילים הולנדיים"
+    "HE": "אנטילים הולנדיים",
+    "slug": "angola",
+    "callingCode": "599"
   },
   "ao": {
     "id": "ao",
@@ -393,7 +409,9 @@
     "TW": "安哥拉",
     "UK": "Ангола",
     "VN": "Ăng-gô-la",
-    "HE": "אנגולה"
+    "HE": "אנגולה",
+    "slug": "angola",
+    "callingCode": "244"
   },
   "aq": {
     "id": "aq",
@@ -437,7 +455,9 @@
     "TW": "南极洲",
     "UK": "Антарктида",
     "VN": "Nam Cực",
-    "HE": "אנטארקטיקה"
+    "HE": "אנטארקטיקה",
+    "slug": "equatorial-guinea",
+    "callingCode": ""
   },
   "ar": {
     "id": "ar",
@@ -481,7 +501,9 @@
     "TW": "阿根廷",
     "UK": "Аргентина",
     "VN": "Ác-hen-ti-na",
-    "HE": "ארגנטינה"
+    "HE": "ארגנטינה",
+    "slug": "argentina",
+    "callingCode": "54"
   },
   "as": {
     "id": "as",
@@ -525,7 +547,9 @@
     "TW": "美属萨摩亚",
     "UK": "Американське Самоа",
     "VN": "Đảo Somoa thuộc Mỹ",
-    "HE": "סמואה האמריקנית"
+    "HE": "סמואה האמריקנית",
+    "slug": "australia",
+    "callingCode": "1"
   },
   "at": {
     "id": "at",
@@ -569,7 +593,9 @@
     "TW": "奥地利",
     "UK": "Австрія",
     "VN": "Áo",
-    "HE": "אוסטריה"
+    "HE": "אוסטריה",
+    "slug": "austria",
+    "callingCode": "43"
   },
   "au": {
     "id": "au",
@@ -613,7 +639,9 @@
     "TW": "澳大利亚",
     "UK": "Австралія",
     "VN": "Úc",
-    "HE": "אוסטרליה"
+    "HE": "אוסטרליה",
+    "slug": "australia",
+    "callingCode": "61"
   },
   "aw": {
     "id": "aw",
@@ -657,7 +685,9 @@
     "TW": "阿鲁巴",
     "UK": "Аруба",
     "VN": "Aruba",
-    "HE": "ארובה"
+    "HE": "ארובה",
+    "slug": "aruba",
+    "callingCode": "297"
   },
   "ax": {
     "id": "ax",
@@ -701,7 +731,9 @@
     "TW": "奥兰群岛",
     "UK": "Аландські острови",
     "VN": "Quần đảo Aland",
-    "HE": "איי אלנד"
+    "HE": "איי אלנד",
+    "slug": "aland-islands",
+    "callingCode": "358"
   },
   "az": {
     "id": "az",
@@ -748,7 +780,9 @@
     "TW": "阿塞拜疆",
     "UK": "Азербайджан",
     "VN": "Ai-déc-bai-gian",
-    "HE": "אזרביג'ן"
+    "HE": "אזרביג'ן",
+    "slug": "azerbaijan",
+    "callingCode": "994"
   },
   "ba": {
     "id": "ba",
@@ -792,7 +826,9 @@
     "TW": "波斯尼亚和黑塞哥维那",
     "UK": "Боснія і Герцоговина",
     "VN": "Bô-xni-a Héc-xê-gô-vi-na",
-    "HE": "בוסניה והרצגובינה"
+    "HE": "בוסניה והרצגובינה",
+    "slug": "bosnia-and-herzegovina",
+    "callingCode": "387"
   },
   "bb": {
     "id": "bb",
@@ -836,7 +872,9 @@
     "TW": "巴巴多斯",
     "UK": "Барбадос",
     "VN": "Bác-ba-đốt",
-    "HE": "ברבדוס"
+    "HE": "ברבדוס",
+    "slug": "barbados",
+    "callingCode": "1"
   },
   "bd": {
     "id": "bd",
@@ -880,7 +918,9 @@
     "TW": "孟加拉国",
     "UK": "Бангладеш",
     "VN": "Băng-la-đét",
-    "HE": "בנגלדש"
+    "HE": "בנגלדש",
+    "slug": "bangladesh",
+    "callingCode": "880"
   },
   "be": {
     "id": "be",
@@ -924,7 +964,9 @@
     "TW": "比利时",
     "UK": "Бельгія",
     "VN": "Bỉ",
-    "HE": "בלגיה"
+    "HE": "בלגיה",
+    "slug": "belgium",
+    "callingCode": "32"
   },
   "bf": {
     "id": "bf",
@@ -968,7 +1010,9 @@
     "TW": "布基纳法索",
     "UK": "Буркіна-Фасо",
     "VN": "Buốc-ki-na Pha-xô",
-    "HE": "בורקינה פאסו"
+    "HE": "בורקינה פאסו",
+    "slug": "burkina-faso",
+    "callingCode": "226"
   },
   "bg": {
     "id": "bg",
@@ -1012,7 +1056,9 @@
     "TW": "保加利亚",
     "UK": "Болгарія",
     "VN": "Bun-ga-ri",
-    "HE": "בולגריה"
+    "HE": "בולגריה",
+    "slug": "bulgaria",
+    "callingCode": "359"
   },
   "bh": {
     "id": "bh",
@@ -1056,7 +1102,9 @@
     "TW": "巴林",
     "UK": "Бахрейн",
     "VN": "Ba-ren",
-    "HE": "בחריין"
+    "HE": "בחריין",
+    "slug": "bahrain",
+    "callingCode": "973"
   },
   "bi": {
     "id": "bi",
@@ -1100,7 +1148,9 @@
     "TW": "布隆迪",
     "UK": "Бурунді",
     "VN": "Bu-run-đi",
-    "HE": "בורונדי"
+    "HE": "בורונדי",
+    "slug": "burundi",
+    "callingCode": "257"
   },
   "bj": {
     "id": "bj",
@@ -1144,7 +1194,9 @@
     "TW": "贝宁",
     "UK": "Бенін",
     "VN": "Bê-nanh",
-    "HE": "בנין"
+    "HE": "בנין",
+    "slug": "benin",
+    "callingCode": "229"
   },
   "bl": {
     "id": "bl",
@@ -1188,7 +1240,9 @@
     "TW": "圣巴泰勒米",
     "UK": "Острів Святого Бартоломея",
     "VN": "Saint Barthélemy",
-    "HE": "סנט ברתולומיאו"
+    "HE": "סנט ברתולומיאו",
+    "slug": "st-barthelemy",
+    "callingCode": "590"
   },
   "bm": {
     "id": "bm",
@@ -1232,7 +1286,9 @@
     "TW": "百慕大",
     "UK": "Бермуди",
     "VN": "Bermuda",
-    "HE": "ברמודה"
+    "HE": "ברמודה",
+    "slug": "bm",
+    "callingCode": "1"
   },
   "bn": {
     "id": "bn",
@@ -1276,7 +1332,9 @@
     "TW": "文莱",
     "UK": "Бруней",
     "VN": "Bru-nây",
-    "HE": "ברוניי"
+    "HE": "ברוניי",
+    "slug": "brunei",
+    "callingCode": "673"
   },
   "bo": {
     "id": "bo",
@@ -1320,7 +1378,9 @@
     "TW": "玻利维亚",
     "UK": "Болівія",
     "VN": "Bô-li-vi-a",
-    "HE": "בוליביה"
+    "HE": "בוליביה",
+    "slug": "bolivia",
+    "callingCode": "591"
   },
   "br": {
     "id": "br",
@@ -1364,7 +1424,9 @@
     "TW": "巴西",
     "UK": "Бразилія",
     "VN": "Bra-xin",
-    "HE": "ברזיל"
+    "HE": "ברזיל",
+    "slug": "brazil",
+    "callingCode": "55"
   },
   "bs": {
     "id": "bs",
@@ -1408,7 +1470,9 @@
     "TW": "巴哈马",
     "UK": "Багами",
     "VN": "Ba-ha-ma",
-    "HE": "איי בהאמה"
+    "HE": "איי בהאמה",
+    "slug": "bahamas",
+    "callingCode": "1"
   },
   "bt": {
     "id": "bt",
@@ -1452,7 +1516,9 @@
     "TW": "不丹",
     "UK": "Бутан",
     "VN": "Bu-tan (Bhutan)",
-    "HE": "בהוטן"
+    "HE": "בהוטן",
+    "slug": "bhutan",
+    "callingCode": "975"
   },
   "bv": {
     "id": "bv",
@@ -1496,7 +1562,9 @@
     "TW": "布维特岛",
     "UK": "Острів Буве",
     "VN": "Đảo Bouvet (Na Uy)",
-    "HE": "איי בובה"
+    "HE": "איי בובה",
+    "slug": "bulgaria",
+    "callingCode": ""
   },
   "bw": {
     "id": "bw",
@@ -1540,7 +1608,9 @@
     "TW": "博茨瓦纳",
     "UK": "Ботсвана",
     "VN": "Bốt-xoa-na",
-    "HE": "בוטסוואנה"
+    "HE": "בוטסוואנה",
+    "slug": "botswana",
+    "callingCode": "267"
   },
   "by": {
     "id": "by",
@@ -1584,7 +1654,9 @@
     "TW": "白俄罗斯",
     "UK": "Білорусь",
     "VN": "Bê-la-rút",
-    "HE": "בלארוס"
+    "HE": "בלארוס",
+    "slug": "belarus",
+    "callingCode": "375"
   },
   "bz": {
     "id": "bz",
@@ -1628,7 +1700,9 @@
     "TW": "伯利兹",
     "UK": "Беліз",
     "VN": "Bê-li-xê",
-    "HE": "בליז"
+    "HE": "בליז",
+    "slug": "belize",
+    "callingCode": "501"
   },
   "ca": {
     "id": "ca",
@@ -1672,7 +1746,9 @@
     "TW": "加拿大",
     "UK": "Канада",
     "VN": "Ca-na-đa",
-    "HE": "קנדה"
+    "HE": "קנדה",
+    "slug": "canada",
+    "callingCode": "1"
   },
   "cc": {
     "id": "cc",
@@ -1716,7 +1792,9 @@
     "TW": "科科斯群岛",
     "UK": "Кокосові острови",
     "VN": "Quần đảo Cocos",
-    "HE": "איי קוקוס"
+    "HE": "איי קוקוס",
+    "slug": "cocos-keeling-islands",
+    "callingCode": "61"
   },
   "cd": {
     "id": "cd",
@@ -1760,7 +1838,9 @@
     "TW": "刚果（金）",
     "UK": "Конґо - Кіншаса",
     "VN": "Cộng hoà dân chủ Côngô",
-    "HE": "קונגו - קינשאסה"
+    "HE": "קונגו - קינשאסה",
+    "slug": "congo-kinshasa",
+    "callingCode": "243"
   },
   "cf": {
     "id": "cf",
@@ -1804,7 +1884,9 @@
     "TW": "中非共和国",
     "UK": "Центральноафриканська Республіка",
     "VN": "Cộng hòa Trung Phi",
-    "HE": "הרפובליקה של מרכז אפריקה"
+    "HE": "הרפובליקה של מרכז אפריקה",
+    "slug": "central-african-republic",
+    "callingCode": "236"
   },
   "cg": {
     "id": "cg",
@@ -1848,7 +1930,9 @@
     "TW": "刚果（布）",
     "UK": "Конґо - Браззавіль",
     "VN": "Công-gô",
-    "HE": "קונגו - ברזאויל"
+    "HE": "קונגו - ברזאויל",
+    "slug": "congo-brazzaville",
+    "callingCode": "242"
   },
   "ch": {
     "id": "ch",
@@ -1892,7 +1976,9 @@
     "TW": "瑞士",
     "UK": "Швейцарія",
     "VN": "Thụy Sĩ",
-    "HE": "שווייץ"
+    "HE": "שווייץ",
+    "slug": "switzerland",
+    "callingCode": "41"
   },
   "ci": {
     "id": "ci",
@@ -1936,7 +2022,9 @@
     "TW": "科特迪瓦",
     "UK": "Кот д’Івуар",
     "VN": "Bờ Biển Ngà",
-    "HE": "חוף השנהב"
+    "HE": "חוף השנהב",
+    "slug": "cote-d-ivoire",
+    "callingCode": "225"
   },
   "ck": {
     "id": "ck",
@@ -1980,7 +2068,9 @@
     "TW": "库克群岛",
     "UK": "Острови Кука",
     "VN": "Quần Đảo Cook",
-    "HE": "איי קוק"
+    "HE": "איי קוק",
+    "slug": "cook-islands",
+    "callingCode": "682"
   },
   "cl": {
     "id": "cl",
@@ -2024,7 +2114,9 @@
     "TW": "智利",
     "UK": "Чилі",
     "VN": "Chi-lê",
-    "HE": "צ׳ילה"
+    "HE": "צ׳ילה",
+    "slug": "chile",
+    "callingCode": "56"
   },
   "cm": {
     "id": "cm",
@@ -2068,7 +2160,9 @@
     "TW": "喀麦隆",
     "UK": "Камерун",
     "VN": "Ca-mơ-run",
-    "HE": "קמרון"
+    "HE": "קמרון",
+    "slug": "cameroon",
+    "callingCode": "237"
   },
   "cn": {
     "id": "cn",
@@ -2112,7 +2206,9 @@
     "TW": "中国",
     "UK": "Китай",
     "VN": "Trung Quốc",
-    "HE": "סין"
+    "HE": "סין",
+    "slug": "china",
+    "callingCode": "86"
   },
   "co": {
     "id": "co",
@@ -2156,7 +2252,9 @@
     "TW": "哥伦比亚",
     "UK": "Колумбія",
     "VN": "Cô-lôm-bi-a",
-    "HE": "קולומביה"
+    "HE": "קולומביה",
+    "slug": "colombia",
+    "callingCode": "57"
   },
   "cr": {
     "id": "cr",
@@ -2200,7 +2298,9 @@
     "TW": "哥斯达黎加",
     "UK": "Коста-Рика",
     "VN": "Cốt-xta Ri-ca",
-    "HE": "קוסטה ריקה"
+    "HE": "קוסטה ריקה",
+    "slug": "costa-rica",
+    "callingCode": "506"
   },
   "cs": {
     "id": "cs",
@@ -2244,7 +2344,9 @@
     "TW": "塞尔维亚和黑山",
     "UK": "Сербія та Чорногорія",
     "VN": "Séc-bia",
-    "HE": "סרביה ומונטנגרו"
+    "HE": "סרביה ומונטנגרו",
+    "slug": "czechia",
+    "callingCode": "381"
   },
   "cv": {
     "id": "cv",
@@ -2288,7 +2390,9 @@
     "TW": "佛得角",
     "UK": "Кабо-Верде",
     "VN": "Cáp-ve",
-    "HE": "כף ורדה"
+    "HE": "כף ורדה",
+    "slug": "cape-verde",
+    "callingCode": "238"
   },
   "cx": {
     "id": "cx",
@@ -2332,7 +2436,9 @@
     "TW": "圣诞岛",
     "UK": "Острів Різдва",
     "VN": "Đảo Giáng Sinh",
-    "HE": "איי כריסטמס"
+    "HE": "איי כריסטמס",
+    "slug": "christmas-island",
+    "callingCode": "61"
   },
   "cy": {
     "id": "cy",
@@ -2376,7 +2482,9 @@
     "TW": "塞浦路斯",
     "UK": "Кіпр",
     "VN": "Síp",
-    "HE": "קפריסין"
+    "HE": "קפריסין",
+    "slug": "cyprus",
+    "callingCode": "357"
   },
   "cz": {
     "id": "cz",
@@ -2420,7 +2528,9 @@
     "TW": "捷克共和国",
     "UK": "Чеська республіка",
     "VN": "Cộng hòa Séc",
-    "HE": "צ׳כיה"
+    "HE": "צ׳כיה",
+    "slug": "czechia",
+    "callingCode": "420"
   },
   "de": {
     "id": "de",
@@ -2464,7 +2574,9 @@
     "TW": "德国",
     "UK": "Німеччина",
     "VN": "Đức",
-    "HE": "גרמניה"
+    "HE": "גרמניה",
+    "slug": "germany",
+    "callingCode": "49"
   },
   "dj": {
     "id": "dj",
@@ -2508,7 +2620,9 @@
     "TW": "吉布提",
     "UK": "Джібуті",
     "VN": "Gi-bu-ti",
-    "HE": "ג׳יבוטי"
+    "HE": "ג׳יבוטי",
+    "slug": "djibouti",
+    "callingCode": "253"
   },
   "dk": {
     "id": "dk",
@@ -2552,7 +2666,9 @@
     "TW": "丹麦",
     "UK": "Данія",
     "VN": "Đan Mạch",
-    "HE": "דנמרק"
+    "HE": "דנמרק",
+    "slug": "denmark",
+    "callingCode": "45"
   },
   "dm": {
     "id": "dm",
@@ -2596,7 +2712,9 @@
     "TW": "多米尼加",
     "UK": "Домінік",
     "VN": "Dominica",
-    "HE": "דומיניקה"
+    "HE": "דומיניקה",
+    "slug": "dominica",
+    "callingCode": "1"
   },
   "do": {
     "id": "do",
@@ -2640,7 +2758,9 @@
     "TW": "多米尼加共和国",
     "UK": "Домініканська Республіка",
     "VN": "Cộng hoà Đô-mi-ni-ca",
-    "HE": "הרפובליקה הדומיניקנית"
+    "HE": "הרפובליקה הדומיניקנית",
+    "slug": "dominican-republic",
+    "callingCode": "1"
   },
   "dz": {
     "id": "dz",
@@ -2684,7 +2804,9 @@
     "TW": "阿尔及利亚",
     "UK": "Алжир",
     "VN": "An-giê-ri",
-    "HE": "אלג׳יריה"
+    "HE": "אלג׳יריה",
+    "slug": "algeria",
+    "callingCode": "213"
   },
   "ec": {
     "id": "ec",
@@ -2728,7 +2850,9 @@
     "TW": "厄瓜多尔",
     "UK": "Еквадор",
     "VN": "Ê-cu-a-đo",
-    "HE": "אקוודור"
+    "HE": "אקוודור",
+    "slug": "ecuador",
+    "callingCode": "593"
   },
   "ee": {
     "id": "ee",
@@ -2772,7 +2896,9 @@
     "TW": "爱沙尼亚",
     "UK": "Естонія",
     "VN": "E-xtô-ni-a",
-    "HE": "אסטוניה"
+    "HE": "אסטוניה",
+    "slug": "estonia",
+    "callingCode": "372"
   },
   "eg": {
     "id": "eg",
@@ -2816,7 +2942,9 @@
     "TW": "埃及",
     "UK": "Єгипет",
     "VN": "Ai Cập",
-    "HE": "מצרים"
+    "HE": "מצרים",
+    "slug": "egypt",
+    "callingCode": "20"
   },
   "eh": {
     "id": "eh",
@@ -2860,7 +2988,9 @@
     "TW": "西撒哈拉",
     "UK": "Західна Сахара",
     "VN": "Tây Sahara",
-    "HE": "סהרה המערבית"
+    "HE": "סהרה המערבית",
+    "slug": "haiti",
+    "callingCode": "212"
   },
   "er": {
     "id": "er",
@@ -2904,7 +3034,9 @@
     "TW": "厄立特里亚",
     "UK": "Еритрея",
     "VN": "Ê-ri-tơ-rê-a",
-    "HE": "אריתראה"
+    "HE": "אריתראה",
+    "slug": "eritrea",
+    "callingCode": "291"
   },
   "es": {
     "id": "es",
@@ -2948,7 +3080,9 @@
     "TW": "西班牙",
     "UK": "Іспанія",
     "VN": "Tây Ban Nha",
-    "HE": "ספרד"
+    "HE": "ספרד",
+    "slug": "spain",
+    "callingCode": "34"
   },
   "et": {
     "id": "et",
@@ -2992,7 +3126,9 @@
     "TW": "埃塞俄比亚",
     "UK": "Ефіопія",
     "VN": "Ê-ti-ô-pi-a",
-    "HE": "אתיופיה"
+    "HE": "אתיופיה",
+    "slug": "ethiopia",
+    "callingCode": "251"
   },
   "fi": {
     "id": "fi",
@@ -3036,7 +3172,9 @@
     "TW": "芬兰",
     "UK": "Фінляндія",
     "VN": "Phần Lan",
-    "HE": "פינלנד"
+    "HE": "פינלנד",
+    "slug": "finland",
+    "callingCode": "358"
   },
   "fj": {
     "id": "fj",
@@ -3080,7 +3218,9 @@
     "TW": "斐济",
     "UK": "Фіджі",
     "VN": "Phi-gi",
-    "HE": "פיג׳י"
+    "HE": "פיג׳י",
+    "slug": "fiji",
+    "callingCode": "679"
   },
   "fk": {
     "id": "fk",
@@ -3124,7 +3264,9 @@
     "TW": "福克兰群岛",
     "UK": "Фолклендські острови",
     "VN": "Quần Đảo Falkland",
-    "HE": "איי פוקלנד"
+    "HE": "איי פוקלנד",
+    "slug": "falkland-islands-islas-malvinas-",
+    "callingCode": "500"
   },
   "fm": {
     "id": "fm",
@@ -3168,7 +3310,9 @@
     "TW": "密克罗尼西亚联邦",
     "UK": "Мікронезія",
     "VN": "Mi-crô-nê-xi-a",
-    "HE": "מיקרונזיה"
+    "HE": "מיקרונזיה",
+    "slug": "micronesia",
+    "callingCode": "691"
   },
   "fo": {
     "id": "fo",
@@ -3212,7 +3356,9 @@
     "TW": "法罗群岛",
     "UK": "Фарерські острови",
     "VN": "Quần Đảo Faroe",
-    "HE": "איי פארו"
+    "HE": "איי פארו",
+    "slug": "faroe-islands",
+    "callingCode": "298"
   },
   "fr": {
     "id": "fr",
@@ -3256,7 +3402,9 @@
     "TW": "法国",
     "UK": "Франція",
     "VN": "Pháp",
-    "HE": "צרפת"
+    "HE": "צרפת",
+    "slug": "france",
+    "callingCode": "33"
   },
   "ga": {
     "id": "ga",
@@ -3300,7 +3448,9 @@
     "TW": "加蓬",
     "UK": "Габон",
     "VN": "Ga-bông",
-    "HE": "גאבון"
+    "HE": "גאבון",
+    "slug": "gabon",
+    "callingCode": "241"
   },
   "gb": {
     "id": "gb",
@@ -3344,7 +3494,9 @@
     "TW": "英国",
     "UK": "Великобританія",
     "VN": "Vương quốc Anh",
-    "HE": "בריטניה"
+    "HE": "בריטניה",
+    "slug": "united-kingdom",
+    "callingCode": "44"
   },
   "gd": {
     "id": "gd",
@@ -3388,7 +3540,9 @@
     "TW": "格林纳达",
     "UK": "Гренада",
     "VN": "Grê-na-đa",
-    "HE": "גרנדה"
+    "HE": "גרנדה",
+    "slug": "grenada",
+    "callingCode": "1"
   },
   "ge": {
     "id": "ge",
@@ -3432,7 +3586,9 @@
     "TW": "格鲁吉亚",
     "UK": "Грузія",
     "VN": "Gru-di-a",
-    "HE": "גאורגיה"
+    "HE": "גאורגיה",
+    "slug": "georgia",
+    "callingCode": "995"
   },
   "gf": {
     "id": "gf",
@@ -3476,7 +3632,9 @@
     "TW": "法属圭亚那",
     "UK": "Французька Гвіана",
     "VN": "Quiana thuộc Pháp",
-    "HE": "גיאנה הצרפתית"
+    "HE": "גיאנה הצרפתית",
+    "slug": "gf",
+    "callingCode": "594"
   },
   "gg": {
     "id": "gg",
@@ -3520,7 +3678,9 @@
     "TW": "格恩西岛",
     "UK": "Гернсі",
     "VN": "Guernsey",
-    "HE": "גרנסי"
+    "HE": "גרנסי",
+    "slug": "guernsey",
+    "callingCode": "44"
   },
   "gh": {
     "id": "gh",
@@ -3564,7 +3724,9 @@
     "TW": "加纳",
     "UK": "Гана",
     "VN": "Gha-na",
-    "HE": "גאנה"
+    "HE": "גאנה",
+    "slug": "ghana",
+    "callingCode": "233"
   },
   "gi": {
     "id": "gi",
@@ -3608,7 +3770,9 @@
     "TW": "直布罗陀",
     "UK": "Гібралтар",
     "VN": "Gibraltar",
-    "HE": "גיברלטר"
+    "HE": "גיברלטר",
+    "slug": "gibraltar",
+    "callingCode": "350"
   },
   "gl": {
     "id": "gl",
@@ -3652,7 +3816,9 @@
     "TW": "格陵兰",
     "UK": "Гренландія",
     "VN": "Băng Đảo",
-    "HE": "גרינלנד"
+    "HE": "גרינלנד",
+    "slug": "greenland",
+    "callingCode": "299"
   },
   "gm": {
     "id": "gm",
@@ -3696,7 +3862,9 @@
     "TW": "冈比亚",
     "UK": "Гамбія",
     "VN": "Găm-bi-a",
-    "HE": "גמביה"
+    "HE": "גמביה",
+    "slug": "gambia",
+    "callingCode": "220"
   },
   "gn": {
     "id": "gn",
@@ -3740,7 +3908,9 @@
     "TW": "几内亚",
     "UK": "Гвінея",
     "VN": "Ghi-nê",
-    "HE": "גיניאה"
+    "HE": "גיניאה",
+    "slug": "guinea",
+    "callingCode": "224"
   },
   "gp": {
     "id": "gp",
@@ -3784,7 +3954,9 @@
     "TW": "瓜德罗普岛",
     "UK": "Гваделупа",
     "VN": "Guadeloupe",
-    "HE": "גוואדלופ"
+    "HE": "גוואדלופ",
+    "slug": "gp",
+    "callingCode": "590"
   },
   "gq": {
     "id": "gq",
@@ -3828,7 +4000,9 @@
     "TW": "赤道几内亚",
     "UK": "Екваторіальна Гвінея",
     "VN": "Ghi-nê Xích-đạo",
-    "HE": "גיניאה המשוונית"
+    "HE": "גיניאה המשוונית",
+    "slug": "equatorial-guinea",
+    "callingCode": "240"
   },
   "gr": {
     "id": "gr",
@@ -3872,7 +4046,9 @@
     "TW": "希腊",
     "UK": "Греція",
     "VN": "Hy Lạp",
-    "HE": "יוון"
+    "HE": "יוון",
+    "slug": "greece",
+    "callingCode": "30"
   },
   "gs": {
     "id": "gs",
@@ -3916,7 +4092,9 @@
     "TW": "南乔治亚岛和南桑威齐群岛",
     "UK": "Південна Джорджія та Південні Сандвічеві Острови",
     "VN": "Quần đảo Nam Georgia và Nam Sandwich",
-    "HE": "ג׳ורג׳יה הדרומית ואיי סנדוויץ׳ הדרומיים"
+    "HE": "ג׳ורג׳יה הדרומית ואיי סנדוויץ׳ הדרומיים",
+    "slug": "gs",
+    "callingCode": "500"
   },
   "gt": {
     "id": "gt",
@@ -3960,7 +4138,9 @@
     "TW": "危地马拉",
     "UK": "Гватемала",
     "VN": "Goa-tê-ma-la",
-    "HE": "גואטמלה"
+    "HE": "גואטמלה",
+    "slug": "guatemala",
+    "callingCode": "502"
   },
   "gu": {
     "id": "gu",
@@ -4004,7 +4184,9 @@
     "TW": "关岛",
     "UK": "Гуам",
     "VN": "Đảo Gu-am",
-    "HE": "גואם"
+    "HE": "גואם",
+    "slug": "guatemala",
+    "callingCode": "1"
   },
   "gw": {
     "id": "gw",
@@ -4048,7 +4230,9 @@
     "TW": "几内亚比绍",
     "UK": "Гвінея-Біссау",
     "VN": "Ghi-nê Bít-xao",
-    "HE": "גיניאה-ביסאו"
+    "HE": "גיניאה-ביסאו",
+    "slug": "guinea-bissau",
+    "callingCode": "245"
   },
   "gy": {
     "id": "gy",
@@ -4092,7 +4276,9 @@
     "TW": "圭亚那",
     "UK": "Гайана",
     "VN": "Guy-a-na",
-    "HE": "גיאנה"
+    "HE": "גיאנה",
+    "slug": "guyana",
+    "callingCode": "592"
   },
   "hk": {
     "id": "hk",
@@ -4136,7 +4322,9 @@
     "TW": "中国香港特别行政区",
     "UK": "Гонконґ О.А.Р. Китаю",
     "VN": "Đặc khu hành chính Hồng Kông thuộc CHND Trung Hoa",
-    "HE": "הונג קונג (מחוז מנהלי מיוחד של סין)"
+    "HE": "הונג קונג (מחוז מנהלי מיוחד של סין)",
+    "slug": "papua-new-guinea",
+    "callingCode": "852"
   },
   "hm": {
     "id": "hm",
@@ -4180,7 +4368,9 @@
     "TW": "赫德与麦克唐纳群岛",
     "UK": "Острови Херд і Мак-Дональд",
     "VN": "Đảo Heard và Quần đảo McDonald",
-    "HE": "איי הרד ואיי מקדונלנד"
+    "HE": "איי הרד ואיי מקדונלנד",
+    "slug": "united-kingdom",
+    "callingCode": ""
   },
   "hn": {
     "id": "hn",
@@ -4224,7 +4414,9 @@
     "TW": "洪都拉斯",
     "UK": "Гондурас",
     "VN": "Hôn-đu-rát",
-    "HE": "הונדורס"
+    "HE": "הונדורס",
+    "slug": "honduras",
+    "callingCode": "504"
   },
   "hr": {
     "id": "hr",
@@ -4268,7 +4460,9 @@
     "TW": "克罗地亚",
     "UK": "Хорватія",
     "VN": "Crô-a-ti-a",
-    "HE": "קרואטיה"
+    "HE": "קרואטיה",
+    "slug": "croatia",
+    "callingCode": "385"
   },
   "ht": {
     "id": "ht",
@@ -4312,7 +4506,9 @@
     "TW": "海地",
     "UK": "Гаїті",
     "VN": "Ha-i-ti",
-    "HE": "האיטי"
+    "HE": "האיטי",
+    "slug": "haiti",
+    "callingCode": "509"
   },
   "hu": {
     "id": "hu",
@@ -4356,7 +4552,9 @@
     "TW": "匈牙利",
     "UK": "Угорщина",
     "VN": "Hung-ga-ri",
-    "HE": "הונגריה"
+    "HE": "הונגריה",
+    "slug": "hungary",
+    "callingCode": "36"
   },
   "id": {
     "id": "id",
@@ -4400,7 +4598,9 @@
     "TW": "印度尼西亚",
     "UK": "Індонезія",
     "VN": "Nam Dương",
-    "HE": "אינדונזיה"
+    "HE": "אינדונזיה",
+    "slug": "indonesia",
+    "callingCode": "62"
   },
   "ie": {
     "id": "ie",
@@ -4444,7 +4644,9 @@
     "TW": "爱尔兰",
     "UK": "Ірландія",
     "VN": "Ai-len",
-    "HE": "אירלנד"
+    "HE": "אירלנד",
+    "slug": "ireland",
+    "callingCode": "353"
   },
   "il": {
     "id": "il",
@@ -4488,7 +4690,9 @@
     "TW": "以色列",
     "UK": "Ізраїль",
     "VN": "I-xra-en",
-    "HE": "ישראל"
+    "HE": "ישראל",
+    "slug": "israel",
+    "callingCode": "972"
   },
   "im": {
     "id": "im",
@@ -4532,7 +4736,9 @@
     "TW": "曼岛",
     "UK": "Острів Мен",
     "VN": "Đảo Man",
-    "HE": "האי מאן"
+    "HE": "האי מאן",
+    "slug": "isle-of-man",
+    "callingCode": "44"
   },
   "in": {
     "id": "in",
@@ -4576,7 +4782,9 @@
     "TW": "印度",
     "UK": "Індія",
     "VN": "Ấn Độ",
-    "HE": "הודו"
+    "HE": "הודו",
+    "slug": "india",
+    "callingCode": "91"
   },
   "io": {
     "id": "io",
@@ -4620,7 +4828,9 @@
     "TW": "英属印度洋领地",
     "UK": "Британські території Індійського океану",
     "VN": "Thuộc địa Anh tại Ấn Độ Dương",
-    "HE": "טריטוריה בריטית באוקיאנוס ההודי"
+    "HE": "טריטוריה בריטית באוקיאנוס ההודי",
+    "slug": "jordan",
+    "callingCode": "246"
   },
   "iq": {
     "id": "iq",
@@ -4664,7 +4874,9 @@
     "TW": "伊拉克",
     "UK": "Ірак",
     "VN": "I-rắc",
-    "HE": "עיראק"
+    "HE": "עיראק",
+    "slug": "iraq",
+    "callingCode": "964"
   },
   "ir": {
     "id": "ir",
@@ -4708,7 +4920,9 @@
     "TW": "伊朗",
     "UK": "Іран",
     "VN": "I-ran",
-    "HE": "איראן"
+    "HE": "איראן",
+    "slug": "iran",
+    "callingCode": "98"
   },
   "is": {
     "id": "is",
@@ -4752,7 +4966,9 @@
     "TW": "冰岛",
     "UK": "Ісландія",
     "VN": "Ai-xơ-len",
-    "HE": "איסלנד"
+    "HE": "איסלנד",
+    "slug": "iceland",
+    "callingCode": "354"
   },
   "it": {
     "id": "it",
@@ -4796,7 +5012,9 @@
     "TW": "意大利",
     "UK": "Італія",
     "VN": "Ý",
-    "HE": "איטליה"
+    "HE": "איטליה",
+    "slug": "italy",
+    "callingCode": "39"
   },
   "je": {
     "id": "je",
@@ -4840,7 +5058,9 @@
     "TW": "泽西岛",
     "UK": "Джерсі",
     "VN": "Jersey",
-    "HE": "ג'רסי"
+    "HE": "ג'רסי",
+    "slug": "jersey",
+    "callingCode": "44"
   },
   "jm": {
     "id": "jm",
@@ -4884,7 +5104,9 @@
     "TW": "牙买加",
     "UK": "Ямайка",
     "VN": "Ha-mai-ca",
-    "HE": "ג׳מייקה"
+    "HE": "ג׳מייקה",
+    "slug": "jamaica",
+    "callingCode": "1"
   },
   "jo": {
     "id": "jo",
@@ -4928,7 +5150,9 @@
     "TW": "约旦",
     "UK": "Йорданія",
     "VN": "Gióc-đa-ni",
-    "HE": "ירדן"
+    "HE": "ירדן",
+    "slug": "jordan",
+    "callingCode": "962"
   },
   "jp": {
     "id": "jp",
@@ -4972,7 +5196,9 @@
     "TW": "日本",
     "UK": "Японія",
     "VN": "Nhật Bản",
-    "HE": "יפן"
+    "HE": "יפן",
+    "slug": "japan",
+    "callingCode": "81"
   },
   "ke": {
     "id": "ke",
@@ -5016,7 +5242,9 @@
     "TW": "肯尼亚",
     "UK": "Кенія",
     "VN": "Kê-ni-a",
-    "HE": "קניה"
+    "HE": "קניה",
+    "slug": "kenya",
+    "callingCode": "254"
   },
   "kg": {
     "id": "kg",
@@ -5060,7 +5288,9 @@
     "TW": "吉尔吉斯斯坦",
     "UK": "Киргизстан",
     "VN": "Cư-rơ-gư-xtan",
-    "HE": "קירגיזסטן"
+    "HE": "קירגיזסטן",
+    "slug": "kyrgyzstan",
+    "callingCode": "996"
   },
   "kh": {
     "id": "kh",
@@ -5104,7 +5334,9 @@
     "TW": "柬埔寨",
     "UK": "Камбоджа",
     "VN": "Campuchia",
-    "HE": "קמבודיה"
+    "HE": "קמבודיה",
+    "slug": "cambodia",
+    "callingCode": "855"
   },
   "ki": {
     "id": "ki",
@@ -5148,7 +5380,9 @@
     "TW": "基里巴斯",
     "UK": "Кірибаті",
     "VN": "Ki-ri-ba-ti",
-    "HE": "קיריבאטי"
+    "HE": "קיריבאטי",
+    "slug": "kiribati",
+    "callingCode": "686"
   },
   "km": {
     "id": "km",
@@ -5192,7 +5426,9 @@
     "TW": "科摩罗",
     "UK": "Коморські Острови",
     "VN": "Cô-mô",
-    "HE": "קומורוס"
+    "HE": "קומורוס",
+    "slug": "comoros",
+    "callingCode": "269"
   },
   "kn": {
     "id": "kn",
@@ -5236,7 +5472,9 @@
     "TW": "圣基茨和尼维斯",
     "UK": "Сент-Кітс і Невіс",
     "VN": "Xan-kít và Nê-vi",
-    "HE": "סנט קיטס ונוויס"
+    "HE": "סנט קיטס ונוויס",
+    "slug": "st-kitts-and-nevis",
+    "callingCode": "1"
   },
   "kp": {
     "id": "kp",
@@ -5280,7 +5518,9 @@
     "TW": "朝鲜",
     "UK": "Північна Корея",
     "VN": "Bắc Triều Tiên",
-    "HE": "צפון קוריאה"
+    "HE": "צפון קוריאה",
+    "slug": "north-korea",
+    "callingCode": "850"
   },
   "kr": {
     "id": "kr",
@@ -5324,7 +5564,9 @@
     "TW": "韩国",
     "UK": "Південна Корея",
     "VN": "Hàn Quốc",
-    "HE": "דרום קוריאה"
+    "HE": "דרום קוריאה",
+    "slug": "south-korea",
+    "callingCode": "82"
   },
   "kw": {
     "id": "kw",
@@ -5368,7 +5610,9 @@
     "TW": "科威特",
     "UK": "Кувейт",
     "VN": "Cô-oét",
-    "HE": "כווית"
+    "HE": "כווית",
+    "slug": "kuwait",
+    "callingCode": "965"
   },
   "ky": {
     "id": "ky",
@@ -5412,7 +5656,9 @@
     "TW": "开曼群岛",
     "UK": "Кайманові острови",
     "VN": "Quần Đảo Cayman",
-    "HE": "איי קיימן"
+    "HE": "איי קיימן",
+    "slug": "cayman-islands",
+    "callingCode": "1"
   },
   "kz": {
     "id": "kz",
@@ -5459,7 +5705,9 @@
     "TW": "哈萨克斯坦",
     "UK": "Казахстан",
     "VN": "Ka-dắc-xtan",
-    "HE": "קזחסטן"
+    "HE": "קזחסטן",
+    "slug": "kazakhstan",
+    "callingCode": "7"
   },
   "la": {
     "id": "la",
@@ -5503,7 +5751,9 @@
     "TW": "老挝人民民主共和国",
     "UK": "Лаос",
     "VN": "Lào",
-    "HE": "לאוס"
+    "HE": "לאוס",
+    "slug": "laos",
+    "callingCode": "856"
   },
   "lb": {
     "id": "lb",
@@ -5547,7 +5797,9 @@
     "TW": "黎巴嫩",
     "UK": "Ліван",
     "VN": "Li-băng",
-    "HE": "לבנון"
+    "HE": "לבנון",
+    "slug": "lebanon",
+    "callingCode": "961"
   },
   "lc": {
     "id": "lc",
@@ -5591,7 +5843,9 @@
     "TW": "圣卢西亚",
     "UK": "Сент-Люсія",
     "VN": "Xan Lu-xi",
-    "HE": "סנט לוסיה"
+    "HE": "סנט לוסיה",
+    "slug": "st-lucia",
+    "callingCode": "1"
   },
   "li": {
     "id": "li",
@@ -5635,7 +5889,9 @@
     "TW": "列支敦士登",
     "UK": "Ліхтенштейн",
     "VN": "Lich-ten-xtên",
-    "HE": "ליכטנשטיין"
+    "HE": "ליכטנשטיין",
+    "slug": "liechtenstein",
+    "callingCode": "423"
   },
   "lk": {
     "id": "lk",
@@ -5679,7 +5935,9 @@
     "TW": "斯里兰卡",
     "UK": "Шрі-Ланка",
     "VN": "Xri Lan-ca",
-    "HE": "סרי לנקה"
+    "HE": "סרי לנקה",
+    "slug": "sri-lanka",
+    "callingCode": "94"
   },
   "lr": {
     "id": "lr",
@@ -5723,7 +5981,9 @@
     "TW": "利比里亚",
     "UK": "Ліберія",
     "VN": "Li-bê-ri-a",
-    "HE": "ליבריה"
+    "HE": "ליבריה",
+    "slug": "liberia",
+    "callingCode": "231"
   },
   "ls": {
     "id": "ls",
@@ -5767,7 +6027,9 @@
     "TW": "莱索托",
     "UK": "Лесото",
     "VN": "Lê-xô-thô",
-    "HE": "לסוטו"
+    "HE": "לסוטו",
+    "slug": "lesotho",
+    "callingCode": "266"
   },
   "lt": {
     "id": "lt",
@@ -5811,7 +6073,9 @@
     "TW": "立陶宛",
     "UK": "Литва",
     "VN": "Li-tu-a-ni-a",
-    "HE": "ליטא"
+    "HE": "ליטא",
+    "slug": "lithuania",
+    "callingCode": "370"
   },
   "lu": {
     "id": "lu",
@@ -5855,7 +6119,9 @@
     "TW": "卢森堡",
     "UK": "Люксембург",
     "VN": "Lúc-xăm-bua",
-    "HE": "לוקסמבורג"
+    "HE": "לוקסמבורג",
+    "slug": "luxembourg",
+    "callingCode": "352"
   },
   "lv": {
     "id": "lv",
@@ -5899,7 +6165,9 @@
     "TW": "拉脱维亚",
     "UK": "Латвія",
     "VN": "Lát-vi-a",
-    "HE": "לטביה"
+    "HE": "לטביה",
+    "slug": "latvia",
+    "callingCode": "371"
   },
   "ly": {
     "id": "ly",
@@ -5943,7 +6211,9 @@
     "TW": "利比亚",
     "UK": "Лівія",
     "VN": "Li-bi",
-    "HE": "לוב"
+    "HE": "לוב",
+    "slug": "libya",
+    "callingCode": "218"
   },
   "ma": {
     "id": "ma",
@@ -5987,7 +6257,9 @@
     "TW": "摩洛哥",
     "UK": "Марокко",
     "VN": "Ma-rốc",
-    "HE": "מרוקו"
+    "HE": "מרוקו",
+    "slug": "morocco",
+    "callingCode": "212"
   },
   "mc": {
     "id": "mc",
@@ -6031,7 +6303,9 @@
     "TW": "摩纳哥",
     "UK": "Монако",
     "VN": "Mô-na-cô",
-    "HE": "מונקו"
+    "HE": "מונקו",
+    "slug": "monaco",
+    "callingCode": "377"
   },
   "md": {
     "id": "md",
@@ -6075,7 +6349,9 @@
     "TW": "摩尔多瓦",
     "UK": "Молдова",
     "VN": "Môn-đô-va",
-    "HE": "מולדובה"
+    "HE": "מולדובה",
+    "slug": "moldova",
+    "callingCode": "373"
   },
   "me": {
     "id": "me",
@@ -6119,7 +6395,9 @@
     "TW": "黑山共和国",
     "UK": "Чорногорія",
     "VN": "Montenegro",
-    "HE": "מונטנגרו"
+    "HE": "מונטנגרו",
+    "slug": "montenegro",
+    "callingCode": "382"
   },
   "mf": {
     "id": "mf",
@@ -6163,7 +6441,9 @@
     "TW": "圣马丁",
     "UK": "Острів Святого Мартіна",
     "VN": "Saint Martin",
-    "HE": "סנט מרטין"
+    "HE": "סנט מרטין",
+    "slug": "st-martin",
+    "callingCode": "590"
   },
   "mg": {
     "id": "mg",
@@ -6207,7 +6487,9 @@
     "TW": "马达加斯加",
     "UK": "Мадагаскар",
     "VN": "Ma-đa-gát-xca",
-    "HE": "מדגסקר"
+    "HE": "מדגסקר",
+    "slug": "madagascar",
+    "callingCode": "261"
   },
   "mh": {
     "id": "mh",
@@ -6251,7 +6533,9 @@
     "TW": "马绍尔群岛",
     "UK": "Маршаллові Острови",
     "VN": "Quần đảo Mác-san",
-    "HE": "איי מרשל"
+    "HE": "איי מרשל",
+    "slug": "marshall-islands",
+    "callingCode": "692"
   },
   "mk": {
     "id": "mk",
@@ -6295,7 +6579,9 @@
     "TW": "马其顿",
     "UK": "Македонія",
     "VN": "Ma-xê-đô-ni-a",
-    "HE": "מקדוניה"
+    "HE": "מקדוניה",
+    "slug": "macedonia-fyrom-",
+    "callingCode": "389"
   },
   "ml": {
     "id": "ml",
@@ -6339,7 +6625,9 @@
     "TW": "马里",
     "UK": "Малі",
     "VN": "Ma-li",
-    "HE": "מאלי"
+    "HE": "מאלי",
+    "slug": "mali",
+    "callingCode": "223"
   },
   "mm": {
     "id": "mm",
@@ -6383,7 +6671,9 @@
     "TW": "缅甸",
     "UK": "Мʼянма [Бірма]",
     "VN": "Mi-an-ma",
-    "HE": "מייאנמאר"
+    "HE": "מייאנמאר",
+    "slug": "myanmar-burma-",
+    "callingCode": "95"
   },
   "mn": {
     "id": "mn",
@@ -6427,7 +6717,9 @@
     "TW": "蒙古",
     "UK": "Монголія",
     "VN": "Mông Cổ",
-    "HE": "מונגוליה"
+    "HE": "מונגוליה",
+    "slug": "mongolia",
+    "callingCode": "976"
   },
   "mo": {
     "id": "mo",
@@ -6471,7 +6763,9 @@
     "TW": "中国澳门特别行政区",
     "UK": "Макао О.А.Р. Китаю",
     "VN": "Đặc khu hành chính Macao thuộc CHND Trung Hoa",
-    "HE": "מקאו (מחוז מנהלי מיוחד של סין)"
+    "HE": "מקאו (מחוז מנהלי מיוחד של סין)",
+    "slug": "morocco",
+    "callingCode": "853"
   },
   "mp": {
     "id": "mp",
@@ -6515,7 +6809,9 @@
     "TW": "北马里亚纳群岛",
     "UK": "Північні Маріанські Острови",
     "VN": "Quần Đảo Bắc Mariana",
-    "HE": "איי מריאנה הצפוניים"
+    "HE": "איי מריאנה הצפוניים",
+    "slug": "bangladesh",
+    "callingCode": "1"
   },
   "mq": {
     "id": "mq",
@@ -6559,7 +6855,9 @@
     "TW": "马提尼克群岛",
     "UK": "Мартиніка",
     "VN": "Martinique",
-    "HE": "מרטיניק"
+    "HE": "מרטיניק",
+    "slug": "mexico",
+    "callingCode": "596"
   },
   "mr": {
     "id": "mr",
@@ -6603,7 +6901,9 @@
     "TW": "毛里塔尼亚",
     "UK": "Мавританія",
     "VN": "Mô-ri-ta-ni",
-    "HE": "מאוריטניה"
+    "HE": "מאוריטניה",
+    "slug": "mauritania",
+    "callingCode": "222"
   },
   "ms": {
     "id": "ms",
@@ -6647,7 +6947,9 @@
     "TW": "蒙塞拉特群岛",
     "UK": "Монсеррат",
     "VN": "Montserrat",
-    "HE": "מונסראט"
+    "HE": "מונסראט",
+    "slug": "egypt",
+    "callingCode": "1"
   },
   "mt": {
     "id": "mt",
@@ -6691,7 +6993,9 @@
     "TW": "马耳他",
     "UK": "Мальта",
     "VN": "Man-ta",
-    "HE": "מלטה"
+    "HE": "מלטה",
+    "slug": "malta",
+    "callingCode": "356"
   },
   "mu": {
     "id": "mu",
@@ -6735,7 +7039,9 @@
     "TW": "毛里求斯",
     "UK": "Маврикій",
     "VN": "Mô-ri-xơ",
-    "HE": "מאוריציוס"
+    "HE": "מאוריציוס",
+    "slug": "mauritius",
+    "callingCode": "230"
   },
   "mv": {
     "id": "mv",
@@ -6779,7 +7085,9 @@
     "TW": "马尔代夫",
     "UK": "Мальдіви",
     "VN": "Man-đi-vơ",
-    "HE": "מלדיבים"
+    "HE": "מלדיבים",
+    "slug": "maldives",
+    "callingCode": "960"
   },
   "mw": {
     "id": "mw",
@@ -6823,7 +7131,9 @@
     "TW": "马拉维",
     "UK": "Малаві",
     "VN": "Ma-la-uy",
-    "HE": "מלאווי"
+    "HE": "מלאווי",
+    "slug": "malawi",
+    "callingCode": "265"
   },
   "mx": {
     "id": "mx",
@@ -6867,7 +7177,9 @@
     "TW": "墨西哥",
     "UK": "Мексика",
     "VN": "Mê-hi-cô",
-    "HE": "מקסיקו"
+    "HE": "מקסיקו",
+    "slug": "mexico",
+    "callingCode": "52"
   },
   "my": {
     "id": "my",
@@ -6911,7 +7223,9 @@
     "TW": "马来西亚",
     "UK": "Малайзія",
     "VN": "Ma-lay-xi-a",
-    "HE": "מלזיה"
+    "HE": "מלזיה",
+    "slug": "malaysia",
+    "callingCode": "60"
   },
   "mz": {
     "id": "mz",
@@ -6955,7 +7269,9 @@
     "TW": "莫桑比克",
     "UK": "Мозамбік",
     "VN": "Mô-dăm-bích",
-    "HE": "מוזמביק"
+    "HE": "מוזמביק",
+    "slug": "mozambique",
+    "callingCode": "258"
   },
   "na": {
     "id": "na",
@@ -6999,7 +7315,9 @@
     "TW": "纳米比亚",
     "UK": "Намібія",
     "VN": "Nam-mi-bi-a",
-    "HE": "נמיביה"
+    "HE": "נמיביה",
+    "slug": "namibia",
+    "callingCode": "264"
   },
   "nc": {
     "id": "nc",
@@ -7043,7 +7361,9 @@
     "TW": "新喀里多尼亚",
     "UK": "Нова Каледонія",
     "VN": "New Caledonia",
-    "HE": "קלדוניה החדשה"
+    "HE": "קלדוניה החדשה",
+    "slug": "new-caledonia",
+    "callingCode": "687"
   },
   "ne": {
     "id": "ne",
@@ -7087,7 +7407,9 @@
     "TW": "尼日尔",
     "UK": "Нігер",
     "VN": "Ni-giê",
-    "HE": "ניז׳ר"
+    "HE": "ניז׳ר",
+    "slug": "niger",
+    "callingCode": "227"
   },
   "nf": {
     "id": "nf",
@@ -7131,7 +7453,9 @@
     "TW": "诺福克岛",
     "UK": "Острів Норфолк",
     "VN": "Đảo Norfolk",
-    "HE": "איי נורפוק"
+    "HE": "איי נורפוק",
+    "slug": "norfolk-island",
+    "callingCode": "672"
   },
   "ng": {
     "id": "ng",
@@ -7175,7 +7499,9 @@
     "TW": "尼日利亚",
     "UK": "Нігерія",
     "VN": "Ni-giê-ri-a",
-    "HE": "ניגריה"
+    "HE": "ניגריה",
+    "slug": "nigeria",
+    "callingCode": "234"
   },
   "ni": {
     "id": "ni",
@@ -7219,7 +7545,9 @@
     "TW": "尼加拉瓜",
     "UK": "Нікарагуа",
     "VN": "Ni-ca-ra-goa",
-    "HE": "ניקרגואה"
+    "HE": "ניקרגואה",
+    "slug": "nicaragua",
+    "callingCode": "505"
   },
   "nl": {
     "id": "nl",
@@ -7263,7 +7591,9 @@
     "TW": "荷兰",
     "UK": "Нідерланди",
     "VN": "Hà Lan",
-    "HE": "הולנד"
+    "HE": "הולנד",
+    "slug": "netherlands",
+    "callingCode": "31"
   },
   "no": {
     "id": "no",
@@ -7307,7 +7637,9 @@
     "TW": "挪威",
     "UK": "Норвегія",
     "VN": "Na Uy",
-    "HE": "נורווגיה"
+    "HE": "נורווגיה",
+    "slug": "norway",
+    "callingCode": "47"
   },
   "np": {
     "id": "np",
@@ -7351,7 +7683,9 @@
     "TW": "尼泊尔",
     "UK": "Непал",
     "VN": "Nê-pan",
-    "HE": "נפאל"
+    "HE": "נפאל",
+    "slug": "nepal",
+    "callingCode": "977"
   },
   "nr": {
     "id": "nr",
@@ -7395,7 +7729,9 @@
     "TW": "瑙鲁",
     "UK": "Науру",
     "VN": "Nauru",
-    "HE": "נאורו"
+    "HE": "נאורו",
+    "slug": "nauru",
+    "callingCode": "674"
   },
   "nu": {
     "id": "nu",
@@ -7439,7 +7775,9 @@
     "TW": "纽埃",
     "UK": "Нія",
     "VN": "Niue",
-    "HE": "ניווה"
+    "HE": "ניווה",
+    "slug": "niue",
+    "callingCode": "683"
   },
   "nz": {
     "id": "nz",
@@ -7483,7 +7821,9 @@
     "TW": "新西兰",
     "UK": "Нова Зеландія",
     "VN": "Niu Di-lân",
-    "HE": "ניו זילנד"
+    "HE": "ניו זילנד",
+    "slug": "new-zealand",
+    "callingCode": "64"
   },
   "om": {
     "id": "om",
@@ -7527,7 +7867,9 @@
     "TW": "阿曼",
     "UK": "Оман",
     "VN": "Ô-man",
-    "HE": "עומאן"
+    "HE": "עומאן",
+    "slug": "oman",
+    "callingCode": "968"
   },
   "pa": {
     "id": "pa",
@@ -7571,7 +7913,9 @@
     "TW": "巴拿马",
     "UK": "Панама",
     "VN": "Pa-na-ma",
-    "HE": "פנמה"
+    "HE": "פנמה",
+    "slug": "panama",
+    "callingCode": "507"
   },
   "pe": {
     "id": "pe",
@@ -7615,7 +7959,9 @@
     "TW": "秘鲁",
     "UK": "Перу",
     "VN": "Pê-ru",
-    "HE": "פרו"
+    "HE": "פרו",
+    "slug": "peru",
+    "callingCode": "51"
   },
   "pf": {
     "id": "pf",
@@ -7659,7 +8005,9 @@
     "TW": "法属波利尼西亚",
     "UK": "Французька Полінезія",
     "VN": "Polynesia thuộc Pháp",
-    "HE": "פולינזיה הצרפתית"
+    "HE": "פולינזיה הצרפתית",
+    "slug": "french-polynesia",
+    "callingCode": "689"
   },
   "pg": {
     "id": "pg",
@@ -7703,7 +8051,9 @@
     "TW": "巴布亚新几内亚",
     "UK": "Папуа Нова Гвінея",
     "VN": "Pa-pu-a Niu Ghi-nê",
-    "HE": "פפואה גיניאה החדשה"
+    "HE": "פפואה גיניאה החדשה",
+    "slug": "papua-new-guinea",
+    "callingCode": "675"
   },
   "ph": {
     "id": "ph",
@@ -7747,7 +8097,9 @@
     "TW": "菲律宾",
     "UK": "Філіппіни",
     "VN": "Phi-lip-pin",
-    "HE": "פיליפינים"
+    "HE": "פיליפינים",
+    "slug": "philippines",
+    "callingCode": "63"
   },
   "pk": {
     "id": "pk",
@@ -7791,7 +8143,9 @@
     "TW": "巴基斯坦",
     "UK": "Пакистан",
     "VN": "Pa-ki-xtan",
-    "HE": "פקיסטן"
+    "HE": "פקיסטן",
+    "slug": "pakistan",
+    "callingCode": "92"
   },
   "pl": {
     "id": "pl",
@@ -7835,7 +8189,9 @@
     "TW": "波兰",
     "UK": "Польща",
     "VN": "Ba Lan",
-    "HE": "פולין"
+    "HE": "פולין",
+    "slug": "poland",
+    "callingCode": "48"
   },
   "pm": {
     "id": "pm",
@@ -7879,7 +8235,9 @@
     "TW": "圣皮埃尔和密克隆",
     "UK": "Сен-Пʼєр і Мікелон",
     "VN": "Saint Pierre và Miquelon",
-    "HE": "סנט פייר ומיקלון"
+    "HE": "סנט פייר ומיקלון",
+    "slug": "st-pierre-and-miquelon",
+    "callingCode": "508"
   },
   "pn": {
     "id": "pn",
@@ -7923,7 +8281,9 @@
     "TW": "皮特凯恩群岛",
     "UK": "Острови Піткерн",
     "VN": "Pitcairn Islands",
-    "HE": "פיטקרן"
+    "HE": "פיטקרן",
+    "slug": "panama",
+    "callingCode": "64"
   },
   "pr": {
     "id": "pr",
@@ -7967,7 +8327,9 @@
     "TW": "波多黎各",
     "UK": "Пуерто-Ріко",
     "VN": "Puerto Rico",
-    "HE": "פורטו ריקו"
+    "HE": "פורטו ריקו",
+    "slug": "sao-tome-and-principe",
+    "callingCode": "1"
   },
   "ps": {
     "id": "ps",
@@ -8011,7 +8373,9 @@
     "TW": "巴勒斯坦领土",
     "UK": "Палестина",
     "VN": "Lãnh thổ Palestine",
-    "HE": "הרשות הפלסטינית"
+    "HE": "הרשות הפלסטינית",
+    "slug": "burkina-faso",
+    "callingCode": "970"
   },
   "pt": {
     "id": "pt",
@@ -8055,7 +8419,9 @@
     "TW": "葡萄牙",
     "UK": "Португалія",
     "VN": "Bồ Đào Nha",
-    "HE": "פורטוגל"
+    "HE": "פורטוגל",
+    "slug": "portugal",
+    "callingCode": "351"
   },
   "pw": {
     "id": "pw",
@@ -8099,7 +8465,9 @@
     "TW": "帕劳",
     "UK": "Палау",
     "VN": "Palau",
-    "HE": "פאלאו"
+    "HE": "פאלאו",
+    "slug": "palau",
+    "callingCode": "680"
   },
   "py": {
     "id": "py",
@@ -8143,7 +8511,9 @@
     "TW": "巴拉圭",
     "UK": "Парагвай",
     "VN": "Pa-ra-goay",
-    "HE": "פרגוואי"
+    "HE": "פרגוואי",
+    "slug": "paraguay",
+    "callingCode": "595"
   },
   "qa": {
     "id": "qa",
@@ -8187,7 +8557,9 @@
     "TW": "卡塔尔",
     "UK": "Катар",
     "VN": "Ca-ta",
-    "HE": "קטאר"
+    "HE": "קטאר",
+    "slug": "qatar",
+    "callingCode": "974"
   },
   "re": {
     "id": "re",
@@ -8231,7 +8603,9 @@
     "TW": "留尼汪",
     "UK": "Реюньйон",
     "VN": "Réunion",
-    "HE": "ראוניון"
+    "HE": "ראוניון",
+    "slug": "dominican-republic",
+    "callingCode": "262"
   },
   "ro": {
     "id": "ro",
@@ -8275,7 +8649,9 @@
     "TW": "罗马尼亚",
     "UK": "Румунія",
     "VN": "Ru-ma-ni",
-    "HE": "רומניה"
+    "HE": "רומניה",
+    "slug": "romania",
+    "callingCode": "40"
   },
   "rs": {
     "id": "rs",
@@ -8319,7 +8695,9 @@
     "TW": "塞尔维亚",
     "UK": "Сербія",
     "VN": "Xéc-bi",
-    "HE": "סרביה"
+    "HE": "סרביה",
+    "slug": "serbia",
+    "callingCode": "381"
   },
   "ru": {
     "id": "ru",
@@ -8366,7 +8744,9 @@
     "TW": "俄罗斯",
     "UK": "Росія",
     "VN": "Nga",
-    "HE": "רוסיה"
+    "HE": "רוסיה",
+    "slug": "russia",
+    "callingCode": "7"
   },
   "rw": {
     "id": "rw",
@@ -8410,7 +8790,9 @@
     "TW": "卢旺达",
     "UK": "Руанда",
     "VN": "Ru-an-đa",
-    "HE": "רואנדה"
+    "HE": "רואנדה",
+    "slug": "rwanda",
+    "callingCode": "250"
   },
   "sa": {
     "id": "sa",
@@ -8454,7 +8836,9 @@
     "TW": "沙特阿拉伯",
     "UK": "Саудівська Аравія",
     "VN": "A-rập Xê-út",
-    "HE": "ערב הסעודית"
+    "HE": "ערב הסעודית",
+    "slug": "saudi-arabia",
+    "callingCode": "966"
   },
   "sb": {
     "id": "sb",
@@ -8498,7 +8882,9 @@
     "TW": "所罗门群岛",
     "UK": "Соломонові Острови",
     "VN": "Quần đảo Xô-lô-mông",
-    "HE": "איי שלמה"
+    "HE": "איי שלמה",
+    "slug": "solomon-islands",
+    "callingCode": "677"
   },
   "sc": {
     "id": "sc",
@@ -8542,7 +8928,9 @@
     "TW": "塞舌尔群岛",
     "UK": "Сейшели",
     "VN": "Xây-sen",
-    "HE": "איי סיישל"
+    "HE": "איי סיישל",
+    "slug": "seychelles",
+    "callingCode": "248"
   },
   "sd": {
     "id": "sd",
@@ -8586,7 +8974,9 @@
     "TW": "苏丹",
     "UK": "Судан",
     "VN": "Xu-đăng",
-    "HE": "סודן"
+    "HE": "סודן",
+    "slug": "sudan",
+    "callingCode": "249"
   },
   "se": {
     "id": "se",
@@ -8630,7 +9020,9 @@
     "TW": "瑞典",
     "UK": "Швеція",
     "VN": "Thụy Điển",
-    "HE": "שוודיה"
+    "HE": "שוודיה",
+    "slug": "sweden",
+    "callingCode": "46"
   },
   "sg": {
     "id": "sg",
@@ -8674,7 +9066,9 @@
     "TW": "新加坡",
     "UK": "Сінгапур",
     "VN": "Xin-ga-po",
-    "HE": "סינגפור"
+    "HE": "סינגפור",
+    "slug": "singapore",
+    "callingCode": "65"
   },
   "sh": {
     "id": "sh",
@@ -8718,7 +9112,9 @@
     "TW": "圣赫勒拿",
     "UK": "Острів Святої Єлени",
     "VN": "Saint Helena",
-    "HE": "סנט הלנה"
+    "HE": "סנט הלנה",
+    "slug": "st-helena",
+    "callingCode": "290"
   },
   "si": {
     "id": "si",
@@ -8762,7 +9158,9 @@
     "TW": "斯洛文尼亚",
     "UK": "Словенія",
     "VN": "Xlô-ven-ni-a",
-    "HE": "סלובניה"
+    "HE": "סלובניה",
+    "slug": "slovenia",
+    "callingCode": "386"
   },
   "sj": {
     "id": "sj",
@@ -8806,7 +9204,9 @@
     "TW": "斯瓦尔巴特和扬马延",
     "UK": "Острови Свальбард та Ян-Маєн",
     "VN": "Svalbard và Jan Mayen",
-    "HE": "סוולבארד וז׳אן מאיין"
+    "HE": "סוולבארד וז׳אן מאיין",
+    "slug": "svalbard-and-jan-mayen",
+    "callingCode": "47"
   },
   "sk": {
     "id": "sk",
@@ -8850,7 +9250,9 @@
     "TW": "斯洛伐克",
     "UK": "Словаччина",
     "VN": "Xlô-va-ki-a",
-    "HE": "סלובקיה"
+    "HE": "סלובקיה",
+    "slug": "slovakia",
+    "callingCode": "421"
   },
   "sl": {
     "id": "sl",
@@ -8894,7 +9296,9 @@
     "TW": "塞拉利昂",
     "UK": "Сьєрра-Леоне",
     "VN": "Xi-ê-ra Lê-ôn",
-    "HE": "סיירה לאונה"
+    "HE": "סיירה לאונה",
+    "slug": "sierra-leone",
+    "callingCode": "232"
   },
   "sm": {
     "id": "sm",
@@ -8938,7 +9342,9 @@
     "TW": "圣马力诺",
     "UK": "Сан-Марино",
     "VN": "Xan Ma-ri-nô",
-    "HE": "סן מרינו"
+    "HE": "סן מרינו",
+    "slug": "samoa",
+    "callingCode": "378"
   },
   "sn": {
     "id": "sn",
@@ -8982,7 +9388,9 @@
     "TW": "塞内加尔",
     "UK": "Сенегал",
     "VN": "Xê-nê-gan",
-    "HE": "סנגל"
+    "HE": "סנגל",
+    "slug": "senegal",
+    "callingCode": "221"
   },
   "so": {
     "id": "so",
@@ -9026,7 +9434,9 @@
     "TW": "索马里",
     "UK": "Сомалі",
     "VN": "Xô-ma-li",
-    "HE": "סומליה"
+    "HE": "סומליה",
+    "slug": "somalia",
+    "callingCode": "252"
   },
   "sr": {
     "id": "sr",
@@ -9070,7 +9480,9 @@
     "TW": "苏里南",
     "UK": "Суринам",
     "VN": "Xu-ri-nam",
-    "HE": "סורינם"
+    "HE": "סורינם",
+    "slug": "suriname",
+    "callingCode": "597"
   },
   "st": {
     "id": "st",
@@ -9114,7 +9526,9 @@
     "TW": "圣多美和普林西比",
     "UK": "Сан-Томе і Прінсіпі",
     "VN": "Xao Tô-mê và Prin-xi-pê",
-    "HE": "סאו טומה ופרינסיפה"
+    "HE": "סאו טומה ופרינסיפה",
+    "slug": "sao-tome-and-principe",
+    "callingCode": "239"
   },
   "sv": {
     "id": "sv",
@@ -9158,7 +9572,9 @@
     "TW": "萨尔瓦多",
     "UK": "Сальвадор",
     "VN": "En-san-va-đo",
-    "HE": "אל סלבדור"
+    "HE": "אל סלבדור",
+    "slug": "el-salvador",
+    "callingCode": "503"
   },
   "sy": {
     "id": "sy",
@@ -9202,7 +9618,9 @@
     "TW": "叙利亚",
     "UK": "Сирія",
     "VN": "Xi-ri",
-    "HE": "סוריה"
+    "HE": "סוריה",
+    "slug": "syria",
+    "callingCode": "963"
   },
   "sz": {
     "id": "sz",
@@ -9246,7 +9664,9 @@
     "TW": "斯威士兰",
     "UK": "Свазіленд",
     "VN": "Xoa-di-len",
-    "HE": "סווזילנד"
+    "HE": "סווזילנד",
+    "slug": "swaziland",
+    "callingCode": "268"
   },
   "tc": {
     "id": "tc",
@@ -9290,7 +9710,9 @@
     "TW": "特克斯和凯科斯群岛",
     "UK": "Теркс і Кайкос",
     "VN": "Quần Đảo Turk và Caicos",
-    "HE": "איי טורקס וקאיקוס"
+    "HE": "איי טורקס וקאיקוס",
+    "slug": "turks-and-caicos-islands",
+    "callingCode": "1"
   },
   "td": {
     "id": "td",
@@ -9334,7 +9756,9 @@
     "TW": "乍得",
     "UK": "Чад",
     "VN": "Sát",
-    "HE": "צ׳אד"
+    "HE": "צ׳אד",
+    "slug": "chad",
+    "callingCode": "235"
   },
   "tf": {
     "id": "tf",
@@ -9378,7 +9802,9 @@
     "TW": "法属南部领土",
     "UK": "Французькі Південні Території",
     "VN": "Thuộc Địa Nam của Pháp",
-    "HE": "טריטוריות דרומיות של צרפת"
+    "HE": "טריטוריות דרומיות של צרפת",
+    "slug": "tf",
+    "callingCode": "262"
   },
   "tg": {
     "id": "tg",
@@ -9422,7 +9848,9 @@
     "TW": "多哥",
     "UK": "Того",
     "VN": "Tô-gô",
-    "HE": "טוגו"
+    "HE": "טוגו",
+    "slug": "togo",
+    "callingCode": "228"
   },
   "th": {
     "id": "th",
@@ -9466,7 +9894,9 @@
     "TW": "泰国",
     "UK": "Таїланд",
     "VN": "Thái Lan",
-    "HE": "תאילנד"
+    "HE": "תאילנד",
+    "slug": "thailand",
+    "callingCode": "66"
   },
   "tj": {
     "id": "tj",
@@ -9510,7 +9940,9 @@
     "TW": "塔吉克斯坦",
     "UK": "Таджикистан",
     "VN": "Tát-gi-ki-xtan",
-    "HE": "טג׳יקיסטן"
+    "HE": "טג׳יקיסטן",
+    "slug": "tajikistan",
+    "callingCode": "992"
   },
   "tk": {
     "id": "tk",
@@ -9554,7 +9986,9 @@
     "TW": "托克劳",
     "UK": "Токелау",
     "VN": "Tokelau",
-    "HE": "טוקלאו"
+    "HE": "טוקלאו",
+    "slug": "tk",
+    "callingCode": "690"
   },
   "tl": {
     "id": "tl",
@@ -9598,7 +10032,9 @@
     "TW": "东帝汶",
     "UK": "Тімор-Лешті",
     "VN": "Đông Ti-mo",
-    "HE": "מזרח טימור"
+    "HE": "מזרח טימור",
+    "slug": "timor-leste",
+    "callingCode": "670"
   },
   "tm": {
     "id": "tm",
@@ -9642,7 +10078,9 @@
     "TW": "土库曼斯坦",
     "UK": "Туркменистан",
     "VN": "Tuốc-mê-ni-xtan",
-    "HE": "טורקמניסטן"
+    "HE": "טורקמניסטן",
+    "slug": "turkmenistan",
+    "callingCode": "993"
   },
   "tn": {
     "id": "tn",
@@ -9686,7 +10124,9 @@
     "TW": "突尼斯",
     "UK": "Туніс",
     "VN": "Tuy-ni-di",
-    "HE": "תוניסיה"
+    "HE": "תוניסיה",
+    "slug": "tunisia",
+    "callingCode": "216"
   },
   "to": {
     "id": "to",
@@ -9730,7 +10170,9 @@
     "TW": "汤加",
     "UK": "Тонга",
     "VN": "Tông-ga",
-    "HE": "טונגה"
+    "HE": "טונגה",
+    "slug": "tonga",
+    "callingCode": "676"
   },
   "tr": {
     "id": "tr",
@@ -9777,7 +10219,9 @@
     "TW": "土耳其",
     "UK": "Туреччина",
     "VN": "Thổ Nhĩ Kỳ",
-    "HE": "טורקיה"
+    "HE": "טורקיה",
+    "slug": "turkey",
+    "callingCode": "90"
   },
   "tt": {
     "id": "tt",
@@ -9821,7 +10265,9 @@
     "TW": "特立尼达和多巴哥",
     "UK": "Тринідад і Тобаго",
     "VN": "Tri-ni-đát và Tô-ba-gô",
-    "HE": "טרינידד וטובגו"
+    "HE": "טרינידד וטובגו",
+    "slug": "trinidad-and-tobago",
+    "callingCode": "1"
   },
   "tv": {
     "id": "tv",
@@ -9865,7 +10311,9 @@
     "TW": "图瓦卢",
     "UK": "Тувалу",
     "VN": "Tu-va-lu",
-    "HE": "טובלו"
+    "HE": "טובלו",
+    "slug": "tuvalu",
+    "callingCode": "688"
   },
   "tw": {
     "id": "tw",
@@ -9909,7 +10357,9 @@
     "TW": "台湾",
     "UK": "Тайвань",
     "VN": "Đài Loan",
-    "HE": "טייוואן"
+    "HE": "טייוואן",
+    "slug": "taiwan",
+    "callingCode": "886"
   },
   "tz": {
     "id": "tz",
@@ -9953,7 +10403,9 @@
     "TW": "坦桑尼亚",
     "UK": "Танзанія",
     "VN": "Tan-da-ni-a",
-    "HE": "טנזניה"
+    "HE": "טנזניה",
+    "slug": "tanzania",
+    "callingCode": "255"
   },
   "ua": {
     "id": "ua",
@@ -9997,7 +10449,9 @@
     "TW": "乌克兰",
     "UK": "Україна",
     "VN": "U-crai-na",
-    "HE": "אוקראינה"
+    "HE": "אוקראינה",
+    "slug": "ukraine",
+    "callingCode": "380"
   },
   "ug": {
     "id": "ug",
@@ -10041,7 +10495,9 @@
     "TW": "乌干达",
     "UK": "Уганда",
     "VN": "U-gan-đa",
-    "HE": "אוגנדה"
+    "HE": "אוגנדה",
+    "slug": "uganda",
+    "callingCode": "256"
   },
   "um": {
     "id": "um",
@@ -10085,7 +10541,9 @@
     "TW": "美国边远小岛",
     "UK": "Віддалені Острови США",
     "VN": "Các đảo nhỏ xa trung tâm thuộc Mỹ",
-    "HE": "איים קטנים שלחוף ארצות הברית"
+    "HE": "איים קטנים שלחוף ארצות הברית",
+    "slug": "oman",
+    "callingCode": ""
   },
   "us": {
     "id": "us",
@@ -10129,7 +10587,9 @@
     "TW": "美国",
     "UK": "США",
     "VN": "Hoa Kỳ",
-    "HE": "ארצות הברית"
+    "HE": "ארצות הברית",
+    "slug": "united-states",
+    "callingCode": "1"
   },
   "uy": {
     "id": "uy",
@@ -10173,7 +10633,9 @@
     "TW": "乌拉圭",
     "UK": "Уругвай",
     "VN": "U-ru-goay",
-    "HE": "אורוגוואי"
+    "HE": "אורוגוואי",
+    "slug": "uruguay",
+    "callingCode": "598"
   },
   "uz": {
     "id": "uz",
@@ -10217,7 +10679,9 @@
     "TW": "乌兹别克斯坦",
     "UK": "Узбекистан",
     "VN": "U-dơ-bê-ki-xtan",
-    "HE": "אוזבקיסטן"
+    "HE": "אוזבקיסטן",
+    "slug": "uzbekistan",
+    "callingCode": "998"
   },
   "va": {
     "id": "va",
@@ -10261,7 +10725,9 @@
     "TW": "梵蒂冈",
     "UK": "Ватикан",
     "VN": "Va-ti-căng",
-    "HE": "הוותיקן"
+    "HE": "הוותיקן",
+    "slug": "vanuatu",
+    "callingCode": "379"
   },
   "vc": {
     "id": "vc",
@@ -10305,7 +10771,9 @@
     "TW": "圣文森特和格林纳丁斯",
     "UK": "Сент-Вінсент і Гренадини",
     "VN": "Xan Vin-xen và Grê-na-din",
-    "HE": "סנט וינסנט והגרנדינים"
+    "HE": "סנט וינסנט והגרנדינים",
+    "slug": "st-vincent-and-grenadines",
+    "callingCode": "1"
   },
   "ve": {
     "id": "ve",
@@ -10349,7 +10817,9 @@
     "TW": "委内瑞拉",
     "UK": "Венесуела",
     "VN": "Vê-nê-zu-ê-la",
-    "HE": "ונצואלה"
+    "HE": "ונצואלה",
+    "slug": "venezuela",
+    "callingCode": "58"
   },
   "vg": {
     "id": "vg",
@@ -10393,7 +10863,9 @@
     "TW": "英属维京群岛",
     "UK": "Віргінські острови Британії",
     "VN": "Đảo Virgin, thuộc Anh",
-    "HE": "איי הבתולה הבריטיים"
+    "HE": "איי הבתולה הבריטיים",
+    "slug": "british-virgin-islands",
+    "callingCode": "1"
   },
   "vi": {
     "id": "vi",
@@ -10437,7 +10909,9 @@
     "TW": "美属维京群岛",
     "UK": "Віргінські острови США",
     "VN": "Quần đảo Virgin, Mỹ",
-    "HE": "איי הבתולה האמריקניים"
+    "HE": "איי הבתולה האמריקניים",
+    "slug": "vietnam",
+    "callingCode": "1"
   },
   "vn": {
     "id": "vn",
@@ -10481,7 +10955,9 @@
     "TW": "越南",
     "UK": "Вʼєтнам",
     "VN": "Việt Nam",
-    "HE": "וייטנאם"
+    "HE": "וייטנאם",
+    "slug": "vietnam",
+    "callingCode": "84"
   },
   "vu": {
     "id": "vu",
@@ -10525,7 +11001,9 @@
     "TW": "瓦努阿图",
     "UK": "Вануату",
     "VN": "Va-nu-a-tu",
-    "HE": "ונואטו"
+    "HE": "ונואטו",
+    "slug": "vanuatu",
+    "callingCode": "678"
   },
   "wf": {
     "id": "wf",
@@ -10569,7 +11047,9 @@
     "TW": "瓦利斯和富图纳",
     "UK": "Уолліс і Футуна",
     "VN": "Wallis và Futuna",
-    "HE": "איי ווליס ופוטונה"
+    "HE": "איי ווליס ופוטונה",
+    "slug": "wallis-and-futuna",
+    "callingCode": "681"
   },
   "ws": {
     "id": "ws",
@@ -10613,7 +11093,9 @@
     "TW": "萨摩亚",
     "UK": "Самоа",
     "VN": "Xa-moa",
-    "HE": "סמואה"
+    "HE": "סמואה",
+    "slug": "samoa",
+    "callingCode": "685"
   },
   "ye": {
     "id": "ye",
@@ -10657,7 +11139,9 @@
     "TW": "也门",
     "UK": "Ємен",
     "VN": "Y-ê-men",
-    "HE": "תימן"
+    "HE": "תימן",
+    "slug": "yemen",
+    "callingCode": "967"
   },
   "yt": {
     "id": "yt",
@@ -10701,7 +11185,9 @@
     "TW": "马约特",
     "UK": "Майот",
     "VN": "Mayotte",
-    "HE": "מאיוט"
+    "HE": "מאיוט",
+    "slug": "italy",
+    "callingCode": "262"
   },
   "za": {
     "id": "za",
@@ -10745,7 +11231,9 @@
     "TW": "南非",
     "UK": "ПАР",
     "VN": "Nam Phi",
-    "HE": "דרום אפריקה"
+    "HE": "דרום אפריקה",
+    "slug": "south-africa",
+    "callingCode": "27"
   },
   "zm": {
     "id": "zm",
@@ -10789,7 +11277,9 @@
     "TW": "赞比亚",
     "UK": "Замбія",
     "VN": "Dăm-bi-a",
-    "HE": "זמביה"
+    "HE": "זמביה",
+    "slug": "zambia",
+    "callingCode": "260"
   },
   "zw": {
     "id": "zw",
@@ -10833,6 +11323,8 @@
     "TW": "津巴布韦",
     "UK": "Зімбабве",
     "VN": "Dim-ba-bu-ê",
-    "HE": "זימבאבווה"
+    "HE": "זימבאבווה",
+    "slug": "zimbabwe",
+    "callingCode": "263"
   }
 }
