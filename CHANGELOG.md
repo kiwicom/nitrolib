@@ -1,3 +1,19 @@
+# [7.2.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.1.0...v7.2.0) (2019-09-09)
+
+
+### Bug Fixes
+
+* **components:** HeaderLinks mobile Icon ([858f1e9](https://gitlab.skypicker.com/frontend/nitrolib/commit/858f1e9))
+* **services:** CollectKeys util function ([e7524ce](https://gitlab.skypicker.com/frontend/nitrolib/commit/e7524ce))
+
+
+### Features
+
+* **bin:** Adjust parser to TS ([6f9c331](https://gitlab.skypicker.com/frontend/nitrolib/commit/6f9c331))
+* **services:** UserID middleware ([3dc02f4](https://gitlab.skypicker.com/frontend/nitrolib/commit/3dc02f4))
+
+
+
 # [7.1.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.0.1...v7.1.0) (2019-09-05)
 
 
