@@ -1,3 +1,13 @@
+## [7.2.2](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.2.1...v7.2.2) (2019-09-10)
+
+
+### Bug Fixes
+
+* **components:** Fix forgotten defaultProp ([5b79e64](https://gitlab.skypicker.com/frontend/nitrolib/commit/5b79e64))
+* **components:** Navbar long translations in button temporary fix ([a399b9a](https://gitlab.skypicker.com/frontend/nitrolib/commit/a399b9a))
+
+
+
 ## [7.2.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.2.0...v7.2.1) (2019-09-10)
 
 
