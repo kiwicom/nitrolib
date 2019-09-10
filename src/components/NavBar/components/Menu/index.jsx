@@ -46,6 +46,10 @@ const Desktop = styled.div`
   `)};
 `;
 
+Desktop.defaultProps = {
+  theme: themeDefault,
+};
+
 // TODO: Remove after Account release
 // Temporary hack for long translations in button
 const EllipsedText = styled.div`
