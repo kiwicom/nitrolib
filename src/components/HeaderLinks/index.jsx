@@ -138,7 +138,7 @@ export default class HeaderLinks extends React.Component<Props, State> {
         </Mobile>
         <Desktop>
           {services && services.length > 0 && (
-            <Stack flex spacing="loose">
+            <Stack flex spacing="comfy">
               <Links inverted={inverted} services={services} active={active} />
             </Stack>
           )}

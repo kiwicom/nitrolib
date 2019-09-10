@@ -80,21 +80,19 @@ const NavBar = ({
 }: Props) => (
   <Container inverted={inverted}>
     <Stack justify="between" align="center" spacing="none" dataTest="NavBar">
-      <Stack
-        flex
-        shrink
-        inline
-        align="center"
-        spacing="none"
-        mediumMobile={{ spacing: "compact" }}
-        desktop={{ spacing: "extraLoose" }}
-      >
+      <Stack flex shrink inline align="center" spacing="none" mediumMobile={{ spacing: "comfy" }}>
         <Logo inverted={inverted} onClick={onLogoClick} hiddenDefault={hiddenLogoDefault} />
         {headerLinks}
       </Stack>
-      <Stack inline align="center" justify="end" spacing="compact" tablet={{ spacing: "loose" }}>
+      <Stack
+        inline
+        align="center"
+        justify="end"
+        spacing="tight"
+        mediumMobile={{ spacing: "comfy" }}
+      >
         <Desktop>
-          <Stack flex align="center" spacing="loose">
+          <Stack flex align="center" spacing="comfy">
             <Language
               positionMenuDesktop={270}
               positionMenuTablet={5}
