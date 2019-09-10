@@ -1,3 +1,12 @@
+## [7.2.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.2.0...v7.2.1) (2019-09-10)
+
+
+### Bug Fixes
+
+* **components:** Navbar spacings ([9fbd5ee](https://gitlab.skypicker.com/frontend/nitrolib/commit/9fbd5ee))
+
+
+
 # [7.2.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.1.0...v7.2.0) (2019-09-09)
 
 
