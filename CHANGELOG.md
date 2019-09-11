@@ -1,3 +1,17 @@
+# [7.3.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.2.2...v7.3.0) (2019-09-11)
+
+
+### Bug Fixes
+
+* **components:** AddBlueRibbonBags fixed to reflect latest redesign ([ba8bc9f](https://gitlab.skypicker.com/frontend/nitrolib/commit/ba8bc9f))
+
+
+### Features
+
+* **services:** Fetch granular flag ([ff1e73e](https://gitlab.skypicker.com/frontend/nitrolib/commit/ff1e73e))
+
+
+
 ## [7.2.2](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.2.1...v7.2.2) (2019-09-10)
 
 
