@@ -2,7 +2,6 @@
 import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import styled from "styled-components";
-import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
 
 import type { Auth } from "../../../../records/Auth";
 import ButtonLink from "../../primitives/ButtonLink";
@@ -44,7 +43,6 @@ const Account = ({ inverted, auth }: Props) => {
         </>
       ) : (
         <>
-          <AccountCircle color="tertiary" />
           <ButtonLink
             href={`/${intl.language.id}/account`}
             color={inverted ? "white" : "secondary"}
