@@ -1,3 +1,12 @@
+## [7.3.2](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.3.1...v7.3.2) (2019-09-12)
+
+
+### Bug Fixes
+
+* **components:** Remove AccountCircle ([2fe2615](https://gitlab.skypicker.com/frontend/nitrolib/commit/2fe2615))
+
+
+
 ## [7.3.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.3.0...v7.3.1) (2019-09-12)
 
 
