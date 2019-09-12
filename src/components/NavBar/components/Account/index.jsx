@@ -10,6 +10,7 @@ import Text from "../../../Text";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import { useIntl } from "../../../../services/intl/context";
+import LoginButton from "../LoginButton";
 
 type Props = {|
   auth: Auth,
@@ -48,7 +49,9 @@ const Account = ({ inverted, auth }: Props) => {
             href={`/${intl.language.id}/account`}
             color={inverted ? "white" : "secondary"}
           >
-            <Text t="account.logged_in" />
+            <LoginButton>
+              <Text t="account.logged_in" />
+            </LoginButton>
           </ButtonLink>
         </>
       )}
