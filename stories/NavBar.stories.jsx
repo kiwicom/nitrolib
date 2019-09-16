@@ -114,4 +114,22 @@ storiesOf("NavBar", module)
         onSelectTrip={action("Select trip")}
       />
     </>
+  ))
+  .add("new design", () => (
+    <>
+      <ModalsAuth portal="" />
+      <NavBar
+        starred={<p>Starred</p>}
+        headerLinks={<HeaderLinks {...props} newDesign />}
+        subscription={<h1>Subscription</h1>}
+        debug={<h1>Debug</h1>}
+        portal=""
+        newDesign
+        onOpenFaq={action("Open FAQ")}
+        onLogoClick={action("Click logo")}
+        onSetModal={action("Set modal")}
+        onSaveLanguage={action("Save language")}
+        onSelectTrip={action("Select trip")}
+      />
+    </>
   ));

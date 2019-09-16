@@ -37,7 +37,6 @@ Desktop.defaultProps = {
 };
 
 // TODO: Remove after Account release
-// Temporary hack for long translations in button
 
 type Props = {|
   children: React.Node,

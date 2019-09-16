@@ -5,12 +5,12 @@ import Text from "../../../Text";
 import ValueBind from "../../../ValueBind";
 import { useModal } from "../../../../services/modal/context";
 import { useAuth } from "../../../../services/auth/context";
-// import Trips from "../Trips";
 import SideNav from "../SideNav";
 import LoginButton from "../LoginButton";
 import Account from "../Account";
 import * as MODALS from "../../../../consts/modals";
 import type { Modal } from "../../../../consts/modals";
+import OldLoginButton from "../LoginButtonOld";
 
 type Props = {|
   subscription: React.Node,
@@ -20,6 +20,7 @@ type Props = {|
   onSetModal: (modal: Modal) => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
+  newDesign: boolean,
 |};
 
 const Menu = ({
@@ -28,28 +29,37 @@ const Menu = ({
   portal,
   inverted,
   onSaveLanguage,
-  // eslint-disable-next-line no-unused-vars
   onSelectTrip,
+  newDesign,
   onSetModal,
 }: Props) => {
-  const { auth } = useAuth();
+  const { auth, environment } = useAuth();
   const { onChange } = useModal();
 
   return (
+    // TODO: remove that ugly stuff after new navbar release
     <>
-      {auth === null ? (
-        <ValueBind value={MODALS.MY_BOOKING} onChange={onChange}>
-          {({ onClick }) => (
-            <LoginButton onClick={onClick}>
-              <Text t="account.sign_in" weight="bold" size="small" />
-            </LoginButton>
-          )}
-        </ValueBind>
-      ) : (
-        // Deprecated: Account should open Account page, without Trips dropdown
-        // <Trips auth={auth} env={environment} inverted={inverted} onSelect={onSelectTrip} />
-        <Account auth={auth} inverted={inverted} />
+      {(newDesign &&
+        (auth === null ? (
+          <ValueBind value={MODALS.MY_BOOKING} onChange={onChange}>
+            {({ onClick }) => (
+              <LoginButton onClick={onClick}>
+                <Text t="account.sign_in" weight="bold" size="small" />
+              </LoginButton>
+            )}
+          </ValueBind>
+        ) : (
+          <Account auth={auth} inverted={inverted} />
+        ))) || (
+        <OldLoginButton
+          auth={auth}
+          onChange={onChange}
+          env={environment}
+          onSelectTrip={onSelectTrip}
+          inverted={inverted}
+        />
       )}
+
       <SideNav
         subscription={subscription}
         debug={debug}

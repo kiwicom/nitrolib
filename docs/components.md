@@ -191,6 +191,7 @@ type Props = {|
   splitster: Splitster,
   active?: string, // TODO maybe add specific if ids are also specified
   inverted?: boolean,
+  newDesign?: boolean,
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO DI actual API call
   context?: HeaderLinksContext,
@@ -437,6 +438,7 @@ type Props = {|
   onLogoClick: (ev: SyntheticMouseEvent<HTMLAnchorElement>) => void,
   // defaulted
   headerLinks?: React.Node, // null
+  newDesign?: boolean,
   debug?: React.Node, // null
   inverted?: boolean, // false
   hiddenLogoDefault?: boolean, // false

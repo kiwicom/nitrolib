@@ -9,9 +9,10 @@ type Props = {|
   services: HeaderLink[],
   active?: string,
   inverted?: boolean,
+  newDesign?: boolean,
 |};
 
-const Links = ({ inverted, services, active }: Props): React.Node[] =>
+const Links = ({ inverted, services, active, newDesign }: Props): React.Node[] =>
   services.map(item => (
     <Link
       key={item.id}
@@ -19,6 +20,7 @@ const Links = ({ inverted, services, active }: Props): React.Node[] =>
       icon={item.id}
       text={<Translate t={item.translation} />}
       inverted={inverted}
+      newDesign={newDesign}
       active={item.id === active}
       newWindow={item.newWindow}
     />

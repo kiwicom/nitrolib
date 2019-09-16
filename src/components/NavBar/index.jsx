@@ -61,6 +61,7 @@ type Props = {|
   headerLinks: React.Node,
   debug: React.Node,
   inverted: boolean,
+  newDesign: boolean,
   hiddenLogoDefault: boolean,
 |};
 
@@ -74,6 +75,7 @@ const NavBar = ({
   hiddenLogoDefault,
   onOpenFaq,
   onSetModal,
+  newDesign,
   onSaveLanguage,
   onSelectTrip,
   onLogoClick,
@@ -114,6 +116,7 @@ const NavBar = ({
           <Help onOpen={onOpenFaq} inverted={inverted} />
         </Mobile>
         <Menu
+          newDesign={newDesign}
           subscription={subscription}
           debug={debug}
           onSetModal={onSetModal}

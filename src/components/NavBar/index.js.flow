@@ -14,6 +14,7 @@ type Props = {|
   onLogoClick: (ev: SyntheticMouseEvent<HTMLAnchorElement>) => void,
   // defaulted
   headerLinks?: React.Node, // null
+  newDesign?: boolean,
   debug?: React.Node, // null
   inverted?: boolean, // false
   hiddenLogoDefault?: boolean, // false

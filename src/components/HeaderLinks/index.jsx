@@ -46,6 +46,7 @@ type Props = {|
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO solve using DI
   context?: HeaderLinksContext,
+  newDesign?: boolean,
 |};
 
 type State = {|
@@ -101,7 +102,7 @@ export default class HeaderLinks extends React.Component<Props, State> {
   };
 
   render() {
-    const { inverted, active } = this.props;
+    const { inverted, active, newDesign } = this.props;
     const { services } = this.state;
 
     if (!services) return null;
@@ -116,7 +117,12 @@ export default class HeaderLinks extends React.Component<Props, State> {
                   {open && (
                     <Popup>
                       <Stack direction="column" spacing="comfy">
-                        <Links inverted={inverted} services={services} active={active} />
+                        <Links
+                          inverted={inverted}
+                          newDesign={newDesign}
+                          services={services}
+                          active={active}
+                        />
                       </Stack>
                     </Popup>
                   )}
@@ -139,7 +145,12 @@ export default class HeaderLinks extends React.Component<Props, State> {
         <Desktop>
           {services && services.length > 0 && (
             <Stack flex spacing="comfy">
-              <Links inverted={inverted} services={services} active={active} />
+              <Links
+                inverted={inverted}
+                newDesign={newDesign}
+                services={services}
+                active={active}
+              />
             </Stack>
           )}
         </Desktop>

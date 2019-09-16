@@ -45,13 +45,15 @@ type Props = {|
   newWindow: boolean,
   active?: boolean,
   inverted?: boolean,
+  newDesign?: boolean,
 |};
 
-const Link = ({ active, link, newWindow, icon, text, inverted }: Props) => (
+const Link = ({ active, link, newWindow, icon, text, inverted, newDesign }: Props) => (
   <StyledLink
     active={active}
     href={link}
     inverted={inverted}
+    newDesign={newDesign}
     target={newWindow ? "_blank" : null}
     rel={newWindow ? "noopener noreferrer" : null}
   >
