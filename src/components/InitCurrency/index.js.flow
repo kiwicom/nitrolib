@@ -17,7 +17,6 @@ type Props = {|
   countries: Countries,
   affiliate: string,
   ip: string,
-  initialCurrency: string,
   langCurrency: string,
   children: (arg: Arg) => React.Node,
   onChange: (currency: string) => void,

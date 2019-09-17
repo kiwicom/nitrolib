@@ -4,5 +4,8 @@ export const AFFILIATE_ID = "SKYPICKER_AFFILIATE";
 export const COOKIES_CONSENT = "cookiesConsent";
 export const USER_ID = "SKYPICKER_VISITOR_UNIQID";
 export const UA_SESSION_TOKEN = "ua_session_token";
+export const CURRENCY_ID = "preferred_currency";
+export const LANGUAGE_ID = "preferred_language";
+export const KW_AUTH_TOKEN = "kwAuthToken";
 
 export type Cookie = string; // TODO specific once everyone uses this

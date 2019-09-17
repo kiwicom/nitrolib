@@ -22,7 +22,7 @@ import type { AuthUser, SocialProvider, AuthToken } from "../../records/Auth";
 import type { Event, Props as EventProps } from "../../records/Event";
 import type { Brand } from "../../records/Brand";
 import type { LangInfo } from "../../records/LangInfo";
-import GetSingleBooking from "./components/GetSingleBooking/index";
+import GetSingleBooking from "./components/GetSingleBooking";
 import TailoredHeader, { type LoginType } from "./components/TailoredHeader";
 
 type ContainerProps = {|

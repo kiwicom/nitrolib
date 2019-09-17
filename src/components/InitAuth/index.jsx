@@ -6,11 +6,13 @@ import { authDefault } from "../../records/Auth";
 import type { Auth, SocialProvider } from "../../records/Auth";
 import type { Brand } from "../../records/Brand";
 import * as api from "../../services/auth/api";
-import type { MyBookingInput, RegisterInput } from "../../services/auth/api";
+import type { MyBookingInput, RegisterInput, OnMyBookingArg } from "../../services/auth/api";
 import makeEnvironment from "../../services/utils/relay";
 import * as session from "../../services/session/session";
 import { ACCOUNT_ID, EMAIL } from "../../consts/session";
 import handleAffiliateId from "../../services/utils/handleAffiliateId";
+import { UA_SESSION_TOKEN } from "../../consts/cookies";
+import { load, save } from "../../services/session/cookies";
 
 type Arg = {|
   auth: Auth | null,
@@ -24,13 +26,12 @@ type Arg = {|
 |};
 
 type Props = {|
-  token: string | null,
   brand: Brand,
   redirectURL: string,
-  onMyBooking: (token: string) => void,
+  onMyBooking: (arg: OnMyBookingArg) => void,
   onRegister: () => void,
   onSocialAuth: (authURL: string) => void,
-  onSignIn: (token: string) => void,
+  onSignIn: (auth: Auth) => void,
   onSignOut: () => void,
   children: (arg: Arg) => React.Node,
 |};
@@ -47,25 +48,24 @@ export default class InitAuth extends React.PureComponent<Props, State> {
   };
 
   componentDidMount() {
-    const { token } = this.props;
-    if (token === null) {
-      return;
+    const token = load(UA_SESSION_TOKEN);
+
+    if (token) {
+      this.setState({ loading: true });
+      api
+        .getTokenUser(token)
+        .then(user => {
+          session.save(ACCOUNT_ID, user.id);
+          session.save(EMAIL, user.email);
+          handleAffiliateId(user.affiliateId);
+
+          this.setState({ auth: { type: "user", user, token }, loading: false });
+        })
+        .catch(() => {
+          // Ignoring errors here
+          this.setState({ loading: false });
+        });
     }
-
-    this.setState({ loading: true });
-    api
-      .getTokenUser(token)
-      .then(user => {
-        session.save(ACCOUNT_ID, user.id);
-        session.save(EMAIL, user.email);
-        handleAffiliateId(user.affiliateId);
-
-        this.setState({ auth: { type: "user", user, token }, loading: false });
-      })
-      .catch(() => {
-        // Ignoring errors here
-        this.setState({ loading: false });
-      });
   }
 
   handleMyBooking = (input: MyBookingInput): Promise<void> => {
@@ -126,8 +126,8 @@ export default class InitAuth extends React.PureComponent<Props, State> {
         session.save(ACCOUNT_ID, auth.user.id);
         session.save(EMAIL, auth.user.email);
         handleAffiliateId(auth.user.affiliateId);
-
-        onSignIn(auth.token);
+        save(UA_SESSION_TOKEN, auth.token);
+        onSignIn(auth);
         this.setState({ auth, loading: false });
       })
       .catch(err => {

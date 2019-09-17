@@ -1104,6 +1104,11 @@ type RegisterInput = {|
   password: string,
 |};
 
+type OnMyBookingArg = {|
+  token: string,
+  bid: number,
+|};
+
 type Arg = {|
   auth: Auth | null,
   loading: boolean,
@@ -1116,10 +1121,9 @@ type Arg = {|
 |};
 
 type Props = {|
-  token: string | null,
   brand: Brand,
   redirectURL: string,
-  onMyBooking: (token: string) => void,
+  onMyBooking: (arg: OnMyBookingArg) => void,
   onRegister: () => void,
   onSocialAuth: (authURL: string) => void,
   onSignIn: (token: string) => void,
@@ -1166,7 +1170,6 @@ type Props = {|
   countries: Countries,
   affiliate: string,
   ip: string,
-  initialCurrency: string,
   langCurrency: string,
   children: (arg: Arg) => React.Node,
   onChange: (currency: string) => void,

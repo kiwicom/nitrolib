@@ -99,7 +99,12 @@ export type MyBookingInput = {|
   departure: Date,
 |};
 
-declare export function getMyBookingToken(input: MyBookingInput): Promise<string>;
+export type OnMyBookingArg = {|
+  token: string,
+  bid: number,
+|};
+
+declare export function getMyBookingToken(input: MyBookingInput): Promise<OnMyBookingArg>;
 
 type LoginInput = {|
   email: string,

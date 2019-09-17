@@ -2,6 +2,8 @@
 /* eslint-disable react/no-unused-prop-types, react/no-unused-state */
 import * as React from "react";
 
+import { save, load } from "../../services/session/cookies";
+import { CURRENCY_ID } from "../../consts/cookies";
 import type { Brand } from "../../records/Brand";
 import type { Currency, Currencies } from "../../records/Currency";
 import { currencyDefault, MOST_USED_CURRENCIES } from "../../records/Currency";
@@ -23,7 +25,6 @@ type Props = {|
   countries: Countries,
   affiliate: string,
   ip: string,
-  initialCurrency: string,
   langCurrency: string,
   children: (arg: Arg) => React.Node,
   onChange: (currency: string) => void,
@@ -85,7 +86,7 @@ export default class CurrencyProvider extends React.PureComponent<Props, State> 
 
     return init({
       currencies: state.all,
-      initialCurrency: props.initialCurrency,
+      initialCurrency: load(CURRENCY_ID) || "eur",
       countryCurrency,
       languageCurrency,
       affiliate: props.affiliate,
@@ -97,6 +98,8 @@ export default class CurrencyProvider extends React.PureComponent<Props, State> 
   handleChange = (code: string) => {
     const { available } = this.state;
     const { onChange } = this.props;
+
+    save(CURRENCY_ID, code);
 
     const currency = available[code];
     if (currency) {
