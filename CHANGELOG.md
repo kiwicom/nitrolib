@@ -1,3 +1,12 @@
+## [7.3.4](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.3.3...v7.3.4) (2019-09-17)
+
+
+### Bug Fixes
+
+* **components:** LoginButton weight ([5cb5fb1](https://gitlab.skypicker.com/frontend/nitrolib/commit/5cb5fb1))
+
+
+
 ## [7.3.3](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.3.2...v7.3.3) (2019-09-17)
 
 
