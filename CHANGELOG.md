@@ -1,3 +1,14 @@
+## [7.3.3](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.3.2...v7.3.3) (2019-09-17)
+
+
+### Bug Fixes
+
+* **components:** Navbar fontWeight ([7230c55](https://gitlab.skypicker.com/frontend/nitrolib/commit/7230c55))
+* **components:** New Navbar conditional prop ([0fc0cf3](https://gitlab.skypicker.com/frontend/nitrolib/commit/0fc0cf3))
+* **components:** Usermiddleware ([8bec286](https://gitlab.skypicker.com/frontend/nitrolib/commit/8bec286))
+
+
+
 ## [7.3.2](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.3.1...v7.3.2) (2019-09-12)
 
 
