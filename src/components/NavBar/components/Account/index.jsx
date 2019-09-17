@@ -38,7 +38,7 @@ const Account = ({ inverted, auth }: Props) => {
             href={`/${intl.language.id}/account`}
             color={inverted ? "white" : "secondary"}
           >
-            <Text t="account.logged_in" size="small" />
+            <Text t="account.logged_in" weight="bold" size="small" />
           </ButtonLink>
         </>
       ) : (
@@ -48,7 +48,7 @@ const Account = ({ inverted, auth }: Props) => {
             color={inverted ? "white" : "secondary"}
           >
             <LoginButton>
-              <Text t="account.logged_in" size="small" />
+              <Text t="account.logged_in" weight="bold" size="small" />
             </LoginButton>
           </ButtonLink>
         </>
