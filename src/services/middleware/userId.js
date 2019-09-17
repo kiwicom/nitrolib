@@ -1,26 +1,22 @@
 // @flow strict
-import type { $Request } from "express";
+import type { $Request, $Response, NextFunction } from "express";
 
-import { makeUserId } from "../session/ids";
 import isUUID from "../utils/isUUID";
+import { makeUserId } from "../session/ids";
 import { USER_ID } from "../../consts/cookies";
 
-type Query = {|
-  userId: string,
-  user_id?: string,
-|};
+const addCookie = (req: $Request, res: $Response) => {
+  if (req.cookies[USER_ID] && isUUID(req.cookies[USER_ID])) {
+    return req.cookies[USER_ID];
+  }
 
-type reqInfo = {|
-  req: $Request,
-  query: Query,
-|};
-
-const handleUserId = (id: string) => (isUUID(id) ? id : makeUserId());
-
-const userMiddleware = ({ req, query }: reqInfo) => {
-  const { userId, user_id } = query;
-
-  return handleUserId(userId || user_id || (req.cookies && req.cookies[USER_ID]));
+  return res.cookie(USER_ID, makeUserId());
 };
 
-export default userMiddleware;
+function userMiddleWare(req: $Request, res: $Response, next: NextFunction) {
+  addCookie(req, res);
+
+  return next();
+}
+
+export default userMiddleWare;
