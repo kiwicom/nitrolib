@@ -1,3 +1,17 @@
+# [7.4.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.3.4...v7.4.0) (2019-09-18)
+
+
+### Bug Fixes
+
+* **components:** Airplane icon ([6135120](https://gitlab.skypicker.com/frontend/nitrolib/commit/6135120))
+
+
+### Features
+
+* **components:** Navbar logo animation ([6edee73](https://gitlab.skypicker.com/frontend/nitrolib/commit/6edee73))
+
+
+
 ## [7.3.4](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.3.3...v7.3.4) (2019-09-17)
 
 
