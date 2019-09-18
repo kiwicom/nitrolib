@@ -1,6 +1,7 @@
 // @flow strict
 import * as React from "react";
 import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
+import AirplaneUp from "@kiwicom/orbit-components/lib/icons/AirplaneUp";
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
 import styled, { css } from "styled-components";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
@@ -133,7 +134,7 @@ export default class HeaderLinks extends React.Component<Props, State> {
                       inverted={inverted}
                       onClick={onToggle}
                     >
-                      <Airplane />
+                      {newDesign ? <Airplane /> : <AirplaneUp />}
                       <ChevronDown size="small" />
                     </IconWrapper>
                   )}
