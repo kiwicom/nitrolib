@@ -17,7 +17,8 @@ type Props = {|
   newDesign?: boolean,
   debug?: React.Node, // null
   inverted?: boolean, // false
-  hiddenLogoDefault?: boolean, // false
+  animateLogo?: boolean,
+  logoAnimateShow?: boolean,
 |};
 
 declare export default React.ComponentType<Props>;

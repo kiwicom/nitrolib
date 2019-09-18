@@ -1,5 +1,6 @@
 // @flow strict
 import React from "react";
+import { Transition } from "react-transition-group";
 import styled, { css } from "styled-components";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
@@ -73,10 +74,39 @@ LogoStyledMobile.defaultProps = {
   theme: themeDefault,
 };
 
+const animationDuration = 600;
+const animationStep = animationDuration / 2;
 const Link = styled.a`
   display: flex;
-  ${({ hiddenDefault }) => hiddenDefault && `width: 0px; opacity: 0;`};
 `;
+
+const logoTransitionStyle = {
+  entering: {
+    transition: `width ${animationStep}ms, opacity ${animationStep}ms ${animationStep}ms`,
+    opacity: 1,
+    width: `${logo.width}px`,
+  },
+  entered: {
+    opacity: 1,
+    width: `${logo.width}px`,
+  },
+  exiting: {
+    transition: `opacity ${animationStep}ms, width ${animationStep}ms ${animationStep}ms`,
+    opacity: 0,
+    width: "0px",
+  },
+  exited: {
+    opacity: 0,
+    width: "0px",
+  },
+  unmounted: {},
+};
+
+const logoDefaultStyle = {
+  transition: `width ${animationStep}ms, opacity ${animationStep}ms ${animationStep}ms`,
+  opacity: 1,
+  width: `${logo.width}px`,
+};
 
 const logoBaseUrl = "https://images.kiwi.com/whitelabels";
 
@@ -87,7 +117,8 @@ type Props = {|
   title: string,
   poweredByKiwi: boolean,
   inverted?: boolean,
-  hiddenDefault?: boolean,
+  animate?: boolean,
+  animateShow?: boolean,
   onClick: (ev: SyntheticMouseEvent<HTMLAnchorElement>) => void,
 |};
 
@@ -98,18 +129,28 @@ export const Logo = ({
   poweredByKiwi,
   languageId,
   inverted,
-  hiddenDefault,
+  animate,
+  animateShow,
   onClick,
 }: Props) =>
   id === "kiwicom" ? (
     <Link
       data-test="Logo"
-      animation="Logo"
       href={`${redirectUrl}${languageId}/`}
       onClick={onClick}
-      hiddenDefault={hiddenDefault}
+      hiddenDefault={animate}
     >
-      <SvgLogo height={logo.height} width={logo.width} title={title} inverted={inverted} />
+      <Transition in={animate && animateShow} timeout={animationDuration}>
+        {state => (
+          <div
+            key="logo"
+            className="logo"
+            style={animate ? logoTransitionStyle[state] : logoDefaultStyle}
+          >
+            <SvgLogo height={logo.height} width={logo.width} title={title} inverted={inverted} />
+          </div>
+        )}
+      </Transition>
     </Link>
   ) : (
     <>

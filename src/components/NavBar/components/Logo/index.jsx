@@ -7,11 +7,12 @@ import { useBrand } from "../../../../services/brand/context";
 
 type Props = {|
   inverted?: boolean,
-  hiddenDefault?: boolean,
+  animate?: boolean,
+  animateShow?: boolean,
   onClick: (ev: SyntheticMouseEvent<HTMLAnchorElement>) => void,
 |};
 
-const Logo = ({ inverted, onClick, hiddenDefault }: Props) => {
+const Logo = ({ inverted, onClick, animate, animateShow }: Props) => {
   const brand = useBrand();
   const intl = useIntl();
 
@@ -24,7 +25,8 @@ const Logo = ({ inverted, onClick, hiddenDefault }: Props) => {
       title={brand.name}
       onClick={onClick}
       inverted={inverted}
-      hiddenDefault={hiddenDefault}
+      animate={animate}
+      animateShow={animateShow}
     />
   );
 };

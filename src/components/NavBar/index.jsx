@@ -62,7 +62,8 @@ type Props = {|
   debug: React.Node,
   inverted: boolean,
   newDesign: boolean,
-  hiddenLogoDefault: boolean,
+  animateLogo: boolean,
+  logoAnimateShow: boolean,
 |};
 
 const NavBar = ({
@@ -72,7 +73,8 @@ const NavBar = ({
   debug,
   portal,
   inverted,
-  hiddenLogoDefault,
+  animateLogo,
+  logoAnimateShow,
   onOpenFaq,
   onSetModal,
   newDesign,
@@ -83,7 +85,12 @@ const NavBar = ({
   <Container inverted={inverted}>
     <Stack justify="between" align="center" spacing="none" dataTest="NavBar">
       <Stack flex shrink inline align="center" spacing="none" mediumMobile={{ spacing: "comfy" }}>
-        <Logo inverted={inverted} onClick={onLogoClick} hiddenDefault={hiddenLogoDefault} />
+        <Logo
+          inverted={inverted}
+          onClick={onLogoClick}
+          animate={animateLogo}
+          animateShow={logoAnimateShow}
+        />
         {headerLinks}
       </Stack>
       <Stack
@@ -134,7 +141,9 @@ NavBar.defaultProps = {
   headerLinks: null,
   debug: null,
   inverted: false,
-  hiddenLogoDefault: false,
+  newDesign: false,
+  animateLogo: false,
+  logoAnimateShow: false,
 };
 
 export default NavBar;
