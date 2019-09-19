@@ -3,7 +3,7 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
-import Button from "@kiwicom/orbit-components/lib/Button";
+import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import button from "../../../../styles/mixins/button";
 import { themeDefault } from "../../../../records/Theme";
@@ -30,6 +30,7 @@ const Desktop = styled.div`
 
 const CustomButton = styled.button`
   ${button}
+  background: transparent;
 `;
 
 Desktop.defaultProps = {
@@ -46,9 +47,12 @@ type Props = {|
 const LoginButton = ({ children, onClick }: Props) => (
   <>
     <Desktop>
-      <Button onClick={onClick} iconLeft={<AccountCircle />} type="secondary" size="small">
-        {children}
-      </Button>
+      <CustomButton onClick={onClick}>
+        <Stack flex align="center" spacing="condensed">
+          <AccountCircle color="tertiary" />
+          {children}
+        </Stack>
+      </CustomButton>
     </Desktop>
     <Mobile>
       <CustomButton onClick={onClick}>

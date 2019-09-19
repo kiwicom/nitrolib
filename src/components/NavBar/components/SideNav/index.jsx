@@ -69,6 +69,7 @@ const MenuOpen = styled.button`
   cursor: pointer;
   display: flex;
   padding: 0 2px;
+  background: transparent;
   svg {
     fill: ${({ inverted, theme }: InvertedProps) => inverted && theme.orbit.paletteWhite};
     height: 20px;
