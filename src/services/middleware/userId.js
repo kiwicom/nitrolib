@@ -6,11 +6,9 @@ import { makeUserId } from "../session/ids";
 import { USER_ID } from "../../consts/cookies";
 
 const addCookie = (req: $Request, res: $Response) => {
-  if (req.cookies[USER_ID] && isUUID(req.cookies[USER_ID])) {
-    return req.cookies[USER_ID];
-  }
+  if (req.cookies[USER_ID] && isUUID(req.cookies[USER_ID])) return;
 
-  return res.cookie(USER_ID, makeUserId());
+  res.cookie(USER_ID, makeUserId());
 };
 
 function userMiddleWare(req: $Request, res: $Response, next: NextFunction) {
