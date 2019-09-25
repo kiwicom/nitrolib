@@ -1,3 +1,17 @@
+## [7.4.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.4.0...v7.4.1) (2019-09-25)
+
+
+### Bug Fixes
+
+* **components:** Navbar buttons ([38acaf7](https://gitlab.skypicker.com/frontend/nitrolib/commit/38acaf7))
+
+
+### Features
+
+* **services:** Update of userid middleware ([0e7171e](https://gitlab.skypicker.com/frontend/nitrolib/commit/0e7171e))
+
+
+
 # [7.4.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.3.4...v7.4.0) (2019-09-18)
 
 
