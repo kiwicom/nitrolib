@@ -2,6 +2,8 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withKnobs, select, boolean } from "@storybook/addon-knobs";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
+import { BaggageCabin } from "@kiwicom/orbit-components/lib/icons";
 
 import withData from "./decorators/withData";
 import airlines from "./fixtures/airlines";
@@ -187,6 +189,30 @@ storiesOf("BaggagePicker", module)
           holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
         }}
         shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
+        {...props}
+      />
+    </div>
+  ))
+  .add("handBag -- with description", () => (
+    <div style={{ padding: "24px" }}>
+      <BaggagePicker
+        passengerCategory={select(
+          "Passenger category",
+          passengerCategoryOptions,
+          "adult",
+          "Baggage",
+        )}
+        pickerType="handBag"
+        passengerBaggage={{
+          handBag: select("Handbag", handBagOptions, 1, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
+        }}
+        shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
+        description={
+          <Alert type="info" icon={<BaggageCabin />} spaceAfter="small">
+            Additional information about adding a cabin bag.
+          </Alert>
+        }
         {...props}
       />
     </div>
