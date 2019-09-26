@@ -1,3 +1,7 @@
+## [8.0.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v8.0.0...v8.0.1) (2019-09-26)
+
+
+
 # [8.0.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.4.1...v8.0.0) (2019-09-26)
 
 
