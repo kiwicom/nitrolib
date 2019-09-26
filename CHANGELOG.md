@@ -1,3 +1,13 @@
+# [8.0.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.4.1...v8.0.0) (2019-09-26)
+
+
+### Features
+
+* **components:** InitAuth, breaking changes ([97d254e](https://gitlab.skypicker.com/frontend/nitrolib/commit/97d254e))
+* **services:** Extended UTMs ([facd475](https://gitlab.skypicker.com/frontend/nitrolib/commit/facd475))
+
+
+
 ## [7.4.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v7.4.0...v7.4.1) (2019-09-25)
 
 
