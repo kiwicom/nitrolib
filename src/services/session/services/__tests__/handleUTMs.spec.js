@@ -13,6 +13,12 @@ const UTMs = {
   utm_term: "utm_term",
   utm_content: "utm_content",
   utm_campaign: "utm_campaign",
+  utm_tm_source: "utm_tm_source",
+  utm_tm_medium: "utm_tm_medium",
+  utm_tm_component: "utm_tm_component",
+  utm_tm_content: "utm_tm_content",
+  utm_tm_campaign: "utm_tm_campaign",
+  utm_tm_version: "utm_tm_version",
 };
 
 const MKTs = {
@@ -50,7 +56,7 @@ describe("#handleUTMs", () => {
   test("none", () => {
     const res = handleUTMs({});
     // $FlowExpected: jest bug
-    expect(local.load.mock.calls.length).toBe(20); // clear & load
+    expect(local.load.mock.calls.length).toBe(32); // clear & load
     // $FlowExpected: jest bug
     local.load.mock.calls.forEach(([utm]) => {
       expect(all[utm]).toBe(utm);
@@ -62,9 +68,9 @@ describe("#handleUTMs", () => {
   test("url", () => {
     const res = handleUTMs(query);
     // $FlowExpected: jest bug
-    expect(local.load.mock.calls.length).toBe(20); // clear & load
+    expect(local.load.mock.calls.length).toBe(32); // clear & load
     // $FlowExpected: jest bug
-    expect(local.save.mock.calls.length).toBe(10);
+    expect(local.save.mock.calls.length).toBe(16);
     // $FlowExpected: jest bug
     local.save.mock.calls.forEach(([utm]) => {
       expect(all[utm]).toBe(utm);
@@ -84,7 +90,7 @@ describe("#handleUTMs", () => {
 
     const res = handleUTMs({});
     // $FlowExpected: jest bug
-    expect(local.load.mock.calls.length).toBe(20); // clear & load
+    expect(local.load.mock.calls.length).toBe(32); // clear & load
     // $FlowExpected: jest bug
     expect(local.remove.mock.calls.length).toBe(0);
     // $FlowExpected: jest bug
@@ -106,7 +112,7 @@ describe("#handleUTMs", () => {
 
     const res = handleUTMs(MKTs);
     // $FlowExpected: jest bug
-    expect(local.load.mock.calls.length).toBe(20); // clear & load
+    expect(local.load.mock.calls.length).toBe(32); // clear & load
     // $FlowExpected: jest bug
     expect(local.remove.mock.calls.length).toBe(0);
     // $FlowExpected: jest bug
@@ -126,9 +132,9 @@ describe("#handleUTMs", () => {
 
     const res = handleUTMs({});
     // $FlowExpected: jest bug
-    expect(local.load.mock.calls.length).toBe(20); // clear & load
+    expect(local.load.mock.calls.length).toBe(32); // clear & load
     // $FlowExpected: jest bug
-    expect(local.remove.mock.calls.length).toBe(10);
+    expect(local.remove.mock.calls.length).toBe(16);
     // $FlowExpected: jest bug
     expect(local.save.mock.calls.length).toBe(0);
 
