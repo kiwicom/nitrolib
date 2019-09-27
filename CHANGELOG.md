@@ -1,3 +1,17 @@
+# [8.1.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v8.0.1...v8.1.0) (2019-09-27)
+
+
+### Bug Fixes
+
+* **services:** EmailValidator translation key ([16222b4](https://gitlab.skypicker.com/frontend/nitrolib/commit/16222b4))
+
+
+### Features
+
+* **components:** Add `description` prop to BaggagePicker ([b819502](https://gitlab.skypicker.com/frontend/nitrolib/commit/b819502))
+
+
+
 ## [8.0.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v8.0.0...v8.0.1) (2019-09-26)
 
 
