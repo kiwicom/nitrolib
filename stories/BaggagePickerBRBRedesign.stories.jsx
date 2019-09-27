@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { withKnobs, select, boolean } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
-import { BaggageCabin } from "@kiwicom/orbit-components/lib/icons";
+import BaggageCabin from "@kiwicom/orbit-components/lib/icons/BaggageCabin";
 
 import withData from "./decorators/withData";
 import airlines from "./fixtures/airlines";
