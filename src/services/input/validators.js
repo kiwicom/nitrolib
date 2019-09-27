@@ -8,7 +8,8 @@ export type Error = string;
 // eslint-disable-next-line no-extra-boolean-cast
 export const required = (val: mixed): Error => (val ? "" : __("forms.this_field_must_be_filled"));
 
-export const email = (val: string): Error => (isEmail(val) ? "" : __("forms.wrong_format_email"));
+export const email = (val: string): Error =>
+  isEmail(val) ? "" : __("booking.passenger.email.invalid");
 export type YearAfterOpts = {|
   offset: number,
   now: Date,

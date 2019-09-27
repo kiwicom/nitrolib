@@ -18,7 +18,10 @@ describe("#InputEmail", () => {
     const wrapper = shallow(<InputEmail id="test" value="" error="" onChange={onChange} />);
 
     wrapper.simulate("change", { target: { value: "keket@-.com" } });
-    expect(onChange).toBeCalledWith({ error: "forms.wrong_format_email", value: "keket@-.com" });
+    expect(onChange).toBeCalledWith({
+      error: "booking.passenger.email.invalid",
+      value: "keket@-.com",
+    });
   });
 
   test("error required", () => {

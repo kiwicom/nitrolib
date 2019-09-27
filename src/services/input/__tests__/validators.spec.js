@@ -16,7 +16,7 @@ describe("#validators", () => {
   test("email", () => {
     expect(fns.email("lol@kek.bur")).toBe("");
     expect(fns.email("keket_@kiwi.com")).toBe("");
-    expect(fns.email("asd")).toBe("forms.wrong_format_email");
+    expect(fns.email("asd")).toBe("booking.passenger.email.invalid");
   });
 
   test("iata", () => {
