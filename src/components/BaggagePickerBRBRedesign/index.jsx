@@ -1,5 +1,5 @@
 // @flow strict
-import React, { useState, useEffect } from "react";
+import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
 import Text from "@kiwicom/orbit-components/lib/Text";
@@ -33,6 +33,7 @@ type Props = {|
   context: "booking" | "mmb",
   currentCombination?: number,
   prioBoardingLinkHandler?: (arg: Airline[]) => void,
+  description: React.Node,
   shouldShowAddBlueRibbonBag: boolean,
   blueRibbonBagPrice: PriceType,
   isBlueRibbonBagAdded: boolean,
@@ -66,6 +67,7 @@ const BaggagePickerBRBRedesign = ({
   airlines,
   currentCombination,
   baggage,
+  description,
   shouldShowAddBlueRibbonBag,
   blueRibbonBagPrice,
   isBlueRibbonBagAdded,
@@ -73,7 +75,7 @@ const BaggagePickerBRBRedesign = ({
   removeBlueRibbonBag,
   openBlueribbonBagsSmartFAQ,
 }: Props) => {
-  const [options, setOptions] = useState(
+  const [options, setOptions] = React.useState(
     getOptions({
       baggage,
       passengerCategory,
@@ -82,16 +84,16 @@ const BaggagePickerBRBRedesign = ({
       currentCombination,
     }),
   );
-  const [showedOptions, setShowedOptions] = useState(
+  const [showedOptions, setShowedOptions] = React.useState(
     options.length > 4 ? options.slice(0, 3) : options,
   );
-  const [numberOfHiddenOptions, setNumberOfHiddenOptions] = useState(
+  const [numberOfHiddenOptions, setNumberOfHiddenOptions] = React.useState(
     options.length - showedOptions.length,
   );
 
   const hasOnlyEmptyOption = options.length === 1 && R.isEmpty(options[0].items);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setOptions(
       getOptions({
         baggage,
@@ -103,7 +105,7 @@ const BaggagePickerBRBRedesign = ({
     );
   }, [baggage, context, currentCombination, passengerCategory, pickerType]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (options.length > 4) {
       const optionsToShow = options.slice(0, 3);
       const hiddenOptionsLength = options.length - optionsToShow.length;
@@ -140,6 +142,7 @@ const BaggagePickerBRBRedesign = ({
           </IconWrapper>
         </Tooltip>
       </Stack>
+      {description}
       {options.length > 0 && (
         <Text>
           {context === "booking" ? (
@@ -202,6 +205,10 @@ const BaggagePickerBRBRedesign = ({
       )}
     </Stack>
   );
+};
+
+BaggagePickerBRBRedesign.defaultProps = {
+  description: null,
 };
 
 export default BaggagePickerBRBRedesign;

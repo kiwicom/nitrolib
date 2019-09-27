@@ -655,6 +655,7 @@ type Props = {|
   context: "booking" | "mmb",
   currentCombination?: number,
   prioBoardingLinkHandler?: (arg: Airline[]) => void,
+  description?: React.Node,
 |};
 
 declare export default React.ComponentType<Props>;
@@ -724,6 +725,7 @@ type Props = {|
   context: "booking" | "mmb",
   currentCombination?: number,
   prioBoardingLinkHandler?: (arg: Airline[]) => void,
+  description?: React.Node,
   shouldShowAddBlueRibbonBag: boolean,
   blueRibbonBagPrice: PriceType,
   isBlueRibbonBagAdded: boolean,

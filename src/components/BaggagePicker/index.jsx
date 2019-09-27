@@ -1,5 +1,5 @@
 // @flow strict
-import React, { useState, useEffect } from "react";
+import * as React from "react";
 import * as R from "ramda";
 import styled from "styled-components";
 import Text from "@kiwicom/orbit-components/lib/Text";
@@ -32,6 +32,7 @@ type Props = {|
   context: "booking" | "mmb",
   currentCombination?: number,
   prioBoardingLinkHandler?: (arg: Airline[]) => void,
+  description: React.Node,
 |};
 
 const IconWrapper = styled.div`
@@ -59,8 +60,9 @@ const BaggagePicker = ({
   airlines,
   currentCombination,
   baggage,
+  description,
 }: Props) => {
-  const [options, setOptions] = useState(
+  const [options, setOptions] = React.useState(
     getOptions({
       baggage,
       passengerCategory,
@@ -69,16 +71,16 @@ const BaggagePicker = ({
       currentCombination,
     }),
   );
-  const [showedOptions, setShowedOptions] = useState(
+  const [showedOptions, setShowedOptions] = React.useState(
     options.length > 4 ? options.slice(0, 3) : options,
   );
-  const [numberOfHiddenOptions, setNumberOfHiddenOptions] = useState(
+  const [numberOfHiddenOptions, setNumberOfHiddenOptions] = React.useState(
     options.length - showedOptions.length,
   );
 
   const hasOnlyEmptyOption = options.length === 1 && R.isEmpty(options[0].items);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setOptions(
       getOptions({
         baggage,
@@ -90,7 +92,7 @@ const BaggagePicker = ({
     );
   }, [baggage, context, currentCombination, passengerCategory, pickerType]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (options.length > 4) {
       const optionsToShow = options.slice(0, 3);
       const hiddenOptionsLength = options.length - optionsToShow.length;
@@ -123,6 +125,7 @@ const BaggagePicker = ({
           </IconWrapper>
         </Tooltip>
       </Stack>
+      {description}
       {options.length > 0 && (
         <Text>
           {context === "booking" ? (
@@ -179,6 +182,10 @@ const BaggagePicker = ({
       )}
     </Stack>
   );
+};
+
+BaggagePicker.defaultProps = {
+  description: null,
 };
 
 export default BaggagePicker;

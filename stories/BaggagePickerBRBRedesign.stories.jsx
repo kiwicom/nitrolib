@@ -3,6 +3,8 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withKnobs, select, boolean } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
+import Alert from "@kiwicom/orbit-components/lib/Alert";
+import BaggageCabin from "@kiwicom/orbit-components/lib/icons/BaggageCabin";
 
 import withData from "./decorators/withData";
 import airlines from "./fixtures/airlines";
@@ -215,6 +217,32 @@ storiesOf("BaggagePickerBRBRedesign", module)
         shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
         isBlueRibbonBagAdded={boolean("isBlueRibbonBagAdded", false, "Baggage")}
         shouldShowAddBlueRibbonBag={boolean("shouldShowAddBlueRibbonBag", true, "Baggage")}
+        {...props}
+      />
+    </div>
+  ))
+  .add("handBag -- with description", () => (
+    <div style={{ padding: "24px" }}>
+      <BaggagePickerBRBRedesign
+        passengerCategory={select(
+          "Passenger category",
+          passengerCategoryOptions,
+          "adult",
+          "Baggage",
+        )}
+        pickerType="handBag"
+        passengerBaggage={{
+          handBag: select("Handbag", handBagOptions, 1, "Baggage"),
+          holdBag: select("Holdbag", holdBagOptions, 1, "Baggage"),
+        }}
+        shouldShowRecheckNote={boolean("shouldShowRecheckNote", false, "Baggage")}
+        isBlueRibbonBagAdded={boolean("isBlueRibbonBagAdded", false, "Baggage")}
+        shouldShowAddBlueRibbonBag={boolean("shouldShowAddBlueRibbonBag", true, "Baggage")}
+        description={
+          <Alert type="info" icon={<BaggageCabin />} spaceAfter="small">
+            Additional information about adding a cabin bag.
+          </Alert>
+        }
         {...props}
       />
     </div>
