@@ -1,8 +1,8 @@
 // @flow
 import * as React from "react";
 import { graphql, createFragmentContainer } from "@kiwicom/relay";
+import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 
-import ButtonLink from "../../../../primitives/ButtonLink";
 import Translate from "../../../../../Translate";
 import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
 import type { TripHeader_list } from "./__generated__/TripHeader_list.graphql";
@@ -23,20 +23,10 @@ const TripHeader = ({ list }: Props) => {
     <IntlConsumer>
       {intl => (
         <>
-          <ButtonLink
-            marginLeft={20}
-            bold
-            href={`/${intl.language.id}/account#future`}
-            color="secondary"
-          >
+          <ButtonLink href={`/${intl.language.id}/account#future`} type="secondary">
             <Translate t="account.upcoming_trips" values={{ trips: countTrips }} />
           </ButtonLink>
-          <ButtonLink
-            marginRight={20}
-            bold
-            href={`/${intl.language.id}/account#past`}
-            color="primary"
-          >
+          <ButtonLink href={`/${intl.language.id}/account#past`} type="primary">
             <Translate t="account.past_trips" />
           </ButtonLink>
         </>

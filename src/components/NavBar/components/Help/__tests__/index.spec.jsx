@@ -6,9 +6,9 @@ import Help from "..";
 
 describe("#Help", () => {
   test("render", () => {
-    const wrapper = shallow(<Help inverted={false} onOpen={jest.fn()} />);
+    const wrapper = shallow(<Help onOpen={jest.fn()} />);
 
-    expect(wrapper.find("Button").exists()).toBe(true);
-    expect(wrapper.find("Button").prop("data-test")).toBe("NavBar-Help");
+    expect(wrapper.find("ButtonLink").exists()).toBe(true);
+    expect(wrapper.find("ButtonLink").prop("dataTest")).toBe("NavBar-Help");
   });
 });

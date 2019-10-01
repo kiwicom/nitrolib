@@ -8,7 +8,7 @@ import Links from "..";
 
 describe("Links", () => {
   test("Links component should render correctly", () => {
-    const wrapper = shallow(<Links active="travel" inverted={false} services={response.items} />);
+    const wrapper = shallow(<Links active="travel" services={response.items} />);
 
     expect(wrapper.find("Link").exists()).toBe(true);
   });

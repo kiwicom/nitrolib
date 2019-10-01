@@ -3,9 +3,8 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
-import Stack from "@kiwicom/orbit-components/lib/Stack";
+import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 
-import button from "../../../../styles/mixins/button";
 import { themeDefault } from "../../../../records/Theme";
 
 const Mobile = styled.div`
@@ -28,11 +27,6 @@ const Desktop = styled.div`
   `)};
 `;
 
-const CustomButton = styled.button`
-  ${button}
-  background: transparent;
-`;
-
 Desktop.defaultProps = {
   theme: themeDefault,
 };
@@ -47,17 +41,22 @@ type Props = {|
 const LoginButton = ({ children, onClick }: Props) => (
   <>
     <Desktop>
-      <CustomButton onClick={onClick}>
-        <Stack flex align="center" spacing="condensed">
-          <AccountCircle color="tertiary" />
-          {children}
-        </Stack>
-      </CustomButton>
+      <ButtonLink
+        iconLeft={<AccountCircle size="small" color="tertiary" />}
+        type="secondary"
+        transparent
+        onClick={onClick}
+      >
+        {children}
+      </ButtonLink>
     </Desktop>
     <Mobile>
-      <CustomButton onClick={onClick}>
-        <AccountCircle />
-      </CustomButton>
+      <ButtonLink
+        iconLeft={<AccountCircle size="small" />}
+        type="secondary"
+        transparent
+        onClick={onClick}
+      />
     </Mobile>
   </>
 );

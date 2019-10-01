@@ -5,11 +5,11 @@ import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import { createFragmentContainer, graphql } from "@kiwicom/relay";
 import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
+import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 
 import ItemWrapper from "../../primitives/ItemWrapper";
 import Translate from "../../../../../Translate";
 import { Consumer as IntlConsumer } from "../../../../../../services/intl/context";
-import ButtonLink from "../../../../primitives/ButtonLink";
 import BottomTripItem from "../BottomTripItem";
 import type { TripListBottom_list } from "./__generated__/TripListBottom_list.graphql";
 import { themeDefault } from "../../../../../../records/Theme";
@@ -51,12 +51,7 @@ const TripListBottom = ({ list }: Props) => {
               ))}
           </TripsBottomWrapper>
           <Stack inline align="center" spacing="none">
-            <ButtonLink
-              color="primary"
-              marginLeft={25}
-              bold
-              href={`/${intl.language.id}/account#future`}
-            >
+            <ButtonLink type="primary" href={`/${intl.language.id}/account#future`}>
               <Translate t="account.all_trips" />
             </ButtonLink>
           </Stack>

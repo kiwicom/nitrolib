@@ -7,10 +7,12 @@ import CarRental from "@kiwicom/orbit-components/lib/icons/CarRental";
 import Accommodation from "@kiwicom/orbit-components/lib/icons/Accommodation";
 import Suitcase from "@kiwicom/orbit-components/lib/icons/Suitcase";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Desktop from "@kiwicom/orbit-components/lib/Desktop";
+import Mobile from "@kiwicom/orbit-components/lib/Mobile";
 
-import IconWrapper from "../../primitives/IconWrapper";
-import StyledLink from "../../primitives/StyledLink";
+import ButtonWrapper from "../../primitives/ButtonWrapper";
 
 const mapIcons = {
   travel: <AirplaneUp />,
@@ -44,28 +46,42 @@ type Props = {|
   text: React.Node,
   newWindow: boolean,
   active?: boolean,
-  inverted?: boolean,
   newDesign?: boolean,
 |};
 
-const Link = ({ active, link, newWindow, icon, text, inverted, newDesign }: Props) => (
-  <StyledLink
-    active={active}
-    href={link}
-    inverted={inverted}
-    newDesign={newDesign}
-    target={newWindow ? "_blank" : null}
-    rel={newWindow ? "noopener noreferrer" : null}
-  >
-    <Stack flex align="center">
-      {icon && mapIcons[icon] && (
-        <Icon>
-          <IconWrapper>{mapIcons[icon]}</IconWrapper>
-        </Icon>
-      )}
-      {text}
-    </Stack>
-  </StyledLink>
+const Link = ({ active, link, newWindow, icon, text, newDesign }: Props) => (
+  <>
+    <Desktop>
+      <ButtonLink
+        href={link}
+        type={active ? "primary" : "secondary"}
+        transparent
+        external={!!newWindow}
+      >
+        {newDesign ? (
+          <ButtonWrapper>
+            <Stack flex align="center" spacing="natural">
+              {icon && mapIcons[icon] && <Icon>{mapIcons[icon]}</Icon>}
+              <div>{text}</div>
+            </Stack>
+          </ButtonWrapper>
+        ) : (
+          <Stack flex align="center" spacing="natural">
+            {icon && mapIcons[icon] && <Icon>{mapIcons[icon]}</Icon>}
+            <div>{text}</div>
+          </Stack>
+        )}
+      </ButtonLink>
+    </Desktop>
+    <Mobile>
+      <ButtonLink href={link} type={active ? "primary" : "secondary"} external={!!newWindow}>
+        <Stack flex align="center" spacing="natural">
+          {icon && mapIcons[icon] && <Icon>{mapIcons[icon]}</Icon>}
+          <div>{text}</div>
+        </Stack>
+      </ButtonLink>
+    </Mobile>
+  </>
 );
 
 Link.defaultProps = {

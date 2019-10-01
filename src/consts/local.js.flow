@@ -1,5 +1,4 @@
 // @flow strict
 declare export var AFFILIATE_PARAMS: "affilParams";
-declare export var STARRED: "starred";
 
 export type Local = string; // TODO specific once everyone uses this

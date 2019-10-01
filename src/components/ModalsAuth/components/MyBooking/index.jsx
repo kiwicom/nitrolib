@@ -258,7 +258,6 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                   <Translate t="common.departure_date_colon" />
                 </IconText>
                 <InputDate
-                  id="departure"
                   value={fields.departure.value}
                   onChange={this.handleChangeDeparture}
                   format={parseDateFormat(intl.language.dateFormatLong)}

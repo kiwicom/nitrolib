@@ -13,13 +13,7 @@ const NOW = new Date(Date.UTC(2018, 2, 1));
 describe("#InputDate", () => {
   test("render regular", () => {
     const wrapper = shallow(
-      <InputDate
-        id="test"
-        value={NOW}
-        onChange={jest.fn()}
-        min={addYears(NOW, -1)}
-        max={addYears(NOW, 2)}
-      />,
+      <InputDate value={NOW} onChange={jest.fn()} min={addYears(NOW, -1)} max={addYears(NOW, 2)} />,
     );
 
     expect(wrapper.find("Stack").exists()).toBe(true);
@@ -28,7 +22,6 @@ describe("#InputDate", () => {
   test("render ddmmyyyy", () => {
     const wrapper = mount(
       <InputDate
-        id="test"
         value={NOW}
         onChange={jest.fn()}
         min={addYears(NOW, -1)}
@@ -62,7 +55,6 @@ describe("#InputDate", () => {
   test("render mmddyyyy", () => {
     const wrapper = mount(
       <InputDate
-        id="test"
         value={NOW}
         onChange={jest.fn()}
         min={addYears(NOW, -1)}
@@ -96,7 +88,6 @@ describe("#InputDate", () => {
   test("render yyyymmdd", () => {
     const wrapper = mount(
       <InputDate
-        id="test"
         value={NOW}
         onChange={jest.fn()}
         min={addYears(NOW, -1)}
@@ -130,13 +121,7 @@ describe("#InputDate", () => {
   test("handle change date", () => {
     const onChange = jest.fn();
     const wrapper = shallow(
-      <InputDate
-        id="test"
-        value={NOW}
-        onChange={onChange}
-        min={addYears(NOW, -1)}
-        max={addYears(NOW, 2)}
-      />,
+      <InputDate value={NOW} onChange={onChange} min={addYears(NOW, -1)} max={addYears(NOW, 2)} />,
     );
 
     wrapper.instance().handleChangeDate({ target: { value: "10" } });
@@ -147,13 +132,7 @@ describe("#InputDate", () => {
   test("handle change month", () => {
     const onChange = jest.fn();
     const wrapper = shallow(
-      <InputDate
-        id="test"
-        value={NOW}
-        onChange={onChange}
-        min={addYears(NOW, -1)}
-        max={addYears(NOW, 2)}
-      />,
+      <InputDate value={NOW} onChange={onChange} min={addYears(NOW, -1)} max={addYears(NOW, 2)} />,
     );
 
     wrapper.instance().handleChangeMonth({ target: { value: "10" } });
@@ -164,13 +143,7 @@ describe("#InputDate", () => {
   test("handle change year", () => {
     const onChange = jest.fn();
     const wrapper = shallow(
-      <InputDate
-        id="test"
-        value={NOW}
-        onChange={onChange}
-        min={addYears(NOW, -1)}
-        max={addYears(NOW, 2)}
-      />,
+      <InputDate value={NOW} onChange={onChange} min={addYears(NOW, -1)} max={addYears(NOW, 2)} />,
     );
 
     wrapper.instance().handleChangeYear({ target: { value: "2020" } });

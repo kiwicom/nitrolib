@@ -19,7 +19,6 @@ type Props = {|
   searchForm: SearchForm | null,
   splitster: Splitster,
   active?: string, // TODO maybe add specific if ids are also specified
-  inverted?: boolean,
   newDesign?: boolean,
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO DI actual API call

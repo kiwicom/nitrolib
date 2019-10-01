@@ -1,9 +1,9 @@
 // @flow strict
 import * as React from "react";
 import getMonth from "date-fns/getMonth";
+import Select from "@kiwicom/orbit-components/lib/Select";
 
-import Select from "../../../Select";
-import { Consumer } from "../../../../services/intl/context";
+import { useIntl } from "../../../../services/intl/context";
 
 const MONTHS = [
   __("common.months.january"),
@@ -21,24 +21,25 @@ const MONTHS = [
 ];
 
 type Props = {|
-  id: string,
   value: Date,
   onChange: (ev: SyntheticInputEvent<HTMLSelectElement>) => void,
   months: number[],
 |};
 
-const Months = ({ id, value, onChange, months }: Props) => (
-  <Consumer>
-    {({ translate }) => (
-      <Select id={`${id}-month`} value={String(getMonth(value))} onChange={onChange}>
-        {months.map(month => (
-          <option key={month} value={month}>
-            {translate(MONTHS[month])}
-          </option>
-        ))}
-      </Select>
-    )}
-  </Consumer>
-);
+const Months = ({ value, onChange, months }: Props) => {
+  const { translate } = useIntl();
+
+  return (
+    <Select
+      key={String(value)}
+      value={String(getMonth(value))}
+      options={months.map(month => ({
+        value: month,
+        label: translate(MONTHS[month]),
+      }))}
+      onChange={onChange}
+    ></Select>
+  );
+};
 
 export default Months;

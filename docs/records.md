@@ -24,7 +24,6 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [Sector](#sector)
 * [Segment](#segment)
 * [Session](#session)
-* [Starred](#starred)
 * [Station](#station)
 * [Theme](#theme)
 * [User](#user)
@@ -1529,71 +1528,6 @@ See types:
 * [Affiliate](./records#affiliate)
 
 Contains **user** and **request** specific information.
-
-## Starred
-
-**Imports:**
-```js
-import * as fns from "@kiwicom/nitro/lib/records/Starred";
-import type { Starred } from "@kiwicom/nitro/lib/records/Starred";
-```
-
-**Types:**
-```js
-export type CabinClass = "economy" | "business" | "first" | "premium";
-
-export type PassengersCount = {|
-  adults: number,
-  children: number,
-  infants: number,
-|};
-
-export type StarredFormData = {|
-  origin: string,
-  destination: string,
-  outboundDate: string,
-  inboundDate: string,
-  multicity: string,
-  salesman: string,
-  passengers: PassengersCount,
-  cabinClass: CabinClass,
-  filters: any,
-  lang: string,
-  places: Array<{ id: string, slug: string }>,
-  returnUrl: string,
-  starType: string,
-|};
-
-export type StarredItem = {|
-  id: string,
-  form: StarredFormData,
-  lastPrice: number,
-  itinerary: ItineraryDeep,
-  priceUpdatedAt: Date,
-  createdAt: Date,
-  updatedAt: Date,
-|};
-
-export type ShareDialog = {|
-  itinerary: ItineraryDeep,
-  lang: string,
-  shareUrl: string,
-  passengers: PassengersCount,
-  cabinClass: CabinClass,
-  isMobile: boolean,
-  onSetNotice: () => void,
-  onClose: () => void,
-|};
-
-declare export var isMulti: (object: PassengersCount) => boolean;
-declare export var getSum: (object: PassengersCount) => number;
-declare export var getTransKey: (object: PassengersCount) => string;
-```
-
-See types:
-* [Itinerary](./records#itinerary)
-
-_TODO_
 
 ## Station
 

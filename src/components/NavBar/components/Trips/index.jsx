@@ -5,32 +5,34 @@ import Passenger from "@kiwicom/orbit-components/lib/icons/Passenger";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Mobile from "@kiwicom/orbit-components/lib/Mobile";
+import Desktop from "@kiwicom/orbit-components/lib/Desktop";
+import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
+import useOnClickOutside from "@kiwicom/orbit-components/lib/hooks/useClickOutside";
 
-import Button from "../Button";
-import ClickOutside from "../../../ClickOutside";
-import Desktop from "../../../Desktop";
-import Mobile from "../../../Mobile";
 import Translate from "../../../Translate";
 import type { Auth } from "../../../../records/Auth";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
-import Toggle from "../../../Toggle";
 import TripDataList from "./components/TripDataList";
 import SingleTripData from "./components/SingleTripData";
 import userType from "./services/userType";
 
 type Props = {|
   auth: Auth,
-  inverted: boolean,
   onSelect: (bid: string) => void,
 |};
 
 const UserName = styled.div`
-  max-width: 65px;
-  display: inline;
+  max-width: 60px;
+  display: block;
   overflow: hidden;
   direction: ltr;
   text-overflow: ellipsis;
+`;
+
+const TextWrapper = styled.div`
+  white-space: nowrap;
 `;
 
 const UserWrapper = styled.div`
@@ -38,7 +40,6 @@ const UserWrapper = styled.div`
 
   ${mq.mediumMobile(css`
     display: flex;
-    padding-${/* sc-custom "left" */ left}: 5px;
     font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightNormal};
     color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkLightActive};
   `)};
@@ -60,51 +61,48 @@ HideOnLower.defaultProps = {
   theme: themeDefault,
 };
 
-const Trips = ({ auth, onSelect, inverted }: Props) => {
+const Trips = ({ auth, onSelect }: Props) => {
+  const node = React.useRef(null);
+  const [isOpen, setOpen] = React.useState(false);
+
+  useOnClickOutside(node, () => setOpen(false));
+
   return (
-    <Toggle>
-      {({ open, onToggle }) => (
-        <div>
-          {open && (
-            <ClickOutside
-              onClickOutside={ev => {
-                ev.stopPropagation();
-                onToggle();
-              }}
-            >
-              {auth.type === "token" ? (
-                <SingleTripData singleBid={auth.bid} onSelect={onSelect} />
-              ) : (
-                <TripDataList onSelect={onSelect} />
-              )}
-            </ClickOutside>
-          )}
-          <Desktop display="flex">
-            <Stack align="center" spacing="none">
-              <Passenger size="small" />
-              <Button onClick={onToggle} color={inverted ? "white" : "secondary"}>
-                <HideOnLower>
-                  <Translate t="account.my_bookings_action" />
-                </HideOnLower>
-                <UserWrapper>
-                  <span>(</span>
-                  <UserName>{`${userType(auth)}...`}</UserName>
-                  <span>)</span>
-                </UserWrapper>
-              </Button>
+    <div ref={node}>
+      {isOpen &&
+        (auth.type === "token" ? (
+          <SingleTripData singleBid={auth.bid} onSelect={onSelect} />
+        ) : (
+          <TripDataList onSelect={onSelect} />
+        ))}
+
+      <Desktop>
+        <ButtonLink transparent onClick={() => setOpen(true)} type="secondary">
+          <TextWrapper>
+            <Stack inline align="center" spacing="condensed">
+              <Translate html t="account.my_bookings_action" />
+              <UserWrapper>
+                <span>(</span>
+                <UserName>{`${userType(auth)}...`}</UserName>
+                <span>)</span>
+              </UserWrapper>
             </Stack>
-          </Desktop>
-          <Mobile display="flex">
-            <Button onClick={onToggle} color={inverted ? "white" : "secondary"}>
+          </TextWrapper>
+        </ButtonLink>
+      </Desktop>
+      <Mobile>
+        <ButtonLink onClick={() => setOpen(true)} type="secondary" transparent>
+          <TextWrapper>
+            <Stack flex align="center" spacing="tight">
               <Passenger size="small" />
               <UserWrapper>
                 <UserName>{userType(auth)}</UserName>
               </UserWrapper>
-            </Button>
-          </Mobile>
-        </div>
-      )}
-    </Toggle>
+            </Stack>
+          </TextWrapper>
+        </ButtonLink>
+      </Mobile>
+    </div>
   );
 };
 

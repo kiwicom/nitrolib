@@ -10,6 +10,6 @@ describe("Links", () => {
       <Link link="https://www.kiwi.com" text="Travel" icon="travel" active={false} newWindow />,
     );
 
-    expect(wrapper.find("StyledLink").exists()).toBe(true);
+    expect(wrapper.find("ButtonLink").exists()).toBe(true);
   });
 });

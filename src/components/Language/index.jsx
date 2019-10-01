@@ -1,12 +1,12 @@
 // @flow strict
 import * as React from "react";
 import * as R from "ramda";
+import CountryFlag from "@kiwicom/orbit-components/lib/CountryFlag";
 
 import * as intlContext from "../../services/intl/context";
 import * as fetchedContext from "../../services/fetched/context";
 import NativePicker from "./NativePicker";
 import CustomPicker from "../CustomPicker";
-import LanguageCurrent from "./components/LanguageCurrent";
 import Menu from "./components/Menu";
 import type { Language as LanguageType } from "../../records/Languages";
 import type { Modal as ModalType } from "../../consts/modals";
@@ -16,7 +16,6 @@ type Props = {|
   positionMenuDesktop?: number,
   positionMenuTablet?: number,
   flat: boolean,
-  inverted?: boolean,
   favorite?: LanguageType[],
   hideNativeText?: boolean,
   onChange: (lang: string) => void,
@@ -28,7 +27,6 @@ const Language = ({
   hideNativeText,
   native,
   flat,
-  inverted,
   positionMenuDesktop,
   positionMenuTablet,
   favorite,
@@ -59,7 +57,9 @@ const Language = ({
             />
           ) : (
             <CustomPicker
-              openButton={<LanguageCurrent language={current} inverted={inverted} />}
+              iconLeft={<CountryFlag code={current.flag} name={current.name} />}
+              text={current.name}
+              dataTest="Language-Open"
               onChange={onChange}
             >
               {render => (

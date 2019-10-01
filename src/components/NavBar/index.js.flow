@@ -10,7 +10,7 @@ type Props = {|
   subscription: React.Node,
   portal: string,
   hide?: NavElement | NavElement[],
-  onOpenFaq: ?() => void,
+  onOpenFaq: () => void,
   onSetModal: (modal: Modal) => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
@@ -19,7 +19,6 @@ type Props = {|
   headerLinks?: React.Node, // null
   newDesign?: boolean,
   debug?: React.Node, // null
-  inverted?: boolean, // false
   animateLogo?: boolean,
   logoAnimateShow?: boolean,
 |};

@@ -5,13 +5,13 @@ import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Tooltip from "@kiwicom/orbit-components/lib/Tooltip";
 
 import type { Currency } from "../../../../records/Currency";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
 import separateList from "../../services/separateList";
 import button from "../../../../styles/mixins/button";
-import Tooltip from "../../../Tooltip";
 import CurrencyItem from "../Item";
 import Code from "../../primitives/Code";
 import Name from "../../primitives/Name";
@@ -54,6 +54,7 @@ const ItemText = styled.button`
   padding-${/* sc-custom "left" */ left}: 5px;
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   cursor: pointer;
+  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextNormal};
   background: ${({ theme, active }: ActiveProps) =>
     active ? theme.orbit.paletteProductNormal : "transparent"};
 
@@ -107,12 +108,14 @@ const List = ({ active, list, onSetCurrency }: Props) => (
       <Column key={items.reduce((acc, next) => acc + next.id, "")}>
         {items.map(item => (
           <Item key={item.id} data-test={`Currency-Item-${item.id}`}>
-            <Tooltip position={i > 1 ? "left" : "right"} tip={<Tip>{item.name}</Tip>}>
-              <Text>
-                <ItemText active={item.id === active.id} onClick={() => onSetCurrency(item.id)}>
-                  <CurrencyItem item={item} />
-                </ItemText>
-              </Text>
+            <Tooltip
+              preferredPosition={i > 1 ? "left" : "right"}
+              size="small"
+              content={<Tip>{item.name}</Tip>}
+            >
+              <ItemText active={item.id === active.id} onClick={() => onSetCurrency(item.id)}>
+                <CurrencyItem item={item} />
+              </ItemText>
             </Tooltip>
           </Item>
         ))}

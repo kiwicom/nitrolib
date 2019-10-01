@@ -6,14 +6,12 @@ import MenuItem from "./MenuItem";
 
 type Props = {|
   title: string,
-  Icon: React.ComponentType<{ className: string }>,
   link?: string,
 |};
 
-const BrandedMenuItem = ({ title, Icon, link }: Props) => (
+const BrandedMenuItem = ({ title, link }: Props) => (
   <MenuItem
     link={link}
-    Icon={Icon}
     text={
       <Translate
         t={title}

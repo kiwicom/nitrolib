@@ -11,11 +11,10 @@ const Popup = styled.div`
   position: absolute;
   left: 0;
   right: 0;
-  top: 50px;
+  top: 60px;
   margin: 12px;
   border: 0;
   box-shadow: 0 6px 16px 0 rgba(45, 53, 59, 0.22), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   overflow: hidden;
   width: 95%;
   min-width: 230px;

@@ -19,7 +19,6 @@ storiesOf("InputDate", module)
     <IntlConsumer>
       {({ language }) => (
         <InputDate
-          id="default"
           value={date("Value", now, GROUP_ID)}
           onChange={action("Change")}
           min={date("Min", new Date(Date.UTC(1950, 0)), GROUP_ID)}

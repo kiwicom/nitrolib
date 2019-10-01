@@ -1,10 +1,9 @@
 // @flow strict
 import * as React from "react";
-import Stack from "@kiwicom/orbit-components/lib/Stack";
 import styled from "styled-components";
+import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 
 import type { Auth } from "../../../../records/Auth";
-import ButtonLink from "../../primitives/ButtonLink";
 import Text from "../../../Text";
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
@@ -13,7 +12,6 @@ import LoginButton from "../LoginButton";
 
 type Props = {|
   auth: Auth,
-  inverted: boolean,
 |};
 
 const UserPhoto = styled.img`
@@ -26,34 +24,31 @@ UserPhoto.defaultProps = {
   theme: themeDefault,
 };
 
-const Account = ({ inverted, auth }: Props) => {
+const Account = ({ auth }: Props) => {
   const intl = useIntl();
 
   return (
-    <Stack inline align="center" grow={false} spacing="condensed">
+    <>
       {auth.type === "user" && auth.user.photo ? (
         <>
-          <UserPhoto src={auth.user.photo} />
           <ButtonLink
+            iconLeft={<UserPhoto src={auth.user.photo} />}
             href={`/${intl.language.id}/account`}
-            color={inverted ? "white" : "secondary"}
+            type="secondary"
           >
-            <Text t="account.logged_in" weight="bold" size="small" />
+            <Text t="account.logged_in" weight="bold" />
           </ButtonLink>
         </>
       ) : (
         <>
-          <ButtonLink
-            href={`/${intl.language.id}/account`}
-            color={inverted ? "white" : "secondary"}
-          >
+          <ButtonLink href={`/${intl.language.id}/account`} type="secondary">
             <LoginButton>
-              <Text t="account.logged_in" weight="bold" size="small" />
+              <Text t="account.logged_in" weight="bold" />
             </LoginButton>
           </ButtonLink>
         </>
       )}
-    </Stack>
+    </>
   );
 };
 

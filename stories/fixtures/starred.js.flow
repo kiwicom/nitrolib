@@ -1,4 +1,0 @@
-// @flow strict
-import type { StarredItem } from "../../src/records/Starred";
-
-declare export default Array<StarredItem>;

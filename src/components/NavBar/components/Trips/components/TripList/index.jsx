@@ -42,17 +42,17 @@ const TripList = ({ list, onSelect }: Props) => {
         firstTwo.map(item => {
           /* eslint-disable no-underscore-dangle */
           if (item.__typename === "BookingOneWay") {
-            /* $FlowExpected: TODO describe */
             return <OneWayTrips key={item.id} item={item} onSelect={onSelect} />;
           }
+
           if (item.__typename === "BookingReturn") {
-            /* $FlowExpected: TODO describe */
             return <ReturnTrips key={item.id} item={item} onSelect={onSelect} />;
           }
+
           if (item.__typename === "BookingMulticity") {
-            /* $FlowExpected: TODO describe */
             return <MulticityTrips key={item.id} item={item} onSelect={onSelect} />;
           }
+
           /* eslint-enable no-underscore-danble */
           return null;
         })}

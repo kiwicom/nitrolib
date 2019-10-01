@@ -143,7 +143,6 @@ import * as local from "@kiwicom/nitro/lib/consts/local";
 **Types:**
 ```js
 declare export var AFFILIATE_PARAMS: "affilParams";
-declare export var STARRED: "starred";
 
 export type Local = string; // TODO specific once everyone uses this
 ```

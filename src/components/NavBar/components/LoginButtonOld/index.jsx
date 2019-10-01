@@ -1,47 +1,42 @@
 // @flow
 import * as React from "react";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
+import Mobile from "@kiwicom/orbit-components/lib/Mobile";
+import Desktop from "@kiwicom/orbit-components/lib/Desktop";
+import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 
 import Trips from "../Trips";
 import ValueBind from "../../../ValueBind";
-import Desktop from "../../../Desktop";
-import Mobile from "../../../Mobile";
 import type { Auth } from "../../../../records/Auth";
 import * as MODALS from "../../../../consts/modals";
-import Button from "../Button";
 import Translate from "../../../Translate";
 
 type Props = {|
   auth: Auth | null,
   onSelectTrip: (bid: string) => void,
-  inverted: boolean,
   onChange: () => void,
 |};
 
-const LoginButtonOld = ({ auth, onSelectTrip, inverted, onChange }: Props) =>
+const LoginButtonOld = ({ auth, onSelectTrip, onChange }: Props) =>
   auth === null ? (
     <ValueBind value={MODALS.MY_BOOKING} onChange={onChange}>
       {({ onClick }) => (
         <>
-          <Desktop display="flex">
-            <Button onClick={onClick} color={inverted ? "white" : "secondary"}>
-              <Translate t="account.my_bookings_action" />
-            </Button>
+          <Desktop>
+            <ButtonLink transparent onClick={onClick} type="secondary">
+              <Translate html t="account.my_bookings_action" />
+            </ButtonLink>
           </Desktop>
-          <Mobile display="flex">
-            <Button
-              color={inverted ? "white" : "secondary"}
-              ariaLabel="account.my_bookings_action"
-              onClick={onClick}
-            >
+          <Mobile>
+            <ButtonLink type="secondary" transparent onClick={onClick}>
               <AccountCircle />
-            </Button>
+            </ButtonLink>
           </Mobile>
         </>
       )}
     </ValueBind>
   ) : (
-    <Trips auth={auth} inverted={inverted} onSelect={onSelectTrip} />
+    <Trips auth={auth} onSelect={onSelectTrip} />
   );
 
 export default LoginButtonOld;

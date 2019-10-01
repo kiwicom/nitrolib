@@ -1,16 +1,14 @@
 // @flow strict
 import * as React from "react";
-import styled, { css } from "styled-components";
-import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
-import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import Mobile from "@kiwicom/orbit-components/lib/Mobile";
+import Desktop from "@kiwicom/orbit-components/lib/Desktop";
 import * as R from "ramda";
+import NavigationBar from "@kiwicom/orbit-components/lib/NavigationBar";
+import NavigationList from "@kiwicom/orbit-components/lib/NavigationList";
+import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 
-import { navbar } from "../../styles";
-import Desktop from "../Desktop";
-import Mobile from "../Mobile";
-import type { ThemeProps } from "../../records/Theme";
-import { themeDefault } from "../../records/Theme";
+import * as MODALS from "../../consts/modals";
 import Language from "../Language";
 import Help from "./components/Help";
 import Menu from "./components/Menu";
@@ -18,37 +16,7 @@ import Logo from "./components/Logo";
 import Currency from "../Currency";
 import type { Modal } from "../../consts/modals";
 
-type Inverted = {|
-  ...ThemeProps,
-  inverted: boolean,
-|};
-
 type NavElement = "currencies" | "help" | "starred" | "mmb" | "languages" | "logo" | "sideNav";
-
-const Container = styled.div`
-  width: 100%;
-  display: flex;
-  position: relative;
-  height: ${navbar.height}px;
-  background-color: ${({ theme, inverted }: Inverted) =>
-    inverted ? theme.orbit.paletteProductNormal : theme.orbit.paletteWhite};
-  color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
-  box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowFixed};
-  padding: 0 10px;
-  font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
-  font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};
-  box-sizing: border-box;
-
-  ${mq.tablet(css`
-    position: fixed;
-    top: 0;
-    ${left}: 0;
-  `)};
-`;
-
-Container.defaultProps = {
-  theme: themeDefault,
-};
 
 type Props = {|
   starred: React.Node,
@@ -56,7 +24,7 @@ type Props = {|
   debug: React.Node,
   portal: string,
   hide: NavElement | NavElement[],
-  onOpenFaq: ?() => void,
+  onOpenFaq: () => void,
   onSetModal: (modal: Modal) => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
@@ -64,7 +32,6 @@ type Props = {|
   // defaulted
   headerLinks: React.Node,
   debug: React.Node,
-  inverted: boolean,
   newDesign: boolean,
   animateLogo: boolean,
   logoAnimateShow: boolean,
@@ -76,7 +43,6 @@ const NavBar = ({
   subscription,
   debug,
   portal,
-  inverted,
   animateLogo,
   logoAnimateShow,
   onOpenFaq,
@@ -94,66 +60,73 @@ const NavBar = ({
       R.includes(input),
     )(hide);
 
+  const [shown, setShown] = React.useState(MODALS.NONE);
+
+  const toggle = () => setShown(shown === MODALS.SIDE_NAV ? MODALS.NONE : MODALS.SIDE_NAV);
+
   return (
-    <Container inverted={inverted}>
-      <Stack justify="between" align="center" spacing="none" dataTest="NavBar">
-        <Stack flex shrink inline align="center" spacing="none" mediumMobile={{ spacing: "comfy" }}>
-          {visible("logo") && (
-            <Logo
-              inverted={inverted}
-              onClick={onLogoClick}
-              animate={animateLogo}
-              animateShow={logoAnimateShow}
-            />
-          )}
+    <NavigationBar onMenuOpen={toggle}>
+      <Stack flex align="center" justify="between" spacing="condensed">
+        {visible("logo") && (
+          <Logo onClick={onLogoClick} animate={animateLogo} animateShow={logoAnimateShow} />
+        )}
+        <Stack inline align="center" spacing="none">
           {headerLinks}
         </Stack>
-        <Stack
-          inline
-          align="center"
-          justify="end"
-          spacing="tight"
-          mediumMobile={{ spacing: "comfy" }}
-        >
-          <Desktop>
-            <Stack flex align="center" spacing="comfy">
-              {visible("languages") && (
-                <Language
-                  positionMenuDesktop={270}
-                  positionMenuTablet={5}
-                  inverted={inverted}
-                  onChange={onSaveLanguage}
-                  onSetModal={onSetModal}
-                />
-              )}
-              {visible("currencies") && (
-                <Currency
-                  positionMenuDesktop={270}
-                  positionMenuTablet={5}
-                  inverted={inverted}
-                  onSetModal={onSetModal}
-                />
-              )}
-              {visible("help") && <Help onOpen={onOpenFaq} inverted={inverted} />}
-            </Stack>
-          </Desktop>
-          {visible("starred") && starred}
-          <Mobile>{visible("help") && <Help onOpen={onOpenFaq} inverted={inverted} />}</Mobile>
-          <Menu
-            newDesign={newDesign}
-            subscription={subscription}
-            debug={debug}
-            shown={visible("mmb")}
-            sideNav={visible("sideNav")}
-            onSetModal={onSetModal}
-            onSaveLanguage={onSaveLanguage}
-            onSelectTrip={onSelectTrip}
-            inverted={inverted}
-            portal={portal}
-          />
-        </Stack>
+
+        <Desktop>
+          <NavigationList type="inline">
+            {visible("languages") && (
+              <Language
+                positionMenuDesktop={270}
+                positionMenuTablet={5}
+                onChange={onSaveLanguage}
+                onSetModal={onSetModal}
+              />
+            )}
+
+            {visible("currencies") && (
+              <Currency positionMenuDesktop={270} positionMenuTablet={5} onSetModal={onSetModal} />
+            )}
+
+            {visible("help") && <Help onOpen={onOpenFaq} />}
+
+            {visible("starred") && (
+              <ButtonLink type="secondary" transparent>
+                {starred}
+              </ButtonLink>
+            )}
+            {visible("sideNav") && (
+              <Menu
+                newDesign={newDesign}
+                subscription={subscription}
+                debug={debug}
+                shown={visible("mmb")}
+                isOpenNav={shown}
+                onToggle={toggle}
+                sideNav={visible("sideNav")}
+                onSetModal={onSetModal}
+                onSaveLanguage={onSaveLanguage}
+                onSelectTrip={onSelectTrip}
+                portal={portal}
+              />
+            )}
+          </NavigationList>
+        </Desktop>
+
+        <Mobile>
+          <NavigationList type="inline">
+            {visible("help") && <Help onOpen={onOpenFaq} />}
+
+            {visible("starred") && (
+              <ButtonLink type="secondary" transparent>
+                {starred}
+              </ButtonLink>
+            )}
+          </NavigationList>
+        </Mobile>
       </Stack>
-    </Container>
+    </NavigationBar>
   );
 };
 
@@ -161,7 +134,6 @@ NavBar.defaultProps = {
   headerLinks: null,
   debug: null,
   hide: [],
-  inverted: false,
   newDesign: false,
   animateLogo: false,
   logoAnimateShow: false,

@@ -11,6 +11,6 @@ describe("HeaderLinks", () => {
     // TODO replace this with a marble test
     const wrapper = shallow(<HeaderLinks {...props} testResponse={response} />);
 
-    expect(wrapper.find("HeaderLinks__Desktop").exists()).toBe(true);
+    expect(wrapper.find("Desktop").exists()).toBe(true);
   });
 });

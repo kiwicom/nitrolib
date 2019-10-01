@@ -1,20 +1,25 @@
 // @flow strict
 import * as React from "react";
+import styled from "styled-components";
 
 import { Consumer as CurrencyConsumer } from "../../services/currency/context";
 import NativePicker from "./components/NativePicker";
 import CustomPicker from "../CustomPicker";
-import { currencyDefault, getAvailableList } from "../../records/Currency";
-import Current from "./components/Current";
+import { currencyDefault, getAvailableList, getCode, getSymbol } from "../../records/Currency";
+import Code from "./primitives/Code";
+import Sign from "./primitives/Sign";
 import Menu from "./components/Menu";
 import LogMount from "../LogMount";
 import type { Modal as ModalType } from "../../consts/modals";
 import { CURRENCY_OPEN } from "./consts/events";
 
+const Separator = styled.span`
+  margin: 0 3px;
+`;
+
 type Props = {|
   positionMenuTablet?: number,
   positionMenuDesktop?: number,
-  inverted?: boolean,
   onSetModal?: (modal: ModalType) => void,
   // defaulted
   native: boolean,
@@ -26,7 +31,6 @@ const Currency = ({
   loading,
   positionMenuDesktop,
   positionMenuTablet,
-  inverted,
   onSetModal,
 }: Props) => (
   <CurrencyConsumer>
@@ -48,7 +52,14 @@ const Currency = ({
           ) : (
             <CustomPicker
               onChange={onChange}
-              openButton={<Current current={currency} inverted={inverted} />}
+              dataTest="Currency-Open"
+              text={
+                <>
+                  <Code>{getCode(currency.id)}</Code>
+                  <Separator>-</Separator>
+                  <Sign>{getSymbol(currency.format.format)}</Sign>
+                </>
+              }
             >
               {render => (
                 <>

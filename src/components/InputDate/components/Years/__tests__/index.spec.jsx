@@ -12,16 +12,16 @@ const years = Array(5)
 
 describe("#Years", () => {
   test("render", () => {
-    const wrapper = shallow(<Years id="kek" value={NOW} onChange={jest.fn()} years={years} />);
+    const wrapper = shallow(<Years value={NOW} onChange={jest.fn()} years={years} />);
 
     expect(wrapper.find("Select").exists()).toBe(true);
   });
 
   test("handle change", () => {
     const onChange = jest.fn();
-    const wrapper = shallow(<Years id="kek" value={NOW} onChange={onChange} years={years} />);
+    const wrapper = shallow(<Years value={NOW} onChange={onChange} years={years} />);
 
-    wrapper.find("#kek-year").simulate("change", { target: { value: "2020" } });
+    wrapper.find("Select").simulate("change", { target: { value: "2020" } });
 
     expect(onChange).toBeCalledWith({ target: { value: "2020" } });
   });

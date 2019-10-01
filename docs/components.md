@@ -7,12 +7,10 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [CookiesConsent](#cookiesconsent)
 * [Currency](#currency)
 * [DatePicker](#datepicker)
-* [Footer](#footer)
 * [HeaderLinks](#headerlinks)
 * [LocationPicker](#locationpicker)
 * [MagicLogin](#magiclogin)
 * [NavBar](#navbar)
-* [SideBar](#sidebar)
 
 **Utilities:**
 
@@ -22,29 +20,26 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [BaggagePickerBRBRedesign](#baggagepickerbrbredesign)
 * [BookingSavingsBanner](#bookingsavingsbanner)
 * [Button](#button)
-* [ClickOutside](#clickoutside)
 * [ClientOnly](#clientonly)
 * [CloseByKey](#closebykey)
 * [CookiesPopup](#cookiespopup)
 * [CustomerBaggageTile](#customerbaggagetile)
+<<<<<<< HEAD
 * [DateInput](#dateinput)
 * [Desktop](#desktop)
+=======
+>>>>>>> fdf9a42b... feat: Nitro clean up
 * [InitAuth](#initauth)
 * [InitCurrency](#initcurrency)
 * [InitIntl](#initintl)
 * [InitLog](#initlog)
 * [InitRelayEnvironment](#initrelayenvironment)
-* [InitStarred](#initstarred)
 * [InputEmail](#inputemail)
 * [InputPhone](#inputphone)
-* [Itinerary](#itinerary)
 * [LogMount](#logmount)
-* [Mobile](#mobile)
 * [Price](#price)
-* [Starred](#starred)
 * [Text](#text)
 * [TextNode](#textnode)
-* [Toggle](#toggle)
 * [Translate](#translate)
 * [TranslateNode](#translatenode)
 * [TranslateRef](#translateref)
@@ -148,25 +143,6 @@ declare export default React.ComponentType<Props>;
 _TODOs_
 - [ ] DI `new Date()` into components for tests
 
-### Footer
-
-**Import:**
-```js
-import Footer from "@kiwicom/nitro/lib/components/Footer";
-```
-
-**Types:**
-```js
-type Props = {||};
-
-declare export default React.ComponentType<Props>;
-```
-
-[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Footer).
-
-**Context needs:**
-* [intl](./services#intl)
-
 ### HeaderLinks
 
 **Import:**
@@ -192,7 +168,6 @@ type Props = {|
   searchForm: SearchForm | null,
   splitster: Splitster,
   active?: string, // TODO maybe add specific if ids are also specified
-  inverted?: boolean,
   newDesign?: boolean,
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO DI actual API call
@@ -437,7 +412,7 @@ type Props = {|
   subscription: React.Node,
   portal: string,
   hide?: NavElement | NavElement[],
-  onOpenFaq: ?() => void,
+  onOpenFaq: () => void,
   onSetModal: (modal: Modal) => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
@@ -446,7 +421,6 @@ type Props = {|
   headerLinks?: React.Node, // null
   newDesign?: boolean,
   debug?: React.Node, // null
-  inverted?: boolean, // false
   animateLogo?: boolean,
   logoAnimateShow?: boolean,
 |};
@@ -469,36 +443,9 @@ See types:
 * [modal](./services#modal)
 
 **Selectors `data-test`:**
-* ```"NavBar"```
 * ```"NavBar-Help"```
 * ```"NavBar-SideNav"```
-* ```"NavBar-SideNav-Close"```
-* ```"NavBar-SideNav-Open"```
-
-### SideBar
-
-**Import:**
-```js
-import SideBar from "@kiwicom/nitro/lib/components/SideBar";
-```
-
-**Types:**
-```js
-type Props = {|
-  shown: boolean,
-  inverted?: boolean, // opens from the other side
-  unmasked?: boolean, // removes outer mask and disables onClick
-  onClick: () => void,
-  children: React.Node,
-  className?: string,
-|};
-
-declare export default React.ComponentType<Props>;
-```
-
-[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=SideBar).
-
-A container for a sidebar sliding from the _right_ (_left_ in RTL). It is appended to `document.body`.
+* ```"NavBar-SideNav"```
 
 ## Utilities
 
@@ -858,39 +805,6 @@ Our `Translate` wrapped in _Orbit_ `Button`. Accepts both our and their props.
 
 Button component shorter and nicer!
 
-### ClickOutside
-
-**Import:**
-```js
-import ClickOutside from "@kiwicom/nitro/lib/components/ClickOutside";
-```
-
-**Types:**
-```js
-type Props = {|
-  className?: string,
-  onClickOutside: (ev: MouseEvent) => void,
-  children: React.Node | React.Node[],
-  // defaulted
-  active?: boolean, // true
-|};
-
-declare export default React.ComponentType<Props>;
-```
-
-[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=ClickOutside).
-
-Fires a callback whenever a user clicks outside of this component.
-
-**Example:**
-```js
-const MyComponent = ({ open, onCloseModal }: Props) => (
-  <ClickOutside active={open} onClickOutside={onCloseModal}>
-    <MyModal open={open} />
-  </ClickOutside>
-);
-```
-
 ### ClientOnly
 
 **Import:**
@@ -1056,6 +970,7 @@ See types:
 />
 ```
 
+<<<<<<< HEAD
 ### DateInput
 
 **Import:**
@@ -1128,6 +1043,8 @@ const NavBar = () => (
 );
 ```
 
+=======
+>>>>>>> fdf9a42b... feat: Nitro clean up
 ### InitAuth
 
 **Import:**
@@ -1382,34 +1299,6 @@ Initializes `RelayEnvironmentProvider` from [@kiwicom/relay](https://github.com/
 
 Note you must always specify `clientID` which should identify your application to helps us know who is sending the request.
 
-### InitStarred
-
-**Import:**
-```js
-import InitStarred from "@kiwicom/nitro/lib/components/InitStarred";
-```
-
-**Types:**
-```js
-type Args = {|
-  list: StarredItem[],
-  onRemove: (arg: string, e: SyntheticEvent<HTMLDivElement>) => void,
-  onAdd: (arg: StarredItem) => void,
-  onClear: (e: SyntheticEvent<HTMLDivElement>) => void,
-|};
-
-type Props = {|
-  children: (args: Args) => React.Node,
-|};
-
-declare export default React.ComponentType<Props>;
-```
-
-See types:
-* [Starred](./records#starred)
-
-Just mount it and it works!
-
 ### InputEmail
 
 **Import:**
@@ -1503,49 +1392,6 @@ Nitro `Phone` Wrapper for `InputField` from ***Orbit-components***
 - Translation for required: `forms.this_field_must_be_filled`
 - Translation for validation: `forms.errors.invalid_phone` and `forms.errors.not_supported`
 
-### Itinerary
-
-**Import:**
-```js
-import Itinerary from "@kiwicom/nitro/lib/components/Itinerary";
-```
-
-**Types:**
-```js
-type Props = {|
-  itinerary: ItineraryNormalized,
-|};
-
-declare export default React.ComponentType<Props>;
-```
-
-See types:
-* [Itinerary](./records#itinerary)
-
-[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Itinerary).
-
-**Context needs:**
-* [intl](./services#intl)
-
-- Renders all trip types aka Itineraries (oneWay, return, multicity and nomad)
-- It was made similiar to search graphql date structure
-- Uses flat date structure
-- You can check new structure in these records:
-
-[Itineray](`../records/Itinerary`)
-[Sector](`../records/Sector`)
-[Segment](`../records/Segment`)
-
-To implement `Itinerary` you have to import **_flatten_** function.
-
-**Example:**
-
-```js
-import { flatten } from "@kiwicom/nitro/lib/records/Itinerary";
-
-<Itinerary itinerary={flatten(ItineraryOneWay)} />;
-```
-
 ### LogMount
 
 **Import:**
@@ -1575,40 +1421,6 @@ See types:
 Logs the given event and props on mount.
 
 Useful for declarative tracking of opening modals or page sections.
-
-### Mobile
-
-**Import:**
-```js
-import Mobile from "@kiwicom/nitro/lib/components/Mobile";
-```
-
-**Types:**
-```js
-type Props = {|
-  children: React.Node | React.Node[],
-  // defaulted
-  display?: "block" | "inline" | "inline-block" | "flex", // block
-|};
-
-declare export default React.ComponentType<Props>;
-```
-
-[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Mobile).
-
-Renders only below **tablet** width.
-
-**Example:**
-```js
-const NavBar = () => (
-  <>
-    <Mobile>
-      <Button>A mobile-only button</Button>
-    </Mobile>
-    <Menu />
-  </>
-);
-```
 
 ### Price
 
@@ -1646,31 +1458,6 @@ const Pay = ({ value }: Props) => (
   </Button>
 );
 ```
-
-### Starred
-
-**Import:**
-```js
-import Starred from "@kiwicom/nitro/lib/components/Starred";
-```
-
-**Types:**
-```js
-type Props = {|
-  positionMenuDesktop?: number,
-  positionMenuTablet?: number,
-  inverted?: boolean,
-|};
-
-declare export default React.ComponentType<Props>;
-```
-
-[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Starred).
-
-**Context needs:**
-* [currency](./services#currency)
-* [intl](./services#intl)
-* [starred](./services#starred)
 
 ### Text
 
@@ -1728,47 +1515,6 @@ declare export default React.ComponentType<Props>;
 Our `TranslateNode` wrapped in _Orbit_'s `Text`. Accepts both our and their props.
 
 Useful for both translating and making text nicer!
-
-### Toggle
-
-**Import:**
-```js
-import Toggle from "@kiwicom/nitro/lib/components/Toggle";
-```
-
-**Types:**
-```js
-type Data = {|
-  open: boolean,
-  onToggle: () => void,
-|};
-
-type Props = {|
-  children: (data: Data) => React.Node,
-  // defaulted
-  initial?: boolean, // false
-|};
-
-declare export default React.ComponentType<Props>;
-```
-
-[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Toggle).
-
-A container that holds state of something being open.
-
-**Example:**
-```js
-const MyComponent = () => (
-  <Toggle>
-    {({ open, onToggle }) => (
-      <>
-        <h3>{open ? "Open" : "Closed"}</h3>
-        <Button onClick={onToggle}>Toggle</Button>
-      </>
-    )}
-  </Toggle>
-);
-```
 
 ### Translate
 

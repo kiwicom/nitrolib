@@ -14,7 +14,7 @@ import List from "../List";
 const Container = styled.div`
   position: absolute;
   ${/* sc-custom "right" */ right}: 0;
-  top: 50px;
+  top: 65px;
   width: calc(100% - 40px);
   max-height: calc(100vh - 200px);
   margin: 0 20px;

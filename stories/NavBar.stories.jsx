@@ -3,7 +3,10 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs } from "@storybook/addon-knobs/react";
+import cookie from "js-cookie";
 
+import { Provider as AuthProvider } from "../src/services/auth/context";
+import { UA_SESSION_TOKEN } from "../src/consts/cookies";
 import NavBar from "../src/components/NavBar";
 import HeaderLinks from "../src/components/HeaderLinks";
 import ModalsAuth from "../src/components/ModalsAuth";
@@ -50,11 +53,37 @@ storiesOf("NavBar", module)
     </>
   ))
   .add("signed-in", () => (
-    <>
+    <AuthProvider
+      value={{
+        auth: {
+          type: "user",
+          token: cookie.get(UA_SESSION_TOKEN) || "",
+          user: {
+            id: "ujy9jXLZufUW7g7sbFbdhq",
+            email: "ellie@kiwi.com",
+            verified: true,
+            firstname: "Ellie",
+            lastname: "Palo",
+            apiToken: "b8a5902abe78bc773e7e1abcd65a00b91923451111",
+            photo: "https://placeimg.com/128/128/people",
+            affiliateId: "",
+            cardDiscount: 4,
+            balanceDiscount: 4,
+            balances: [{ amount: 4, currency: "EUR" }],
+          },
+        },
+        loading: false,
+        onMyBooking: () => Promise.resolve(),
+        onRegister: () => Promise.resolve(),
+        onSocialAuth: () => Promise.resolve(),
+        onSignIn: () => Promise.resolve(),
+        onSignOut: () => {},
+      }}
+    >
       <ModalsAuth portal="" />
       <NavBar
         starred={<p>Starred</p>}
-        headerLinks={<HeaderLinks {...props} inverted={false} />}
+        headerLinks={<HeaderLinks {...props} />}
         subscription={<h1>Subscription</h1>}
         debug={<h1>Debug</h1>}
         portal=""
@@ -64,27 +93,9 @@ storiesOf("NavBar", module)
         onSaveLanguage={action("Save language")}
         onSelectTrip={action("Select trip")}
       />
-    </>
+    </AuthProvider>
   ))
-  .add("inverted", () => (
-    <>
-      <ModalsAuth portal="" />
-      <NavBar
-        starred={<p>Starred</p>}
-        headerLinks={<HeaderLinks {...props} inverted />}
-        subscription={<h1>Subscription</h1>}
-        debug={<h1>Debug</h1>}
-        inverted
-        portal=""
-        onOpenFaq={action("Open FAQ")}
-        onLogoClick={action("Click logo")}
-        onSetModal={action("Set modal")}
-        onSaveLanguage={action("Save language")}
-        onSelectTrip={action("Select trip")}
-      />
-    </>
-  ))
-  .add("new design", () => (
+  .add("new design default", () => (
     <>
       <ModalsAuth portal="" />
       <NavBar
@@ -101,4 +112,48 @@ storiesOf("NavBar", module)
         onSelectTrip={action("Select trip")}
       />
     </>
+  ))
+  .add("new design signed in", () => (
+    <AuthProvider
+      value={{
+        auth: {
+          type: "user",
+          token: cookie.get(UA_SESSION_TOKEN) || "",
+          user: {
+            id: "ujy9jXLZufUW7g7sbFbdhq",
+            email: "ellie@kiwi.com",
+            verified: true,
+            firstname: "Ellie",
+            lastname: "Palo",
+            apiToken: "b8a5902abe78bc773e7e1abcd65a00b91923451111",
+            photo: "https://placeimg.com/128/128/people",
+            affiliateId: "",
+            cardDiscount: 4,
+            balanceDiscount: 4,
+            balances: [{ amount: 4, currency: "EUR" }],
+          },
+        },
+        loading: false,
+        onMyBooking: () => Promise.resolve(),
+        onRegister: () => Promise.resolve(),
+        onSocialAuth: () => Promise.resolve(),
+        onSignIn: () => Promise.resolve(),
+        onSignOut: () => {},
+      }}
+    >
+      <ModalsAuth portal="" />
+      <NavBar
+        starred={<p>Starred</p>}
+        headerLinks={<HeaderLinks {...props} newDesign />}
+        subscription={<h1>Subscription</h1>}
+        debug={<h1>Debug</h1>}
+        portal=""
+        newDesign
+        onOpenFaq={action("Open FAQ")}
+        onLogoClick={action("Click logo")}
+        onSetModal={action("Set modal")}
+        onSaveLanguage={action("Save language")}
+        onSelectTrip={action("Select trip")}
+      />
+    </AuthProvider>
   ));

@@ -7,10 +7,10 @@ import isWithinInterval from "date-fns/isWithinInterval";
 import endOfMonth from "date-fns/endOfMonth";
 import startOfMonth from "date-fns/startOfMonth";
 import format from "date-fns/format";
+import ClickOutside from "@kiwicom/orbit-components/lib/ClickOutside";
 
 import { fixDateFormat } from "../../records/LangInfo";
 import Calendar from "./components/Calendar";
-import ClickOutside from "../ClickOutside";
 import DatePickerWrapper from "./primitives/DatePickerWrapper";
 import { Consumer as IntlConsumer } from "../../services/intl/context";
 
@@ -88,7 +88,7 @@ export default class DatePicker extends React.Component<Props, State> {
     const { active, viewing } = this.state;
 
     return (
-      <ClickOutside active={active} onClickOutside={this.handleClose}>
+      <ClickOutside onClickOutside={this.handleClose}>
         <DatePickerWrapper active={active}>
           <IntlConsumer>
             {intl => (

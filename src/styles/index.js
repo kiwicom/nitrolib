@@ -9,11 +9,6 @@ export const padding = {
   page: 10,
 };
 
-export const navbar = {
-  size: 64,
-  height: 64,
-};
-
 export const logo = {
   width: 80,
   height: 50,

@@ -56,7 +56,7 @@ export const pseudoBorder = css`
   &:after {
     position: absolute;
     content: "";
-    top: 36px;
+    top: 37px;
     height: 3px;
     background: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
     width: 100%;

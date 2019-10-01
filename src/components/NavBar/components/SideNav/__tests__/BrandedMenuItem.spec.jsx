@@ -6,7 +6,7 @@ import BrandedMenuItem from "../BrandedMenuItem";
 
 describe("#SideNav MenuItem", () => {
   test("render", () => {
-    const wrapper = shallow(<BrandedMenuItem link="lol" Icon={() => "Icon"} title="kek" />);
+    const wrapper = shallow(<BrandedMenuItem link="lol" title="kek" />);
 
     expect(wrapper.find("MenuItem").exists()).toBe(true);
   });

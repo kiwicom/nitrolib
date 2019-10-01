@@ -1480,18 +1480,18 @@
     glob "^7.1.4"
     is-ci "^2.0.0"
 
-"@kiwicom/orbit-components@^0.64.1":
-  version "0.64.1"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.64.1.tgz#2b6bc01b85ec85d209332f9686db816829e8e565"
-  integrity sha512-OaGpTbBVf9TYP23y21CRZo7tbjtLkM7e2ykMNJN5bKa/Dl8SpCAkza9oaGkXTL3X7HtTmsSw4CYR6FKfHw4IBw==
+"@kiwicom/orbit-components@^1.0.0-alpha.3":
+  version "1.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-1.0.0-alpha.3.tgz#24448220231a77febed81163c14f7b5779e6d58f"
+  integrity sha512-WBU+kQeWbE/GiNX3e1E67n+9aCn/gEtudCUjBrqHgxAR0b/xPJkSHDBWvoLoMUbO7oi+Xhdmukvz8IUioF5aJA==
   dependencies:
     "@kiwicom/js" "^0.9.0"
-    "@kiwicom/orbit-design-tokens" "~0.8.0"
+    "@kiwicom/orbit-design-tokens" "~0.9.0-alpha.1"
 
-"@kiwicom/orbit-design-tokens@~0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-design-tokens/-/orbit-design-tokens-0.8.0.tgz#7eaa0d90fb40701131e1dad1091591d1e77f8490"
-  integrity sha512-Vm6XLg0lnEM5aFYPPvsXQG9/o2G8iElgmz93q8r8XZ/wwRDjEhRonVqp7WdX7KbxAgpGCjH28bBz7+71PZLSJw==
+"@kiwicom/orbit-design-tokens@~0.9.0-alpha.1":
+  version "0.9.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-design-tokens/-/orbit-design-tokens-0.9.0-alpha.1.tgz#5ccd2fb162fabbe44fcbd88e0b7a0012f0ff752d"
+  integrity sha512-5RiKbvB3Ze8wY1zdrcQ+x7/nhf8mgpJEbWYQvCQFWKHNTiyB0hoWIqc4riEku9BdhO2CSkHRqx5U90cFp2pLCQ==
   dependencies:
     ramda "^0.26.1"
 

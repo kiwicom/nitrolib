@@ -2,8 +2,8 @@
 import * as React from "react";
 import styled from "styled-components";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
+import ClickOutside from "@kiwicom/orbit-components/lib/ClickOutside";
 
-import ClickOutside from "../ClickOutside";
 import getPlaceholder from "./services/placeholder";
 import type { Location } from "../../records/Location";
 import LocationPickerPopup from "./components/LocationPickerPopup";
@@ -88,7 +88,7 @@ class LocationPicker extends React.Component<Props, State> {
 
     return (
       <LocationPickerPopup active={active}>
-        <ClickOutside active={active} onClickOutside={this.handleClose}>
+        <ClickOutside onClickOutside={this.handleClose}>
           <>
             <InputField
               prefix={label}

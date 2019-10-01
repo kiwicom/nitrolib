@@ -3,42 +3,21 @@ import * as React from "react";
 import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
 import AirplaneUp from "@kiwicom/orbit-components/lib/icons/AirplaneUp";
 import ChevronDown from "@kiwicom/orbit-components/lib/icons/ChevronDown";
-import styled, { css } from "styled-components";
+import Mobile from "@kiwicom/orbit-components/lib/Mobile";
+import Desktop from "@kiwicom/orbit-components/lib/Desktop";
+import NavigationList from "@kiwicom/orbit-components/lib/NavigationList";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
-import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
+import useOnClickOutside from "@kiwicom/orbit-components/lib/hooks/useClickOutside";
 
-// Components
-import Toggle from "../Toggle";
 import Popup from "./primitives/Popup";
 import IconWrapper from "./primitives/IconWrapper";
 import Links from "./components/Links";
 // Services
-import ClickOutside from "../ClickOutside";
 import getNavBarLinks from "./services/api";
-import checkSearchFormChange from "./services/checkSearchFormChange";
-import type { HeaderLink, SearchForm, HeaderLinksContext } from "./records/HeaderLink";
-import LogContext from "../../services/log/context";
-import type { Context } from "../../services/log/context";
+import type { SearchForm, HeaderLinksContext } from "./records/HeaderLink";
+import { useLog } from "../../services/log/context";
 import type { Splitster, Response } from "./services/api";
 import { HEADER_LINKS_ERROR } from "./consts/events";
-
-// Different size than the existing component
-const Mobile = styled.div`
-  display: flex;
-
-  ${mq.desktop(css`
-    display: none;
-  `)};
-`;
-
-// Different size than the existing component
-const Desktop = styled.div`
-  display: none;
-
-  ${mq.desktop(css`
-    display: flex;
-  `)};
-`;
 
 type Props = {|
   languageId: string,
@@ -46,62 +25,34 @@ type Props = {|
   searchForm: SearchForm | null,
   splitster: Splitster,
   active?: string,
-  inverted?: boolean,
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO solve using DI
   context?: HeaderLinksContext,
   newDesign?: boolean,
 |};
 
-type State = {|
-  services: HeaderLink[] | null,
-|};
+const Headerlinks = ({
+  languageId,
+  currencyId,
+  searchForm,
+  testResponse,
+  splitster,
+  onFetch,
+  context,
+  newDesign,
+  active,
+}: Props) => {
+  const [allServices, setServices] = React.useState([]);
+  const [isOpen, setOpen] = React.useState(false);
+  const node = React.useRef(null);
 
-export default class HeaderLinks extends React.Component<Props, State> {
-  static contextType = LogContext;
+  const { log } = useLog();
 
-  state = {
-    services: null,
-  };
+  useOnClickOutside(node, () => setOpen(false));
 
-  context: Context;
-
-  componentDidMount() {
-    this.getNavBarLinks();
-  }
-
-  componentDidUpdate(prevProps: Props) {
-    const { searchForm } = this.props;
-
-    // Props which trigger re-render on change
-    const updateOnPropsChange = [["destination", "slug"], ["checkIn"], ["checkOut"]];
-
-    // Check if props got changed
-    const searchFormChanged = checkSearchFormChange(
-      prevProps.searchForm,
-      searchForm,
-      updateOnPropsChange,
-    );
-
-    if (searchFormChanged) {
-      this.getNavBarLinks();
-    }
-  }
-
-  getNavBarLinks = async () => {
-    const {
-      languageId,
-      currencyId,
-      searchForm,
-      testResponse,
-      splitster,
-      onFetch,
-      context,
-    } = this.props;
-    const { log } = this.context;
-
+  const getLinks = React.useCallback(async () => {
     if (testResponse) {
-      this.setState({ services: testResponse.items });
+      setServices(testResponse.items);
       return;
     }
 
@@ -114,69 +65,49 @@ export default class HeaderLinks extends React.Component<Props, State> {
         context,
       });
 
-      this.setState({ services: services.items });
+      setServices(services.items);
+
       if (onFetch) {
         onFetch(services);
       }
     } catch (err) {
       log(HEADER_LINKS_ERROR, { error: String(err) });
     }
-  };
+  }, [context, currencyId, languageId, log, onFetch, searchForm, splitster, testResponse]);
 
-  render() {
-    const { inverted, active, newDesign } = this.props;
-    const { services } = this.state;
+  React.useEffect(() => {
+    getLinks();
+  }, [getLinks]);
 
-    if (!services) return null;
+  if (!allServices) return null;
 
-    return (
-      <>
-        <Mobile>
-          <Toggle>
-            {({ open, onToggle }) => (
-              <ClickOutside active={open} onClickOutside={onToggle}>
-                <>
-                  {open && (
-                    <Popup>
-                      <Stack direction="column" spacing="comfy">
-                        <Links
-                          inverted={inverted}
-                          newDesign={newDesign}
-                          services={services}
-                          active={active}
-                        />
-                      </Stack>
-                    </Popup>
-                  )}
-                  {services && services.length > 0 && (
-                    <IconWrapper
-                      aria-label="open"
-                      act={open}
-                      inverted={inverted}
-                      onClick={onToggle}
-                    >
-                      {newDesign ? <Airplane /> : <AirplaneUp />}
-                      <ChevronDown size="small" />
-                    </IconWrapper>
-                  )}
-                </>
-              </ClickOutside>
-            )}
-          </Toggle>
-        </Mobile>
-        <Desktop>
-          {services && services.length > 0 && (
-            <Stack flex spacing="comfy">
-              <Links
-                inverted={inverted}
-                newDesign={newDesign}
-                services={services}
-                active={active}
-              />
+  return (
+    <>
+      <Mobile>
+        {isOpen && (
+          <Popup ref={node}>
+            <Stack direction="column">
+              <Links newDesign={newDesign} services={allServices} active={active} />
             </Stack>
-          )}
-        </Desktop>
-      </>
-    );
-  }
-}
+          </Popup>
+        )}
+        {allServices && allServices.length > 0 && (
+          <IconWrapper aria-label="open" act={isOpen} onClick={() => setOpen(true)}>
+            {newDesign ? <Airplane /> : <AirplaneUp />}
+            <ChevronDown size="small" />
+          </IconWrapper>
+        )}
+      </Mobile>
+
+      <Desktop>
+        {allServices && allServices.length > 0 && (
+          <NavigationList type="inline">
+            <Links newDesign={newDesign} services={allServices} active={active} />
+          </NavigationList>
+        )}
+      </Desktop>
+    </>
+  );
+};
+
+export default Headerlinks;

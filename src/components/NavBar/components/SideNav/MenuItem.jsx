@@ -1,7 +1,6 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import { right } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import { themeDefault } from "../../../../records/Theme";
 import type { ThemeProps } from "../../../../records/Theme";
@@ -25,23 +24,6 @@ Link.defaultProps = {
 const Container = styled.div`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   cursor: pointer;
-
-  .menuIcon {
-    color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
-    width: 16px;
-    height: 16px;
-    margin-${/* sc-custom "right" */ right}: 10px;
-  }
-
-  &:hover {
-    ${Link} {
-      color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
-    }
-
-    .menuIcon {
-      color: ${({ theme }: ThemeProps) => theme.orbit.paletteProductNormal};
-    }
-  }
 `;
 
 Container.defaultProps = {
@@ -49,25 +31,19 @@ Container.defaultProps = {
 };
 
 type Props = {|
-  // $FlowExpected: TODO
-  Icon: React.ComponentType<$SubType<{ className: string }>>,
   text: React.Node,
   link: string,
   onClick?: () => void,
 |};
 
-const MenuItem = ({ onClick, Icon, text, link }: Props) => (
+const MenuItem = ({ onClick, text, link }: Props) => (
   <Container onClick={onClick}>
     {link !== "" ? (
       <Link href={link} itemProp="url">
-        <Icon className="menuIcon" />
         {text}
       </Link>
     ) : (
-      <Link>
-        <Icon className="menuIcon" />
-        {text}
-      </Link>
+      <Link>{text}</Link>
     )}
   </Container>
 );

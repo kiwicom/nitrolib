@@ -11,7 +11,6 @@ import Months from "./components/Months";
 import Years from "./components/Years";
 
 type Props = {|
-  id: string,
   value: Date,
   min: Date,
   max: Date,
@@ -43,19 +42,19 @@ class InputDate extends React.PureComponent<Props> {
   };
 
   render() {
-    const { id, value, min, max, format } = this.props;
+    const { value, min, max, format } = this.props;
     const { dates, months, years } = calculateRanges(min, max, value);
 
     const parts = {
-      D: <Dates id={id} value={value} onChange={this.handleChangeDate} dates={dates} />,
-      M: <Months id={id} value={value} onChange={this.handleChangeMonth} months={months} />,
-      Y: <Years id={id} value={value} onChange={this.handleChangeYear} years={years} />,
+      D: <Dates value={value} onChange={this.handleChangeDate} dates={dates} />,
+      M: <Months value={value} onChange={this.handleChangeMonth} months={months} />,
+      Y: <Years value={value} onChange={this.handleChangeYear} years={years} />,
     };
 
     return (
       <Stack flex spacing="condensed" justify="between">
         {format.map(item => (
-          <Stack>{parts[item]}</Stack>
+          <Stack key={item}>{parts[item]}</Stack>
         ))}
       </Stack>
     );

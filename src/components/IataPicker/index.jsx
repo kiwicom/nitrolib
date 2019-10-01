@@ -4,11 +4,11 @@ import styled from "styled-components";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import Airplane from "@kiwicom/orbit-components/lib/icons/Airplane";
+import ClickOutside from "@kiwicom/orbit-components/lib/ClickOutside";
 
 import IconText from "../IconText";
 import Translate from "../Translate";
 import type { Change } from "../InputText";
-import ClickOutside from "../ClickOutside";
 import { Consumer as IntlConsumer } from "../../services/intl/context";
 import { themeDefault } from "../../records/Theme";
 import type { ThemeProps } from "../../records/Theme";
@@ -96,7 +96,7 @@ export default class IataPicker extends React.PureComponent<Props, State> {
     return (
       <IntlConsumer>
         {intl => (
-          <ClickOutside active={open} onClickOutside={this.handleClickOutside}>
+          <ClickOutside onClickOutside={this.handleClickOutside}>
             <Container data-test="IATAPicker">
               <InputField
                 id={id}

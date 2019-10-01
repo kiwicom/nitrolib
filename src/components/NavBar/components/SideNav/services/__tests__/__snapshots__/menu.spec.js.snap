@@ -3,14 +3,12 @@
 exports[`#Sidenav service menu fetches company section 1`] = `
 Object {
   "about": Object {
-    "Icon": [Function],
     "enabled": true,
     "fully_qualified": false,
     "link": "/pages/content/about",
     "title": "content.pages.about.title",
   },
   "careers": Object {
-    "Icon": [Function],
     "enabled": true,
     "fully_qualified": true,
     "link": "https://www.kiwi.com/jobs",
@@ -22,53 +20,45 @@ Object {
     "link": "/helpcenter",
   },
   "gdpr_terms": Object {
-    "Icon": [Function],
     "enabled": true,
     "fully_qualified": false,
     "link": "/pages/content/terms",
     "title": "content.pages.terms.title",
   },
   "guarantee": Object {
-    "Icon": [Function],
     "enabled": true,
     "fully_qualified": false,
     "link": "/pages/guarantee",
     "title": "content.pages.guarantee.title",
   },
   "invite": Object {
-    "Icon": [Function],
     "enabled": true,
     "link": "/pages/invite",
     "title": "pages.buddy.landing.title",
   },
   "media": Object {
-    "Icon": [Function],
     "enabled": true,
     "fully_qualified": false,
     "link": "https://media.kiwi.com/",
     "title": "content.pages.media_room",
   },
   "privacy": Object {
-    "Icon": [Function],
     "enabled": true,
     "fully_qualified": false,
     "link": "/content/privacy",
     "title": "content.pages.privacy.title",
   },
   "security": Object {
-    "Icon": [Function],
     "enabled": true,
     "link": "/pages/security",
     "title": "content.pages.security_title",
   },
   "stories": Object {
-    "Icon": [Function],
     "enabled": true,
     "link": "https://www.kiwi.com/stories/?utm_source=kiwicom&utm_medium=website",
     "title": "content.stories",
   },
   "terms": Object {
-    "Icon": [Function],
     "enabled": true,
     "fully_qualified": false,
     "link": "/pages/content/legal",

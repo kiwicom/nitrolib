@@ -1,23 +1,23 @@
 // @flow strict
 import * as React from "react";
 import Faq from "@kiwicom/orbit-components/lib/icons/QuestionCircle";
+import Mobile from "@kiwicom/orbit-components/lib/Mobile";
+import Desktop from "@kiwicom/orbit-components/lib/Desktop";
+import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 
 import Translate from "../../../Translate";
-import Button from "../../primitives/Button";
-import Desktop from "../../../Desktop";
-import Mobile from "../../../Mobile";
 
 type Props = {|
-  onOpen: ?() => void,
-  inverted: boolean,
+  onOpen: () => void,
 |};
 
-const Help = ({ onOpen, inverted }: Props) => (
-  <Button
-    data-test="NavBar-Help"
+const Help = ({ onOpen }: Props) => (
+  <ButtonLink
+    dataTest="NavBar-Help"
     onClick={onOpen}
+    transparent
     disabled={!onOpen}
-    color={inverted ? "white" : "secondary"}
+    type="secondary"
   >
     <Desktop>
       <Translate t="common.help" />
@@ -25,7 +25,7 @@ const Help = ({ onOpen, inverted }: Props) => (
     <Mobile>
       <Faq />
     </Mobile>
-  </Button>
+  </ButtonLink>
 );
 
 export default Help;

@@ -17,7 +17,8 @@ type Props = {|
   debug?: React.Node,
   portal: string,
   shown: boolean,
-  inverted: boolean,
+  isOpenNav: string,
+  onToggle: () => void,
   onSetModal: (modal: Modal) => void,
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
@@ -30,12 +31,13 @@ const Menu = ({
   debug,
   portal,
   shown,
-  inverted,
-  sideNav,
   onSaveLanguage,
   onSelectTrip,
+  onToggle,
   newDesign,
+  sideNav,
   onSetModal,
+  isOpenNav,
 }: Props) => {
   const { auth } = useAuth();
   const { onChange } = useModal();
@@ -49,27 +51,22 @@ const Menu = ({
             <ValueBind value={MODALS.MY_BOOKING} onChange={onChange}>
               {({ onClick }) => (
                 <LoginButton onClick={onClick}>
-                  <Text t="account.sign_in" weight="bold" size="small" />
+                  <Text t="account.sign_in" weight="bold" />
                 </LoginButton>
               )}
             </ValueBind>
           ) : (
-            <Account auth={auth} inverted={inverted} />
-          ))) || (
-          <OldLoginButton
-            auth={auth}
-            onChange={onChange}
-            onSelectTrip={onSelectTrip}
-            inverted={inverted}
-          />
-        ))}
+            <Account auth={auth} />
+          ))) || <OldLoginButton auth={auth} onChange={onChange} onSelectTrip={onSelectTrip} />)}
 
       {sideNav && (
         <SideNav
           subscription={subscription}
           debug={debug}
-          inverted={inverted}
           portal={portal}
+          onToggle={onToggle}
+          isOpenNav={isOpenNav}
+          newDesign={newDesign}
           onOpenModal={onChange}
           onSaveLanguage={onSaveLanguage}
           onSetModal={onSetModal}

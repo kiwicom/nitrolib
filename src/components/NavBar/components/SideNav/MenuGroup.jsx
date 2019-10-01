@@ -1,7 +1,6 @@
 // @flow strict
 import * as React from "react";
 import styled from "styled-components";
-import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import Text from "@kiwicom/orbit-components/lib/Text";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
@@ -12,9 +11,7 @@ type Props = {
   children: React.Node,
 };
 
-const Menu = styled.div`
-  padding-${/* sc-custom "left" */ left}: 35px;
-`;
+const Menu = styled.div``;
 
 Menu.defaultProps = {
   theme: themeDefault,

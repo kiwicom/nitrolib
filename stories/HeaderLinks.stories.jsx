@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { withKnobs, boolean, select } from "@storybook/addon-knobs/react";
+import { withKnobs, select } from "@storybook/addon-knobs/react";
 
 import HeaderLinks from "../src/components/HeaderLinks";
 import withData from "./decorators/withData";
@@ -55,6 +55,5 @@ storiesOf("HeaderLinks", module)
       languageId={select("Locale", LOCALES, "en", GROUP_ID)}
       currencyId={select("Currency", CURRENCIES, "eur", GROUP_ID)}
       active={select("Active", LINKS, "travel", GROUP_ID)}
-      inverted={boolean("Inverted", false, GROUP_ID)}
     />
   ));

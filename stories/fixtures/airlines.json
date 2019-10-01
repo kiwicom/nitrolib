@@ -749,12 +749,6 @@
     "name": "Peruvian Airlines",
     "type": "airline"
   },
-  "UO": {
-    "id": "UO",
-    "lcc": 1,
-    "name": "Hong Kong Express Airways",
-    "type": "airline"
-  },
   "SU": {
     "id": "SU",
     "lcc": 0,
@@ -873,6 +867,12 @@
     "id": "JC",
     "lcc": 0,
     "name": "JAL Express",
+    "type": "airline"
+  },
+  "UO": {
+    "id": "UO",
+    "lcc": 1,
+    "name": "Hong Kong Express Airways",
     "type": "airline"
   },
   "AF": {
@@ -2243,12 +2243,6 @@
     "name": "Air Seoul",
     "type": "airline"
   },
-  "PW": {
-    "id": "PW",
-    "lcc": 0,
-    "name": "Precision Air",
-    "type": "airline"
-  },
   "WR": {
     "id": "WR",
     "lcc": 1,
@@ -2391,6 +2385,12 @@
     "id": "CY",
     "lcc": 0,
     "name": "Cyprus Airways",
+    "type": "airline"
+  },
+  "PW": {
+    "id": "PW",
+    "lcc": 0,
+    "name": "Precision Air",
     "type": "airline"
   },
   "PQ": {
@@ -5171,12 +5171,6 @@
     "name": "Iran Air",
     "type": "airline"
   },
-  "JM": {
-    "id": "JM",
-    "lcc": 0,
-    "name": "Jambojet",
-    "type": "airline"
-  },
   "IZ": {
     "id": "IZ",
     "lcc": 1,
@@ -5355,6 +5349,12 @@
     "id": "A1",
     "lcc": 0,
     "name": "A.P.G. Distribution System",
+    "type": "airline"
+  },
+  "JM": {
+    "id": "JM",
+    "lcc": 0,
+    "name": "Jambojet",
     "type": "airline"
   },
   "OB": {
@@ -6017,12 +6017,6 @@
     "name": "America West Airlines",
     "type": "airline"
   },
-  "F7": {
-    "id": "F7",
-    "lcc": 0,
-    "name": "Etihad Regional",
-    "type": "airline"
-  },
   "WC": {
     "id": "WC",
     "lcc": 0,
@@ -6159,6 +6153,12 @@
     "id": "R6",
     "lcc": 0,
     "name": "DAT LT",
+    "type": "airline"
+  },
+  "F7": {
+    "id": "F7",
+    "lcc": 0,
+    "name": "iFly Airlines",
     "type": "airline"
   },
   "HY": {
@@ -6335,12 +6335,6 @@
     "name": "Air Berlin",
     "type": "airline"
   },
-  "JX": {
-    "id": "JX",
-    "lcc": 1,
-    "name": "Jambojet",
-    "type": "airline"
-  },
   "9N": {
     "id": "9N",
     "lcc": 0,
@@ -6423,6 +6417,12 @@
     "id": "XY",
     "lcc": 1,
     "name": "flynas",
+    "type": "airline"
+  },
+  "JX": {
+    "id": "JX",
+    "lcc": 1,
+    "name": "Jambojet",
     "type": "airline"
   },
   "MJ": {
@@ -7367,12 +7367,6 @@
     "name": "Virgin Atlantic Airways",
     "type": "airline"
   },
-  "GQ": {
-    "id": "GQ",
-    "lcc": 0,
-    "name": "Sky Express",
-    "type": "airline"
-  },
   "GX": {
     "id": "GX",
     "lcc": 1,
@@ -7427,6 +7421,12 @@
     "name": "LoganAir LM",
     "type": "airline"
   },
+  "GQ": {
+    "id": "GQ",
+    "lcc": 0,
+    "name": "Sky Express",
+    "type": "airline"
+  },
   "OY": {
     "id": "OY",
     "lcc": 0,
@@ -7449,12 +7449,6 @@
     "id": "MN",
     "lcc": 1,
     "name": "Kulula",
-    "type": "airline"
-  },
-  "AV": {
-    "id": "AV",
-    "lcc": 0,
-    "name": "Avianca",
     "type": "airline"
   },
   "P4": {
@@ -7643,12 +7637,6 @@
     "name": "L’Aurora Viaggi ",
     "type": "bus"
   },
-  "N4": {
-    "id": "N4",
-    "lcc": 0,
-    "name": "Nordwind Airlines",
-    "type": "airline"
-  },
   "CFR": {
     "id": "CFR",
     "lcc": null,
@@ -7697,18 +7685,6 @@
     "name": "Avion Express",
     "type": "airline"
   },
-  "ERFURTER": {
-    "id": "ERFURTER",
-    "lcc": null,
-    "name": "Erfurter Bahn",
-    "type": "train"
-  },
-  "AGILIS": {
-    "id": "AGILIS",
-    "lcc": null,
-    "name": "Agilis",
-    "type": "train"
-  },
   "INDIANTAI": {
     "id": "INDIANTAI",
     "lcc": null,
@@ -7744,6 +7720,30 @@
     "lcc": 1,
     "name": "NokScoot",
     "type": "airline"
+  },
+  "AV": {
+    "id": "AV",
+    "lcc": 0,
+    "name": "Avianca",
+    "type": "airline"
+  },
+  "N4": {
+    "id": "N4",
+    "lcc": 0,
+    "name": "Nordwind Airlines",
+    "type": "airline"
+  },
+  "ERFURTER": {
+    "id": "ERFURTER",
+    "lcc": null,
+    "name": "Erfurter Bahn",
+    "type": "train"
+  },
+  "AGILIS": {
+    "id": "AGILIS",
+    "lcc": null,
+    "name": "Agilis",
+    "type": "train"
   },
   "COMMUNITYC": {
     "id": "COMMUNITYC",
@@ -7804,5 +7804,29 @@
     "lcc": null,
     "name": "Arriva United Kingdom",
     "type": "bus"
+  },
+  "VASTTRAFT": {
+    "id": "VASTTRAFT",
+    "lcc": null,
+    "name": "Västtrafik Train",
+    "type": "train"
+  },
+  "VASTTRAFB": {
+    "id": "VASTTRAFB",
+    "lcc": null,
+    "name": "Västtrafik Bus",
+    "type": "bus"
+  },
+  "METROTUR": {
+    "id": "METROTUR",
+    "lcc": null,
+    "name": "Metro Turizm",
+    "type": "bus"
+  },
+  "KROSATAGEN": {
+    "id": "KROSATAGEN",
+    "lcc": null,
+    "name": "Krosatagen",
+    "type": "train"
   }
 }
