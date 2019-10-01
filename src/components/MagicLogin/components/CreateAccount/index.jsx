@@ -1,6 +1,8 @@
 // @flow strict
 
 import * as React from "react";
+import { useRelayEnvironment } from "@kiwicom/relay";
+import type { Environment } from "@kiwicom/relay";
 
 import errors from "../../../../consts/errors";
 import addScript from "../../../../services/utils/addScript";
@@ -12,7 +14,6 @@ import LogContext from "../../../../services/log/context";
 import IntlContext from "../../../../services/intl/context";
 import * as loginEvents from "../../consts/events";
 import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
-import makeEnvironment from "../../../../services/utils/relay";
 import type { Context as IntlContextType } from "../../../../services/intl/context";
 import type { Event, Props as EventProps } from "../../../../records/Event";
 import type { PasswordStrengthEnum } from "../../../../records/Auth";
@@ -30,6 +31,7 @@ type OwnProps = {|
 
 type Props = {|
   ...OwnProps,
+  environment: Environment,
   log: (event: Event, props: EventProps) => void,
   intl: IntlContextType,
 |};
@@ -120,11 +122,8 @@ class CreateAccountWithoutContext extends React.PureComponent<Props, State> {
       return;
     }
 
-    const { email, brandId, onSignUpConfirmation, intl, log } = this.props;
+    const { email, brandId, onSignUpConfirmation, log, environment } = this.props;
     const { password } = this.state;
-    const environment = makeEnvironment({
-      "Accept-Language": intl.language.iso,
-    });
 
     this.setState({ isCreatingAccount: true, error: null, ...defaultErrors });
 
@@ -235,8 +234,9 @@ class CreateAccountWithoutContext extends React.PureComponent<Props, State> {
 const CreateAccountScreen = (props: OwnProps) => {
   const { log } = React.useContext(LogContext);
   const intl = React.useContext(IntlContext);
+  const environment = useRelayEnvironment();
 
-  return <CreateAccountWithoutContext {...props} intl={intl} log={log} />;
+  return <CreateAccountWithoutContext {...props} intl={intl} environment={environment} log={log} />;
 };
 
 export default CreateAccountScreen;

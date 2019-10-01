@@ -3,10 +3,10 @@
 
 import * as React from "react";
 import { mount } from "enzyme";
+import { createMockEnvironment } from "relay-test-utils";
 
 import GetSingleBookingScreen from "../../screens/GetSingleBooking";
 import createSimpleToken from "../../../mutations/createSimpleToken";
-import { intlDefault } from "../../../../../records/Intl";
 import { SIMPLE_TOKEN_RETRIEVED } from "../../../consts/events";
 
 import GetSingleBooking, { GetSingleBookingWithoutContext } from "..";
@@ -43,8 +43,8 @@ describe("#GetSingleBooking", () => {
     const wrapper = mount(
       <GetSingleBookingWithoutContext
         {...defaultProps}
+        environment={createMockEnvironment()}
         log={jest.fn()}
-        intl={{ ...intlDefault, onDebug: jest.fn() }}
       />,
     );
 
@@ -68,8 +68,8 @@ describe("#GetSingleBooking", () => {
     const wrapper = mount(
       <GetSingleBookingWithoutContext
         {...defaultProps}
+        environment={createMockEnvironment()}
         log={log}
-        intl={{ ...intlDefault, onDebug: jest.fn() }}
       />,
     );
 

@@ -7,9 +7,7 @@ import AirportListData from "../AirportListData";
 
 describe("#AirportListData", () => {
   test("render error", async () => {
-    const environment = createMockEnvironment();
-
-    const wrapper = mount(<AirportListData env={environment} value="VIE" onSelect={jest.fn()} />);
+    const wrapper = mount(<AirportListData value="VIE" onSelect={jest.fn()} />);
 
     environment.mock.rejectMostRecentOperation(new Error("error"));
 
@@ -19,17 +17,13 @@ describe("#AirportListData", () => {
   });
 
   test("render loading", () => {
-    const environment = createMockEnvironment();
-
-    const wrapper = mount(<AirportListData env={environment} value="VIE" onSelect={jest.fn()} />);
+    const wrapper = mount(<AirportListData value="VIE" onSelect={jest.fn()} />);
 
     expect(wrapper.text()).toBe("");
   });
 
   test("render results", async () => {
-    const environment = createMockEnvironment();
-
-    const wrapper = mount(<AirportListData env={environment} value="VIE" onSelect={jest.fn()} />);
+    const wrapper = mount(<AirportListData value="VIE" onSelect={jest.fn()} />);
 
     environment.mock.resolveMostRecentOperation(operation =>
       MockPayloadGenerator.generate(operation, {

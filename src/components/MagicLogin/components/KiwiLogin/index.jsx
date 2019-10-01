@@ -1,6 +1,8 @@
 // @flow strict
 
 import * as React from "react";
+import { useRelayEnvironment } from "@kiwicom/relay";
+import type { Environment } from "@kiwicom/relay";
 
 import Text from "../../../Text";
 import Password from "../screens/Password";
@@ -12,12 +14,9 @@ import type { AuthUser } from "../../../../records/Auth";
 import toUser from "../../services/toUser";
 import { useLog } from "../../../../services/log/context";
 import type { Context as LogContextType } from "../../../../services/log/context";
-import { useIntl } from "../../../../services/intl/context";
 import * as loginEvents from "../../consts/events";
 import { API_REQUEST_FAILED, API_ERROR } from "../../../../consts/events";
 import handleAffiliateId from "../../../../services/utils/handleAffiliateId";
-import makeEnvironment from "../../../../services/utils/relay";
-import type { LangInfo } from "../../../../records/LangInfo";
 import type { Event, Props as EventProps } from "../../../../records/Event";
 
 type OwnProps = {|
@@ -35,7 +34,7 @@ type OwnProps = {|
 
 type Props = {|
   ...OwnProps,
-  langInfo: LangInfo,
+  environment: Environment,
   log: (event: Event, props: EventProps) => void,
 |};
 
@@ -63,7 +62,15 @@ class KiwiLoginWithoutContext extends React.Component<Props, State> {
   }
 
   handleSignIn = (e: SyntheticEvent<HTMLFormElement>) => {
-    const { email, brandId, onResetMagicLinkError, onSignIn, onClose, log } = this.props;
+    const {
+      email,
+      brandId,
+      onResetMagicLinkError,
+      onSignIn,
+      onClose,
+      log,
+      environment,
+    } = this.props;
     const { password } = this.state;
 
     e.preventDefault();
@@ -74,7 +81,7 @@ class KiwiLoginWithoutContext extends React.Component<Props, State> {
 
     this.setState({ isSigningIn: true, error: null, passwordError: "" });
 
-    signIn(email, password, brandId)
+    signIn(environment, { email, password, brand: brandId })
       .then(res => {
         this.setState({ isSigningIn: false });
 
@@ -119,8 +126,7 @@ class KiwiLoginWithoutContext extends React.Component<Props, State> {
   };
 
   handleForgotPassword = () => {
-    const { email, brandId, onChangeScreen, langInfo, log } = this.props;
-    const environment = makeEnvironment({ "Accept-Language": langInfo.iso });
+    const { email, brandId, onChangeScreen, environment, log } = this.props;
 
     this.setState({ error: null, passwordError: "" });
 
@@ -180,9 +186,9 @@ class KiwiLoginWithoutContext extends React.Component<Props, State> {
 
 const KiwiLogin = (props: OwnProps) => {
   const { log } = useLog();
-  const { language } = useIntl();
+  const environment = useRelayEnvironment();
 
-  return <KiwiLoginWithoutContext {...props} log={log} langInfo={language} />;
+  return <KiwiLoginWithoutContext {...props} log={log} environment={environment} />;
 };
 
 export default KiwiLogin;

@@ -2,6 +2,8 @@
 
 import * as React from "react";
 import format from "date-fns/format";
+import { useRelayEnvironment } from "@kiwicom/relay";
+import type { Environment } from "@kiwicom/relay";
 
 import Text from "../../../Text";
 import GetSingleBookingScreen from "../screens/GetSingleBooking";
@@ -10,11 +12,8 @@ import * as validators from "../../../../services/input/validators";
 import { API_ERROR, API_REQUEST_FAILED } from "../../../../consts/events";
 import { SIMPLE_TOKEN_RETRIEVED } from "../../consts/events";
 import { useLog } from "../../../../services/log/context";
-import { useIntl } from "../../../../services/intl/context";
-import makeEnvironment from "../../../../services/utils/relay";
 import type { AuthToken } from "../../../../records/Auth";
 import type { Event, Props as EventProps } from "../../../../records/Event";
-import type { Context as IntlContextType } from "../../../../services/intl/context";
 import errors from "../../../../consts/errors";
 
 type OwnProps = {|
@@ -25,8 +24,8 @@ type OwnProps = {|
 
 type Props = {|
   ...OwnProps,
+  environment: Environment,
   log: (event: Event, props: EventProps) => void,
-  intl: IntlContextType,
 |};
 
 type State = {|
@@ -109,7 +108,7 @@ export class GetSingleBookingWithoutContext extends React.Component<Props, State
 
   handleSubmit = (ev: SyntheticInputEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    const { log, intl } = this.props;
+    const { log, environment } = this.props;
     const { bookingId, email, departureDate, IATA } = this.state;
     const bookingIdError = validators.required(bookingId);
     const emailError = validators.email(email);
@@ -136,7 +135,6 @@ export class GetSingleBookingWithoutContext extends React.Component<Props, State
       bookingId: bid,
       origin: { iataCode: IATA, date },
     };
-    const environment = makeEnvironment({ "Accept-Language": intl.language.iso });
 
     createSimpleToken(environment, { input })
       .then(res => {
@@ -207,9 +205,9 @@ export class GetSingleBookingWithoutContext extends React.Component<Props, State
 
 const GetSingleBooking = (props: OwnProps) => {
   const { log } = useLog();
-  const intl = useIntl();
+  const environment = useRelayEnvironment();
 
-  return <GetSingleBookingWithoutContext {...props} intl={intl} log={log} />;
+  return <GetSingleBookingWithoutContext {...props} environment={environment} log={log} />;
 };
 
 export default GetSingleBooking;
