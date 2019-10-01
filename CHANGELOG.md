@@ -1,3 +1,12 @@
+# [8.2.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v8.1.0...v8.2.0) (2019-10-01)
+
+
+### Features
+
+* **components:** InitAuth onSetAuth ([0f9b2ce](https://gitlab.skypicker.com/frontend/nitrolib/commit/0f9b2ce))
+
+
+
 # [8.1.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v8.0.1...v8.1.0) (2019-09-27)
 
 
