@@ -21,6 +21,7 @@ type Arg = {|
   onMyBooking: (input: MyBookingInput) => Promise<void>,
   onRegister: (input: RegisterInput) => Promise<void>,
   onSocialAuth: (provider: SocialProvider) => Promise<void>,
+  onSetAuth: (auth: Auth) => void,
   onSignIn: (email: string, password: string) => Promise<void>,
   onSignOut: () => void,
 |};
@@ -67,6 +68,14 @@ export default class InitAuth extends React.PureComponent<Props, State> {
         });
     }
   }
+
+  handleSetAuth = (auth: Auth) => {
+    this.setState({
+      auth,
+    });
+
+    save(UA_SESSION_TOKEN, auth.token);
+  };
 
   handleMyBooking = (input: MyBookingInput): Promise<void> => {
     const { onMyBooking } = this.props;
@@ -158,6 +167,7 @@ export default class InitAuth extends React.PureComponent<Props, State> {
       onRegister: this.handleRegister,
       onSocialAuth: this.handleSocialAuth,
       onSignIn: this.handleSignIn,
+      onSetAuth: this.handleSetAuth,
       onSignOut: this.handleSignOut,
     });
   }
