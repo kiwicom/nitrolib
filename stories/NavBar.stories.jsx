@@ -7,7 +7,6 @@ import cookie from "js-cookie";
 
 import { Provider as AuthProvider } from "../src/services/auth/context";
 import { UA_SESSION_TOKEN } from "../src/consts/cookies";
-import makeEnvironment from "../src/services/utils/relay";
 import NavBar from "../src/components/NavBar";
 import HeaderLinks from "../src/components/HeaderLinks";
 import ModalsAuth from "../src/components/ModalsAuth";
@@ -72,9 +71,6 @@ storiesOf("NavBar", module)
           },
         },
         loading: false,
-        environment: makeEnvironment({
-          Authorization: cookie.get(UA_SESSION_TOKEN) || "",
-        }),
         onMyBooking: () => Promise.resolve(),
         onRegister: () => Promise.resolve(),
         onSocialAuth: () => Promise.resolve(),

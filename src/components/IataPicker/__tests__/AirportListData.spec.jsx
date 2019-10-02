@@ -1,18 +1,17 @@
 // @flow strict
 import * as React from "react";
 import { mount } from "enzyme";
-import { RelayEnvironmentProvider } from '@kiwicom/relay';
-import type { Environment } from '@kiwicom/relay';
+import { RelayEnvironmentProvider } from "@kiwicom/relay";
+import type { Environment } from "@kiwicom/relay";
 import { createMockEnvironment, MockPayloadGenerator } from "relay-test-utils";
 
 import AirportListData from "../AirportListData";
 
-const renderAirportListData = (environment: Environment) =>
-  (
-    <RelayEnvironmentProvider environment={environment}>
-      <AirportListData value="VIE" onSelect={jest.fn()} />
-    </RelayEnvironmentProvider>
-  );
+const renderAirportListData = (environment: Environment) => (
+  <RelayEnvironmentProvider environment={environment}>
+    <AirportListData value="VIE" onSelect={jest.fn()} />
+  </RelayEnvironmentProvider>
+);
 
 describe("#AirportListData", () => {
   test("render error", async () => {

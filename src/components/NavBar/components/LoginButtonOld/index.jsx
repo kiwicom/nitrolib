@@ -1,6 +1,5 @@
 // @flow
 import * as React from "react";
-import type { Environment } from "@kiwicom/relay";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
 
 import Trips from "../Trips";
@@ -14,13 +13,12 @@ import Translate from "../../../Translate";
 
 type Props = {|
   auth: Auth | null,
-  env: Environment,
   onSelectTrip: (bid: string) => void,
   inverted: boolean,
   onChange: () => void,
 |};
 
-const LoginButtonOld = ({ auth, env, onSelectTrip, inverted, onChange }: Props) =>
+const LoginButtonOld = ({ auth, onSelectTrip, inverted, onChange }: Props) =>
   auth === null ? (
     <ValueBind value={MODALS.MY_BOOKING} onChange={onChange}>
       {({ onClick }) => (
@@ -43,7 +41,7 @@ const LoginButtonOld = ({ auth, env, onSelectTrip, inverted, onChange }: Props) 
       )}
     </ValueBind>
   ) : (
-    <Trips auth={auth} env={env} inverted={inverted} onSelect={onSelectTrip} />
+    <Trips auth={auth} inverted={inverted} onSelect={onSelectTrip} />
   );
 
 export default LoginButtonOld;

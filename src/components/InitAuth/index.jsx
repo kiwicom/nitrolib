@@ -1,13 +1,11 @@
 // @flow strict
 import * as React from "react";
-import type { Environment } from "@kiwicom/relay";
 
 import { authDefault } from "../../records/Auth";
 import type { Auth, SocialProvider } from "../../records/Auth";
 import type { Brand } from "../../records/Brand";
 import * as api from "../../services/auth/api";
 import type { MyBookingInput, RegisterInput, OnMyBookingArg } from "../../services/auth/api";
-import makeEnvironment from "../../services/utils/relay";
 import * as session from "../../services/session/session";
 import { ACCOUNT_ID, EMAIL } from "../../consts/session";
 import handleAffiliateId from "../../services/utils/handleAffiliateId";
@@ -17,7 +15,6 @@ import { load, save } from "../../services/session/cookies";
 type Arg = {|
   auth: Auth | null,
   loading: boolean,
-  environment: Environment,
   onMyBooking: (input: MyBookingInput) => Promise<void>,
   onRegister: (input: RegisterInput) => Promise<void>,
   onSocialAuth: (provider: SocialProvider) => Promise<void>,
@@ -162,7 +159,6 @@ export default class InitAuth extends React.PureComponent<Props, State> {
     return children({
       auth,
       loading,
-      environment: makeEnvironment({ Authorization: auth?.token || "" }),
       onMyBooking: this.handleMyBooking,
       onRegister: this.handleRegister,
       onSocialAuth: this.handleSocialAuth,

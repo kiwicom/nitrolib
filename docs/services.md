@@ -164,7 +164,6 @@ type RegisterInput = {|
 export type Context = {|
   auth: Auth | null,
   loading: boolean,
-  environment: Environment,
   onMyBooking: (input: MyBookingInput) => Promise<void>,
   onRegister: (input: RegisterInput) => Promise<void>,
   onSocialAuth: (provider: SocialProvider) => Promise<void>,
