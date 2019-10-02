@@ -29,7 +29,7 @@ const MagicLoginComponent = (props: {| log?: Function, onSocialLogin?: Function 
   const { log, ...componentProps } = props;
 
   return (
-    <LogProvider value={{ log: log ?? jest.fn() }}>
+    <LogProvider value={{ log: log || jest.fn() }}>
       <BrandProvider value={brandDefault}>
         <RelayEnvironmentProvider environment={createMockEnvironment()}>
           <MagicLogin {...defaultProps} {...componentProps} />
