@@ -32,6 +32,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [InitCurrency](#initcurrency)
 * [InitIntl](#initintl)
 * [InitLog](#initlog)
+* [InitRelayEnvironment](#initrelayenvironment)
 * [InitStarred](#initstarred)
 * [InputEmail](#inputemail)
 * [InputPhone](#inputphone)
@@ -1311,6 +1312,28 @@ ReactDOM.render(
   node,
 );
 ```
+
+### InitRelayEnvironment
+
+**Import:**
+```js
+import InitRelayEnvironment from "@kiwicom/nitro/lib/components/InitRelayEnvironment";
+```
+
+**Types:**
+```js
+type Props = {|
+  children: React.Node,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+**Context needs:**
+* [auth](./services#auth)
+* [intl](./services#intl)
+
+Initializes `RelayEnvironmentProvider` from [@kiwicom/relay](https://github.com/kiwicom/relay) with environment containing correct HTTP headers.
 
 ### InitStarred
 
