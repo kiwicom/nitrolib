@@ -326,6 +326,7 @@ See types:
 * ```"MagicLogin-AskForMagic"```
 * ```"MagicLogin-BookingId"```
 * ```"MagicLogin-CheckEmail"```
+* ```"MagicLogin-CheckEmail"```
 * ```"MagicLogin-CreateAccount"```
 * ```"MagicLogin-Email"```
 * ```"MagicLogin-Email"```
