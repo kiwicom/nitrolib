@@ -3,6 +3,8 @@
 
 import * as React from "react";
 import { mount } from "enzyme";
+import { createMockEnvironment } from "relay-test-utils";
+import { RelayEnvironmentProvider } from "@kiwicom/relay";
 
 import Password from "../../screens/Password";
 import TailoredHeader from "../../TailoredHeader";
@@ -12,29 +14,37 @@ import KiwiLogin from "..";
 jest.mock("../../../mutations/resetPassword");
 jest.mock("../../../mutations/signIn");
 
-const defaultProps = {
-  email: "",
-  magicLinkError: "",
-  isSendingEmail: false,
-  brandId: "",
-  tailoredHeader: <TailoredHeader type="mmb" />,
-  onResetMagicLinkError: () => {},
-  onClose: () => {},
-  onChangeScreen: () => {},
-  onAskSignInLink: () => {},
-  onSignIn: () => {},
+const KiwiLoginComponent = props => {
+  const defaultProps = {
+    email: "",
+    magicLinkError: "",
+    isSendingEmail: false,
+    brandId: "",
+    tailoredHeader: <TailoredHeader type="mmb" />,
+    onResetMagicLinkError: () => {},
+    onClose: () => {},
+    onChangeScreen: () => {},
+    onAskSignInLink: () => {},
+    onSignIn: () => {},
+  };
+
+  return (
+    <RelayEnvironmentProvider environment={createMockEnvironment()}>
+      <KiwiLogin {...defaultProps} {...props} />
+    </RelayEnvironmentProvider>
+  );
 };
 
 describe("#KiwiLogin", () => {
   it("should render", () => {
-    const wrapper = mount(<KiwiLogin {...defaultProps} />);
+    const wrapper = mount(<KiwiLoginComponent />);
 
     expect(wrapper.find(Password).exists()).toBe(true);
   });
 
   it("handles forgotten password", done => {
     const onChangeScreen = jest.fn();
-    const wrapper = mount(<KiwiLogin {...defaultProps} onChangeScreen={onChangeScreen} />);
+    const wrapper = mount(<KiwiLoginComponent onChangeScreen={onChangeScreen} />);
 
     wrapper
       .find("a")
@@ -49,7 +59,7 @@ describe("#KiwiLogin", () => {
 
   it("handles request to change email", () => {
     const onChangeScreen = jest.fn();
-    const wrapper = mount(<KiwiLogin {...defaultProps} onChangeScreen={onChangeScreen} />);
+    const wrapper = mount(<KiwiLoginComponent onChangeScreen={onChangeScreen} />);
 
     wrapper
       .find("a")
@@ -63,12 +73,7 @@ describe("#KiwiLogin", () => {
     const onSignIn = jest.fn();
     const onClose = jest.fn();
     const wrapper = mount(
-      <KiwiLogin
-        {...defaultProps}
-        email="joe.doe@example.com"
-        onSignIn={onSignIn}
-        onClose={onClose}
-      />,
+      <KiwiLoginComponent email="joe.doe@example.com" onSignIn={onSignIn} onClose={onClose} />,
     );
     wrapper
       .find(`input[data-test="MagicLogin-PasswordInput"]`)
