@@ -3,6 +3,8 @@
 
 import * as React from "react";
 import { mount } from "enzyme";
+import { createMockEnvironment } from "relay-test-utils";
+import { RelayEnvironmentProvider } from "@kiwicom/relay";
 
 import IntroScreen from "../components/Intro";
 import { brandDefault } from "../../../records/Brand";
@@ -15,32 +17,37 @@ import MagicLogin from "..";
 jest.mock("../mutations/checkEmail");
 jest.mock("../mutations/sendMagicLink");
 
-const defaultProps = {
-  onSocialLogin: () => Promise.resolve(undefined),
-  onSignIn: () => {},
-  onClose: () => {},
-  onGetSimpleToken: () => {},
-  initialScreen: "intro",
-  type: "mmb",
+const MagicLoginComponent = (props: {| log?: Function, onSocialLogin?: Function |}) => {
+  const defaultProps = {
+    onSocialLogin: () => Promise.resolve(undefined),
+    onSignIn: () => {},
+    onClose: () => {},
+    onGetSimpleToken: () => {},
+    initialScreen: "intro",
+    type: "mmb",
+  };
+  const { log, ...componentProps } = props;
+
+  return (
+    <LogProvider value={{ log: log ?? jest.fn() }}>
+      <BrandProvider value={brandDefault}>
+        <RelayEnvironmentProvider environment={createMockEnvironment()}>
+          <MagicLogin {...defaultProps} {...componentProps} />
+        </RelayEnvironmentProvider>
+      </BrandProvider>
+    </LogProvider>
+  );
 };
 
 describe("#MagicLogin", () => {
   it("renders intro screen by default", () => {
-    const wrapper = mount(
-      <BrandProvider value={brandDefault}>
-        <MagicLogin {...defaultProps} />
-      </BrandProvider>,
-    );
+    const wrapper = mount(<MagicLoginComponent />);
 
     expect(wrapper.find(IntroScreen).exists()).toBe(true);
   });
 
   it("handles successful sending of magic link", done => {
-    const wrapper = mount(
-      <BrandProvider value={brandDefault}>
-        <MagicLogin {...defaultProps} />
-      </BrandProvider>,
-    );
+    const wrapper = mount(<MagicLoginComponent />);
 
     wrapper
       .find(`input[data-test="MagicLogin-Email"]`)
@@ -55,11 +62,7 @@ describe("#MagicLogin", () => {
   });
 
   it("handles network error while sending magic link", done => {
-    const wrapper = mount(
-      <BrandProvider value={brandDefault}>
-        <MagicLogin {...defaultProps} />
-      </BrandProvider>,
-    );
+    const wrapper = mount(<MagicLoginComponent />);
     wrapper
       .find(`input[data-test="MagicLogin-Email"]`)
       .simulate("change", { target: { value: "withBookingError@example.com" } });
@@ -76,13 +79,7 @@ describe("#MagicLogin", () => {
   it("handles login via facebook", () => {
     const onSocialLogin = jest.fn();
     const log = jest.fn();
-    const wrapper = mount(
-      <LogProvider value={{ log }}>
-        <BrandProvider value={brandDefault}>
-          <MagicLogin {...defaultProps} onSocialLogin={onSocialLogin} />
-        </BrandProvider>
-      </LogProvider>,
-    );
+    const wrapper = mount(<MagicLoginComponent log={log} onSocialLogin={onSocialLogin} />);
 
     wrapper
       .find(`[data-test="MagicLogin-LoginViaSocials"]`)
@@ -97,13 +94,7 @@ describe("#MagicLogin", () => {
 
   it("logs that process of login was abandoned", () => {
     const log = jest.fn();
-    const wrapper = mount(
-      <LogProvider value={{ log }}>
-        <BrandProvider value={brandDefault}>
-          <MagicLogin {...defaultProps} />
-        </BrandProvider>
-      </LogProvider>,
-    );
+    const wrapper = mount(<MagicLoginComponent log={log} />);
     wrapper.unmount();
 
     expect(log).toHaveBeenCalledWith(loginEvents.LOGIN_ABANDONED, { screen: "intro" });
@@ -111,13 +102,7 @@ describe("#MagicLogin", () => {
 
   it("logs that user went though the whole login path successfully", done => {
     const log = jest.fn();
-    const wrapper = mount(
-      <LogProvider value={{ log }}>
-        <BrandProvider value={brandDefault}>
-          <MagicLogin {...defaultProps} />
-        </BrandProvider>
-      </LogProvider>,
-    );
+    const wrapper = mount(<MagicLoginComponent log={log} />);
 
     wrapper
       .find(`input[data-test="MagicLogin-Email"]`)
