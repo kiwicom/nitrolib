@@ -7,14 +7,17 @@ import { useIntl } from "../../services/intl/context";
 import { useAuth } from "../../services/auth/context";
 
 type Props = {|
+  clientID: string,
+  uri?: string,
   children: React.Node,
 |};
 
-const InitRelayEnvironment = ({ children }: Props) => {
+const InitRelayEnvironment = ({ children, clientID, uri }: Props) => {
   const intl = useIntl();
   const { auth } = useAuth();
   const headers: { [header: string]: string, ... } = {
     "Accept-Language": intl.language.iso,
+    "X-Client": clientID,
   };
 
   if (auth && auth.type === "user") {
@@ -24,7 +27,7 @@ const InitRelayEnvironment = ({ children }: Props) => {
   }
 
   return (
-    <RelayEnvironmentProvider environment={makeEnvironment(headers)}>
+    <RelayEnvironmentProvider environment={makeEnvironment(headers, uri)}>
       {children}
     </RelayEnvironmentProvider>
   );

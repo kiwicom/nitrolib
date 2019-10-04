@@ -1324,6 +1324,8 @@ import InitRelayEnvironment from "@kiwicom/nitro/lib/components/InitRelayEnviron
 **Types:**
 ```js
 type Props = {|
+  clientID: string,
+  uri?: string,
   children: React.Node,
 |};
 
@@ -1335,6 +1337,8 @@ declare export default React.ComponentType<Props>;
 * [intl](./services#intl)
 
 Initializes `RelayEnvironmentProvider` from [@kiwicom/relay](https://github.com/kiwicom/relay) with environment containing correct HTTP headers.
+
+Note you must always specify `clientID` which should identify your application to helps us know who is sending the request.
 
 ### InitStarred
 
