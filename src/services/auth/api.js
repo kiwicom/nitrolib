@@ -25,6 +25,11 @@ type GetTokenUserRes = {|
   last_name: string,
 |};
 
+type OnMyBookingArg = {|
+  token: string,
+  bid: number,
+|};
+
 export async function getTokenUser(token: string): Promise<User> {
   const user: GetTokenUserRes = await fetch(`${config.apiAuthUrl}/v1/user.get`, {
     method: "POST",
@@ -52,7 +57,12 @@ export type MyBookingInput = {|
 |};
 
 // eslint-disable-next-line import/prefer-default-export
-export function getMyBookingToken({ bid, email, iata, departure }: MyBookingInput) {
+export function getMyBookingToken({
+  bid,
+  email,
+  iata,
+  departure,
+}: MyBookingInput): Promise<OnMyBookingArg> {
   const query = {
     email,
     src: iata,
@@ -68,7 +78,7 @@ export function getMyBookingToken({ bid, email, iata, departure }: MyBookingInpu
       return res.json().then(body => Promise.reject(new Error(body.msg)));
     }
 
-    return res.json().then(body => body.simple_token);
+    return res.json().then(body => ({ token: body.simple_token, bid: Number(bid) }));
   });
 }
 
