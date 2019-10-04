@@ -1,3 +1,13 @@
+## [8.3.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v8.3.0...v8.3.1) (2019-10-04)
+
+
+### Bug Fixes
+
+* **services:** Auth getMyBookingToken obj ([26b2d76](https://gitlab.skypicker.com/frontend/nitrolib/commit/26b2d76))
+* **services:** Auth tests ([053e443](https://gitlab.skypicker.com/frontend/nitrolib/commit/053e443))
+
+
+
 # [8.3.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v8.2.0...v8.3.0) (2019-10-04)
 
 
