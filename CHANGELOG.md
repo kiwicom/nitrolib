@@ -1,3 +1,13 @@
+# [8.3.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v8.2.0...v8.3.0) (2019-10-04)
+
+
+### Features
+
+* Middleware add SKYPICKER_VISITOR_UNIQID to request ([a5eedd9](https://gitlab.skypicker.com/frontend/nitrolib/commit/a5eedd9))
+* **components:** Sidebar ClassName ([92014f7](https://gitlab.skypicker.com/frontend/nitrolib/commit/92014f7))
+
+
+
 # [8.2.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v8.1.0...v8.2.0) (2019-10-01)
 
 
