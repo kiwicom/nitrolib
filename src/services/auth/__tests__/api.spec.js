@@ -24,7 +24,7 @@ describe("#api", () => {
       // $FlowExpected: jest bug
       fetchMock.mock(bookingLoginUrl, { body: { simple_token: "token" }, status: 200 });
       const res = await api.getMyBookingToken(input);
-      expect(res).toBe("token");
+      expect(res).toEqual({ token: "token", bid: 123 });
     });
 
     test("not ok", async () => {
