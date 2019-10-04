@@ -23,6 +23,7 @@ import translations from "../fixtures/translations";
 import { getBrandTheme } from "../../src/records/Theme";
 import InitStarred from "../../src/components/InitStarred";
 import starredList from "../fixtures/starred";
+import InitRelayEnvironment from "../../src/components/InitRelayEnvironment/index";
 
 const GROUP_ID = "Context";
 
@@ -169,7 +170,9 @@ const withData = (storyFn: () => React.Node) => {
                             }}
                           >
                             <ModalProvider value={{ value: modal, onChange: action("Modal") }}>
-                              {storyFn()}
+                              <InitRelayEnvironment clientID="NitroStorybook">
+                                {storyFn()}
+                              </InitRelayEnvironment>
                             </ModalProvider>
                           </StarredProvider>
                         )}

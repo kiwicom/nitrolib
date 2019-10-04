@@ -3,12 +3,10 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs } from "@storybook/addon-knobs/react";
-import RelayEnvironmentProvider from "@kiwicom/relay/src/RelayEnvironmentProvider";
 import cookie from "js-cookie";
 
 import { Provider as AuthProvider } from "../src/services/auth/context";
 import { UA_SESSION_TOKEN } from "../src/consts/cookies";
-import makeEnvironment from "../src/services/utils/relay";
 import NavBar from "../src/components/NavBar";
 import HeaderLinks from "../src/components/HeaderLinks";
 import ModalsAuth from "../src/components/ModalsAuth";
@@ -80,25 +78,19 @@ storiesOf("NavBar", module)
         onSignOut: () => {},
       }}
     >
-      <RelayEnvironmentProvider
-        environment={makeEnvironment({
-          Authorization: cookie.get(UA_SESSION_TOKEN) || "",
-        })}
-      >
-        <ModalsAuth portal="" />
-        <NavBar
-          starred={<p>Starred</p>}
-          headerLinks={<HeaderLinks {...props} inverted={false} />}
-          subscription={<h1>Subscription</h1>}
-          debug={<h1>Debug</h1>}
-          portal=""
-          onOpenFaq={action("Open FAQ")}
-          onSetModal={action("Set modal")}
-          onLogoClick={action("Click logo")}
-          onSaveLanguage={action("Save language")}
-          onSelectTrip={action("Select trip")}
-        />
-      </RelayEnvironmentProvider>
+      <ModalsAuth portal="" />
+      <NavBar
+        starred={<p>Starred</p>}
+        headerLinks={<HeaderLinks {...props} inverted={false} />}
+        subscription={<h1>Subscription</h1>}
+        debug={<h1>Debug</h1>}
+        portal=""
+        onOpenFaq={action("Open FAQ")}
+        onSetModal={action("Set modal")}
+        onLogoClick={action("Click logo")}
+        onSaveLanguage={action("Save language")}
+        onSelectTrip={action("Select trip")}
+      />
     </AuthProvider>
   ))
   .add("inverted", () => (
