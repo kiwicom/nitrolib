@@ -3,7 +3,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, date, text } from "@storybook/addon-knobs/react";
-import GpsIcon from "@kiwicom/orbit-components/lib/icons/Gps";
+import GpsNotFixed from "@kiwicom/orbit-components/lib/icons/GpsNotFixed";
 
 import DatePicker from "../src/components/DatePicker";
 
@@ -27,7 +27,7 @@ storiesOf("DatePicker", module)
       value={date("Value", NOW, GROUP_ID)}
       onChange={action("Change")}
       label={text("Label", "Departure", GROUP_ID)}
-      icon={<GpsIcon />}
+      icon={<GpsNotFixed />}
       min={date("Min", new Date(Date.UTC(2019, 0)), GROUP_ID)}
       max={date("Max", new Date(Date.UTC(2019, 6)), GROUP_ID)}
     />

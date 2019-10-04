@@ -52,7 +52,7 @@ const NoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }: Props
             t="account.log_in_with"
             values={{ provider: "Facebook" }}
             type="facebook"
-            block
+            fullWidth
             bordered
             icon={<FacebookIcon />}
             onClick={onFacebookLogin}
@@ -61,7 +61,7 @@ const NoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }: Props
             t="account.log_in_with"
             values={{ provider: "Google" }}
             type="google"
-            block
+            fullWidth
             bordered
             icon={<GoogleIcon />}
             onClick={onGoogleLogin}

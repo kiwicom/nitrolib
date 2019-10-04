@@ -30,7 +30,7 @@ const ModalsAuth = ({ portal }: Props) => {
       <ValueBind value={MODALS.NONE} onChange={onChange}>
         {({ onClick }) => (
           <CloseByKey onClose={onClick}>
-            <Portal element={portal}>
+            <Portal renderInto={portal}>
               <Modal onClose={onClick}>
                 <ModalSection>
                   {value === MODALS.MY_BOOKING && (

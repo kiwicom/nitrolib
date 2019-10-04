@@ -7,15 +7,7 @@ import BaggageCabin from "@kiwicom/orbit-components/lib/icons/BaggageCabin";
 import type { BaggageSubCategory } from "../../records/Baggage";
 
 type IconSize = "small" | "medium" | "large";
-type IconColor =
-  | "attention"
-  | "primary"
-  | "secondary"
-  | "tertiary"
-  | "info"
-  | "success"
-  | "warning"
-  | "critical";
+type IconColor = "primary" | "secondary" | "tertiary" | "info" | "success" | "warning" | "critical";
 
 export default function getIconFromCategory(
   category: BaggageSubCategory,

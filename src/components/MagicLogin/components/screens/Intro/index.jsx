@@ -87,14 +87,14 @@ const Intro = ({
           >
             <Button
               type="facebook"
-              block
+              fullWidth
               bordered
               icon={<FacebookIcon />}
               onClick={onFacebookLogin}
             >
               <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
             </Button>
-            <Button type="google" block bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
+            <Button type="google" fullWidth bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
               <Translate t="account.log_in_with" values={{ provider: "Google" }} />
             </Button>
           </Stack>

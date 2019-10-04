@@ -54,7 +54,7 @@ const SocialLogin = ({ facebook, google, onSocialAuth }: Props) => (
     <Stack desktop={STACK_DESKTOP} direction="column">
       {google && (
         <Button
-          block
+          fullWidth
           type="google"
           bordered
           icon={<GoogleIcon />}
@@ -67,7 +67,7 @@ const SocialLogin = ({ facebook, google, onSocialAuth }: Props) => (
         <Button
           type="facebook"
           bordered
-          block
+          fullWidth
           icon={<FacebookIcon />}
           onClick={() => onSocialAuth("facebook")}
         >

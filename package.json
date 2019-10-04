@@ -70,7 +70,7 @@
     "yargs": "^12.0.5"
   },
   "peerDependencies": {
-    "@kiwicom/orbit-components": "^0.57.0",
+    "@kiwicom/orbit-components": "^0.63.0",
     "@kiwicom/translations": "^1.415.0",
     "ramda": "^0.26.1",
     "react": "^16.8.6",
@@ -93,7 +93,7 @@
     "@commitlint/config-conventional": "^7.6.0",
     "@emotion/core": "^10.0.7",
     "@kiwicom/eslint-config-nitro": "^2.0.0",
-    "@kiwicom/orbit-components": "^0.57.0",
+    "@kiwicom/orbit-components": "^0.63.0",
     "@kiwicom/translations": "^1.415.0",
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/addon-info": "^5.1.9",

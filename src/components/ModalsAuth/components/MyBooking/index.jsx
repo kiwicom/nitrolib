@@ -280,7 +280,7 @@ export default class MyBooking extends React.PureComponent<Props, State> {
                   </Alert>
                 </FieldWrap>
               )}
-              <Button block submit disabled={loading}>
+              <Button fullWidth submit disabled={loading}>
                 <Translate t="submit" />
               </Button>
             </>

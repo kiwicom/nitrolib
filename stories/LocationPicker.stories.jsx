@@ -3,7 +3,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { withKnobs, text } from "@storybook/addon-knobs/react";
 import { action } from "@storybook/addon-actions";
-import GpsIcon from "@kiwicom/orbit-components/lib/icons/Gps";
+import GpsNotFixed from "@kiwicom/orbit-components/lib/icons/GpsNotFixed";
 
 import LocationPicker from "../src/components/LocationPicker";
 
@@ -42,7 +42,7 @@ storiesOf("LocationPicker", module)
     />
   ))
   .add("with icon", () => (
-    <LocationPicker value={exampleValue} label={<GpsIcon />} onChange={action("change")} />
+    <LocationPicker value={exampleValue} label={<GpsNotFixed />} onChange={action("change")} />
   ))
   .add("with error", () => (
     <LocationPicker

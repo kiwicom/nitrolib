@@ -24,7 +24,7 @@ const SingleTripBottom = () => (
   <AuthConsumer>
     {({ onSignOut }) => (
       <BottomWrapper>
-        <Button block type="secondary" onClick={onSignOut} t="account.log_out" />
+        <Button fullWidth type="secondary" onClick={onSignOut} t="account.log_out" />
       </BottomWrapper>
     )}
   </AuthConsumer>

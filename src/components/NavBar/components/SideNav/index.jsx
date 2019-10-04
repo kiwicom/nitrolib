@@ -380,14 +380,14 @@ const SideNav = ({
       </ClientOnly>
       {/* MODALS */}
       {modalOpen === MODALS.SUBSCRIPTION && (
-        <Portal element={portal}>
+        <Portal renderInto={portal}>
           <Modal onClose={handleCloseModal}>
             <ModalSection>{subscription}</ModalSection>
           </Modal>
         </Portal>
       )}
       {modalOpen === MODALS.DEBUG && (
-        <Portal element={portal}>
+        <Portal renderInto={portal}>
           <Modal onClose={handleCloseModal}>
             <ModalSection>{debug || null}</ModalSection>
           </Modal>

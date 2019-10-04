@@ -30,7 +30,7 @@ type Props = {|
 const AcceptAlert = ({ children, button, onClose }: Props) => (
   <Container>
     <Message>{children}</Message>
-    <Button block onClick={onClose}>
+    <Button fullWidth onClick={onClose}>
       {button || <Translate t="common.ok" />}
     </Button>
   </Container>

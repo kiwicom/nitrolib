@@ -9,7 +9,7 @@ import Map from "@kiwicom/orbit-components/lib/icons/Map";
 import LocationIcon from "@kiwicom/orbit-components/lib/icons/Location";
 import City from "@kiwicom/orbit-components/lib/icons/City";
 import Leisure from "@kiwicom/orbit-components/lib/icons/Leisure";
-import AirplaneRight from "@kiwicom/orbit-components/lib/icons/AirplaneRight";
+import AirplaneTakeoff from "@kiwicom/orbit-components/lib/icons/AirplaneTakeoff";
 
 import getSlug from "../../services/slug";
 import type { LocationPickerRow_item } from "./__generated__/LocationPickerRow_item.graphql";
@@ -29,7 +29,7 @@ const icons = {
   region_group: Map,
   province: Map,
   city: City,
-  airport: AirplaneRight,
+  airport: AirplaneTakeoff,
   hotel: Leisure,
   default: LocationIcon,
 };
