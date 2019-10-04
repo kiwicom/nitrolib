@@ -33,6 +33,7 @@ type Props = {|
   // DI
   getCurrencies: typeof getCurrenciesCall,
   getGeoCountry: typeof getGeoCountryCall,
+  url?: string,
 |};
 
 type State = {|
@@ -109,11 +110,14 @@ export default class CurrencyProvider extends React.PureComponent<Props, State> 
   };
 
   async loadData() {
-    const { getCurrencies, getGeoCountry, ip } = this.props;
+    const { getCurrencies, getGeoCountry, ip, url } = this.props;
 
     this.setState({ loading: true });
 
-    const [all, country] = await Promise.all([getCurrencies(), getGeoCountry(ip)]);
+    const [all, country] = await Promise.all([
+      getCurrencies(undefined, { url }),
+      getGeoCountry(ip),
+    ]);
 
     this.setState({ loading: false, all: rewriteCurrencies(all), country });
   }

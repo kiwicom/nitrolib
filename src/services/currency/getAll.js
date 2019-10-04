@@ -3,9 +3,13 @@ import type { FetchedCurrencies } from "../../records/Currency";
 
 export type Module = "search" | "booking" | "mmb";
 
-const getAll = (module?: Module = "search"): Promise<FetchedCurrencies> =>
+export type Options = {|
+  url?: string,
+|};
+
+const getAll = (module?: Module = "search", options?: Options): Promise<FetchedCurrencies> =>
   Promise.all([
-    fetch(`https://finance-launchpad.skypicker.com/${module}`)
+    fetch(`${options?.url || "https://finance-launchpad.skypicker.com"}/${module}`)
       .then(res => res.json())
       .then(res => res.currencies.supported_currencies),
     fetch("https://rates-finance.skypicker.com/").then(res => res.json()),

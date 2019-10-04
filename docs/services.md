@@ -294,7 +294,14 @@ import * as getAll from "@kiwicom/nitro/lib/services/currency/getAll";
 ```js
 export type Module = "search" | "booking" | "mmb";
 
-declare export default function getAll(module?: Module): Promise<FetchedCurrencies>;
+export type Options = {|
+  url?: string,
+|};
+
+declare export default function getAll(
+  module?: Module,
+  options?: Options,
+): Promise<FetchedCurrencies>;
 ```
 
 See types:
