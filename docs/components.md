@@ -484,6 +484,7 @@ type Props = {|
   unmasked?: boolean, // removes outer mask and disables onClick
   onClick: () => void,
   children: React.Node,
+  className?: string,
 |};
 
 declare export default React.ComponentType<Props>;

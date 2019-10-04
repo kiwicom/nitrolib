@@ -73,6 +73,7 @@ type Props = {|
   unmasked?: boolean,
   onClick: () => void,
   children: React.Node,
+  className?: string,
 |};
 
 export default class Core extends React.Component<Props> {
@@ -93,12 +94,13 @@ export default class Core extends React.Component<Props> {
   }
 
   render() {
-    const { status, inverted, unmasked, onClick, children } = this.props;
+    const { status, inverted, unmasked, onClick, children, className } = this.props;
 
     return (
       <Portal>
         <Container
           inverted={inverted}
+          className={className}
           shown={status !== "exited"}
           entered={!unmasked && status === "entered"}
           ref={this.ref}

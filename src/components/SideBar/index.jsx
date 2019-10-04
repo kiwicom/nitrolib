@@ -12,12 +12,19 @@ type Props = {|
   unmasked?: boolean,
   onClick: () => void,
   children: React.Node,
+  className?: string,
 |};
 
-const SideBar = ({ shown, inverted, unmasked, onClick, children }: Props) => (
+const SideBar = ({ shown, inverted, unmasked, onClick, children, className }: Props) => (
   <Transition in={shown} timeout={DURATION}>
     {status => (
-      <Core status={status} inverted={inverted} onClick={onClick} unmasked={unmasked}>
+      <Core
+        className={className}
+        status={status}
+        inverted={inverted}
+        onClick={onClick}
+        unmasked={unmasked}
+      >
         {children}
       </Core>
     )}
