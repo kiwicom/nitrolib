@@ -11,7 +11,9 @@ describe("#handleUserId", () => {
     const res = handleUserId("84b01832-ea96-43b5-bf45-045a22fa46a9");
 
     expect(res).toBe("84b01832-ea96-43b5-bf45-045a22fa46a9");
-    expect(cookies.save).toBeCalledWith(USER_ID, "84b01832-ea96-43b5-bf45-045a22fa46a9");
+    expect(cookies.save).toBeCalledWith(USER_ID, "84b01832-ea96-43b5-bf45-045a22fa46a9", {
+      expires: 1460,
+    });
   });
 
   test("cookies", () => {
@@ -31,6 +33,6 @@ describe("#handleUserId", () => {
     const res = handleUserId(null);
 
     expect(res).toBe("userId");
-    expect(cookies.save).toBeCalledWith(USER_ID, "userId");
+    expect(cookies.save).toBeCalledWith(USER_ID, "userId", { expires: 1460 });
   });
 });
