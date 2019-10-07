@@ -115,7 +115,7 @@ export default class CurrencyProvider extends React.PureComponent<Props, State> 
     this.setState({ loading: true });
 
     const [all, country] = await Promise.all([
-      getCurrencies(undefined, { url }),
+      getCurrencies({ options: { url } }),
       getGeoCountry(ip),
     ]);
 

@@ -7,7 +7,12 @@ export type Options = {|
   url?: string,
 |};
 
-const getAll = (module?: Module = "search", options?: Options): Promise<FetchedCurrencies> =>
+type Params = {|
+  module: Module,
+  options?: Options,
+|};
+
+const getAll = ({ module = "search", options }: Params): Promise<FetchedCurrencies> =>
   Promise.all([
     fetch(`${options?.url || "https://finance-launchpad.skypicker.com"}/${module}`)
       .then(res => res.json())
