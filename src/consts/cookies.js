@@ -7,5 +7,6 @@ export const UA_SESSION_TOKEN = "ua_session_token";
 export const CURRENCY_ID = "preferred_currency";
 export const LANGUAGE_ID = "preferred_language";
 export const KW_AUTH_TOKEN = "kwAuthToken";
+export const EXPIRATION = 1460;
 
 export type Cookie = string; // TODO specific once everyone uses this

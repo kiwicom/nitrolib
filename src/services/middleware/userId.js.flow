@@ -1,0 +1,8 @@
+// @flow strict
+import type { $Request, $Response, NextFunction } from "express";
+
+declare export default function userMiddleware(
+  req: $Request,
+  res: $Response,
+  next: NextFunction,
+): NextFunction;

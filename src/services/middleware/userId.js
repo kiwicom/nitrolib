@@ -1,5 +1,6 @@
 // @flow strict
 import type { $Request, $Response, NextFunction } from "express";
+import addYears from "date-fns/addYears";
 
 import isUUID from "../utils/isUUID";
 import { makeUserId } from "../session/ids";
@@ -16,7 +17,7 @@ const addCookie = (req: $Request, res: $Response) => {
   const newId = makeUserId();
   // $FlowExpected: assigning request property
   req[USER_ID] = newId;
-  res.cookie(USER_ID, newId);
+  res.cookie(USER_ID, newId, { expires: addYears(new Date(), 4) });
 };
 
 function userMiddleWare(req: $Request, res: $Response, next: NextFunction) {

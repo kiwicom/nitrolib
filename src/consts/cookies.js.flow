@@ -7,5 +7,6 @@ declare export var UA_SESSION_TOKEN: "ua_session_token";
 declare export var CURRENCY_ID: "preferred_currency";
 declare export var LANGUAGE_ID: "preferred_language";
 declare export var KW_AUTH_TOKEN: "kwAuthToken";
+declare export var EXPIRATION: 1460;
 
 export type Cookie = string; // TODO specific once everyone uses this
