@@ -33,7 +33,7 @@ const Menu = ({
   newDesign,
   onSetModal,
 }: Props) => {
-  const { auth, environment } = useAuth();
+  const { auth } = useAuth();
   const { onChange } = useModal();
 
   return (
@@ -54,7 +54,6 @@ const Menu = ({
         <OldLoginButton
           auth={auth}
           onChange={onChange}
-          env={environment}
           onSelectTrip={onSelectTrip}
           inverted={inverted}
         />

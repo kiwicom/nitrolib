@@ -3,6 +3,8 @@
 
 import * as React from "react";
 import { mount } from "enzyme";
+import { RelayEnvironmentProvider } from "@kiwicom/relay";
+import { createMockEnvironment } from "relay-test-utils";
 
 import AccountLogin from "../../screens/Intro";
 import TailoredHeader from "../../TailoredHeader";
@@ -11,47 +13,57 @@ import Intro from "..";
 
 jest.mock("../../../mutations/checkEmail");
 
-const defaultProps = {
-  email: "joe.doe@example.com",
-  brandId: "",
-  magicLinkError: "",
-  tailoredHeader: <TailoredHeader type="mmb" />,
-  onGoogleLogin: () => {},
-  onFacebookLogin: () => {},
-  onEmailChange: () => {},
-  onChangeScreen: () => {},
-  onSendMagicLink: () => {},
+const IntroComponent = props => {
+  const defaultProps = {
+    email: "joe.doe@example.com",
+    brandId: "",
+    magicLinkError: "",
+    tailoredHeader: <TailoredHeader type="mmb" />,
+    onGoogleLogin: () => {},
+    onFacebookLogin: () => {},
+    onEmailChange: () => {},
+    onChangeScreen: () => {},
+    onSendMagicLink: () => {},
+  };
+
+  return (
+    <RelayEnvironmentProvider environment={createMockEnvironment()}>
+      <Intro {...defaultProps} {...props} />
+    </RelayEnvironmentProvider>
+  );
 };
 
 describe("#Intro", () => {
   it("should render", () => {
-    const wrapper = mount(<Intro {...defaultProps} />);
+    const wrapper = mount(<IntroComponent />);
 
     expect(wrapper.find(AccountLogin).exists()).toBe(true);
   });
 
   it("handles loading properly on success", done => {
-    const wrapper = mount(<Intro {...defaultProps} />);
+    const wrapper = mount(<IntroComponent />);
 
     wrapper.find("form").simulate("submit");
 
-    expect(wrapper.state("isLoading")).toBe(true);
+    expect(wrapper.find(`[data-test="MagicLogin-CheckEmail"]`).prop("disabled")).toBe(true);
 
     setImmediate(() => {
-      expect(wrapper.state("isLoading")).toBe(false);
+      wrapper.update();
+      expect(wrapper.find(`[data-test="MagicLogin-CheckEmail"]`).prop("disabled")).toBeFalsy();
       done();
     });
   });
 
   it("handles network error on submit", done => {
-    const wrapper = mount(<Intro {...defaultProps} email="error@example.com" />);
+    const wrapper = mount(<IntroComponent email="error@example.com" />);
 
     wrapper.find("form").simulate("submit");
-    expect(wrapper.state("isLoading")).toBe(true);
+    expect(wrapper.find(`[data-test="MagicLogin-CheckEmail"]`).prop("disabled")).toBe(true);
 
     setImmediate(() => {
-      expect(wrapper.state("isLoading")).toBe(false);
-      expect(wrapper.state("error")).toBe("common.api_error");
+      wrapper.update();
+      expect(wrapper.find(`[data-test="MagicLogin-CheckEmail"]`).prop("disabled")).toBeFalsy();
+      expect(wrapper.find(`[t="common.api_error"]`).exists()).toBeTruthy();
       done();
     });
   });
@@ -60,8 +72,7 @@ describe("#Intro", () => {
     const onChangeScreen = jest.fn();
     const onSendMagicLink = jest.fn();
     const wrapper = mount(
-      <Intro
-        {...defaultProps}
+      <IntroComponent
         email="withBooking@example.com"
         onChangeScreen={onChangeScreen}
         onSendMagicLink={onSendMagicLink}
@@ -81,8 +92,7 @@ describe("#Intro", () => {
     const onChangeScreen = jest.fn();
     const onSendMagicLink = jest.fn();
     const wrapper = mount(
-      <Intro
-        {...defaultProps}
+      <IntroComponent
         email="withFacebook@example.com"
         onChangeScreen={onChangeScreen}
         onSendMagicLink={onSendMagicLink}

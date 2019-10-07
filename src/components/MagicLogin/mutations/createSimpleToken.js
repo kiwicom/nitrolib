@@ -1,14 +1,15 @@
 // @flow strict
 
-import { graphql, commitMutation } from "@kiwicom/relay";
+import { graphql, commitMutationAsync } from "@kiwicom/relay";
 import type { Environment } from "@kiwicom/relay";
 
 import type {
+  createSimpleTokenMutation,
   createSimpleTokenMutationVariables,
   createSimpleTokenMutationResponse,
 } from "./__generated__/createSimpleTokenMutation.graphql";
 
-const createSimpleTokenMutation = graphql`
+const mutation = graphql`
   mutation createSimpleTokenMutation($input: CreateSimpleTokenInput!) {
     createSimpleToken(input: $input) {
       ... on SimpleToken {
@@ -25,13 +26,9 @@ const createSimpleToken = (
   environment: Environment,
   variables: createSimpleTokenMutationVariables,
 ): Promise<createSimpleTokenMutationResponse> =>
-  new Promise((resolve, reject) => {
-    commitMutation(environment, {
-      mutation: createSimpleTokenMutation,
-      variables,
-      onCompleted: resolve,
-      onError: reject,
-    });
-  });
+  commitMutationAsync<createSimpleTokenMutation>(environment, {
+    mutation,
+    variables,
+  }).then(({ response }) => response);
 
 export default createSimpleToken;

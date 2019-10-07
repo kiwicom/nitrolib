@@ -1,14 +1,15 @@
 // @flow strict
 
-import { commitMutation, graphql } from "@kiwicom/relay";
+import { commitMutationAsync, graphql } from "@kiwicom/relay";
+import type { Environment } from "@kiwicom/relay";
 
 import type {
   checkEmailMutationVariables,
   checkEmailMutationResponse,
+  checkEmailMutation,
 } from "./__generated__/checkEmailMutation.graphql";
-import environment from "../../../services/environment";
 
-const checkEmail = graphql`
+const mutation = graphql`
   mutation checkEmailMutation($email: String!, $brand: Brand!) {
     checkEmail(email: $email, brand: $brand) {
       result {
@@ -21,18 +22,18 @@ const checkEmail = graphql`
   }
 `;
 
-export default (email: string, brand: string): Promise<checkEmailMutationResponse> =>
-  new Promise((resolve, reject) => {
-    const variables: checkEmailMutationVariables = {
-      email,
-      brand,
-    };
+export default (
+  environment: Environment,
+  email: string,
+  brand: string,
+): Promise<checkEmailMutationResponse> => {
+  const variables: checkEmailMutationVariables = {
+    email,
+    brand,
+  };
 
-    commitMutation(environment, {
-      mutation: checkEmail,
-      // $FlowExpected: Broken definition
-      variables,
-      onCompleted: resolve,
-      onError: reject,
-    });
-  });
+  return commitMutationAsync<checkEmailMutation>(environment, {
+    mutation,
+    variables,
+  }).then(({ response }) => response);
+};

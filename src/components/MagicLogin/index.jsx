@@ -2,6 +2,8 @@
 
 import * as React from "react";
 import Modal from "@kiwicom/orbit-components/lib/Modal";
+import { useRelayEnvironment } from "@kiwicom/relay";
+import type { Environment } from "@kiwicom/relay";
 
 import NoAccount from "./components/screens/NoAccount";
 import SocialLogin from "./components/screens/SocialLogin";
@@ -14,14 +16,11 @@ import type { Screen } from "./records/Screen";
 import errors from "../../consts/errors";
 import { useBrand } from "../../services/brand/context";
 import { useLog } from "../../services/log/context";
-import { useIntl } from "../../services/intl/context";
 import { API_REQUEST_FAILED, API_ERROR } from "../../consts/events";
 import * as loginEvents from "./consts/events";
-import makeEnvironment from "../../services/utils/relay";
 import type { AuthUser, SocialProvider, AuthToken } from "../../records/Auth";
 import type { Event, Props as EventProps } from "../../records/Event";
 import type { Brand } from "../../records/Brand";
-import type { LangInfo } from "../../records/LangInfo";
 import GetSingleBooking from "./components/GetSingleBooking";
 import TailoredHeader, { type LoginType } from "./components/TailoredHeader";
 
@@ -37,7 +36,7 @@ type ContainerProps = {|
 
 type Props = {|
   ...ContainerProps,
-  langInfo: LangInfo,
+  environment: Environment,
   log: (event: Event, props: EventProps) => void,
   brand: Brand,
 |};
@@ -133,8 +132,7 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
 
   handleMagicLink = () => {
     const { email } = this.state;
-    const { brand, log, langInfo } = this.props;
-    const environment = makeEnvironment({ "Accept-Language": langInfo.iso });
+    const { brand, log, environment } = this.props;
 
     this.setState({ isSendingEmail: true, error: "" });
 
@@ -263,9 +261,9 @@ class MagicLoginWithoutContext extends React.Component<Props, State> {
 const MagicLogin = (props: ContainerProps) => {
   const { log } = useLog();
   const brand = useBrand();
-  const { language } = useIntl();
+  const environment = useRelayEnvironment();
 
-  return <MagicLoginWithoutContext {...props} brand={brand} log={log} langInfo={language} />;
+  return <MagicLoginWithoutContext {...props} brand={brand} log={log} environment={environment} />;
 };
 
 export default MagicLogin;

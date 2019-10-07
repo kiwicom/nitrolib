@@ -2,13 +2,13 @@
 import * as React from "react";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
-import Button from "@kiwicom/orbit-components/lib/Button";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
 import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
+import Button from "../../../../Button";
 import Translate from "../../../../Translate";
 import Text from "../../../../Text";
 import IntlContext from "../../../../../services/intl/context";
@@ -67,9 +67,12 @@ const Intro = ({
                 name="email"
                 dataTest="MagicLogin-Email"
               />
-              <Button submit loading={isLoading}>
-                <Translate t="account.continue" />
-              </Button>
+              <Button
+                t="account.continue"
+                submit
+                loading={isLoading}
+                dataTest="MagicLogin-CheckEmail"
+              />
             </Stack>
           </Stack>
         </form>
@@ -86,17 +89,23 @@ const Intro = ({
             spacing="natural"
           >
             <Button
+              t="account.log_in_with"
+              values={{ provider: "Facebook" }}
               type="facebook"
               fullWidth
               bordered
               icon={<FacebookIcon />}
               onClick={onFacebookLogin}
-            >
-              <Translate t="account.log_in_with" values={{ provider: "Facebook" }} />
-            </Button>
-            <Button type="google" fullWidth bordered icon={<GoogleIcon />} onClick={onGoogleLogin}>
-              <Translate t="account.log_in_with" values={{ provider: "Google" }} />
-            </Button>
+            />
+            <Button
+              t="account.log_in_with"
+              values={{ provider: "Google" }}
+              type="google"
+              fullWidth
+              bordered
+              icon={<GoogleIcon />}
+              onClick={onGoogleLogin}
+            />
           </Stack>
         </ModalSection>
       )}

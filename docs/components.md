@@ -32,6 +32,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [InitCurrency](#initcurrency)
 * [InitIntl](#initintl)
 * [InitLog](#initlog)
+* [InitRelayEnvironment](#initrelayenvironment)
 * [InitStarred](#initstarred)
 * [InputEmail](#inputemail)
 * [InputPhone](#inputphone)
@@ -324,6 +325,7 @@ See types:
 * ```"MagicLogin"```
 * ```"MagicLogin-AskForMagic"```
 * ```"MagicLogin-BookingId"```
+* ```"MagicLogin-CheckEmail"```
 * ```"MagicLogin-CheckEmail"```
 * ```"MagicLogin-CreateAccount"```
 * ```"MagicLogin-Email"```
@@ -1115,7 +1117,6 @@ type OnMyBookingArg = {|
 type Arg = {|
   auth: Auth | null,
   loading: boolean,
-  environment: Environment,
   onMyBooking: (input: MyBookingInput) => Promise<void>,
   onRegister: (input: RegisterInput) => Promise<void>,
   onSocialAuth: (provider: SocialProvider) => Promise<void>,
@@ -1312,6 +1313,32 @@ ReactDOM.render(
   node,
 );
 ```
+
+### InitRelayEnvironment
+
+**Import:**
+```js
+import InitRelayEnvironment from "@kiwicom/nitro/lib/components/InitRelayEnvironment";
+```
+
+**Types:**
+```js
+type Props = {|
+  clientID: string,
+  uri?: string,
+  children: React.Node,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+**Context needs:**
+* [auth](./services#auth)
+* [intl](./services#intl)
+
+Initializes `RelayEnvironmentProvider` from [@kiwicom/relay](https://github.com/kiwicom/relay) with environment containing correct HTTP headers.
+
+Note you must always specify `clientID` which should identify your application to helps us know who is sending the request.
 
 ### InitStarred
 

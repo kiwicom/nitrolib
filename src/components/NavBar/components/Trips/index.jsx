@@ -5,7 +5,6 @@ import Passenger from "@kiwicom/orbit-components/lib/icons/Passenger";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
-import type { Environment } from "@kiwicom/relay";
 
 import Button from "../Button";
 import ClickOutside from "../../../ClickOutside";
@@ -22,7 +21,6 @@ import userType from "./services/userType";
 
 type Props = {|
   auth: Auth,
-  env: Environment,
   inverted: boolean,
   onSelect: (bid: string) => void,
 |};
@@ -62,7 +60,7 @@ HideOnLower.defaultProps = {
   theme: themeDefault,
 };
 
-const Trips = ({ auth, env, onSelect, inverted }: Props) => (
+const Trips = ({ auth, onSelect, inverted }: Props) => (
   <Toggle>
     {({ open, onToggle }) => (
       <div>
@@ -74,9 +72,9 @@ const Trips = ({ auth, env, onSelect, inverted }: Props) => (
             }}
           >
             {auth.type === "token" ? (
-              <SingleTripData env={env} singleBid={auth.bid} onSelect={onSelect} />
+              <SingleTripData singleBid={auth.bid} onSelect={onSelect} />
             ) : (
-              <TripDataList env={env} onSelect={onSelect} />
+              <TripDataList onSelect={onSelect} />
             )}
           </ClickOutside>
         )}

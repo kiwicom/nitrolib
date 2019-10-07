@@ -2,7 +2,6 @@
 import * as React from "react";
 import { graphql, QueryRenderer } from "@kiwicom/relay";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
-import type { Environment } from "@kiwicom/relay";
 
 import Translate from "../../../../../Translate";
 import TripHeader from "../TripHeader";
@@ -12,12 +11,10 @@ import TripListBottom from "../TripListBottom";
 
 type Props = {|
   onSelect: (bid: string) => void,
-  env: Environment,
 |};
 
-const TripDataList = ({ onSelect, env }: Props) => (
+const TripDataList = ({ onSelect }: Props) => (
   <QueryRenderer
-    environment={env}
     query={graphql`
       query TripDataListQuery(
         $only: CustomerBookingsOnlyEnum!

@@ -3,7 +3,6 @@ import * as React from "react";
 import styled from "styled-components";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 
-import environmentReal from "../../services/environment";
 import ClickOutside from "../ClickOutside";
 import getPlaceholder from "./services/placeholder";
 import type { Location } from "../../records/Location";
@@ -53,7 +52,6 @@ type State = {|
 
 class LocationPicker extends React.Component<Props, State> {
   static defaultProps = {
-    environment: environmentReal,
     queryName: "allLocations",
     locationType: false,
   };

@@ -3,10 +3,11 @@
 
 import * as React from "react";
 import { mount } from "enzyme";
+import { RelayEnvironmentProvider } from "@kiwicom/relay";
+import { createMockEnvironment } from "relay-test-utils";
 
 import GetSingleBookingScreen from "../../screens/GetSingleBooking";
 import createSimpleToken from "../../../mutations/createSimpleToken";
-import { intlDefault } from "../../../../../records/Intl";
 import { SIMPLE_TOKEN_RETRIEVED } from "../../../consts/events";
 
 import GetSingleBooking, { GetSingleBookingWithoutContext } from "..";
@@ -19,9 +20,17 @@ const defaultProps = {
   onGetSimpleToken: jest.fn(),
 };
 
+const GetSingleBookingComponent = () => {
+  return (
+    <RelayEnvironmentProvider environment={createMockEnvironment()}>
+      <GetSingleBooking {...defaultProps} />
+    </RelayEnvironmentProvider>
+  );
+};
+
 describe("#GetSingleBooking", () => {
   it("handles email changes before submit", () => {
-    const wrapper = mount(<GetSingleBooking {...defaultProps} />);
+    const wrapper = mount(<GetSingleBookingComponent />);
 
     wrapper
       .find(`input[data-test="MagicLogin-Email"]`)
@@ -30,7 +39,7 @@ describe("#GetSingleBooking", () => {
   });
 
   it("handles iata changes after submit", () => {
-    const wrapper = mount(<GetSingleBooking {...defaultProps} />);
+    const wrapper = mount(<GetSingleBookingComponent />);
 
     wrapper.find("form").simulate("submit");
     wrapper.find(`input#MagicLogin-IATA`).simulate("change", { target: { value: "no" } });
@@ -43,8 +52,8 @@ describe("#GetSingleBooking", () => {
     const wrapper = mount(
       <GetSingleBookingWithoutContext
         {...defaultProps}
+        environment={createMockEnvironment()}
         log={jest.fn()}
-        intl={{ ...intlDefault, onDebug: jest.fn() }}
       />,
     );
 
@@ -68,8 +77,8 @@ describe("#GetSingleBooking", () => {
     const wrapper = mount(
       <GetSingleBookingWithoutContext
         {...defaultProps}
+        environment={createMockEnvironment()}
         log={log}
-        intl={{ ...intlDefault, onDebug: jest.fn() }}
       />,
     );
 
