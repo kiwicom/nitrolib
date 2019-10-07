@@ -1,3 +1,18 @@
+# [9.0.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v8.3.1...v9.0.0) (2019-10-07)
+
+
+### Bug Fixes
+
+* **services:** HandleUserID test ([9583fcf](https://gitlab.skypicker.com/frontend/nitrolib/commit/9583fcf))
+* **services:** UserMiddleware cookie expiration, handleUserId ([e7356fe](https://gitlab.skypicker.com/frontend/nitrolib/commit/e7356fe))
+
+
+### Features
+
+* **services:** Currency launchpad url ([8061268](https://gitlab.skypicker.com/frontend/nitrolib/commit/8061268))
+
+
+
 ## [8.3.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v8.3.0...v8.3.1) (2019-10-04)
 
 
