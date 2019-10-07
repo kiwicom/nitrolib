@@ -1184,6 +1184,7 @@ type Props = {|
   // DI
   getCurrencies?: () => Promise<FetchedCurrencies>,
   getGeoCountry?: (ip: string) => Promise<string>,
+  url?: string,
 |};
 
 declare export default React.ComponentType<Props>;
