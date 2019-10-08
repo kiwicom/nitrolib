@@ -298,10 +298,12 @@ export type Options = {|
   url?: string,
 |};
 
-declare export default function getAll({
+type Params = {|
   module?: Module,
   options?: Options,
-}): Promise<FetchedCurrencies>;
+|};
+
+declare export default function getAll(?Params): Promise<FetchedCurrencies>;
 ```
 
 See types:

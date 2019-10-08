@@ -8,7 +8,7 @@ export type Options = {|
 |};
 
 type Params = {|
-  module: Module,
+  module?: Module,
   options?: Options,
 |};
 
