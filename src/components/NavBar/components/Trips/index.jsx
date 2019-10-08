@@ -60,50 +60,52 @@ HideOnLower.defaultProps = {
   theme: themeDefault,
 };
 
-const Trips = ({ auth, onSelect, inverted }: Props) => (
-  <Toggle>
-    {({ open, onToggle }) => (
-      <div>
-        {open && (
-          <ClickOutside
-            onClickOutside={ev => {
-              ev.stopPropagation();
-              onToggle();
-            }}
-          >
-            {auth.type === "token" ? (
-              <SingleTripData singleBid={auth.bid} onSelect={onSelect} />
-            ) : (
-              <TripDataList onSelect={onSelect} />
-            )}
-          </ClickOutside>
-        )}
-        <Desktop display="flex">
-          <Stack align="center" spacing="none">
-            <Passenger size="small" />
+const Trips = ({ auth, onSelect, inverted }: Props) => {
+  return (
+    <Toggle>
+      {({ open, onToggle }) => (
+        <div>
+          {open && (
+            <ClickOutside
+              onClickOutside={ev => {
+                ev.stopPropagation();
+                onToggle();
+              }}
+            >
+              {auth.type === "token" ? (
+                <SingleTripData singleBid={auth.bid} onSelect={onSelect} />
+              ) : (
+                <TripDataList onSelect={onSelect} />
+              )}
+            </ClickOutside>
+          )}
+          <Desktop display="flex">
+            <Stack align="center" spacing="none">
+              <Passenger size="small" />
+              <Button onClick={onToggle} color={inverted ? "white" : "secondary"}>
+                <HideOnLower>
+                  <Translate t="account.my_bookings_action" />
+                </HideOnLower>
+                <UserWrapper>
+                  <span>(</span>
+                  <UserName>{`${userType(auth)}...`}</UserName>
+                  <span>)</span>
+                </UserWrapper>
+              </Button>
+            </Stack>
+          </Desktop>
+          <Mobile display="flex">
             <Button onClick={onToggle} color={inverted ? "white" : "secondary"}>
-              <HideOnLower>
-                <Translate t="account.my_bookings_action" />
-              </HideOnLower>
+              <Passenger size="small" />
               <UserWrapper>
-                <span>(</span>
-                <UserName>{`${userType(auth)}...`}</UserName>
-                <span>)</span>
+                <UserName>{userType(auth)}</UserName>
               </UserWrapper>
             </Button>
-          </Stack>
-        </Desktop>
-        <Mobile display="flex">
-          <Button onClick={onToggle} color={inverted ? "white" : "secondary"}>
-            <Passenger size="small" />
-            <UserWrapper>
-              <UserName>{userType(auth)}</UserName>
-            </UserWrapper>
-          </Button>
-        </Mobile>
-      </div>
-    )}
-  </Toggle>
-);
+          </Mobile>
+        </div>
+      )}
+    </Toggle>
+  );
+};
 
 export default Trips;

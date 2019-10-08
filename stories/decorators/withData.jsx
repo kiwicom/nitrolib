@@ -23,7 +23,7 @@ import translations from "../fixtures/translations";
 import { getBrandTheme } from "../../src/records/Theme";
 import InitStarred from "../../src/components/InitStarred";
 import starredList from "../fixtures/starred";
-import InitRelayEnvironment from "../../src/components/InitRelayEnvironment/index";
+import InitRelayEnvironment from "../../src/components/InitRelayEnvironment";
 
 const GROUP_ID = "Context";
 

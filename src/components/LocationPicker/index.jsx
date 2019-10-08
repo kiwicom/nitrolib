@@ -18,18 +18,6 @@ Spacer.defaultProps = {
   theme: themeDefault,
 };
 
-// FIXME add arrow handling somehow neatly
-// const ARROW_UP = 38;
-// const ARROW_DOWN = 40;
-// const ESC = 27;
-// const ENTER = 13;
-
-// FIXME @viktr solve these:
-// centralize styles with IataPicker
-
-// FIXME @oreqizer solve these:
-// arrow handling
-
 type Props = {|
   value: Location | null,
   onChange: (loc: Location) => void,

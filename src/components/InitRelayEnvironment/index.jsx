@@ -15,6 +15,7 @@ type Props = {|
 const InitRelayEnvironment = ({ children, clientID, uri }: Props) => {
   const intl = useIntl();
   const { auth } = useAuth();
+
   const headers: { [header: string]: string, ... } = {
     "Accept-Language": intl.language.iso,
     "X-Client": clientID,
