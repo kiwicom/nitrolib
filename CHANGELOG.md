@@ -1,3 +1,13 @@
+## [9.0.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.0.0...v9.0.1) (2019-10-08)
+
+
+### Bug Fixes
+
+* **components:** Trips useRelayEnvironment ([45bf909](https://gitlab.skypicker.com/frontend/nitrolib/commit/45bf909))
+* **services:** GetAll type ([7922636](https://gitlab.skypicker.com/frontend/nitrolib/commit/7922636))
+
+
+
 # [9.0.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v8.3.1...v9.0.0) (2019-10-07)
 
 
