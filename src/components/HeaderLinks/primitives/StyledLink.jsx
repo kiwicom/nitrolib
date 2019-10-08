@@ -41,6 +41,14 @@ const StyledLink = styled.a`
             &:hover {
               ${({ inverted }: LinkProps) => !inverted && pseudoBorder};
             }
+            &:visited {
+              color: ${({ active, theme, inverted }: LinkProps) =>
+                inverted
+                  ? (active && theme.orbit.paletteWhiteActive) || theme.orbit.paletteWhite
+                  : theme.orbit.paletteInkNormal};
+            }
+            ${({ theme, active }) => active && `font-weight: ${theme.orbit.fontWeightBold};`};
+            ${({ active, inverted }: LinkProps) => active && !inverted && pseudoBorder};
           `)}
         `
       : css`
