@@ -3,8 +3,6 @@ import * as React from "react";
 import Alert from "@kiwicom/orbit-components/lib/Alert";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
-import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
-import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 
@@ -12,6 +10,7 @@ import Button from "../../../../Button";
 import Translate from "../../../../Translate";
 import Text from "../../../../Text";
 import IntlContext from "../../../../../services/intl/context";
+import LoginViaSocials from "../../LoginViaSocials";
 
 type Props = {|
   email: string,
@@ -78,36 +77,7 @@ const Intro = ({
         </form>
       </ModalSection>
       {!disableSocialLogin && (
-        <ModalSection suppressed dataTest="MagicLogin-LoginViaSocials">
-          <Text weight="bold" spaceAfter="medium" t="account.or_social_account" />
-          <Stack
-            direction="column"
-            mediumMobile={{
-              direction: "row",
-              align: "end",
-            }}
-            spacing="natural"
-          >
-            <Button
-              t="account.log_in_with"
-              values={{ provider: "Facebook" }}
-              type="facebook"
-              fullWidth
-              bordered
-              icon={<FacebookIcon />}
-              onClick={onFacebookLogin}
-            />
-            <Button
-              t="account.log_in_with"
-              values={{ provider: "Google" }}
-              type="google"
-              fullWidth
-              bordered
-              icon={<GoogleIcon />}
-              onClick={onGoogleLogin}
-            />
-          </Stack>
-        </ModalSection>
+        <LoginViaSocials onGoogleLogin={onGoogleLogin} onFacebookLogin={onFacebookLogin} />
       )}
       <ModalSection>
         <TextLink
