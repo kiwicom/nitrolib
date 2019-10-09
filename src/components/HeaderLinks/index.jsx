@@ -67,6 +67,12 @@ export default class HeaderLinks extends React.Component<Props, State> {
     this.getNavBarLinks();
   }
 
+  componentDidUpdate(prevProps: Props) {
+    if (prevProps !== this.props) {
+      this.getNavBarLinks();
+    }
+  }
+
   getNavBarLinks = async () => {
     const {
       languageId,

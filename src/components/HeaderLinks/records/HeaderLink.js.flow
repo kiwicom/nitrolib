@@ -8,7 +8,7 @@ export type HeaderLink = {|
 
 export type SearchForm = {|
   mode: string,
-  destination: { type: string, name: string }, // TODO move proper search form into records @vacuum
+  destination: { type: string, name: string, slug: string }, // TODO move proper search form into records @vacuum
   checkIn: Date,
   checkOut: Date | null,
   adults: number,

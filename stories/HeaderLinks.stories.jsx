@@ -9,13 +9,14 @@ import withData from "./decorators/withData";
 const GROUP_ID = "UI";
 
 const props = {
-  languageId: "de",
+  languageId: "en",
   currencyId: "GBP",
   searchForm: {
     mode: "oneWay",
     destination: {
       type: "2",
-      name: "Warsaw",
+      name: "London",
+      slug: "london_gb",
     },
     checkIn: new Date(),
     checkOut: null,
@@ -23,9 +24,9 @@ const props = {
     children: 0,
   },
   splitster: {
-    HEADER_LINKS_ROOMS_PROVIDER_0: "roomsKiwiCode",
+    HEADER_LINKS_ROOMS_PROVIDER_0: "roomsKiwiLocal",
   },
-  context: "booking",
+  context: "kiwicom",
 };
 
 const LOCALES = {
