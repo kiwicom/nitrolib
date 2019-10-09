@@ -1,3 +1,12 @@
+## [9.1.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.1.0...v9.1.1) (2019-10-09)
+
+
+### Bug Fixes
+
+* **services:** GetAll default params ([f8a090a](https://gitlab.skypicker.com/frontend/nitrolib/commit/f8a090a))
+
+
+
 # [9.1.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.0.1...v9.1.0) (2019-10-09)
 
 
