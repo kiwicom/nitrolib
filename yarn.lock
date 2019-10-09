@@ -1446,6 +1446,11 @@
     "@kiwicom/js" "^0.12.0"
     cross-fetch "^3.0.4"
 
+"@kiwicom/js@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.12.0.tgz#5bde0d3a182e70744f1e71e976bd0bfae608166a"
+  integrity sha512-ePo4diOMrfKpjOUzRtUr9zWcuF8a+WLXyi/gXfh3HQ5RPqbH05yC/31XN06N77vuOw1UprzxP1JeQqZ6iO6JaQ==
+
 "@kiwicom/js@^0.16.0":
   version "0.16.0"
   resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.16.0.tgz#1eaa1a99b8b7a5ee4c90ecbeac3d1bf4aa12919b"

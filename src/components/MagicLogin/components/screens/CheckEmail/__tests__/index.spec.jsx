@@ -13,7 +13,7 @@ describe("#AccountCheckEmail", () => {
     test(`render - ${reason}`, () => {
       const wrapper = shallow(<AccountCheckEmail email="foo@bar.com" reason={reason} />);
 
-      expect(wrapper.find("Text").prop("t")).toBe(tKey);
+      expect(wrapper.find("TranslateRef").prop("t")).toBe(tKey);
     }),
   );
 });

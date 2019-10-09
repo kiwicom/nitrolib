@@ -8,8 +8,8 @@ import ModalHeader from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
+import AskForLink from "../../AskForLink";
 import Translate from "../../../../Translate";
-import Text from "../../../../Text";
 import { useIntl } from "../../../../../services/intl/context";
 
 type Props = {|
@@ -49,12 +49,7 @@ const SocialLogin = ({ onAskSignInLink, onSocialLogin, email, pairedWith }: Prop
           </Button>
         </Stack>
       </ModalSection>
-      <ModalSection>
-        <Text spaceAfter="normal" t="account.send_link_to" values={{ email }} />
-        <Button type="secondary" onClick={onAskSignInLink}>
-          <Translate t="account.ask_sign_in_link" />
-        </Button>
-      </ModalSection>
+      <AskForLink email={email} onAskSignInLink={onAskSignInLink} />
     </>
   );
 };

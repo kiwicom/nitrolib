@@ -4,14 +4,14 @@ import Alert from "@kiwicom/orbit-components/lib/Alert";
 import OrbitText from "@kiwicom/orbit-components/lib/Text";
 import TextLink from "@kiwicom/orbit-components/lib/TextLink";
 import InputField from "@kiwicom/orbit-components/lib/InputField";
-import Button from "@kiwicom/orbit-components/lib/Button";
 import Edit from "@kiwicom/orbit-components/lib/icons/Edit";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
 import { useIntl } from "../../../../../services/intl/context";
+import Button from "../../../../Button";
 import Translate from "../../../../Translate";
-import Text from "../../../../Text";
+import AskForLink from "../../AskForLink";
 
 type Props = {|
   email: string,
@@ -71,9 +71,7 @@ const Password = ({
                 name="password"
                 dataTest="MagicLogin-PasswordInput"
               />
-              <Button submit loading={isSigningIn}>
-                <Translate t="account.sign_in" />
-              </Button>
+              <Button t="account.sign_in" submit loading={isSigningIn} />
             </Stack>
             <TextLink type="secondary" size="small" onClick={onForgotPassword}>
               <Translate t="account.forgot_password" />
@@ -81,17 +79,7 @@ const Password = ({
           </Stack>
         </form>
       </ModalSection>
-      <ModalSection>
-        <Text spaceAfter="normal" t="account.send_link_to" values={{ email }} />
-        <Button
-          type="secondary"
-          onClick={onAskSignInLink}
-          loading={isSendingEmail}
-          dataTest="MagicLogin-AskForMagic"
-        >
-          <Translate t="account.ask_sign_in_link" />
-        </Button>
-      </ModalSection>
+      <AskForLink email={email} onAskSignInLink={onAskSignInLink} isLoading={isSendingEmail} />
     </>
   );
 };
