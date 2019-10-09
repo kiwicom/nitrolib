@@ -632,7 +632,7 @@
   "REGIOJETT": {
     "id": "REGIOJETT",
     "lcc": 0,
-    "name": "Regiojet Train",
+    "name": "Regiojet train",
     "type": "train"
   },
   "LO": {
@@ -1325,12 +1325,6 @@
     "name": "Czech Airlines",
     "type": "airline"
   },
-  "BELARURAIL": {
-    "id": "BELARURAIL",
-    "lcc": null,
-    "name": "Belarusian Railway",
-    "type": "train"
-  },
   "PN": {
     "id": "PN",
     "lcc": 1,
@@ -1474,6 +1468,12 @@
     "lcc": null,
     "name": "Amtrak bus",
     "type": "bus"
+  },
+  "BELARURAIL": {
+    "id": "BELARURAIL",
+    "lcc": null,
+    "name": "Belarusian Railway",
+    "type": "train"
   },
   "100RUMOS": {
     "id": "100RUMOS",
@@ -1793,12 +1793,6 @@
     "name": "AD EuroTrans",
     "type": "bus"
   },
-  "ARRIVAUK": {
-    "id": "ARRIVAUK",
-    "lcc": null,
-    "name": "Arriva United Kingdom",
-    "type": "bus"
-  },
   "MTRNORDIC": {
     "id": "MTRNORDIC",
     "lcc": null,
@@ -1829,52 +1823,16 @@
     "name": "New York Trailways",
     "type": "bus"
   },
-  "FULLINGTON": {
-    "id": "FULLINGTON",
-    "lcc": null,
-    "name": "Fullington Trailways",
-    "type": "bus"
-  },
-  "CAPITALCOL": {
-    "id": "CAPITALCOL",
-    "lcc": null,
-    "name": "Capital - Colonial Trailways",
-    "type": "bus"
-  },
-  "YORKSTIGER": {
-    "id": "YORKSTIGER",
-    "lcc": null,
-    "name": "Yorkshire Tiger",
-    "type": "bus"
-  },
-  "FIRSTBUS": {
-    "id": "FIRSTBUS",
-    "lcc": null,
-    "name": "First Bus",
-    "type": "bus"
-  },
   "HIGHPEAK": {
     "id": "HIGHPEAK",
     "lcc": null,
     "name": "High Peak",
     "type": "bus"
   },
-  "YELLOWBUS": {
-    "id": "YELLOWBUS",
-    "lcc": null,
-    "name": "Yellow Buses",
-    "type": "bus"
-  },
   "BATHBUS": {
     "id": "BATHBUS",
     "lcc": null,
     "name": "Bath Bus Company",
-    "type": "bus"
-  },
-  "BLEKINGEB": {
-    "id": "BLEKINGEB",
-    "lcc": null,
-    "name": "Blekingetrafiken bus",
     "type": "bus"
   },
   "VRRAIL": {
@@ -1995,12 +1953,6 @@
     "id": "CZECHRAILT",
     "lcc": null,
     "name": "Czech Rail train",
-    "type": "train"
-  },
-  "SLT": {
-    "id": "SLT",
-    "lcc": null,
-    "name": "Stockholm Public Transport train",
     "type": "train"
   },
   "HZ": {
@@ -2140,6 +2092,42 @@
     "lcc": null,
     "name": "Balearia",
     "type": "ferry"
+  },
+  "SLT": {
+    "id": "SLT",
+    "lcc": null,
+    "name": "Stockholm Public Transport train",
+    "type": "train"
+  },
+  "BLEKINGEB": {
+    "id": "BLEKINGEB",
+    "lcc": null,
+    "name": "Blekingetrafiken bus",
+    "type": "bus"
+  },
+  "YORKSTIGER": {
+    "id": "YORKSTIGER",
+    "lcc": null,
+    "name": "Yorkshire Tiger",
+    "type": "bus"
+  },
+  "FIRSTBUS": {
+    "id": "FIRSTBUS",
+    "lcc": null,
+    "name": "First Bus",
+    "type": "bus"
+  },
+  "YELLOWBUS": {
+    "id": "YELLOWBUS",
+    "lcc": null,
+    "name": "Yellow Buses",
+    "type": "bus"
+  },
+  "CAPITALCOL": {
+    "id": "CAPITALCOL",
+    "lcc": null,
+    "name": "Capital - Colonial Trailways",
+    "type": "bus"
   },
   "NH": {
     "id": "NH",
@@ -2453,12 +2441,6 @@
     "name": "Druk Air",
     "type": "airline"
   },
-  "OV": {
-    "id": "OV",
-    "lcc": 1,
-    "name": "SalamAir",
-    "type": "airline"
-  },
   "JI": {
     "id": "JI",
     "lcc": 0,
@@ -2691,6 +2673,12 @@
     "id": "NY",
     "lcc": 1,
     "name": "Air Iceland Connect",
+    "type": "airline"
+  },
+  "OV": {
+    "id": "OV",
+    "lcc": 1,
+    "name": "SalamAir",
     "type": "airline"
   },
   "ZE": {
@@ -4001,12 +3989,6 @@
     "name": "Euroline",
     "type": "airline"
   },
-  "UR": {
-    "id": "UR",
-    "lcc": 0,
-    "name": "Azur Air Germany",
-    "type": "airline"
-  },
   "KT": {
     "id": "KT",
     "lcc": 0,
@@ -5315,12 +5297,6 @@
     "name": "RegionalJet",
     "type": "airline"
   },
-  "CZ": {
-    "id": "CZ",
-    "lcc": 0,
-    "name": "China Southern Airlines",
-    "type": "airline"
-  },
   "AO": {
     "id": "AO",
     "lcc": 0,
@@ -5561,12 +5537,6 @@
     "name": "Air Europa express",
     "type": "airline"
   },
-  "VB": {
-    "id": "VB",
-    "lcc": 1,
-    "name": "VivaAerobus",
-    "type": "airline"
-  },
   "WN": {
     "id": "WN",
     "lcc": 1,
@@ -5643,6 +5613,12 @@
     "id": "FLYSAFARI",
     "lcc": null,
     "name": "Fly Safari Airlink",
+    "type": "airline"
+  },
+  "VB": {
+    "id": "VB",
+    "lcc": 1,
+    "name": "VivaAerobus",
     "type": "airline"
   },
   "RY": {
@@ -5757,12 +5733,6 @@
     "id": "6S",
     "lcc": 0,
     "name": "SaudiGulf Airlines",
-    "type": "airline"
-  },
-  "Z7": {
-    "id": "Z7",
-    "lcc": 1,
-    "name": "Amaszonas Uruguay",
     "type": "airline"
   },
   "H3": {
@@ -5907,6 +5877,12 @@
     "id": "GRENADINE",
     "lcc": null,
     "name": "Grenadine Airways",
+    "type": "airline"
+  },
+  "Z7": {
+    "id": "Z7",
+    "lcc": 1,
+    "name": "Amaszonas Uruguay",
     "type": "airline"
   },
   "R3": {
@@ -6449,12 +6425,6 @@
     "name": "flynas",
     "type": "airline"
   },
-  "9C": {
-    "id": "9C",
-    "lcc": 1,
-    "name": "Spring Airlines",
-    "type": "airline"
-  },
   "MJ": {
     "id": "MJ",
     "lcc": 1,
@@ -6509,12 +6479,6 @@
     "name": "Air KBZ",
     "type": "airline"
   },
-  "ZI": {
-    "id": "ZI",
-    "lcc": 0,
-    "name": "Aigle Azur",
-    "type": "airline"
-  },
   "9V": {
     "id": "9V",
     "lcc": 0,
@@ -6561,12 +6525,6 @@
     "id": "SG",
     "lcc": 1,
     "name": "Spicejet",
-    "type": "airline"
-  },
-  "X9": {
-    "id": "X9",
-    "lcc": 0,
-    "name": "Fake Airline",
     "type": "airline"
   },
   "CO": {
@@ -6627,12 +6585,6 @@
     "id": "I4",
     "lcc": 0,
     "name": "I-Fly",
-    "type": "airline"
-  },
-  "B0": {
-    "id": "B0",
-    "lcc": 0,
-    "name": "Aws express",
     "type": "airline"
   },
   "SI": {
@@ -6713,6 +6665,18 @@
     "name": "Air Antilles Express",
     "type": "airline"
   },
+  "ZI": {
+    "id": "ZI",
+    "lcc": 0,
+    "name": "Aigle Azur",
+    "type": "airline"
+  },
+  "B0": {
+    "id": "B0",
+    "lcc": 0,
+    "name": "La Compagnie",
+    "type": "airline"
+  },
   "VW": {
     "id": "VW",
     "lcc": 0,
@@ -6735,12 +6699,6 @@
     "id": "3M",
     "lcc": 1,
     "name": "Silver Airways",
-    "type": "airline"
-  },
-  "N4": {
-    "id": "N4",
-    "lcc": 0,
-    "name": "Nordwind Airlines",
     "type": "airline"
   },
   "XN": {
@@ -7079,12 +7037,6 @@
     "name": "Delta Air Lines",
     "type": "airline"
   },
-  "UT": {
-    "id": "UT",
-    "lcc": 1,
-    "name": "UTair",
-    "type": "airline"
-  },
   "HA": {
     "id": "HA",
     "lcc": 0,
@@ -7161,12 +7113,6 @@
     "id": "EU",
     "lcc": 0,
     "name": "Chengdu Airlines",
-    "type": "airline"
-  },
-  "U2": {
-    "id": "U2",
-    "lcc": 1,
-    "name": "easyJet",
     "type": "airline"
   },
   "JT": {
@@ -7247,10 +7193,10 @@
     "name": "Latin American Wings",
     "type": "airline"
   },
-  "LM": {
-    "id": "LM",
-    "lcc": 0,
-    "name": "LoganAir LM",
+  "U2": {
+    "id": "U2",
+    "lcc": 1,
+    "name": "easyJet",
     "type": "airline"
   },
   "PL": {
@@ -7475,6 +7421,12 @@
     "name": "Tiger Airways Australia",
     "type": "airline"
   },
+  "LM": {
+    "id": "LM",
+    "lcc": 0,
+    "name": "LoganAir LM",
+    "type": "airline"
+  },
   "OY": {
     "id": "OY",
     "lcc": 0,
@@ -7499,12 +7451,6 @@
     "name": "Kulula",
     "type": "airline"
   },
-  "E9": {
-    "id": "E9",
-    "lcc": 0,
-    "name": "Evelop Airlines",
-    "type": "airline"
-  },
   "AV": {
     "id": "AV",
     "lcc": 0,
@@ -7523,17 +7469,17 @@
     "name": "Lanmei Airlines",
     "type": "airline"
   },
-  "XW": {
-    "id": "XW",
-    "lcc": 1,
-    "name": "NokScoot",
-    "type": "airline"
-  },
   "LE": {
     "id": "LE",
     "lcc": null,
     "name": "Norwegian Air Sweden LE",
     "type": "airline"
+  },
+  "AEXP": {
+    "id": "AEXP",
+    "lcc": null,
+    "name": "Arlanda Express",
+    "type": "train"
   },
   "EX": {
     "id": "EX",
@@ -7587,6 +7533,12 @@
     "id": "ADAMIST",
     "lcc": null,
     "name": "Adamis Tours",
+    "type": "bus"
+  },
+  "DTUR": {
+    "id": "DTUR",
+    "lcc": null,
+    "name": "DRD Turizem",
     "type": "bus"
   },
   "BARAZA": {
@@ -7678,5 +7630,179 @@
     "lcc": 1,
     "name": "TUI fly Deutschland",
     "type": "airline"
+  },
+  "PANO": {
+    "id": "PANO",
+    "lcc": null,
+    "name": "Panonijabus",
+    "type": "bus"
+  },
+  "LVIA": {
+    "id": "LVIA",
+    "lcc": null,
+    "name": "L’Aurora Viaggi ",
+    "type": "bus"
+  },
+  "N4": {
+    "id": "N4",
+    "lcc": 0,
+    "name": "Nordwind Airlines",
+    "type": "airline"
+  },
+  "CFR": {
+    "id": "CFR",
+    "lcc": null,
+    "name": "Caile Ferate Romane",
+    "type": "train"
+  },
+  "HZRAIL": {
+    "id": "HZRAIL",
+    "lcc": null,
+    "name": "Hrvatske Zeljeznice",
+    "type": "train"
+  },
+  "NSRAIL": {
+    "id": "NSRAIL",
+    "lcc": null,
+    "name": "Dutch Railways",
+    "type": "train"
+  },
+  "BLAUWNET": {
+    "id": "BLAUWNET",
+    "lcc": null,
+    "name": "Blauwnet",
+    "type": "train"
+  },
+  "CZ": {
+    "id": "CZ",
+    "lcc": 0,
+    "name": "China Southern Airlines",
+    "type": "airline"
+  },
+  "UR": {
+    "id": "UR",
+    "lcc": 0,
+    "name": "Uganda Airlines",
+    "type": "airline"
+  },
+  "ARRIVANLT": {
+    "id": "ARRIVANLT",
+    "lcc": null,
+    "name": "Arriva NL train",
+    "type": "train"
+  },
+  "X9": {
+    "id": "X9",
+    "lcc": 0,
+    "name": "Avion Express",
+    "type": "airline"
+  },
+  "ERFURTER": {
+    "id": "ERFURTER",
+    "lcc": null,
+    "name": "Erfurter Bahn",
+    "type": "train"
+  },
+  "AGILIS": {
+    "id": "AGILIS",
+    "lcc": null,
+    "name": "Agilis",
+    "type": "train"
+  },
+  "INDIANTAI": {
+    "id": "INDIANTAI",
+    "lcc": null,
+    "name": "Indian Trails",
+    "type": "bus"
+  },
+  "E9": {
+    "id": "E9",
+    "lcc": 0,
+    "name": "Evelop Airlines",
+    "type": "airline"
+  },
+  "9C": {
+    "id": "9C",
+    "lcc": 1,
+    "name": "Spring Airlines",
+    "type": "airline"
+  },
+  "UT": {
+    "id": "UT",
+    "lcc": 1,
+    "name": "UTair",
+    "type": "airline"
+  },
+  "CONCORDCOA": {
+    "id": "CONCORDCOA",
+    "lcc": null,
+    "name": "Concord Coach",
+    "type": "bus"
+  },
+  "XW": {
+    "id": "XW",
+    "lcc": 1,
+    "name": "NokScoot",
+    "type": "airline"
+  },
+  "COMMUNITYC": {
+    "id": "COMMUNITYC",
+    "lcc": null,
+    "name": "Community Coach",
+    "type": "bus"
+  },
+  "JLTT": {
+    "id": "JLTT",
+    "lcc": null,
+    "name": "JLT train",
+    "type": "train"
+  },
+  "TRANSALIS": {
+    "id": "TRANSALIS",
+    "lcc": null,
+    "name": "Transalis",
+    "type": "bus"
+  },
+  "LITRAIL": {
+    "id": "LITRAIL",
+    "lcc": null,
+    "name": "Lithuanian Railways",
+    "type": "train"
+  },
+  "TVERSKEXP": {
+    "id": "TVERSKEXP",
+    "lcc": null,
+    "name": "Tverskoy Express",
+    "type": "train"
+  },
+  "SKANETRAFB": {
+    "id": "SKANETRAFB",
+    "lcc": null,
+    "name": "Skanetrafiken bus",
+    "type": "bus"
+  },
+  "SKANETRAFT": {
+    "id": "SKANETRAFT",
+    "lcc": null,
+    "name": "Skanetrafiken train",
+    "type": "airline"
+  },
+  "PETERPAN": {
+    "id": "PETERPAN",
+    "lcc": null,
+    "name": "Peter Pan Bus",
+    "type": "bus"
+  },
+  "FULLINGTON": {
+    "id": "FULLINGTON",
+    "lcc": null,
+    "name": "Fullington Trailways",
+    "type": "bus"
+  },
+  "ARRIVAUK": {
+    "id": "ARRIVAUK",
+    "lcc": null,
+    "name": "Arriva United Kingdom",
+    "type": "bus"
   }
 }

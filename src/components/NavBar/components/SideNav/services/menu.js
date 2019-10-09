@@ -81,7 +81,7 @@ const companyPagesUI = {
     Icon: icons.Suitcase,
   },
   media: {
-    title: __("content.pages_v2.media.press_kit"),
+    title: __("content.pages.media_room"),
     Icon: icons.Kiwicom,
   },
   invite: {

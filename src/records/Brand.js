@@ -1403,7 +1403,7 @@ export const brandDefault: Brand = {
       },
       media: {
         fully_qualified: false,
-        link: "/pages/content/media",
+        link: "https://media.kiwi.com/",
         enabled: true,
       },
       brand: {

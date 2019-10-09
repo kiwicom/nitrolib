@@ -45,8 +45,8 @@ Object {
     "Icon": [Function],
     "enabled": true,
     "fully_qualified": false,
-    "link": "/pages/content/media",
-    "title": "content.pages_v2.media.press_kit",
+    "link": "https://media.kiwi.com/",
+    "title": "content.pages.media_room",
   },
   "privacy": Object {
     "Icon": [Function],
