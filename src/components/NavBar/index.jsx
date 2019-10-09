@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
+import * as R from "ramda";
 
 import { navbar } from "../../styles";
 import Desktop from "../Desktop";
@@ -21,6 +22,8 @@ type Inverted = {|
   ...ThemeProps,
   inverted: boolean,
 |};
+
+type NavElement = "currencies" | "help" | "starred" | "mmb" | "languages";
 
 const Container = styled.div`
   width: 100%;
@@ -52,6 +55,7 @@ type Props = {|
   subscription: React.Node,
   debug: React.Node,
   portal: string,
+  hide: NavElement | NavElement[],
   onOpenFaq: ?() => void,
   onSetModal: (modal: Modal) => void,
   onSaveLanguage: (lang: string) => void,
@@ -76,70 +80,84 @@ const NavBar = ({
   animateLogo,
   logoAnimateShow,
   onOpenFaq,
+  hide,
   onSetModal,
   newDesign,
   onSaveLanguage,
   onSelectTrip,
   onLogoClick,
-}: Props) => (
-  <Container inverted={inverted}>
-    <Stack justify="between" align="center" spacing="none" dataTest="NavBar">
-      <Stack flex shrink inline align="center" spacing="none" mediumMobile={{ spacing: "comfy" }}>
-        <Logo
-          inverted={inverted}
-          onClick={onLogoClick}
-          animate={animateLogo}
-          animateShow={logoAnimateShow}
-        />
-        {headerLinks}
+}: Props) => {
+  const visible = (input: NavElement | NavElement[]): boolean =>
+    R.compose(
+      R.not,
+      // $FlowExpected: untyped ramda function
+      R.includes(input),
+    )(hide);
+
+  return (
+    <Container inverted={inverted}>
+      <Stack justify="between" align="center" spacing="none" dataTest="NavBar">
+        <Stack flex shrink inline align="center" spacing="none" mediumMobile={{ spacing: "comfy" }}>
+          <Logo
+            inverted={inverted}
+            onClick={onLogoClick}
+            animate={animateLogo}
+            animateShow={logoAnimateShow}
+          />
+          {headerLinks}
+        </Stack>
+        <Stack
+          inline
+          align="center"
+          justify="end"
+          spacing="tight"
+          mediumMobile={{ spacing: "comfy" }}
+        >
+          <Desktop>
+            <Stack flex align="center" spacing="comfy">
+              {visible("languages") && (
+                <Language
+                  positionMenuDesktop={270}
+                  positionMenuTablet={5}
+                  inverted={inverted}
+                  onChange={onSaveLanguage}
+                  onSetModal={onSetModal}
+                />
+              )}
+              {visible("currencies") && (
+                <Currency
+                  positionMenuDesktop={270}
+                  positionMenuTablet={5}
+                  inverted={inverted}
+                  onSetModal={onSetModal}
+                />
+              )}
+              {visible("help") && <Help onOpen={onOpenFaq} inverted={inverted} />}
+            </Stack>
+          </Desktop>
+          {visible("starred") && starred}
+          <Mobile>{visible("help") && <Help onOpen={onOpenFaq} inverted={inverted} />}</Mobile>
+          <Menu
+            newDesign={newDesign}
+            subscription={subscription}
+            debug={debug}
+            shown={visible("mmb")}
+            onSetModal={onSetModal}
+            onSaveLanguage={onSaveLanguage}
+            onSelectTrip={onSelectTrip}
+            inverted={inverted}
+            portal={portal}
+          />
+        </Stack>
       </Stack>
-      <Stack
-        inline
-        align="center"
-        justify="end"
-        spacing="tight"
-        mediumMobile={{ spacing: "comfy" }}
-      >
-        <Desktop>
-          <Stack flex align="center" spacing="comfy">
-            <Language
-              positionMenuDesktop={270}
-              positionMenuTablet={5}
-              inverted={inverted}
-              onChange={onSaveLanguage}
-              onSetModal={onSetModal}
-            />
-            <Currency
-              positionMenuDesktop={270}
-              positionMenuTablet={5}
-              inverted={inverted}
-              onSetModal={onSetModal}
-            />
-            <Help onOpen={onOpenFaq} inverted={inverted} />
-          </Stack>
-        </Desktop>
-        {starred}
-        <Mobile>
-          <Help onOpen={onOpenFaq} inverted={inverted} />
-        </Mobile>
-        <Menu
-          newDesign={newDesign}
-          subscription={subscription}
-          debug={debug}
-          onSetModal={onSetModal}
-          onSaveLanguage={onSaveLanguage}
-          onSelectTrip={onSelectTrip}
-          inverted={inverted}
-          portal={portal}
-        />
-      </Stack>
-    </Stack>
-  </Container>
-);
+    </Container>
+  );
+};
 
 NavBar.defaultProps = {
   headerLinks: null,
   debug: null,
+  hide: [],
   inverted: false,
   newDesign: false,
   animateLogo: false,

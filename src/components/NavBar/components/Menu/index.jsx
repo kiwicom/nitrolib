@@ -16,6 +16,7 @@ type Props = {|
   subscription: React.Node,
   debug?: React.Node,
   portal: string,
+  shown: boolean,
   inverted: boolean,
   onSetModal: (modal: Modal) => void,
   onSaveLanguage: (lang: string) => void,
@@ -27,6 +28,7 @@ const Menu = ({
   subscription,
   debug,
   portal,
+  shown,
   inverted,
   onSaveLanguage,
   onSelectTrip,
@@ -39,25 +41,26 @@ const Menu = ({
   return (
     // TODO: remove that ugly stuff after new navbar release
     <>
-      {(newDesign &&
-        (auth === null ? (
-          <ValueBind value={MODALS.MY_BOOKING} onChange={onChange}>
-            {({ onClick }) => (
-              <LoginButton onClick={onClick}>
-                <Text t="account.sign_in" weight="bold" size="small" />
-              </LoginButton>
-            )}
-          </ValueBind>
-        ) : (
-          <Account auth={auth} inverted={inverted} />
-        ))) || (
-        <OldLoginButton
-          auth={auth}
-          onChange={onChange}
-          onSelectTrip={onSelectTrip}
-          inverted={inverted}
-        />
-      )}
+      {shown &&
+        ((newDesign &&
+          (auth === null ? (
+            <ValueBind value={MODALS.MY_BOOKING} onChange={onChange}>
+              {({ onClick }) => (
+                <LoginButton onClick={onClick}>
+                  <Text t="account.sign_in" weight="bold" size="small" />
+                </LoginButton>
+              )}
+            </ValueBind>
+          ) : (
+            <Account auth={auth} inverted={inverted} />
+          ))) || (
+          <OldLoginButton
+            auth={auth}
+            onChange={onChange}
+            onSelectTrip={onSelectTrip}
+            inverted={inverted}
+          />
+        ))}
 
       <SideNav
         subscription={subscription}

@@ -3,10 +3,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs } from "@storybook/addon-knobs/react";
-import cookie from "js-cookie";
 
-import { Provider as AuthProvider } from "../src/services/auth/context";
-import { UA_SESSION_TOKEN } from "../src/consts/cookies";
 import NavBar from "../src/components/NavBar";
 import HeaderLinks from "../src/components/HeaderLinks";
 import ModalsAuth from "../src/components/ModalsAuth";
@@ -53,32 +50,7 @@ storiesOf("NavBar", module)
     </>
   ))
   .add("signed-in", () => (
-    <AuthProvider
-      value={{
-        auth: {
-          type: "user",
-          token: cookie.get(UA_SESSION_TOKEN) || "",
-          user: {
-            id: "ujy9jXLZufUW7g7sbFbdhq",
-            email: "ellie@kiwi.com",
-            verified: true,
-            firstname: "Ellie",
-            lastname: "Palo",
-            photo: "https://placeimg.com/128/128/people",
-            affiliateId: "",
-            cardDiscount: 4,
-            balanceDiscount: 4,
-            balances: [{ amount: 4, currency: "EUR" }],
-          },
-        },
-        loading: false,
-        onMyBooking: () => Promise.resolve(),
-        onRegister: () => Promise.resolve(),
-        onSocialAuth: () => Promise.resolve(),
-        onSignIn: () => Promise.resolve(),
-        onSignOut: () => {},
-      }}
-    >
+    <>
       <ModalsAuth portal="" />
       <NavBar
         starred={<p>Starred</p>}
@@ -92,7 +64,7 @@ storiesOf("NavBar", module)
         onSaveLanguage={action("Save language")}
         onSelectTrip={action("Select trip")}
       />
-    </AuthProvider>
+    </>
   ))
   .add("inverted", () => (
     <>

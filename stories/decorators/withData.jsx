@@ -4,8 +4,11 @@ import { ThemeProvider } from "styled-components";
 import { addDecorator } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, select } from "@storybook/addon-knobs/react";
+import cookie from "js-cookie";
 
+import { UA_SESSION_TOKEN } from "../../src/consts/cookies";
 import { Provider as BrandProvider } from "../../src/services/brand/context";
+import { Provider as AuthProvider } from "../../src/services/auth/context";
 import { Provider as IntlProvider } from "../../src/services/intl/context";
 import { Provider as FetchedProvider } from "../../src/services/fetched/context";
 import { Provider as CurrencyProvider } from "../../src/services/currency/context";
@@ -131,59 +134,85 @@ const withData = (storyFn: () => React.Node) => {
 
   return (
     <BrandProvider value={brand}>
-      {/* $FlowExpected: ThemeProvider has bad typedefs */}
       <ThemeProvider theme={getBrandTheme(brand, language.direction === "rtl")}>
-        <InitIntl raw={intlRaw} getLocale={localeFn(localeId)()}>
-          {intl => (
-            <IntlProvider value={intl}>
-              <FetchedProvider value={fetched}>
-                <InitCurrency
-                  brand={brand}
-                  countries={countries}
-                  affiliate=""
-                  ip="1.3.3.7"
-                  langCurrency={language.currency}
-                  onChange={action("Save currency")}
-                >
-                  {currency => (
-                    <CurrencyProvider
-                      value={{
-                        ...currency,
-                        currency: currency.available[currencyId] || currency.currency,
-                      }}
+        <AuthProvider
+          value={{
+            auth: {
+              type: "user",
+              token: cookie.get(UA_SESSION_TOKEN) || "",
+              user: {
+                id: "ujy9jXLZufUW7g7sbFbdhq",
+                email: "ellie@kiwi.com",
+                verified: true,
+                firstname: "Ellie",
+                lastname: "Palo",
+                photo: "https://placeimg.com/128/128/people",
+                affiliateId: "",
+                cardDiscount: 4,
+                balanceDiscount: 4,
+                balances: [{ amount: 4, currency: "EUR" }],
+              },
+            },
+            loading: false,
+            onMyBooking: () => Promise.resolve(),
+            onRegister: () => Promise.resolve(),
+            onSocialAuth: () => Promise.resolve(),
+            onSignIn: () => Promise.resolve(),
+            onSignOut: () => {},
+          }}
+        >
+          <InitIntl raw={intlRaw} getLocale={localeFn(localeId)()}>
+            {intl => (
+              <IntlProvider value={intl}>
+                <InitRelayEnvironment clientID="nitro">
+                  <FetchedProvider value={fetched}>
+                    <InitCurrency
+                      brand={brand}
+                      countries={countries}
+                      affiliate=""
+                      ip="1.3.3.7"
+                      langCurrency={language.currency}
+                      onChange={action("Save currency")}
                     >
-                      <InitStarred>
-                        {starredInit => (
-                          <StarredProvider
-                            value={{
-                              ...starredInit,
-                              list: starredList,
-                              // Passes from FE
-                              renderShareDialog: () => console.log("shareDialog") || null,
-                              onGoToStarred: () => console.log("nitro"),
-                              isMobile: false,
-                              lang: intl.language.id,
-                              // Passes from FE
-                              onSetNotice: () => console.log("notice"),
-                              // Passes from FE
-                              makeShareUrl: () => console.log("shareUrl") || "",
-                            }}
-                          >
-                            <ModalProvider value={{ value: modal, onChange: action("Modal") }}>
-                              <InitRelayEnvironment clientID="NitroStorybook">
-                                {storyFn()}
-                              </InitRelayEnvironment>
-                            </ModalProvider>
-                          </StarredProvider>
-                        )}
-                      </InitStarred>
-                    </CurrencyProvider>
-                  )}
-                </InitCurrency>
-              </FetchedProvider>
-            </IntlProvider>
-          )}
-        </InitIntl>
+                      {currency => (
+                        <CurrencyProvider
+                          value={{
+                            ...currency,
+                            currency: currency.available[currencyId] || currency.currency,
+                          }}
+                        >
+                          <InitStarred>
+                            {starredInit => (
+                              <StarredProvider
+                                value={{
+                                  ...starredInit,
+                                  list: starredList,
+                                  // Passes from FE
+                                  renderShareDialog: () => console.log("shareDialog") || null,
+                                  onGoToStarred: () => console.log("nitro"),
+                                  isMobile: false,
+                                  lang: intl.language.id,
+                                  // Passes from FE
+                                  onSetNotice: () => console.log("notice"),
+                                  // Passes from FE
+                                  makeShareUrl: () => console.log("shareUrl") || "",
+                                }}
+                              >
+                                <ModalProvider value={{ value: modal, onChange: action("Modal") }}>
+                                  {storyFn()}
+                                </ModalProvider>
+                              </StarredProvider>
+                            )}
+                          </InitStarred>
+                        </CurrencyProvider>
+                      )}
+                    </InitCurrency>
+                  </FetchedProvider>
+                </InitRelayEnvironment>
+              </IntlProvider>
+            )}
+          </InitIntl>
+        </AuthProvider>
       </ThemeProvider>
     </BrandProvider>
   );

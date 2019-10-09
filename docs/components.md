@@ -429,10 +429,13 @@ import NavBar from "@kiwicom/nitro/lib/components/NavBar";
 
 **Types:**
 ```js
+type NavElement = "currencies" | "help" | "starred" | "mmb" | "languages";
+
 type Props = {|
   starred: React.Node,
   subscription: React.Node,
   portal: string,
+  hide?: NavElement | NavElement[],
   onOpenFaq: ?() => void,
   onSetModal: (modal: Modal) => void,
   onSaveLanguage: (lang: string) => void,

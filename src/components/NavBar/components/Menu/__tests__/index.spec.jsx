@@ -11,6 +11,7 @@ describe("#Menu", () => {
         subscription={<div>subscription</div>}
         debug={<div>debug</div>}
         portal=""
+        shown
         newDesign={false}
         inverted={false}
         onSaveLanguage={jest.fn()}

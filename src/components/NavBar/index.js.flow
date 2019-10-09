@@ -3,10 +3,13 @@ import * as React from "react";
 
 import type { Modal } from "../../consts/modals";
 
+type NavElement = "currencies" | "help" | "starred" | "mmb" | "languages";
+
 type Props = {|
   starred: React.Node,
   subscription: React.Node,
   portal: string,
+  hide?: NavElement | NavElement[],
   onOpenFaq: ?() => void,
   onSetModal: (modal: Modal) => void,
   onSaveLanguage: (lang: string) => void,
