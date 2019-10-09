@@ -1,3 +1,19 @@
+# [9.1.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.0.1...v9.1.0) (2019-10-09)
+
+
+### Bug Fixes
+
+* **components:** Header link active style ([b51e1c4](https://gitlab.skypicker.com/frontend/nitrolib/commit/b51e1c4))
+* **components:** Headerlinks re-render ([f58030b](https://gitlab.skypicker.com/frontend/nitrolib/commit/f58030b))
+* **components:** SideNav media ([032c229](https://gitlab.skypicker.com/frontend/nitrolib/commit/032c229))
+
+
+### Features
+
+* **components:** Navbar hide prop ([7bf4ea1](https://gitlab.skypicker.com/frontend/nitrolib/commit/7bf4ea1))
+
+
+
 ## [9.0.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.0.0...v9.0.1) (2019-10-08)
 
 
