@@ -68,9 +68,7 @@ export default class HeaderLinks extends React.Component<Props, State> {
   }
 
   componentDidUpdate(prevProps: Props) {
-    const { searchForm } = this.props;
-
-    if (prevProps.searchForm !== searchForm) {
+    if (prevProps !== this.props) {
       this.getNavBarLinks();
     }
   }
