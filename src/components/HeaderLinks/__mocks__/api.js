@@ -2,13 +2,14 @@
 
 // TODO move to HeaderLinks/records/HeaderLink.js
 export const props = {
-  languageId: "de",
+  languageId: "en",
   currencyId: "GBP",
   searchForm: {
     mode: "oneWay",
     destination: {
       type: "2",
-      name: "Warsaw",
+      name: "London",
+      slug: "london_gb",
     },
     checkIn: new Date(),
     checkOut: null,
@@ -16,7 +17,7 @@ export const props = {
     children: 0,
   },
   splitster: {
-    HEADER_LINKS_ROOMS_PROVIDER_0: "roomsKiwiCode",
+    HEADER_LINKS_ROOMS_PROVIDER_0: "roomsKiwiLocal",
   },
   context: "kiwicom",
 };
