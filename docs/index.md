@@ -5,7 +5,6 @@
 **Peer dependencies:**
 * `@kiwicom/orbit-components: ^0.63.0`
 * `@kiwicom/translations: ^1.415.0`
-* `@kiwicom/js: ^0.16.0`
 * `ramda: ^0.26.1`
 * `react: ^16.9.0`
 * `react-dom: ^16.9.0`
