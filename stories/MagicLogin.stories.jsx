@@ -71,7 +71,7 @@ storiesOf("MagicLogin", module)
       onIncorrectEmail={action("onIncorrectLogin")}
     />
   ))
-  .add("Screen - checkEmail", () => <CheckEmail email="" reason="magicLink" />)
+  .add("Screen - checkEmail", () => <CheckEmail email="joe.doe@example.com" reason="magicLink" />)
   .add("Screen - NoAccount", () => (
     <NoAccount
       onBack={() => {}}

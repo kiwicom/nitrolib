@@ -1,17 +1,15 @@
 // @flow strict
 import * as React from "react";
 import Illustration from "@kiwicom/orbit-components/lib/Illustration";
-import FacebookIcon from "@kiwicom/orbit-components/lib/icons/Facebook";
-import GoogleIcon from "@kiwicom/orbit-components/lib/icons/Google";
 import ChevronLeft from "@kiwicom/orbit-components/lib/icons/ChevronLeft";
 import ModalHeader from "@kiwicom/orbit-components/lib/Modal/ModalHeader";
 import ModalSection from "@kiwicom/orbit-components/lib/Modal/ModalSection";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 
-import Text from "../../../../Text";
 import Button from "../../../../Button";
 import { useBrand } from "../../../../../services/brand/context";
 import { useIntl } from "../../../../../services/intl/context";
+import LoginViaSocials from "../../LoginViaSocials";
 
 type Props = {|
   onBack: (SyntheticEvent<HTMLButtonElement>) => void,
@@ -45,29 +43,7 @@ const NoAccount = ({ onBack, onRegister, onFacebookLogin, onGoogleLogin }: Props
           />
         </Stack>
       </ModalSection>
-      <ModalSection suppressed>
-        <Text t="account.or_social_account" weight="bold" spaceAfter="medium" />
-        <Stack spacing="natural" flex>
-          <Button
-            t="account.log_in_with"
-            values={{ provider: "Facebook" }}
-            type="facebook"
-            fullWidth
-            bordered
-            icon={<FacebookIcon />}
-            onClick={onFacebookLogin}
-          />
-          <Button
-            t="account.log_in_with"
-            values={{ provider: "Google" }}
-            type="google"
-            fullWidth
-            bordered
-            icon={<GoogleIcon />}
-            onClick={onGoogleLogin}
-          />
-        </Stack>
-      </ModalSection>
+      <LoginViaSocials onGoogleLogin={onGoogleLogin} onFacebookLogin={onFacebookLogin} />
     </>
   );
 };
