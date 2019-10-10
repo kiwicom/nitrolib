@@ -9,6 +9,7 @@ const authConsumerUser = {
     firstname: "Ellie",
     lastname: "Palo",
     affiliateId: "lanthi",
+    apiToken: "b8a5902abe78bc773e7e1abcd65a00b91923451111",
     balanceDiscount: 0,
     cardDiscount: 0,
     balances: [],

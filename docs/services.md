@@ -130,6 +130,8 @@ type SocialAuthProvider = "facebook" | "google";
 declare export function socialAuth(provider: SocialAuthProvider, url: string): Promise<string>;
 
 declare export function resetPassword(email: string, brandId: string): Promise<void>;
+
+declare export function getUserFromKWToken(kwAuthToken: string): Promise<AuthUser>;
 ```
 
 See types:

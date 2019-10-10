@@ -1668,7 +1668,7 @@ export type User = {|
   firstname: string,
   lastname: string,
   photo?: string,
-  // apiToken: string,
+  apiToken: string,
   affiliateId: string,
   cardDiscount: number,
   balanceDiscount: number,

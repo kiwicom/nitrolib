@@ -11,6 +11,7 @@ import config from "../../consts/config";
 import { handleError, handleJSON } from "../fetch/handlers";
 import { JSON_BOTH } from "../fetch/headers";
 import getOAuthRedirectUrl from "./services/getOAuthRedirectUrl";
+import processKWToken from "./services/processKWToken";
 
 // noinspection SpellCheckingInspection
 const USER = "5433ecccaff67";
@@ -185,3 +186,5 @@ export function resetPassword(email: string, brandId: string) {
     }),
   }).then(handleJSON);
 }
+
+export const getUserFromKWToken = processKWToken;

@@ -156,3 +156,24 @@ export const LOGIN_PATH_FULFILLED = {
     bigQuery: true,
   },
 };
+
+export const MAGIC_LINK_USED = {
+  category: "General",
+  subCategory: "MagicLogin",
+  action: "MagicLinkUsedForAuth",
+  destinations: { logmole: true, exponea: false, ga: false, bigQuery: true },
+};
+
+export const MAGIC_LINK_EXPIRED = {
+  category: "General",
+  subCategory: "MagicLogin",
+  action: "hMagicLinkExpired",
+  destinations: { logmole: true, exponea: false, ga: false, bigQuery: true },
+};
+
+export const MAGIC_LINK_FAILED = {
+  category: "General",
+  subCategory: "MagicLogin",
+  action: "MagicLinkFailed",
+  destinations: { logmole: true, exponea: false, ga: false, bigQuery: true },
+};

@@ -8,6 +8,7 @@ const bookingIdentity = {
     credits: 0,
   },
   affiliateId: "lanthi",
+  searchApiToken: "abc123",
   balances: [
     {
       amount: "1",
@@ -40,6 +41,7 @@ describe("#toUser", () => {
         lastname: "Doe",
         verified: true,
         affiliateId: "lanthi",
+        apiToken: "abc123",
         balanceDiscount: 0,
         cardDiscount: 0,
         balances: [
@@ -69,6 +71,7 @@ describe("#toUser", () => {
         firstname: "",
         lastname: "",
         affiliateId: "",
+        apiToken: "",
         balanceDiscount: 0,
         balances: [],
         cardDiscount: 0,

@@ -146,6 +146,7 @@ const withData = (storyFn: () => React.Node) => {
                 verified: true,
                 firstname: "Ellie",
                 lastname: "Palo",
+                apiToken: "b8a5902abe78bc773e7e1abcd65a00b91923451111",
                 photo: "https://placeimg.com/128/128/people",
                 affiliateId: "",
                 cardDiscount: 4,
