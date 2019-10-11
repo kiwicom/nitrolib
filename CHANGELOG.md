@@ -1,3 +1,17 @@
+# [9.2.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.1.1...v9.2.0) (2019-10-11)
+
+
+### Bug Fixes
+
+* **components:** Fixed Headerlinks re-rendering on searchForm change ([6feffb2](https://gitlab.skypicker.com/frontend/nitrolib/commit/6feffb2))
+
+
+### Features
+
+* **services:** Add function to handle KW-Auth-Token from cookie ([e9ee919](https://gitlab.skypicker.com/frontend/nitrolib/commit/e9ee919))
+
+
+
 ## [9.1.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.1.0...v9.1.1) (2019-10-09)
 
 
