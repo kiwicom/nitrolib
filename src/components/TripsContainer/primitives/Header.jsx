@@ -12,7 +12,7 @@ const Header = styled.div`
   align-items: center;
   height: 40px;
   overflow: hidden;
-  box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
+  box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowFixed};
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
   padding: 0 20px;
   z-index: 2;

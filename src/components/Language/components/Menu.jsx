@@ -29,7 +29,7 @@ const MenuWrapper = styled.div`
   display: flex;
   overflow-x: hidden;
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
-  box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
+  box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowRaised};
   ${({ flat }: FlatProps) =>
     !flat &&
     mq.tablet(css`

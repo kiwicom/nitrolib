@@ -23,7 +23,7 @@ const Popup = styled.div`
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   cursor: default;
-  box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
+  box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowFixed};
   ${right}: 0;
 
   ${mq.largeMobile(css`

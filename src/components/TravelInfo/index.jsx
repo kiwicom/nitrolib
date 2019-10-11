@@ -33,7 +33,6 @@ const Wrapper = styled.div`
   border-style: ${({ theme }: ThemeProps) => theme.orbit.borderStyleCard};
   border-color: ${({ theme }: ThemeProps) => theme.orbit.borderColorCard};
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
-  box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowElevatedLevel1};
 
   ${mq.largeMobile(css`
     padding: ${({ theme }: ThemeProps) => theme.orbit.spaceLarge};

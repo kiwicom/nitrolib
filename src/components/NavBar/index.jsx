@@ -33,7 +33,7 @@ const Container = styled.div`
   background-color: ${({ theme, inverted }: Inverted) =>
     inverted ? theme.orbit.paletteProductNormal : theme.orbit.paletteWhite};
   color: ${({ theme }: ThemeProps) => theme.orbit.paletteInkNormal};
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+  box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowFixed};
   padding: 0 10px;
   font-size: ${({ theme }: ThemeProps) => theme.orbit.fontSizeTextSmall};
   font-weight: ${({ theme }: ThemeProps) => theme.orbit.fontWeightMedium};

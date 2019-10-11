@@ -54,7 +54,7 @@ const Wrapper = styled.aside`
   overflow-y: auto;
   height: 100%;
   transition: transform ${({ theme }: ThemeProps) => theme.orbit.durationNormal} ease-in-out;
-  box-shadow: 0 6px 16px rgba(46, 53, 59, 0.22), 0 1px 3px rgba(0, 0, 0, 0.09);
+  box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowRaised};
   max-width: 320px;
   width: 100%;
 

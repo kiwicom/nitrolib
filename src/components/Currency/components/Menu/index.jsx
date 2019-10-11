@@ -21,7 +21,7 @@ const Container = styled.div`
   box-sizing: border-box;
   padding: 15px 12px;
   overflow-y: scroll;
-  box-shadow: 0 4px 12px 0 rgba(23, 27, 30, 0.3);
+  box-shadow: ${({ theme }: ThemeProps) => theme.orbit.boxShadowRaised};
   border-radius: ${({ theme }: ThemeProps) => theme.orbit.borderRadiusNormal};
   background: ${({ theme }: ThemeProps) => theme.orbit.paletteWhite};
 
