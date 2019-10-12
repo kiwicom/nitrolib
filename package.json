@@ -73,8 +73,8 @@
     "@kiwicom/orbit-components": "^0.64.0",
     "@kiwicom/translations": "^1.415.0",
     "ramda": "^0.26.1",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
