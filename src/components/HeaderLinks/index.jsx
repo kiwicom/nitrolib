@@ -7,12 +7,15 @@ import styled, { css } from "styled-components";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 
-import ClickOutside from "../ClickOutside";
+// Components
 import Toggle from "../Toggle";
 import Popup from "./primitives/Popup";
 import IconWrapper from "./primitives/IconWrapper";
 import Links from "./components/Links";
+// Services
+import ClickOutside from "../ClickOutside";
 import getNavBarLinks from "./services/api";
+import checkSearchFormChange from "./services/checkSearchFormChange";
 import type { HeaderLink, SearchForm, HeaderLinksContext } from "./records/HeaderLink";
 import LogContext from "../../services/log/context";
 import type { Context } from "../../services/log/context";
@@ -70,7 +73,17 @@ export default class HeaderLinks extends React.Component<Props, State> {
   componentDidUpdate(prevProps: Props) {
     const { searchForm } = this.props;
 
-    if (prevProps.searchForm !== searchForm) {
+    // Props which trigger re-render on change
+    const updateOnPropsChange = [["destination", "slug"], "checkIn", "checkOut"];
+
+    // Check if props got changed
+    const searchFormChanged = checkSearchFormChange(
+      prevProps.searchForm,
+      searchForm,
+      updateOnPropsChange,
+    );
+
+    if (searchFormChanged) {
       this.getNavBarLinks();
     }
   }
