@@ -18,7 +18,7 @@ const Links = ({ inverted, services, active, newDesign }: Props): React.Node[] =
       key={item.id}
       link={item.url}
       icon={item.id}
-      text={<Translate t={item.translation} />}
+      text={<Translate t={item.translation} values={{ companyName: "Kiwi.com" }} />}
       inverted={inverted}
       newDesign={newDesign}
       active={item.id === active}

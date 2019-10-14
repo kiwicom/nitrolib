@@ -1519,10 +1519,10 @@
   resolved "https://registry.yarnpkg.com/@kiwicom/signed-source/-/signed-source-1.0.5.tgz#acbdc518e54abe607db2897cb73101a2ae250ef8"
   integrity sha512-fXNe5MPPqL6s+f+zf8mHK++/w7Q8y7v+E43XiuwmwnEayHUdbh0BCH3rozFzHdvYW+k78O4cAewWZIXxgrSPsw==
 
-"@kiwicom/translations@^1.448.0":
-  version "1.448.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.448.0.tgz#7865c7af7bb2f4a4aa1b2fa8a118c2a6b71034d8"
-  integrity sha512-g70kOcAPF47XQn/mrwO4tACtBgGkv1xDJHpr5Br1qFbUA9HLBQm2rdqEBnhgPGOn5flEvt7oSaRoTC9kTy5Nsg==
+"@kiwicom/translations@^1.452.0":
+  version "1.452.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/translations/-/translations-1.452.0.tgz#e908f76c3065e2961e6a23a3ec2297a3cbebc08e"
+  integrity sha512-rrPMF3jxGShAJ0aqgJY9kiaRI7kw2QYAuT3FZ93Ne6qpAZ+wfKKsK5oDKLXCXB10OPnae6L9oMxTEMQw+p8HYw==
 
 "@marionebl/sander@^0.6.0":
   version "0.6.1"
