@@ -74,7 +74,7 @@ export default class HeaderLinks extends React.Component<Props, State> {
     const { searchForm } = this.props;
 
     // Props which trigger re-render on change
-    const updateOnPropsChange = [["destination", "slug"], "checkIn", "checkOut"];
+    const updateOnPropsChange = [["destination", "slug"], ["checkIn"], ["checkOut"]];
 
     // Check if props got changed
     const searchFormChanged = checkSearchFormChange(

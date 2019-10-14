@@ -4,20 +4,14 @@ import R from "ramda";
 // Types
 import type { SearchForm } from "../records/HeaderLink";
 
-type PropsToUpdate = string | Array<string>;
+type PropsToUpdate = Array<Array<string>>;
 
 const checkSearchFormChange = (
-  props: SearchForm,
-  prevProps: SearchForm,
+  props: SearchForm | null,
+  prevProps: SearchForm | null,
   propsToUpdate: PropsToUpdate,
 ) => {
-  // Helper to fetch either nested-prop or direct-prop
-  const pathOrProp = (path, data) => R.pathOr(R.prop(path, data), path)(data);
-
-  const diff = R.filter(
-    path => pathOrProp(path, props) !== pathOrProp(path, prevProps),
-    propsToUpdate,
-  );
+  const diff = R.filter(path => R.path(path, props) !== R.path(path, prevProps), propsToUpdate);
 
   if (diff && diff.length > 0) {
     return true;
