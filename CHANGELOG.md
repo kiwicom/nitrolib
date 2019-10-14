@@ -1,3 +1,15 @@
+## [9.2.3](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.2.1...v9.2.3) (2019-10-14)
+
+
+### Bug Fixes
+
+* Prop declaration mismatch ([3528d64](https://gitlab.skypicker.com/frontend/nitrolib/commit/3528d64))
+* **components:** Fixed Headerlinks flow ([85b6151](https://gitlab.skypicker.com/frontend/nitrolib/commit/85b6151))
+* **components:** Fixed Headerlinks re-render rule ([489a302](https://gitlab.skypicker.com/frontend/nitrolib/commit/489a302))
+* Update translations so company name is translated in header ([a57f160](https://gitlab.skypicker.com/frontend/nitrolib/commit/a57f160))
+
+
+
 ## [9.2.2](https://gitlab.skypicker.com/frontend/nitrolib/compare/v5.9.0...v9.2.2) (2019-10-14)
 
 
