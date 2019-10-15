@@ -1480,10 +1480,10 @@
     glob "^7.1.4"
     is-ci "^2.0.0"
 
-"@kiwicom/orbit-components@^0.64.0":
-  version "0.64.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.64.0.tgz#33a4a987241ce1d78c9e2b71bf3a80374b51baec"
-  integrity sha512-EMoiG9cZ+b2SOhU4Bp4s2qznm01PiYxWCcnxfavLfur4GwccXmHV7YlP/piPJBMQrdkAgJtE7U4l5waReNxcpA==
+"@kiwicom/orbit-components@^0.64.1":
+  version "0.64.1"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.64.1.tgz#2b6bc01b85ec85d209332f9686db816829e8e565"
+  integrity sha512-OaGpTbBVf9TYP23y21CRZo7tbjtLkM7e2ykMNJN5bKa/Dl8SpCAkza9oaGkXTL3X7HtTmsSw4CYR6FKfHw4IBw==
   dependencies:
     "@kiwicom/js" "^0.9.0"
     "@kiwicom/orbit-design-tokens" "~0.8.0"
