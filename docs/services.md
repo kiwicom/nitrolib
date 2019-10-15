@@ -714,7 +714,7 @@ export type Statics = {|
   langId: string,
   pageViewId: string,
   brandingId: string,
-  bid: number,
+  bid: ?number,
   splitster: { [key: string]: string },
   affilParams: { [key: string]: string },
   UTMs: { [key: string]: string },
