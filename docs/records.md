@@ -1336,7 +1336,7 @@ export type Globals = {|
   brandingId: string,
   timestamp?: number,
   url: string,
-  bid?: number,
+  bid: ?number,
   splitster?: { [key: string]: string },
   UTMs: { [key: string]: string },
   bookingSessionId?: string,
