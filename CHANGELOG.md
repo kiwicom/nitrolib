@@ -1,3 +1,13 @@
+## [9.2.4](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.2.3...v9.2.4) (2019-10-15)
+
+
+### Bug Fixes
+
+* **services:** LogLady Global bid ([68c4429](https://gitlab.skypicker.com/frontend/nitrolib/commit/68c4429))
+* **services:** Statics bid maybe type ([ccf940a](https://gitlab.skypicker.com/frontend/nitrolib/commit/ccf940a))
+
+
+
 ## [9.2.3](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.2.1...v9.2.3) (2019-10-14)
 
 
