@@ -12,4 +12,22 @@ describe("Links", () => {
 
     expect(wrapper.find("Link").exists()).toBe(true);
   });
+
+  test("click", () => {
+    const onClick = jest.fn();
+
+    const wrapper = shallow(
+      <Links active="travel" inverted={false} services={response.items} onClick={onClick} />,
+    );
+
+    const passedProp = wrapper
+      .find("Link")
+      .first()
+      .prop("onClick");
+
+    passedProp();
+
+    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(onClick).toHaveBeenCalledWith(response.items[0]);
+  });
 });

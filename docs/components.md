@@ -196,6 +196,7 @@ type Props = {|
   onFetch?: (services: Response) => void,
   testResponse?: Response, // TODO DI actual API call
   context?: HeaderLinksContext,
+  onClick?: (item: HeaderLink) => void,
 |};
 
 declare export default React.ComponentType<Props>;

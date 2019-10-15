@@ -46,9 +46,10 @@ type Props = {|
   active?: boolean,
   inverted?: boolean,
   newDesign?: boolean,
+  onClick?: () => void,
 |};
 
-const Link = ({ active, link, newWindow, icon, text, inverted, newDesign }: Props) => (
+const Link = ({ active, link, newWindow, icon, text, inverted, newDesign, onClick }: Props) => (
   <StyledLink
     active={active}
     href={link}
@@ -56,6 +57,7 @@ const Link = ({ active, link, newWindow, icon, text, inverted, newDesign }: Prop
     newDesign={newDesign}
     target={newWindow ? "_blank" : null}
     rel={newWindow ? "noopener noreferrer" : null}
+    onClick={onClick}
   >
     <Stack flex align="center">
       {icon && mapIcons[icon] && (

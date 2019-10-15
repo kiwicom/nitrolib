@@ -10,9 +10,10 @@ type Props = {|
   active?: string,
   inverted?: boolean,
   newDesign?: boolean,
+  onClick?: (item: HeaderLink) => void,
 |};
 
-const Links = ({ inverted, services, active, newDesign }: Props): React.Node[] =>
+const Links = ({ inverted, services, active, newDesign, onClick }: Props): React.Node[] =>
   services.map(item => (
     <Link
       key={item.id}
@@ -23,6 +24,7 @@ const Links = ({ inverted, services, active, newDesign }: Props): React.Node[] =
       newDesign={newDesign}
       active={item.id === active}
       newWindow={item.newWindow}
+      onClick={onClick && (() => onClick(item))}
     />
   ));
 
