@@ -25,7 +25,7 @@ const getAll = ({ module = "search", options }: Params = {}): Promise<FetchedCur
         name: entry.name,
         precision: entry.precision,
         fallback: "eur",
-        enabledOnAffilId: entry.affil_id.length > 1 ? entry.affil_id : "",
+        enabledOnAffilId: entry.affil_id.length > 0 ? entry.affil_id : "",
         format: entry.format,
         uncertainFormat: false,
         rate: 1 / rates[entry.code.toUpperCase()].value,
