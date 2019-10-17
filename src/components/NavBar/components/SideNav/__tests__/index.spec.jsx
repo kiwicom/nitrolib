@@ -10,7 +10,7 @@ describe("#SideNav", () => {
       <SideNav
         subscription={<div>subscription</div>}
         portal=""
-        isOpenNav=""
+        isOpenNav
         onToggle={jest.fn()}
         debug={<div>debug</div>}
         onOpenModal={jest.fn()}

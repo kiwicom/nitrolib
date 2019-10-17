@@ -24,11 +24,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [CloseByKey](#closebykey)
 * [CookiesPopup](#cookiespopup)
 * [CustomerBaggageTile](#customerbaggagetile)
-<<<<<<< HEAD
 * [DateInput](#dateinput)
-* [Desktop](#desktop)
-=======
->>>>>>> fdf9a42b... feat: Nitro clean up
 * [InitAuth](#initauth)
 * [InitCurrency](#initcurrency)
 * [InitIntl](#initintl)
@@ -970,7 +966,6 @@ See types:
 />
 ```
 
-<<<<<<< HEAD
 ### DateInput
 
 **Import:**
@@ -1009,42 +1004,6 @@ declare export default React.ComponentType<Props>;
 - `value?: Date` - pass `Date` to set initial date
 - `onChange: (?Date) => void` - when user filled all fields and Date is valid, you get back `Date`, otherwise `null`
 
-### Desktop
-
-**Import:**
-```js
-import Desktop from "@kiwicom/nitro/lib/components/Desktop";
-```
-
-**Types:**
-```js
-type Props = {|
-  children: React.Node | React.Node[],
-  // defaulted
-  display?: "block" | "inline" | "inline-block" | "flex", // block
-|};
-
-declare export default React.ComponentType<Props>;
-```
-
-[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=Desktop).
-
-Renders only above **tablet** width.
-
-**Example:**
-```js
-const NavBar = () => (
-  <>
-    <Desktop>
-      <Button>A desktop-only button</Button>
-    </Desktop>
-    <Menu />
-  </>
-);
-```
-
-=======
->>>>>>> fdf9a42b... feat: Nitro clean up
 ### InitAuth
 
 **Import:**

@@ -2,7 +2,6 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
-import Text from "@kiwicom/orbit-components/lib/Text";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Tooltip from "@kiwicom/orbit-components/lib/Tooltip";

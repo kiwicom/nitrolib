@@ -1,6 +1,6 @@
 {
   "name": "@kiwicom/nitro",
-  "version": "9.2.6",
+  "version": "10.0.0",
   "description": "Nitro's components.",
   "scripts": {
     "start": "yarn storybook",
@@ -72,7 +72,7 @@
   },
   "peerDependencies": {
     "@kiwicom/orbit-components": "^1.0.0-alpha.3",
-    "@kiwicom/translations": "^1.452.0",
+    "@kiwicom/translations": "^1.463.0",
     "ramda": "^0.26.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -95,7 +95,7 @@
     "@emotion/core": "^10.0.7",
     "@kiwicom/eslint-config-nitro": "^2.0.0",
     "@kiwicom/orbit-components": "^1.0.0-alpha.3",
-    "@kiwicom/translations": "^1.452.0",
+    "@kiwicom/translations": "^1.463.0",
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/addon-info": "^5.1.9",
     "@storybook/addon-knobs": "^5.1.9",

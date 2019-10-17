@@ -3,7 +3,7 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import mq from "@kiwicom/orbit-components/lib/utils/mediaQuery";
 import AccountCircle from "@kiwicom/orbit-components/lib/icons/AccountCircle";
-import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
+import Button from "@kiwicom/orbit-components/lib/Button";
 
 import { themeDefault } from "../../../../records/Theme";
 
@@ -41,20 +41,20 @@ type Props = {|
 const LoginButton = ({ children, onClick }: Props) => (
   <>
     <Desktop>
-      <ButtonLink
-        iconLeft={<AccountCircle size="small" color="tertiary" />}
+      <Button
+        iconLeft={<AccountCircle size="small" />}
+        size="small"
         type="secondary"
-        transparent
         onClick={onClick}
       >
         {children}
-      </ButtonLink>
+      </Button>
     </Desktop>
     <Mobile>
-      <ButtonLink
+      <Button
         iconLeft={<AccountCircle size="small" />}
+        size="small"
         type="secondary"
-        transparent
         onClick={onClick}
       />
     </Mobile>

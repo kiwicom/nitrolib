@@ -8,9 +8,9 @@ import Desktop from "@kiwicom/orbit-components/lib/Desktop";
 import NavigationList from "@kiwicom/orbit-components/lib/NavigationList";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import useOnClickOutside from "@kiwicom/orbit-components/lib/hooks/useClickOutside";
+import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 
 import Popup from "./primitives/Popup";
-import IconWrapper from "./primitives/IconWrapper";
 import Links from "./components/Links";
 // Services
 import getNavBarLinks from "./services/api";
@@ -92,10 +92,10 @@ const Headerlinks = ({
           </Popup>
         )}
         {allServices && allServices.length > 0 && (
-          <IconWrapper aria-label="open" act={isOpen} onClick={() => setOpen(true)}>
+          <ButtonLink title="open" onClick={() => setOpen(true)}>
             {newDesign ? <Airplane /> : <AirplaneUp />}
             <ChevronDown size="small" />
-          </IconWrapper>
+          </ButtonLink>
         )}
       </Mobile>
 

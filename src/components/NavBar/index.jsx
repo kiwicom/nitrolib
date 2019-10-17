@@ -8,7 +8,6 @@ import NavigationBar from "@kiwicom/orbit-components/lib/NavigationBar";
 import NavigationList from "@kiwicom/orbit-components/lib/NavigationList";
 import ButtonLink from "@kiwicom/orbit-components/lib/ButtonLink";
 
-import * as MODALS from "../../consts/modals";
 import Language from "../Language";
 import Help from "./components/Help";
 import Menu from "./components/Menu";
@@ -60,23 +59,24 @@ const NavBar = ({
       R.includes(input),
     )(hide);
 
-  const [shown, setShown] = React.useState(MODALS.NONE);
+  const [shown, setShown] = React.useState(false);
 
-  const toggle = () => setShown(shown === MODALS.SIDE_NAV ? MODALS.NONE : MODALS.SIDE_NAV);
+  const handleToggle = () => setShown(!shown);
 
   return (
-    <NavigationBar onMenuOpen={toggle}>
+    <NavigationBar onMenuOpen={handleToggle}>
       <Stack flex align="center" justify="between" spacing="condensed">
         {visible("logo") && (
           <Logo onClick={onLogoClick} animate={animateLogo} animateShow={logoAnimateShow} />
         )}
+
         <Stack inline align="center" spacing="none">
           {headerLinks}
         </Stack>
 
         <Desktop>
           <NavigationList type="inline">
-            {visible("languages") && (
+            {visible("languages") && !newDesign && (
               <Language
                 positionMenuDesktop={270}
                 positionMenuTablet={5}
@@ -85,7 +85,7 @@ const NavBar = ({
               />
             )}
 
-            {visible("currencies") && (
+            {visible("currencies") && !newDesign && (
               <Currency positionMenuDesktop={270} positionMenuTablet={5} onSetModal={onSetModal} />
             )}
 
@@ -96,6 +96,7 @@ const NavBar = ({
                 {starred}
               </ButtonLink>
             )}
+
             {visible("sideNav") && (
               <Menu
                 newDesign={newDesign}
@@ -103,7 +104,7 @@ const NavBar = ({
                 debug={debug}
                 shown={visible("mmb")}
                 isOpenNav={shown}
-                onToggle={toggle}
+                onToggle={handleToggle}
                 sideNav={visible("sideNav")}
                 onSetModal={onSetModal}
                 onSaveLanguage={onSaveLanguage}
@@ -116,9 +117,9 @@ const NavBar = ({
 
         <Mobile>
           <NavigationList type="inline">
-            {visible("help") && <Help onOpen={onOpenFaq} />}
+            {visible("help") && !newDesign && <Help onOpen={onOpenFaq} />}
 
-            {visible("starred") && (
+            {visible("starred") && !newDesign && (
               <ButtonLink type="secondary" transparent>
                 {starred}
               </ButtonLink>

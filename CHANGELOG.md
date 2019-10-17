@@ -1,3 +1,10 @@
+# [10.0.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.2.4...v10.0.0) (2019-10-17)
+
+
+### Features
+
+* Nitro clean up ([fdf9a42](https://gitlab.skypicker.com/frontend/nitrolib/commit/fdf9a42))
+
 ## [9.2.6](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.2.5...v9.2.6) (2019-10-18)
 
 
@@ -14,7 +21,12 @@
 ### Bug Fixes
 
 * **components:** Sidebar media link ([4e3048b](https://gitlab.skypicker.com/frontend/nitrolib/commit/4e3048b))
-* **services:** Enabled affilId fix in currencies ([419e907](https://gitlab.skypicker.com/frontend/nitrolib/commit/419e907))
+* **services:** Enabled affilId fix in currencies ([419e907](https://gitlab.skypicker.com/frontend/nitrolib/commit/419e90
+
+
+### BREAKING CHANGES
+
+* deleted Mobile, Desktop, Select, Starred, InitStarred, ClickOutside, Footer, BrandName, DistanceInWords, Duration, ServiceBadge, Tooltip, TravelInfo
 
 
 

@@ -12,7 +12,7 @@ describe("#Menu", () => {
         debug={<div>debug</div>}
         portal=""
         shown
-        isOpenNav=""
+        isOpenNav
         onToggle={jest.fn()}
         newDesign={false}
         onSaveLanguage={jest.fn()}

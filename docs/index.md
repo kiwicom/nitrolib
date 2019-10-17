@@ -4,7 +4,7 @@
 
 **Peer dependencies:**
 * `@kiwicom/orbit-components: ^1.0.0-alpha.3`
-* `@kiwicom/translations: ^1.452.0`
+* `@kiwicom/translations: ^1.463.0`
 * `ramda: ^0.26.1`
 * `react: ^16.10.2`
 * `react-dom: ^16.10.2`

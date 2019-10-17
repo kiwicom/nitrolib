@@ -118,8 +118,9 @@ const Content = (props: Props) => {
 
   const [selected, setSelected] = React.useState<State>(stateValues);
 
-  const handleSelect = (item: { [key: string]: boolean }) =>
+  const handleSelect = (item: { [key: string]: boolean }) => {
     setSelected({ ...stateValues, ...item });
+  };
 
   const {
     handleOpenDebug,

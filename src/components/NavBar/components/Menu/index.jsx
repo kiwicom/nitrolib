@@ -17,7 +17,7 @@ type Props = {|
   debug?: React.Node,
   portal: string,
   shown: boolean,
-  isOpenNav: string,
+  isOpenNav: boolean,
   onToggle: () => void,
   onSetModal: (modal: Modal) => void,
   onSaveLanguage: (lang: string) => void,
@@ -51,7 +51,7 @@ const Menu = ({
             <ValueBind value={MODALS.MY_BOOKING} onChange={onChange}>
               {({ onClick }) => (
                 <LoginButton onClick={onClick}>
-                  <Text t="account.sign_in" weight="bold" />
+                  <Text t="account.sign_in" size="small" weight="bold" />
                 </LoginButton>
               )}
             </ValueBind>
