@@ -1,3 +1,13 @@
+## [9.2.5](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.2.4...v9.2.5) (2019-10-17)
+
+
+### Bug Fixes
+
+* **components:** Sidebar media link ([4e3048b](https://gitlab.skypicker.com/frontend/nitrolib/commit/4e3048b))
+* **services:** Enabled affilId fix in currencies ([419e907](https://gitlab.skypicker.com/frontend/nitrolib/commit/419e907))
+
+
+
 ## [9.2.4](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.2.3...v9.2.4) (2019-10-15)
 
 
