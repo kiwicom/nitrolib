@@ -332,7 +332,7 @@ const SideNav = ({
                     <BrandedMenuItem
                       title={company.media.title}
                       Icon={company.media.Icon}
-                      link={company.media.link}
+                      link="https://media.kiwi.com/"
                     />
                   )}
                 </MenuGroup>
