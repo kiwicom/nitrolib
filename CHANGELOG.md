@@ -1,3 +1,13 @@
+## [9.2.6](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.2.5...v9.2.6) (2019-10-18)
+
+
+### Bug Fixes
+
+* **components:** Navbar hide logo and sideNav ([023f0b9](https://gitlab.skypicker.com/frontend/nitrolib/commit/023f0b9))
+* **meta:** Generated file copying ([c48cabf](https://gitlab.skypicker.com/frontend/nitrolib/commit/c48cabf))
+
+
+
 ## [9.2.5](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.2.4...v9.2.5) (2019-10-17)
 
 
