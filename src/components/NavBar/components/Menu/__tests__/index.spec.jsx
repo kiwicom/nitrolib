@@ -15,6 +15,7 @@ describe("#Menu", () => {
         newDesign={false}
         inverted={false}
         onSaveLanguage={jest.fn()}
+        sideNav
         onSelectTrip={jest.fn()}
         onSetModal={jest.fn()}
       />,

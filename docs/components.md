@@ -429,7 +429,7 @@ import NavBar from "@kiwicom/nitro/lib/components/NavBar";
 
 **Types:**
 ```js
-type NavElement = "currencies" | "help" | "starred" | "mmb" | "languages";
+type NavElement = "currencies" | "help" | "starred" | "mmb" | "languages" | "logo" | "sideNav";
 
 type Props = {|
   starred: React.Node,

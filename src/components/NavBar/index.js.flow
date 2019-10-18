@@ -3,7 +3,7 @@ import * as React from "react";
 
 import type { Modal } from "../../consts/modals";
 
-type NavElement = "currencies" | "help" | "starred" | "mmb" | "languages";
+type NavElement = "currencies" | "help" | "starred" | "mmb" | "languages" | "logo" | "sideNav";
 
 type Props = {|
   starred: React.Node,

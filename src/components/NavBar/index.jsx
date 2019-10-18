@@ -23,7 +23,7 @@ type Inverted = {|
   inverted: boolean,
 |};
 
-type NavElement = "currencies" | "help" | "starred" | "mmb" | "languages";
+type NavElement = "currencies" | "help" | "starred" | "mmb" | "languages" | "logo" | "sideNav";
 
 const Container = styled.div`
   width: 100%;
@@ -98,12 +98,14 @@ const NavBar = ({
     <Container inverted={inverted}>
       <Stack justify="between" align="center" spacing="none" dataTest="NavBar">
         <Stack flex shrink inline align="center" spacing="none" mediumMobile={{ spacing: "comfy" }}>
-          <Logo
-            inverted={inverted}
-            onClick={onLogoClick}
-            animate={animateLogo}
-            animateShow={logoAnimateShow}
-          />
+          {visible("logo") && (
+            <Logo
+              inverted={inverted}
+              onClick={onLogoClick}
+              animate={animateLogo}
+              animateShow={logoAnimateShow}
+            />
+          )}
           {headerLinks}
         </Stack>
         <Stack
@@ -142,6 +144,7 @@ const NavBar = ({
             subscription={subscription}
             debug={debug}
             shown={visible("mmb")}
+            sideNav={visible("sideNav")}
             onSetModal={onSetModal}
             onSaveLanguage={onSaveLanguage}
             onSelectTrip={onSelectTrip}

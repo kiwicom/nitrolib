@@ -22,6 +22,7 @@ type Props = {|
   onSaveLanguage: (lang: string) => void,
   onSelectTrip: (bid: string) => void,
   newDesign: boolean,
+  sideNav: boolean,
 |};
 
 const Menu = ({
@@ -30,6 +31,7 @@ const Menu = ({
   portal,
   shown,
   inverted,
+  sideNav,
   onSaveLanguage,
   onSelectTrip,
   newDesign,
@@ -62,15 +64,17 @@ const Menu = ({
           />
         ))}
 
-      <SideNav
-        subscription={subscription}
-        debug={debug}
-        inverted={inverted}
-        portal={portal}
-        onOpenModal={onChange}
-        onSaveLanguage={onSaveLanguage}
-        onSetModal={onSetModal}
-      />
+      {sideNav && (
+        <SideNav
+          subscription={subscription}
+          debug={debug}
+          inverted={inverted}
+          portal={portal}
+          onOpenModal={onChange}
+          onSaveLanguage={onSaveLanguage}
+          onSetModal={onSetModal}
+        />
+      )}
     </>
   );
 };
