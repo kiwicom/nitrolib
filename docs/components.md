@@ -27,6 +27,7 @@ Located in `@kiwicom/nitro/lib/components/<component>`.
 * [CloseByKey](#closebykey)
 * [CookiesPopup](#cookiespopup)
 * [CustomerBaggageTile](#customerbaggagetile)
+* [DateInput](#dateinput)
 * [Desktop](#desktop)
 * [InitAuth](#initauth)
 * [InitCurrency](#initcurrency)
@@ -1054,6 +1055,44 @@ See types:
   baggage={baggageData}
 />
 ```
+
+### DateInput
+
+**Import:**
+```js
+import DateInput from "@kiwicom/nitro/lib/components/DateInput";
+```
+
+**Types:**
+```js
+type Props = {|
+  label: string,
+  value?: ?Date,
+  error?: string,
+  onChange: (?Date) => void,
+|};
+
+declare export default React.ComponentType<Props>;
+```
+
+[Storybook](https://nitro-storybook-master.fe.staging.kiwi.com/?selectedKind=DateInput).
+
+**Context needs:**
+* [intl](./services#intl)
+
+**Selectors `data-test`:**
+* ```"DateInput"```
+* ```"DateInput-Date"```
+* ```"DateInput-Month"```
+* ```"DateInput-Year"```
+
+- Date input field, with default date validation included
+
+
+- `label: string`
+- `error?: string` - default date validation is done by component, but you can use this property to indicate that e.g. it's not in your allowed range
+- `value?: Date` - pass `Date` to set initial date
+- `onChange: (?Date) => void` - when user filled all fields and Date is valid, you get back `Date`, otherwise `null`
 
 ### Desktop
 

@@ -10,5 +10,5 @@ import DateInput from "../src/components/DateInput";
 storiesOf("DateInput", module)
   .addDecorator(withData)
   .add("default", () => (
-    <DateInput label="Departure date" value={null} error="" onChange={action("onChange")} />
+    <DateInput label="Departure date" error="" onChange={action("onChange")} />
   ));

@@ -9,6 +9,7 @@ const errors = {
   passwordMismatch: __("account.password_confirm_not_matching"),
   wrongIATACode: __("forms.enter_iata_code"),
   incorrectBidIATAInput: __("account.my_booking_login_incorrect"),
+  invalidDate: __("forms.errors.invalid_date"),
   general: __("common.api_error"),
 };
 

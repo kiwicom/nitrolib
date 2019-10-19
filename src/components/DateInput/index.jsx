@@ -7,13 +7,16 @@ import InputGroup from "@kiwicom/orbit-components/lib/InputGroup";
 import getDate from "date-fns/getDate";
 import getMonth from "date-fns/getMonth";
 import getYear from "date-fns/getYear";
+import isValid from "date-fns/isValid";
+import endOfMonth from "date-fns/endOfMonth";
 
 import months from "../../records/Months";
+import errors from "../../consts/errors";
 import { Consumer as IntlConsumer } from "../../services/intl/context";
 
 type Props = {|
   label: string,
-  value: ?Date,
+  value?: ?Date,
   error?: string,
   onChange: (?Date) => void,
 |};
@@ -22,6 +25,9 @@ type State = {|
   date: string,
   month: string,
   year: string,
+  dateFilled: boolean,
+  monthFilled: boolean,
+  yearFilled: boolean,
 |};
 
 class DateInput extends React.Component<Props, State> {
@@ -33,18 +39,60 @@ class DateInput extends React.Component<Props, State> {
       date: value ? String(getDate(value)) : "",
       month: value ? String(getMonth(value)) : "",
       year: value ? String(getYear(value)) : "",
+      dateFilled: false,
+      monthFilled: false,
+      yearFilled: false,
     };
   }
 
-  maybeUpdateDate = () => {
+  getDateObject() {
     const { date, month, year } = this.state;
-    const { onChange } = this.props;
 
     if (date && month && year) {
-      onChange(new Date(Number(year), Number(month), Number(date)));
-    } else {
-      onChange(null);
+      const d = Number(date);
+      const m = Number(month);
+      const y = Number(year);
+
+      // only meaningful full year is allowed to not interpret 12 as 1912
+      if (y < 1900) {
+        return null;
+      }
+
+      const dateObject = new Date(y, m, d);
+
+      // date has to be valid day of month
+      if (dateObject > endOfMonth(new Date(y, m))) {
+        return null;
+      }
+
+      return dateObject;
     }
+
+    return null;
+  }
+
+  getDefaultError = () => {
+    const { date, month, year, dateFilled, monthFilled, yearFilled } = this.state;
+
+    if (!(dateFilled && monthFilled && yearFilled)) {
+      return null;
+    }
+
+    if (date && month && year) {
+      const value = this.getDateObject();
+      if (!isValid(value)) {
+        return errors.invalidDate;
+      }
+    }
+
+    return null;
+  };
+
+  updateDate = () => {
+    const { onChange } = this.props;
+    const date = this.getDateObject();
+
+    onChange(isValid(date) ? date : null);
   };
 
   handleChange = (ev: SyntheticInputEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -52,26 +100,40 @@ class DateInput extends React.Component<Props, State> {
     const fieldName = ev.target.name;
 
     if (fieldName === "date") {
-      this.setState({ date: value }, this.maybeUpdateDate);
+      this.setState({ date: value }, this.updateDate);
     } else if (fieldName === "month") {
-      this.setState({ month: value }, this.maybeUpdateDate);
+      this.setState({ month: value }, this.updateDate);
     } else {
-      this.setState({ year: value }, this.maybeUpdateDate);
+      this.setState({ year: value }, this.updateDate);
+    }
+  };
+
+  handleBlur = (ev: SyntheticInputEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const fieldName = ev.target.name;
+
+    if (fieldName === "date") {
+      this.setState({ dateFilled: true });
+    } else if (fieldName === "month") {
+      this.setState({ monthFilled: true });
+    } else {
+      this.setState({ yearFilled: true });
     }
   };
 
   render() {
     const { label, error } = this.props;
     const { date, month, year } = this.state;
+    const errorMessage = error || this.getDefaultError();
 
     return (
       <IntlConsumer>
         {intl => (
           <InputGroup
-            error={error && intl.translate(error)}
-            onChange={this.handleChange}
+            error={errorMessage && intl.translate(errorMessage)}
             label={intl.translate(label)}
             flex={["0 0 60px", "1 1 100%", "0 0 90px"]}
+            onChange={this.handleChange}
+            onBlur={this.handleBlur}
             dataTest="DateInput"
           >
             <InputField
