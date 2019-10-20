@@ -75,7 +75,7 @@ const handleUTMs = (query: Query): UTM => {
 
   saveStorage(fromURL); // Saves fresh UTMs
 
-  return { ...fromURL, ...fromStorage };
+  return { ...fromStorage, ...fromURL };
 };
 
 export default handleUTMs;

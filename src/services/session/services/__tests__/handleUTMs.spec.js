@@ -99,6 +99,26 @@ describe("#handleUTMs", () => {
     expect(res).toEqual(all);
   });
 
+  test("url over local", () => {
+    // $FlowExpected: jest bug
+    local.load.mockImplementation(utm =>
+      JSON.stringify({
+        value: all[utm],
+        createdAt: new Date(2019, 4, 15, 0, 0, 0), // cca 15 days before
+      }),
+    );
+
+    const res = handleUTMs({ utm_source: "kek" });
+    // $FlowExpected: jest bug
+    expect(local.load.mock.calls.length).toBe(32); // clear & load
+    // $FlowExpected: jest bug
+    expect(local.remove.mock.calls.length).toBe(0);
+    // $FlowExpected: jest bug
+    expect(local.save.mock.calls.length).toBe(1);
+
+    expect(res).toEqual({ ...all, utm_source: "kek" });
+  });
+
   test("both", () => {
     // $FlowExpected: jest bug
     local.load.mockImplementation(utm =>
