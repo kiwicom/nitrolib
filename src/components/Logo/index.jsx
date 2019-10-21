@@ -98,6 +98,7 @@ const logoTransitionStyle = {
   exited: {
     opacity: 0,
     width: "0px",
+    overflow: "hidden",
   },
   unmounted: {},
 };
