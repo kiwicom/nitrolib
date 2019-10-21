@@ -1,11 +1,9 @@
 // @flow strict
-import { advanceTo, clear } from "jest-date-mock";
-
 import handleUTMs from "../handleUTMs";
-import * as local from "../../local";
+import * as session from "../../session";
 
 jest.mock("../../cookies");
-jest.mock("../../local");
+jest.mock("../../session");
 
 const UTMs = {
   utm_source: "utm_source",
@@ -40,25 +38,15 @@ const query = {
 describe("#handleUTMs", () => {
   beforeEach(() => {
     // $FlowExpected: jest bug
-    local.load.mockReset();
+    session.load.mockReset();
     // $FlowExpected: jest bug
-    local.save.mockReset();
-    // $FlowExpected: jest bug
-    local.remove.mockReset();
-
-    advanceTo(new Date(2019, 5, 1, 0, 0, 0)); // 2019-06-01
-  });
-
-  afterEach(() => {
-    clear();
+    session.save.mockReset();
   });
 
   test("none", () => {
     const res = handleUTMs({});
     // $FlowExpected: jest bug
-    expect(local.load.mock.calls.length).toBe(32); // clear & load
-    // $FlowExpected: jest bug
-    local.load.mock.calls.forEach(([utm]) => {
+    session.load.mock.calls.forEach(([utm]) => {
       expect(all[utm]).toBe(utm);
     });
 
@@ -68,11 +56,9 @@ describe("#handleUTMs", () => {
   test("url", () => {
     const res = handleUTMs(query);
     // $FlowExpected: jest bug
-    expect(local.load.mock.calls.length).toBe(32); // clear & load
+    expect(session.save.mock.calls.length).toBe(16);
     // $FlowExpected: jest bug
-    expect(local.save.mock.calls.length).toBe(16);
-    // $FlowExpected: jest bug
-    local.save.mock.calls.forEach(([utm]) => {
+    session.save.mock.calls.forEach(([utm]) => {
       expect(all[utm]).toBe(utm);
     });
 
@@ -81,82 +67,39 @@ describe("#handleUTMs", () => {
 
   test("local", () => {
     // $FlowExpected: jest bug
-    local.load.mockImplementation(utm =>
-      JSON.stringify({
-        value: all[utm],
-        createdAt: new Date(2019, 4, 15, 0, 0, 0), // cca 15 days before
-      }),
-    );
+    session.load.mockImplementation(utm => all[utm]);
 
     const res = handleUTMs({});
     // $FlowExpected: jest bug
-    expect(local.load.mock.calls.length).toBe(32); // clear & load
+    expect(session.remove.mock.calls.length).toBe(0);
     // $FlowExpected: jest bug
-    expect(local.remove.mock.calls.length).toBe(0);
-    // $FlowExpected: jest bug
-    expect(local.save.mock.calls.length).toBe(0);
+    expect(session.save.mock.calls.length).toBe(0);
 
     expect(res).toEqual(all);
   });
 
   test("url over local", () => {
     // $FlowExpected: jest bug
-    local.load.mockImplementation(utm =>
-      JSON.stringify({
-        value: all[utm],
-        createdAt: new Date(2019, 4, 15, 0, 0, 0), // cca 15 days before
-      }),
-    );
+    session.load.mockImplementation(utm => all[utm]);
 
     const res = handleUTMs({ utm_source: "kek" });
     // $FlowExpected: jest bug
-    expect(local.load.mock.calls.length).toBe(32); // clear & load
+    expect(session.remove.mock.calls.length).toBe(0);
     // $FlowExpected: jest bug
-    expect(local.remove.mock.calls.length).toBe(0);
-    // $FlowExpected: jest bug
-    expect(local.save.mock.calls.length).toBe(1);
+    expect(session.save.mock.calls.length).toBe(1);
 
     expect(res).toEqual({ ...all, utm_source: "kek" });
   });
 
   test("both", () => {
     // $FlowExpected: jest bug
-    local.load.mockImplementation(utm =>
-      UTMs[utm]
-        ? JSON.stringify({
-            value: UTMs[utm],
-            createdAt: new Date(2019, 4, 15, 0, 0, 0), // cca 15 days before
-          })
-        : null,
-    );
+    session.load.mockImplementation(utm => UTMs[utm] || null);
 
     const res = handleUTMs(MKTs);
     // $FlowExpected: jest bug
-    expect(local.load.mock.calls.length).toBe(32); // clear & load
+    expect(session.remove.mock.calls.length).toBe(0);
     // $FlowExpected: jest bug
-    expect(local.remove.mock.calls.length).toBe(0);
-    // $FlowExpected: jest bug
-    expect(local.save.mock.calls.length).toBe(5);
-
-    expect(res).toEqual(all);
-  });
-
-  test("clear old", () => {
-    // $FlowExpected: jest bug
-    local.load.mockImplementation(utm =>
-      JSON.stringify({
-        value: all[utm],
-        createdAt: new Date(2019, 3, 15, 0, 0, 0), // cca 45 days before
-      }),
-    );
-
-    const res = handleUTMs({});
-    // $FlowExpected: jest bug
-    expect(local.load.mock.calls.length).toBe(32); // clear & load
-    // $FlowExpected: jest bug
-    expect(local.remove.mock.calls.length).toBe(16);
-    // $FlowExpected: jest bug
-    expect(local.save.mock.calls.length).toBe(0);
+    expect(session.save.mock.calls.length).toBe(5);
 
     expect(res).toEqual(all);
   });
