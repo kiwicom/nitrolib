@@ -1,3 +1,21 @@
+# [9.3.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.2.6...v9.3.0) (2019-10-22)
+
+
+### Bug Fixes
+
+* Update DateInput to handle invalid date ([80977b8](https://gitlab.skypicker.com/frontend/nitrolib/commit/80977b8))
+* **components:** Fixed NavBar Logo overlap ([ba8abca](https://gitlab.skypicker.com/frontend/nitrolib/commit/ba8abca))
+* **components:** Tweak lineheights & wrap behavior in AddBlueRibbonBags ([58305e6](https://gitlab.skypicker.com/frontend/nitrolib/commit/58305e6))
+* **services:** Prioritize URL over local storage in UTMs ([7779b5a](https://gitlab.skypicker.com/frontend/nitrolib/commit/7779b5a))
+* **services:** Save UTMs to session storage ([2ba3055](https://gitlab.skypicker.com/frontend/nitrolib/commit/2ba3055))
+
+
+### Features
+
+* Enable to log events to datadog ([10a79ae](https://gitlab.skypicker.com/frontend/nitrolib/commit/10a79ae))
+
+
+
 ## [9.2.8](https://gitlab.skypicker.com/frontend/nitrolib/compare/v6.0.1...v9.2.8) (2019-10-21)
 
 
