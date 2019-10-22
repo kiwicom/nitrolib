@@ -167,7 +167,7 @@ export const MAGIC_LINK_USED = {
 export const MAGIC_LINK_EXPIRED = {
   category: "General",
   subCategory: "MagicLogin",
-  action: "hMagicLinkExpired",
+  action: "MagicLinkExpired",
   destinations: { logmole: false, exponea: false, ga: false, bigQuery: true, datadog: true },
 };
 
