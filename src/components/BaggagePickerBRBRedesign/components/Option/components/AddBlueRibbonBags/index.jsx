@@ -47,6 +47,14 @@ const Wrapper = styled.div`
   overflow: hidden;
 `;
 
+const ButtonContentWrapper = styled.span`
+  line-height: ${themeDefault.orbit.lineHeightHeading};
+`;
+
+const LineHeightTextNormalWrapper = styled.span`
+  line-height: ${themeDefault.orbit.lineHeightTextNormal};
+`;
+
 const AddBlueRibbonBags = ({
   blueRibbonBagPrice,
   isBlueRibbonBagAdded,
@@ -97,9 +105,9 @@ const AddBlueRibbonBags = ({
             flex
             direction="column"
             spacing="tight"
-            largeMobile={{ direction: "row", spacing: "natural", align: "center" }}
+            largeMobile={{ direction: "row", spacing: "natural", align: "center", wrap: true }}
           >
-            <Stack inline grow={false} align="center">
+            <Stack inline grow={false} align="center" wrap>
               <Button
                 type="primary"
                 size="small"
@@ -107,10 +115,14 @@ const AddBlueRibbonBags = ({
                 iconLeft={<PlusCircle />}
                 dataTest="BaggagePickerBRBRedesign-AddBlueRibbonBagButton"
               >
-                <Translate t="baggage_modal.blue_ribbon_bags.add_bag_protection" />
+                <ButtonContentWrapper>
+                  <Translate t="baggage_modal.blue_ribbon_bags.add_bag_protection" />
+                </ButtonContentWrapper>
               </Button>
               <Text weight="bold" size="small">
-                <Price value={blueRibbonBagPrice.amount} />
+                <LineHeightTextNormalWrapper>
+                  <Price value={blueRibbonBagPrice.amount} />
+                </LineHeightTextNormalWrapper>
               </Text>
             </Stack>
             <Text type="secondary" size="small">
@@ -120,7 +132,7 @@ const AddBlueRibbonBags = ({
         </Stack>
       </AddSectionTransitionWrapper>
       <RemoveSectionTransitionWrapper visible={isBlueRibbonBagAdded}>
-        <Stack flex align="center">
+        <Stack flex align="center" wrap>
           <Badge type="success" icon={<CheckCircle />}>
             <Translate t="baggage_modal.blue_ribbon_bags.added" />
           </Badge>
@@ -130,7 +142,9 @@ const AddBlueRibbonBags = ({
             onClick={removeBlueRibbonBag}
             dataTest="BaggagePickerBRBRedesign-RemoveBlueRibbonBagButton"
           >
-            <Translate t="baggage_modal.blue_ribbon_bags.remove" />
+            <LineHeightTextNormalWrapper>
+              <Translate t="baggage_modal.blue_ribbon_bags.remove" />
+            </LineHeightTextNormalWrapper>
           </TextLink>
         </Stack>
       </RemoveSectionTransitionWrapper>
