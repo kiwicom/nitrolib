@@ -940,6 +940,7 @@ export type Event = {|
     ga: boolean,
     logmole: boolean,
     bigQuery: boolean,
+    datadog?: boolean,
   |},
 |};
 
