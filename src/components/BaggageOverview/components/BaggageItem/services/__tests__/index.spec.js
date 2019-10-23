@@ -19,12 +19,17 @@ const passengers = [
     firstName: "George",
     lastName: "Bush",
   },
+  {
+    paxId: 4,
+    firstName: "花生",
+    lastName: "雞",
+  },
 ];
 
 describe("#getPassengerNames", () => {
-  test("returns three passengers names", () => {
+  test("returns four passenger names", () => {
     const passengersNames = getPassengerNames(passengers);
-    expect(passengersNames).toEqual("B. H. Obama, D. J. Trump, G. Bush");
+    expect(passengersNames).toEqual("B. H. Obama, D. J. Trump, G. Bush, 花生 雞");
   });
   test("renders one passenger name without middle name", () => {
     const passengersNames = getPassengerNames([passengers[2]]);
