@@ -1,6 +1,9 @@
 // @flow strict
 import * as R from "ramda";
+import isBefore from "date-fns/isBefore";
+import subMonths from "date-fns/subMonths";
 
+import * as local from "../local";
 import * as session from "../session";
 
 const UTMs = {
@@ -9,12 +12,6 @@ const UTMs = {
   utm_term: "",
   utm_content: "",
   utm_campaign: "",
-  utm_tm_source: "",
-  utm_tm_medium: "",
-  utm_tm_component: "",
-  utm_tm_content: "",
-  utm_tm_campaign: "",
-  utm_tm_version: "",
   mkt_route: "",
   mkt_postback: "",
   mkt_origin: "",
@@ -22,35 +19,74 @@ const UTMs = {
   mkt_agency: "",
 };
 
+const UTM_TMs = {
+  utm_tm_source: "",
+  utm_tm_medium: "",
+  utm_tm_component: "",
+  utm_tm_content: "",
+  utm_tm_campaign: "",
+  utm_tm_version: "",
+};
+
 type Query = { [key: string]: string | string[] };
 type UTM = { [key: string]: string };
 
-const loadURL = query =>
+const loadURL = (query: Query, utms: UTM) =>
   R.compose(
     R.filter(Boolean),
     R.mapObjIndexed((_, key) => query[key]),
-  )(UTMs);
+  )(utms);
 
 const loadStorage = () =>
   R.compose(
+    R.map(
+      R.compose(
+        R.prop("value"),
+        JSON.parse,
+      ),
+    ),
     R.filter(Boolean),
-    R.mapObjIndexed((_, key) => session.load(key) || ""), // || "" due to Flow
+    R.mapObjIndexed((_, key) => local.load(key) || ""), // || "" due to Flow
   )(UTMs);
 
-const saveStorage = (utms: Query) =>
+const clearStorage = () =>
+  R.compose(
+    R.forEachObjIndexed((item, key) => {
+      if (isBefore(new Date(item.createdAt), subMonths(new Date(), 1))) {
+        local.remove(key);
+      }
+    }),
+    R.map(JSON.parse),
+    R.filter(Boolean),
+    R.mapObjIndexed((_, key) => local.load(key) || ""), // || "" due to Flow
+  )(UTMs);
+
+const saveLocalStorage = (utms: Query) =>
+  R.compose(
+    R.forEachObjIndexed((val, key) => {
+      local.save(key, JSON.stringify(val));
+    }),
+    R.map(value => ({ value, createdAt: new Date() })),
+  )(utms);
+
+const saveSessionStorage = (utms: Query) =>
   R.forEachObjIndexed((val, key) => {
-    session.save(key, String(val));
+    session.save(key, JSON.stringify(val));
   }, utms);
 
 const handleUTMs = (query: Query): UTM => {
+  clearStorage(); // Removes outdated UTMs
+
   const strings = R.map(String, query);
 
-  const fromURL = loadURL(strings);
+  const utms = loadURL(strings, UTMs);
+  const utmTms = loadURL(strings, UTM_TMs);
   const fromStorage = loadStorage();
 
-  saveStorage(fromURL); // Saves fresh UTMs
+  saveLocalStorage(utms);
+  saveSessionStorage(utmTms);
 
-  return { ...fromStorage, ...fromURL };
+  return { ...fromStorage, ...utmTms, ...utms };
 };
 
 export default handleUTMs;
