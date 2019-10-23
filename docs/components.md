@@ -1172,7 +1172,7 @@ type Props = {|
   onMyBooking: (arg: OnMyBookingArg) => void,
   onRegister: () => void,
   onSocialAuth: (authURL: string) => void,
-  onSignIn: (token: string) => void,
+  onSignIn: (auth: Auth) => void,
   onSignOut: () => void,
   children: (arg: Arg) => React.Node,
 |};
