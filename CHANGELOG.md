@@ -1,3 +1,23 @@
+## [9.3.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.2.8...v9.3.1) (2019-10-23)
+
+
+### Bug Fixes
+
+* **components:** Fixed NavBar Logo overlap ([ba8abca](https://gitlab.skypicker.com/frontend/nitrolib/commit/ba8abca))
+* **components:** InitAuth flow type ([1d11c2f](https://gitlab.skypicker.com/frontend/nitrolib/commit/1d11c2f))
+* **components:** MagicLogin documentation ([9338165](https://gitlab.skypicker.com/frontend/nitrolib/commit/9338165))
+* **components:** Tweak lineheights & wrap behavior in AddBlueRibbonBags ([58305e6](https://gitlab.skypicker.com/frontend/nitrolib/commit/58305e6))
+* **services:** Only save UTM_TMs to session storage ([157c690](https://gitlab.skypicker.com/frontend/nitrolib/commit/157c690))
+* Remove typo in login action name ([62792a5](https://gitlab.skypicker.com/frontend/nitrolib/commit/62792a5))
+
+
+### Features
+
+* **components:** BaggageOverview asian names ([fe38591](https://gitlab.skypicker.com/frontend/nitrolib/commit/fe38591))
+* Enable to log events to datadog ([10a79ae](https://gitlab.skypicker.com/frontend/nitrolib/commit/10a79ae))
+
+
+
 # [9.3.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.2.6...v9.3.0) (2019-10-22)
 
 
