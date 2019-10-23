@@ -382,9 +382,7 @@ Modal component handling the whole login flow with magic link.
 
 ```js
 import * as React from "react"
-import { connect } from "react-redux"
 import MagicLogin from "@kiwicom/nitro/lib/components/MagicLogin"
-import type { Connector } from "react-redux"
 import type { AuthUser } from "@kiwicom/nitro/lib/records/Auth"
 
 type Provider = "facebook" | "google"
@@ -406,11 +404,12 @@ type Props = {|
   ...OwnProps,
 |}
 
-// onSignIn fn should handle usual action which takes place after successful login via email & password  
+// onSignIn fn should handle usual action which takes place after successful login via email & password
 const onSignIn = (user) => ({ type: LOGIN_SUCCESS, res: user })
 // onSocialLogin fn should trigger full OAuth login process thought specified provider
 const onSocialLogin = (provider: Provider) => {}
 
+// Redux connector HOC
 const connector: Connector<OwnProps, Props> = connect(
   null,
   dispatch => ({
