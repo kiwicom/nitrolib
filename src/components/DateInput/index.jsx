@@ -10,7 +10,7 @@ import getYear from "date-fns/getYear";
 import isValid from "date-fns/isValid";
 import endOfMonth from "date-fns/endOfMonth";
 
-import months from "../../records/Months";
+import months from "../../consts/months";
 import errors from "../../consts/errors";
 import { Consumer as IntlConsumer } from "../../services/intl/context";
 

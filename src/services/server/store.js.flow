@@ -1,0 +1,36 @@
+// @flow strict
+import type { Airlines } from "../../records/Airline";
+import type { BrandLanguages } from "../../records/BrandLanguage";
+import type { Brands } from "../../records/Brand";
+import type { Continents } from "../../records/Continents";
+import type { Countries } from "../../records/Country";
+import type { Fetched } from "../../records/Fetched";
+import type { LangInfos } from "../../records/LangInfo";
+import type { IntlsRaw } from "../../records/Intl";
+
+export type Data = {|
+  airlines: Airlines,
+  brandLanguages: BrandLanguages,
+  brands: Brands,
+  continents: Continents,
+  countries: Countries,
+  languages: LangInfos,
+  intls: IntlsRaw,
+  orbits: IntlsRaw,
+|};
+
+declare export var data: Data;
+
+export type GetFetchedOptions = {|
+  langId: string,
+  brandId: string,
+|};
+
+declare export var getFetched: (input: GetFetchedOptions) => Fetched;
+
+export type LoadOptions = {|
+  dataPath: string,
+  modulesPath: string,
+|};
+
+declare export var load: (input: LoadOptions) => Promise<void>;

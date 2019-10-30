@@ -10,6 +10,7 @@ Located in `@kiwicom/nitro/lib/records/<record>`.
 * [Brand](#brand)
 * [BrandLanguage](#brandlanguage)
 * [Continents](#continents)
+* [CookieSettings](#cookiesettings)
 * [Country](#country)
 * [Currency](#currency)
 * [Event](#event)
@@ -783,6 +784,24 @@ declare export var continentsDefault: Continents;
 ```
 
 _TODO_
+
+## CookieSettings
+
+**Imports:**
+```js
+import * as fns from "@kiwicom/nitro/lib/records/CookieSettings";
+import type { CookieSettings } from "@kiwicom/nitro/lib/records/CookieSettings";
+```
+
+**Types:**
+```js
+export type CookieSettings = {|
+  marketing: boolean,
+  performance: boolean,
+|};
+```
+
+
 
 ## Country
 

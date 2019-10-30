@@ -814,6 +814,91 @@ declare export default (h: Headers, url: string, limit?: number) => AnalysePaylo
 
 
 
+### CookieSettings
+
+**Import:**
+```js
+import * as cookieSettings from "@kiwicom/nitro/lib/services/server/cookieSettings";
+```
+
+**Types:**
+```js
+type Cookies = { [key: string]: string };
+
+declare export default (cookies: Cookies) => CookieSettings;
+```
+
+See types:
+* [CookieSettings](./records#cookiesettings)
+
+
+
+### Store
+
+**Import:**
+```js
+import * as store from "@kiwicom/nitro/lib/services/server/store";
+```
+
+**Types:**
+```js
+export type Data = {|
+  airlines: Airlines,
+  brandLanguages: BrandLanguages,
+  brands: Brands,
+  continents: Continents,
+  countries: Countries,
+  languages: LangInfos,
+  intls: IntlsRaw,
+  orbits: IntlsRaw,
+|};
+
+declare export var data: Data;
+
+export type GetFetchedOptions = {|
+  langId: string,
+  brandId: string,
+|};
+
+declare export var getFetched: (input: GetFetchedOptions) => Fetched;
+
+export type LoadOptions = {|
+  dataPath: string,
+  modulesPath: string,
+|};
+
+declare export var load: (input: LoadOptions) => Promise<void>;
+```
+
+See types:
+* [Airline](./records#airline)
+* [BrandLanguage](./records#brandlanguage)
+* [Brand](./records#brand)
+* [Continents](./records#continents)
+* [Country](./records#country)
+* [Fetched](./records#fetched)
+* [LangInfo](./records#langinfo)
+* [Intl](./records#intl)
+
+**Store** contains all FE's needed server data. It loads everything for the server's runtime and has it available in the exported `data` object.
+
+> Be sure to run `yarn nitro fetch` and `yarn nitro translations` to have the data ready!
+
+The `load` function returns a promise, which resolves once all data is loaded and can be accessed by the runtime.
+
+**Example:**
+```js
+import { load } from "@kiwicom/nitro/lib/services/server/load";
+
+// ...
+
+load(options).then(() => {
+  app.use(/* ...*/);
+
+  app.listen(/* ...*/);
+});
+```
+
 ## Session
 
 Contains everything regarding session data:

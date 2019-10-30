@@ -1,0 +1,6 @@
+// @flow strict
+import type { CookieSettings } from "../../records/CookieSettings";
+
+type Cookies = { [key: string]: string };
+
+declare export default (cookies: Cookies) => CookieSettings;
