@@ -135,12 +135,7 @@ export const Logo = ({
   onClick,
 }: Props) =>
   id === "kiwicom" ? (
-    <Link
-      data-test="Logo"
-      href={`${redirectUrl}${languageId}/`}
-      onClick={onClick}
-      hiddenDefault={animate}
-    >
+    <Link data-test="Logo" href={`${redirectUrl}`} onClick={onClick} hiddenDefault={animate}>
       <Transition in={animate && animateShow} timeout={animationDuration}>
         {state => (
           <div
