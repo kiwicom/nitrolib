@@ -1,3 +1,17 @@
+# [9.4.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.3.1...v9.4.0) (2019-10-30)
+
+
+### Bug Fixes
+
+* **components:** Logo url ([cc8cd8c](https://gitlab.skypicker.com/frontend/nitrolib/commit/cc8cd8c))
+
+
+### Features
+
+* **services:** Add server store and cookie settings ([bd4f432](https://gitlab.skypicker.com/frontend/nitrolib/commit/bd4f432))
+
+
+
 ## [9.3.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.2.8...v9.3.1) (2019-10-23)
 
 
