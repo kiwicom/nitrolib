@@ -1,3 +1,23 @@
+## [9.4.1](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.3.0...v9.4.1) (2019-11-01)
+
+
+### Bug Fixes
+
+* Remove typo in login action name ([62792a5](https://gitlab.skypicker.com/frontend/nitrolib/commit/62792a5))
+* **components:** Day date-fns fix ([1420636](https://gitlab.skypicker.com/frontend/nitrolib/commit/1420636))
+* **components:** InitAuth flow type ([1d11c2f](https://gitlab.skypicker.com/frontend/nitrolib/commit/1d11c2f))
+* **components:** Logo url ([cc8cd8c](https://gitlab.skypicker.com/frontend/nitrolib/commit/cc8cd8c))
+* **components:** MagicLogin documentation ([9338165](https://gitlab.skypicker.com/frontend/nitrolib/commit/9338165))
+* **services:** Only save UTM_TMs to session storage ([157c690](https://gitlab.skypicker.com/frontend/nitrolib/commit/157c690))
+
+
+### Features
+
+* **components:** BaggageOverview asian names ([fe38591](https://gitlab.skypicker.com/frontend/nitrolib/commit/fe38591))
+* **services:** Add server store and cookie settings ([bd4f432](https://gitlab.skypicker.com/frontend/nitrolib/commit/bd4f432))
+
+
+
 # [9.4.0](https://gitlab.skypicker.com/frontend/nitrolib/compare/v9.3.1...v9.4.0) (2019-10-30)
 
 
