@@ -2,7 +2,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 
-import Day from "../src/components/Day";
+import Day from "../src/components/Timestamp";
 import withData from "./decorators/withData";
 
 storiesOf("Day", module)

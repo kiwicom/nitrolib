@@ -9,7 +9,7 @@ import { left } from "@kiwicom/orbit-components/lib/utils/rtl";
 import Accommodation from "@kiwicom/orbit-components/lib/icons/Accommodation";
 
 import ItinerarySectorTitle from "../Title";
-import Day from "../../../Day";
+import Day from "../../../Timestamp";
 import type { Sector } from "../../../../records/Sector";
 import type { Segment, Carrier } from "../../../../records/Segment";
 import ItinerarySegment from "../Segment";

@@ -3,7 +3,7 @@ import * as React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Text from "@kiwicom/orbit-components/lib/Text";
 
-import DayFormat from "../../../Day";
+import DayFormat from "../../../Timestamp";
 import DayWrapper from "../../primitives/Day";
 import { getWeekDays } from "../../services/getMonthDays";
 

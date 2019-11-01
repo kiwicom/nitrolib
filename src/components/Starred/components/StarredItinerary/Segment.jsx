@@ -7,7 +7,7 @@ import TextWrapper from "@kiwicom/orbit-components/lib/Text";
 import { right, left } from "@kiwicom/orbit-components/lib/utils/rtl";
 
 import type { Stop } from "../../../../records/Segment";
-import Day from "../../../Day";
+import Day from "../../../Timestamp";
 import Duration from "../../../Duration";
 
 type Props = {|

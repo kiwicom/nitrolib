@@ -17,7 +17,7 @@ const Day = (props: Props) => (
       <DateFnsLocale getLocale={intl.getLocale}>
         {locale =>
           format(props.date, props.format || fixDateFormat(intl.language.dateFormat), {
-            locale,
+            ...locale,
           })
         }
       </DateFnsLocale>

@@ -11,7 +11,7 @@ import Stack from "@kiwicom/orbit-components/lib/Stack";
 import { themeDefault } from "../../../../../../records/Theme";
 import ItemWrapper from "../../primitives/ItemWrapper";
 import Translate from "../../../../../Translate";
-import Day from "../../../../../Day";
+import Day from "../../../../../Timestamp";
 
 type Props = {|
   bid: string,
