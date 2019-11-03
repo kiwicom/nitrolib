@@ -833,6 +833,27 @@ See types:
 
 
 
+### GetAffiliate
+
+**Import:**
+```js
+import * as getAffiliate from "@kiwicom/nitro/lib/services/server/getAffiliate";
+```
+
+**Types:**
+```js
+declare export var formatSimple: (entry: string) => string;
+
+type Input = {|
+  queryAffilId: ?string, // affilid
+  cookiesAffilId: ?string, // AFFILIATE_ID in 'consts/cookies'
+|};
+
+declare export default (input: Input) => string | null;
+```
+
+
+
 ### GetBrand
 
 **Import:**
