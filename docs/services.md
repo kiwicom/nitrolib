@@ -857,6 +857,27 @@ See types:
 
 
 
+### GetLanguage
+
+**Import:**
+```js
+import * as getLanguage from "@kiwicom/nitro/lib/services/server/getLanguage";
+```
+
+**Types:**
+```js
+type Input = {|
+  path: string,
+|};
+
+declare export default (input: Input) => IntlRaw;
+```
+
+See types:
+* [Intl](./records#intl)
+
+
+
 ### Store
 
 **Import:**

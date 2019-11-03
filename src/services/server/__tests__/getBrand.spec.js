@@ -19,7 +19,7 @@ const inputEmpty = {
 
 const brand2 = { ...brandDefault };
 
-describe("#analyseHeaders", () => {
+describe("#getBrand", () => {
   const original = data.brands;
   beforeEach(() => {
     data.brands = { test: brandDefault };

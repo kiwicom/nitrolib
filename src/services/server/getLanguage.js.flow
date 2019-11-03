@@ -1,0 +1,8 @@
+// @flow strict
+import type { IntlRaw } from "../../records/Intl";
+
+type Input = {|
+  path: string,
+|};
+
+declare export default (input: Input) => IntlRaw;

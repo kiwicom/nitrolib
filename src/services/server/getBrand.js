@@ -1,6 +1,7 @@
 // @flow string
 import { data } from "./store";
 import type { Brand } from "../../records/Brand";
+import { brandDefault } from "../../records/Brand";
 
 type Input = {|
   hostname: string,
@@ -35,7 +36,7 @@ const getBrand = ({ hostname, queryBrand, cookieBrand, xForwardedHost }: Input):
     return acc;
   }, null);
 
-  return found || data.brands.kiwicom;
+  return found || data.brands[brandDefault.id];
 };
 
 export default getBrand;
