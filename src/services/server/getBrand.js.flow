@@ -1,0 +1,11 @@
+// @flow strict
+import type { Brand } from "../../records/Brand";
+
+type Input = {|
+  hostname: string,
+  cookieBrand: ?string,
+  queryBrand: ?string,
+  xForwardedHost: ?string,
+|};
+
+declare export default (input: Input) => Brand;

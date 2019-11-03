@@ -833,6 +833,30 @@ See types:
 
 
 
+### GetBrand
+
+**Import:**
+```js
+import * as getBrand from "@kiwicom/nitro/lib/services/server/getBrand";
+```
+
+**Types:**
+```js
+type Input = {|
+  hostname: string,
+  cookieBrand: ?string,
+  queryBrand: ?string,
+  xForwardedHost: ?string,
+|};
+
+declare export default (input: Input) => Brand;
+```
+
+See types:
+* [Brand](./records#brand)
+
+
+
 ### Store
 
 **Import:**
